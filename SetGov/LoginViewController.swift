@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class LoginViewController: SetGovViewController {
+    @IBOutlet var LoginField: UITextField!
+    @IBOutlet var LoginButton: UIButton!
+    @IBOutlet var PassField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
