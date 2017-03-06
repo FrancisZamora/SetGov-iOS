@@ -11,5 +11,12 @@ import UIKit
 
 class EventViewController: SetGovTableViewController {
     
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+    }
+    
+    
+    
 
 }

@@ -81,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136" y="136.73163418290855"/>
+            <point key="canvasLocation" x="-61" y="166"/>
         </scene>
         <!--Fort Lauderdale, FL-->
         <scene sceneID="WqO-r7-02k">
@@ -119,6 +119,11 @@
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="EventDescription" destination="VRX-pt-TZh" id="74i-Me-YgU"/>
+                                    <outlet property="EventTitleDate" destination="76f-hZ-VqE" id="sy2-xT-Sxt"/>
+                                    <outlet property="eventImage" destination="AHx-jR-O2K" id="ARp-rS-tnO"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -130,7 +135,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QQj-1W-1Kl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1930" y="167"/>
+            <point key="canvasLocation" x="1895" y="167"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="80P-Su-GY0">
@@ -146,7 +151,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lI8-Tg-2Dc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1145" y="167"/>
+            <point key="canvasLocation" x="985" y="167"/>
         </scene>
     </scenes>
 </document>

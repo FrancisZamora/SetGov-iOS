@@ -11,4 +11,9 @@ import UIKit
 
 class EventCell: UITableViewCell {
     
+    @IBOutlet var eventImage: UIImageView!
+    @IBOutlet var EventTitleDate: UITextField!
+    @IBOutlet var EventDescription: UITextField!
+    
+    
 }
