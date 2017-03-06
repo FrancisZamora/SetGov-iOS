@@ -37,8 +37,9 @@ class SetGovViewController: UIViewController {
         /*
          * BACKGROUND
          */
-        self.view.backgroundColor = SG_DARK_GRAY_COLOR
         
+        
+        self.view.backgroundColor = SG_NEARLY_WHITE_COLOR
         self.setNeedsStatusBarAppearanceUpdate()
     }
 }

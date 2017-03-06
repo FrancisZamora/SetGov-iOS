@@ -56,6 +56,12 @@ let FACEBOOK_BLUE = UIColor(red: 59/255.0, green: 89/255.0, blue: 152/255.0, alp
 let TWITTER_BLUE_COLOR = UIColor(red: 64/255.0, green: 153/255.0, blue: 255/255.0, alpha: 1.0)
 let INSTAGRAM_BLUE_COLOR = UIColor(red: 81/255.0, green: 127/255.0, blue: 164/255.0, alpha: 1.0)
 
+
+//NSUSERDEFAULTKEYS
+let PASSWORD = "password"
+let EMAIL = "email"
+
+
 let DATA_SET_COLORS = [
     SG_RED_COLOR,
     SG_PRIMARY_BLUECOLOR,
