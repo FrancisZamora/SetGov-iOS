@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSForegroundColorAttributeName: SG_PRIMARY_WHITECOLOR,
             NSFontAttributeName: AVENIR_MEDIUM(20)
         ]
-        UINavigationBar.appearance().barTintColor = UIColor(red: 20/255.0, green: 14/255.0, blue: 51/255.0, alpha: 1.0)
-        //originally red 49/255.0, green 53/255.0, blue 28/255.0 , alpha 1.0
+        UINavigationBar.appearance().barTintColor = UIColor(red:0.18, green:0.26, blue:0.35, alpha:1.0)
+       
         UINavigationBar.appearance().barStyle = .black
         //UIApplication.shared.setStatusBarStyle(.lightContent, animated: false)
 
