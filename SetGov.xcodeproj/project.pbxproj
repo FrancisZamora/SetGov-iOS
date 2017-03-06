@@ -18,6 +18,7 @@
 		153F3F7E1E6DF0ED0004E2F4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F7D1E6DF0ED0004E2F4 /* LoginViewController.swift */; };
 		153F3F851E6DF2A20004E2F4 /* SetGovTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F841E6DF2A20004E2F4 /* SetGovTableViewController.swift */; };
 		153F3F871E6DF54B0004E2F4 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F861E6DF54B0004E2F4 /* EventViewController.swift */; };
+		153F3F891E6DF7190004E2F4 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F881E6DF7190004E2F4 /* EventCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		153F3F7D1E6DF0ED0004E2F4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controllers/LoginViewController.swift; sourceTree = "<group>"; };
 		153F3F841E6DF2A20004E2F4 /* SetGovTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetGovTableViewController.swift; sourceTree = "<group>"; };
 		153F3F861E6DF54B0004E2F4 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		153F3F881E6DF7190004E2F4 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,14 +107,14 @@
 		151CDA821E64CF3700440CDE /* SetGov */ = {
 			isa = PBXGroup;
 			children = (
-				153F3F831E6DF1AA0004E2F4 /* Controllers */,
-				153F3F811E6DF1820004E2F4 /* Cells */,
-				151CDAB51E64F2C500440CDE /* constants.swift */,
 				151CDA871E64CF3700440CDE /* Main.storyboard */,
+				151CDAB51E64F2C500440CDE /* constants.swift */,
 				151CDA831E64CF3700440CDE /* AppDelegate.swift */,
-				151CDA8A1E64CF3700440CDE /* Assets.xcassets */,
 				151CDA8C1E64CF3700440CDE /* LaunchScreen.storyboard */,
 				151CDA8F1E64CF3700440CDE /* Info.plist */,
+				151CDA8A1E64CF3700440CDE /* Assets.xcassets */,
+				153F3F811E6DF1820004E2F4 /* Cells */,
+				153F3F831E6DF1AA0004E2F4 /* Controllers */,
 			);
 			path = SetGov;
 			sourceTree = "<group>";
@@ -138,6 +140,7 @@
 		153F3F811E6DF1820004E2F4 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				153F3F881E6DF7190004E2F4 /* EventCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				151CDA841E64CF3700440CDE /* AppDelegate.swift in Sources */,
 				151CDAB61E64F2C500440CDE /* constants.swift in Sources */,
 				153F3F871E6DF54B0004E2F4 /* EventViewController.swift in Sources */,
+				153F3F891E6DF7190004E2F4 /* EventCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

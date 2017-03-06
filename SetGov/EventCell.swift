@@ -1,5 +1,5 @@
 //
-//  EventViewController.swift
+//  EventCell.swift
 //  SetGov
 //
 //  Created by Francis Zamora on 3/6/17.
@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-class EventViewController: SetGovTableViewController {
+class EventCell: UITableViewCell {
     
-
 }
