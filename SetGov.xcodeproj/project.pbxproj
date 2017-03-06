@@ -15,6 +15,7 @@
 		151CDAA41E64CF3700440CDE /* SetGovUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CDAA31E64CF3700440CDE /* SetGovUITests.swift */; };
 		151CDAB41E64F24900440CDE /* SetGovViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CDAB31E64F24900440CDE /* SetGovViewController.swift */; };
 		151CDAB61E64F2C500440CDE /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CDAB51E64F2C500440CDE /* constants.swift */; };
+		151D85011E6DDB030076435A /* Unknown.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 151D85001E6DDB030076435A /* Unknown.jpeg */; };
 		15F2B51A1E64FD2F00B5CB42 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F2B5191E64FD2F00B5CB42 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		151CDAA51E64CF3700440CDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		151CDAB31E64F24900440CDE /* SetGovViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetGovViewController.swift; sourceTree = "<group>"; };
 		151CDAB51E64F2C500440CDE /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
+		151D85001E6DDB030076435A /* Unknown.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Unknown.jpeg; path = ../../Unknown.jpeg; sourceTree = "<group>"; };
 		15F2B5191E64FD2F00B5CB42 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +109,7 @@
 				151CDAB51E64F2C500440CDE /* constants.swift */,
 				151CDA871E64CF3700440CDE /* Main.storyboard */,
 				151CDA8A1E64CF3700440CDE /* Assets.xcassets */,
+				151D85001E6DDB030076435A /* Unknown.jpeg */,
 				151CDA8C1E64CF3700440CDE /* LaunchScreen.storyboard */,
 				151CDA8F1E64CF3700440CDE /* Info.plist */,
 			);
@@ -241,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				151D85011E6DDB030076435A /* Unknown.jpeg in Resources */,
 				151CDA8E1E64CF3700440CDE /* LaunchScreen.storyboard in Resources */,
 				151CDA8B1E64CF3700440CDE /* Assets.xcassets in Resources */,
 				151CDA891E64CF3700440CDE /* Main.storyboard in Resources */,
