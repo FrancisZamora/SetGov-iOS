@@ -9,13 +9,16 @@
 import Foundation
 import UIKit
 
-class EventViewController: SetGovTableViewController {
+class EventViewController: SetGovTableViewController{
     var activate = true
+    var EventCell: EventCell!
+
     var count = 0
     var numsections = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Table View for Events")
     }
 
     
@@ -23,23 +26,29 @@ class EventViewController: SetGovTableViewController {
     override func viewDidAppear(_ animated: Bool) {
     }
     
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50.0
+    }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         self.numsections = 1
-        return numsections
+        print("numberofSections")
+        return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("numberofRows")
         return 1
         
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath as IndexPath) as! EventCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       self.EventCell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+
+       
         print("cell for row" )
        
-        return cell
+        return EventCell
     }
     
 

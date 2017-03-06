@@ -92,7 +92,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="240" id="yWR-Uh-6D5" customClass="EventCell" customModule="SetGov" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" rowHeight="240" id="yWR-Uh-6D5" customClass="EventCell" customModule="SetGov" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="240"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yWR-Uh-6D5" id="2og-D5-wgS">
@@ -132,6 +132,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Fort Lauderdale, FL" id="nUk-n3-Lht"/>
+                    <connections>
+                        <outlet property="TableView" destination="tDH-l0-WQN" id="fdH-gK-8CC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QQj-1W-1Kl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
