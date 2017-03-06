@@ -16,6 +16,8 @@
 		151CDAB61E64F2C500440CDE /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CDAB51E64F2C500440CDE /* constants.swift */; };
 		153F3F7C1E6DF0E50004E2F4 /* SetGovViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F7B1E6DF0E50004E2F4 /* SetGovViewController.swift */; };
 		153F3F7E1E6DF0ED0004E2F4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F7D1E6DF0ED0004E2F4 /* LoginViewController.swift */; };
+		153F3F851E6DF2A20004E2F4 /* SetGovTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F841E6DF2A20004E2F4 /* SetGovTableViewController.swift */; };
+		153F3F871E6DF54B0004E2F4 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F861E6DF54B0004E2F4 /* EventViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		151CDAB51E64F2C500440CDE /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		153F3F7B1E6DF0E50004E2F4 /* SetGovViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetGovViewController.swift; path = Controllers/SetGovViewController.swift; sourceTree = "<group>"; };
 		153F3F7D1E6DF0ED0004E2F4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controllers/LoginViewController.swift; sourceTree = "<group>"; };
+		153F3F841E6DF2A20004E2F4 /* SetGovTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetGovTableViewController.swift; sourceTree = "<group>"; };
+		153F3F861E6DF54B0004E2F4 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +146,9 @@
 			isa = PBXGroup;
 			children = (
 				153F3F7D1E6DF0ED0004E2F4 /* LoginViewController.swift */,
+				153F3F861E6DF54B0004E2F4 /* EventViewController.swift */,
 				153F3F7B1E6DF0E50004E2F4 /* SetGovViewController.swift */,
+				153F3F841E6DF2A20004E2F4 /* SetGovTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -286,8 +292,10 @@
 			files = (
 				153F3F7E1E6DF0ED0004E2F4 /* LoginViewController.swift in Sources */,
 				153F3F7C1E6DF0E50004E2F4 /* SetGovViewController.swift in Sources */,
+				153F3F851E6DF2A20004E2F4 /* SetGovTableViewController.swift in Sources */,
 				151CDA841E64CF3700440CDE /* AppDelegate.swift in Sources */,
 				151CDAB61E64F2C500440CDE /* constants.swift in Sources */,
+				153F3F871E6DF54B0004E2F4 /* EventViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
