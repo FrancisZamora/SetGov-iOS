@@ -19,6 +19,7 @@
 		153F3F851E6DF2A20004E2F4 /* SetGovTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F841E6DF2A20004E2F4 /* SetGovTableViewController.swift */; };
 		153F3F871E6DF54B0004E2F4 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F861E6DF54B0004E2F4 /* EventViewController.swift */; };
 		153F3F891E6DF7190004E2F4 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F881E6DF7190004E2F4 /* EventCell.swift */; };
+		153F3F8C1E6E099A0004E2F4 /* Unknown.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 153F3F8B1E6E099A0004E2F4 /* Unknown.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		153F3F841E6DF2A20004E2F4 /* SetGovTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetGovTableViewController.swift; sourceTree = "<group>"; };
 		153F3F861E6DF54B0004E2F4 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		153F3F881E6DF7190004E2F4 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		153F3F8B1E6E099A0004E2F4 /* Unknown.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Unknown.jpeg; path = ../../Unknown.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +115,9 @@
 				151CDA8C1E64CF3700440CDE /* LaunchScreen.storyboard */,
 				151CDA8F1E64CF3700440CDE /* Info.plist */,
 				151CDA8A1E64CF3700440CDE /* Assets.xcassets */,
-				153F3F811E6DF1820004E2F4 /* Cells */,
 				153F3F831E6DF1AA0004E2F4 /* Controllers */,
+				153F3F811E6DF1820004E2F4 /* Cells */,
+				153F3F8A1E6E08700004E2F4 /* Supporting Files */,
 			);
 			path = SetGov;
 			sourceTree = "<group>";
@@ -154,6 +157,14 @@
 				153F3F841E6DF2A20004E2F4 /* SetGovTableViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		153F3F8A1E6E08700004E2F4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				153F3F8B1E6E099A0004E2F4 /* Unknown.jpeg */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +277,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				153F3F8C1E6E099A0004E2F4 /* Unknown.jpeg in Resources */,
 				151CDA8E1E64CF3700440CDE /* LaunchScreen.storyboard in Resources */,
 				151CDA8B1E64CF3700440CDE /* Assets.xcassets in Resources */,
 				151CDA891E64CF3700440CDE /* Main.storyboard in Resources */,

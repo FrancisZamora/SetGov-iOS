@@ -10,10 +10,11 @@ import Foundation
 import UIKit
 
 class EventCell: UITableViewCell {
-    
+    var count = 0 
     @IBOutlet var eventImage: UIImageView!
     @IBOutlet var EventTitleDate: UITextField!
     @IBOutlet var EventDescription: UITextField!
+    
     
     
 }
