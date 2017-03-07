@@ -43,7 +43,7 @@ let SG_PRIMARY_WHITECOLOR = UIColor(red:0.93, green:0.93, blue:0.93, alpha:1.0)
 let SG_GREEN_COLOR = UIColor(red: 54/255.0, green: 215/255.0, blue: 183/255.0, alpha: 1.0)
 // Grayscale Colors, adapted from Setmine
 let SG_CLEAR_COLOR = UIColor(white: 0.0, alpha: 0.0)
-let SG_TRANSPARENT_COLOR = UIColor(white: 0.8, alpha: 0.0)
+let SG_TRANSPARENT_COLOR = UIColor(white: 0.8, alpha: 0.8)
 let SG_DARK_GRAY_COLOR = UIColor(white: 0.2, alpha: 1.0)
 let SG_FOLLOWING_GRAY_COLOR = UIColor(white: 0.588, alpha: 1.0)
 let SG_MEDIUM_GRAY_COLOR = UIColor(white: 0.8, alpha: 1.0)

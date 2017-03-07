@@ -106,20 +106,29 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="76f-hZ-VqE">
-                                            <rect key="frame" x="0.0" y="125" width="375" height="35"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unknown.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="AHx-jR-O2K">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                         </imageView>
+                                        <textField opaque="NO" clipsSubviews="YES" alpha="0.55000000000000004" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="76f-hZ-VqE">
+                                            <rect key="frame" x="0.0" y="125" width="375" height="35"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Marine Advisory                        Dec 23">
+                                                    <attributes>
+                                                        <font key="NSFont" size="22" name="Avenir-Book"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="76f-hZ-VqE" firstAttribute="top" secondItem="2og-D5-wgS" secondAttribute="topMargin" constant="117" id="0yM-Mo-oNb"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="AHx-jR-O2K" secondAttribute="trailing" constant="-8" id="3k8-Ww-SU3"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="AHx-jR-O2K" secondAttribute="bottom" constant="71" id="6Xb-b6-3tg"/>
+                                        <constraint firstItem="76f-hZ-VqE" firstAttribute="leading" secondItem="2og-D5-wgS" secondAttribute="leadingMargin" constant="-8" id="BxP-sz-NNt"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="76f-hZ-VqE" secondAttribute="trailing" constant="-8" id="Oe9-wi-tu3"/>
                                         <constraint firstItem="AHx-jR-O2K" firstAttribute="leading" secondItem="2og-D5-wgS" secondAttribute="leadingMargin" constant="-8" id="XWF-ct-Gye"/>
                                         <constraint firstItem="AHx-jR-O2K" firstAttribute="top" secondItem="2og-D5-wgS" secondAttribute="topMargin" constant="-8" id="goc-zx-xqc"/>
                                     </constraints>
