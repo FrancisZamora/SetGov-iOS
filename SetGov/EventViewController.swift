@@ -44,7 +44,7 @@ class EventViewController: SetGovTableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        self.EventCell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-
+       
        
         print("cell for row" )
        

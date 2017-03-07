@@ -15,6 +15,6 @@ class EventCell: UITableViewCell {
     @IBOutlet var EventTitleDate: UITextField!
     @IBOutlet var EventDescription: UITextField!
     
-    
+       
     
 }

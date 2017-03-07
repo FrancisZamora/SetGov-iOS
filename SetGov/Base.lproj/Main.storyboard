@@ -113,15 +113,15 @@
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Unknown.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="AHx-jR-O2K">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unknown.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="AHx-jR-O2K">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="AHx-jR-O2K" firstAttribute="leading" secondItem="2og-D5-wgS" secondAttribute="leadingMargin" id="5O9-ce-yNa"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="AHx-jR-O2K" secondAttribute="trailing" constant="-8" id="3k8-Ww-SU3"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="AHx-jR-O2K" secondAttribute="bottom" constant="71" id="6Xb-b6-3tg"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="AHx-jR-O2K" secondAttribute="trailing" id="CSj-7K-cR7"/>
-                                        <constraint firstItem="AHx-jR-O2K" firstAttribute="top" secondItem="2og-D5-wgS" secondAttribute="topMargin" id="EPA-ld-MRx"/>
+                                        <constraint firstItem="AHx-jR-O2K" firstAttribute="leading" secondItem="2og-D5-wgS" secondAttribute="leadingMargin" constant="-8" id="XWF-ct-Gye"/>
+                                        <constraint firstItem="AHx-jR-O2K" firstAttribute="top" secondItem="2og-D5-wgS" secondAttribute="topMargin" constant="-8" id="goc-zx-xqc"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -143,7 +143,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QQj-1W-1Kl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1929" y="92"/>
+            <point key="canvasLocation" x="1928.8" y="91.304347826086968"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="80P-Su-GY0">
