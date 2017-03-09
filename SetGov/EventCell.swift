@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class EventCell: UITableViewCell {
+    @IBOutlet var eventCell: UILabel!
     var count = 0
     @IBOutlet var eventImage: UIImageView!
    // @IBOutlet var EventTitleDate: UITextField!
