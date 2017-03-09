@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import QuartzCore
 
 class EventCell: UITableViewCell {
     var count = 0
