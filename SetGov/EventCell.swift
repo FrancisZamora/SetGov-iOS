@@ -18,6 +18,8 @@ class EventCell: UITableViewCell {
     @IBOutlet var hashtagOne: UILabel!
     
     @IBOutlet var hashtagTwo: UILabel!
+    
+   
    // @IBOutlet var EventTitleDate: UITextField!
     //@IBOutlet var EventDescription: UITextField!
     
