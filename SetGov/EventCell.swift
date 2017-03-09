@@ -20,10 +20,16 @@ class EventCell: UITableViewCell {
     
     @IBOutlet var hashtagTwo: UILabel!
     
+    @IBOutlet var profileImage1: UIImageView!
    
-   // @IBOutlet var EventTitleDate: UITextField!
-    //@IBOutlet var EventDescription: UITextField!
+    @IBOutlet var profileImage2: UIImageView!
+   
+    @IBOutlet var profileImage3: UIImageView!
+   
+    @IBOutlet var profileImage4: UIImageView!
     
+    @IBOutlet var profileImage5: UIImageView!
     
+    @IBOutlet var profileImage6: UIImageView!
     
 }
