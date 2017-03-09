@@ -38,15 +38,16 @@ class EventViewController: SetGovTableViewController{
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("numberofRows")
-        return 1
+        return 3
         
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       self.EventCell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-       self.EventCell.EventDescription.isUserInteractionEnabled = false
-       self.EventCell.EventTitleDate.isUserInteractionEnabled = false
-    
+       //self.EventCell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+      // self.EventCell.EventDescription.isUserInteractionEnabled = false
+     //  self.EventCell.EventTitleDate.isUserInteractionEnabled = false
+       //self.EventCell.EventTitleDate.backgroundColor = UIColor(red:0.80, green:0.82, blue:0.83, alpha:0.5)
+       //self.EventCell.EventDescription.backgroundColor = SG_NEARLY_WHITE_COLOR
        
        
         print("cell for row" )
