@@ -190,7 +190,12 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="eventCell" destination="qaz-B6-2HM" id="FKr-NO-dUg"/>
+                                    <outlet property="eventDate" destination="oet-Py-zs1" id="tn3-pA-vqP"/>
+                                    <outlet property="eventDescription" destination="Xae-5N-CWj" id="BnU-8W-M6G"/>
                                     <outlet property="eventImage" destination="AHx-jR-O2K" id="ARp-rS-tnO"/>
+                                    <outlet property="eventTitle" destination="qaz-B6-2HM" id="7Yi-ND-mzM"/>
+                                    <outlet property="hashtagOne" destination="cwk-JV-om8" id="6kp-hC-Avh"/>
+                                    <outlet property="hashtagTwo" destination="zgE-q0-vau" id="iQo-wg-i5C"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

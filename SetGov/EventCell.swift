@@ -10,9 +10,14 @@ import Foundation
 import UIKit
 
 class EventCell: UITableViewCell {
-    @IBOutlet var eventCell: UILabel!
     var count = 0
+    @IBOutlet var eventTitle: UILabel!
+    @IBOutlet var eventDescription: UILabel!
+    @IBOutlet var eventDate: UILabel!
     @IBOutlet var eventImage: UIImageView!
+    @IBOutlet var hashtagOne: UILabel!
+    
+    @IBOutlet var hashtagTwo: UILabel!
    // @IBOutlet var EventTitleDate: UITextField!
     //@IBOutlet var EventDescription: UITextField!
     
