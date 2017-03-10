@@ -42,7 +42,7 @@ class EventViewController: SetGovTableViewController{
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("numberofRows")
-        return 3
+        return 50
         
     }
     
@@ -51,7 +51,7 @@ class EventViewController: SetGovTableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        self.EventCell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
        self.EventCell.hashtagOne.layer.backgroundColor  = SG_RED_COLOR.cgColor
-       self.EventCell.hashtagTwo.layer.backgroundColor = SG_SECONDARY_BLUECOLOR.cgColor
+       self.EventCell.hashtagTwo.layer.backgroundColor = SG_RED_COLOR.cgColor
        self.EventCell.hashtagTwo.layer.cornerRadius = self.EventCell.hashtagTwo.frame.height/3
        self.EventCell.hashtagOne.layer.cornerRadius = self.EventCell.hashtagOne.frame.height/3
        self.EventCell.hashtagTwo.layer.masksToBounds = false
