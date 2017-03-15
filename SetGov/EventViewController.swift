@@ -25,14 +25,19 @@ class EventViewController: SetGovTableViewController{
         print("Table View for Events")
     }
     
+    
     func sizeUp() {
         self.EventCell.hashtagOne.layer.backgroundColor  = SG_RED_COLOR.cgColor
         self.EventCell.hashtagTwo.layer.backgroundColor = SG_RED_COLOR.cgColor
         self.EventCell.hashtagTwo.layer.cornerRadius = self.EventCell.hashtagTwo.frame.height/2
         self.EventCell.hashtagOne.layer.cornerRadius = self.EventCell.hashtagOne.frame.height/2
-        self.EventCell.hashtagTwo.layer.masksToBounds = true
+        let gradient = CAGradientLayer()
+        gradient.cornerRadius = self.EventCell.hashtagTwo.frame.height/2
+        gradient.frame = self.EventCell.hashtagTwo.bounds
+        gradient.colors = [SG_RED_COLOR.cgColor, UIColor.black.cgColor]
+        self.EventCell.hashtagTwo.layer.insertSublayer(gradient, at: 0)
         self.EventCell.hashtagOne.clipsToBounds = true
-        self.EventCell.hashtagOne.layer.masksToBounds = true
+        self.EventCell.hashtagOne.layer.masksToBounds = false
         self.EventCell.profileImage1.layer.cornerRadius = self.EventCell.profileImage1.frame.height / 2
         self.EventCell.profileImage1.clipsToBounds = true
         self.EventCell.profileImage1.layer.borderWidth = 1.5
