@@ -27,15 +27,24 @@ class EventViewController: SetGovTableViewController{
     
     
     func sizeUp() {
-        self.EventCell.hashtagOne.layer.backgroundColor  = SG_RED_COLOR.cgColor
+       // gradientLayer.frame = self.view.bounds
+        
+        // 3
+        //let color1 = UIColor.yellowColor().CGColor as CGColorRef
+        //let color2 = UIColor(red: 1.0, green: 0, blue: 0, alpha: 1.0).CGColor as CGColorRef
+        //let color3 = UIColor.clearColor().CGColor as CGColorRef
+        //let color4 = UIColor(white: 0.0, alpha: 0.7).CGColor as CGColorRef
+        //gradientLayer.colors = [color1, color2, color3, color4]
+        
+        // 4
+        //gradientLayer.locations = [0.0, 0.25, 0.75, 1.0]
+        
+        // 5
+        //self.view.layer.addSublayer(gradientLayer)
         self.EventCell.hashtagTwo.layer.backgroundColor = SG_RED_COLOR.cgColor
+        self.EventCell.hashtagOne.layer.backgroundColor = SG_RED_COLOR.cgColor
         self.EventCell.hashtagTwo.layer.cornerRadius = self.EventCell.hashtagTwo.frame.height/2
         self.EventCell.hashtagOne.layer.cornerRadius = self.EventCell.hashtagOne.frame.height/2
-        let gradient = CAGradientLayer()
-        gradient.cornerRadius = self.EventCell.hashtagTwo.frame.height/2
-        gradient.frame = self.EventCell.hashtagTwo.bounds
-        gradient.colors = [SG_RED_COLOR.cgColor, UIColor.black.cgColor]
-        self.EventCell.hashtagTwo.layer.insertSublayer(gradient, at: 0)
         self.EventCell.hashtagOne.clipsToBounds = true
         self.EventCell.hashtagOne.layer.masksToBounds = false
         self.EventCell.profileImage1.layer.cornerRadius = self.EventCell.profileImage1.frame.height / 2
