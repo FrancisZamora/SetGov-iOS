@@ -13,6 +13,7 @@
     <customFonts key="customFonts">
         <array key="Avenir.ttc">
             <string>Avenir-Book</string>
+            <string>Avenir-Heavy</string>
         </array>
     </customFonts>
     <scenes>
@@ -253,6 +254,7 @@
                                     <outlet property="profileImage4" destination="1Jc-OS-76J" id="sJf-jw-JZL"/>
                                     <outlet property="profileImage5" destination="qGK-K0-mTm" id="8Cc-aQ-pOI"/>
                                     <outlet property="profileImage6" destination="Oce-wR-LxC" id="74K-L2-uOG"/>
+                                    <segue destination="Qck-22-avA" kind="presentation" id="wTW-uw-SoC"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -269,6 +271,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QQj-1W-1Kl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1928.8" y="91.304347826086968"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="nmC-Im-EMo">
+            <objects>
+                <viewController id="Qck-22-avA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mka-d5-U9z"/>
+                        <viewControllerLayoutGuide type="bottom" id="c3K-jw-aWS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TLz-rP-mrE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cSG-Fh-urX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2894" y="105"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="80P-Su-GY0">
