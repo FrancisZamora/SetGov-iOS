@@ -20,6 +20,7 @@
 		153F3F871E6DF54B0004E2F4 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F861E6DF54B0004E2F4 /* EventViewController.swift */; };
 		153F3F891E6DF7190004E2F4 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F881E6DF7190004E2F4 /* EventCell.swift */; };
 		15BE43A81E720D6400DAA51E /* Screen Shot 2017-02-26 at 5.45.54 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE43A71E720D6400DAA51E /* Screen Shot 2017-02-26 at 5.45.54 PM.png */; };
+		15D3DB871E7A169E00CD35DD /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D3DB861E7A169E00CD35DD /* ProfileImage.swift */; };
 		15F170231E71C27900E6D62C /* Unknown.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 15F170221E71C27900E6D62C /* Unknown.jpeg */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		153F3F861E6DF54B0004E2F4 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		153F3F881E6DF7190004E2F4 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		15BE43A71E720D6400DAA51E /* Screen Shot 2017-02-26 at 5.45.54 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screen Shot 2017-02-26 at 5.45.54 PM.png"; path = "../../Screen Shot 2017-02-26 at 5.45.54 PM.png"; sourceTree = "<group>"; };
+		15D3DB861E7A169E00CD35DD /* ProfileImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		15F170221E71C27900E6D62C /* Unknown.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Unknown.jpeg; path = ../../../Dropbox/Unknown.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +176,7 @@
 		15D3DB851E7A165900CD35DD /* UI Element Classes */ = {
 			isa = PBXGroup;
 			children = (
+				15D3DB861E7A169E00CD35DD /* ProfileImage.swift */,
 			);
 			name = "UI Element Classes";
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				153F3F7E1E6DF0ED0004E2F4 /* LoginViewController.swift in Sources */,
+				15D3DB871E7A169E00CD35DD /* ProfileImage.swift in Sources */,
 				153F3F7C1E6DF0E50004E2F4 /* SetGovViewController.swift in Sources */,
 				153F3F851E6DF2A20004E2F4 /* SetGovTableViewController.swift in Sources */,
 				151CDA841E64CF3700440CDE /* AppDelegate.swift in Sources */,
