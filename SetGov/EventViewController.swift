@@ -27,20 +27,7 @@ class EventViewController: SetGovTableViewController{
     
     
     func sizeUp() {
-       // gradientLayer.frame = self.view.bounds
-        
-        // 3
-        //let color1 = UIColor.yellowColor().CGColor as CGColorRef
-        //let color2 = UIColor(red: 1.0, green: 0, blue: 0, alpha: 1.0).CGColor as CGColorRef
-        //let color3 = UIColor.clearColor().CGColor as CGColorRef
-        //let color4 = UIColor(white: 0.0, alpha: 0.7).CGColor as CGColorRef
-        //gradientLayer.colors = [color1, color2, color3, color4]
-        
-        // 4
-        //gradientLayer.locations = [0.0, 0.25, 0.75, 1.0]
-        
-        // 5
-        //self.view.layer.addSublayer(gradientLayer)
+       
         self.EventCell.hashtagTwo.layer.backgroundColor = SG_RED_COLOR.cgColor
         self.EventCell.hashtagOne.layer.backgroundColor = SG_RED_COLOR.cgColor
         self.EventCell.hashtagTwo.layer.cornerRadius = self.EventCell.hashtagTwo.frame.height/2
