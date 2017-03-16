@@ -27,7 +27,6 @@ class EventViewController: SetGovTableViewController{
     
     
     func sizeUp() {
-       
         self.EventCell.hashtagTwo.layer.backgroundColor = SG_RED_COLOR.cgColor
         self.EventCell.hashtagOne.layer.backgroundColor = SG_RED_COLOR.cgColor
         self.EventCell.hashtagTwo.layer.cornerRadius = self.EventCell.hashtagTwo.frame.height/2
