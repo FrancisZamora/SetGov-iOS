@@ -9,9 +9,18 @@
 import Foundation
 import UIKit
 @IBDesignable final class GradientView: UIView {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        print("req inti RoundedFloatingImageButton")
+        self.layer.cornerRadius = self.frame.height/2
+        self.layer.cornerRadius = self.frame.height/2
+        self.clipsToBounds = true
+        self.layer.masksToBounds = false
+    }
+
     
-    @IBInspectable var startColor: UIColor = UIColor.clear
-    @IBInspectable var endColor: UIColor = UIColor.clear
+    @IBInspectable var startColor: UIColor = SG_RED_COLOR
+    @IBInspectable var endColor: UIColor = UIColor.red
     
     override func draw(_ rect: CGRect) {
         
