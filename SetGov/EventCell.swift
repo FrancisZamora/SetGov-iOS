@@ -29,8 +29,10 @@ class EventCell: UITableViewCell {
     @IBOutlet var eventDescription: UILabel!
     @IBOutlet var eventDate: UILabel!
     @IBOutlet var eventImage: UIImageView!
+    @IBOutlet var hashTagView: UIView!
     @IBOutlet var hashtagOne: UILabel!
     
+    @IBOutlet var hashtagView2: UIView!
     @IBOutlet var hashtagTwo: UILabel!
     
     @IBOutlet var profileImage1: ProfilePicture!

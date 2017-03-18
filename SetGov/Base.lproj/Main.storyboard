@@ -199,6 +199,16 @@
                                                 <constraint firstAttribute="width" constant="35" id="jwP-US-rzZ"/>
                                             </constraints>
                                         </imageView>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6T6-p1-Z54" customClass="GradientView" customModule="SetGov" customModuleProvider="target">
+                                            <rect key="frame" x="235" y="219" width="59" height="15"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="49j-Ee-ATO" customClass="GradientView" customModule="SetGov" customModuleProvider="target">
+                                            <rect key="frame" x="313" y="219" width="44" height="15"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Xae-5N-CWj" firstAttribute="leading" secondItem="yMK-AS-5CE" secondAttribute="leading" id="0Tc-Pu-3bJ"/>
@@ -246,8 +256,10 @@
                                     <outlet property="eventDescription" destination="Xae-5N-CWj" id="BnU-8W-M6G"/>
                                     <outlet property="eventImage" destination="AHx-jR-O2K" id="ARp-rS-tnO"/>
                                     <outlet property="eventTitle" destination="qaz-B6-2HM" id="7Yi-ND-mzM"/>
+                                    <outlet property="hashTagView" destination="6T6-p1-Z54" id="e9x-nQ-Rl0"/>
                                     <outlet property="hashtagOne" destination="cwk-JV-om8" id="6kp-hC-Avh"/>
                                     <outlet property="hashtagTwo" destination="zgE-q0-vau" id="iQo-wg-i5C"/>
+                                    <outlet property="hashtagView2" destination="49j-Ee-ATO" id="Oxz-K3-iHO"/>
                                     <outlet property="profileImage1" destination="Lru-Dk-bur" id="MGD-Ns-ShJ"/>
                                     <outlet property="profileImage2" destination="4i3-sx-hcP" id="s5i-Vc-XXd"/>
                                     <outlet property="profileImage3" destination="nPe-2t-EyG" id="4Om-me-CuY"/>
