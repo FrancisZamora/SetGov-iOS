@@ -18,6 +18,9 @@ import UIKit
         self.layer.masksToBounds = false
         print ("yo")
     }
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
 
     
     @IBInspectable var startColor: UIColor = SG_RED_COLOR
