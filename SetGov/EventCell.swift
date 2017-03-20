@@ -9,7 +9,12 @@
 import Foundation
 import UIKit
 import QuartzCore
-
+extension UIView {
+    func makeCircular() {
+        self.layer.cornerRadius = min(self.frame.size.height, self.frame.size.width) / 2.0
+        self.clipsToBounds = true
+    }
+}
 class EventCell: UITableViewCell {
     var count = 0
     @IBOutlet var eventTitle: UILabel!
@@ -33,5 +38,11 @@ class EventCell: UITableViewCell {
     @IBOutlet var profileImage5: ProfilePicture!
     
     @IBOutlet var profileImage6: ProfilePicture!
+    
+    func willShape() {
+        hashtagView2.makeCircular()
+        hashTagView.makeCircular()
+        
+    }
     
 }
