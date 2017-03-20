@@ -13,7 +13,18 @@
     <customFonts key="customFonts">
         <array key="Avenir.ttc">
             <string>Avenir-Book</string>
-            <string>Avenir-Heavy</string>
+        </array>
+        <array key="SF-UI-Display-Bold.otf">
+            <string>SFUIDisplay-Bold</string>
+        </array>
+        <array key="SF-UI-Display-Light.otf">
+            <string>SFUIDisplay-Light</string>
+        </array>
+        <array key="SF-UI-Text-Light.otf">
+            <string>SFUIText-Light</string>
+        </array>
+        <array key="SF-UI-Text-Medium.otf">
+            <string>SFUIText-Medium</string>
         </array>
     </customFonts>
     <scenes>
@@ -98,30 +109,30 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="315"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yWR-Uh-6D5" id="2og-D5-wgS">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="314.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="315"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Unknown.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="AHx-jR-O2K">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unknown.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="AHx-jR-O2K">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="214"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.55000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="  Marine Advisory" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaz-B6-2HM">
+                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.55000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Marine Advisory" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaz-B6-2HM">
                                             <rect key="frame" x="0.0" y="180" width="188" height="34"/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="188" id="FK5-ax-o55"/>
                                                 <constraint firstAttribute="height" constant="34" id="IL5-18-iHy"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                            <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="20"/>
                                             <color key="textColor" red="0.09551713615655899" green="0.22882530093193054" blue="0.55778402090072632" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.55000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="       December 23rd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oet-Py-zs1">
-                                            <rect key="frame" x="187" y="180" width="188" height="34"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.55000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="       December 23rd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oet-Py-zs1">
+                                            <rect key="frame" x="187" y="181" width="188" height="33"/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="188" id="Bjj-nk-7ED"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                            <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="20"/>
                                             <color key="textColor" red="0.094040356576442719" green="0.31592628359794617" blue="0.55673331022262573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -131,7 +142,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="8rb-wm-xy4"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
+                                            <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="11"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -142,9 +153,9 @@
                                                 <constraint firstAttribute="width" constant="35" id="6Zn-mf-n3k"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="  Monthly Meeting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xae-5N-CWj">
-                                            <rect key="frame" x="0.0" y="216" width="140" height="23"/>
-                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Monthly Meeting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xae-5N-CWj">
+                                            <rect key="frame" x="0.0" y="216" width="142" height="23"/>
+                                            <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="17"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -222,6 +233,7 @@
                                         <constraint firstItem="Oce-wR-LxC" firstAttribute="top" secondItem="qGK-K0-mTm" secondAttribute="top" id="KXw-rS-1CQ"/>
                                         <constraint firstItem="Lru-Dk-bur" firstAttribute="top" secondItem="yMK-AS-5CE" secondAttribute="bottom" constant="8" symbolic="YES" id="Kir-wy-jek"/>
                                         <constraint firstItem="nPe-2t-EyG" firstAttribute="leading" secondItem="4i3-sx-hcP" secondAttribute="trailing" constant="17" id="O7i-Rd-SO5"/>
+                                        <constraint firstAttribute="bottom" secondItem="qaz-B6-2HM" secondAttribute="bottom" constant="100.5" id="OM3-7y-jZ7"/>
                                         <constraint firstItem="AHx-jR-O2K" firstAttribute="top" secondItem="2og-D5-wgS" secondAttribute="top" id="OrM-EE-swz"/>
                                         <constraint firstItem="AHx-jR-O2K" firstAttribute="bottom" secondItem="qaz-B6-2HM" secondAttribute="bottom" id="Q93-pB-qxb"/>
                                         <constraint firstItem="qaz-B6-2HM" firstAttribute="baseline" secondItem="oet-Py-zs1" secondAttribute="baseline" id="TXL-YQ-bfG"/>
@@ -244,7 +256,7 @@
                                         <constraint firstItem="qGK-K0-mTm" firstAttribute="leading" secondItem="1Jc-OS-76J" secondAttribute="trailing" constant="13" id="qTc-NJ-WzO"/>
                                         <constraint firstItem="1Jc-OS-76J" firstAttribute="leading" secondItem="nPe-2t-EyG" secondAttribute="trailing" constant="14" id="qdt-7N-EdL"/>
                                         <constraint firstItem="oet-Py-zs1" firstAttribute="trailing" secondItem="yMK-AS-5CE" secondAttribute="trailing" id="uPw-U8-zPK"/>
-                                        <constraint firstItem="qaz-B6-2HM" firstAttribute="firstBaseline" secondItem="oet-Py-zs1" secondAttribute="firstBaseline" id="yYc-iA-OsR"/>
+                                        <constraint firstItem="qaz-B6-2HM" firstAttribute="firstBaseline" secondItem="oet-Py-zs1" secondAttribute="firstBaseline" constant="-1" id="yYc-iA-OsR"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -311,7 +323,7 @@
         <scene sceneID="80P-Su-GY0">
             <objects>
                 <navigationController id="DeW-x1-Vax" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OLw-eq-Wp3">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="OLw-eq-Wp3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
