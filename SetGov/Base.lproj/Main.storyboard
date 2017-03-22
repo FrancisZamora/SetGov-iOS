@@ -264,7 +264,7 @@
                                     <outlet property="profileImage4" destination="1Jc-OS-76J" id="sJf-jw-JZL"/>
                                     <outlet property="profileImage5" destination="qGK-K0-mTm" id="8Cc-aQ-pOI"/>
                                     <outlet property="profileImage6" destination="Oce-wR-LxC" id="74K-L2-uOG"/>
-                                    <segue destination="c7E-st-00Y" kind="show" id="YJi-Oo-2fV"/>
+                                    <segue destination="c7E-st-00Y" kind="show" identifier="showEvent" id="YJi-Oo-2fV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -285,41 +285,75 @@
         <!--Marine Advisory-->
         <scene sceneID="v0j-HM-U6D">
             <objects>
-                <tableViewController id="c7E-st-00Y" sceneMemberID="viewController">
+                <tableViewController id="c7E-st-00Y" customClass="EventDetailViewController" customModule="SetGov" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="126" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZQu-Ov-ftT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="126" id="qP5-me-jbX">
-                                <rect key="frame" x="0.0" y="28" width="375" height="126"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="199" id="qP5-me-jbX">
+                                <rect key="frame" x="0.0" y="28" width="375" height="199"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qP5-me-jbX" id="SLU-cn-YFm">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="198"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Unknown.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="6QP-vY-Qem">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="198"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="tintColor" red="0.56089743589999996" green="0.56089743589999996" blue="0.56089743589999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YEk-ax-Ory">
+                                            <rect key="frame" x="137" y="145" width="106" height="41"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q24-2M-0fu">
+                                                    <rect key="frame" x="24" y="5" width="59" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                                    <state key="normal" title="Attend">
+                                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <imageView userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Unknown.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="Aun-jw-LfV">
+                                            <rect key="frame" x="150" y="45" width="75" height="75"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gf4-LZ-yPk">
-                                <rect key="frame" x="0.0" y="154" width="375" height="126"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="38" id="gf4-LZ-yPk">
+                                <rect key="frame" x="0.0" y="227" width="375" height="38"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gf4-LZ-yPk" id="xyb-zo-Hvk">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="37"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="5gE-8z-yj5">
-                                <rect key="frame" x="0.0" y="280" width="375" height="126"/>
+                                <rect key="frame" x="0.0" y="265" width="375" height="126"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5gE-8z-yj5" id="C8x-hT-HLl">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="rE9-cr-Z9l">
-                                <rect key="frame" x="0.0" y="406" width="375" height="126"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="rE9-cr-Z9l">
+                                <rect key="frame" x="0.0" y="391" width="375" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rE9-cr-Z9l" id="j4F-Lz-aA7">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="MYI-qh-THg">
+                                <rect key="frame" x="0.0" y="459" width="375" height="75"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MYI-qh-THg" id="IwL-Ej-qcu">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -339,7 +373,7 @@
         <scene sceneID="80P-Su-GY0">
             <objects>
                 <navigationController id="DeW-x1-Vax" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="OLw-eq-Wp3">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OLw-eq-Wp3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

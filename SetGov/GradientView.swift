@@ -16,7 +16,6 @@ import UIKit
         self.layer.cornerRadius = self.frame.height/2
         self.clipsToBounds = true
         self.layer.masksToBounds = false
-        print ("yo")
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
