@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Mark - Styling
         UINavigationBar.appearance().titleTextAttributes = [
             NSForegroundColorAttributeName: SG_PRIMARY_WHITECOLOR,
-            NSFontAttributeName: AVENIR_MEDIUM(20)
+            NSFontAttributeName: UIFont.systemFont(ofSize: 24.0, weight: UIFontWeightLight)
+ 
         ]
         UINavigationBar.appearance().barTintColor = UIColor(red:0.18, green:0.26, blue:0.35, alpha:1.0)
        

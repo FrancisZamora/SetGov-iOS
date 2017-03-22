@@ -64,22 +64,6 @@
 		153F3F881E6DF7190004E2F4 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		15BE43A71E720D6400DAA51E /* Screen Shot 2017-02-26 at 5.45.54 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screen Shot 2017-02-26 at 5.45.54 PM.png"; path = "../../Screen Shot 2017-02-26 at 5.45.54 PM.png"; sourceTree = "<group>"; };
 		15D3DB861E7A169E00CD35DD /* ProfileImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
-		15E73CDD1E80602C00CF3AE3 /* SF-UI-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Black.otf"; path = "../../../../../Library/Fonts/SF-UI-Display-Black.otf"; sourceTree = "<group>"; };
-		15E73CDE1E80602C00CF3AE3 /* SF-UI-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Bold.otf"; path = "../../../../../Library/Fonts/SF-UI-Display-Bold.otf"; sourceTree = "<group>"; };
-		15E73CDF1E80602C00CF3AE3 /* SF-UI-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Heavy.otf"; path = "../../../../../Library/Fonts/SF-UI-Display-Heavy.otf"; sourceTree = "<group>"; };
-		15E73CE01E80602C00CF3AE3 /* SF-UI-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Light.otf"; path = "../../../../../Library/Fonts/SF-UI-Display-Light.otf"; sourceTree = "<group>"; };
-		15E73CE11E80602C00CF3AE3 /* SF-UI-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Medium.otf"; path = "../../../../../Library/Fonts/SF-UI-Display-Medium.otf"; sourceTree = "<group>"; };
-		15E73CE21E80602C00CF3AE3 /* SF-UI-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Regular.otf"; path = "../../../../../Library/Fonts/SF-UI-Display-Regular.otf"; sourceTree = "<group>"; };
-		15E73CE31E80602C00CF3AE3 /* SF-UI-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Semibold.otf"; path = "../../../../../Library/Fonts/SF-UI-Display-Semibold.otf"; sourceTree = "<group>"; };
-		15E73CE41E80602C00CF3AE3 /* SF-UI-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Thin.otf"; path = "../../../../../Library/Fonts/SF-UI-Display-Thin.otf"; sourceTree = "<group>"; };
-		15E73CE51E80602C00CF3AE3 /* SF-UI-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Ultralight.otf"; path = "../../../../../Library/Fonts/SF-UI-Display-Ultralight.otf"; sourceTree = "<group>"; };
-		15E73CE61E80602C00CF3AE3 /* SF-UI-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-Bold.otf"; path = "../../../../../Library/Fonts/SF-UI-Text-Bold.otf"; sourceTree = "<group>"; };
-		15E73CE71E80602C00CF3AE3 /* SF-UI-Text-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-BoldItalic.otf"; path = "../../../../../Library/Fonts/SF-UI-Text-BoldItalic.otf"; sourceTree = "<group>"; };
-		15E73CE81E80602C00CF3AE3 /* SF-UI-Text-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-Heavy.otf"; path = "../../../../../Library/Fonts/SF-UI-Text-Heavy.otf"; sourceTree = "<group>"; };
-		15E73CE91E80602C00CF3AE3 /* SF-UI-Text-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-HeavyItalic.otf"; path = "../../../../../Library/Fonts/SF-UI-Text-HeavyItalic.otf"; sourceTree = "<group>"; };
-		15E73CEA1E80602C00CF3AE3 /* SF-UI-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-Light.otf"; path = "../../../../../Library/Fonts/SF-UI-Text-Light.otf"; sourceTree = "<group>"; };
-		15E73CEB1E80602C00CF3AE3 /* SF-UI-Text-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-LightItalic.otf"; path = "../../../../../Library/Fonts/SF-UI-Text-LightItalic.otf"; sourceTree = "<group>"; };
-		15E73CEC1E80602C00CF3AE3 /* SF-UI-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-Medium.otf"; path = "../../../../../Library/Fonts/SF-UI-Text-Medium.otf"; sourceTree = "<group>"; };
 		15F170221E71C27900E6D62C /* Unknown.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Unknown.jpeg; path = ../../../Dropbox/Unknown.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,22 +169,6 @@
 		153F3F8A1E6E08700004E2F4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				15E73CDD1E80602C00CF3AE3 /* SF-UI-Display-Black.otf */,
-				15E73CDE1E80602C00CF3AE3 /* SF-UI-Display-Bold.otf */,
-				15E73CDF1E80602C00CF3AE3 /* SF-UI-Display-Heavy.otf */,
-				15E73CE01E80602C00CF3AE3 /* SF-UI-Display-Light.otf */,
-				15E73CE11E80602C00CF3AE3 /* SF-UI-Display-Medium.otf */,
-				15E73CE21E80602C00CF3AE3 /* SF-UI-Display-Regular.otf */,
-				15E73CE31E80602C00CF3AE3 /* SF-UI-Display-Semibold.otf */,
-				15E73CE41E80602C00CF3AE3 /* SF-UI-Display-Thin.otf */,
-				15E73CE51E80602C00CF3AE3 /* SF-UI-Display-Ultralight.otf */,
-				15E73CE61E80602C00CF3AE3 /* SF-UI-Text-Bold.otf */,
-				15E73CE71E80602C00CF3AE3 /* SF-UI-Text-BoldItalic.otf */,
-				15E73CE81E80602C00CF3AE3 /* SF-UI-Text-Heavy.otf */,
-				15E73CE91E80602C00CF3AE3 /* SF-UI-Text-HeavyItalic.otf */,
-				15E73CEA1E80602C00CF3AE3 /* SF-UI-Text-Light.otf */,
-				15E73CEB1E80602C00CF3AE3 /* SF-UI-Text-LightItalic.otf */,
-				15E73CEC1E80602C00CF3AE3 /* SF-UI-Text-Medium.otf */,
 				15BE43A71E720D6400DAA51E /* Screen Shot 2017-02-26 at 5.45.54 PM.png */,
 				15F170221E71C27900E6D62C /* Unknown.jpeg */,
 			);

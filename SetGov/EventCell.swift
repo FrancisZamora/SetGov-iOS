@@ -19,11 +19,11 @@ class EventCell: UITableViewCell {
     var count = 0
     @IBOutlet var eventTitle: UILabel!
     @IBOutlet var eventDescription: UILabel!
-    @IBOutlet var eventDate: UILabel!
     @IBOutlet var eventImage: UIImageView!
     @IBOutlet var hashTagView: UIView!
     @IBOutlet var hashtagOne: UILabel!
     
+    @IBOutlet var eventDate: UILabel!
     @IBOutlet var hashtagView2: GradientView!
     @IBOutlet var hashtagTwo: GradientView!
     
@@ -44,5 +44,7 @@ class EventCell: UITableViewCell {
         hashTagView.makeCircular()
         
     }
+    
+    
     
 }

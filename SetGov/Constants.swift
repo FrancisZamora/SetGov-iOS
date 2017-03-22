@@ -8,25 +8,6 @@
 
 import Foundation
 import UIKit
-/*
- * FONTS
- */
-
-/**
- Sets up a curried function that stores the desired font name in a closure.
- The returned function accepts the desired font size as its only parameter.
- This is combined with the font name to return the desired UIFont specification.
- */
-func SIZEABLE_FONT_WITH_NAME(name: String) -> ((CGFloat) -> UIFont) {
-    return { UIFont(name: name, size: $0)! }
-}
-
-//adapted from setmine
-let AVENIR_LIGHT = SIZEABLE_FONT_WITH_NAME(name: "Avenir-Light")
-let AVENIR_BOOK = SIZEABLE_FONT_WITH_NAME(name: "Avenir-Book")
-let AVENIR_MEDIUM = SIZEABLE_FONT_WITH_NAME(name: "Avenir-Medium")
-let AVENIR_HEAVY = SIZEABLE_FONT_WITH_NAME(name: "Avenir-Heavy")
-
 
 
 /*

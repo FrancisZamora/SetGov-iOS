@@ -32,7 +32,7 @@ class EventViewController: SetGovTableViewController{
         self.EventCell.hashtagOne.clipsToBounds = true
         self.EventCell.hashtagOne.layer.masksToBounds = false
         self.EventCell.willShape()
-        }
+       }
 
     
     
