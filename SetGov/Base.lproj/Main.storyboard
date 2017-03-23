@@ -326,10 +326,10 @@
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                                    <color key="value" red="0.1215418353676796" green="0.088057853281497955" blue="0.56266772747039795" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="value" red="0.039964072406291962" green="0.0" blue="0.36728870868682861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                                    <color key="value" red="0.18725249171257019" green="0.090296484529972076" blue="0.54253208637237549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="value" red="0.078510649502277374" green="0.04171723872423172" blue="0.36177659034729004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
