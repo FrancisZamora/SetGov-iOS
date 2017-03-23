@@ -39,7 +39,16 @@ class EventCell: UITableViewCell {
     
     @IBOutlet var profileImage6: ProfilePicture!
     
-    func willShape() {
+    
+    func configure() {
+        
+        hashtagTwo.layer.backgroundColor = UIColor(red:0.93, green:0.93, blue:0.93, alpha:0.0).cgColor
+        hashtagOne.layer.backgroundColor = UIColor(red:0.93,green:0.93, blue:0.93, alpha:0.0).cgColor
+        hashtagTwo.layer.cornerRadius = hashtagTwo.frame.height/2
+        hashtagOne.layer.cornerRadius = hashtagOne.frame.height/2
+        hashtagOne.clipsToBounds = true
+        hashtagOne.layer.masksToBounds = false
+        
         hashtagView2.makeCircular()
         hashTagView.makeCircular()
         

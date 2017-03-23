@@ -34,21 +34,15 @@ class EventDetailViewController: SetGovTableViewController{
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("numberofRows")
-        return 50
+        return 10
         
     }
     
     
     
-    //override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      // 
-    //}
-
-
-
-
-
-
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       return UITableViewCell()
+    }
 
 
 
