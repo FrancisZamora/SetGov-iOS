@@ -287,13 +287,13 @@
         <!--Marine Advisory-->
         <scene sceneID="v0j-HM-U6D">
             <objects>
-                <tableViewController id="c7E-st-00Y" customClass="EventDetailViewController" customModule="SetGov" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="c7E-st-00Y" customClass="EventDetailViewController" customModule="SetGov" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="126" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZQu-Ov-ftT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="199" id="qP5-me-jbX">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventStream" rowHeight="199" id="qP5-me-jbX" customClass="EventStream" customModule="SetGov">
                                 <rect key="frame" x="0.0" y="28" width="375" height="199"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qP5-me-jbX" id="SLU-cn-YFm">
@@ -305,7 +305,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="tintColor" red="0.56089743589999996" green="0.56089743589999996" blue="0.56089743589999996" alpha="1" colorSpace="calibratedRGB"/>
                                         </imageView>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YEk-ax-Ory" customClass="GradientView" customModule="SetGov" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YEk-ax-Ory" customClass="SecondaryGradientView" customModule="SetGov" customModuleProvider="target">
                                             <rect key="frame" x="137" y="145" width="106" height="41"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
@@ -326,6 +326,12 @@
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="attendButton" destination="Q24-2M-0fu" id="bru-4d-huH"/>
+                                    <outlet property="buttonBackground" destination="YEk-ax-Ory" id="UPh-YR-ghy"/>
+                                    <outlet property="eventImage" destination="6QP-vY-Qem" id="RQw-NC-c7Q"/>
+                                    <outlet property="secondaryEventImage" destination="Aun-jw-LfV" id="2Y9-HB-GOb"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="38" id="gf4-LZ-yPk">
                                 <rect key="frame" x="0.0" y="227" width="375" height="38"/>

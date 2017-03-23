@@ -25,6 +25,7 @@
 		156BD4CF1E836B7800E8F98B /* EventStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4CE1E836B7800E8F98B /* EventStream.swift */; };
 		156BD4D11E836B9800E8F98B /* EventMembers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4D01E836B9800E8F98B /* EventMembers.swift */; };
 		156BD4D31E836BB300E8F98B /* EventDiscussion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4D21E836BB300E8F98B /* EventDiscussion.swift */; };
+		156BD4D51E838B6200E8F98B /* SecondaryGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4D41E838B6200E8F98B /* SecondaryGradientView.swift */; };
 		15D3DB871E7A169E00CD35DD /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D3DB861E7A169E00CD35DD /* ProfileImage.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		156BD4CE1E836B7800E8F98B /* EventStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventStream.swift; sourceTree = "<group>"; };
 		156BD4D01E836B9800E8F98B /* EventMembers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMembers.swift; sourceTree = "<group>"; };
 		156BD4D21E836BB300E8F98B /* EventDiscussion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDiscussion.swift; sourceTree = "<group>"; };
+		156BD4D41E838B6200E8F98B /* SecondaryGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondaryGradientView.swift; sourceTree = "<group>"; };
 		15D3DB861E7A169E00CD35DD /* ProfileImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +183,7 @@
 			children = (
 				15D3DB861E7A169E00CD35DD /* ProfileImage.swift */,
 				151B8B321E7CBD410021BF89 /* GradientView.swift */,
+				156BD4D41E838B6200E8F98B /* SecondaryGradientView.swift */,
 			);
 			name = "UI Element Classes";
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				151CDAB61E64F2C500440CDE /* constants.swift in Sources */,
 				156BD4C91E83185200E8F98B /* EventDetailViewController.swift in Sources */,
 				156BD4D31E836BB300E8F98B /* EventDiscussion.swift in Sources */,
+				156BD4D51E838B6200E8F98B /* SecondaryGradientView.swift in Sources */,
 				153F3F871E6DF54B0004E2F4 /* EventViewController.swift in Sources */,
 				153F3F891E6DF7190004E2F4 /* EventCell.swift in Sources */,
 				151B8B331E7CBD410021BF89 /* GradientView.swift in Sources */,
