@@ -19,13 +19,13 @@ extension UIView {
 class EventStream:  UITableViewCell {
     
     @IBOutlet var eventImage: UIImageView!
-    @IBOutlet var secondaryEventImage: UIImageView!
+    @IBOutlet var secondaryEventImage: ProfilePicture!
     @IBOutlet var attendButton: UIButton!
-    @IBOutlet var buttonBackground: SecondaryGradientView!
+    @IBOutlet var buttonBackground: GradientView!
     
     func configure() {
         buttonBackground.makeShape()
-        
+        print ("formatting view")
     }
     
     

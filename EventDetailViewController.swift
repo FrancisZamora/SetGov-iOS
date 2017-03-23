@@ -12,7 +12,8 @@ import QuartzCore
 
 class EventDetailViewController: SetGovTableViewController{
     var activate = true
-    
+    var infoCell = true
+    var memberCell = true
     var count = 0
     var numsections = 0
     
