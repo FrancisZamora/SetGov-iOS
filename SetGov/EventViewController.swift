@@ -42,7 +42,7 @@ class EventViewController: SetGovTableViewController{
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+       
         
         tableView.deselectRow(at: indexPath, animated: false)
         print("selected")
