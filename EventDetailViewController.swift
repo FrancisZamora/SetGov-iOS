@@ -44,6 +44,11 @@ class EventDetailViewController: SetGovTableViewController{
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if infoCell == true {
+            let InfoCell =  tableView.dequeueReusableCell(withIdentifier: "EventInfo", for:indexPath) as! EventInfo
+            return InfoCell
+        }
         let cell =  tableView.dequeueReusableCell(withIdentifier: "EventStream", for:indexPath) as! EventStream
         cell.configure()
         print("cell for row" )

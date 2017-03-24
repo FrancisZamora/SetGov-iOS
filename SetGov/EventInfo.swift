@@ -7,3 +7,23 @@
 //
 
 import Foundation
+import UIKit
+import QuartzCore
+
+class EventInfo: UITableViewCell {
+    
+    @IBOutlet var eventAddress: UILabel!
+    
+    @IBOutlet var eventTime: UILabel!
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+}
+
