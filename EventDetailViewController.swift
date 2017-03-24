@@ -26,6 +26,7 @@ class EventDetailViewController: SetGovTableViewController{
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
         return 50.0
     }
     
@@ -37,7 +38,7 @@ class EventDetailViewController: SetGovTableViewController{
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("numberofRows")
-        return 1
+        return 3
         
     }
     
@@ -45,18 +46,21 @@ class EventDetailViewController: SetGovTableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if infoCell == true {
+        
+        if (indexPath.row == 0) {
+            let cell =  tableView.dequeueReusableCell(withIdentifier: "EventStream", for:indexPath) as! EventStream
+            cell.configure()
+            print("cell for row" )
+            return cell
+        }
+        if(indexPath.row == 1) {
             let InfoCell =  tableView.dequeueReusableCell(withIdentifier: "EventInfo", for:indexPath) as! EventInfo
             return InfoCell
         }
         let cell =  tableView.dequeueReusableCell(withIdentifier: "EventStream", for:indexPath) as! EventStream
-        cell.configure()
-        print("cell for row" )
         return cell
+        
+    
+        }
     }
-
-
-
-
-}
 
