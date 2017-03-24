@@ -43,6 +43,17 @@ class EventDetailViewController: SetGovTableViewController{
     }
     
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        switch indexPath.row {
+        case 0:
+            return 200
+        case 1:
+            return 38
+        default:
+            return 200
+        }
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
