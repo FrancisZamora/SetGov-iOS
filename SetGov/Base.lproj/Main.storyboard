@@ -466,7 +466,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="86" id="rE9-cr-Z9l">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventMembers" rowHeight="86" id="rE9-cr-Z9l" customClass="EventMembers" customModule="SetGov">
                                 <rect key="frame" x="0.0" y="398" width="375" height="86"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rE9-cr-Z9l" id="j4F-Lz-aA7">
@@ -566,6 +566,14 @@
                                         <constraint firstItem="nVY-7b-Jr0" firstAttribute="top" secondItem="oUF-h5-mRb" secondAttribute="top" id="zfa-4i-eBj"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="profilePicture1" destination="rJT-UP-jqh" id="Vi8-6W-jfA"/>
+                                    <outlet property="profilePicture2" destination="99H-sQ-o1n" id="ZAR-1m-xyh"/>
+                                    <outlet property="profilePicture3" destination="mQm-tS-01G" id="pmm-pg-5bC"/>
+                                    <outlet property="profilePicture4" destination="nVY-7b-Jr0" id="sZd-L6-iGb"/>
+                                    <outlet property="profilePicture5" destination="oUF-h5-mRb" id="s5c-vq-ron"/>
+                                    <outlet property="profilePicture6" destination="Obz-Fv-gcQ" id="ajg-Uy-3gC"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="57" id="MYI-qh-THg">
                                 <rect key="frame" x="0.0" y="484" width="375" height="57"/>

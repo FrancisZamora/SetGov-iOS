@@ -7,3 +7,20 @@
 //
 
 import Foundation
+import UIKit
+
+class EventMembers: UITableViewCell {
+    
+    
+    @IBOutlet var profilePicture1: ProfilePicture!
+    @IBOutlet var profilePicture2: ProfilePicture!
+    @IBOutlet var profilePicture3: ProfilePicture!
+    @IBOutlet var profilePicture4: ProfilePicture!
+    @IBOutlet var profilePicture5: ProfilePicture!
+    @IBOutlet var profilePicture6: ProfilePicture!
+    
+    
+    
+    
+    
+}
