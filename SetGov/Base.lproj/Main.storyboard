@@ -368,12 +368,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="37"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 North Andrews Avenue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbI-H2-dbm">
-                                            <rect key="frame" x="20" y="7" width="209" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/23  9:00pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JzC-Ti-fLm">
                                             <rect key="frame" x="262" y="8" width="98" height="21"/>
                                             <constraints>
@@ -383,14 +377,20 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 North Andrews Avenue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbI-H2-dbm">
+                                            <rect key="frame" x="8" y="7" width="209" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="bbI-H2-dbm" firstAttribute="top" secondItem="xyb-zo-Hvk" secondAttribute="topMargin" constant="-1" id="2dy-OO-9P1"/>
                                         <constraint firstItem="JzC-Ti-fLm" firstAttribute="bottom" secondItem="xyb-zo-Hvk" secondAttribute="bottomMargin" id="6aV-cy-8Yt"/>
                                         <constraint firstItem="JzC-Ti-fLm" firstAttribute="top" secondItem="xyb-zo-Hvk" secondAttribute="topMargin" id="KEo-1E-yGH"/>
-                                        <constraint firstItem="JzC-Ti-fLm" firstAttribute="leading" secondItem="bbI-H2-dbm" secondAttribute="trailing" constant="33" id="OlC-Xa-Jpg"/>
+                                        <constraint firstItem="JzC-Ti-fLm" firstAttribute="leading" secondItem="bbI-H2-dbm" secondAttribute="trailing" constant="45" id="OlC-Xa-Jpg"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="bbI-H2-dbm" secondAttribute="bottom" constant="1" id="cXK-GN-ujf"/>
-                                        <constraint firstItem="bbI-H2-dbm" firstAttribute="leading" secondItem="xyb-zo-Hvk" secondAttribute="leadingMargin" constant="12" id="hYr-hk-5gg"/>
+                                        <constraint firstItem="bbI-H2-dbm" firstAttribute="leading" secondItem="xyb-zo-Hvk" secondAttribute="leadingMargin" id="hYr-hk-5gg"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="JzC-Ti-fLm" secondAttribute="trailing" constant="7" id="ymh-AW-hho"/>
                                     </constraints>
                                 </tableViewCellContentView>

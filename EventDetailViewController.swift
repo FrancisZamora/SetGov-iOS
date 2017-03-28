@@ -51,15 +51,18 @@ class EventDetailViewController: SetGovTableViewController{
         case 1:
             return 38
         case 2:
-            return 86
+            return 176
         case 3:
-            return 86
+            return 94
+        case 4:
+            return 179
         default:
             return 0
         }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print(indexPath.row)
         
         
         if (indexPath.row == 0) {
@@ -69,15 +72,20 @@ class EventDetailViewController: SetGovTableViewController{
             return cell
         }
         if(indexPath.row == 1) {
-            let InfoCell =  tableView.dequeueReusableCell(withIdentifier: "EventInfo", for:indexPath) as! EventInfo
-            return InfoCell
+            let infoCell =  tableView.dequeueReusableCell(withIdentifier: "EventInfo", for:indexPath) as! EventInfo
+            return infoCell
         }
-        //if(indexPath.row ==2) {
-           // let
-        //}
+        if(indexPath.row == 2) {
+            let agendaCell = tableView.dequeueReusableCell(withIdentifier: "EventAgenda", for:indexPath) as! EventAgenda
+            return agendaCell
+        }
         if (indexPath.row==3) {
             let newCell = tableView.dequeueReusableCell(withIdentifier: "EventMembers", for:indexPath) as! EventMembers
             return newCell
+        }
+        if (indexPath.row==4) {
+            let discussionCell = tableView.dequeueReusableCell(withIdentifier: "EventDiscussion", for:indexPath) as! EventDiscussion
+            return discussionCell
         }
         let cell =  tableView.dequeueReusableCell(withIdentifier: "EventStream", for:indexPath) as! EventStream
         return cell
