@@ -38,7 +38,7 @@ class EventDetailViewController: SetGovTableViewController{
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("numberofRows")
-        return 3
+        return 6
         
     }
     
@@ -71,22 +71,27 @@ class EventDetailViewController: SetGovTableViewController{
             print("cell for row" )
             return cell
         }
+        
         if(indexPath.row == 1) {
             let infoCell =  tableView.dequeueReusableCell(withIdentifier: "EventInfo", for:indexPath) as! EventInfo
             return infoCell
         }
+        
         if(indexPath.row == 2) {
             let agendaCell = tableView.dequeueReusableCell(withIdentifier: "EventAgenda", for:indexPath) as! EventAgenda
             return agendaCell
         }
+        
         if (indexPath.row==3) {
             let newCell = tableView.dequeueReusableCell(withIdentifier: "EventMembers", for:indexPath) as! EventMembers
             return newCell
         }
+        
         if (indexPath.row==4) {
             let discussionCell = tableView.dequeueReusableCell(withIdentifier: "EventDiscussion", for:indexPath) as! EventDiscussion
             return discussionCell
         }
+        
         let cell =  tableView.dequeueReusableCell(withIdentifier: "EventStream", for:indexPath) as! EventStream
         return cell
         
