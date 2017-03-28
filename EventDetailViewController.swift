@@ -50,8 +50,12 @@ class EventDetailViewController: SetGovTableViewController{
             return 200
         case 1:
             return 38
+        case 2:
+            return 86
+        case 3:
+            return 86
         default:
-            return 200
+            return 0
         }
     }
     
@@ -67,6 +71,13 @@ class EventDetailViewController: SetGovTableViewController{
         if(indexPath.row == 1) {
             let InfoCell =  tableView.dequeueReusableCell(withIdentifier: "EventInfo", for:indexPath) as! EventInfo
             return InfoCell
+        }
+        //if(indexPath.row ==2) {
+           // let
+        //}
+        if (indexPath.row==3) {
+            let newCell = tableView.dequeueReusableCell(withIdentifier: "EventMembers", for:indexPath) as! EventMembers
+            return newCell
         }
         let cell =  tableView.dequeueReusableCell(withIdentifier: "EventStream", for:indexPath) as! EventStream
         return cell
