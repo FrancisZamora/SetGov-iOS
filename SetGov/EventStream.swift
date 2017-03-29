@@ -19,12 +19,16 @@ extension UIView {
 class EventStream:  UITableViewCell {
     
     @IBOutlet var eventImage: UIImageView!
-    @IBOutlet var secondaryEventImage: ProfilePicture!
+    @IBOutlet var secondaryEventImage: UIImageView!
     @IBOutlet var attendButton: UIButton!
     @IBOutlet var buttonBackground: GradientView!
     
     func configure() {
         buttonBackground.makeShape()
+        self.secondaryEventImage.layer.cornerRadius = self.secondaryEventImage.frame.height / 2
+        self.secondaryEventImage.clipsToBounds = true
+        self.secondaryEventImage.layer.borderWidth = 3.0
+        self.secondaryEventImage.layer.borderColor = UIColor(red:0.18, green:0.26, blue:0.35, alpha:1.0).cgColor
         print ("formatting view")
     }
     

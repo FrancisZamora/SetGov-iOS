@@ -189,7 +189,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6T6-p1-Z54" customClass="GradientView" customModule="SetGov" customModuleProvider="target">
-                                            <rect key="frame" x="218" y="220" width="80" height="20"/>
+                                            <rect key="frame" x="218" y="220" width="82" height="20"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" environmental" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwk-JV-om8">
                                                     <rect key="frame" x="1" y="2" width="79" height="16"/>
@@ -202,7 +202,7 @@
                                             <constraints>
                                                 <constraint firstItem="cwk-JV-om8" firstAttribute="leading" secondItem="6T6-p1-Z54" secondAttribute="leading" constant="1" id="XE5-kI-Uae"/>
                                                 <constraint firstAttribute="bottom" secondItem="cwk-JV-om8" secondAttribute="bottom" constant="2" id="Yl3-6T-38c"/>
-                                                <constraint firstAttribute="trailing" secondItem="cwk-JV-om8" secondAttribute="trailing" id="idh-Ux-v7C"/>
+                                                <constraint firstAttribute="trailing" secondItem="cwk-JV-om8" secondAttribute="trailing" constant="2" id="idh-Ux-v7C"/>
                                                 <constraint firstItem="cwk-JV-om8" firstAttribute="top" secondItem="6T6-p1-Z54" secondAttribute="top" constant="2" id="ncE-ZI-16K"/>
                                             </constraints>
                                         </view>
@@ -238,7 +238,7 @@
                                         <constraint firstItem="6T6-p1-Z54" firstAttribute="leading" secondItem="Xae-5N-CWj" secondAttribute="trailing" constant="8" id="hqi-vd-wcx"/>
                                         <constraint firstItem="qaz-B6-2HM" firstAttribute="leading" secondItem="yMK-AS-5CE" secondAttribute="leading" id="jHo-w0-Ysg"/>
                                         <constraint firstItem="qGK-K0-mTm" firstAttribute="leading" secondItem="1Jc-OS-76J" secondAttribute="trailing" constant="13" id="jZw-B4-Gg9"/>
-                                        <constraint firstItem="49j-Ee-ATO" firstAttribute="leading" secondItem="6T6-p1-Z54" secondAttribute="trailing" constant="6" id="jgx-or-QwA"/>
+                                        <constraint firstItem="49j-Ee-ATO" firstAttribute="leading" secondItem="6T6-p1-Z54" secondAttribute="trailing" constant="4" id="jgx-or-QwA"/>
                                         <constraint firstItem="nPe-2t-EyG" firstAttribute="top" secondItem="1Jc-OS-76J" secondAttribute="top" id="nu9-Y9-gsi"/>
                                         <constraint firstItem="1Jc-OS-76J" firstAttribute="bottom" secondItem="qGK-K0-mTm" secondAttribute="bottom" id="olb-RM-V1Z"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Lru-Dk-bur" secondAttribute="bottom" constant="0.5" id="qCA-7g-lMM"/>
@@ -258,7 +258,7 @@
                                     <outlet property="eventTitle" destination="qaz-B6-2HM" id="7Yi-ND-mzM"/>
                                     <outlet property="hashTagView" destination="6T6-p1-Z54" id="e9x-nQ-Rl0"/>
                                     <outlet property="hashtagOne" destination="cwk-JV-om8" id="6kp-hC-Avh"/>
-                                    <outlet property="hashtagTwo" destination="zgE-q0-vau" id="iQo-wg-i5C"/>
+                                    <outlet property="hashtagTwo" destination="zgE-q0-vau" id="cq0-fk-M7j"/>
                                     <outlet property="hashtagView2" destination="49j-Ee-ATO" id="Oxz-K3-iHO"/>
                                     <outlet property="profileImage1" destination="Lru-Dk-bur" id="MGD-Ns-ShJ"/>
                                     <outlet property="profileImage2" destination="4i3-sx-hcP" id="s5i-Vc-XXd"/>
@@ -304,6 +304,7 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image1" translatesAutoresizingMaskIntoConstraints="NO" id="6QP-vY-Qem">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <color key="tintColor" red="0.56089743589999996" green="0.56089743589999996" blue="0.56089743589999996" alpha="1" colorSpace="calibratedRGB"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YEk-ax-Ory" customClass="GradientView" customModule="SetGov" customModuleProvider="target">
@@ -333,7 +334,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <imageView userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image1" translatesAutoresizingMaskIntoConstraints="NO" id="Aun-jw-LfV" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
+                                        <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image1" translatesAutoresizingMaskIntoConstraints="NO" id="Aun-jw-LfV">
                                             <rect key="frame" x="135" y="35" width="105" height="105"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="105" id="tFT-ZA-pMt"/>

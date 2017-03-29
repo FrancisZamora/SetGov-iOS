@@ -25,8 +25,6 @@ class EventCell: UITableViewCell {
     
     @IBOutlet var eventDate: UILabel!
     @IBOutlet var hashtagView2: GradientView!
-    @IBOutlet var hashtagTwo: GradientView!
-    
     @IBOutlet var profileImage1: ProfilePicture!
    
     @IBOutlet var profileImage2: ProfilePicture!
@@ -39,6 +37,7 @@ class EventCell: UITableViewCell {
     
     @IBOutlet var profileImage6: ProfilePicture!
     
+    @IBOutlet var hashtagTwo: UILabel!
     
     func configure() {
         
