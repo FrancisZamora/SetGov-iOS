@@ -11,7 +11,13 @@ import UIKit
 import QuartzCore
 
 class EventAgenda: UITableViewCell {
+    @IBOutlet var AgendaCollectionView: AgendaViewController!
     
     
     @IBOutlet var agenda: UILabel!
+    
+    
+    
+    
+  
 }

@@ -11,12 +11,18 @@ import UIKit
 import QuartzCore
 
 class AgendaViewController: UICollectionView {
+    
+    
     var numsections = 0
+    
+    
 
     func collectionView(collectionView: UICollectionView, heightForHeaderInSection section: Int) -> CGFloat {
         
         return 50.0
     }
+    
+    
     
   
     func collectionView(_ collectionView: UICollectionView,cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

@@ -17,12 +17,15 @@ class EventDetailViewController: SetGovTableViewController{
     var count = 0
     var numsections = 0
     
+    
+  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Table View for Events")
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+      override func viewDidAppear(_ animated: Bool) {
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -79,6 +82,7 @@ class EventDetailViewController: SetGovTableViewController{
         
         if(indexPath.row == 2) {
             let agendaCell = tableView.dequeueReusableCell(withIdentifier: "EventAgenda", for:indexPath) as! EventAgenda
+            
             return agendaCell
         }
         

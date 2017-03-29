@@ -399,15 +399,15 @@
                                     <outlet property="eventTime" destination="JzC-Ti-fLm" id="mTR-j8-0dh"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventAgenda" rowHeight="177" id="5gE-8z-yj5" customClass="EventAgenda" customModule="SetGov" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="266" width="375" height="177"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventAgenda" rowHeight="199" id="5gE-8z-yj5" customClass="EventAgenda" customModule="SetGov" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="266" width="375" height="199"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5gE-8z-yj5" id="C8x-hT-HLl">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="176.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="198"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZAT-vw-PeJ" customClass="AgendaViewController" customModule="SetGov" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="43" width="375" height="120"/>
+                                            <rect key="frame" x="0.0" y="43" width="375" height="141.5"/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="T6P-Ua-htD">
                                                 <size key="itemSize" width="101" height="77"/>
@@ -417,31 +417,31 @@
                                             </collectionViewFlowLayout>
                                             <cells>
                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AgendaItem1" id="wBG-Cx-QWv" customClass="AgendaItem1" customModule="SetGov" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="117" height="95"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="117" height="120"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                        <rect key="frame" x="0.0" y="0.0" width="117" height="95"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="117" height="120"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </view>
-                                                    <size key="customSize" width="117" height="95"/>
+                                                    <size key="customSize" width="117" height="120"/>
                                                 </collectionViewCell>
                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AgendaItem2" id="hRm-HO-1TI" customClass="AgendaItem2" customModule="SetGov" customModuleProvider="target">
-                                                    <rect key="frame" x="129" y="0.0" width="117" height="95"/>
+                                                    <rect key="frame" x="129" y="0.0" width="117" height="120"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                        <rect key="frame" x="0.0" y="0.0" width="117" height="95"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="117" height="120"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </view>
-                                                    <size key="customSize" width="117" height="95"/>
+                                                    <size key="customSize" width="117" height="120"/>
                                                 </collectionViewCell>
                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AgendaItem3" id="72I-VS-uHa" customClass="AgendaItem3" customModule="SetGov" customModuleProvider="target">
-                                                    <rect key="frame" x="258" y="0.0" width="117" height="95"/>
+                                                    <rect key="frame" x="258" y="0.0" width="117" height="120"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                        <rect key="frame" x="0.0" y="0.0" width="117" height="95"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="117" height="120"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </view>
-                                                    <size key="customSize" width="117" height="95"/>
+                                                    <size key="customSize" width="117" height="120"/>
                                                 </collectionViewCell>
                                             </cells>
                                         </collectionView>
@@ -467,11 +467,12 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
+                                    <outlet property="AgendaCollectionView" destination="ZAT-vw-PeJ" id="r42-in-o9Q"/>
                                     <outlet property="agenda" destination="omN-kt-77I" id="47s-bP-XE2"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventMembers" rowHeight="94" id="rE9-cr-Z9l" customClass="EventMembers" customModule="SetGov">
-                                <rect key="frame" x="0.0" y="443" width="375" height="94"/>
+                                <rect key="frame" x="0.0" y="465" width="375" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rE9-cr-Z9l" id="j4F-Lz-aA7">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="93.5"/>
@@ -579,7 +580,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventDiscussion" rowHeight="179" id="MYI-qh-THg" customClass="EventDiscussion" customModule="SetGov" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="537" width="375" height="179"/>
+                                <rect key="frame" x="0.0" y="559" width="375" height="179"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MYI-qh-THg" id="IwL-Ej-qcu">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="178.5"/>
