@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import QuartzCore
 
-class AgendaItem1: UITableViewCell {
+class AgendaItem1: UICollectionViewCell {
     
     
 }
