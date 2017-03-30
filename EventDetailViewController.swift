@@ -53,7 +53,7 @@ class EventDetailViewController: SetGovTableViewController{
     
     
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         switch indexPath.row {
         case 0:
@@ -77,7 +77,10 @@ class EventDetailViewController: SetGovTableViewController{
         
         if (indexPath.row == 0) {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "EventStream", for:indexPath) as! EventStream
-            cell.configure()
+            if (self.eventStream.pressedButton == false) {
+                cell.configure()
+
+            }
             if(animateView){
                 let transition: CATransition = CATransition()
                 transition.duration = 0.5

@@ -316,6 +316,9 @@
                                                     <state key="normal" title="Attend">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="buttonPressed:" destination="qP5-me-jbX" eventType="touchUpInside" id="PXQ-YP-KRJ"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
