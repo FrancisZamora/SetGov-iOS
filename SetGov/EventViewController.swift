@@ -19,7 +19,7 @@ class EventViewController: SetGovTableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Table View for Events")
+        print("EventViewController")
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -15,9 +15,7 @@
 		151CDA991E64CF3700440CDE /* SetGovTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CDA981E64CF3700440CDE /* SetGovTests.swift */; };
 		151CDAA41E64CF3700440CDE /* SetGovUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CDAA31E64CF3700440CDE /* SetGovUITests.swift */; };
 		151CDAB61E64F2C500440CDE /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CDAB51E64F2C500440CDE /* constants.swift */; };
-		1523A4941E8B385C00AE93C2 /* AgendaItem1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1523A4931E8B385C00AE93C2 /* AgendaItem1.swift */; };
-		1523A4961E8B386400AE93C2 /* AgendaItem2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1523A4951E8B386400AE93C2 /* AgendaItem2.swift */; };
-		1523A4981E8B387A00AE93C2 /* AgendaItem3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1523A4971E8B387A00AE93C2 /* AgendaItem3.swift */; };
+		1523A4941E8B385C00AE93C2 /* AgendaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1523A4931E8B385C00AE93C2 /* AgendaCell.swift */; };
 		1523A49A1E8B38CB00AE93C2 /* AgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1523A4991E8B38CB00AE93C2 /* AgendaViewController.swift */; };
 		153F3F7C1E6DF0E50004E2F4 /* SetGovViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F7B1E6DF0E50004E2F4 /* SetGovViewController.swift */; };
 		153F3F7E1E6DF0ED0004E2F4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F7D1E6DF0ED0004E2F4 /* LoginViewController.swift */; };
@@ -65,9 +63,7 @@
 		151CDAA31E64CF3700440CDE /* SetGovUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGovUITests.swift; sourceTree = "<group>"; };
 		151CDAA51E64CF3700440CDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		151CDAB51E64F2C500440CDE /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
-		1523A4931E8B385C00AE93C2 /* AgendaItem1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaItem1.swift; sourceTree = "<group>"; };
-		1523A4951E8B386400AE93C2 /* AgendaItem2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaItem2.swift; sourceTree = "<group>"; };
-		1523A4971E8B387A00AE93C2 /* AgendaItem3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaItem3.swift; sourceTree = "<group>"; };
+		1523A4931E8B385C00AE93C2 /* AgendaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaCell.swift; sourceTree = "<group>"; };
 		1523A4991E8B38CB00AE93C2 /* AgendaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaViewController.swift; sourceTree = "<group>"; };
 		153F3F7B1E6DF0E50004E2F4 /* SetGovViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetGovViewController.swift; path = Controllers/SetGovViewController.swift; sourceTree = "<group>"; };
 		153F3F7D1E6DF0ED0004E2F4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controllers/LoginViewController.swift; sourceTree = "<group>"; };
@@ -171,9 +167,7 @@
 				156BD4D01E836B9800E8F98B /* EventMembers.swift */,
 				156BD4CE1E836B7800E8F98B /* EventStream.swift */,
 				154E5C0A1E89FB6900F96FB6 /* EventAgenda.swift */,
-				1523A4931E8B385C00AE93C2 /* AgendaItem1.swift */,
-				1523A4951E8B386400AE93C2 /* AgendaItem2.swift */,
-				1523A4971E8B387A00AE93C2 /* AgendaItem3.swift */,
+				1523A4931E8B385C00AE93C2 /* AgendaCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -343,15 +337,13 @@
 				153F3F851E6DF2A20004E2F4 /* SetGovTableViewController.swift in Sources */,
 				156BD4D11E836B9800E8F98B /* EventMembers.swift in Sources */,
 				156BD4CD1E836B6300E8F98B /* EventInfo.swift in Sources */,
-				1523A4981E8B387A00AE93C2 /* AgendaItem3.swift in Sources */,
-				1523A4961E8B386400AE93C2 /* AgendaItem2.swift in Sources */,
 				151CDA841E64CF3700440CDE /* AppDelegate.swift in Sources */,
 				156BD4CF1E836B7800E8F98B /* EventStream.swift in Sources */,
 				151CDAB61E64F2C500440CDE /* constants.swift in Sources */,
 				156BD4C91E83185200E8F98B /* EventDetailViewController.swift in Sources */,
 				156BD4D31E836BB300E8F98B /* EventDiscussion.swift in Sources */,
 				153F3F871E6DF54B0004E2F4 /* EventViewController.swift in Sources */,
-				1523A4941E8B385C00AE93C2 /* AgendaItem1.swift in Sources */,
+				1523A4941E8B385C00AE93C2 /* AgendaCell.swift in Sources */,
 				153F3F891E6DF7190004E2F4 /* EventCell.swift in Sources */,
 				154E5C0B1E89FB6900F96FB6 /* EventAgenda.swift in Sources */,
 				151B8B331E7CBD410021BF89 /* GradientView.swift in Sources */,

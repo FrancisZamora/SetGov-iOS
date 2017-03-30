@@ -18,16 +18,10 @@ class EventDetailViewController: SetGovTableViewController{
     var numsections = 0
     var animateView: Bool = false
     var eventStream: EventStream!
-
-
-    
-
-    
-  
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Table View for Events")
+        print("EventDetailViewController")
     }
     
       override func viewDidAppear(_ animated: Bool) {

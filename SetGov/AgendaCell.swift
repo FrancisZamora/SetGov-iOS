@@ -1,5 +1,5 @@
 //
-//  AgendaItem1.swift
+//  AgendaCell.swift
 //  SetGov
 //
 //  Created by Francis Zamora on 3/28/17.
@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 import QuartzCore
 
-class AgendaItem1: UICollectionViewCell {
+class AgendaCell: UICollectionViewCell {
     
+    @IBOutlet weak var mLabel: UILabel!
     
 }
