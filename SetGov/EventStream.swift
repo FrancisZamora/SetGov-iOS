@@ -29,9 +29,12 @@ class EventStream:  UITableViewCell {
     @IBInspectable var endColor: UIColor = UIColor.red
     
     
+    
 
     
     @IBAction func buttonPressed(_ sender: Any) {
+        self.pressedButton = true
+
         self.EventDetailViewController?.animateView = true
         self.attendButton.setTitle("Live", for: .normal)
         let transition: CATransition = CATransition()
@@ -44,12 +47,15 @@ class EventStream:  UITableViewCell {
         self.attendButton.clipsToBounds = true
         self.attendButton.layer.borderWidth = 1.5
         self.attendButton.layer.borderColor = UIColor(red:0.18, green:0.26, blue:0.35, alpha:0.0).cgColor
-        let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
-        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
-        gradient.colors = [startColor.cgColor, endColor.cgColor]
-        gradient.zPosition = -1
-        self.buttonBackground.layer.addSublayer(gradient)
+        if (self.pressedButton == true) {
+            let gradient: CAGradientLayer = CAGradientLayer()
+            gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+            gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+            gradient.colors = [startColor.cgColor, self.endColor.cgColor]
+            gradient.zPosition = -1
+            buttonBackground.layer.addSublayer(gradient)
+            print( "adding gradient")
+        }
 
         print("BUTTON WAS PRESSED")
         let transition2: CATransition = CATransition()
@@ -63,7 +69,6 @@ class EventStream:  UITableViewCell {
         self.secondaryEventImage.layer.borderWidth = 3.0
         self.secondaryEventImage.layer.borderColor = SG_SECONDARY_REDCOLOR.cgColor
      
-        self.pressedButton = true
 
        
     }
