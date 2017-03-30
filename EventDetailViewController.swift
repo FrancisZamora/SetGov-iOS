@@ -19,6 +19,7 @@ class EventDetailViewController: SetGovTableViewController{
     var animateView: Bool = false
     var eventStream: EventStream!
 
+
     
 
     
@@ -76,11 +77,12 @@ class EventDetailViewController: SetGovTableViewController{
         
         
         if (indexPath.row == 0) {
-            let cell =  tableView.dequeueReusableCell(withIdentifier: "EventStream", for:indexPath) as! EventStream
-            if (self.eventStream.pressedButton == false) {
-                cell.configure()
-
+            let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream", for:indexPath) as! EventStream
+            if (animateView == false) {
+                eventStream.configure()
             }
+            
+           
             if(animateView){
                 let transition: CATransition = CATransition()
                 transition.duration = 0.5
@@ -92,7 +94,7 @@ class EventDetailViewController: SetGovTableViewController{
             }
          
             print("cell for row" )
-            return cell
+            return eventStream
         }
         
         if(indexPath.row == 1) {

@@ -11,6 +11,7 @@ import UIKit
 import QuartzCore
 extension UIView {
     func makeShape() {
+        print("called")
         self.layer.cornerRadius = min(self.frame.size.height, self.frame.size.width) / 2.0
         self.clipsToBounds = true
     }
@@ -22,7 +23,7 @@ class EventStream:  UITableViewCell {
     @IBOutlet var secondaryEventImage: UIImageView!
     @IBOutlet var attendButton: UIButton!
     @IBOutlet var buttonBackground: GradientView!
-    var pressedButton: Bool = false
+    var pressedButton: Bool?
     var EventDetailViewController:EventDetailViewController?
     
     @IBAction func buttonPressed(_ sender: Any) {
@@ -36,6 +37,15 @@ class EventStream:  UITableViewCell {
         self.secondaryEventImage.clipsToBounds = true
         self.secondaryEventImage.layer.borderWidth = 3.0
         self.secondaryEventImage.layer.borderColor = UIColor.blue.cgColor
+    }
+    
+    func buttonwasPressed() -> Bool {
+        if (pressedButton == true) {
+            return true
+        }
+        else {
+            return false
+        }
     }
     func buttonPressed() {
         self.EventDetailViewController?.animateView = true
