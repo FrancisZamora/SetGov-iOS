@@ -36,7 +36,7 @@ class EventStream:  UITableViewCell {
         self.pressedButton = true
 
         self.EventDetailViewController?.animateView = true
-        self.attendButton.setTitle("Live", for: .normal)
+        self.attendButton.setTitle("Now Live", for: .normal)
         let transition: CATransition = CATransition()
         transition.duration = 0.5
         transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
@@ -67,7 +67,7 @@ class EventStream:  UITableViewCell {
         self.secondaryEventImage.layer.cornerRadius = self.secondaryEventImage.frame.height / 2
         self.secondaryEventImage.clipsToBounds = true
         self.secondaryEventImage.layer.borderWidth = 3.0
-        self.secondaryEventImage.layer.borderColor = SG_SECONDARY_REDCOLOR.cgColor
+        self.secondaryEventImage.layer.borderColor = SG_RED_COLOR.cgColor
      
 
        
