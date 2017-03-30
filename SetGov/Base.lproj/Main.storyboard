@@ -404,7 +404,7 @@
                                 <rect key="frame" x="0.0" y="266" width="375" height="199"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5gE-8z-yj5" id="C8x-hT-HLl">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="198"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="198.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZAT-vw-PeJ" customClass="AgendaViewController" customModule="SetGov" customModuleProvider="target">

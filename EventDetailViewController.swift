@@ -16,7 +16,11 @@ class EventDetailViewController: SetGovTableViewController{
     var memberCell = true
     var count = 0
     var numsections = 0
+    var animateView: Bool = false
+    var eventStream: EventStream!
+
     
+
     
   
     
@@ -46,7 +50,10 @@ class EventDetailViewController: SetGovTableViewController{
     }
     
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         switch indexPath.row {
         case 0:
@@ -71,6 +78,16 @@ class EventDetailViewController: SetGovTableViewController{
         if (indexPath.row == 0) {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "EventStream", for:indexPath) as! EventStream
             cell.configure()
+            if(animateView){
+                let transition: CATransition = CATransition()
+                transition.duration = 0.5
+                transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                transition.type = kCATransitionReveal
+                transition.subtype = kCATransitionFromRight
+                self.eventStream.layer.add(transition, forKey: nil)
+                
+            }
+         
             print("cell for row" )
             return cell
         }

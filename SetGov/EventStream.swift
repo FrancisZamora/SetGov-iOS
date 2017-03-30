@@ -22,7 +22,13 @@ class EventStream:  UITableViewCell {
     @IBOutlet var secondaryEventImage: UIImageView!
     @IBOutlet var attendButton: UIButton!
     @IBOutlet var buttonBackground: GradientView!
+    var EventDetailViewController:EventDetailViewController?
     
+    func buttonPressed() {
+        self.EventDetailViewController?.animateView = true
+    }
+
+
     func configure() {
         buttonBackground.makeShape()
         self.secondaryEventImage.layer.cornerRadius = self.secondaryEventImage.frame.height / 2
