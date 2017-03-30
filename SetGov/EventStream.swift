@@ -25,20 +25,33 @@ class EventStream:  UITableViewCell {
     @IBOutlet var buttonBackground: GradientView!
     var pressedButton: Bool?
     var EventDetailViewController:EventDetailViewController?
+    @IBInspectable var startColor: UIColor = SG_RED_COLOR
+    @IBInspectable var endColor: UIColor = UIColor.red
     
+    
+
     
     @IBAction func buttonPressed(_ sender: Any) {
         self.EventDetailViewController?.animateView = true
+        self.attendButton.setTitle("Live", for: .normal)
         let transition: CATransition = CATransition()
         transition.duration = 0.5
         transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         transition.type = kCATransitionReveal
         transition.subtype = kCATransitionFromRight
         self.attendButton.layer.add(transition, forKey: nil)
-        self.attendButton.layer.cornerRadius = self.frame.height / 2
+        self.attendButton.layer.cornerRadius = self.attendButton.frame.height / 2
         self.attendButton.clipsToBounds = true
         self.attendButton.layer.borderWidth = 1.5
-        self.attendButton.layer.borderColor = UIColor(red:0.18, green:0.26, blue:0.35, alpha:1.0).cgColor
+        self.attendButton.layer.borderColor = UIColor(red:0.18, green:0.26, blue:0.35, alpha:0.0).cgColor
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+        gradient.colors = [startColor.cgColor, endColor.cgColor]
+        gradient.zPosition = -1
+        self.buttonBackground.layer.addSublayer(gradient)
+
+        print("BUTTON WAS PRESSED")
         let transition2: CATransition = CATransition()
         transition2.duration = 0.5
         transition2.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
@@ -48,7 +61,7 @@ class EventStream:  UITableViewCell {
         self.secondaryEventImage.layer.cornerRadius = self.secondaryEventImage.frame.height / 2
         self.secondaryEventImage.clipsToBounds = true
         self.secondaryEventImage.layer.borderWidth = 3.0
-        self.secondaryEventImage.layer.borderColor = UIColor.blue.cgColor
+        self.secondaryEventImage.layer.borderColor = SG_SECONDARY_REDCOLOR.cgColor
      
         self.pressedButton = true
 
