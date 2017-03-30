@@ -26,17 +26,33 @@ class EventStream:  UITableViewCell {
     var pressedButton: Bool?
     var EventDetailViewController:EventDetailViewController?
     
+    
     @IBAction func buttonPressed(_ sender: Any) {
-        self.attendButton.setTitle("Live", for: .normal)
-        self.pressedButton = true
-        self.buttonBackground.layer.cornerRadius = self.frame.height / 2
-        self.buttonBackground.clipsToBounds = true
-        self.buttonBackground.layer.borderWidth = 1.5
-        self.buttonBackground.layer.borderColor = UIColor(red:0.18, green:0.26, blue:0.35, alpha:1.0).cgColor
+        self.EventDetailViewController?.animateView = true
+        let transition: CATransition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        transition.type = kCATransitionReveal
+        transition.subtype = kCATransitionFromRight
+        self.attendButton.layer.add(transition, forKey: nil)
+        self.attendButton.layer.cornerRadius = self.frame.height / 2
+        self.attendButton.clipsToBounds = true
+        self.attendButton.layer.borderWidth = 1.5
+        self.attendButton.layer.borderColor = UIColor(red:0.18, green:0.26, blue:0.35, alpha:1.0).cgColor
+        let transition2: CATransition = CATransition()
+        transition2.duration = 0.5
+        transition2.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        transition2.type = kCATransitionReveal
+        transition2.subtype = kCATransitionFromRight
+        self.secondaryEventImage.layer.add(transition2, forKey: nil)
         self.secondaryEventImage.layer.cornerRadius = self.secondaryEventImage.frame.height / 2
         self.secondaryEventImage.clipsToBounds = true
         self.secondaryEventImage.layer.borderWidth = 3.0
         self.secondaryEventImage.layer.borderColor = UIColor.blue.cgColor
+     
+        self.pressedButton = true
+
+       
     }
     
     func buttonwasPressed() -> Bool {

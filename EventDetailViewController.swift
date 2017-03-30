@@ -83,16 +83,6 @@ class EventDetailViewController: SetGovTableViewController{
             }
             
            
-            if(animateView){
-                let transition: CATransition = CATransition()
-                transition.duration = 0.5
-                transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-                transition.type = kCATransitionReveal
-                transition.subtype = kCATransitionFromRight
-                self.eventStream.layer.add(transition, forKey: nil)
-                
-            }
-         
             print("cell for row" )
             return eventStream
         }
