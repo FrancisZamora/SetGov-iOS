@@ -24,6 +24,7 @@ class EventStream:  UITableViewCell {
     @IBOutlet var attendButton: UIButton!
     @IBOutlet var buttonBackground: GradientView!
     var pressedButton: Bool?
+    var onePress: Bool = false 
     var EventDetailViewController:EventDetailViewController?
     @IBInspectable var startColor: UIColor = SG_RED_COLOR
     @IBInspectable var endColor: UIColor = UIColor.red
@@ -33,8 +34,10 @@ class EventStream:  UITableViewCell {
 
     
     @IBAction func buttonPressed(_ sender: Any) {
+        if self.onePress == false {
         self.pressedButton = true
-
+        buttonBackground.startColor = SG_SECONDARY_REDCOLOR
+        buttonBackground.endColor = UIColor.red
         self.EventDetailViewController?.animateView = true
         self.attendButton.setTitle("Now Live", for: .normal)
         let transition: CATransition = CATransition()
@@ -66,8 +69,9 @@ class EventStream:  UITableViewCell {
         self.secondaryEventImage.clipsToBounds = true
         self.secondaryEventImage.layer.borderWidth = 3.0
         self.secondaryEventImage.layer.borderColor = SG_RED_COLOR.cgColor
-        
-     
+        self.onePress = true
+
+        }
 
        
     }
@@ -86,12 +90,14 @@ class EventStream:  UITableViewCell {
 
 
     func configure() {
-        buttonBackground.makeShape()
-        self.secondaryEventImage.layer.cornerRadius = self.secondaryEventImage.frame.height / 2
-        self.secondaryEventImage.clipsToBounds = true
-        self.secondaryEventImage.layer.borderWidth = 3.0
-        self.secondaryEventImage.layer.borderColor = UIColor(red:0.18, green:0.26, blue:0.35, alpha:1.0).cgColor
-        print ("formatting view")
+        if self.onePress == false {
+            buttonBackground.makeShape()
+            self.secondaryEventImage.layer.cornerRadius = self.secondaryEventImage.frame.height / 2
+            self.secondaryEventImage.clipsToBounds = true
+            self.secondaryEventImage.layer.borderWidth = 3.0
+            self.secondaryEventImage.layer.borderColor = UIColor(red:0.18, green:0.26, blue:0.35, alpha:1.0).cgColor
+            print ("formatting view")
+        }
     }
     
     

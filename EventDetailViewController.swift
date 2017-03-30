@@ -78,11 +78,14 @@ class EventDetailViewController: SetGovTableViewController{
         
         if (indexPath.row == 0) {
             let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream", for:indexPath) as! EventStream
-            if (animateView == false) {
+            //if (animateView == false) {
                 eventStream.configure()
+            //}
+            if (animateView == true) {
+                print("reloading data")
+                self.tableView.reloadData()
             }
             
-           
             print("cell for row" )
             return eventStream
         }
