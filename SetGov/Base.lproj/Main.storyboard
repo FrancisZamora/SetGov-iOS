@@ -333,7 +333,7 @@
                                                     <color key="value" red="0.039964072406291962" green="0.0" blue="0.36728870868682861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                                    <color key="value" red="0.080448992550373077" green="0.042864866554737091" blue="0.36341378092765808" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="value" red="0.080448992550373077" green="0.042864866554737091" blue="0.42195509804175202" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
