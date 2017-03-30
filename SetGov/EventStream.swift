@@ -30,11 +30,22 @@ class EventStream:  UITableViewCell {
     @IBInspectable var endColor: UIColor = UIColor.red
     
     
+    func configureColor () {
+        
+        buttonBackground.startColor = SG_SECONDARY_REDCOLOR
+        buttonBackground.endColor = UIColor.red
+        print("configuring color")
+        
+        
+    }
+    
+    
     
 
     
     @IBAction func buttonPressed(_ sender: Any) {
         if self.onePress == false {
+        self.configureColor()
         self.pressedButton = true
         buttonBackground.startColor = SG_SECONDARY_REDCOLOR
         buttonBackground.endColor = UIColor.red
