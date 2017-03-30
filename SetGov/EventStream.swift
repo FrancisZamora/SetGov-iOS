@@ -55,8 +55,10 @@ class EventStream:  UITableViewCell {
      
             buttonBackground.startColor = SG_SECONDARY_REDCOLOR
             buttonBackground.endColor = UIColor.red
+            print(buttonBackground.startColor)
             print( "adding gradient")
         }
+            
 
         print("BUTTON WAS PRESSED")
         let transition2: CATransition = CATransition()
