@@ -446,9 +446,15 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p3I-PJ-UQA">
-                                                                <rect key="frame" x="0.0" y="56" width="151" height="2"/>
+                                                                <rect key="frame" x="0.0" y="57" width="151" height="2"/>
                                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="2" id="Nph-RW-WTy"/>
+                                                                </constraints>
                                                             </view>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-6" translatesAutoresizingMaskIntoConstraints="NO" id="uG4-hU-mdK">
+                                                                <rect key="frame" x="40" y="8" width="71" height="46"/>
+                                                            </imageView>
                                                         </subviews>
                                                     </view>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -456,13 +462,17 @@
                                                         <constraint firstItem="p3I-PJ-UQA" firstAttribute="centerX" secondItem="gaC-Ca-9hY" secondAttribute="centerX" id="1KC-ea-2Ip"/>
                                                         <constraint firstItem="gaC-Ca-9hY" firstAttribute="leading" secondItem="m4f-SF-Piy" secondAttribute="leading" id="2Md-RH-Rhm"/>
                                                         <constraint firstItem="m4f-SF-Piy" firstAttribute="top" secondItem="gaC-Ca-9hY" secondAttribute="bottom" constant="3" id="2bz-SB-7ga"/>
+                                                        <constraint firstItem="uG4-hU-mdK" firstAttribute="leading" secondItem="wBG-Cx-QWv" secondAttribute="leadingMargin" constant="32" id="6tn-84-mDd"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="m4f-SF-Piy" secondAttribute="trailing" constant="47" id="8P7-Fh-K8G"/>
                                                         <constraint firstItem="p3I-PJ-UQA" firstAttribute="centerY" secondItem="wBG-Cx-QWv" secondAttribute="centerY" id="AxT-ZH-8Fq"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="p3I-PJ-UQA" secondAttribute="trailing" constant="-9" id="CLW-nY-0Et"/>
                                                         <constraint firstItem="gaC-Ca-9hY" firstAttribute="trailing" secondItem="wBG-Cx-QWv" secondAttribute="trailingMargin" id="FzN-if-Nnc"/>
+                                                        <constraint firstItem="p3I-PJ-UQA" firstAttribute="top" secondItem="uG4-hU-mdK" secondAttribute="bottom" constant="3" id="IhU-EW-z5S"/>
                                                         <constraint firstItem="m4f-SF-Piy" firstAttribute="bottom" secondItem="wBG-Cx-QWv" secondAttribute="bottomMargin" id="QHV-M9-17c"/>
-                                                        <constraint firstItem="gaC-Ca-9hY" firstAttribute="top" secondItem="p3I-PJ-UQA" secondAttribute="bottom" constant="4" id="TzW-KS-tSi"/>
+                                                        <constraint firstItem="gaC-Ca-9hY" firstAttribute="top" secondItem="p3I-PJ-UQA" secondAttribute="bottom" constant="3" id="TzW-KS-tSi"/>
+                                                        <constraint firstItem="uG4-hU-mdK" firstAttribute="centerX" secondItem="p3I-PJ-UQA" secondAttribute="centerX" id="bW3-Bi-S74"/>
                                                         <constraint firstItem="m4f-SF-Piy" firstAttribute="leading" secondItem="wBG-Cx-QWv" secondAttribute="leadingMargin" id="gsP-6o-fL0"/>
+                                                        <constraint firstItem="uG4-hU-mdK" firstAttribute="top" secondItem="wBG-Cx-QWv" secondAttribute="topMargin" id="ua0-ES-5oA"/>
                                                     </constraints>
                                                     <size key="customSize" width="150" height="115"/>
                                                     <connections>
@@ -669,6 +679,7 @@
         <image name="Image-3" width="819" height="819"/>
         <image name="Image-4" width="160" height="160"/>
         <image name="Image-5" width="160" height="160"/>
+        <image name="Image-6" width="63" height="46"/>
         <image name="Image1" width="129" height="97"/>
     </resources>
 </document>
