@@ -13,10 +13,11 @@ import QuartzCore
 class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
+    @IBOutlet var agenda: UILabel!
     @IBOutlet weak var agendaCollectionView: UICollectionView!
     
       
-    @IBOutlet var topicLabel: UILabel!
+   
     override func awakeFromNib() {
         print("EventAgenda")
         agendaCollectionView.delegate = self
@@ -33,6 +34,8 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         }
         if (indexPath.row == 1) {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
+            cell.mLabel.text = "Expand Las Olas"
+            cell.topicLabel.text = "Ordinance"
             cell.layer.cornerRadius = 10
             cell.layer.masksToBounds = true
             return cell
@@ -41,7 +44,8 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         if (indexPath.row == 2) {
            
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
-                cell.mLabel.text = "Expand Las Olas"
+                cell.mLabel.text = "Waterworks"
+                cell.topicLabel.text = "Safety"
                 cell.layer.cornerRadius = 10
                 cell.layer.masksToBounds = true
                 return cell
@@ -54,7 +58,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 3
     }
     
 }

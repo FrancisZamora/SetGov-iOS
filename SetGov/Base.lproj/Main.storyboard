@@ -505,7 +505,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
-                                    <outlet property="agenda" destination="omN-kt-77I" id="47s-bP-XE2"/>
+                                    <outlet property="agenda" destination="omN-kt-77I" id="fyb-Ps-f82"/>
                                     <outlet property="agendaCollectionView" destination="ZAT-vw-PeJ" id="TvV-5b-aer"/>
                                 </connections>
                             </tableViewCell>
