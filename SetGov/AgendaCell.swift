@@ -14,4 +14,7 @@ class AgendaCell: UICollectionViewCell {
     
     @IBOutlet weak var mLabel: UILabel!
     
+    @IBOutlet var topicLabel: UILabel!
+    
+    @IBOutlet var agendaPic: UIImageView!
 }

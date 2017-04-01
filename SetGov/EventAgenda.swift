@@ -15,9 +15,8 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     
     @IBOutlet weak var agendaCollectionView: UICollectionView!
     
-    @IBOutlet var agenda: UILabel!
-    
-    
+      
+    @IBOutlet var topicLabel: UILabel!
     override func awakeFromNib() {
         print("EventAgenda")
         agendaCollectionView.delegate = self
@@ -25,11 +24,32 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+            if (indexPath.row == 0) {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
+                cell.layer.cornerRadius = 10
+                cell.layer.masksToBounds = true
+                // cell.mLabel.text = "CELL: \(indexPath.row)"
+                return cell
+        }
+        if (indexPath.row == 1) {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
+            cell.layer.cornerRadius = 10
+            cell.layer.masksToBounds = true
+            return cell
+
+        }
+        if (indexPath.row == 2) {
+           
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
+                cell.mLabel.text = "Expand Las Olas"
+                cell.layer.cornerRadius = 10
+                cell.layer.masksToBounds = true
+                return cell
+            
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
-       // cell.mLabel.text = "CELL: \(indexPath.row)"
         return cell
     }
     
