@@ -27,8 +27,9 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
-        
-        cell.mLabel.text = "CELL: \(indexPath.row)"
+        cell.layer.cornerRadius = 10
+        cell.layer.masksToBounds = true
+       // cell.mLabel.text = "CELL: \(indexPath.row)"
         return cell
     }
     
