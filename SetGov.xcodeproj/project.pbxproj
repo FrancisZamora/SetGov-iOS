@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1508A69F1E9343F900C92410 /* AgendaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1508A69E1E9343F900C92410 /* AgendaDetailViewController.swift */; };
 		151B8B331E7CBD410021BF89 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151B8B321E7CBD410021BF89 /* GradientView.swift */; };
 		151CDA841E64CF3700440CDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CDA831E64CF3700440CDE /* AppDelegate.swift */; };
 		151CDA891E64CF3700440CDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151CDA871E64CF3700440CDE /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1508A69E1E9343F900C92410 /* AgendaDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaDetailViewController.swift; sourceTree = "<group>"; };
 		151B8B321E7CBD410021BF89 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		151CDA801E64CF3700440CDE /* SetGov.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetGov.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		151CDA831E64CF3700440CDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				153F3F7B1E6DF0E50004E2F4 /* SetGovViewController.swift */,
 				153F3F841E6DF2A20004E2F4 /* SetGovTableViewController.swift */,
 				1523A4991E8B38CB00AE93C2 /* AgendaViewController.swift */,
+				1508A69E1E9343F900C92410 /* AgendaDetailViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				156BD4C91E83185200E8F98B /* EventDetailViewController.swift in Sources */,
 				156BD4D31E836BB300E8F98B /* EventDiscussion.swift in Sources */,
 				153F3F871E6DF54B0004E2F4 /* EventViewController.swift in Sources */,
+				1508A69F1E9343F900C92410 /* AgendaDetailViewController.swift in Sources */,
 				1523A4941E8B385C00AE93C2 /* AgendaCell.swift in Sources */,
 				153F3F891E6DF7190004E2F4 /* EventCell.swift in Sources */,
 				154E5C0B1E89FB6900F96FB6 /* EventAgenda.swift in Sources */,

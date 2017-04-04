@@ -661,7 +661,7 @@
         <!--Marine Advisory-->
         <scene sceneID="T1Y-06-P1r">
             <objects>
-                <viewController id="cc1-Ko-pmI" sceneMemberID="viewController">
+                <viewController id="cc1-Ko-pmI" customClass="AgendaDetailViewController" customModule="SetGov" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="87b-B7-PIL"/>
                         <viewControllerLayoutGuide type="bottom" id="a0L-kK-bZc"/>
@@ -692,6 +692,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Marine Advisory" id="uvS-4k-IjM"/>
+                    <connections>
+                        <outlet property="imageshadowView" destination="bj7-Of-ZUa" id="EEn-DH-aQc"/>
+                        <outlet property="primaryImage" destination="fk4-Ud-x4p" id="aqC-sh-7Vg"/>
+                        <outlet property="titleLabel" destination="fVJ-KG-uxL" id="x6T-6K-Mpl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KH2-Gl-ReY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
