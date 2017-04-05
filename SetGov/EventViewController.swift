@@ -51,8 +51,30 @@ class EventViewController: SetGovTableViewController{
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if (indexPath.row == 1) {
+            let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+            cell.configure()
+            cell.eventTitle.text = "City Council"
+            cell.eventDescription.text = "Monthly meeting"
+            cell.eventDate.text = "Feb 23th"
+        }
+        if (indexPath.row == 2 ) {
+            let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+            cell.configure()
+            cell.eventTitle.text = "Fire-Rescue"
+            cell.eventDescription.text = "Monthly meeting"
+            cell.eventDate.text = "Jan 3rd"
+            return cell
+
+        }
+        
+        
+        
        let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
         cell.configure()
+        
+        
        print("cell for row" )
        return cell
     }
