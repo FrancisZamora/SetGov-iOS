@@ -58,6 +58,8 @@ class EventViewController: SetGovTableViewController{
             cell.eventTitle.text = "City Council"
             cell.eventDescription.text = "Monthly meeting"
             cell.eventDate.text = "Feb 23th"
+            cell.eventImage.image = #imageLiteral(resourceName: "Image-7")
+            
         }
         if (indexPath.row == 2 ) {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
@@ -65,6 +67,7 @@ class EventViewController: SetGovTableViewController{
             cell.eventTitle.text = "Fire-Rescue"
             cell.eventDescription.text = "Monthly meeting"
             cell.eventDate.text = "Jan 3rd"
+            cell.eventImage.image = #imageLiteral(resourceName: "Image-8")
             return cell
 
         }
