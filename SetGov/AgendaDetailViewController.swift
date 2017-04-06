@@ -70,7 +70,7 @@ class AgendaDetailViewController: SetGovTableViewController {
         }
         
         if(indexPath.row == 1) {
-            let agendadetailData =  tableView.dequeueReusableCell(withIdentifier: "AgendaDetailHeader", for:indexPath) as! AgendaDetailHeader
+            let agendadetailData =  tableView.dequeueReusableCell(withIdentifier: "AgendaDetailData", for:indexPath) as! AgendaDetailData
             return agendadetailData
         }
         
