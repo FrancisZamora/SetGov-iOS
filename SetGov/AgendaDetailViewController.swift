@@ -47,13 +47,11 @@ class AgendaDetailViewController: SetGovTableViewController {
     {
         switch indexPath.row {
         case 0:
-            return 200
+            return 231
         case 1:
-            return 38
+            return 248
         case 2:
-            return 176
-        case 3:
-            return 94
+            return 249
         default:
             return 0
         }
