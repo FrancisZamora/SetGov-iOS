@@ -7,3 +7,13 @@
 //
 
 import Foundation
+import QuartzCore
+import UIKit
+
+class AgendaDetailComments: UITableViewCell {
+    
+    
+    
+    
+    
+}

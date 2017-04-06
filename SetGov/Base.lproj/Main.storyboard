@@ -658,16 +658,16 @@
             </objects>
             <point key="canvasLocation" x="2778.4000000000001" y="88.15592203898052"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Agenda Detail View Controller-->
         <scene sceneID="pnb-67-GvK">
             <objects>
-                <tableViewController id="1Ae-3g-4yy" sceneMemberID="viewController">
+                <tableViewController id="1Ae-3g-4yy" customClass="AgendaDetailViewController" customModule="SetGov" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="270" sectionHeaderHeight="28" sectionFooterHeight="28" id="T71-Vh-nfU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="232" id="Pqb-03-Dgg">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AgendaDetailHeader" rowHeight="232" id="Pqb-03-Dgg" customClass="AgendaDetailHeader" customModule="SetGov" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="232"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pqb-03-Dgg" id="JZU-TL-H0o">
@@ -709,7 +709,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="248" id="OWD-tL-sNE">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AgendaDetailData" rowHeight="248" id="OWD-tL-sNE" customClass="AgendaDetailData" customModule="SetGov" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="260" width="375" height="248"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OWD-tL-sNE" id="q4l-Zv-vIm">
@@ -790,7 +790,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="249" id="eZA-0B-yKT">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AgendaDetailComments" rowHeight="249" id="eZA-0B-yKT" customClass="AgendaDetailComments" customModule="SetGov" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="508" width="375" height="249"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eZA-0B-yKT" id="das-xF-ejK">
