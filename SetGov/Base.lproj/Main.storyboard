@@ -833,14 +833,20 @@
                     </view>
                     <navigationItem key="navigationItem" title="Marine Advisory" id="uvS-4k-IjM"/>
                     <connections>
+                        <outlet property="borderFour" destination="98o-oU-EgP" id="2Cm-f5-fMN"/>
+                        <outlet property="borderOne" destination="aNZ-jJ-Zv9" id="WNN-2m-OjQ"/>
+                        <outlet property="borderThree" destination="pLF-lR-xNC" id="yNk-cB-SbB"/>
+                        <outlet property="borderTwo" destination="7MN-au-R3S" id="VkK-bp-yp3"/>
                         <outlet property="imageshadowView" destination="bj7-Of-ZUa" id="EEn-DH-aQc"/>
                         <outlet property="primaryImage" destination="fk4-Ud-x4p" id="aqC-sh-7Vg"/>
+                        <outlet property="secondaryTitle" destination="y7j-wB-3SZ" id="XQn-O2-tH2"/>
+                        <outlet property="tertiaryTitle" destination="wcs-cx-3SU" id="nQ5-pA-jVp"/>
                         <outlet property="titleLabel" destination="fVJ-KG-uxL" id="x6T-6K-Mpl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KH2-Gl-ReY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3453.5999999999999" y="66.566716641679164"/>
+            <point key="canvasLocation" x="3690" y="-44"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="80P-Su-GY0">
