@@ -10,19 +10,21 @@ import Foundation
 import UIKit
 import QuartzCore
 
-class AgendaDetailViewController: UIViewController {
+class AgendaDetailViewController: UITableViewController {
     
     
-    @IBOutlet var dataTitle: UILabel!
-    @IBOutlet var titleLabel: UILabel!
-    
-    @IBOutlet var borderOne: UIView!
-    @IBOutlet var primaryImage: UIImageView!
-    @IBOutlet var borderTwo: UIView!
-    @IBOutlet var borderFour: UIView!
-    
-    @IBOutlet var borderThree: UIView!
-    @IBOutlet var tertiaryTitle: UILabel!
-    @IBOutlet var secondaryTitle: UILabel!
-    @IBOutlet var imageshadowView: UIView!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1508547C1E97077F00838D85 /* AgendaDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1508547B1E97077F00838D85 /* AgendaDetailHeader.swift */; };
+		1508547E1E97078C00838D85 /* AgendaDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1508547D1E97078C00838D85 /* AgendaDetailData.swift */; };
+		150854801E97079C00838D85 /* AgendaDetailComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1508547F1E97079C00838D85 /* AgendaDetailComments.swift */; };
 		1508A69F1E9343F900C92410 /* AgendaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1508A69E1E9343F900C92410 /* AgendaDetailViewController.swift */; };
 		151B8B331E7CBD410021BF89 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151B8B321E7CBD410021BF89 /* GradientView.swift */; };
 		151CDA841E64CF3700440CDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CDA831E64CF3700440CDE /* AppDelegate.swift */; };
@@ -50,6 +53,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1508547B1E97077F00838D85 /* AgendaDetailHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaDetailHeader.swift; sourceTree = "<group>"; };
+		1508547D1E97078C00838D85 /* AgendaDetailData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaDetailData.swift; sourceTree = "<group>"; };
+		1508547F1E97079C00838D85 /* AgendaDetailComments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaDetailComments.swift; sourceTree = "<group>"; };
 		1508A69E1E9343F900C92410 /* AgendaDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaDetailViewController.swift; sourceTree = "<group>"; };
 		151B8B321E7CBD410021BF89 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		151CDA801E64CF3700440CDE /* SetGov.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetGov.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +170,9 @@
 			isa = PBXGroup;
 			children = (
 				153F3F881E6DF7190004E2F4 /* EventCell.swift */,
+				1508547B1E97077F00838D85 /* AgendaDetailHeader.swift */,
+				1508547D1E97078C00838D85 /* AgendaDetailData.swift */,
+				1508547F1E97079C00838D85 /* AgendaDetailComments.swift */,
 				156BD4CC1E836B6300E8F98B /* EventInfo.swift */,
 				156BD4D21E836BB300E8F98B /* EventDiscussion.swift */,
 				156BD4D01E836B9800E8F98B /* EventMembers.swift */,
@@ -334,10 +343,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				150854801E97079C00838D85 /* AgendaDetailComments.swift in Sources */,
 				153F3F7E1E6DF0ED0004E2F4 /* LoginViewController.swift in Sources */,
 				15D3DB871E7A169E00CD35DD /* ProfileImage.swift in Sources */,
+				1508547E1E97078C00838D85 /* AgendaDetailData.swift in Sources */,
 				153F3F7C1E6DF0E50004E2F4 /* SetGovViewController.swift in Sources */,
 				153F3F851E6DF2A20004E2F4 /* SetGovTableViewController.swift in Sources */,
+				1508547C1E97077F00838D85 /* AgendaDetailHeader.swift in Sources */,
 				156BD4D11E836B9800E8F98B /* EventMembers.swift in Sources */,
 				156BD4CD1E836B6300E8F98B /* EventInfo.swift in Sources */,
 				151CDA841E64CF3700440CDE /* AppDelegate.swift in Sources */,
