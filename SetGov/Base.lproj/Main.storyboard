@@ -674,47 +674,32 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image1" translatesAutoresizingMaskIntoConstraints="NO" id="7WQ-j7-kZc">
+                                        <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image1" translatesAutoresizingMaskIntoConstraints="NO" id="7WQ-j7-kZc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0wQ-bK-pgL">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Safety Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOa-aP-Kpc">
-                                                    <rect key="frame" x="102" y="139" width="171" height="32"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                                    <color key="textColor" red="0.09551713615655899" green="0.22882530093193054" blue="0.55778402090072632" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Waterway Crime &amp; Boating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZz-Lb-cpx">
-                                                    <rect key="frame" x="22" y="99" width="331" height="32"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                                    <color key="textColor" red="0.09551713615655899" green="0.22882530093193054" blue="0.55778402090072632" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Safety Updates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rn-53-NNT">
-                                                    <rect key="frame" x="115" y="185" width="144" height="26"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="21"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Safety Updates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rn-53-NNT">
+                                            <rect key="frame" x="115" y="171" width="144" height="26"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="21"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Waterway Crime &amp; Boating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZz-Lb-cpx">
+                                            <rect key="frame" x="50" y="74" width="331" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                            <color key="textColor" red="0.09551713615655899" green="0.22882530093193054" blue="0.55778402090072632" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Safety Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOa-aP-Kpc">
+                                            <rect key="frame" x="102" y="114" width="171" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                            <color key="textColor" red="0.09551713615655899" green="0.22882530093193054" blue="0.55778402090072632" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="0wQ-bK-pgL" firstAttribute="trailing" secondItem="7WQ-j7-kZc" secondAttribute="trailing" id="A4P-iM-hmo"/>
-                                        <constraint firstAttribute="bottom" secondItem="0wQ-bK-pgL" secondAttribute="bottom" id="JUa-go-CUZ"/>
-                                        <constraint firstItem="0wQ-bK-pgL" firstAttribute="leading" secondItem="7WQ-j7-kZc" secondAttribute="leading" id="Rga-7u-ztd"/>
-                                        <constraint firstItem="0wQ-bK-pgL" firstAttribute="top" secondItem="7WQ-j7-kZc" secondAttribute="top" id="Td5-0p-dyu"/>
-                                        <constraint firstAttribute="trailing" secondItem="0wQ-bK-pgL" secondAttribute="trailing" id="gZe-aa-NNf"/>
-                                        <constraint firstItem="0wQ-bK-pgL" firstAttribute="bottom" secondItem="7WQ-j7-kZc" secondAttribute="bottom" id="jc7-bq-4bX"/>
-                                        <constraint firstItem="0wQ-bK-pgL" firstAttribute="top" secondItem="JZU-TL-H0o" secondAttribute="top" id="pfC-FW-Eus"/>
-                                        <constraint firstItem="0wQ-bK-pgL" firstAttribute="leading" secondItem="JZU-TL-H0o" secondAttribute="leading" id="tIu-mB-aoE"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AgendaDetailData" rowHeight="248" id="OWD-tL-sNE" customClass="AgendaDetailData" customModule="SetGov" customModuleProvider="target">
