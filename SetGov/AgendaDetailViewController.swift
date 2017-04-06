@@ -12,6 +12,8 @@ import QuartzCore
 
 class AgendaDetailViewController: UIViewController {
     
+    
+    @IBOutlet var dataTitle: UILabel!
     @IBOutlet var titleLabel: UILabel!
     
     @IBOutlet var borderOne: UIView!
