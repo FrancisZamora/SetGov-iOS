@@ -622,21 +622,21 @@
                                 <rect key="frame" x="0.0" y="572" width="375" height="314"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MYI-qh-THg" id="IwL-Ej-qcu">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="313.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="314"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discussion Thread" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BkO-Qn-kHr">
                                             <rect key="frame" x="8" y="8" width="203" height="55"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="203" id="qi8-hj-uYR"/>
+                                                <constraint firstAttribute="width" constant="203" id="Ien-Uy-adf"/>
+                                                <constraint firstAttribute="height" constant="55" id="zeq-kr-wTp"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                             <color key="textColor" red="0.09551713615655899" green="0.22882530093193054" blue="0.55778402090072632" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TfD-vn-xwg">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TfD-vn-xwg">
                                             <rect key="frame" x="41" y="71" width="303" height="207"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -644,9 +644,12 @@
                                         </textView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="BkO-Qn-kHr" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" id="5iu-cC-trG"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="BkO-Qn-kHr" secondAttribute="bottom" constant="242.5" id="Kov-u1-nSL"/>
-                                        <constraint firstItem="BkO-Qn-kHr" firstAttribute="leading" secondItem="IwL-Ej-qcu" secondAttribute="leadingMargin" id="PNW-zz-wre"/>
+                                        <constraint firstItem="TfD-vn-xwg" firstAttribute="top" secondItem="BkO-Qn-kHr" secondAttribute="bottom" constant="8" symbolic="YES" id="9LQ-0c-nG5"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="TfD-vn-xwg" secondAttribute="trailing" constant="23" id="BL4-j3-DPe"/>
+                                        <constraint firstItem="BkO-Qn-kHr" firstAttribute="leading" secondItem="IwL-Ej-qcu" secondAttribute="leadingMargin" id="NDD-1K-SNE"/>
+                                        <constraint firstItem="BkO-Qn-kHr" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" id="OXe-zY-Iad"/>
+                                        <constraint firstItem="TfD-vn-xwg" firstAttribute="leading" secondItem="IwL-Ej-qcu" secondAttribute="leadingMargin" constant="33" id="TS6-GK-FYB"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="TfD-vn-xwg" secondAttribute="bottom" constant="27" id="yfD-d5-ROR"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
