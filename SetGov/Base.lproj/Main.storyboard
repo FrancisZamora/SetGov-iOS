@@ -773,21 +773,21 @@
                                                 <constraint firstAttribute="height" constant="2" id="DTb-Bn-gmP"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pY8-CH-WpE">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pY8-CH-WpE">
                                             <rect key="frame" x="-8" y="122" width="383" height="2"/>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="2" id="yOJ-CG-20I"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="egk-Ha-wIs">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="egk-Ha-wIs">
                                             <rect key="frame" x="-8" y="197" width="383" height="2"/>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="2" id="2z0-dM-5AP"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E7W-L9-Gbn">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E7W-L9-Gbn">
                                             <rect key="frame" x="-8" y="159" width="383" height="2"/>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -847,7 +847,7 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="aVY-7y-SZB" secondAttribute="trailing" constant="160" id="Jda-wj-WjN"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="IbA-M6-k23" secondAttribute="bottom" constant="154" id="NAq-He-YyZ"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="5JL-2F-f8o" secondAttribute="bottom" constant="162" id="NOs-mn-a80"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="egk-Ha-wIs" secondAttribute="trailing" id="STm-9i-Kvq"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="egk-Ha-wIs" secondAttribute="trailing" constant="-8" id="STm-9i-Kvq"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="aVY-7y-SZB" secondAttribute="leading" id="Sje-JJ-fgL"/>
                                         <constraint firstItem="EO1-Rn-WNd" firstAttribute="top" secondItem="q4l-Zv-vIm" secondAttribute="topMargin" constant="160" id="TO8-qv-2b3"/>
                                         <constraint firstItem="E7W-L9-Gbn" firstAttribute="leading" secondItem="q4l-Zv-vIm" secondAttribute="leadingMargin" constant="-16" id="Wpa-eN-vuj"/>
@@ -855,7 +855,7 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="RnE-h9-rlL" secondAttribute="trailing" constant="234" id="aia-zl-vht"/>
                                         <constraint firstItem="5JL-2F-f8o" firstAttribute="top" secondItem="q4l-Zv-vIm" secondAttribute="topMargin" constant="48" id="atn-ZY-rzj"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="6iO-YN-QRL" secondAttribute="trailing" constant="217" id="bdD-mz-Dbr"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="E7W-L9-Gbn" secondAttribute="trailing" id="eQn-fw-iWx"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="E7W-L9-Gbn" secondAttribute="trailing" constant="-8" id="eQn-fw-iWx"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="RnE-h9-rlL" secondAttribute="leading" id="eb3-zh-ddl"/>
                                         <constraint firstItem="IbA-M6-k23" firstAttribute="leading" secondItem="q4l-Zv-vIm" secondAttribute="leadingMargin" constant="-8" id="f6B-q8-UBr"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="EO1-Rn-WNd" secondAttribute="bottom" constant="50" id="h6z-Ax-BFG"/>
@@ -872,7 +872,7 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="IbA-M6-k23" secondAttribute="trailing" constant="-8" id="vzV-Jl-cCO"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="EO1-Rn-WNd" secondAttribute="leading" id="xwW-Oc-5Fh"/>
                                         <constraint firstItem="2J8-BE-Jnk" firstAttribute="top" secondItem="q4l-Zv-vIm" secondAttribute="topMargin" constant="122" id="yij-6q-QxE"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="pY8-CH-WpE" secondAttribute="trailing" id="zsc-AK-t9v"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="pY8-CH-WpE" secondAttribute="trailing" constant="-8" id="zsc-AK-t9v"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
