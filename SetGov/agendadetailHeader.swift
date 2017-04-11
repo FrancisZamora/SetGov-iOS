@@ -12,5 +12,9 @@ import QuartzCore
 
 class AgendaDetailHeader: UITableViewCell {
     
+    @IBOutlet var titleLabel: UILabel!
     
+    @IBOutlet var secondaryTitle: UILabel!
+    
+    @IBOutlet var tertiaryTitle: UILabel!
 }

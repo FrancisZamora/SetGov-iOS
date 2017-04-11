@@ -12,6 +12,26 @@ import UIKit
 
 class AgendaDetailData: UITableViewCell{
     
+    @IBOutlet var latestData: UILabel!
+    
+    @IBOutlet var datatitleOne: UILabel!
+    
+    @IBOutlet var datatitleTwo: UILabel!
+    @IBOutlet var datatitleThree: UILabel!
+    
+    @IBOutlet var datatitleFour: UILabel!
+    
+    @IBOutlet var datatitleFive: UILabel!
+    
+    
+    @IBOutlet var datapointOne: UILabel!
+    
+    @IBOutlet var datapointTwo: UILabel!
+    
+    @IBOutlet var datapointThree: UILabel!
+    @IBOutlet var datapointFour: UILabel!
+    @IBOutlet var datapointFive: UILabel!
+    
     
     
 }
