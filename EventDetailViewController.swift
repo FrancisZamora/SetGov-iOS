@@ -17,7 +17,7 @@ class EventDetailViewController: SetGovTableViewController{
     var count = 0
     var numsections = 0
     var animateView: Bool = false
-    var eventStream: EventStream!
+    var counter = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,11 +72,21 @@ class EventDetailViewController: SetGovTableViewController{
         
         if (indexPath.row == 0) {
             let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream", for:indexPath) as! EventStream
+            eventStream.loadUp()
+
             eventStream.configure()
             print(animateView)
             if (animateView == true) {
                 print("reloading data")
                 self.tableView.reloadData()
+            }
+            
+            if (eventStream.onePress == true && self.counter == 0)  {
+                self.counter = 1
+                DispatchQueue.main.async{
+                    self.tableView.reloadData()
+                }
+
             }
             
             print("cell for row" )

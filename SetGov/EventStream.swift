@@ -39,12 +39,16 @@ class EventStream:  UITableViewCell {
         
     }
     
+    func loadUp() {
+        self.onePress = false 
+    }
+    
     
     
 
     
     @IBAction func buttonPressed(_ sender: Any) {
-        if self.onePress == false {
+       if self.onePress == false {
         self.configureColor()
         self.pressedButton = true
         buttonBackground.startColor = SG_SECONDARY_REDCOLOR
@@ -83,6 +87,7 @@ class EventStream:  UITableViewCell {
         self.secondaryEventImage.layer.borderWidth = 3.0
         self.secondaryEventImage.layer.borderColor = SG_RED_COLOR.cgColor
         self.onePress = true
+       
 
         }
 
