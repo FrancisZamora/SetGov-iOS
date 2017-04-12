@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import QuartzCore
 
-class LiveStream: UITableViewCell {
+class EventLiveStream: UITableViewCell {
     @IBOutlet var streamView: UIWebView!
     
     @IBOutlet var timeView: UIView!

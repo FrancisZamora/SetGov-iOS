@@ -24,11 +24,14 @@ class EventStream:  UITableViewCell {
     @IBOutlet var attendButton: UIButton!
     @IBOutlet var buttonBackground: GradientView!
     var pressedButton: Bool?
-    var onePress: Bool = false 
+    var onePress: Bool = false
+    var initiateStream: Bool = false
     var EventDetailViewController:EventDetailViewController?
     @IBInspectable var startColor: UIColor = SG_RED_COLOR
     @IBInspectable var endColor: UIColor = UIColor.red
-    
+    var countDown = 0
+    var presentStream: Bool = false
+    var timer = Timer()
     
     func configureColor () {
         
@@ -39,8 +42,23 @@ class EventStream:  UITableViewCell {
         
     }
     
-    func loadUp() {
-        self.onePress = false 
+    func increment() {
+        if countDown >= 2 {
+           countDown+=1
+            print("we hit increment")
+        }
+    }
+    
+    
+    func streamContent() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(increment), userInfo: nil, repeats: true)
+        print("streamContent initiliazing")
+
+        if (self.initiateStream == true && self.countDown == 3){
+            self.presentStream = true
+            print("present Stream")
+        }
+        
     }
     
     
@@ -49,6 +67,8 @@ class EventStream:  UITableViewCell {
     
     @IBAction func buttonPressed(_ sender: Any) {
        if self.onePress == false {
+        self.initiateStream = true
+        self.streamContent()
         self.configureColor()
         self.pressedButton = true
         buttonBackground.startColor = SG_SECONDARY_REDCOLOR

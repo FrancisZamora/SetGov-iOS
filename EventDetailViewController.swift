@@ -72,7 +72,6 @@ class EventDetailViewController: SetGovTableViewController{
         
         if (indexPath.row == 0) {
             let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream", for:indexPath) as! EventStream
-            eventStream.loadUp()
 
             eventStream.configure()
             print(animateView)
@@ -81,11 +80,16 @@ class EventDetailViewController: SetGovTableViewController{
                 self.tableView.reloadData()
             }
             
-            if (eventStream.onePress == true && self.counter == 0)  {
-                self.counter = 1
-                DispatchQueue.main.async{
-                    self.tableView.reloadData()
-                }
+            //if (eventStream.onePress == true && self.counter == 0)  {
+              //  self.counter = 1
+                //DispatchQueue.main.async{
+                  //  self.tableView.reloadData()
+                //}
+            
+            if eventStream.presentStream == true{
+            let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream", for: indexPath) as! EventLiveStream
+                print ("returning stream")
+                return eventLiveStream
 
             }
             

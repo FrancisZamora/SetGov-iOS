@@ -653,7 +653,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LiveStream" rowHeight="216" id="5GD-rW-UBB" customClass="LiveStream" customModule="SetGov" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventLiveStream" rowHeight="216" id="5GD-rW-UBB" customClass="EventLiveStream" customModule="SetGov" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="886" width="375" height="216"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5GD-rW-UBB" id="CER-XE-Gh6">
