@@ -73,11 +73,10 @@ class EventDetailViewController: SetGovTableViewController{
             let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream", for:indexPath) as! EventStream
 
           
-            if eventStream.initiateStream == false {
+           
                 eventStream.configure()
                 eventStream.streamContent()
-                return eventStream
-            }
+            
             
             if eventStream.initiateStream == true{
                 print(eventStream.presentStream)
@@ -86,6 +85,9 @@ class EventDetailViewController: SetGovTableViewController{
                 return eventLiveStream
 
             }
+            
+            return eventStream
+            
             
             print("cell for row" )
            

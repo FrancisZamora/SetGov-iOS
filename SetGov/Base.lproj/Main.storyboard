@@ -960,7 +960,6 @@
                                     <outlet property="datatitleThree" destination="2J8-BE-Jnk" id="6pX-M5-RBT"/>
                                     <outlet property="datatitleTwo" destination="RnE-h9-rlL" id="go5-3b-gHV"/>
                                     <outlet property="latestData" destination="aVY-7y-SZB" id="jce-sS-2wa"/>
-                                    <outlet property="swag" destination="e1r-99-Xx9" id="IdP-hp-6JP"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AgendaDetailComments" rowHeight="249" id="eZA-0B-yKT" customClass="AgendaDetailComments" customModule="SetGov" customModuleProvider="target">
