@@ -76,7 +76,10 @@ class EventDetailViewController: SetGovTableViewController{
            
                 eventStream.configure()
                 eventStream.streamContent()
-            
+            if (animateView == true) {
+                print("reloading data")
+                self.tableView.reloadData()
+            }
             
             if eventStream.initiateStream == true{
                 print(eventStream.presentStream)

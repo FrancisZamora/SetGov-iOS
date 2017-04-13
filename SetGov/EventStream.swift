@@ -38,7 +38,7 @@ class EventStream:  UITableViewCell {
         
         buttonBackground.startColor = SG_SECONDARY_REDCOLOR
         buttonBackground.endColor = UIColor.red
-        print("configuring color")
+              print("configuring color")
         
         
     }
@@ -85,11 +85,15 @@ class EventStream:  UITableViewCell {
         buttonBackground.endColor = UIColor.red
         self.EventDetailViewController?.animateView = true
         self.attendButton.setTitle("Now Live", for: .normal)
+        self.buttonBackground.startColor = SG_SECONDARY_REDCOLOR
+        self.buttonBackground.endColor = UIColor.red
+        self.buttonBackground.backgroundColor = UIColor.black
         let transition: CATransition = CATransition()
         transition.duration = 0.5
         transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         transition.type = kCATransitionReveal
         transition.subtype = kCATransitionFromRight
+        self.buttonBackground.layer.add(transition,forKey:nil)
         self.attendButton.layer.add(transition, forKey: nil)
         self.attendButton.layer.cornerRadius = self.attendButton.frame.height / 2
         self.attendButton.clipsToBounds = true
@@ -116,6 +120,7 @@ class EventStream:  UITableViewCell {
         self.secondaryEventImage.clipsToBounds = true
         self.secondaryEventImage.layer.borderWidth = 3.0
         self.secondaryEventImage.layer.borderColor = SG_RED_COLOR.cgColor
+        
         self.onePress = true
        
 
