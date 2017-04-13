@@ -91,6 +91,7 @@ class EventDetailViewController: SetGovTableViewController{
                 eventLiveStream.selectionStyle = .none
                 print ("returning stream")
                 eventLiveStream.configure()
+                eventLiveStream.playVideo()
                 return eventLiveStream
 
             }
