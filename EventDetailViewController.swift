@@ -69,32 +69,26 @@ class EventDetailViewController: SetGovTableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(indexPath.row)
         
-        
         if (indexPath.row == 0) {
             let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream", for:indexPath) as! EventStream
 
-            eventStream.configure()
-            print(animateView)
-            if (animateView == true) {
-                print("reloading data")
-                self.tableView.reloadData()
+          
+            if eventStream.initiateStream == false {
+                eventStream.configure()
+                eventStream.streamContent()
+                return eventStream
             }
             
-            //if (eventStream.onePress == true && self.counter == 0)  {
-              //  self.counter = 1
-                //DispatchQueue.main.async{
-                  //  self.tableView.reloadData()
-                //}
-            
-            if eventStream.presentStream == true{
-            let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream", for: indexPath) as! EventLiveStream
+            if eventStream.initiateStream == true{
+                print(eventStream.presentStream)
+                let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream", for: indexPath) as! EventLiveStream
                 print ("returning stream")
                 return eventLiveStream
 
             }
             
             print("cell for row" )
-            return eventStream
+           
         }
         
         if(indexPath.row == 1) {

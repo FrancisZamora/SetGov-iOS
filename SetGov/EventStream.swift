@@ -32,6 +32,7 @@ class EventStream:  UITableViewCell {
     var countDown = 0
     var presentStream: Bool = false
     var timer = Timer()
+    var eventTVController: EventDetailViewController?
     
     func configureColor () {
         
@@ -40,6 +41,13 @@ class EventStream:  UITableViewCell {
         print("configuring color")
         
         
+    }
+    
+    func checkStream()-> Bool {
+        if (presentStream == true) {
+            return true
+        }
+        return false
     }
     
     func increment() {
@@ -54,7 +62,9 @@ class EventStream:  UITableViewCell {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(increment), userInfo: nil, repeats: true)
         print("streamContent initiliazing")
 
-        if (self.initiateStream == true && self.countDown == 3){
+        if (self.initiateStream == true) {
+             self.EventDetailViewController?.tableView.reloadData()
+            print("reloading data")
             self.presentStream = true
             print("present Stream")
         }
