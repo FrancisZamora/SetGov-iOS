@@ -70,7 +70,7 @@ class EventDetailViewController: SetGovTableViewController{
         print(indexPath.row)
         
         if (indexPath.row == 0) {
-            let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream", for:indexPath) as! EventStream
+            let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream") as! EventStream
 
           
            
@@ -86,7 +86,7 @@ class EventDetailViewController: SetGovTableViewController{
             
             if eventStream.initiateStream == true{
                 print(eventStream.presentStream)
-                let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream", for: indexPath) as! EventLiveStream
+                let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream") as! EventLiveStream
                 print ("returning stream")
                 return eventLiveStream
 
