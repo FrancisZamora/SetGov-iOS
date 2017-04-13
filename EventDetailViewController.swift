@@ -81,26 +81,32 @@ class EventDetailViewController: SetGovTableViewController{
             }
             if (animateView == true) {
                 print("reloading data")
+                eventStream.activateStream() 
                 self.tableView.reloadData()
             }
             
-            if eventStream.initiateStream == true{
+            if eventStream.initiateStream == true {
                 print(eventStream.presentStream)
                 let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream") as! EventLiveStream
+                eventLiveStream.selectionStyle = .none
                 print ("returning stream")
+                eventLiveStream.configure()
                 return eventLiveStream
 
             }
+            print("cell for row" )
+
             
             return eventStream
             
             
-            print("cell for row" )
-           
+            
         }
         
         if(indexPath.row == 1) {
             let infoCell =  tableView.dequeueReusableCell(withIdentifier: "EventInfo", for:indexPath) as! EventInfo
+            infoCell.selectionStyle = .none
+
             return infoCell
         }
         

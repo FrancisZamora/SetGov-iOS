@@ -30,7 +30,7 @@ class EventStream:  UITableViewCell {
     @IBInspectable var startColor: UIColor = SG_RED_COLOR
     @IBInspectable var endColor: UIColor = UIColor.red
     var countDown = 0
-    var presentStream: Bool = true
+    var presentStream: Bool = false
     var timer = Timer()
     var eventTVController: EventDetailViewController?
     
@@ -41,6 +41,9 @@ class EventStream:  UITableViewCell {
               print("configuring color")
         
         
+    }
+    func activateStream () {
+        self.initiateStream = true
     }
     
     func checkStream()-> Bool {

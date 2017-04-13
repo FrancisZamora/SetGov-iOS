@@ -21,6 +21,10 @@ class EventLiveStream: UITableViewCell {
     
     func configure() {
         liveView.backgroundColor = SG_RED_COLOR
+        liveView.layer.cornerRadius = 10
+        liveView.layer.masksToBounds = true
+        timeView.layer.cornerRadius = 10
+        timeView.layer.masksToBounds = true 
     
     }
     

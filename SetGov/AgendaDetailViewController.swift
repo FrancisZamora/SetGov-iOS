@@ -63,6 +63,7 @@ class AgendaDetailViewController: SetGovTableViewController {
         
         if (indexPath.row == 0) {
             let agendadetailHeader =  tableView.dequeueReusableCell(withIdentifier: "AgendaDetailHeader", for:indexPath) as! AgendaDetailHeader
+            agendadetailHeader.selectionStyle = .none
             
             
             print("cell for row" )
@@ -71,16 +72,20 @@ class AgendaDetailViewController: SetGovTableViewController {
         
         if(indexPath.row == 1) {
             let agendadetailData =  tableView.dequeueReusableCell(withIdentifier: "AgendaDetailData", for:indexPath) as! AgendaDetailData
+            agendadetailData.selectionStyle = .none
             return agendadetailData
         }
         
         if(indexPath.row == 2) {
             let agendadetailComments = tableView.dequeueReusableCell(withIdentifier: "AgendaDetailComments", for:indexPath) as! AgendaDetailComments
+            agendadetailComments.selectionStyle = .none
+            
             agendadetailComments.disableEditing()
             
             return agendadetailComments
         }
         let agendadetailHeader =  tableView.dequeueReusableCell(withIdentifier: "AgendaDetailHeader", for:indexPath) as! AgendaDetailHeader
+        agendadetailHeader.selectionStyle = .none
         
         return agendadetailHeader
         
