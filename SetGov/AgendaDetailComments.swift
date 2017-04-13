@@ -16,6 +16,9 @@ class AgendaDetailComments: UITableViewCell {
     
     @IBOutlet var commentField: UITextView!
     
+    func disableEditing() {
+        commentField.isUserInteractionEnabled = false 
+    }
     
     
 }

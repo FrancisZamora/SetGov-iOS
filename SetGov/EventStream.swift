@@ -87,7 +87,7 @@ class EventStream:  UITableViewCell {
         self.attendButton.setTitle("Now Live", for: .normal)
         self.buttonBackground.startColor = SG_SECONDARY_REDCOLOR
         self.buttonBackground.endColor = UIColor.red
-        self.buttonBackground.backgroundColor = UIColor.black
+        self.buttonBackground.backgroundColor = SG_RED_COLOR
         let transition: CATransition = CATransition()
         transition.duration = 0.5
         transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)

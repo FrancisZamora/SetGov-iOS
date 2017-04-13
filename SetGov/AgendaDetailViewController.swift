@@ -76,6 +76,7 @@ class AgendaDetailViewController: SetGovTableViewController {
         
         if(indexPath.row == 2) {
             let agendadetailComments = tableView.dequeueReusableCell(withIdentifier: "AgendaDetailComments", for:indexPath) as! AgendaDetailComments
+            agendadetailComments.disableEditing()
             
             return agendadetailComments
         }
