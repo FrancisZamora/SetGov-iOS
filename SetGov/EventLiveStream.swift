@@ -32,7 +32,7 @@ class EventLiveStream: UITableViewCell {
         let width: CGFloat = streamView.frame.size.width
         let height = ceil((width / 16) * 9) // Assuming that the videos aspect ratio is 16:9
         
-        let myVideo = "https://www.youtube.com/watch?v=tvTRZJ-4EyI"
+        let myVideo = "https://myvideo"
         
         let myHTML = "<iframe align=\"middle\" width=\"\(streamView.frame.size.width)\" height=\"\(streamView.frame.size.height)\" src=\"\(myVideo)?&playsinline=1\" frameborder=\"0\" allowfullscreen></iframe>"
         
