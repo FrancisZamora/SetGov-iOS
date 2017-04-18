@@ -31,11 +31,9 @@ class EventLiveStream: UITableViewCell {
         liveView.layer.masksToBounds = true
         timeView.layer.cornerRadius = 10
         timeView.layer.masksToBounds = true
-        if counter == 0 {
-            timeLabel.text = "SWAG"
-        }
+       
 
-        timeLabel.text = "00:00"
+        timeLabel.text = " 00:00"
         print("time set to 0 ")
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(incrementTime), userInfo: nil, repeats: true)
 
@@ -47,26 +45,40 @@ class EventLiveStream: UITableViewCell {
         print(counter)
         print(counter == 0)
         if counter == 0 {
-            timeLabel.text = "00:00"
+            timeLabel.text = " 00:00"
 
 
         }
         if counter < 60 && counter != 0  {
             timeLabel.text = " 00:" + String(counter)
         }
+        var minuteClock = (counter / 60).array
+        print(minuteClock[0])
+        
+        let newminuteClock = minuteClock[0]
+        let secondClock = counter - (newminuteClock * 60)
+        var secondHand = " "
         
         if counter > 60 {
             if (counter % 60 == 0) {
-                let minuteClock = counter/60
-                print(minuteClock)
-                timeLabel.text = String(minuteClock) + ":00"
+                timeLabel.text = String(describing: minuteClock) + ":00"
             }
             if ( counter % 60 != 0 ) {
-                let minuteClock = (counter / 60).array
-                let newminuteClock = minuteClock[0]
-                let secondClock = counter & 60
-                timeLabel.text = String(newminuteClock) + ":" + String(secondClock)
+                timeLabel.text = " " + String(newminuteClock) + ":" + String(secondHand)
                 
+            }
+            if secondClock < 10 {
+                secondHand = "0" + String(secondClock)
+            }
+            if secondClock >= 10 {
+                secondHand = String(secondClock)
+            }
+            
+
+            
+            if counter < 600 {
+             
+                timeLabel.text = " 0" + String(newminuteClock) + ":" + String(secondHand)
             }
             
           
@@ -74,10 +86,7 @@ class EventLiveStream: UITableViewCell {
         counter = counter + 1
 
     }
-    
-  //  func setTime() {
-    //    timeLabel.text = String(counter)
-    //}
+ 
     
     
     func playVideo () {
