@@ -92,8 +92,7 @@ class EventDetailViewController: SetGovTableViewController{
                 print ("returning stream")
                 eventLiveStream.configure()
                 eventLiveStream.playVideo()
-                eventLiveStream.incrementTime()
-                eventLiveStream.setTime()
+               
                 return eventLiveStream
 
             }

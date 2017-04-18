@@ -31,22 +31,34 @@ class EventLiveStream: UITableViewCell {
         liveView.layer.masksToBounds = true
         timeView.layer.cornerRadius = 10
         timeView.layer.masksToBounds = true
-        timeLabel.text = "0:00"
+        if counter == 0 {
+            timeLabel.text = "SWAG"
+        }
+
+        timeLabel.text = "00:00"
+        print("time set to 0 ")
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(incrementTime), userInfo: nil, repeats: true)
 
     
     }
     
     func incrementTime() {
-        counter = counter + 1
+       
         print(counter)
-        if counter < 60 {
+        print(counter == 0)
+        if counter == 0 {
+            timeLabel.text = "00:00"
+
+
+        }
+        if counter < 60 && counter != 0  {
             timeLabel.text = " 00:" + String(counter)
         }
         
         if counter > 60 {
             if (counter % 60 == 0) {
                 let minuteClock = counter/60
+                print(minuteClock)
                 timeLabel.text = String(minuteClock) + ":00"
             }
             if ( counter % 60 != 0 ) {
@@ -56,13 +68,16 @@ class EventLiveStream: UITableViewCell {
                 timeLabel.text = String(newminuteClock) + ":" + String(secondClock)
                 
             }
+            
           
         }
+        counter = counter + 1
+
     }
     
-    func setTime() {
-        timeLabel.text = String(counter)
-    }
+  //  func setTime() {
+    //    timeLabel.text = String(counter)
+    //}
     
     
     func playVideo () {
