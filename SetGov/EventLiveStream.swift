@@ -49,6 +49,7 @@ class EventLiveStream: UITableViewCell {
 
 
         }
+       
         if counter < 60 && counter != 0  {
             timeLabel.text = " 00:" + String(counter)
         }
