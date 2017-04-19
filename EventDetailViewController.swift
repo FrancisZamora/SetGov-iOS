@@ -114,17 +114,20 @@ class EventDetailViewController: SetGovTableViewController{
         
         if(indexPath.row == 2) {
             let agendaCell = tableView.dequeueReusableCell(withIdentifier: "EventAgenda", for:indexPath) as! EventAgenda
+            agendaCell.selectionStyle = .none
             
             return agendaCell
         }
         
         if (indexPath.row==3) {
             let newCell = tableView.dequeueReusableCell(withIdentifier: "EventMembers", for:indexPath) as! EventMembers
+            newCell.selectionStyle = .none
             return newCell
         }
         
         if (indexPath.row==4) {
             let discussionCell = tableView.dequeueReusableCell(withIdentifier: "EventDiscussion", for:indexPath) as! EventDiscussion
+            discussionCell.selectionStyle = .none
             return discussionCell
         }
         

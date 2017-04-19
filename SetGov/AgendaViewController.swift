@@ -40,6 +40,7 @@ class AgendaViewController: UICollectionView {
         
         if(indexPath.row == 2) {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaItem3",for: indexPath)
+            
         
             return cell
         }

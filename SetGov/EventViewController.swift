@@ -54,6 +54,7 @@ class EventViewController: SetGovTableViewController{
         
         if (indexPath.row == 1) {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+            cell.selectionStyle = .none
             cell.configure()
             cell.eventTitle.text = "  City Council"
             cell.eventDescription.text = "Monthly meeting"
@@ -64,6 +65,7 @@ class EventViewController: SetGovTableViewController{
         }
         if (indexPath.row == 2 ) {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+            cell.selectionStyle = .none
             cell.configure()
             cell.eventTitle.text = "  Fire-Rescue"
             cell.eventDescription.text = "Monthly meeting"
