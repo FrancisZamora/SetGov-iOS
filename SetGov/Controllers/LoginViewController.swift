@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: SetGovViewController {
+class LoginViewController: SetGovViewController, UITextFieldDelegate {
     @IBOutlet var LoginField: UITextField!
     @IBOutlet var LoginButton: UIButton!
     @IBOutlet var PassField: UITextField!
@@ -16,6 +16,9 @@ class LoginViewController: SetGovViewController {
     let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
+        LoginField.delegate = self
+        PassField.delegate = self
+        
         super.viewDidLoad()
         LoginField.center.y = self.view.frame.height + 30
         UIView.animate(withDuration: 1.0, delay: 0.5, usingSpringWithDamping: 1.5, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
@@ -32,7 +35,7 @@ class LoginViewController: SetGovViewController {
             self.LoginButton.center.y = self.view.frame.width / CGFloat(3.0)
         }) { (completed) -> Void in }
         
-       
+      
 
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -43,8 +46,10 @@ class LoginViewController: SetGovViewController {
         //}
 
 
-    
-
+   func textFieldShouldReturn(_ LoginField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
 
 }
 

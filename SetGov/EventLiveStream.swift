@@ -93,7 +93,8 @@ class EventLiveStream: UITableViewCell {
     func playVideo () {
         
         streamView.loadRequest(URLRequest(url: URL(string: "http://franciszamora.io")!))
-
+        // embed html 5 video 
+        
         
         //let url = NSURL (string: "https://franciszamora.io");
         //let request = NSURLRequest(url: url! as URL);

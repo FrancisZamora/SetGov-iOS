@@ -58,8 +58,12 @@ class EventViewController: SetGovTableViewController{
             let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
             cell.selectionStyle = .none
             cell.configure()
-            cell.eventTitle.text = spacer + "Marine Advisory"
-            //cell.eventDescription.text = "
+            cell.hashtagOne.text = "commission"
+            cell.hashtagTwo.text = "marine"
+            cell.eventTitle.text = spacer + "City Council"
+            cell.eventDescription.text = "Bi-Monthly meeting"
+            cell.eventDate.text = "May 2nd"
+
             
             
             
@@ -73,6 +77,8 @@ class EventViewController: SetGovTableViewController{
             let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
             cell.selectionStyle = .none
             cell.configure()
+            cell.hashtagOne.text = "commmission"
+            cell.hashtagTwo.text = "city"
             cell.eventTitle.text = spacer + "City Council"
             cell.eventDescription.text = "Bi-Monthly meeting"
             cell.eventDate.text = "May 2nd"
@@ -85,6 +91,8 @@ class EventViewController: SetGovTableViewController{
             let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
             cell.selectionStyle = .none
             cell.configure()
+            cell.hashtagOne.text = "fire-safety"
+            cell.hashtagTwo.text = "committee"
             cell.eventTitle.text = spacer + "Fire-Rescue"
             cell.eventDescription.text = "Monthly meeting"
             cell.eventDate.text = "Jan 3rd"
