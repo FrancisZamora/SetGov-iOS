@@ -13,9 +13,10 @@ import QuartzCore
 
 class EventViewController: SetGovTableViewController{
     var activate = true
-
+    var selectedCity = "Fort Lauderdale"
     var count = 0
     var numsections = 0
+    var spacer = "  "
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +33,12 @@ class EventViewController: SetGovTableViewController{
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         self.numsections = 1
         print("numberofSections")
-        return 1
+        return 3
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("numberofRows")
-        return 50
+        return 3
         
     }
     
@@ -51,14 +52,29 @@ class EventViewController: SetGovTableViewController{
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if (indexPath.row == 1) {
+        print(indexPath.row)
+        if (indexPath.row == 0){
             let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
             cell.selectionStyle = .none
             cell.configure()
-            cell.eventTitle.text = "  City Council"
-            cell.eventDescription.text = "Monthly meeting"
-            cell.eventDate.text = "Feb 23th"
+            cell.eventTitle.text = spacer + "Marine Advisory"
+            //cell.eventDescription.text = "
+            
+            
+            
+            
+            
+            
+            
+        }
+        if (indexPath.row == 1) {
+            print("indexPath is 1")
+            let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+            cell.selectionStyle = .none
+            cell.configure()
+            cell.eventTitle.text = spacer + "City Council"
+            cell.eventDescription.text = "Bi-Monthly meeting"
+            cell.eventDate.text = "May 2nd"
             cell.eventImage.image = #imageLiteral(resourceName: "Image-7")
          
             
@@ -67,7 +83,7 @@ class EventViewController: SetGovTableViewController{
             let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
             cell.selectionStyle = .none
             cell.configure()
-            cell.eventTitle.text = "  Fire-Rescue"
+            cell.eventTitle.text = spacer + "Fire-Rescue"
             cell.eventDescription.text = "Monthly meeting"
             cell.eventDate.text = "Jan 3rd"
             cell.eventImage.image = #imageLiteral(resourceName: "Image-8")
@@ -77,8 +93,8 @@ class EventViewController: SetGovTableViewController{
         
         
         
-       let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-        cell.configure()
+       let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCell
+       cell.configure()
         
         
        print("cell for row" )

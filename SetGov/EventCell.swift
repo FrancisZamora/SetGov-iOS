@@ -50,7 +50,7 @@ class EventCell: UITableViewCell {
         hashtagOne.layer.cornerRadius = hashtagOne.frame.height/2
         hashtagOne.clipsToBounds = true
         hashtagOne.layer.masksToBounds = false
-        
+        eventDate.textAlignment = .center
         hashtagView2.makeCircular()
         hashTagView.makeCircular()
         
