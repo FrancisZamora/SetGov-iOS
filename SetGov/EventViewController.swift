@@ -53,6 +53,7 @@ class EventViewController: SetGovTableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(indexPath.row)
+
         if (indexPath.row == 0){
             let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
             cell.selectionStyle = .none
@@ -76,6 +77,7 @@ class EventViewController: SetGovTableViewController{
             cell.eventDescription.text = "Bi-Monthly meeting"
             cell.eventDate.text = "May 2nd"
             cell.eventImage.image = #imageLiteral(resourceName: "Image-7")
+            return cell
          
             
         }
@@ -92,12 +94,11 @@ class EventViewController: SetGovTableViewController{
         }
         
         
-        
        let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCell
        cell.configure()
         
         
-       print("cell for row" )
+       //print("cell for row" )
        return cell
     }
     
