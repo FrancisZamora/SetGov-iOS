@@ -71,7 +71,8 @@ class EventDetailViewController: SetGovTableViewController{
         
         if (indexPath.row == 0) {
             let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream") as! EventStream
-
+                eventStream.selectionStyle = .none
+        
           
            
                 eventStream.configure()
@@ -86,6 +87,7 @@ class EventDetailViewController: SetGovTableViewController{
             }
             
             if eventStream.initiateStream == true {
+                // add transition with 2 second delay coming in from the right 
                 print(eventStream.presentStream)
                 let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream") as! EventLiveStream
                 eventLiveStream.selectionStyle = .none
