@@ -60,7 +60,7 @@ class EventDetailViewController: SetGovTableViewController{
         case 3:
             return 94
         case 4:
-            return 179
+            return 280
         default:
             return 0
         }
