@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DeW-x1-Vax">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -78,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-61" y="166"/>
+            <point key="canvasLocation" x="-118" y="134"/>
         </scene>
         <!--Fort Lauderdale, FL-->
         <scene sceneID="WqO-r7-02k">
@@ -103,7 +103,7 @@
                                             <rect key="frame" x="0.0" y="176" width="382" height="38"/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                            <color key="textColor" red="0.09551713615655899" green="0.22882530093193054" blue="0.55778402090072632" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.087962217628955841" green="0.19097673892974854" blue="0.38617235422134399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Attending | Interested" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMK-AS-5CE">
@@ -160,16 +160,6 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-2" translatesAutoresizingMaskIntoConstraints="NO" id="Oce-wR-LxC" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
                                             <rect key="frame" x="259" y="271" width="35" height="35"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feb 23rd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TxJ-ID-Gdr">
-                                            <rect key="frame" x="275" y="185" width="92" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="92" id="P1g-jd-HtN"/>
-                                                <constraint firstAttribute="height" constant="21" id="aNu-7H-pUV"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
-                                            <color key="textColor" red="0.094117647058823528" green="0.22745098039215686" blue="0.41414042966179765" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="49j-Ee-ATO" customClass="GradientView" customModule="SetGov" customModuleProvider="target">
                                             <rect key="frame" x="304" y="220" width="65" height="20"/>
                                             <subviews>
@@ -206,9 +196,19 @@
                                                 <constraint firstItem="cwk-JV-om8" firstAttribute="top" secondItem="6T6-p1-Z54" secondAttribute="top" constant="2" id="ncE-ZI-16K"/>
                                             </constraints>
                                         </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feb 23rd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TxJ-ID-Gdr">
+                                            <rect key="frame" x="280" y="184" width="89" height="23"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="89" id="P1g-jd-HtN"/>
+                                                <constraint firstAttribute="height" constant="23" id="aNu-7H-pUV"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" red="0.087962217628955841" green="0.19097673892974854" blue="0.38617235422134399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="TxJ-ID-Gdr" secondAttribute="trailing" id="1eC-dM-vPX"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="TxJ-ID-Gdr" secondAttribute="trailing" constant="-2" id="1eC-dM-vPX"/>
                                         <constraint firstItem="Xae-5N-CWj" firstAttribute="leading" secondItem="Lru-Dk-bur" secondAttribute="leading" id="3Ks-Vf-JT6"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Oce-wR-LxC" secondAttribute="trailing" constant="73" id="7FI-aR-f2O"/>
                                         <constraint firstItem="Lru-Dk-bur" firstAttribute="top" secondItem="yMK-AS-5CE" secondAttribute="bottom" constant="8" symbolic="YES" id="7Ld-rn-yCw"/>
@@ -219,7 +219,7 @@
                                         <constraint firstItem="qGK-K0-mTm" firstAttribute="top" secondItem="Oce-wR-LxC" secondAttribute="top" id="HuP-X0-OSL"/>
                                         <constraint firstItem="4i3-sx-hcP" firstAttribute="leading" secondItem="Lru-Dk-bur" secondAttribute="trailing" constant="16" id="Hv9-3T-6cy"/>
                                         <constraint firstItem="Xae-5N-CWj" firstAttribute="top" secondItem="qaz-B6-2HM" secondAttribute="bottom" constant="5" id="K7U-JH-9Pn"/>
-                                        <constraint firstItem="49j-Ee-ATO" firstAttribute="top" secondItem="TxJ-ID-Gdr" secondAttribute="bottom" constant="14" id="KGz-uE-X9v"/>
+                                        <constraint firstItem="49j-Ee-ATO" firstAttribute="top" secondItem="TxJ-ID-Gdr" secondAttribute="bottom" constant="13" id="KGz-uE-X9v"/>
                                         <constraint firstItem="nPe-2t-EyG" firstAttribute="leading" secondItem="4i3-sx-hcP" secondAttribute="trailing" constant="17" id="KaB-v1-hSv"/>
                                         <constraint firstItem="AHx-jR-O2K" firstAttribute="trailing" secondItem="yMK-AS-5CE" secondAttribute="trailing" id="L39-E3-Oge"/>
                                         <constraint firstItem="Lru-Dk-bur" firstAttribute="top" secondItem="4i3-sx-hcP" secondAttribute="top" id="MOi-09-Yje"/>
@@ -284,7 +284,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QQj-1W-1Kl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1858" y="27"/>
+            <point key="canvasLocation" x="1856.8" y="26.53673163418291"/>
         </scene>
         <!--Marine Advisory-->
         <scene sceneID="v0j-HM-U6D">
