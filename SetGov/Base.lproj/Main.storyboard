@@ -274,8 +274,8 @@
                             <outlet property="delegate" destination="01s-Z9-rOr" id="2ns-GO-swh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Fort Lauderdale, FL" id="nUk-n3-Lht">
-                        <barButtonItem key="backBarButtonItem" title=" " id="l4R-Ya-QIi"/>
+                    <navigationItem key="navigationItem" title="Fort Lauderdale, FL" id="uvx-Vh-Pau">
+                        <barButtonItem key="backBarButtonItem" title=" " id="nWY-T5-TBj"/>
                     </navigationItem>
                     <connections>
                         <outlet property="TableView" destination="tDH-l0-WQN" id="fdH-gK-8CC"/>
@@ -1036,21 +1036,29 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="213"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dQQ-2K-Mwm" id="VMW-Zj-jP8">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="212.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="213"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image-9" translatesAutoresizingMaskIntoConstraints="NO" id="NFD-z2-oYF">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-9" translatesAutoresizingMaskIntoConstraints="NO" id="NFD-z2-oYF">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="213"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Boston, MA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFE-6S-zPx">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boston, MA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFE-6S-zPx">
                                             <rect key="frame" x="88" y="82" width="198" height="49"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="38"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="NFD-z2-oYF" firstAttribute="centerX" secondItem="BFE-6S-zPx" secondAttribute="centerX" id="11N-31-FHZ"/>
+                                        <constraint firstItem="BFE-6S-zPx" firstAttribute="top" secondItem="VMW-Zj-jP8" secondAttribute="topMargin" constant="74" id="37N-az-dSA"/>
+                                        <constraint firstItem="NFD-z2-oYF" firstAttribute="top" secondItem="VMW-Zj-jP8" secondAttribute="top" id="DVg-1v-0Sy"/>
+                                        <constraint firstItem="NFD-z2-oYF" firstAttribute="leading" secondItem="VMW-Zj-jP8" secondAttribute="leading" id="KKy-rP-SJo"/>
+                                        <constraint firstItem="NFD-z2-oYF" firstAttribute="centerY" secondItem="BFE-6S-zPx" secondAttribute="centerY" id="Q0S-Io-f5Y"/>
+                                        <constraint firstItem="BFE-6S-zPx" firstAttribute="leading" secondItem="VMW-Zj-jP8" secondAttribute="leadingMargin" constant="80" id="iAt-ud-oK4"/>
+                                        <constraint firstAttribute="trailing" secondItem="NFD-z2-oYF" secondAttribute="trailing" id="ihW-gY-TDu"/>
+                                        <constraint firstItem="NFD-z2-oYF" firstAttribute="centerY" secondItem="VMW-Zj-jP8" secondAttribute="centerY" id="vyt-lX-GVr"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="DeW-x1-Vax" kind="show" id="fMU-5V-12n"/>
@@ -1060,42 +1068,58 @@
                                 <rect key="frame" x="0.0" y="241" width="375" height="213"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hY5-95-pto" id="7Rc-Mw-tbt">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="212.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="213"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image-11" translatesAutoresizingMaskIntoConstraints="NO" id="spO-6K-KFL">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-11" translatesAutoresizingMaskIntoConstraints="NO" id="spO-6K-KFL">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="213"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fort Lauderdale, FL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHx-gv-YYu">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fort Lauderdale, FL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHx-gv-YYu">
                                             <rect key="frame" x="25" y="74" width="325" height="64"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="38"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="spO-6K-KFL" firstAttribute="leading" secondItem="7Rc-Mw-tbt" secondAttribute="leading" id="Etq-SA-rSS"/>
+                                        <constraint firstItem="spO-6K-KFL" firstAttribute="centerX" secondItem="eHx-gv-YYu" secondAttribute="centerX" id="W1O-Sp-NM5"/>
+                                        <constraint firstItem="eHx-gv-YYu" firstAttribute="top" secondItem="7Rc-Mw-tbt" secondAttribute="topMargin" constant="66" id="YaD-Wy-7R4"/>
+                                        <constraint firstItem="eHx-gv-YYu" firstAttribute="leading" secondItem="7Rc-Mw-tbt" secondAttribute="leadingMargin" constant="17" id="brG-zW-knX"/>
+                                        <constraint firstItem="spO-6K-KFL" firstAttribute="centerY" secondItem="7Rc-Mw-tbt" secondAttribute="centerY" id="gkg-on-aUF"/>
+                                        <constraint firstAttribute="trailing" secondItem="spO-6K-KFL" secondAttribute="trailing" id="j0c-Y6-ndo"/>
+                                        <constraint firstItem="spO-6K-KFL" firstAttribute="centerY" secondItem="eHx-gv-YYu" secondAttribute="centerY" id="udb-xk-54Z"/>
+                                        <constraint firstItem="spO-6K-KFL" firstAttribute="top" secondItem="7Rc-Mw-tbt" secondAttribute="top" id="xyK-tf-pB3"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewYorkCityCell" rowHeight="213" id="bKU-1C-cAD" customClass="NewYorkCityCell" customModule="SetGov" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="454" width="375" height="213"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bKU-1C-cAD" id="GUF-3s-lbQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="212.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="213"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image-10" translatesAutoresizingMaskIntoConstraints="NO" id="wDa-mX-C3e">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="213"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-10" translatesAutoresizingMaskIntoConstraints="NO" id="wDa-mX-C3e">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New York, NY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1y-i7-AgX">
-                                            <rect key="frame" x="61" y="81" width="253" height="51"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New York, NY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1y-i7-AgX">
+                                            <rect key="frame" x="61" y="81" width="253" height="50.5"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="38"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="wDa-mX-C3e" firstAttribute="top" secondItem="GUF-3s-lbQ" secondAttribute="top" id="EMl-UE-1nV"/>
+                                        <constraint firstAttribute="trailing" secondItem="wDa-mX-C3e" secondAttribute="trailing" id="IHg-jh-LDE"/>
+                                        <constraint firstItem="wDa-mX-C3e" firstAttribute="centerY" secondItem="H1y-i7-AgX" secondAttribute="centerY" constant="13.75" id="KzL-TN-5eO"/>
+                                        <constraint firstItem="H1y-i7-AgX" firstAttribute="top" secondItem="GUF-3s-lbQ" secondAttribute="topMargin" constant="73" id="MhB-iz-H4y"/>
+                                        <constraint firstItem="H1y-i7-AgX" firstAttribute="leading" secondItem="GUF-3s-lbQ" secondAttribute="leadingMargin" constant="53" id="UAw-jl-Fuy"/>
+                                        <constraint firstItem="wDa-mX-C3e" firstAttribute="centerY" secondItem="GUF-3s-lbQ" secondAttribute="centerY" constant="13.5" id="aM0-Ya-yZb"/>
+                                        <constraint firstItem="wDa-mX-C3e" firstAttribute="leading" secondItem="GUF-3s-lbQ" secondAttribute="leading" id="cp6-P3-DAd"/>
+                                        <constraint firstItem="wDa-mX-C3e" firstAttribute="centerX" secondItem="H1y-i7-AgX" secondAttribute="centerX" id="hu0-F2-fmZ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
