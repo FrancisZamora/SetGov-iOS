@@ -11,6 +11,75 @@ import UIKit
 import QuartzCore
 
 class CityNavigationViewController: SetGovTableViewController {
+    var numsections = 0
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return 50.0
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        self.numsections = 1
+        print("numberofSections")
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("numberofRows")
+        return 3
+        
+    }
     
     
+    
+    
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        switch indexPath.row {
+        case 0:
+            return 213
+        case 1:
+            return 213
+        case 2:
+            return 213
+      
+        default:
+            return 213
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if (indexPath.row == 0 ) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BostonCell", for:indexPath) as! BostonCell
+            cell.selectionStyle = .none
+            return cell
+
+        }
+        
+        if (indexPath.row == 1) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FortLauderdaleCell", for:indexPath) as! FortLauderdaleCell
+            cell.selectionStyle = .none
+            return cell
+
+        }
+        if (indexPath.row == 2) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NewYorkCityCell", for:indexPath) as! NewYorkCityCell
+            cell.selectionStyle = .none
+            return cell
+
+            
+        }
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "FortLauderdaleCell", for:indexPath) as! FortLauderdaleCell
+        return cell
+        
+      }
 }

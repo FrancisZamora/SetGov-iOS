@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DeW-x1-Vax">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ajf-WK-mc0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1032,7 +1032,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BostonCell" rowHeight="213" id="dQQ-2K-Mwm" customClass="BostonCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BostonCell" rowHeight="213" id="dQQ-2K-Mwm" customClass="BostonCell" customModule="SetGov">
                                 <rect key="frame" x="0.0" y="28" width="375" height="213"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dQQ-2K-Mwm" id="VMW-Zj-jP8">
@@ -1056,7 +1056,7 @@
                                     <segue destination="DeW-x1-Vax" kind="show" id="fMU-5V-12n"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="213" id="hY5-95-pto" customClass="FortLauderdaleCell" customModule="SetGov" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FortLauderdaleCell" rowHeight="213" id="hY5-95-pto" customClass="FortLauderdaleCell" customModule="SetGov" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="241" width="375" height="213"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hY5-95-pto" id="7Rc-Mw-tbt">
@@ -1077,7 +1077,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="213" id="bKU-1C-cAD" customClass="NewYorkCityCell" customModule="SetGov" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewYorkCityCell" rowHeight="213" id="bKU-1C-cAD" customClass="NewYorkCityCell" customModule="SetGov" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="454" width="375" height="213"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bKU-1C-cAD" id="GUF-3s-lbQ">
