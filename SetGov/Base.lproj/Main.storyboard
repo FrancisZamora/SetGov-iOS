@@ -661,7 +661,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jfY-ak-PRf">
+                                        <webView contentMode="scaleToFill" fixedFrame="YES" mediaPlaybackRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfY-ak-PRf">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
