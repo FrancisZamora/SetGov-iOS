@@ -97,7 +97,7 @@ class EventLiveStream: UITableViewCell {
         // embed html 5 video 
         //streamView.scrollView.bounces = false
        
-        let youtubeURL = "https://www.youtube.com/embed/5BlbWO-em-8"
+        let youtubeURL = "https://www.youtube.com/embed/Mgy4Q7bTheg"
         streamView.loadHTMLString("<iframe width=\"\(streamView.frame.width)\" height=\"\(streamView.frame.height)\" src=\"\(youtubeURL)?&playsinline=1\" frameborder=\"0\" allowfullscreen></iframe>", baseURL:nil)
         streamView.allowsInlineMediaPlayback = true
         streamView.mediaPlaybackRequiresUserAction = false
