@@ -92,10 +92,12 @@ class EventLiveStream: UITableViewCell {
     
     func playVideo () {
         
-        streamView.loadRequest(URLRequest(url: URL(string: "https://www.boston.gov/public-notices")!))
+        streamView.loadRequest(URLRequest(url: URL(string: "https://www.youtube.com/watch?v=Mgy4Q7bTheg&autoplay=1")!))
         // embed html 5 video 
-        
-        
+        streamView.scrollView.bounces = false
+        streamView.allowsInlineMediaPlayback = true
+        streamView.mediaPlaybackRequiresUserAction = false
+              
         //let url = NSURL (string: "https://franciszamora.io");
         //let request = NSURLRequest(url: url! as URL);
         //streamView.loadRequest(request as URLRequest);
