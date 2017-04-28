@@ -1122,6 +1122,9 @@
                                         <constraint firstItem="wDa-mX-C3e" firstAttribute="centerX" secondItem="H1y-i7-AgX" secondAttribute="centerX" id="hu0-F2-fmZ"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="DeW-x1-Vax" kind="show" identifier="newyork" id="95A-TN-q04"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1149,6 +1152,6 @@
         <image name="Image1" width="129" height="97"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fMU-5V-12n"/>
+        <segue reference="95A-TN-q04"/>
     </inferredMetricsTieBreakers>
 </document>
