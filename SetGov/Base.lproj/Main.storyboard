@@ -1100,7 +1100,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="01s-Z9-rOr" kind="show" identifier="fortlauderdale" id="8f2-RM-KHf"/>
+                                    <segue destination="DeW-x1-Vax" kind="show" identifier="fortlauderdale" id="eWH-Bn-0bD"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewYorkCityCell" rowHeight="213" id="bKU-1C-cAD" customClass="NewYorkCityCell" customModule="SetGov" customModuleProvider="target">
@@ -1158,6 +1158,6 @@
         <image name="Image1" width="129" height="97"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8f2-RM-KHf"/>
+        <segue reference="eWH-Bn-0bD"/>
     </inferredMetricsTieBreakers>
 </document>
