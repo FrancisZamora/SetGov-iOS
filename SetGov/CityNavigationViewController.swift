@@ -80,7 +80,7 @@ class CityNavigationViewController: SetGovTableViewController {
             print(indexPath.row)
            // if cell.isSelected == true {
                 print("cell was selected")
-                let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: "Not Available", message: "New York City Coming Soon", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
 
