@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Nge-W7-BnL">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -37,9 +37,6 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="DeW-x1-Vax" kind="show" id="DYP-TL-ulD"/>
-                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="chh-pX-TYh">
                                 <rect key="frame" x="36" y="375" width="303" height="50"/>
@@ -76,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1231" y="-188"/>
+            <point key="canvasLocation" x="514" y="-188"/>
         </scene>
         <!--Fort Lauderdale, FL-->
         <scene sceneID="WqO-r7-02k">
@@ -273,7 +270,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Fort Lauderdale, FL" id="uvx-Vh-Pau">
-                        <barButtonItem key="backBarButtonItem" title=" " id="nWY-T5-TBj"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="8Iz-4q-XJS"/>
                     </navigationItem>
                     <connections>
                         <outlet property="TableView" destination="tDH-l0-WQN" id="fdH-gK-8CC"/>
@@ -282,7 +279,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QQj-1W-1Kl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1814" y="-188"/>
+            <point key="canvasLocation" x="3692" y="-188.45577211394306"/>
         </scene>
         <!--Marine Advisory-->
         <scene sceneID="v0j-HM-U6D">
@@ -716,7 +713,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ee-nh-oYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2814" y="-188"/>
+            <point key="canvasLocation" x="4692" y="-188.45577211394306"/>
         </scene>
         <!--Marine Advisory-->
         <scene sceneID="pnb-67-GvK">
@@ -1003,23 +1000,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tIU-w1-eZh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3517.5999999999999" y="132.23388305847078"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="80P-Su-GY0">
-            <objects>
-                <navigationController id="DeW-x1-Vax" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OLw-eq-Wp3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Ajf-WK-mc0" kind="show" id="0jj-F2-PPi"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lI8-Tg-2Dc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-353" y="-188"/>
+            <point key="canvasLocation" x="5396" y="132.23388305847078"/>
         </scene>
         <!--City Navigation View Controller-->
         <scene sceneID="yhh-Ik-FLb">
@@ -1038,10 +1019,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-9" translatesAutoresizingMaskIntoConstraints="NO" id="NFD-z2-oYF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="213"/>
+                                            <rect key="frame" x="0.0" y="-27" width="375" height="240"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boston, MA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFE-6S-zPx">
-                                            <rect key="frame" x="88" y="82" width="198" height="49"/>
+                                            <rect key="frame" x="88" y="82" width="198" height="48.5"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="38"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -1050,12 +1031,12 @@
                                     <constraints>
                                         <constraint firstItem="NFD-z2-oYF" firstAttribute="centerX" secondItem="BFE-6S-zPx" secondAttribute="centerX" id="11N-31-FHZ"/>
                                         <constraint firstItem="BFE-6S-zPx" firstAttribute="top" secondItem="VMW-Zj-jP8" secondAttribute="topMargin" constant="74" id="37N-az-dSA"/>
-                                        <constraint firstItem="NFD-z2-oYF" firstAttribute="top" secondItem="VMW-Zj-jP8" secondAttribute="top" id="DVg-1v-0Sy"/>
+                                        <constraint firstItem="NFD-z2-oYF" firstAttribute="top" secondItem="VMW-Zj-jP8" secondAttribute="top" constant="-27" id="DVg-1v-0Sy"/>
                                         <constraint firstItem="NFD-z2-oYF" firstAttribute="leading" secondItem="VMW-Zj-jP8" secondAttribute="leading" id="KKy-rP-SJo"/>
-                                        <constraint firstItem="NFD-z2-oYF" firstAttribute="centerY" secondItem="BFE-6S-zPx" secondAttribute="centerY" id="Q0S-Io-f5Y"/>
+                                        <constraint firstItem="NFD-z2-oYF" firstAttribute="centerY" secondItem="BFE-6S-zPx" secondAttribute="centerY" constant="-13.25" id="Q0S-Io-f5Y"/>
                                         <constraint firstItem="BFE-6S-zPx" firstAttribute="leading" secondItem="VMW-Zj-jP8" secondAttribute="leadingMargin" constant="80" id="iAt-ud-oK4"/>
                                         <constraint firstAttribute="trailing" secondItem="NFD-z2-oYF" secondAttribute="trailing" id="ihW-gY-TDu"/>
-                                        <constraint firstItem="NFD-z2-oYF" firstAttribute="centerY" secondItem="VMW-Zj-jP8" secondAttribute="centerY" id="vyt-lX-GVr"/>
+                                        <constraint firstItem="NFD-z2-oYF" firstAttribute="centerY" secondItem="VMW-Zj-jP8" secondAttribute="centerY" constant="-13.25" id="vyt-lX-GVr"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -1132,14 +1113,35 @@
                             <outlet property="delegate" destination="Ajf-WK-mc0" id="MS8-Hd-nqG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="cZx-Su-NJz"/>
+                    <navigationItem key="navigationItem" id="cZx-Su-NJz">
+                        <barButtonItem key="backBarButtonItem" title=" " id="qJ4-3e-ljh"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="navBar" destination="cZx-Su-NJz" id="LGE-zm-Tqj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rYC-IQ-8Mw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="700" y="-188"/>
+            <point key="canvasLocation" x="2306.4000000000001" y="-188.45577211394306"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wFV-eG-g39">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nge-W7-BnL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Keh-lM-c0i"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="l4i-1u-eU0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ajf-WK-mc0" kind="relationship" relationship="rootViewController" id="Cs7-kJ-TJc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ksr-vP-FqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1367.2" y="-188.45577211394306"/>
         </scene>
     </scenes>
     <resources>
@@ -1156,6 +1158,6 @@
         <image name="Image1" width="129" height="97"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XUZ-tl-IK8"/>
+        <segue reference="lbO-Gs-uWG"/>
     </inferredMetricsTieBreakers>
 </document>

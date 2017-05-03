@@ -16,10 +16,25 @@ class CityNavigationViewController: SetGovTableViewController {
     @IBOutlet var navBar: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.isNavigationBarHidden = true
+
+
+       
     }
+  
     
     override func viewDidAppear(_ animated: Bool) {
+            print("hiding bar")
+            self.navigationController?.isNavigationBarHidden = true
+            super.viewWillAppear(animated)
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -81,8 +96,8 @@ class CityNavigationViewController: SetGovTableViewController {
             print(indexPath.row)
            // if cell.isSelected == true {
                 print("cell was selected")
-                let alert = UIAlertController(title: "Not Available", message: "New York City Coming Soon", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+                let alert = UIAlertController(title: "New York City Coming Soon", message: "Not Available", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
 
             //}
@@ -99,7 +114,7 @@ class CityNavigationViewController: SetGovTableViewController {
         
         if (indexPath.row == 2) {
             let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             
             
