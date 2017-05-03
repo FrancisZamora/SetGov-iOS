@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ajf-WK-mc0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1019,12 +1019,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lI8-Tg-2Dc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-194" y="-188"/>
+            <point key="canvasLocation" x="-353" y="-188"/>
         </scene>
-        <!--Title-->
+        <!--City Navigation View Controller-->
         <scene sceneID="yhh-Ik-FLb">
             <objects>
-                <tableViewController id="Ajf-WK-mc0" customClass="CityNavigationViewController" customModule="SetGov" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Ajf-WK-mc0" customClass="CityNavigationViewController" customModule="SetGov" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="194" sectionHeaderHeight="28" sectionFooterHeight="28" id="vby-GX-0WV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1132,7 +1132,10 @@
                             <outlet property="delegate" destination="Ajf-WK-mc0" id="MS8-Hd-nqG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="cZx-Su-NJz"/>
+                    <navigationItem key="navigationItem" id="cZx-Su-NJz"/>
+                    <connections>
+                        <outlet property="navBar" destination="cZx-Su-NJz" id="LGE-zm-Tqj"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rYC-IQ-8Mw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
