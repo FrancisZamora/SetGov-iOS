@@ -657,7 +657,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <webView contentMode="scaleToFill" fixedFrame="YES" mediaPlaybackRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfY-ak-PRf">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </webView>
@@ -1130,7 +1130,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nge-W7-BnL" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Keh-lM-c0i"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="l4i-1u-eU0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="l4i-1u-eU0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1158,6 +1158,6 @@
         <image name="Image1" width="129" height="97"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lbO-Gs-uWG"/>
+        <segue reference="XUZ-tl-IK8"/>
     </inferredMetricsTieBreakers>
 </document>

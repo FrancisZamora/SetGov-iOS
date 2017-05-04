@@ -16,26 +16,22 @@ class CityNavigationViewController: SetGovTableViewController {
     @IBOutlet var navBar: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-        self.navigationController?.isNavigationBarHidden = true
-
+        
 
        
     }
   
     
-    override func viewDidAppear(_ animated: Bool) {
-            print("hiding bar")
-            self.navigationController?.isNavigationBarHidden = true
-            super.viewWillAppear(animated)
-        
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated);
+        super.viewWillDisappear(animated)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
+    
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
