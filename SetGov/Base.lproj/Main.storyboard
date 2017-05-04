@@ -1103,9 +1103,6 @@
                                         <constraint firstItem="wDa-mX-C3e" firstAttribute="centerX" secondItem="H1y-i7-AgX" secondAttribute="centerX" id="hu0-F2-fmZ"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="01s-Z9-rOr" kind="show" identifier="newyorkcity" id="XUZ-tl-IK8"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1158,6 +1155,6 @@
         <image name="Image1" width="129" height="97"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XUZ-tl-IK8"/>
+        <segue reference="V6K-gC-1yc"/>
     </inferredMetricsTieBreakers>
 </document>

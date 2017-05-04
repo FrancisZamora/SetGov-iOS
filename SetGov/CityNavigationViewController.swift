@@ -92,11 +92,7 @@ class CityNavigationViewController: SetGovTableViewController {
             print(indexPath.row)
            // if cell.isSelected == true {
                 print("cell was selected")
-                let alert = UIAlertController(title: "New York City Coming Soon", message: "Not Available", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-
-            //}
+                           //}
             return cell
 
             
@@ -109,9 +105,10 @@ class CityNavigationViewController: SetGovTableViewController {
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         
         if (indexPath.row == 2) {
-            let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "New York City Coming Soon", message: "Not Available", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+            
             
             
             
