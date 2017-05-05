@@ -83,15 +83,17 @@ class CityNavigationViewController: SetGovTableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FortLauderdaleCell", for:indexPath) as! FortLauderdaleCell
             cell.selectionStyle = .none
             print(indexPath.row)
+            
             return cell
 
         }
         if (indexPath.row == 2) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewYorkCityCell", for:indexPath) as! NewYorkCityCell
-            
+            //cell.selectionStyle = UITableViewCellSelectionStyle.blue
+           // cell.isUserInteractionEnabled = true
             print(indexPath.row)
            // if cell.isSelected == true {
-                print("cell was selected")
+            print("cell was selected")
                            //}
             return cell
 
@@ -102,10 +104,21 @@ class CityNavigationViewController: SetGovTableViewController {
         
       }
     
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
+        print(indexPath.row)
+        
+        if indexPath.row == 0 {
+            print("Boston Cell")
+        }
+        
+        if indexPath.row == 1 {
+            
+            print("Fort Lauderdale Cell")
+            
+        }
         if (indexPath.row == 2) {
-            let alert = UIAlertController(title: "New York City Coming Soon", message: "Not Available", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "New York City Coming Soon", message: "", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             
