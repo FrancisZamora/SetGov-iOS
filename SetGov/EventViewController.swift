@@ -18,7 +18,9 @@ class EventViewController: SetGovTableViewController{
     var numsections = 0
     var spacer = "  "
     var eventTitle = "Marine Advisory"
-    
+    var eventTitles = [String]()
+    var indexofEvent = 0
+
     
     @IBOutlet var cityDisplay: UINavigationItem!
     override func viewDidLoad() {
@@ -73,107 +75,163 @@ class EventViewController: SetGovTableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(indexPath.row)
         if selectedCity == "Fort Lauderdale" {
-            if (indexPath.row == 0){
+            if indexPath.row == 0 {
                 let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-                cell.selectionStyle = .none
-                cell.configure()
-                cell.hashtagOne.text = "environmental"
-                cell.hashtagTwo.text = "committee"
-                cell.eventTitle.text = spacer + "Marine Advisory"
-                cell.eventDescription.text = "Tuck Tuck Tours"
-                cell.eventDate.text = "May 2nd"
-    
-            
-            
-            }
-            if (indexPath.row == 1) {
-                print("indexPath is 1")
-                let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-                cell.selectionStyle = .none
-                cell.configure()
                 cell.hashtagOne.text = "commmission"
                 cell.hashtagTwo.text = "city"
-                cell.eventTitle.text = spacer + "City Council"
+                cell.eventOriginalTitle = "City Council"
+                cell.eventTitle.text = spacer + cell.eventOriginalTitle
                 cell.eventDescription.text = "Bi-Monthly meeting"
                 cell.eventDate.text = "May 25th"
                 cell.eventImage.image = #imageLiteral(resourceName: "Image-7")
-                return cell
-         
-            
-            }
-            if (indexPath.row == 2 ) {
-                let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-                cell.selectionStyle = .none
                 cell.configure()
+                
+                print("eventTitle")
+                print(eventTitle)
+                print(cell.eventOriginalTitle)
+
+                eventTitle = cell.eventOriginalTitle
+                cell.selectionStyle = .none
+                
+                print(cell.eventOriginalTitle)
+                eventTitles.append(cell.eventOriginalTitle)
+                print(eventTitles)
+                print(eventTitle)
+                return cell            }
+            if indexPath.row == 1 {
+                let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+                cell.hashtagTwo.text = "city"
+                cell.eventOriginalTitle = "City Council"
+                cell.eventTitle.text = spacer + cell.eventOriginalTitle
+                cell.eventDescription.text = "Bi-Monthly meeting"
+                cell.eventDate.text = "May 25th"
+                cell.eventImage.image = #imageLiteral(resourceName: "Image-7")
+                cell.configure()
+                
+                print("eventTitle")
+                print(eventTitle)
+                print(cell.eventOriginalTitle)
+                
+                eventTitle = cell.eventOriginalTitle
+                cell.selectionStyle = .none
+                
+                print(cell.eventOriginalTitle)
+                eventTitles.append(cell.eventOriginalTitle)
+                print(eventTitles)
+                print(eventTitle)
+
+                return cell
+                
+            }
+            if indexPath.row == 2 {
+                let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+                print("eventTitle")
                 cell.hashtagOne.text = "fire-safety"
                 cell.hashtagTwo.text = "committee"
-                cell.eventOriginalTitle = " Fire Rescue"
+                cell.eventOriginalTitle = "Fire-Rescue"
                 cell.eventTitle.text = spacer + cell.eventOriginalTitle
                 cell.eventDescription.text = "Quarterly meeting"
                 cell.eventDate.text = "June 3rd"
                 cell.eventImage.image = #imageLiteral(resourceName: "Image-8")
-
+                eventTitle = cell.eventOriginalTitle
                 
-                
-                return cell
-
-            }
-        }
-        
-        if selectedCity == "Boston" {
-            if (indexPath.row == 0){
-                let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
                 cell.selectionStyle = .none
+                eventTitles.append(cell.eventOriginalTitle)
                 cell.configure()
-                cell.hashtagOne.text = "environmental"
-                cell.hashtagTwo.text = "committee"
-                cell.eventOriginalTitle = "Council"
-                cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                cell.eventDescription.text = "Meeting"
-                cell.eventDate.text = "May 23rd"
 
+                print(cell.eventOriginalTitle)
+                print("STOP HERE")
+                print(eventTitles)
                 
+                eventTitles.append(cell.eventOriginalTitle)
+                print(eventTitles)
                 
-                
-                
-                
-                
-                
-            }
-            if (indexPath.row == 1) {
-                print("indexPath is 1")
-                let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-                cell.selectionStyle = .none
-                cell.configure()
-                
-            return cell
-                
-                
-            }
-            if (indexPath.row == 2 ) {
-                let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-                cell.selectionStyle = .none
-                
-                
+                print(eventTitle)
                 return cell
                 
             }
-
-            
-            
-            
-            
-            
-            
-            
-            
         }
-        
-        
+            if selectedCity == "Boston" {
+                
+                if indexPath.row == 0 {
+                    
+                    let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+                    cell.selectionStyle = .none
+                    cell.hashtagOne.text = "environmental"
+                    cell.hashtagTwo.text = "committee"
+                    cell.eventOriginalTitle = "City Council"
+                    cell.eventTitle.text = spacer + cell.eventOriginalTitle
+                    cell.eventDescription.text = "Meeting"
+                    cell.eventDate.text = "May 23rd"
+                    
+                    
+                    eventTitle = cell.eventOriginalTitle
+                    
+                    cell.selectionStyle = .none
+                    eventTitle.append(cell.eventOriginalTitle)
+
+                    print(cell.eventOriginalTitle)
+                    cell.configure()
+                    eventTitles.append(cell.eventOriginalTitle)
+
+                    print(eventTitle)
+                    return cell
+                }
+                if indexPath.row == 1 {
+                    let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+                    cell.selectionStyle = .none
+                    cell.hashtagOne.text = "vote"
+                    cell.hashtagTwo.text = "electoral"
+                    cell.eventOriginalTitle = "Annual Race for Mayor"
+                    cell.eventTitle.text = spacer + cell.eventOriginalTitle
+                    cell.eventDescription.text = "Election"
+                    cell.eventDate.text = "May 23rd"
+                    
+                    
+                    eventTitle = cell.eventOriginalTitle
+                    
+                    cell.selectionStyle = .none
+                    eventTitle.append(cell.eventOriginalTitle)
+
+                    print(cell.eventOriginalTitle)
+                    cell.configure()
+                    eventTitles.append(cell.eventOriginalTitle)
+
+                    print(eventTitle)
+                    return cell
+                    
+                }
+                
+                if indexPath.row == 2 {
+                    let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+                    cell.selectionStyle = .none
+                    cell.hashtagOne.text = "environmental"
+                    cell.hashtagTwo.text = "committee"
+                    cell.eventOriginalTitle = "Council"
+                    cell.eventTitle.text = spacer + cell.eventOriginalTitle
+                    cell.eventDescription.text = "Meeting"
+                    cell.eventDate.text = "May 23rd"
+                    cell.configure()
+
+                    
+                    eventTitle = cell.eventOriginalTitle
+                    
+                    cell.selectionStyle = .none
+                    eventTitle.append(cell.eventOriginalTitle)
+
+                    print(cell.eventOriginalTitle)
+                    eventTitles.append(cell.eventOriginalTitle)
+
+                    print(eventTitle)
+                    return cell
+                    
+                }
+            }
             
             
-        
-        
+            
+            
+
        let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCell
        cell.configure()
         
@@ -186,38 +244,31 @@ class EventViewController: SetGovTableViewController{
         
         tableView.deselectRow(at: indexPath, animated: false)
         print("selected")
-       // performSegue(withIdentifier: "showEvent", sender: nil)
         if selectedCity == "Fort Lauderdale" {
-        if indexPath.row == 0 {
-            let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-            cell.hashtagOne.text = "commmission"
-            cell.hashtagTwo.text = "city"
-            cell.eventOriginalTitle = "City Council"
-            cell.eventTitle.text = spacer + cell.eventOriginalTitle
-            cell.eventDescription.text = "Bi-Monthly meeting"
-            cell.eventDate.text = "May 25th"
-            cell.eventImage.image = #imageLiteral(resourceName: "Image-7")
-            
+            if indexPath.row == 0 {
+                let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+                cell.hashtagOne.text = "commmission"
+                cell.hashtagTwo.text = "city"
+                cell.eventOriginalTitle = "City Council"
+                cell.eventTitle.text = spacer + cell.eventOriginalTitle
+                cell.eventDescription.text = "Bi-Monthly meeting"
+                cell.eventDate.text = "May 25th"
+                cell.eventImage.image = #imageLiteral(resourceName: "Image-7")
+                indexofEvent = 0
 
-            print("eventTitle")
-            print(eventTitle)
-            print(cell.eventOriginalTitle)
+                print("eventTitle")
+                print(eventTitle)
+                print(cell.eventOriginalTitle)
+                indexofEvent = indexPath.row
+                eventTitles.append(cell.eventOriginalTitle)
 
-            eventTitle = cell.eventOriginalTitle
-            performSegue(withIdentifier: "showEvent", sender: nil)
-        }
-        if indexPath.row == 1 {
-            let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-            print("eventTitle")
-            print(eventTitle)
-
-            eventTitle = cell.eventOriginalTitle
-            performSegue(withIdentifier: "showEvent", sender: nil)
-
-        }
-        if indexPath.row == 2 {
+                eventTitle = cell.eventOriginalTitle
+                performSegue(withIdentifier: "showEvent", sender: nil)
+            }
+            if indexPath.row == 1 {
                 let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
                 print("eventTitle")
+                print(eventTitle)
                 cell.configure()
                 cell.hashtagOne.text = "fire-safety"
                 cell.hashtagTwo.text = "committee"
@@ -226,15 +277,38 @@ class EventViewController: SetGovTableViewController{
                 cell.eventDescription.text = "Quarterly meeting"
                 cell.eventDate.text = "June 3rd"
                 cell.eventImage.image = #imageLiteral(resourceName: "Image-8")
-                eventTitle = cell.eventOriginalTitle
-                
+                indexofEvent = 1
 
-                print(cell.eventOriginalTitle)
+                eventTitle = cell.eventOriginalTitle
+                eventTitle.append(cell.eventOriginalTitle)
+                indexofEvent = indexPath.row
+                eventTitles.append(cell.eventOriginalTitle)
+
                 performSegue(withIdentifier: "showEvent", sender: nil)
 
-                print(eventTitle)
+            }
+            if indexPath.row == 2 {
+                    let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+                    print("eventTitle")
+                    cell.configure()
+                    cell.hashtagOne.text = "fire-safety"
+                    cell.hashtagTwo.text = "committee"
+                    cell.eventOriginalTitle = "Fire-Rescue"
+                    cell.eventTitle.text = spacer + cell.eventOriginalTitle
+                    cell.eventDescription.text = "Quarterly meeting"
+                    cell.eventDate.text = "June 3rd"
+                    cell.eventImage.image = #imageLiteral(resourceName: "Image-8")
+                    eventTitle = cell.eventOriginalTitle
+                    eventTitles.append(cell.eventOriginalTitle)
+                    indexofEvent = indexPath.row
 
-                
+
+                    print(cell.eventOriginalTitle)
+                    performSegue(withIdentifier: "showEvent", sender: nil)
+
+                    print(eventTitle)
+
+                    
             }
             if selectedCity == "Boston" {
                 
@@ -245,11 +319,13 @@ class EventViewController: SetGovTableViewController{
                         cell.configure()
                         cell.hashtagOne.text = "environmental"
                         cell.hashtagTwo.text = "committee"
-                        cell.eventOriginalTitle = "Council"
+                        cell.eventOriginalTitle = "City Council"
                         cell.eventTitle.text = spacer + cell.eventOriginalTitle
                         cell.eventDescription.text = "Meeting"
                         cell.eventDate.text = "May 23rd"
-                        
+                        indexofEvent = indexPath.row
+
+                        eventTitles.append(cell.eventOriginalTitle)
 
                         eventTitle = cell.eventOriginalTitle
                         
@@ -264,14 +340,16 @@ class EventViewController: SetGovTableViewController{
                         let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
                         cell.selectionStyle = .none
                         cell.configure()
-                        cell.hashtagOne.text = "environmental"
-                        cell.hashtagTwo.text = "committee"
-                        cell.eventOriginalTitle = "Council"
+                        cell.hashtagOne.text = "vote"
+                        cell.hashtagTwo.text = "electoral"
+                        cell.eventOriginalTitle = "Annual Race for Mayor"
                         cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                        cell.eventDescription.text = "Meeting"
+                        cell.eventDescription.text = "Election"
                         cell.eventDate.text = "May 23rd"
-                        
-                        
+                        indexofEvent = indexPath.row
+
+                        eventTitles.append(cell.eventOriginalTitle)
+
                         eventTitle = cell.eventOriginalTitle
                         
                         
@@ -292,7 +370,9 @@ class EventViewController: SetGovTableViewController{
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
                     cell.eventDescription.text = "Meeting"
                     cell.eventDate.text = "May 23rd"
-                    
+                    indexofEvent = indexPath.row
+
+                    eventTitles.append(cell.eventOriginalTitle)
                     
                     eventTitle = cell.eventOriginalTitle
                     
@@ -300,7 +380,7 @@ class EventViewController: SetGovTableViewController{
                     print(cell.eventOriginalTitle)
                     performSegue(withIdentifier: "showEvent", sender: nil)
                     
-                    print(eventTitle)
+                    print(eventTitles)
                     
                 }
 
@@ -330,8 +410,12 @@ class EventViewController: SetGovTableViewController{
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let EventDetailViewController = segue.destination as! EventDetailViewController
-            EventDetailViewController.selectedEvent = eventTitle
+        if (segue.identifier == "showEvent") {
+
+            let EventDetailViewController = segue.destination as! EventDetailViewController
+            EventDetailViewController.selectedEvents = eventTitles
+            EventDetailViewController.indexofEvent = indexofEvent
+        }
         
 
     }

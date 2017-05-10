@@ -19,17 +19,21 @@ class EventDetailViewController: SetGovTableViewController{
     var animateView: Bool = false
     var counter = 0
     var selectedEvent = ""
+    var selectedEvents = [String]()
+    var indexofEvent = 0
     
     @IBOutlet var navTitle: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         print("EventDetailViewController")
-        navTitle.title = selectedEvent
+        self.loadTitle()
+        
     }
     
     func loadTitle() {
         print("loading title")
-        
+        print(selectedEvents)
+        navTitle.title = selectedEvents[indexofEvent]
     }
     
       override func viewDidAppear(_ animated: Bool) {
