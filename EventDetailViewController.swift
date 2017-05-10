@@ -33,6 +33,7 @@ class EventDetailViewController: SetGovTableViewController{
     func loadTitle() {
         print("loading title")
         print(selectedEvents)
+        
         navTitle.title = selectedEvents[indexofEvent]
     }
     

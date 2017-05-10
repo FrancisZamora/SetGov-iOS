@@ -76,6 +76,7 @@ class EventViewController: SetGovTableViewController{
         print(indexPath.row)
         if selectedCity == "Fort Lauderdale" {
             if indexPath.row == 0 {
+                print("CELL IS ONE")
                 let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
                 cell.hashtagOne.text = "commmission"
                 cell.hashtagTwo.text = "city"
@@ -88,18 +89,23 @@ class EventViewController: SetGovTableViewController{
                 
                 print("eventTitle")
                 print(eventTitle)
+                print("TESTING")
                 print(cell.eventOriginalTitle)
 
                 eventTitle = cell.eventOriginalTitle
                 cell.selectionStyle = .none
                 
                 print(cell.eventOriginalTitle)
-                eventTitles.append(cell.eventOriginalTitle)
+                print(eventTitle)
+                eventTitles.append("SWAG")
+                eventTitles.append(eventTitle)
                 print(eventTitles)
                 print(eventTitle)
                 return cell
             }
             if indexPath.row == 1 {
+                print("CELL IS TWO")
+
                 let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
                 cell.hashtagTwo.text = "city"
                 cell.eventOriginalTitle = "City Council"
@@ -127,7 +133,8 @@ class EventViewController: SetGovTableViewController{
             if indexPath.row == 2 {
                 let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
                 print("eventTitle")
-                
+                print("CELL IS THREE")
+
                 
                 cell.hashtagOne.text = "fire-safety"
                 cell.hashtagTwo.text = "committee"
