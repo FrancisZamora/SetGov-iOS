@@ -193,29 +193,29 @@ class EventViewController: SetGovTableViewController{
                     return cell
                 }
                 if indexPath.row == 1 {
+                    print("CELL IS TWO")
+                    
                     let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-                    cell.selectionStyle = .none
-                    cell.hashtagOne.text = "vote"
-                    cell.hashtagTwo.text = "electoral"
+                    cell.hashtagTwo.text = "city"
                     cell.eventOriginalTitle = "Annual Race for Mayor"
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                    cell.eventDescription.text = "Election"
+                    cell.eventDescription.text = "Bi-Monthly meeting"
+                    cell.eventDate.text = "May 25th"
                     cell.eventImage.image = #imageLiteral(resourceName: "Image-7")
-                    print(eventTitles)
-
-                    cell.eventDate.text = "May 23rd"
+                    cell.configure()
                     
+                    print("eventTitle")
+                    print(eventTitle)
+                    print(cell.eventOriginalTitle)
                     
                     eventTitle = cell.eventOriginalTitle
-                    
                     cell.selectionStyle = .none
-                    eventTitles.append(cell.eventOriginalTitle)
-
+                    
                     print(cell.eventOriginalTitle)
-                    cell.configure()
                     eventTitles.append(cell.eventOriginalTitle)
-
+                    print(eventTitles)
                     print(eventTitle)
+                    
                     return cell
                     
                 }
