@@ -97,7 +97,8 @@ class EventViewController: SetGovTableViewController{
                 eventTitles.append(cell.eventOriginalTitle)
                 print(eventTitles)
                 print(eventTitle)
-                return cell            }
+                return cell
+            }
             if indexPath.row == 1 {
                 let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
                 cell.hashtagTwo.text = "city"
@@ -126,6 +127,8 @@ class EventViewController: SetGovTableViewController{
             if indexPath.row == 2 {
                 let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
                 print("eventTitle")
+                
+                
                 cell.hashtagOne.text = "fire-safety"
                 cell.hashtagTwo.text = "committee"
                 cell.eventOriginalTitle = "Fire-Rescue"
@@ -246,41 +249,13 @@ class EventViewController: SetGovTableViewController{
         print("selected")
         if selectedCity == "Fort Lauderdale" {
             if indexPath.row == 0 {
-                let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-                cell.hashtagOne.text = "commmission"
-                cell.hashtagTwo.text = "city"
-                cell.eventOriginalTitle = "City Council"
-                cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                cell.eventDescription.text = "Bi-Monthly meeting"
-                cell.eventDate.text = "May 25th"
-                cell.eventImage.image = #imageLiteral(resourceName: "Image-7")
-                indexofEvent = 0
-
-                print("eventTitle")
-                print(eventTitle)
-                print(cell.eventOriginalTitle)
+               
                 indexofEvent = indexPath.row
-                eventTitles.append(cell.eventOriginalTitle)
-
-                eventTitle = cell.eventOriginalTitle
                 performSegue(withIdentifier: "showEvent", sender: nil)
             }
             if indexPath.row == 1 {
                 let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-                print("eventTitle")
-                print(eventTitle)
-                cell.configure()
-                cell.hashtagOne.text = "fire-safety"
-                cell.hashtagTwo.text = "committee"
-                cell.eventOriginalTitle = "Fire-Rescue"
-                cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                cell.eventDescription.text = "Quarterly meeting"
-                cell.eventDate.text = "June 3rd"
-                cell.eventImage.image = #imageLiteral(resourceName: "Image-8")
-                indexofEvent = 1
-
-                eventTitle = cell.eventOriginalTitle
-                eventTitle.append(cell.eventOriginalTitle)
+               
                 indexofEvent = indexPath.row
                 eventTitles.append(cell.eventOriginalTitle)
 
@@ -288,24 +263,9 @@ class EventViewController: SetGovTableViewController{
 
             }
             if indexPath.row == 2 {
-                    let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-                    print("eventTitle")
-                    cell.configure()
-                    cell.hashtagOne.text = "fire-safety"
-                    cell.hashtagTwo.text = "committee"
-                    cell.eventOriginalTitle = "Fire-Rescue"
-                    cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                    cell.eventDescription.text = "Quarterly meeting"
-                    cell.eventDate.text = "June 3rd"
-                    cell.eventImage.image = #imageLiteral(resourceName: "Image-8")
-                    eventTitle = cell.eventOriginalTitle
-                    eventTitles.append(cell.eventOriginalTitle)
+                
                     indexofEvent = indexPath.row
-
-
-                    print(cell.eventOriginalTitle)
                     performSegue(withIdentifier: "showEvent", sender: nil)
-
                     print(eventTitle)
 
                     
@@ -314,46 +274,16 @@ class EventViewController: SetGovTableViewController{
                 
                     if indexPath.row == 0 {
                         
-                    let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-                        cell.selectionStyle = .none
-                        cell.configure()
-                        cell.hashtagOne.text = "environmental"
-                        cell.hashtagTwo.text = "committee"
-                        cell.eventOriginalTitle = "City Council"
-                        cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                        cell.eventDescription.text = "Meeting"
-                        cell.eventDate.text = "May 23rd"
                         indexofEvent = indexPath.row
-
-                        eventTitles.append(cell.eventOriginalTitle)
-
-                        eventTitle = cell.eventOriginalTitle
-                        
-                        
-                        print(cell.eventOriginalTitle)
                         performSegue(withIdentifier: "showEvent", sender: nil)
                         
                         print(eventTitle)
                     }
                 
                     if indexPath.row == 1 {
-                        let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-                        cell.selectionStyle = .none
-                        cell.configure()
-                        cell.hashtagOne.text = "vote"
-                        cell.hashtagTwo.text = "electoral"
-                        cell.eventOriginalTitle = "Annual Race for Mayor"
-                        cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                        cell.eventDescription.text = "Election"
-                        cell.eventDate.text = "May 23rd"
+                        
                         indexofEvent = indexPath.row
 
-                        eventTitles.append(cell.eventOriginalTitle)
-
-                        eventTitle = cell.eventOriginalTitle
-                        
-                        
-                        print(cell.eventOriginalTitle)
                         performSegue(withIdentifier: "showEvent", sender: nil)
                         
                         print(eventTitle)
@@ -361,23 +291,7 @@ class EventViewController: SetGovTableViewController{
                 }
                 
                 if indexPath.row == 2 {
-                    let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-                    cell.selectionStyle = .none
-                    cell.configure()
-                    cell.hashtagOne.text = "environmental"
-                    cell.hashtagTwo.text = "committee"
-                    cell.eventOriginalTitle = "Council"
-                    cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                    cell.eventDescription.text = "Meeting"
-                    cell.eventDate.text = "May 23rd"
                     indexofEvent = indexPath.row
-
-                    eventTitles.append(cell.eventOriginalTitle)
-                    
-                    eventTitle = cell.eventOriginalTitle
-                    
-                    
-                    print(cell.eventOriginalTitle)
                     performSegue(withIdentifier: "showEvent", sender: nil)
                     
                     print(eventTitles)
