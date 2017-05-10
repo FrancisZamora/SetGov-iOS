@@ -28,6 +28,8 @@ class EventViewController: SetGovTableViewController{
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         print("EventViewController")
         self.setCity()
+        print(selectedCity)
+        
         }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -65,7 +67,7 @@ class EventViewController: SetGovTableViewController{
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("numberofRows")
-        return 3
+        return 30
         
     }
     
@@ -107,7 +109,7 @@ class EventViewController: SetGovTableViewController{
 
                 let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
                 cell.hashtagTwo.text = "city"
-                cell.eventOriginalTitle = "City Council"
+                cell.eventOriginalTitle = "Annual Race for Mayor"
                 cell.eventTitle.text = spacer + cell.eventOriginalTitle
                 cell.eventDescription.text = "Bi-Monthly meeting"
                 cell.eventDate.text = "May 25th"
@@ -200,7 +202,7 @@ class EventViewController: SetGovTableViewController{
                     eventTitle = cell.eventOriginalTitle
                     
                     cell.selectionStyle = .none
-                    eventTitle.append(cell.eventOriginalTitle)
+                    eventTitles.append(cell.eventOriginalTitle)
 
                     print(cell.eventOriginalTitle)
                     cell.configure()
@@ -226,7 +228,7 @@ class EventViewController: SetGovTableViewController{
                     eventTitle = cell.eventOriginalTitle
                     
                     cell.selectionStyle = .none
-                    eventTitle.append(cell.eventOriginalTitle)
+                 
 
                     print(cell.eventOriginalTitle)
                     eventTitles.append(cell.eventOriginalTitle)
@@ -276,7 +278,9 @@ class EventViewController: SetGovTableViewController{
 
                     
             }
-            if selectedCity == "Boston" {
+        }
+        if selectedCity == "Boston" {
+                    print("yo")
                 
                     if indexPath.row == 0 {
                         
@@ -307,31 +311,33 @@ class EventViewController: SetGovTableViewController{
                 
 
                 
-                }
-
-            
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-        }
-
+            }
     }
+
+    
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+    
+
+    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showEvent") {
-
+            print("preparing view")
+            
             let EventDetailViewController = segue.destination as! EventDetailViewController
             EventDetailViewController.selectedEvents = eventTitles
             EventDetailViewController.indexofEvent = indexofEvent
