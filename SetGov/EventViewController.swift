@@ -20,7 +20,9 @@ class EventViewController: SetGovTableViewController{
     var eventTitle = "Marine Advisory"
     var eventTitles = [String]()
     var indexofEvent = 0
-
+    var counter = -1
+    var firstVisited = [Bool]()
+    var eventList = [Int:String]()
     
     @IBOutlet var cityDisplay: UINavigationItem!
     override func viewDidLoad() {
@@ -65,6 +67,15 @@ class EventViewController: SetGovTableViewController{
         return 3
     }
     
+    func appendOnce() -> Int {
+        counter += 1
+        print("THIS IS THE COUNTER")
+        print(counter)
+        return counter
+        
+        
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("numberofRows")
         return 30
@@ -100,7 +111,11 @@ class EventViewController: SetGovTableViewController{
                 print(cell.eventOriginalTitle)
                 print(cell.eventOriginalTitle)
                 print(eventTitle)
-                eventTitles.append(eventTitle)
+                eventTitles.insert(eventTitle, at: indexPath.row)
+                eventList.updateValue(cell.eventOriginalTitle, forKey: indexPath.row)
+                print(eventList)
+
+                
                 print(eventTitles)
                 print(eventTitle)
                 return cell
@@ -125,7 +140,10 @@ class EventViewController: SetGovTableViewController{
                 cell.selectionStyle = .none
                 
                 print(cell.eventOriginalTitle)
-                eventTitles.append(cell.eventOriginalTitle)
+                eventTitles.insert(eventTitle, at: indexPath.row)
+                eventList.updateValue(cell.eventOriginalTitle, forKey: indexPath.row)
+                print(eventList)
+               
                 print(eventTitles)
                 print(eventTitle)
 
@@ -148,14 +166,14 @@ class EventViewController: SetGovTableViewController{
                 eventTitle = cell.eventOriginalTitle
                 
                 cell.selectionStyle = .none
-                eventTitles.append(cell.eventOriginalTitle)
                 cell.configure()
-
+                eventTitles.insert(eventTitle, at: indexPath.row)
+                eventList.updateValue(cell.eventOriginalTitle, forKey: indexPath.row)
+                print(eventList)
                 print(cell.eventOriginalTitle)
                 print("STOP HERE")
                 print(eventTitles)
                 
-                eventTitles.append(cell.eventOriginalTitle)
                 print(eventTitles)
                 
                 print(eventTitle)
@@ -183,12 +201,12 @@ class EventViewController: SetGovTableViewController{
                     eventTitle = cell.eventOriginalTitle
                     
                     cell.selectionStyle = .none
-                    eventTitle.append(cell.eventOriginalTitle)
 
                     print(cell.eventOriginalTitle)
                     cell.configure()
-                    eventTitles.append(cell.eventOriginalTitle)
-
+                    eventTitles.insert(eventTitle, at: indexPath.row)
+                    eventList.updateValue(cell.eventOriginalTitle, forKey: indexPath.row)
+                    print(eventList)
                     print(eventTitle)
                     return cell
                 }
@@ -212,7 +230,9 @@ class EventViewController: SetGovTableViewController{
                     cell.selectionStyle = .none
                     
                     print(cell.eventOriginalTitle)
-                    eventTitles.append(cell.eventOriginalTitle)
+                    eventTitles.insert(eventTitle, at: indexPath.row)
+                    eventList.updateValue(cell.eventOriginalTitle, forKey: indexPath.row)
+                    print(eventList)
                     print(eventTitles)
                     print(eventTitle)
                     
@@ -234,19 +254,47 @@ class EventViewController: SetGovTableViewController{
                     eventTitle = cell.eventOriginalTitle
                     
                     cell.selectionStyle = .none
-                    eventTitles.append(cell.eventOriginalTitle)
                     cell.configure()
                     
                     print(cell.eventOriginalTitle)
                     print("STOP HERE")
                     print(eventTitles)
                     
-                    eventTitles.append(cell.eventOriginalTitle)
+                    eventTitles.insert(eventTitle, at: indexPath.row)
                     print(eventTitles)
-                    
+                    eventList.updateValue(cell.eventOriginalTitle, forKey: indexPath.row)
+                    print(eventList)
                     print(eventTitle)
                     return cell
                 }
+                if indexPath.row == 3 {
+                    let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+                    cell.selectionStyle = .none
+                    
+                    cell.hashtagOne.text = "fire-safety"
+                    cell.hashtagTwo.text = "committee"
+                    cell.eventOriginalTitle = "Nuclear Waste Clean Up"
+                    cell.eventTitle.text = spacer + cell.eventOriginalTitle
+                    cell.eventDescription.text = "Quarterly meeting"
+                    cell.eventDate.text = "June 3rd"
+                    cell.eventImage.image = #imageLiteral(resourceName: "Image-8")
+                    eventTitle = cell.eventOriginalTitle
+                    
+                    cell.selectionStyle = .none
+                    cell.configure()
+                    
+                    print(cell.eventOriginalTitle)
+                    print("STOP HERE")
+                    print(eventTitles)
+                    
+                    eventTitles.insert(eventTitle, at: indexPath.row)
+                    print(eventTitles)
+                    eventList.updateValue(cell.eventOriginalTitle, forKey: indexPath.row)
+                    print(eventList)
+                    print(eventTitle)
+                    return cell
+                }
+
             }
             
             
@@ -255,9 +303,12 @@ class EventViewController: SetGovTableViewController{
 
        let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCell
        cell.configure()
+       cell.selectionStyle = .none
+       print(cell.eventOriginalTitle)
+       print("this is the title")
+
         
-        
-       //print("cell for row" )
+       print("cell for row" )
        return cell
     }
     
@@ -317,8 +368,21 @@ class EventViewController: SetGovTableViewController{
                     print(eventTitles)
                     
                 }
-
+            if indexPath.row == 3 {
+                indexofEvent = indexPath.row
+                performSegue(withIdentifier: "showEvent", sender: nil)
                 
+                print(eventTitles)
+            }
+            if indexPath.row > 3 {
+            
+                indexofEvent = indexPath.row
+                print("index of event")
+                print(indexofEvent)
+                performSegue(withIdentifier: "showEvent", sender: nil)
+
+
+            }
 
                 
             }
@@ -351,6 +415,8 @@ class EventViewController: SetGovTableViewController{
             let EventDetailViewController = segue.destination as! EventDetailViewController
             EventDetailViewController.selectedEvents = eventTitles
             EventDetailViewController.indexofEvent = indexofEvent
+            EventDetailViewController.eventList = eventList
+
         }
         
 

@@ -21,7 +21,8 @@ class EventDetailViewController: SetGovTableViewController{
     var selectedEvent = ""
     var selectedEvents = [String]()
     var indexofEvent = 0
-    
+    var eventList = [Int:String]()
+
     @IBOutlet var navTitle: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +34,9 @@ class EventDetailViewController: SetGovTableViewController{
     func loadTitle() {
         print("loading title")
         print(selectedEvents)
-        
-        navTitle.title = selectedEvents[indexofEvent]
+        print(eventList)
+        print(indexofEvent)
+        navTitle.title = eventList[indexofEvent]
     }
     
       override func viewDidAppear(_ animated: Bool) {
