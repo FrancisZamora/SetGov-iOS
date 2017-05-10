@@ -42,7 +42,6 @@ class EventCell: UITableViewCell {
     var eventOriginalTitle = " " 
     
     func configure() {
-        eventOriginalTitle = " " 
         hashtagTwo.textAlignment = .center
         hashtagOne.textAlignment = .center
         hashtagTwo.layer.backgroundColor = UIColor(red:0.93, green:0.93, blue:0.93, alpha:0.0).cgColor

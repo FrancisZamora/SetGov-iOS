@@ -94,10 +94,9 @@ class EventViewController: SetGovTableViewController{
 
                 eventTitle = cell.eventOriginalTitle
                 cell.selectionStyle = .none
-                
+                print(cell.eventOriginalTitle)
                 print(cell.eventOriginalTitle)
                 print(eventTitle)
-                eventTitles.append("SWAG")
                 eventTitles.append(eventTitle)
                 print(eventTitles)
                 print(eventTitle)
