@@ -18,13 +18,31 @@ class EventViewController: SetGovTableViewController{
     var numsections = 0
     var spacer = "  "
     
+    @IBOutlet var cityDisplay: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         print("EventViewController")
-    }
+        self.setCity()
+        }
     
     override func viewDidAppear(_ animated: Bool) {
+    }
+    
+    func setCity() {
+        if selectedCity == "Fort Lauderdale" {
+           cityDisplay.title = "Fort Lauderdale"
+            
+        }
+        if selectedCity == "Boston"
+        {
+            cityDisplay.title = "Boston"
+            
+        }
+        if selectedCity == "New York City" {
+            cityDisplay.title = "New York City"
+        }
+
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

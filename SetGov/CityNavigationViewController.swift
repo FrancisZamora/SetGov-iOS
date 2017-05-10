@@ -104,16 +104,38 @@ class CityNavigationViewController: SetGovTableViewController {
         
       }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "boston") {
+            let EventViewController = segue.destination as! EventViewController
+            EventViewController.selectedCity = "Boston"
+            
+        }
+        if (segue.identifier == "fort lauderdale") {
+            let EventViewController = segue.destination as! EventViewController
+            EventViewController.selectedCity = "Fort Lauderdale"
+            
+        }
+        if (segue.identifier == "new york ") {
+            let EventViewController = segue.destination as! EventViewController
+            EventViewController.selectedCity = "New York City"
+            
+        }
+
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
         print(indexPath.row)
         
         if indexPath.row == 0 {
+            performSegue(withIdentifier: "boston", sender: nil)
+
             print("Boston Cell")
         }
         
         if indexPath.row == 1 {
-            
+            performSegue(withIdentifier: "fort lauderdale", sender: nil)
+
             print("Fort Lauderdale Cell")
             
         }
