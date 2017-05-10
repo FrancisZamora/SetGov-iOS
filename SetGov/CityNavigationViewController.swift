@@ -128,13 +128,11 @@ class CityNavigationViewController: SetGovTableViewController {
         print(indexPath.row)
         
         if indexPath.row == 0 {
-            performSegue(withIdentifier: "boston", sender: nil)
 
             print("Boston Cell")
         }
         
         if indexPath.row == 1 {
-            performSegue(withIdentifier: "fort lauderdale", sender: nil)
 
             print("Fort Lauderdale Cell")
             
