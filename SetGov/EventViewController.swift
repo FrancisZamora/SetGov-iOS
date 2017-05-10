@@ -78,6 +78,7 @@ class EventViewController: SetGovTableViewController{
         print(indexPath.row)
         if selectedCity == "Fort Lauderdale" {
             if indexPath.row == 0 {
+                
                 print("CELL IS ONE")
                 let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
                 cell.hashtagOne.text = "commmission"
@@ -172,6 +173,9 @@ class EventViewController: SetGovTableViewController{
                     cell.hashtagTwo.text = "committee"
                     cell.eventOriginalTitle = "City Council"
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
+                    cell.eventImage.image = #imageLiteral(resourceName: "Image-7")
+                    print(eventTitles)
+
                     cell.eventDescription.text = "Meeting"
                     cell.eventDate.text = "May 23rd"
                     
@@ -196,6 +200,9 @@ class EventViewController: SetGovTableViewController{
                     cell.eventOriginalTitle = "Annual Race for Mayor"
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
                     cell.eventDescription.text = "Election"
+                    cell.eventImage.image = #imageLiteral(resourceName: "Image-7")
+                    print(eventTitles)
+
                     cell.eventDate.text = "May 23rd"
                     
                     
@@ -216,26 +223,29 @@ class EventViewController: SetGovTableViewController{
                 if indexPath.row == 2 {
                     let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
                     cell.selectionStyle = .none
-                    cell.hashtagOne.text = "environmental"
-                    cell.hashtagTwo.text = "committee"
-                    cell.eventOriginalTitle = "Council"
-                    cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                    cell.eventDescription.text = "Meeting"
-                    cell.eventDate.text = "May 23rd"
-                    cell.configure()
 
-                    
+                    cell.hashtagOne.text = "fire-safety"
+                    cell.hashtagTwo.text = "committee"
+                    cell.eventOriginalTitle = "Fire-Rescue"
+                    cell.eventTitle.text = spacer + cell.eventOriginalTitle
+                    cell.eventDescription.text = "Quarterly meeting"
+                    cell.eventDate.text = "June 3rd"
+                    cell.eventImage.image = #imageLiteral(resourceName: "Image-8")
                     eventTitle = cell.eventOriginalTitle
                     
                     cell.selectionStyle = .none
-                 
-
-                    print(cell.eventOriginalTitle)
                     eventTitles.append(cell.eventOriginalTitle)
-
+                    cell.configure()
+                    
+                    print(cell.eventOriginalTitle)
+                    print("STOP HERE")
+                    print(eventTitles)
+                    
+                    eventTitles.append(cell.eventOriginalTitle)
+                    print(eventTitles)
+                    
                     print(eventTitle)
                     return cell
-                    
                 }
             }
             
