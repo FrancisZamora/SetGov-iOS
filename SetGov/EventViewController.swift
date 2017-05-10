@@ -45,6 +45,10 @@ class EventViewController: SetGovTableViewController{
 
     }
     
+   
+
+    
+    
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50.0
     }
@@ -72,17 +76,17 @@ class EventViewController: SetGovTableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(indexPath.row)
+        if selectedCity == "Fort Lauderdale" {
+            if (indexPath.row == 0){
+                let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+                cell.selectionStyle = .none
+                cell.configure()
+                cell.hashtagOne.text = "environmental"
+                cell.hashtagTwo.text = "committee"
+                cell.eventTitle.text = spacer + "Marine Advisory"
+                cell.eventDescription.text = "Tuck Tuck Tours"
+                cell.eventDate.text = "May 2nd"
 
-        if (indexPath.row == 0){
-            let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-            cell.selectionStyle = .none
-            cell.configure()
-            cell.hashtagOne.text = "environmental"
-            cell.hashtagTwo.text = "committee"
-            cell.eventTitle.text = spacer + "Marine Advisory"
-            cell.eventDescription.text = "Tuck Tuck Tours"
-            cell.eventDate.text = "May 2nd"
-
             
             
             
@@ -90,35 +94,96 @@ class EventViewController: SetGovTableViewController{
             
             
             
-        }
-        if (indexPath.row == 1) {
-            print("indexPath is 1")
-            let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-            cell.selectionStyle = .none
-            cell.configure()
-            cell.hashtagOne.text = "commmission"
-            cell.hashtagTwo.text = "city"
-            cell.eventTitle.text = spacer + "City Council"
-            cell.eventDescription.text = "Bi-Monthly meeting"
-            cell.eventDate.text = "May 25th"
-            cell.eventImage.image = #imageLiteral(resourceName: "Image-7")
-            return cell
+            }
+            if (indexPath.row == 1) {
+                print("indexPath is 1")
+                let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+                cell.selectionStyle = .none
+                cell.configure()
+                cell.hashtagOne.text = "commmission"
+                cell.hashtagTwo.text = "city"
+                cell.eventTitle.text = spacer + "City Council"
+                cell.eventDescription.text = "Bi-Monthly meeting"
+                cell.eventDate.text = "May 25th"
+                cell.eventImage.image = #imageLiteral(resourceName: "Image-7")
+                return cell
          
             
-        }
-        if (indexPath.row == 2 ) {
-            let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-            cell.selectionStyle = .none
-            cell.configure()
-            cell.hashtagOne.text = "fire-safety"
-            cell.hashtagTwo.text = "committee"
-            cell.eventTitle.text = spacer + "Fire-Rescue"
-            cell.eventDescription.text = "Quarterly meeting"
-            cell.eventDate.text = "June 3rd"
-            cell.eventImage.image = #imageLiteral(resourceName: "Image-8")
-            return cell
+            }
+            if (indexPath.row == 2 ) {
+                let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+                cell.selectionStyle = .none
+                cell.configure()
+                cell.hashtagOne.text = "fire-safety"
+                cell.hashtagTwo.text = "committee"
+                cell.eventTitle.text = spacer + "Fire-Rescue"
+                cell.eventDescription.text = "Quarterly meeting"
+                cell.eventDate.text = "June 3rd"
+                cell.eventImage.image = #imageLiteral(resourceName: "Image-8")
+                return cell
 
+            }
         }
+        
+        if selectedCity == "Boston" {
+            if (indexPath.row == 0){
+                let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+                cell.selectionStyle = .none
+                cell.configure()
+                cell.hashtagOne.text = "environmental"
+                cell.hashtagTwo.text = "committee"
+                cell.eventTitle.text = spacer + "Council"
+                cell.eventDescription.text = "Meeting"
+                cell.eventDate.text = "May 23rd"
+                
+                
+                
+                
+                
+                
+                
+                
+            }
+            if (indexPath.row == 1) {
+                print("indexPath is 1")
+                let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+                cell.selectionStyle = .none
+                cell.configure()
+                cell.hashtagOne.text = "commmission"
+                cell.hashtagTwo.text = "city"
+                cell.eventTitle.text = spacer + "City Council"
+                cell.eventDescription.text = "Bi-Monthly meeting"
+                cell.eventDate.text = "May 25th"
+                cell.eventImage.image = #imageLiteral(resourceName: "Image-7")
+                return cell
+                
+                
+            }
+            if (indexPath.row == 2 ) {
+                let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+                cell.selectionStyle = .none
+                cell.configure()
+                cell.hashtagOne.text = "fire-safety"
+                cell.hashtagTwo.text = "committee"
+                cell.eventTitle.text = spacer + "Fire-Rescue"
+                cell.eventDescription.text = "Quarterly meeting"
+                cell.eventDate.text = "June 3rd"
+                cell.eventImage.image = #imageLiteral(resourceName: "Image-8")
+                return cell
+                
+            }
+
+            
+            
+            
+            
+            
+            
+            
+            
+        }
+            
+            
         
         
        let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCell
