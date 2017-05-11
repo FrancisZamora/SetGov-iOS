@@ -130,7 +130,7 @@ class EventViewController: SetGovTableViewController{
                 cell.eventTitle.text = spacer + cell.eventOriginalTitle
                 cell.eventDescription.text = "Annual Race for Mayor"
                 cell.eventDate.text = "June 1st"
-                cell.eventImage.image = #imageLiteral(resourceName: "Image-7")
+                cell.eventImage.image = #imageLiteral(resourceName: "Image-14")
                 cell.configure()
                 
                 print("eventTitle")
@@ -189,10 +189,10 @@ class EventViewController: SetGovTableViewController{
                     let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
                     cell.selectionStyle = .none
                     cell.hashtagOne.text = "environmental"
-                    cell.hashtagTwo.text = "committee"
+                    cell.hashtagTwo.text = "legislation"
                     cell.eventOriginalTitle = "City Council"
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                    cell.eventImage.image = #imageLiteral(resourceName: "Image-7")
+                    cell.eventImage.image = #imageLiteral(resourceName: "Image-12")
                     print(eventTitles)
 
                     cell.eventDescription.text = "Meeting"
@@ -215,12 +215,13 @@ class EventViewController: SetGovTableViewController{
                     print("CELL IS TWO")
                     
                     let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-                    cell.hashtagTwo.text = "city"
+                    cell.hashtagTwo.text = "bureaucracy"
+                    cell.hashtagOne.text = "engagement"
                     cell.eventOriginalTitle = "Annual Race for Mayor"
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                    cell.eventDescription.text = "Bi-Monthly meeting"
+                    cell.eventDescription.text = "Election"
                     cell.eventDate.text = "May 25th"
-                    cell.eventImage.image = #imageLiteral(resourceName: "Image-7")
+                    cell.eventImage.image = #imageLiteral(resourceName: "Image-13")
                     cell.configure()
                     
                     print("eventTitle")

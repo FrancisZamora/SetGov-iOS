@@ -548,6 +548,10 @@
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-1" translatesAutoresizingMaskIntoConstraints="NO" id="99H-sQ-o1n" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
                                             <rect key="frame" x="56" y="42" width="35" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="OYE-xw-pVO"/>
+                                                <constraint firstAttribute="width" constant="35" id="hJr-Bd-ZeL"/>
+                                            </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-4" translatesAutoresizingMaskIntoConstraints="NO" id="nVY-7b-Jr0" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
                                             <rect key="frame" x="152" y="42" width="35" height="35"/>
@@ -557,6 +561,10 @@
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-2" translatesAutoresizingMaskIntoConstraints="NO" id="oUF-h5-mRb" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
                                             <rect key="frame" x="199" y="42" width="35" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="35" id="R6V-CW-3d2"/>
+                                                <constraint firstAttribute="height" constant="35" id="fBv-e8-8o6"/>
+                                            </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-5" translatesAutoresizingMaskIntoConstraints="NO" id="Obz-Fv-gcQ" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
                                             <rect key="frame" x="249" y="42" width="35" height="35"/>
@@ -572,41 +580,36 @@
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-3" translatesAutoresizingMaskIntoConstraints="NO" id="mQm-tS-01G" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
                                             <rect key="frame" x="104" y="42" width="35" height="35"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="35" id="QAh-NT-asO"/>
-                                            </constraints>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstItem="rJT-UP-jqh" firstAttribute="bottom" secondItem="mQm-tS-01G" secondAttribute="bottom" id="BAm-vr-YDZ"/>
+                                        <constraint firstItem="mQm-tS-01G" firstAttribute="leading" secondItem="99H-sQ-o1n" secondAttribute="trailing" constant="13" id="3if-qU-olc"/>
+                                        <constraint firstItem="Obz-Fv-gcQ" firstAttribute="leading" secondItem="oUF-h5-mRb" secondAttribute="trailing" constant="15" id="5rc-pY-Zym"/>
                                         <constraint firstItem="oUF-h5-mRb" firstAttribute="top" secondItem="Obz-Fv-gcQ" secondAttribute="top" id="BdF-1k-Gsq"/>
-                                        <constraint firstItem="Obz-Fv-gcQ" firstAttribute="leading" secondItem="oUF-h5-mRb" secondAttribute="trailing" constant="15" id="CD1-4x-oLe"/>
                                         <constraint firstItem="CgD-IJ-v98" firstAttribute="top" secondItem="j4F-Lz-aA7" secondAttribute="topMargin" constant="-4" id="CJ1-yI-EZt"/>
                                         <constraint firstItem="oUF-h5-mRb" firstAttribute="leading" secondItem="nVY-7b-Jr0" secondAttribute="trailing" constant="12" id="Cj8-Ea-N50"/>
                                         <constraint firstItem="CgD-IJ-v98" firstAttribute="top" secondItem="AjP-p4-iPi" secondAttribute="top" id="EFq-B3-oaA"/>
-                                        <constraint firstItem="nVY-7b-Jr0" firstAttribute="leading" secondItem="mQm-tS-01G" secondAttribute="trailing" constant="13" id="EUG-3Z-S6Q"/>
                                         <constraint firstItem="oUF-h5-mRb" firstAttribute="top" secondItem="nVY-7b-Jr0" secondAttribute="top" id="FGV-R3-rKT"/>
-                                        <constraint firstItem="mQm-tS-01G" firstAttribute="leading" secondItem="99H-sQ-o1n" secondAttribute="trailing" constant="13" id="GCo-N7-QNq"/>
-                                        <constraint firstItem="rJT-UP-jqh" firstAttribute="top" secondItem="99H-sQ-o1n" secondAttribute="top" id="H6h-vx-LjG"/>
-                                        <constraint firstItem="mQm-tS-01G" firstAttribute="top" secondItem="CgD-IJ-v98" secondAttribute="bottom" constant="8" symbolic="YES" id="HLf-o3-WdH"/>
+                                        <constraint firstItem="99H-sQ-o1n" firstAttribute="leading" secondItem="rJT-UP-jqh" secondAttribute="trailing" constant="13" id="TTF-Q9-djL"/>
                                         <constraint firstItem="rJT-UP-jqh" firstAttribute="bottom" secondItem="Obz-Fv-gcQ" secondAttribute="bottom" id="TZN-NR-rB0"/>
-                                        <constraint firstItem="99H-sQ-o1n" firstAttribute="leading" secondItem="rJT-UP-jqh" secondAttribute="trailing" constant="13" id="Uuj-ZR-MyE"/>
                                         <constraint firstItem="DOJ-dF-Uxj" firstAttribute="leading" secondItem="AjP-p4-iPi" secondAttribute="trailing" constant="8" symbolic="YES" id="Vtk-gz-4h6"/>
-                                        <constraint firstItem="mQm-tS-01G" firstAttribute="leading" secondItem="j4F-Lz-aA7" secondAttribute="leading" constant="104" id="WMW-kL-j8d"/>
-                                        <constraint firstItem="99H-sQ-o1n" firstAttribute="top" secondItem="CgD-IJ-v98" secondAttribute="bottom" constant="8" symbolic="YES" id="Yez-aG-6Wa"/>
+                                        <constraint firstItem="nVY-7b-Jr0" firstAttribute="leading" secondItem="mQm-tS-01G" secondAttribute="trailing" constant="13" id="Ymp-zl-kYB"/>
                                         <constraint firstItem="CgD-IJ-v98" firstAttribute="leading" secondItem="j4F-Lz-aA7" secondAttribute="leadingMargin" id="ZjJ-4C-8qy"/>
                                         <constraint firstItem="CgD-IJ-v98" firstAttribute="firstBaseline" secondItem="DOJ-dF-Uxj" secondAttribute="baseline" id="bPw-Y6-Hos"/>
-                                        <constraint firstItem="rJT-UP-jqh" firstAttribute="bottom" secondItem="99H-sQ-o1n" secondAttribute="bottom" id="c7H-He-ivd"/>
                                         <constraint firstItem="CgD-IJ-v98" firstAttribute="top" secondItem="DOJ-dF-Uxj" secondAttribute="top" id="dXS-dG-0HW"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="rJT-UP-jqh" secondAttribute="bottom" constant="8" id="egy-i6-e7U"/>
                                         <constraint firstItem="rJT-UP-jqh" firstAttribute="leading" secondItem="CgD-IJ-v98" secondAttribute="leading" id="fe7-3Z-myb"/>
                                         <constraint firstItem="oUF-h5-mRb" firstAttribute="bottom" secondItem="Obz-Fv-gcQ" secondAttribute="bottom" id="gby-yz-TSv"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Obz-Fv-gcQ" secondAttribute="trailing" constant="83" id="hWy-bx-IdJ"/>
+                                        <constraint firstItem="99H-sQ-o1n" firstAttribute="top" secondItem="rJT-UP-jqh" secondAttribute="top" id="haW-Jk-ZWZ"/>
                                         <constraint firstItem="oUF-h5-mRb" firstAttribute="bottom" secondItem="nVY-7b-Jr0" secondAttribute="bottom" id="lYY-V0-5b9"/>
                                         <constraint firstItem="AjP-p4-iPi" firstAttribute="leading" secondItem="CgD-IJ-v98" secondAttribute="trailing" constant="5" id="mKv-4S-yfm"/>
                                         <constraint firstItem="CgD-IJ-v98" firstAttribute="baseline" secondItem="DOJ-dF-Uxj" secondAttribute="firstBaseline" id="mg5-0F-NMg"/>
+                                        <constraint firstItem="mQm-tS-01G" firstAttribute="bottom" secondItem="99H-sQ-o1n" secondAttribute="bottom" id="nmi-dX-chX"/>
                                         <constraint firstItem="CgD-IJ-v98" firstAttribute="bottom" secondItem="AjP-p4-iPi" secondAttribute="bottom" id="s9P-Tf-4f8"/>
+                                        <constraint firstItem="mQm-tS-01G" firstAttribute="top" secondItem="99H-sQ-o1n" secondAttribute="top" id="sA5-N2-RzV"/>
+                                        <constraint firstItem="99H-sQ-o1n" firstAttribute="bottom" secondItem="rJT-UP-jqh" secondAttribute="bottom" id="uId-Qe-vmJ"/>
                                         <constraint firstItem="rJT-UP-jqh" firstAttribute="top" secondItem="Obz-Fv-gcQ" secondAttribute="top" id="yjP-NR-lpc"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -1093,7 +1096,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-10" translatesAutoresizingMaskIntoConstraints="NO" id="wDa-mX-C3e">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="213"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="212"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New York, NY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1y-i7-AgX">
                                             <rect key="frame" x="61" y="81" width="253" height="46"/>
