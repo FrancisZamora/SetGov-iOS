@@ -16,7 +16,9 @@ class CityNavigationViewController: SetGovTableViewController {
     @IBOutlet var navBar: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 213
+        print("autoresizing")
 
        
     }
@@ -58,11 +60,14 @@ class CityNavigationViewController: SetGovTableViewController {
     {
         switch indexPath.row {
         case 0:
-            return 223
+            //223 for iphone 7 <
+            return 247
         case 1:
-            return 223
+            //223 for iphone 7 <
+            return 247
         case 2:
-            return 223
+            //223 for iphone 7 <
+            return 247
       
         default:
             return 240

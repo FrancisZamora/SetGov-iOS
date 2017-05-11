@@ -39,16 +39,16 @@ class EventViewController: SetGovTableViewController{
     
     func setCity() {
         if selectedCity == "Fort Lauderdale" {
-           cityDisplay.title = "Fort Lauderdale"
+           cityDisplay.title = "Fort Lauderdale, FL "
             
         }
         if selectedCity == "Boston"
         {
-            cityDisplay.title = "Boston"
+            cityDisplay.title = "Boston, MA "
             
         }
         if selectedCity == "New York City" {
-            cityDisplay.title = "New York City"
+            cityDisplay.title = "New York, NY "
         }
 
     }
@@ -93,11 +93,11 @@ class EventViewController: SetGovTableViewController{
                 print("CELL IS ONE")
                 let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
                 cell.hashtagOne.text = "commmission"
-                cell.hashtagTwo.text = "city"
+                cell.hashtagTwo.text = "environmental"
                 cell.eventOriginalTitle = "City Council"
                 cell.eventTitle.text = spacer + cell.eventOriginalTitle
                 cell.eventDescription.text = "Bi-Monthly meeting"
-                cell.eventDate.text = "May 25th"
+                cell.eventDate.text = "May 29th"
                 cell.eventImage.image = #imageLiteral(resourceName: "Image-7")
                 cell.configure()
                 
@@ -124,11 +124,12 @@ class EventViewController: SetGovTableViewController{
                 print("CELL IS TWO")
 
                 let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-                cell.hashtagTwo.text = "city"
-                cell.eventOriginalTitle = "Annual Race for Mayor"
+                cell.hashtagOne.text = "bureaucracy"
+                cell.hashtagTwo.text = "engagement"
+                cell.eventOriginalTitle = "City Election"
                 cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                cell.eventDescription.text = "Bi-Monthly meeting"
-                cell.eventDate.text = "May 25th"
+                cell.eventDescription.text = "Annual Race for Mayor"
+                cell.eventDate.text = "June 1st"
                 cell.eventImage.image = #imageLiteral(resourceName: "Image-7")
                 cell.configure()
                 
