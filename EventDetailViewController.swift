@@ -95,7 +95,7 @@ class EventDetailViewController: SetGovTableViewController{
                 eventStream.streamContent()
                 eventStream.eventImage.image = eventImages[indexofEvent]
                 eventStream.secondaryEventImage.image = eventImages[indexofEvent]
-                agendaImage = eventStream.eventImage.image
+                agendaImage = eventStream.eventImage.image!
             if eventStream.initiateStream == false {
                 return eventStream
             }
@@ -157,5 +157,21 @@ class EventDetailViewController: SetGovTableViewController{
         
     
         }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "showAgenda") {
+            print("preparing view")
+            print("view for agenda detail")
+            let AgendaDetailViewController = segue.destination as! AgendaDetailViewController
+            AgendaDetailViewController.agendaImage = agendaImage
+        }
+        
+        
+    }
+    
+    
+    
+
     }
 

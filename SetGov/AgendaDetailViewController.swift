@@ -12,7 +12,7 @@ import QuartzCore
 
 class AgendaDetailViewController: SetGovTableViewController {
     var  numsections = 0
-    
+    var agendaImage = #imageLiteral(resourceName: "Image1")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +64,7 @@ class AgendaDetailViewController: SetGovTableViewController {
         if (indexPath.row == 0) {
             let agendadetailHeader =  tableView.dequeueReusableCell(withIdentifier: "AgendaDetailHeader", for:indexPath) as! AgendaDetailHeader
             agendadetailHeader.selectionStyle = .none
+            agendadetailHeader.agendaImage.image = agendaImage
             
             
             print("cell for row" )

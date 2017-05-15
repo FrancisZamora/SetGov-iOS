@@ -481,7 +481,7 @@
                                                         <outlet property="agendaPic" destination="uG4-hU-mdK" id="cA8-aJ-ird"/>
                                                         <outlet property="mLabel" destination="gaC-Ca-9hY" id="XLx-9R-1cv"/>
                                                         <outlet property="topicLabel" destination="m4f-SF-Piy" id="2S9-ik-MQF"/>
-                                                        <segue destination="1Ae-3g-4yy" kind="show" id="fF4-6s-Inb"/>
+                                                        <segue destination="1Ae-3g-4yy" kind="show" identifier="showAgenda" id="fF4-6s-Inb"/>
                                                     </connections>
                                                 </collectionViewCell>
                                             </cells>
@@ -790,6 +790,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="agendaImage" destination="7WQ-j7-kZc" id="XFh-GO-wc3"/>
                                     <outlet property="secondaryTitle" destination="rOa-aP-Kpc" id="OpH-od-7v5"/>
                                     <outlet property="tertiaryTitle" destination="1rn-53-NNT" id="ryl-nW-zyu"/>
                                     <outlet property="titleLabel" destination="cZz-Lb-cpx" id="MNz-GJ-dSm"/>
