@@ -22,7 +22,8 @@ class EventDetailViewController: SetGovTableViewController{
     var selectedEvents = [String]()
     var indexofEvent = 0
     var eventList = [Int:String]()
-
+    var eventImages = [Int: UIImage]()
+    var agendaImage = #imageLiteral(resourceName: "Image1")
     @IBOutlet var navTitle: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,6 +93,9 @@ class EventDetailViewController: SetGovTableViewController{
            
                 eventStream.configure()
                 eventStream.streamContent()
+                eventStream.eventImage.image = eventImages[indexofEvent]
+                eventStream.secondaryEventImage.image = eventImages[indexofEvent]
+                agendaImage = eventStream.eventImage.image
             if eventStream.initiateStream == false {
                 return eventStream
             }
