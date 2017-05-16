@@ -112,7 +112,7 @@ class EventViewController: SetGovTableViewController{
                 print(eventTitle)
                 print("TESTING")
                 print(cell.eventOriginalTitle)
-
+                eventArray.append(time)
                 eventTitle = cell.eventOriginalTitle
                 cell.selectionStyle = .none
                 print(cell.eventOriginalTitle)
@@ -122,10 +122,10 @@ class EventViewController: SetGovTableViewController{
                 eventTitles.insert(eventTitle, at: indexPath.row)
                 eventList.updateValue(cell.eventOriginalTitle, forKey: indexPath.row)
                 eventInfo.updateValue(eventArray, forKey: indexPath.row)
-
+                print(eventInfo)
                 eventImages.updateValue(eventImage, forKey: indexPath.row)
                 print(eventList)
-
+                eventArray = []
                 
                 print(eventTitles)
                 print(eventTitle)
@@ -145,21 +145,26 @@ class EventViewController: SetGovTableViewController{
                 cell.configure()
                 eventImage = cell.eventImage.image!
                 eventImages.updateValue(eventImage, forKey: indexPath.row)
-
+                eventArray.append(cell.eventDate.text!)
+                eventArray.append(address)
                 print("eventTitle")
                 print(eventTitle)
                 print(cell.eventOriginalTitle)
-                
+                eventArray.append(time)
+
                 eventTitle = cell.eventOriginalTitle
                 cell.selectionStyle = .none
                 
                 print(cell.eventOriginalTitle)
                 eventTitles.insert(eventTitle, at: indexPath.row)
                 eventList.updateValue(cell.eventOriginalTitle, forKey: indexPath.row)
+                eventInfo.updateValue(eventArray, forKey: indexPath.row)
+
                 print(eventList)
                
                 print(eventTitles)
                 print(eventTitle)
+                eventArray = []
 
                 return cell
                 
@@ -180,9 +185,14 @@ class EventViewController: SetGovTableViewController{
                 eventTitle = cell.eventOriginalTitle
                 eventImage = cell.eventImage.image!
                 eventImages.updateValue(eventImage, forKey: indexPath.row)
-
+                eventArray.append(cell.eventDate.text!)
+                eventArray.append(address)
                 cell.selectionStyle = .none
                 cell.configure()
+                eventArray.append(time)
+
+                eventInfo.updateValue(eventArray, forKey: indexPath.row)
+                
                 eventTitles.insert(eventTitle, at: indexPath.row)
                 eventList.updateValue(cell.eventOriginalTitle, forKey: indexPath.row)
                 print(eventList)
@@ -191,7 +201,8 @@ class EventViewController: SetGovTableViewController{
                 print(eventTitles)
                 
                 print(eventTitles)
-                
+                eventArray = []
+
                 print(eventTitle)
                 return cell
                 
@@ -209,12 +220,16 @@ class EventViewController: SetGovTableViewController{
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
                     cell.eventImage.image = #imageLiteral(resourceName: "Image-12")
                     print(eventTitles)
+                    eventArray.append(time)
+
                     eventImage = cell.eventImage.image!
                     eventImages.updateValue(eventImage, forKey: indexPath.row)
+                    eventInfo.updateValue(eventArray, forKey: indexPath.row)
 
                     cell.eventDescription.text = "Meeting"
                     cell.eventDate.text = "May 23rd"
-                    
+                    eventArray.append(cell.eventDate.text!)
+                    eventArray.append(address)
                     
                     eventTitle = cell.eventOriginalTitle
                     
@@ -224,6 +239,9 @@ class EventViewController: SetGovTableViewController{
                     cell.configure()
                     eventTitles.insert(eventTitle, at: indexPath.row)
                     eventList.updateValue(cell.eventOriginalTitle, forKey: indexPath.row)
+                    eventInfo.updateValue(eventArray, forKey: indexPath.row)
+                    eventArray = []
+
                     print(eventList)
                     print(eventTitle)
                     return cell
@@ -240,13 +258,17 @@ class EventViewController: SetGovTableViewController{
                     cell.eventDate.text = "May 25th"
                     cell.eventImage.image = #imageLiteral(resourceName: "Image-13")
                     cell.configure()
+                    eventArray.append(time)
+
                     eventImage = cell.eventImage.image!
                     eventImages.updateValue(eventImage, forKey: indexPath.row)
-
+                    eventArray.append(cell.eventDate.text!)
+                    eventArray.append(address)
                     print("eventTitle")
                     print(eventTitle)
                     print(cell.eventOriginalTitle)
-                    
+                    eventInfo.updateValue(eventArray, forKey: indexPath.row)
+
                     eventTitle = cell.eventOriginalTitle
                     cell.selectionStyle = .none
                     
@@ -256,7 +278,8 @@ class EventViewController: SetGovTableViewController{
                     print(eventList)
                     print(eventTitles)
                     print(eventTitle)
-                    
+                    eventArray = []
+
                     return cell
                     
                 }
@@ -272,13 +295,17 @@ class EventViewController: SetGovTableViewController{
                     cell.eventDescription.text = "Quarterly meeting"
                     cell.eventDate.text = "June 3rd"
                     cell.eventImage.image = #imageLiteral(resourceName: "Image-8")
+                    eventArray.append(time)
+
                     eventTitle = cell.eventOriginalTitle
                     eventImage = cell.eventImage.image!
                     eventImages.updateValue(eventImage, forKey: indexPath.row)
-
+                    eventArray.append(cell.eventDate.text!)
+                    eventArray.append(address)
                     cell.selectionStyle = .none
                     cell.configure()
-                    
+                    eventInfo.updateValue(eventArray, forKey: indexPath.row)
+
                     print(cell.eventOriginalTitle)
                     print("STOP HERE")
                     print(eventTitles)
@@ -288,6 +315,8 @@ class EventViewController: SetGovTableViewController{
                     eventList.updateValue(cell.eventOriginalTitle, forKey: indexPath.row)
                     print(eventList)
                     print(eventTitle)
+                    eventArray = []
+
                     return cell
                 }
                 if indexPath.row == 3 {
@@ -301,13 +330,17 @@ class EventViewController: SetGovTableViewController{
                     cell.eventDescription.text = "Quarterly meeting"
                     cell.eventDate.text = "June 3rd"
                     cell.eventImage.image = #imageLiteral(resourceName: "Image-8")
+                    eventArray.append(time)
+
                     eventTitle = cell.eventOriginalTitle
                     eventImage = cell.eventImage.image!
                     eventImages.updateValue(eventImage, forKey: indexPath.row)
-
+                    eventArray.append(cell.eventDate.text!)
+                    eventArray.append(address)
                     cell.selectionStyle = .none
                     cell.configure()
-                    
+                    eventInfo.updateValue(eventArray, forKey: indexPath.row)
+
                     print(cell.eventOriginalTitle)
                     print("STOP HERE")
                     print(eventTitles)
@@ -317,6 +350,8 @@ class EventViewController: SetGovTableViewController{
                     eventList.updateValue(cell.eventOriginalTitle, forKey: indexPath.row)
                     print(eventList)
                     print(eventTitle)
+                    eventArray = []
+
                     return cell
                 }
 
@@ -442,6 +477,7 @@ class EventViewController: SetGovTableViewController{
             EventDetailViewController.indexofEvent = indexofEvent
             EventDetailViewController.eventList = eventList
             EventDetailViewController.eventImages = eventImages
+            EventDetailViewController.eventInfo = eventInfo
         }
         
 

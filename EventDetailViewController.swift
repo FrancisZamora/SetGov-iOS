@@ -131,7 +131,11 @@ class EventDetailViewController: SetGovTableViewController{
         if(indexPath.row == 1) {
             let infoCell =  tableView.dequeueReusableCell(withIdentifier: "EventInfo", for:indexPath) as! EventInfo
             infoCell.selectionStyle = .none
-
+            print(eventInfo)
+            print("stop")
+            print(indexofEvent)
+            infoCell.eventTime.text = (eventInfo[indexofEvent]?[0])! + " " + (eventInfo[indexofEvent]?[2])!
+            
             return infoCell
         }
         
