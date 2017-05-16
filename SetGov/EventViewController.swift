@@ -22,6 +22,9 @@ class EventViewController: SetGovTableViewController{
     var indexofEvent = 0
     var counter = -1
     var eventImage = #imageLiteral(resourceName: "Image1")
+    var address = "100 North Andrews Avenue"
+    var time = "9:00pm"
+    var eventArray = [String]()
     var firstVisited = [Bool]()
     var eventList = [Int:String]()
     var eventImages = [Int:UIImage]()
@@ -103,7 +106,8 @@ class EventViewController: SetGovTableViewController{
                 cell.eventDate.text = "May 29th"
                 cell.eventImage.image = #imageLiteral(resourceName: "Image-7")
                 cell.configure()
-                
+                eventArray.append(cell.eventDate.text!)
+                eventArray.append(address)
                 print("eventTitle")
                 print(eventTitle)
                 print("TESTING")
@@ -117,6 +121,8 @@ class EventViewController: SetGovTableViewController{
                 eventImage = cell.eventImage.image!
                 eventTitles.insert(eventTitle, at: indexPath.row)
                 eventList.updateValue(cell.eventOriginalTitle, forKey: indexPath.row)
+                eventInfo.updateValue(eventArray, forKey: indexPath.row)
+
                 eventImages.updateValue(eventImage, forKey: indexPath.row)
                 print(eventList)
 
