@@ -24,6 +24,8 @@ class EventDetailViewController: SetGovTableViewController{
     var eventList = [Int:String]()
     var eventImages = [Int: UIImage]()
     var agendaImage = #imageLiteral(resourceName: "Image1")
+    var eventInfo = [Int: [String]]()
+
     @IBOutlet var navTitle: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()

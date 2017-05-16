@@ -25,6 +25,7 @@ class EventViewController: SetGovTableViewController{
     var firstVisited = [Bool]()
     var eventList = [Int:String]()
     var eventImages = [Int:UIImage]()
+    var eventInfo = [Int: [String]]()
     
     @IBOutlet var cityDisplay: UINavigationItem!
     override func viewDidLoad() {
