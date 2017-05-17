@@ -371,20 +371,29 @@
                                 <rect key="frame" x="0.0" y="228" width="375" height="38"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gf4-LZ-yPk" id="xyb-zo-Hvk">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="37.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="38"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/23  9:00pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JzC-Ti-fLm">
-                                            <rect key="frame" x="262" y="8" width="98" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 North Andrews Avenue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbI-H2-dbm">
+                                            <rect key="frame" x="8" y="7" width="209" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9:00pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Iy-KO-Wpj">
+                                            <rect key="frame" x="310" y="8" width="57" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="98" id="zMi-Fk-9OX"/>
+                                                <constraint firstAttribute="width" constant="57" id="eWp-7i-Ufa"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 North Andrews Avenue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbI-H2-dbm">
-                                            <rect key="frame" x="8" y="7" width="209" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="June 29th" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JzC-Ti-fLm">
+                                            <rect key="frame" x="235" y="8" width="67" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="67" id="zMi-Fk-9OX"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -392,16 +401,21 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="bbI-H2-dbm" firstAttribute="top" secondItem="xyb-zo-Hvk" secondAttribute="topMargin" constant="-1" id="2dy-OO-9P1"/>
-                                        <constraint firstItem="JzC-Ti-fLm" firstAttribute="bottom" secondItem="xyb-zo-Hvk" secondAttribute="bottomMargin" id="6aV-cy-8Yt"/>
+                                        <constraint firstItem="1Iy-KO-Wpj" firstAttribute="baseline" secondItem="JzC-Ti-fLm" secondAttribute="baseline" id="5WA-K8-Q4x"/>
+                                        <constraint firstItem="JzC-Ti-fLm" firstAttribute="bottom" secondItem="xyb-zo-Hvk" secondAttribute="bottomMargin" constant="-1" id="6aV-cy-8Yt"/>
                                         <constraint firstItem="JzC-Ti-fLm" firstAttribute="top" secondItem="xyb-zo-Hvk" secondAttribute="topMargin" id="KEo-1E-yGH"/>
-                                        <constraint firstItem="JzC-Ti-fLm" firstAttribute="leading" secondItem="bbI-H2-dbm" secondAttribute="trailing" constant="45" id="OlC-Xa-Jpg"/>
+                                        <constraint firstItem="JzC-Ti-fLm" firstAttribute="leading" secondItem="bbI-H2-dbm" secondAttribute="trailing" constant="18" id="OlC-Xa-Jpg"/>
+                                        <constraint firstItem="1Iy-KO-Wpj" firstAttribute="leading" secondItem="JzC-Ti-fLm" secondAttribute="trailing" constant="8" symbolic="YES" id="VoH-SO-uEX"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="bbI-H2-dbm" secondAttribute="bottom" constant="1" id="cXK-GN-ujf"/>
+                                        <constraint firstItem="1Iy-KO-Wpj" firstAttribute="firstBaseline" secondItem="JzC-Ti-fLm" secondAttribute="firstBaseline" id="eFm-2Y-rVR"/>
                                         <constraint firstItem="bbI-H2-dbm" firstAttribute="leading" secondItem="xyb-zo-Hvk" secondAttribute="leadingMargin" id="hYr-hk-5gg"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="JzC-Ti-fLm" secondAttribute="trailing" constant="7" id="ymh-AW-hho"/>
+                                        <constraint firstItem="1Iy-KO-Wpj" firstAttribute="trailing" secondItem="xyb-zo-Hvk" secondAttribute="trailingMargin" id="oTY-2Y-uP2"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="JzC-Ti-fLm" secondAttribute="trailing" constant="65" id="ymh-AW-hho"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="eventAddress" destination="bbI-H2-dbm" id="Biq-2r-22g"/>
+                                    <outlet property="eventHour" destination="1Iy-KO-Wpj" id="whI-nd-2bM"/>
                                     <outlet property="eventTime" destination="JzC-Ti-fLm" id="mTR-j8-0dh"/>
                                 </connections>
                             </tableViewCell>
@@ -728,7 +742,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ee-nh-oYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4511" y="-188"/>
+            <point key="canvasLocation" x="4509.6000000000004" y="-188.45577211394306"/>
         </scene>
         <!--Marine Advisory-->
         <scene sceneID="pnb-67-GvK">

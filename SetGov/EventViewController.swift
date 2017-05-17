@@ -209,7 +209,6 @@ class EventViewController: SetGovTableViewController{
             }
         }
             if selectedCity == "Boston" {
-                
                 if indexPath.row == 0 {
                     
                     let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
@@ -227,10 +226,12 @@ class EventViewController: SetGovTableViewController{
 
                     cell.eventDescription.text = "Meeting"
                     cell.eventDate.text = "May 23rd"
+                    address = "1 City Hall Square"
+
                     eventArray.append(cell.eventDate.text!)
                     eventArray.append(address)
                     eventArray.append(time)
-
+                    print(eventArray)
                     eventTitle = cell.eventOriginalTitle
                     
                     cell.selectionStyle = .none
@@ -253,6 +254,8 @@ class EventViewController: SetGovTableViewController{
                     cell.hashtagTwo.text = "bureaucracy"
                     cell.hashtagOne.text = "engagement"
                     cell.eventOriginalTitle = "Annual Race for Mayor"
+                    address = "1 City Hall Square"
+
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
                     cell.eventDescription.text = "Election"
                     cell.eventDate.text = "May 25th"
@@ -288,6 +291,7 @@ class EventViewController: SetGovTableViewController{
                 if indexPath.row == 2 {
                     let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
                     cell.selectionStyle = .none
+                    address = "1 City Hall Square"
 
                     cell.hashtagOne.text = "fire-safety"
                     cell.hashtagTwo.text = "committee"
@@ -324,7 +328,8 @@ class EventViewController: SetGovTableViewController{
                 if indexPath.row == 3 {
                     let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
                     cell.selectionStyle = .none
-                    
+                    address = "1 City Hall Square"
+
                     cell.hashtagOne.text = "fire-safety"
                     cell.hashtagTwo.text = "committee"
                     cell.eventOriginalTitle = "Nuclear Waste Clean Up"

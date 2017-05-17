@@ -134,7 +134,9 @@ class EventDetailViewController: SetGovTableViewController{
             print(eventInfo)
             print("stop")
             print(indexofEvent)
-            infoCell.eventTime.text = (eventInfo[indexofEvent]?[0])! + " " + (eventInfo[indexofEvent]?[2])!
+            infoCell.eventAddress.text = eventInfo[indexofEvent]?[1]
+            infoCell.eventTime.text = eventInfo[indexofEvent]?[0]
+            infoCell.eventHour.text = eventInfo[indexofEvent]?[2]
             
             return infoCell
         }

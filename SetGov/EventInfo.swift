@@ -12,6 +12,7 @@ import QuartzCore
 
 class EventInfo: UITableViewCell {
     
+    @IBOutlet var eventHour: UILabel!
     @IBOutlet var eventAddress: UILabel!
     
     @IBOutlet var eventTime: UILabel!
