@@ -220,7 +220,6 @@ class EventViewController: SetGovTableViewController{
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
                     cell.eventImage.image = #imageLiteral(resourceName: "Image-12")
                     print(eventTitles)
-                    eventArray.append(time)
 
                     eventImage = cell.eventImage.image!
                     eventImages.updateValue(eventImage, forKey: indexPath.row)
@@ -230,7 +229,8 @@ class EventViewController: SetGovTableViewController{
                     cell.eventDate.text = "May 23rd"
                     eventArray.append(cell.eventDate.text!)
                     eventArray.append(address)
-                    
+                    eventArray.append(time)
+
                     eventTitle = cell.eventOriginalTitle
                     
                     cell.selectionStyle = .none
@@ -258,12 +258,13 @@ class EventViewController: SetGovTableViewController{
                     cell.eventDate.text = "May 25th"
                     cell.eventImage.image = #imageLiteral(resourceName: "Image-13")
                     cell.configure()
-                    eventArray.append(time)
 
                     eventImage = cell.eventImage.image!
                     eventImages.updateValue(eventImage, forKey: indexPath.row)
                     eventArray.append(cell.eventDate.text!)
                     eventArray.append(address)
+                    eventArray.append(time)
+
                     print("eventTitle")
                     print(eventTitle)
                     print(cell.eventOriginalTitle)
@@ -295,13 +296,14 @@ class EventViewController: SetGovTableViewController{
                     cell.eventDescription.text = "Quarterly meeting"
                     cell.eventDate.text = "June 3rd"
                     cell.eventImage.image = #imageLiteral(resourceName: "Image-8")
-                    eventArray.append(time)
 
                     eventTitle = cell.eventOriginalTitle
                     eventImage = cell.eventImage.image!
                     eventImages.updateValue(eventImage, forKey: indexPath.row)
                     eventArray.append(cell.eventDate.text!)
                     eventArray.append(address)
+                    eventArray.append(time)
+
                     cell.selectionStyle = .none
                     cell.configure()
                     eventInfo.updateValue(eventArray, forKey: indexPath.row)
@@ -330,13 +332,14 @@ class EventViewController: SetGovTableViewController{
                     cell.eventDescription.text = "Quarterly meeting"
                     cell.eventDate.text = "June 3rd"
                     cell.eventImage.image = #imageLiteral(resourceName: "Image-8")
-                    eventArray.append(time)
 
                     eventTitle = cell.eventOriginalTitle
                     eventImage = cell.eventImage.image!
                     eventImages.updateValue(eventImage, forKey: indexPath.row)
                     eventArray.append(cell.eventDate.text!)
                     eventArray.append(address)
+                    eventArray.append(time)
+
                     cell.selectionStyle = .none
                     cell.configure()
                     eventInfo.updateValue(eventArray, forKey: indexPath.row)
