@@ -13,9 +13,12 @@ import QuartzCore
 class AgendaDetailViewController: SetGovTableViewController {
     var  numsections = 0
     var agendaImage = #imageLiteral(resourceName: "Image1")
+    var eventTitle = " "
     
+    @IBOutlet var navTitle: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
+        navTitle.title = eventTitle
         print("EventDetailViewController")
     }
     

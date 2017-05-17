@@ -25,6 +25,7 @@ class EventDetailViewController: SetGovTableViewController{
     var eventImages = [Int: UIImage]()
     var agendaImage = #imageLiteral(resourceName: "Image1")
     var eventInfo = [Int: [String]]()
+    var eventTitle = "Marine Advisory"
 
     @IBOutlet var navTitle: UINavigationItem!
     override func viewDidLoad() {
@@ -40,6 +41,7 @@ class EventDetailViewController: SetGovTableViewController{
         print(eventList)
         print(indexofEvent)
         navTitle.title = eventList[indexofEvent]
+        eventTitle = navTitle.title!
     }
     
       override func viewDidAppear(_ animated: Bool) {
@@ -173,6 +175,8 @@ class EventDetailViewController: SetGovTableViewController{
             print("view for agenda detail")
             let AgendaDetailViewController = segue.destination as! AgendaDetailViewController
             AgendaDetailViewController.agendaImage = agendaImage
+            AgendaDetailViewController.eventTitle = eventTitle
+           
         }
         
         
