@@ -159,6 +159,7 @@ class EventDetailViewController: SetGovTableViewController{
         if (indexPath.row==4) {
             let discussionCell = tableView.dequeueReusableCell(withIdentifier: "EventDiscussion", for:indexPath) as! EventDiscussion
             discussionCell.selectionStyle = .none
+            discussionCell.disableEditing()
             return discussionCell
         }
         

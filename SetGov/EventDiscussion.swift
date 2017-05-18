@@ -11,6 +11,11 @@ import UIKit
 import QuartzCore
 
 class EventDiscussion: UITableViewCell {
+    @IBOutlet var commentField: UITextView!
+    func disableEditing() {
+        commentField.isUserInteractionEnabled = false
+    }
+
     
     
 }
