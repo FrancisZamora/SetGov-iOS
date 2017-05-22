@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 import QuartzCore
 
+protocol EventAgendaCallback: class {
+    func loadAgendaDetail(index: String)
+}
+
 class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
@@ -17,6 +21,8 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     @IBOutlet weak var agendaCollectionView: UICollectionView!
     var agendaInfo = [Int: String]()
     var index = 0
+    weak var eventAgendaCallback: EventAgendaCallback!
+    
     
     override func awakeFromNib() {
         print("EventAgenda")
@@ -82,16 +88,24 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
 
         if (indexPath.row == 0 ) {
             index = indexPath.row
+            print("ROW 1")
+            eventAgendaCallback.loadAgendaDetail(index: "1")
         }
         
         if (indexPath.row == 1 ) {
            index = indexPath.row
+            print("ROW 2")
+            eventAgendaCallback.loadAgendaDetail(index: "2")
+
+
             
         }
         
         if (indexPath.row == 2 ) {
            index = indexPath.row
-            
+            print("ROW 3")
+            eventAgendaCallback.loadAgendaDetail(index: "3")
+
         }
         
     }

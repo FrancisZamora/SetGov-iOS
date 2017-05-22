@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import QuartzCore
 
-class EventDetailViewController: SetGovTableViewController{
+class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
     var activate = true
     var infoCell = true
     var memberCell = true
@@ -98,8 +98,7 @@ class EventDetailViewController: SetGovTableViewController{
             let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream") as! EventStream
                 eventStream.selectionStyle = .none
         
-          
-           
+        
                 eventStream.configure()
                 eventStream.streamContent()
                 eventStream.eventImage.image = eventImages[indexofEvent]
@@ -153,6 +152,7 @@ class EventDetailViewController: SetGovTableViewController{
             agendaCell.selectionStyle = .none
             agendaCell.agendaInfo = agendaInfo
             agendaCell.index = index
+            agendaCell.eventAgendaCallback = self
             return agendaCell
         }
         
@@ -185,10 +185,15 @@ class EventDetailViewController: SetGovTableViewController{
             AgendaDetailViewController.eventTitle = eventTitle
             AgendaDetailViewController.agendaInfo = agendaInfo
             AgendaDetailViewController.index = index
-
-           
         }
         
+        
+    }
+    
+    func loadAgendaDetail(index: String) {
+        
+        print("EVENT AGENDA CALLBACK")
+        print("LOADING AGENDA DETAIL HERE")
         
     }
     
