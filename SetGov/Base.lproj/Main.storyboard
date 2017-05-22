@@ -166,7 +166,7 @@
                                             <rect key="frame" x="304" y="220" width="65" height="20"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" committee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgE-q0-vau">
-                                                    <rect key="frame" x="3" y="2" width="59" height="16"/>
+                                                    <rect key="frame" x="1" y="2" width="62" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -174,10 +174,10 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="zgE-q0-vau" secondAttribute="trailing" constant="3" id="L2c-cf-9fR"/>
+                                                <constraint firstAttribute="trailing" secondItem="zgE-q0-vau" secondAttribute="trailing" constant="2" id="L2c-cf-9fR"/>
                                                 <constraint firstItem="zgE-q0-vau" firstAttribute="top" secondItem="49j-Ee-ATO" secondAttribute="top" constant="2" id="OGB-9d-EYY"/>
                                                 <constraint firstAttribute="bottom" secondItem="zgE-q0-vau" secondAttribute="bottom" constant="2" id="QOZ-Ey-37B"/>
-                                                <constraint firstItem="zgE-q0-vau" firstAttribute="leading" secondItem="49j-Ee-ATO" secondAttribute="leading" constant="3" id="gmE-h9-Fbo"/>
+                                                <constraint firstItem="zgE-q0-vau" firstAttribute="leading" secondItem="49j-Ee-ATO" secondAttribute="leading" constant="1" id="gmE-h9-Fbo"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6T6-p1-Z54" customClass="GradientView" customModule="SetGov" customModuleProvider="target">

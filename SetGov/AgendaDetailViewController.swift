@@ -14,6 +14,9 @@ class AgendaDetailViewController: SetGovTableViewController {
     var  numsections = 0
     var agendaImage = #imageLiteral(resourceName: "Image1")
     var eventTitle = " "
+    var primaryTitle = " "
+    var secondaryTitle = " "
+    var tertiaryTitle = " "
     
     @IBOutlet var navTitle: UINavigationItem!
     override func viewDidLoad() {
@@ -68,6 +71,9 @@ class AgendaDetailViewController: SetGovTableViewController {
             let agendadetailHeader =  tableView.dequeueReusableCell(withIdentifier: "AgendaDetailHeader", for:indexPath) as! AgendaDetailHeader
             agendadetailHeader.selectionStyle = .none
             agendadetailHeader.agendaImage.image = agendaImage
+            agendadetailHeader.titleLabel.text = " "
+            agendadetailHeader.secondaryTitle.text = " "
+            agendadetailHeader.tertiaryTitle.text = " "
             
             
             print("cell for row" )

@@ -98,8 +98,8 @@ class EventViewController: SetGovTableViewController{
                 
                 print("CELL IS ONE")
                 let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-                cell.hashtagOne.text = "commmission"
-                cell.hashtagTwo.text = "environmental"
+                cell.hashtagOne.text = "environmental"
+                cell.hashtagTwo.text = "committee"
                 cell.eventOriginalTitle = "City Council"
                 cell.eventTitle.text = spacer + cell.eventOriginalTitle
                 cell.eventDescription.text = "Bi-Monthly meeting"
