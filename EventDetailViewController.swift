@@ -26,13 +26,17 @@ class EventDetailViewController: SetGovTableViewController{
     var agendaImage = #imageLiteral(resourceName: "Image1")
     var eventInfo = [Int: [String]]()
     var eventTitle = "Marine Advisory"
+    var primaryTitle = " "
+    var secondaryTitle = " "
+    var tertiaryTitle = " "
+  
+
 
     @IBOutlet var navTitle: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         print("EventDetailViewController")
         self.loadTitle()
-        
     }
     
     func loadTitle() {
@@ -146,7 +150,7 @@ class EventDetailViewController: SetGovTableViewController{
         if(indexPath.row == 2) {
             let agendaCell = tableView.dequeueReusableCell(withIdentifier: "EventAgenda", for:indexPath) as! EventAgenda
             agendaCell.selectionStyle = .none
-            
+          
             return agendaCell
         }
         

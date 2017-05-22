@@ -17,12 +17,16 @@ class AgendaDetailViewController: SetGovTableViewController {
     var primaryTitle = " "
     var secondaryTitle = " "
     var tertiaryTitle = " "
+    var agendaInfo = [Int:String]()
+    var index = 0
     
     @IBOutlet var navTitle: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         navTitle.title = eventTitle
         print("EventDetailViewController")
+        print(agendaInfo)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
