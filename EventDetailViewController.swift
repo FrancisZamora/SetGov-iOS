@@ -26,9 +26,8 @@ class EventDetailViewController: SetGovTableViewController{
     var agendaImage = #imageLiteral(resourceName: "Image1")
     var eventInfo = [Int: [String]]()
     var eventTitle = "Marine Advisory"
-    var primaryTitle = " "
-    var secondaryTitle = " "
-    var tertiaryTitle = " "
+    var agendaInfo = [Int: String]()
+    var index = 0
   
 
 
@@ -37,6 +36,8 @@ class EventDetailViewController: SetGovTableViewController{
         super.viewDidLoad()
         print("EventDetailViewController")
         self.loadTitle()
+        print(agendaInfo)
+        
     }
     
     func loadTitle() {
@@ -150,7 +151,8 @@ class EventDetailViewController: SetGovTableViewController{
         if(indexPath.row == 2) {
             let agendaCell = tableView.dequeueReusableCell(withIdentifier: "EventAgenda", for:indexPath) as! EventAgenda
             agendaCell.selectionStyle = .none
-          
+            agendaCell.agendaInfo = agendaInfo
+            agendaCell.index = index
             return agendaCell
         }
         
@@ -181,6 +183,9 @@ class EventDetailViewController: SetGovTableViewController{
             let AgendaDetailViewController = segue.destination as! AgendaDetailViewController
             AgendaDetailViewController.agendaImage = agendaImage
             AgendaDetailViewController.eventTitle = eventTitle
+            AgendaDetailViewController.agendaInfo = agendaInfo
+            AgendaDetailViewController.index = index
+
            
         }
         
