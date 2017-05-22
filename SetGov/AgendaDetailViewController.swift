@@ -26,6 +26,7 @@ class AgendaDetailViewController: SetGovTableViewController {
         navTitle.title = eventTitle
         print("EventDetailViewController")
         print(agendaInfo)
+        print(index)
         
     }
     

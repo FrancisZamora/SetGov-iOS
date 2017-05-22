@@ -27,7 +27,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
     var eventInfo = [Int: [String]]()
     var eventTitle = "Marine Advisory"
     var agendaInfo = [Int: String]()
-    var index = 0
+    var Index = 0
   
 
 
@@ -151,7 +151,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
             let agendaCell = tableView.dequeueReusableCell(withIdentifier: "EventAgenda", for:indexPath) as! EventAgenda
             agendaCell.selectionStyle = .none
             agendaCell.agendaInfo = agendaInfo
-            agendaCell.index = index
+            agendaCell.index = Index
             agendaCell.eventAgendaCallback = self
             return agendaCell
         }
@@ -175,6 +175,20 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
     
         }
     
+    func loadAgendaDetail(data: Dictionary<Int,String>) {
+              
+        print(Index)
+        
+
+        
+        
+        print("EVENT AGENDA CALLBACK")
+        print("LOADING AGENDA DETAIL HERE")
+        
+    }
+    
+   
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showAgenda") {
@@ -184,18 +198,12 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
             AgendaDetailViewController.agendaImage = agendaImage
             AgendaDetailViewController.eventTitle = eventTitle
             AgendaDetailViewController.agendaInfo = agendaInfo
-            AgendaDetailViewController.index = index
+            AgendaDetailViewController.index = Index
         }
         
         
     }
     
-    func loadAgendaDetail(index: String) {
-        
-        print("EVENT AGENDA CALLBACK")
-        print("LOADING AGENDA DETAIL HERE")
-        
-    }
     
     
     
