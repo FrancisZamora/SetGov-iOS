@@ -84,7 +84,7 @@ class EventViewController: SetGovTableViewController{
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("numberofRows")
-        return 30
+        return 4
         
     }
     
