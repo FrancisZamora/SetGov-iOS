@@ -489,6 +489,9 @@
                                                     </constraints>
                                                     <size key="customSize" width="150" height="119"/>
                                                     <connections>
+                                                        <outlet property="agendaPic" destination="uG4-hU-mdK" id="tHr-iY-gS9"/>
+                                                        <outlet property="mLabel" destination="gaC-Ca-9hY" id="lxq-kz-jOw"/>
+                                                        <outlet property="topicLabel" destination="m4f-SF-Piy" id="jgW-pK-5h0"/>
                                                         <segue destination="1Ae-3g-4yy" kind="show" identifier="showAgenda" id="fF4-6s-Inb"/>
                                                     </connections>
                                                 </collectionViewCell>
