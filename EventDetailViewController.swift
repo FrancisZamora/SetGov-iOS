@@ -177,15 +177,19 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
     
     func loadAgendaDetail(data: Dictionary<Int,String>) {
               
-        print(Index)
         
 
-        
+        loadAgendaDetail(data: agendaInfo)
         
         print("EVENT AGENDA CALLBACK")
         print("LOADING AGENDA DETAIL HERE")
         
     }
+    
+    func saveIndex(index: Int) {
+    
+    }
+
     
    
     

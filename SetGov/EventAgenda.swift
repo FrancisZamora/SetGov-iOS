@@ -12,6 +12,7 @@ import QuartzCore
 
 protocol EventAgendaCallback: class {
     func loadAgendaDetail(data:Dictionary<Int,String> )
+    func saveIndex(index: Int)
 }
 
 class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
