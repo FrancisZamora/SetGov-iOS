@@ -179,10 +179,13 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
               
         
 
-        loadAgendaDetail(data: agendaInfo)
         
         print("EVENT AGENDA CALLBACK")
         print("LOADING AGENDA DETAIL HERE")
+        agendaInfo = data
+        print(agendaInfo)
+        print(data)
+        print(data)
         
     }
     
