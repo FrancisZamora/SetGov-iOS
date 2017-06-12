@@ -28,17 +28,46 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
     var eventTitle = "Marine Advisory"
     var agendaInfo = [Int: String]()
     var Index = 0
+    var selectedCity = " " 
   
 
 
     @IBOutlet var navTitle: UINavigationItem!
+    func configureTime() -> String{
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month,from:date)
+        let year = calendar.component(.year, from: date)
+        var newHour: String
+        
+        
+        if hour > 12 {
+           newHour = String(hour - 12) + ":00" + "pm"
+        }
+        else {
+            newHour = String(hour) + ":00" + "am"
+        }
+        
+        let dateString = String(month) + "/" + String(day) + "/" + String(year) + " " + newHour
+        
+        return dateString
+        
+        
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("EventDetailViewController")
         self.loadTitle()
         print(agendaInfo)
+        print(self.configureTime())
         
     }
+    
     
     func loadTitle() {
         print("loading title")

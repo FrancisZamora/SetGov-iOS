@@ -144,7 +144,7 @@ class EventViewController: SetGovTableViewController{
                 cell.eventDate.text = "June 1st"
                 cell.eventImage.image = #imageLiteral(resourceName: "Image-14")
                 cell.configure()
-                time = "3:30"
+                time = "3:30pm"
                 eventImage = cell.eventImage.image!
                 eventImages.updateValue(eventImage, forKey: indexPath.row)
                 eventArray.append(cell.eventDate.text!)
@@ -490,6 +490,7 @@ class EventViewController: SetGovTableViewController{
             EventDetailViewController.eventList = eventList
             EventDetailViewController.eventImages = eventImages
             EventDetailViewController.eventInfo = eventInfo
+            EventDetailViewController.selectedCity = selectedCity
         }
         
 
