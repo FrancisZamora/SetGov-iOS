@@ -204,7 +204,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
             let AgendaDetailViewController = segue.destination as! AgendaDetailViewController
             AgendaDetailViewController.agendaImage = agendaImage
             AgendaDetailViewController.eventTitle = eventTitle
+            print(agendaInfo)
             AgendaDetailViewController.agendaInfo = agendaInfo
+            print(AgendaDetailViewController.agendaInfo)
             AgendaDetailViewController.index = Index
         }
         
