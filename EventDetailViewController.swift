@@ -190,6 +190,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
     }
     
     func saveIndex(index: Int) {
+        Index = index
     
     }
 

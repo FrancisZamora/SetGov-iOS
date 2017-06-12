@@ -25,7 +25,7 @@ class EventStream:  UITableViewCell {
     @IBOutlet var buttonBackground: GradientView!
     var pressedButton: Bool?
     var onePress: Bool = false
-    var initiateStream: Bool = true
+    var initiateStream: Bool = false
     var EventDetailViewController:EventDetailViewController?
     @IBInspectable var startColor: UIColor = SG_RED_COLOR
     @IBInspectable var endColor: UIColor = UIColor.red

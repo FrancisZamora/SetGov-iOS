@@ -91,6 +91,8 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
             index = indexPath.row
             print("ROW 0")
             eventAgendaCallback.loadAgendaDetail(data: agendaInfo)
+            eventAgendaCallback.saveIndex(index: 0)
+
 
             
 
@@ -100,6 +102,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
            index = indexPath.row
             print("ROW 1")
             eventAgendaCallback.loadAgendaDetail(data: agendaInfo)
+            eventAgendaCallback.saveIndex(index: 1)
 
 
 
@@ -110,6 +113,8 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
            index = indexPath.row
             print("ROW 2")
             eventAgendaCallback.loadAgendaDetail(data: agendaInfo)
+            eventAgendaCallback.saveIndex(index: 2)
+
 
         }
         
