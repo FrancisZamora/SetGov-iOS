@@ -28,11 +28,17 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
     var eventTitle = "Marine Advisory"
     var agendaInfo = [Int: String]()
     var Index = 0
-    var selectedCity = " " 
+    var selectedCity = " "
+    var currentTime = " "
+    var timeArray = [String]()
+    var eventTime = [String]()
   
 
 
     @IBOutlet var navTitle: UINavigationItem!
+    
+    
+    
     func configureTime() -> String{
         
         let date = Date()
@@ -53,20 +59,66 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
         
         let dateString = String(month) + "/" + String(day) + "/" + String(year) + " " + newHour
         
+        timeArray.append(String(month) + "/" + String(day) + "/" + String("17"))
+     
+        timeArray.append(String(hour) + ":00")
+        
+        print (timeArray)
+        
         return dateString
         
         
     }
+    
+    
+    func compareTime() -> Bool {
+        eventTime.append((eventInfo[indexofEvent]?[0])!)
+        
+        eventTime.append((eventInfo[indexofEvent]?[3])!)
+        
+        print(eventTime)
+        print(timeArray)
+        
+        
+        if (eventTime[0] == timeArray[0] && timeArray[1] > eventTime[1]) {
+            return true
+        
+        }
+        
+        else {
+            
+            return false
+        }
+        
+        
+        
+        
+        
+    }
 
+    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("EventDetailViewController")
         self.loadTitle()
         print(agendaInfo)
-        print(self.configureTime())
+        print(self.compareTime())
+        currentTime = configureTime()
+        
+        
         
     }
+    
+    
+    
+        
+        
+        
+        
+        
+    
     
     
     func loadTitle() {
@@ -77,6 +129,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
         navTitle.title = eventList[indexofEvent]
         eventTitle = navTitle.title!
     }
+    
+      
     
       override func viewDidAppear(_ animated: Bool) {
     }
@@ -121,6 +175,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         print(indexPath.row)
         
         if (indexPath.row == 0) {
