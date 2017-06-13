@@ -31,12 +31,38 @@ class EventViewController: SetGovTableViewController{
     var eventInfo = [Int: [String]]()
     
     @IBOutlet var cityDisplay: UINavigationItem!
+    
+    
+    func bostonScraper()  {
+        
+        let url = URL(string: "http://finance.yahoo.com/news/tv-news-ces-2017-120931816.html")!
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                print("\(error)")
+                return
+            }
+            
+            let string = String(data: data, encoding: .utf8)
+            
+            print("\(string)")
+        }
+        
+        task.resume()
+        
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         print("EventViewController")
         self.setCity()
         print(selectedCity)
+        
+        
+        bostonScraper()
+        
         
         }
     

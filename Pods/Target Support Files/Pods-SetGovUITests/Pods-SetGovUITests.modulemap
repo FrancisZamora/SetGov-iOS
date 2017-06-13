@@ -1,0 +1,6 @@
+framework module Pods_SetGovUITests {
+  umbrella header "Pods-SetGovUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
