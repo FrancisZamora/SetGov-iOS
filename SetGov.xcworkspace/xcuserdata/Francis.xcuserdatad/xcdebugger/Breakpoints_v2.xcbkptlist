@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EventDetailViewController.swift"
-            timestampString = "519058334.394384"
+            timestampString = "519058580.389678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "compareTime()"
             landmarkType = "7">
          </BreakpointContent>

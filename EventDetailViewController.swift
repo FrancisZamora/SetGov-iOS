@@ -72,21 +72,23 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
     
     
     func compareTime() -> Bool {
+        currentTime = self.configureTime()
+        
         eventTime.append((eventInfo[indexofEvent]?[0])!)
         
         eventTime.append((eventInfo[indexofEvent]?[3])!)
         
-        print(eventTime)
-        print(timeArray)
+        print(eventTime[0])
+        print(timeArray[0])
         
-        
-        if (eventTime[0] == timeArray[0] && timeArray[1] > eventTime[1]) {
+        if (eventTime[0] == timeArray[0] ) {
+            print("times are compatible")
             return true
         
         }
         
         else {
-            
+            print("times not compatible")
             return false
         }
         
@@ -105,7 +107,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
         self.loadTitle()
         print(agendaInfo)
         print(self.compareTime())
-        currentTime = configureTime()
         
         
         
