@@ -30,6 +30,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
     var Index = 0
     var selectedCity = " "
     var currentTime = " "
+    var noAlert = false
+    var videoRequested = false
     var timeArray = [String]()
     var eventTime = [String]()
   
@@ -211,21 +213,50 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
                 agendaImage = eventStream.eventImage.image!
             
             if eventStream.firstpress == false {
-                //present UI alert
-                // timer for three seconds
-                // present new cell git
+                if noAlert == false {
+                    let alert = UIAlertController(title: "Constant Stream Available", message: "Boston offers a 24/7 live stream", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Watch", style: .default, handler: { (action: UIAlertAction!) in
+                    print("Handle Ok logic here")
+                    self.videoRequested = true
+                        
+                }))
+                
+                    alert.addAction(UIAlertAction(title: "No Thanks", style: .cancel, handler: { (action: UIAlertAction!) in
+                    print("Handle Cancel Logic here")
+                    self.videoRequested = false
+                        
+                    }))
+
+                    self.present(alert, animated: true, completion: nil)
+                    noAlert = true
+                    //present UI alert
+                
+                
+                    // timer for three seconds
+                    // present new cell git
+                }
                 
                 
                 
             }
             
-            if compareTime() == true && eventStream.firstpress == false {
+            if compareTime() == true && eventStream.firstpress == false || videoRequested == true {
               eventStream.nowLive()
                 
-              
-             // add ns timer for delay, essentially three second delay
+                let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream") as! EventLiveStream
+                eventLiveStream.selectionStyle = .none
+                print ("returning stream")
+                eventLiveStream.configure()
+                eventLiveStream.playVideo()
+                    
+                return eventLiveStream
                 
-             // present event stream
+                
+                    
+
+                                        //present event stream
+                
+            
 
             }
             if eventStream.initiateStream == false {
