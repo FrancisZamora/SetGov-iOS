@@ -79,6 +79,10 @@ class EventStream:  UITableViewCell {
 
     
     @IBAction func buttonPressed(_ sender: Any) {
+        self.attendButton.setTitle("Attending", for: .normal)
+
+        
+    /*
        if self.onePress == false {
         self.initiateStream = true
         self.streamContent()
@@ -128,7 +132,7 @@ class EventStream:  UITableViewCell {
        
 
         }
-
+      */
        
     }
     

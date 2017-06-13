@@ -47,17 +47,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
         let day = calendar.component(.day, from: date)
         let month = calendar.component(.month,from:date)
         let year = calendar.component(.year, from: date)
-        var newHour: String
         
         
-        if hour > 12 {
-           newHour = String(hour - 12) + ":00" + "pm"
-        }
-        else {
-            newHour = String(hour) + ":00" + "am"
-        }
-        
-        let dateString = String(month) + "/" + String(day) + "/" + String(year) + " " + newHour
+        let dateString = String(month) + "/" + String(day) + "/" + String(year) + " " + String(hour)
         
         timeArray.append(String(month) + "/" + String(day) + "/" + String("17"))
      
@@ -80,8 +72,10 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
         
         print(eventTime[0])
         print(timeArray[0])
-        
-        if (eventTime[0] == timeArray[0] ) {
+        print(timeArray[1])
+        print(eventTime[1])
+        print(timeArray[1]>eventTime[1])
+        if (eventTime[0] == timeArray[0] && timeArray[1] >= eventTime[1]) {
             print("times are compatible")
             return true
         

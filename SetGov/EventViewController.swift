@@ -114,7 +114,7 @@ class EventViewController: SetGovTableViewController{
                 print(cell.eventOriginalTitle)
                 time = "2:30pm"
                 eventArray.append(time)
-                eventArray.append("2:30")
+                eventArray.append("14:30")
                 eventTitle = cell.eventOriginalTitle
                 cell.selectionStyle = .none
                 print(cell.eventOriginalTitle)
@@ -155,7 +155,7 @@ class EventViewController: SetGovTableViewController{
                 print(eventTitle)
                 print(cell.eventOriginalTitle)
                 eventArray.append(time)
-                eventArray.append("3:30")
+                eventArray.append("15:30")
 
                 eventTitle = cell.eventOriginalTitle
                 cell.selectionStyle = .none
@@ -196,7 +196,7 @@ class EventViewController: SetGovTableViewController{
                 cell.selectionStyle = .none
                 cell.configure()
                 eventArray.append(time)
-                eventArray.append("5:00")
+                eventArray.append("17:00")
 
 
                 eventInfo.updateValue(eventArray, forKey: indexPath.row)
@@ -241,7 +241,7 @@ class EventViewController: SetGovTableViewController{
                     eventArray.append("6/13/17")
                     eventArray.append(address)
                     eventArray.append(time)
-                    eventArray.append("11:00")
+                    eventArray.append("10:00")
                     print(eventArray)
                     eventTitle = cell.eventOriginalTitle
                     
@@ -278,7 +278,7 @@ class EventViewController: SetGovTableViewController{
                     eventArray.append("5/25/17")
                     eventArray.append(address)
                     eventArray.append(time)
-                    eventArray.append("8:15")
+                    eventArray.append("20:15")
 
 
                     print("eventTitle")
@@ -320,7 +320,7 @@ class EventViewController: SetGovTableViewController{
                     eventArray.append("6/3/17")
                     eventArray.append(address)
                     eventArray.append(time)
-                    eventArray.append("4:00")
+                    eventArray.append("16:00")
 
                     cell.selectionStyle = .none
                     cell.configure()
@@ -358,7 +358,7 @@ class EventViewController: SetGovTableViewController{
                     eventArray.append("6/3/17")
                     eventArray.append(address)
                     eventArray.append(time)
-                    eventArray.append("4:00")
+                    eventArray.append("16:00")
 
 
                     cell.selectionStyle = .none
