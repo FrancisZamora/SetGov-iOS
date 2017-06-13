@@ -9,6 +9,12 @@
 import Foundation
 import UIKit
 import QuartzCore
+
+protocol EventStreamCallback: class {
+    func refreshTap(tapped:Bool)
+}
+
+
 extension UIView {
     func makeShape() {
         print("called")
@@ -33,6 +39,8 @@ class EventStream:  UITableViewCell {
     var countDown = 0
     var presentStream: Bool = false
     var timer = Timer()
+    weak var eventStreamCallback: EventStreamCallback!
+
     var eventTVController: EventDetailViewController?
     
     func configureColor () {
@@ -84,6 +92,11 @@ class EventStream:  UITableViewCell {
             self.attendButton.setTitle("Attending", for: .normal)
         }
         firstpress = false
+        
+        
+        
+        eventStreamCallback.refreshTap(tapped: true)
+
         
     /*
        if self.onePress == false {

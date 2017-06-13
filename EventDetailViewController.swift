@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import QuartzCore
 
-class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
+class EventDetailViewController: SetGovTableViewController, EventAgendaCallback, EventStreamCallback{
     var activate = true
     var infoCell = true
     var memberCell = true
@@ -32,6 +32,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
     var currentTime = " "
     var noAlert = false
     var videoRequested = false
+    var streamPressed = false
     var timeArray = [String]()
     var eventTime = [String]()
   
@@ -164,6 +165,21 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
         
     }
     
+    
+    func refreshTap(tapped:Bool) {
+        streamPressed = tapped
+        
+        print("event stream callback")
+        tableView.reloadData()
+        
+        
+        
+        
+        
+        
+        
+    }
+    
    
     
    
@@ -219,6 +235,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
             let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream") as! EventStream
                 eventStream.selectionStyle = .none
             
+                eventStream.eventStreamCallback = self
+
         
                 eventStream.configure()
                 eventStream.streamContent()
@@ -332,7 +350,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
             agendaCell.selectionStyle = .none
             agendaCell.agendaInfo = agendaInfo
             agendaCell.index = Index
-            agendaCell.eventAgendaCallback = self
             return agendaCell
         }
         
