@@ -210,11 +210,22 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
                 eventStream.secondaryEventImage.image = eventImages[indexofEvent]
                 agendaImage = eventStream.eventImage.image!
             
+            if eventStream.firstpress == false {
+                //present UI alert
+                // timer for three seconds
+                // present new cell git
+                
+                
+                
+            }
+            
             if compareTime() == true && eventStream.firstpress == false {
-              print("chyo")
-                
-                
               eventStream.nowLive()
+                
+              
+             // add ns timer for delay, essentially three second delay
+                
+             // present event stream
 
             }
             if eventStream.initiateStream == false {
