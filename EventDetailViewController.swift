@@ -111,6 +111,20 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
         
     }
     
+    func delayTransition() {
+        print("transition to video being delayed")
+    }
+    
+    func checkAlert() -> Bool {
+        if videoRequested == true {
+            return true
+        }
+        else {
+            return false
+            
+        }
+    }
+    
     
     
         
@@ -240,9 +254,16 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
                 
             }
             
-            if compareTime() == true && eventStream.firstpress == false || videoRequested == true {
-              eventStream.nowLive()
-                
+            if compareTime() == true && eventStream.firstpress == false || checkAlert() == true {
+                print(checkAlert())
+                // only works when cell for row is refreshed 
+                eventStream.nowLive()
+                let when = DispatchTime.now() + 3 // change 2 to desired number of seconds
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                        self.delayTransition()
+                   
+                }
+
                 let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream") as! EventLiveStream
                 eventLiveStream.selectionStyle = .none
                 print ("returning stream")
