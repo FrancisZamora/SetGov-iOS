@@ -35,7 +35,7 @@ class EventViewController: SetGovTableViewController{
     
     func bostonScraper()  {
         
-        let url = URL(string: "http://finance.yahoo.com/news/tv-news-ces-2017-120931816.html")!
+        let url = URL(string: "https://fortlauderdale.legistar.com/Calendar.aspx")!
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
@@ -43,9 +43,23 @@ class EventViewController: SetGovTableViewController{
                 return
             }
             
+            
             let string = String(data: data, encoding: .utf8)
             
-            print("\(string)")
+            //var array = string?.components(separatedBy: "tr")
+            
+            guard var array = string?.components(separatedBy: "tr") else {
+                return
+            }
+            
+            
+            
+            
+            array.remove(at: 0)
+            //print(array![0].joined(separator: "\n"))
+            print(array[0])
+            
+            //print("\(string)")
         }
         
         task.resume()

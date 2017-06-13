@@ -65,10 +65,12 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
     
     func compareTime() -> Bool {
         currentTime = self.configureTime()
+        guard let array = eventInfo[indexofEvent] else {
+            return false
+        }
+        eventTime.append((array[0]))
         
-        eventTime.append((eventInfo[indexofEvent]?[0])!)
-        
-        eventTime.append((eventInfo[indexofEvent]?[3])!)
+        eventTime.append((array[3]))
         
         print(eventTime[0])
         print(timeArray[0])
@@ -100,6 +102,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
         print("EventDetailViewController")
         self.loadTitle()
         print(agendaInfo)
+        
         print(self.compareTime())
         
         
@@ -124,6 +127,30 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
         navTitle.title = eventList[indexofEvent]
         eventTitle = navTitle.title!
     }
+    
+    func loadAgendaDetail(data: Dictionary<Int,String>,index:Int) {
+        
+        
+        
+        
+        print("EVENT AGENDA CALLBACK")
+        print("LOADING AGENDA DETAIL HERE")
+        agendaInfo = data
+        print(agendaInfo)
+        Index = index
+        
+        performSegue(withIdentifier: "showAgenda", sender: nil)
+        
+        print(data)
+        print(data)
+        
+        
+        
+    }
+    
+   
+    
+   
     
       
     
@@ -170,19 +197,26 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         print(indexPath.row)
         
         if (indexPath.row == 0) {
             let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream") as! EventStream
                 eventStream.selectionStyle = .none
-        
+            
         
                 eventStream.configure()
                 eventStream.streamContent()
                 eventStream.eventImage.image = eventImages[indexofEvent]
                 eventStream.secondaryEventImage.image = eventImages[indexofEvent]
                 agendaImage = eventStream.eventImage.image!
+            
+            if compareTime() == true && eventStream.firstpress == false {
+              print("chyo")
+                
+                
+              eventStream.nowLive()
+
+            }
             if eventStream.initiateStream == false {
                 return eventStream
             }
@@ -219,9 +253,13 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
             print(eventInfo)
             print("stop")
             print(indexofEvent)
-            infoCell.eventAddress.text = eventInfo[indexofEvent]?[1]
-            infoCell.eventTime.text = eventInfo[indexofEvent]?[0]
-            infoCell.eventHour.text = eventInfo[indexofEvent]?[2]
+            guard let array = eventInfo[indexofEvent] else {
+                return UITableViewCell()
+                
+            }
+            infoCell.eventAddress.text = array[1]
+            infoCell.eventTime.text = array[0]
+            infoCell.eventHour.text = array[2]
             
             return infoCell
         }
@@ -254,25 +292,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
     
         }
     
-    func loadAgendaDetail(data: Dictionary<Int,String>) {
-              
-        
-
-        
-        print("EVENT AGENDA CALLBACK")
-        print("LOADING AGENDA DETAIL HERE")
-        agendaInfo = data
-        print(agendaInfo)
-        print(data)
-        print(data)
-        
-    }
-    
-    func saveIndex(index: Int) {
-        Index = index
-    
-    }
-
+   
     
    
     
@@ -284,7 +304,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback{
             let AgendaDetailViewController = segue.destination as! AgendaDetailViewController
             AgendaDetailViewController.agendaImage = agendaImage
             AgendaDetailViewController.eventTitle = eventTitle
+            
             print(agendaInfo)
+            
             AgendaDetailViewController.agendaInfo = agendaInfo
             print(AgendaDetailViewController.agendaInfo)
             AgendaDetailViewController.index = Index

@@ -19,13 +19,24 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SwiftSoup.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict/>
+	<dict>
+		<key>19936DDD0E63A141880ED83C12426394</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>23E8793181E52009D383315ADC1B1A05</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B27365E40EC98B7AA25B0239DFB849E5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
 </dict>
 </plist>

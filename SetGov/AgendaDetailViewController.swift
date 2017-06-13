@@ -28,7 +28,15 @@ class AgendaDetailViewController: SetGovTableViewController {
         print(agendaInfo)
         print(index)
         
+        
+        
     }
+    
+    
+  // func editTitle() -> String {
+    //    return agendaInfo[Index]!
+    //}
+
     
     override func viewDidAppear(_ animated: Bool) {
     }
@@ -76,9 +84,9 @@ class AgendaDetailViewController: SetGovTableViewController {
             let agendadetailHeader =  tableView.dequeueReusableCell(withIdentifier: "AgendaDetailHeader", for:indexPath) as! AgendaDetailHeader
             agendadetailHeader.selectionStyle = .none
             agendadetailHeader.agendaImage.image = agendaImage
-            agendadetailHeader.titleLabel.text = agendaInfo[index]
+            agendadetailHeader.titleLabel.text = agendaInfo[index]! + " Discussion Topic"
             agendadetailHeader.secondaryTitle.text = " "
-            agendadetailHeader.tertiaryTitle.text = " "
+            agendadetailHeader.tertiaryTitle.text = agendaInfo[index]! + " Updates"
             
             
             print("cell for row" )

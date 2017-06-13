@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CB5FF9E6290176D97F27383 /* Pods_SetGovTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E00276BDDDA0EE096103FE55 /* Pods_SetGovTests.framework */; };
 		1508547C1E97077F00838D85 /* AgendaDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1508547B1E97077F00838D85 /* AgendaDetailHeader.swift */; };
 		1508547E1E97078C00838D85 /* AgendaDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1508547D1E97078C00838D85 /* AgendaDetailData.swift */; };
 		150854801E97079C00838D85 /* AgendaDetailComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1508547F1E97079C00838D85 /* AgendaDetailComments.swift */; };
@@ -38,9 +39,8 @@
 		15C64B4B1EADA94200B123A5 /* FortLauderdaleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C64B4A1EADA94200B123A5 /* FortLauderdaleCell.swift */; };
 		15C64B4D1EADA96200B123A5 /* NewYorkCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C64B4C1EADA96200B123A5 /* NewYorkCityCell.swift */; };
 		15D3DB871E7A169E00CD35DD /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D3DB861E7A169E00CD35DD /* ProfileImage.swift */; };
-		A62DE417734073E6F2385FAE /* Pods_SetGovUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE8103BA8B4182B8CDB01055 /* Pods_SetGovUITests.framework */; };
-		C36DF53774B26590BD8FAB7F /* Pods_SetGov.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B81F5D434243C18DCE234B /* Pods_SetGov.framework */; };
-		CDA392CDF2C61499AF5E2CBA /* Pods_SetGovTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F71A43C46153E4B3A41EC04 /* Pods_SetGovTests.framework */; };
+		1D98C468A8545E290887D257 /* Pods_SetGovUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A291636C27A3A4A0D6A8E83 /* Pods_SetGovUITests.framework */; };
+		BDE7A984CE4B1E646BA5F97E /* Pods_SetGov.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B788141A78B320963331B47 /* Pods_SetGov.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		031A9B2E577287135248BD01 /* Pods-SetGov.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetGov.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SetGov/Pods-SetGov.debug.xcconfig"; sourceTree = "<group>"; };
-		0B56D1214BF45076B2DFC1B0 /* Pods-SetGov.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetGov.release.xcconfig"; path = "Pods/Target Support Files/Pods-SetGov/Pods-SetGov.release.xcconfig"; sourceTree = "<group>"; };
+		0A291636C27A3A4A0D6A8E83 /* Pods_SetGovUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetGovUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1508547B1E97077F00838D85 /* AgendaDetailHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaDetailHeader.swift; sourceTree = "<group>"; };
 		1508547D1E97078C00838D85 /* AgendaDetailData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaDetailData.swift; sourceTree = "<group>"; };
 		1508547F1E97079C00838D85 /* AgendaDetailComments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaDetailComments.swift; sourceTree = "<group>"; };
@@ -100,13 +99,14 @@
 		15C64B4A1EADA94200B123A5 /* FortLauderdaleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FortLauderdaleCell.swift; sourceTree = "<group>"; };
 		15C64B4C1EADA96200B123A5 /* NewYorkCityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewYorkCityCell.swift; sourceTree = "<group>"; };
 		15D3DB861E7A169E00CD35DD /* ProfileImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
-		9F71A43C46153E4B3A41EC04 /* Pods_SetGovTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetGovTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B176091B1490C9B6A873F10B /* Pods-SetGovTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetGovTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SetGovTests/Pods-SetGovTests.debug.xcconfig"; sourceTree = "<group>"; };
-		B307890F183BBD9BDF6BCA91 /* Pods-SetGovTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetGovTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SetGovTests/Pods-SetGovTests.release.xcconfig"; sourceTree = "<group>"; };
-		B71713566796D1C6996E852E /* Pods-SetGovUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetGovUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SetGovUITests/Pods-SetGovUITests.release.xcconfig"; sourceTree = "<group>"; };
-		E417FD98A4FBFF0616DB11A5 /* Pods-SetGovUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetGovUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SetGovUITests/Pods-SetGovUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		EE8103BA8B4182B8CDB01055 /* Pods_SetGovUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetGovUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F0B81F5D434243C18DCE234B /* Pods_SetGov.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetGov.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54ACE4CB0ED80CA77DD4B8C4 /* Pods-SetGovTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetGovTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SetGovTests/Pods-SetGovTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5B788141A78B320963331B47 /* Pods_SetGov.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetGov.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		769BC62083188A466822F758 /* Pods-SetGovTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetGovTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SetGovTests/Pods-SetGovTests.release.xcconfig"; sourceTree = "<group>"; };
+		A25972FD6253AC57312C0178 /* Pods-SetGov.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetGov.release.xcconfig"; path = "Pods/Target Support Files/Pods-SetGov/Pods-SetGov.release.xcconfig"; sourceTree = "<group>"; };
+		D61BA844117A722FFEE5BF34 /* Pods-SetGov.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetGov.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SetGov/Pods-SetGov.debug.xcconfig"; sourceTree = "<group>"; };
+		E00276BDDDA0EE096103FE55 /* Pods_SetGovTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetGovTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5B416965BF8BA732D25C895 /* Pods-SetGovUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetGovUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SetGovUITests/Pods-SetGovUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F6801DE24659B393708A4CAB /* Pods-SetGovUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetGovUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SetGovUITests/Pods-SetGovUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C36DF53774B26590BD8FAB7F /* Pods_SetGov.framework in Frameworks */,
+				BDE7A984CE4B1E646BA5F97E /* Pods_SetGov.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,7 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDA392CDF2C61499AF5E2CBA /* Pods_SetGovTests.framework in Frameworks */,
+				0CB5FF9E6290176D97F27383 /* Pods_SetGovTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A62DE417734073E6F2385FAE /* Pods_SetGovUITests.framework in Frameworks */,
+				1D98C468A8545E290887D257 /* Pods_SetGovUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,8 +144,8 @@
 				151CDA971E64CF3700440CDE /* SetGovTests */,
 				151CDAA21E64CF3700440CDE /* SetGovUITests */,
 				151CDA811E64CF3700440CDE /* Products */,
-				A0AD8E433E3432E038F1DA2B /* Pods */,
-				6E07B72F30360E2008642EDC /* Frameworks */,
+				2BB776CB75A6ED4CAF876D81 /* Pods */,
+				F2AFB70772E9C511F14918DD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -238,27 +238,27 @@
 			name = "UI Element Classes";
 			sourceTree = "<group>";
 		};
-		6E07B72F30360E2008642EDC /* Frameworks */ = {
+		2BB776CB75A6ED4CAF876D81 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F0B81F5D434243C18DCE234B /* Pods_SetGov.framework */,
-				9F71A43C46153E4B3A41EC04 /* Pods_SetGovTests.framework */,
-				EE8103BA8B4182B8CDB01055 /* Pods_SetGovUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A0AD8E433E3432E038F1DA2B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				031A9B2E577287135248BD01 /* Pods-SetGov.debug.xcconfig */,
-				0B56D1214BF45076B2DFC1B0 /* Pods-SetGov.release.xcconfig */,
-				B176091B1490C9B6A873F10B /* Pods-SetGovTests.debug.xcconfig */,
-				B307890F183BBD9BDF6BCA91 /* Pods-SetGovTests.release.xcconfig */,
-				E417FD98A4FBFF0616DB11A5 /* Pods-SetGovUITests.debug.xcconfig */,
-				B71713566796D1C6996E852E /* Pods-SetGovUITests.release.xcconfig */,
+				D61BA844117A722FFEE5BF34 /* Pods-SetGov.debug.xcconfig */,
+				A25972FD6253AC57312C0178 /* Pods-SetGov.release.xcconfig */,
+				54ACE4CB0ED80CA77DD4B8C4 /* Pods-SetGovTests.debug.xcconfig */,
+				769BC62083188A466822F758 /* Pods-SetGovTests.release.xcconfig */,
+				F6801DE24659B393708A4CAB /* Pods-SetGovUITests.debug.xcconfig */,
+				E5B416965BF8BA732D25C895 /* Pods-SetGovUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F2AFB70772E9C511F14918DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B788141A78B320963331B47 /* Pods_SetGov.framework */,
+				E00276BDDDA0EE096103FE55 /* Pods_SetGovTests.framework */,
+				0A291636C27A3A4A0D6A8E83 /* Pods_SetGovUITests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -720,12 +720,14 @@
 		};
 		151CDAA91E64CF3700440CDE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 031A9B2E577287135248BD01 /* Pods-SetGov.debug.xcconfig */;
+			baseConfigurationReference = D61BA844117A722FFEE5BF34 /* Pods-SetGov.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 7JQM8M6QG2;
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = SetGov/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Francis.SetGov;
@@ -736,12 +738,14 @@
 		};
 		151CDAAA1E64CF3700440CDE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B56D1214BF45076B2DFC1B0 /* Pods-SetGov.release.xcconfig */;
+			baseConfigurationReference = A25972FD6253AC57312C0178 /* Pods-SetGov.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 7JQM8M6QG2;
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = SetGov/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Francis.SetGov;
@@ -752,7 +756,7 @@
 		};
 		151CDAAC1E64CF3700440CDE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B176091B1490C9B6A873F10B /* Pods-SetGovTests.debug.xcconfig */;
+			baseConfigurationReference = 54ACE4CB0ED80CA77DD4B8C4 /* Pods-SetGovTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -769,7 +773,7 @@
 		};
 		151CDAAD1E64CF3700440CDE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B307890F183BBD9BDF6BCA91 /* Pods-SetGovTests.release.xcconfig */;
+			baseConfigurationReference = 769BC62083188A466822F758 /* Pods-SetGovTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -786,7 +790,7 @@
 		};
 		151CDAAF1E64CF3700440CDE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E417FD98A4FBFF0616DB11A5 /* Pods-SetGovUITests.debug.xcconfig */;
+			baseConfigurationReference = F6801DE24659B393708A4CAB /* Pods-SetGovUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 7JQM8M6QG2;
@@ -801,7 +805,7 @@
 		};
 		151CDAB01E64CF3700440CDE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B71713566796D1C6996E852E /* Pods-SetGovUITests.release.xcconfig */;
+			baseConfigurationReference = E5B416965BF8BA732D25C895 /* Pods-SetGovUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 7JQM8M6QG2;

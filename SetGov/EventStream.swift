@@ -26,6 +26,7 @@ class EventStream:  UITableViewCell {
     var pressedButton: Bool?
     var onePress: Bool = false
     var initiateStream: Bool = false
+    var firstpress: Bool = true
     var EventDetailViewController:EventDetailViewController?
     @IBInspectable var startColor: UIColor = SG_RED_COLOR
     @IBInspectable var endColor: UIColor = UIColor.red
@@ -79,8 +80,10 @@ class EventStream:  UITableViewCell {
 
     
     @IBAction func buttonPressed(_ sender: Any) {
-        self.attendButton.setTitle("Attending", for: .normal)
-
+        if firstpress == true {
+            self.attendButton.setTitle("Attending", for: .normal)
+        }
+        firstpress = false
         
     /*
        if self.onePress == false {
@@ -134,6 +137,54 @@ class EventStream:  UITableViewCell {
         }
       */
        
+    }
+    
+    func nowLive() {
+        if self.onePress == false {
+            self.configureColor()
+            self.pressedButton = true
+            buttonBackground.startColor = SG_SECONDARY_REDCOLOR
+            buttonBackground.endColor = UIColor.red
+            self.EventDetailViewController?.animateView = true
+            self.attendButton.setTitle("Now Live", for: .normal)
+            self.buttonBackground.startColor = SG_SECONDARY_REDCOLOR
+            self.buttonBackground.endColor = UIColor.red
+            self.buttonBackground.backgroundColor = SG_RED_COLOR
+            let transition: CATransition = CATransition()
+            transition.duration = 0.5
+            transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            transition.type = kCATransitionReveal
+            transition.subtype = kCATransitionFromRight
+            self.buttonBackground.layer.add(transition,forKey:nil)
+            self.attendButton.layer.add(transition, forKey: nil)
+            self.attendButton.layer.cornerRadius = self.attendButton.frame.height / 2
+            self.attendButton.clipsToBounds = true
+            self.attendButton.layer.borderWidth = 1.5
+            self.attendButton.layer.borderColor = UIColor(red:0.18, green:0.26, blue:0.35, alpha:0.0).cgColor
+        
+        
+            buttonBackground.startColor = SG_SECONDARY_REDCOLOR
+            buttonBackground.endColor = UIColor.red
+            print(buttonBackground.startColor)
+            print( "adding gradient")
+        
+        
+        
+            print("BUTTON WAS PRESSED")
+            let transition2: CATransition = CATransition()
+            transition2.duration = 0.5
+            transition2.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            transition2.type = kCATransitionReveal
+            transition2.subtype = kCATransitionFromRight
+            self.secondaryEventImage.layer.add(transition2, forKey: nil)
+            self.secondaryEventImage.layer.cornerRadius = self.secondaryEventImage.frame.height / 2
+            self.secondaryEventImage.clipsToBounds = true
+            self.secondaryEventImage.layer.borderWidth = 3.0
+            self.secondaryEventImage.layer.borderColor = SG_RED_COLOR.cgColor
+        
+            self.onePress = true
+        }
+        
     }
     
     func buttonwasPressed() -> Bool {

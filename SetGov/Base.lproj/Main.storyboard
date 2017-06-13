@@ -492,7 +492,6 @@
                                                         <outlet property="agendaPic" destination="uG4-hU-mdK" id="tHr-iY-gS9"/>
                                                         <outlet property="mLabel" destination="gaC-Ca-9hY" id="lxq-kz-jOw"/>
                                                         <outlet property="topicLabel" destination="m4f-SF-Piy" id="jgW-pK-5h0"/>
-                                                        <segue destination="1Ae-3g-4yy" kind="show" identifier="showAgenda" id="fF4-6s-Inb"/>
                                                     </connections>
                                                 </collectionViewCell>
                                             </cells>
@@ -743,6 +742,7 @@
                     <size key="freeformSize" width="375" height="1165"/>
                     <connections>
                         <outlet property="navTitle" destination="7YE-DJ-ug6" id="tBg-L3-B4d"/>
+                        <segue destination="1Ae-3g-4yy" kind="show" identifier="showAgenda" id="FwS-uM-f1y"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ee-nh-oYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
