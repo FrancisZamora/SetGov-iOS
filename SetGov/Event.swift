@@ -24,7 +24,7 @@ class Event {
         self.eventTitle = eventTitle
         self.eventType = " "
         self.eventDate = eventDate
-        self.eventImage = 
+        self.eventImage = UIImage(imageLiteralResourceName: eventImageName)
         self.eventTags = eventTags
         self.eventUsers = eventUsers
     }
