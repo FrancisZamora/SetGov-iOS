@@ -238,20 +238,20 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventStream.eventInfo = eventInfo
                 eventStream.indexofEvent = indexofEvent
                 eventStream.eventStreamCallback = self
-
-        
+                eventStream.selectedCity = selectedCity
                 eventStream.configure()
                 eventStream.streamContent()
                 eventStream.eventImage.image = eventImages[indexofEvent]
                 eventStream.secondaryEventImage.image = eventImages[indexofEvent]
                 agendaImage = eventStream.eventImage.image!
-            
+        if selectedCity == "Boston" {
             if eventStream.firstpress == false  && compareTime() == false {
-                if noAlert == false {
+                if noAlert == false && selectedCity == "Boston" {
                     let alert = UIAlertController(title: "Constant Stream Available", message: "Boston offers a 24/7 live stream", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Watch", style: .default, handler: { (action: UIAlertAction!) in
                     print("Handle Ok logic here")
                     self.videoRequested = true
+                    tableView.reloadData()
                         
                 }))
                 
@@ -272,9 +272,10 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 
                 
                 
+                }
             }
             
-            if compareTime() == true && eventStream.firstpress == false || checkAlert() == true {
+            if compareTime() == true && eventStream.firstpress == false || videoRequested == true {
                 print(checkAlert())
                 // only works when cell for row is refreshed 
                 

@@ -44,6 +44,7 @@ class EventStream:  UITableViewCell {
     var timeArray = [String]()
     var eventTime = [String]()
     var indexofEvent = 0
+    var selectedCity = " " 
 
     
     weak var eventStreamCallback: EventStreamCallback!
@@ -195,6 +196,8 @@ class EventStream:  UITableViewCell {
     
     
     
+    
+    
 
     
     @IBAction func buttonPressed(_ sender: Any) {
@@ -203,7 +206,7 @@ class EventStream:  UITableViewCell {
         }
         firstpress = false
         
-        
+    
         if compareTime() == true {
             print(compareTime())
             let when1 = DispatchTime.now() + 3 // change 2 to desired number of seconds
@@ -211,6 +214,7 @@ class EventStream:  UITableViewCell {
             self.nowLive()
             }
         }
+        
         
         
 
