@@ -235,6 +235,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream") as! EventStream
                 eventStream.selectionStyle = .none
             
+                eventStream.eventInfo = eventInfo
+                eventStream.indexofEvent = indexofEvent
                 eventStream.eventStreamCallback = self
 
         
@@ -244,7 +246,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventStream.secondaryEventImage.image = eventImages[indexofEvent]
                 agendaImage = eventStream.eventImage.image!
             
-            if eventStream.firstpress == false {
+            if eventStream.firstpress == false  && compareTime() == false {
                 if noAlert == false {
                     let alert = UIAlertController(title: "Constant Stream Available", message: "Boston offers a 24/7 live stream", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Watch", style: .default, handler: { (action: UIAlertAction!) in
@@ -275,12 +277,13 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             if compareTime() == true && eventStream.firstpress == false || checkAlert() == true {
                 print(checkAlert())
                 // only works when cell for row is refreshed 
-                eventStream.nowLive()
-                let when = DispatchTime.now() + 3 // change 2 to desired number of seconds
+                
+                let when = DispatchTime.now() + 5 // change 2 to desired number of seconds
                 DispatchQueue.main.asyncAfter(deadline: when) {
-                        self.delayTransition()
-                   
+                    eventStream.nowLive()
                 }
+
+                
 
                 let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream") as! EventLiveStream
                 eventLiveStream.selectionStyle = .none
