@@ -244,6 +244,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventStream.eventImage.image = eventImages[indexofEvent]
                 eventStream.secondaryEventImage.image = eventImages[indexofEvent]
                 agendaImage = eventStream.eventImage.image!
+            
+            
         if selectedCity == "Boston" {
             if eventStream.firstpress == false  && compareTime() == false {
                 if noAlert == false && selectedCity == "Boston" {

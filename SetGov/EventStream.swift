@@ -203,8 +203,9 @@ class EventStream:  UITableViewCell {
     @IBAction func buttonPressed(_ sender: Any) {
         if firstpress == true {
             self.attendButton.setTitle("Attending", for: .normal)
+            firstpress = false
+
         }
-        firstpress = false
         
     
         if compareTime() == true {

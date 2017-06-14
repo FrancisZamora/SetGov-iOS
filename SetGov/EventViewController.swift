@@ -29,6 +29,7 @@ class EventViewController: SetGovTableViewController{
     var eventList = [Int:String]()
     var eventImages = [Int:UIImage]()
     var eventInfo = [Int: [String]]()
+    var firstTime = true
     
     @IBOutlet var cityDisplay: UINavigationItem!
     
@@ -145,7 +146,9 @@ class EventViewController: SetGovTableViewController{
                 cell.eventDescription.text = "Bi-Monthly meeting"
                 cell.eventDate.text = "May 29th"
                 cell.eventImage.image = #imageLiteral(resourceName: "Image-7")
-                cell.configure()
+                if firstTime == true {
+                    cell.configure()
+                }
                 eventArray.append("5/29/17")
                 eventArray.append(address)
                 print("eventTitle")
@@ -184,7 +187,9 @@ class EventViewController: SetGovTableViewController{
                 cell.eventDescription.text = "Annual Race for Mayor"
                 cell.eventDate.text = "June 1st"
                 cell.eventImage.image = #imageLiteral(resourceName: "Image-14")
-                cell.configure()
+                if firstTime == true {
+                    cell.configure()
+                }
                 time = "3:30pm"
                 eventImage = cell.eventImage.image!
                 eventImages.updateValue(eventImage, forKey: indexPath.row)
@@ -234,7 +239,10 @@ class EventViewController: SetGovTableViewController{
                 eventArray.append("6/3/17")
                 eventArray.append(address)
                 cell.selectionStyle = .none
-                cell.configure()
+                if firstTime == true {
+                    cell.configure()
+                }
+            
                 eventArray.append(time)
                 eventArray.append("17:00")
 
@@ -288,7 +296,10 @@ class EventViewController: SetGovTableViewController{
                     cell.selectionStyle = .none
 
                     print(cell.eventOriginalTitle)
-                    cell.configure()
+                    if firstTime == true {
+                        cell.configure()
+                    }
+                    
                     eventTitles.insert(eventTitle, at: indexPath.row)
                     eventList.updateValue(cell.eventOriginalTitle, forKey: indexPath.row)
                     eventInfo.updateValue(eventArray, forKey: indexPath.row)
@@ -311,7 +322,10 @@ class EventViewController: SetGovTableViewController{
                     cell.eventDescription.text = "Election"
                     cell.eventDate.text = "May 25th"
                     cell.eventImage.image = #imageLiteral(resourceName: "Image-13")
-                    cell.configure()
+                    if firstTime == true {
+                        cell.configure()
+                    }
+                    
                     time = "8:15pm"
                     eventImage = cell.eventImage.image!
                     eventImages.updateValue(eventImage, forKey: indexPath.row)
@@ -352,7 +366,7 @@ class EventViewController: SetGovTableViewController{
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
                     cell.eventDescription.text = "Quarterly meeting"
                     cell.eventDate.text = "June 3rd"
-                    cell.eventImage.image = #imageLiteral(resourceName: "Image-8")
+                    cell.eventImage.image = #imageLiteral(resourceName: "brownstone")
                     time = "7:00pm"
                     eventTitle = cell.eventOriginalTitle
                     eventImage = cell.eventImage.image!
@@ -363,7 +377,10 @@ class EventViewController: SetGovTableViewController{
                     eventArray.append("16:00")
 
                     cell.selectionStyle = .none
-                    cell.configure()
+                    if firstTime == true {
+                        cell.configure()
+                    }
+                    
                     eventInfo.updateValue(eventArray, forKey: indexPath.row)
 
                     print(cell.eventOriginalTitle)
@@ -390,7 +407,7 @@ class EventViewController: SetGovTableViewController{
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
                     cell.eventDescription.text = "Quarterly meeting"
                     cell.eventDate.text = "June 3rd"
-                    cell.eventImage.image = #imageLiteral(resourceName: "Image-8")
+                    cell.eventImage.image = #imageLiteral(resourceName: "bostonPark")
                     time = "4:00pm"
                     eventTitle = cell.eventOriginalTitle
                     eventImage = cell.eventImage.image!
@@ -402,7 +419,10 @@ class EventViewController: SetGovTableViewController{
 
 
                     cell.selectionStyle = .none
-                    cell.configure()
+                    if firstTime == true {
+                        cell.configure()
+                    }
+                    
                     eventInfo.updateValue(eventArray, forKey: indexPath.row)
 
                     print(cell.eventOriginalTitle)
@@ -424,7 +444,9 @@ class EventViewController: SetGovTableViewController{
             
             
             
-
+       firstTime = false
+       print(firstTime)
+        
        let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCell
        cell.configure()
        cell.selectionStyle = .none
@@ -535,6 +557,7 @@ class EventViewController: SetGovTableViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showEvent") {
             print("preparing view")
+            print(firstTime)
             
             let EventDetailViewController = segue.destination as! EventDetailViewController
             EventDetailViewController.selectedEvents = eventTitles
