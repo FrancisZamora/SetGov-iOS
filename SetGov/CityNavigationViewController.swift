@@ -94,6 +94,7 @@ class CityNavigationViewController: SetGovTableViewController {
         }
         if (indexPath.row == 2) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewYorkCityCell", for:indexPath) as! NewYorkCityCell
+            cell.selectionStyle = .none
             //cell.selectionStyle = UITableViewCellSelectionStyle.blue
            // cell.isUserInteractionEnabled = true
             print(indexPath.row)

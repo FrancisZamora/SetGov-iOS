@@ -1059,7 +1059,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-9" translatesAutoresizingMaskIntoConstraints="NO" id="NFD-z2-oYF">
                                             <rect key="frame" x="0.0" y="-27" width="375" height="240"/>
                                         </imageView>
-                                        <view alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2v1-Dm-zJ0">
+                                        <view alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2v1-Dm-zJ0">
                                             <rect key="frame" x="0.0" y="-27" width="375" height="239"/>
                                             <color key="backgroundColor" red="0.45194546580000006" green="0.45194546580000006" blue="0.45194546580000006" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
@@ -1099,7 +1099,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-11" translatesAutoresizingMaskIntoConstraints="NO" id="spO-6K-KFL">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="213"/>
                                         </imageView>
-                                        <view alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mni-y1-5bH">
+                                        <view alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mni-y1-5bH">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="212"/>
                                             <color key="backgroundColor" red="0.4519454658" green="0.4519454658" blue="0.4519454658" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
@@ -1138,7 +1138,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-10" translatesAutoresizingMaskIntoConstraints="NO" id="wDa-mX-C3e">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="212"/>
                                         </imageView>
-                                        <view userInteractionEnabled="NO" alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1cA-fi-b3f">
+                                        <view clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1cA-fi-b3f">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="212"/>
                                             <color key="backgroundColor" red="0.4519454658" green="0.4519454658" blue="0.4519454658" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
