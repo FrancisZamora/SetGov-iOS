@@ -242,7 +242,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventStream.configure()
                 eventStream.streamContent()
                 eventStream.eventImage.image = eventImages[indexofEvent]
-                eventStream.secondaryEventImage.image = eventImages[indexofEvent]
+                eventStream.secondaryEventImage.image = #imageLiteral(resourceName: "Image-5")
+                //secondary event image should be the user
                 agendaImage = eventStream.eventImage.image!
             
             

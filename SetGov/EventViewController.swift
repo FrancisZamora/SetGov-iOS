@@ -403,7 +403,7 @@ class EventViewController: SetGovTableViewController{
 
                     cell.hashtagOne.text = "fire-safety"
                     cell.hashtagTwo.text = "committee"
-                    cell.eventOriginalTitle = "Nuclear Waste Clean Up"
+                    cell.eventOriginalTitle = "Parks & Recreation"
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
                     cell.eventDescription.text = "Quarterly meeting"
                     cell.eventDate.text = "June 3rd"
