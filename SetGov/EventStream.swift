@@ -223,9 +223,13 @@ class EventStream:  UITableViewCell {
         
         
         
+        
         let when2 = DispatchTime.now() + 6 // change 2 to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when2) {
-            self.eventStreamCallback.refreshTap(tapped: true)
+            if let callback = self.eventStreamCallback {
+                callback.refreshTap(tapped: true)
+            }
+            
 
         }
         
