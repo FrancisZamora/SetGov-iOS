@@ -354,6 +354,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             agendaCell.selectionStyle = .none
             agendaCell.agendaInfo = agendaInfo
             agendaCell.index = Index
+            agendaCell.eventAgendaCallback = self
+
             return agendaCell
         }
         

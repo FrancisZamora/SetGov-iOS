@@ -89,9 +89,10 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         if (indexPath.row == 0 ) {
             index = indexPath.row
             print("ROW 0")
-            eventAgendaCallback.loadAgendaDetail(data: agendaInfo,index:0)
+            if let callback = eventAgendaCallback {
+                callback.loadAgendaDetail(data: agendaInfo,index:0)
 
-
+            }
             
 
         }
@@ -99,8 +100,10 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         if (indexPath.row == 1 ) {
            index = indexPath.row
             print("ROW 1")
-            eventAgendaCallback.loadAgendaDetail(data: agendaInfo,index:1)
-           
+            if let callback = eventAgendaCallback {
+                callback.loadAgendaDetail(data: agendaInfo,index:1)
+                
+            }
 
 
 
@@ -110,8 +113,10 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         if (indexPath.row == 2 ) {
            index = indexPath.row
             print("ROW 2")
-            eventAgendaCallback.loadAgendaDetail(data: agendaInfo,index:2)
-
+            if let callback = eventAgendaCallback {
+                callback.loadAgendaDetail(data: agendaInfo,index:2)
+                
+            }
 
         }
         
