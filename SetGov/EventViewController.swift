@@ -263,6 +263,53 @@ class EventViewController: SetGovTableViewController{
                 return cell
                 
             }
+            
+            if indexPath.row == 3 {
+                let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+                print("eventTitle")
+                print("CELL IS THREE")
+                
+                
+                cell.hashtagOne.text = "nature"
+                cell.hashtagTwo.text = "committee"
+                cell.eventOriginalTitle = "Parks & Recreation"
+                cell.eventTitle.text = spacer + cell.eventOriginalTitle
+                cell.eventDescription.text = "Monthly meeting"
+                cell.eventDate.text = "June 3rd"
+                cell.eventImage.image = #imageLiteral(resourceName: "Image-8")
+                time = "5:00pm"
+                eventTitle = cell.eventOriginalTitle
+                eventImage = cell.eventImage.image!
+                eventImages.updateValue(eventImage, forKey: indexPath.row)
+                eventArray.append("6/3/17")
+                eventArray.append(address)
+                cell.selectionStyle = .none
+                if firstTime == true {
+                    cell.configure()
+                }
+                
+                eventArray.append(time)
+                eventArray.append("17:00")
+                
+                
+                eventInfo.updateValue(eventArray, forKey: indexPath.row)
+                
+                eventTitles.insert(eventTitle, at: indexPath.row)
+                eventList.updateValue(cell.eventOriginalTitle, forKey: indexPath.row)
+                print(eventList)
+                print(cell.eventOriginalTitle)
+                print("STOP HERE")
+                print(eventTitles)
+                
+                print(eventTitles)
+                eventArray = []
+                
+                print(eventTitle)
+                return cell
+
+    
+                
+            }
         }
             if selectedCity == "Boston" {
                 if indexPath.row == 0 {

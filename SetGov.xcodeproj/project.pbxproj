@@ -22,6 +22,7 @@
 		151CDAB61E64F2C500440CDE /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CDAB51E64F2C500440CDE /* constants.swift */; };
 		1523A4941E8B385C00AE93C2 /* AgendaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1523A4931E8B385C00AE93C2 /* AgendaCell.swift */; };
 		1523A49A1E8B38CB00AE93C2 /* AgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1523A4991E8B38CB00AE93C2 /* AgendaViewController.swift */; };
+		152DBEE91EF1BC1E00322E56 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152DBEE81EF1BC1E00322E56 /* Event.swift */; };
 		153F3F7C1E6DF0E50004E2F4 /* SetGovViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F7B1E6DF0E50004E2F4 /* SetGovViewController.swift */; };
 		153F3F7E1E6DF0ED0004E2F4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F7D1E6DF0ED0004E2F4 /* LoginViewController.swift */; };
 		153F3F851E6DF2A20004E2F4 /* SetGovTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F841E6DF2A20004E2F4 /* SetGovTableViewController.swift */; };
@@ -82,6 +83,7 @@
 		151CDAB51E64F2C500440CDE /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		1523A4931E8B385C00AE93C2 /* AgendaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaCell.swift; sourceTree = "<group>"; };
 		1523A4991E8B38CB00AE93C2 /* AgendaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaViewController.swift; sourceTree = "<group>"; };
+		152DBEE81EF1BC1E00322E56 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		153F3F7B1E6DF0E50004E2F4 /* SetGovViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetGovViewController.swift; path = Controllers/SetGovViewController.swift; sourceTree = "<group>"; };
 		153F3F7D1E6DF0ED0004E2F4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controllers/LoginViewController.swift; sourceTree = "<group>"; };
 		153F3F841E6DF2A20004E2F4 /* SetGovTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetGovTableViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				151CDA871E64CF3700440CDE /* Main.storyboard */,
 				151CDAB51E64F2C500440CDE /* constants.swift */,
 				151CDA831E64CF3700440CDE /* AppDelegate.swift */,
+				152DBEE81EF1BC1E00322E56 /* Event.swift */,
 				151CDA8C1E64CF3700440CDE /* LaunchScreen.storyboard */,
 				151CDA8F1E64CF3700440CDE /* Info.plist */,
 				151CDA8A1E64CF3700440CDE /* Assets.xcassets */,
@@ -555,6 +558,7 @@
 				156BD4D11E836B9800E8F98B /* EventMembers.swift in Sources */,
 				15B945941E9DD75700226A32 /* EventLiveStream.swift in Sources */,
 				156BD4CD1E836B6300E8F98B /* EventInfo.swift in Sources */,
+				152DBEE91EF1BC1E00322E56 /* Event.swift in Sources */,
 				15C64B4D1EADA96200B123A5 /* NewYorkCityCell.swift in Sources */,
 				151CDA841E64CF3700440CDE /* AppDelegate.swift in Sources */,
 				156BD4CF1E836B7800E8F98B /* EventStream.swift in Sources */,
