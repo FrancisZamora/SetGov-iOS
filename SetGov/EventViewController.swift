@@ -59,7 +59,7 @@ class EventViewController: SetGovTableViewController{
         }
         if selectedCity == "Fort Lauderdale" {
             guard let url = URL(string: "https://fortlauderdale.legistar.com/Calendar.aspx") else {
-                return 
+                return
             }
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data, error == nil else {
@@ -84,93 +84,60 @@ class EventViewController: SetGovTableViewController{
                 
     }
     
-    func fortlauderdaleScraper() -> Void {
-     
-        let url = URL(string: "http://nycmetalscene.com")!
-     
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-        guard let data = data, error == nil else {
-        print("\(error)")
-            return
-            
-        }
-     
-        guard let string = String(data: data, encoding: .utf8) else {
-            return
-            
-            }
-            
-        print("\(string)")
-        self.html = string
-        print("fort lauderdale scraper")
-            
-        self.parseFortLauderdaleHTML(html: string)
-            
-        }
-     
-        task.resume()
 
-   }
-       /*
-        //let url = URL(string: "https://fortlauderdale.legistar.com/Calendar.aspx")!
-        guard let url = URL(string: "http://nycmetalscene.com")  else {
-            print("Parsing Failed")
-            return
-        }
-        
-        
-        print("Response Received")
-
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else {
-                print("\(error)")
-                return
-            }
-            print("Successfully Scraped Fort Lauderdale Event Page")
-            
-            print(data)
-            self.string = String(data: data, encoding: .utf8)!
-            
-            print("Parsing Fort Lauderdale")
-            self.parseFortLauderdaleHTML(html: self.string)
-            
-            
-            
-            
-        }
-        
-        task.resume()
-        
-        
-        
-    }
-    */
-    
     
     func parseFortLauderdaleHTML(html:String) -> Void {
         print("parse fort lauderdale successfully called")
         
-        guard let doc = HTML(html: self.html, encoding: .utf8) else {
-         
-                return
-            }
+        let url = URL(string: "https://en.wikipedia.org/wiki/Cat")
+        print(url as Any)
+        print("continue")
+        
+        guard let doc = HTML(url: url!, encoding: .utf8) else  {
+            return
+        }
+        print(doc.title as Any)
+        print(doc.body as Any)
+        
+        print("continue")
+        
+            
+        
+        
         
         
             // Search for nodes by CSS selector
-            for show in doc.css("td[id^='Text']") {
+          //  for show in doc.css("td[id^='Text']") {
+                
+                // Search for nodes by CSS
+                for cat in doc.css("a, link") {
+                    print(cat.text)
+                    print(cat["href"])
+                
+                
+                // Search for nodes by XPath
+                for link in doc.xpath("//a | //link") {
+                    print(link.text)
+                    print(link["href"])
+                }
+                print("continue")
+                print("made it into the loop")
                 
                 // Strip the string of surrounding whitespace.
-                let showString = show.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                
+                let showString = cat.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                    print("\(showString)\n")
+
                 // All text involving shows on this page currently start with the weekday.
                 // Weekday formatting is inconsistent, but the first three letters are always there.
                 let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.caseInsensitive])
                 
                 if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
                     //shows.add(showString)
+                    
                     print("\(showString)\n")
-                }
+                    print("string was printed")
+                
+            }
             }
         }
 
@@ -209,6 +176,7 @@ class EventViewController: SetGovTableViewController{
         self.setCity()
         print(selectedCity)
         self.scraper()
+        self.parseFortLauderdaleHTML(html: "swag")
         //self.fortlauderdaleScraper()
     
         
