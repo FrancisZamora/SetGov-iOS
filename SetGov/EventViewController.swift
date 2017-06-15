@@ -43,7 +43,9 @@ class EventViewController: SetGovTableViewController{
             print("Parsing Failed")
             return
         }
-        print("Response ")
+        
+        
+        print("Response Received")
 
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
@@ -56,7 +58,7 @@ class EventViewController: SetGovTableViewController{
             
             self.string = String(data: data, encoding: .utf8)!
             
-            print("Parsing Fort")
+            print("Parsing Fort Lauderdale")
             self.parseFortLauderdaleHTML(html: self.string)
             
             
@@ -72,6 +74,30 @@ class EventViewController: SetGovTableViewController{
     
     
     func parseFortLauderdaleHTML(html:String) -> Void {
+        let html = self.string
+        guard let doc = HTML(html: html, encoding: .utf8) else {
+            
+                return
+            }
+        print(doc.title as Any)
+        
+        
+        
+            // Search for nodes by CSS
+            for link in doc.css("a, link") {
+                print(link.text as Any)
+                print(link["href"] as Any)
+            }
+            
+            // Search for nodes by XPath
+            for link in doc.xpath("//a | //link") {
+                print(link.text as Any)
+                print(link["href"] as Any)
+            }
+        }
+    
+
+
         
         
         
@@ -79,10 +105,7 @@ class EventViewController: SetGovTableViewController{
         
         
         
-        
-        
-        
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,45 +113,12 @@ class EventViewController: SetGovTableViewController{
         print("EventViewController")
         self.setCity()
         print(selectedCity)
-        
-        let html = "<html>...</html>"
-        
-        if let doc = HTML(html: html, encoding: .utf8) {
-            print(doc.title)
-            
-            // Search for nodes by CSS
-            for link in doc.css("a, link") {
-                print(link.text)
-                print(link["href"])
-            }
-            
-            // Search for nodes by XPath
-            for link in doc.xpath("//a | //link") {
-                print(link.text)
-                print(link["href"])
-            }
-        }
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        }
     
-    
-    
-    
-    func processString () -> String {
         
-        var x = string
-        return x
+        
+        
+        
     }
-    
-    
     
     
     override func viewDidAppear(_ animated: Bool) {
