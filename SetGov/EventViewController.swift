@@ -89,7 +89,7 @@ class EventViewController: SetGovTableViewController{
     func parseFortLauderdaleHTML(html:String) -> Void {
         print("parse fort lauderdale successfully called")
         
-        let url = URL(string: "https://en.wikipedia.org/wiki/Cat")
+        let url = URL(string: "https://www.boston.gov/public-notices")
         print(url as Any)
         print("continue")
         
@@ -110,21 +110,21 @@ class EventViewController: SetGovTableViewController{
           //  for show in doc.css("td[id^='Text']") {
                 
                 // Search for nodes by CSS
-                for cat in doc.css("a, link") {
-                    print(cat.text)
-                    print(cat["href"])
+        for notices in doc.css("a[href*='public-notices']") {
+                    print(notices.text)
+                    print(notices["href"])
                 
                 
                 // Search for nodes by XPath
-                for link in doc.xpath("//a | //link") {
-                    print(link.text)
-                    print(link["href"])
-                }
+               // for link in doc.xpath("//a | //link") {
+                 //   print(link.text)
+                   // print(link["href"])
+                //}
                 print("continue")
                 print("made it into the loop")
                 
                 // Strip the string of surrounding whitespace.
-                let showString = cat.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                     print("\(showString)\n")
 
                 // All text involving shows on this page currently start with the weekday.
