@@ -36,50 +36,50 @@ class EventViewController: SetGovTableViewController{
     @IBOutlet var cityDisplay: UINavigationItem!
     
     
-    func bostonScraper() -> String {
+    func fortlauderdaleScraper() -> Void {
         
-        let url = URL(string: "https://fortlauderdale.legistar.com/Calendar.aspx")!
+        //let url = URL(string: "https://fortlauderdale.legistar.com/Calendar.aspx")!
+        guard let url = URL(string: "http://nycmetalscene.com")  else {
+            print("Parsing Failed")
+            return
+        }
+        print("Response ")
+
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
                 print("\(error)")
                 return
             }
-            
-            
+            print("Successfully Scraped Fort Lauderdale Event Page")
             
             
             self.string = String(data: data, encoding: .utf8)!
             
-            print(self.string)
-            
-            let array = self.string.components(separatedBy: "</thead><tbody>")
-            print(self.string)
-            print(array)
-            print("\(array)")
+            print("Parsing Fort")
+            self.parseFortLauderdaleHTML(html: self.string)
             
             
             
-            //guard let array = string.components(separatedBy: "<tbody") else {
-              //  return
-            //}
-            
-            
-            // tbody 
-            //
-            
-            
-            
-            
-            //print(array![0].joined(separator: "\n"))
-            
-            print("\(array)")
             
         }
         
         task.resume()
         
-        return string
+        
+        
+    }
+    
+    
+    func parseFortLauderdaleHTML(html:String) -> Void {
+        
+        
+        
+        
+        
+        
+        
+        
         
         
     }
