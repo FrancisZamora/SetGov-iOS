@@ -35,29 +35,54 @@ class EventViewController: SetGovTableViewController{
     
     @IBOutlet var cityDisplay: UINavigationItem!
     func scraper()  {
-        
-               let url = URL(string: "https://fortlauderdale.legistar.com/Calendar.aspx")!
-        
-                let task = URLSession.shared.dataTask(with: url) { data, response, error in
-                    guard let data = data, error == nil else {
-                        print("\(error)")
-                        
-                        return
-                    }
-        
-                    let string = String(data: data, encoding: .utf8)
-                    self.html = string!
-                    print("\(self.html)")
-                    self.parseFortLauderdaleHTML(html: self.html)
-
-
-                    print("\(string)")
-                }
-        
-                task.resume()
-                
-                
+        if selectedCity == "Boston" {
+            guard let url = URL(string: "https://www.boston.gov/public-notices") else {
+                return
             }
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                guard let data = data, error == nil else {
+                    print("\(error)")
+                    
+                    return
+                }
+                
+                let string = String(data: data, encoding: .utf8)
+                self.html = string!
+                print("\(self.html)")
+                self.parseFortLauderdaleHTML(html: self.html)
+                
+                
+                print("\(string)")
+            }
+            
+            task.resume()
+        }
+        if selectedCity == "Fort Lauderdale" {
+            guard let url = URL(string: "https://fortlauderdale.legistar.com/Calendar.aspx") else {
+                return 
+            }
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                guard let data = data, error == nil else {
+                    print("\(error)")
+                    
+                    return
+                }
+                
+                let string = String(data: data, encoding: .utf8)
+                self.html = string!
+                print("\(self.html)")
+                self.parseFortLauderdaleHTML(html: self.html)
+                
+                
+                print("\(string)")
+            }
+            
+            task.resume()
+        }
+        
+            
+                
+    }
     
     func fortlauderdaleScraper() -> Void {
      
