@@ -88,31 +88,30 @@ class EventViewController: SetGovTableViewController{
     
     func parseFortLauderdaleHTML(html:String) -> Void {
         print("parse fort lauderdale successfully called")
+        if selectedCity == "Boston" {
+            let url = URL(string: "https://www.boston.gov/public-notices")
+            print(url as Any)
+            print("continue")
         
-        let url = URL(string: "https://www.boston.gov/public-notices")
-        print(url as Any)
-        print("continue")
+            guard let doc = HTML(url: url!, encoding: .utf8) else  {
+                return
+            }
+            print(doc.title as Any)
+            print(doc.body as Any)
         
-        guard let doc = HTML(url: url!, encoding: .utf8) else  {
-            return
-        }
-        print(doc.title as Any)
-        print(doc.body as Any)
-        
-        print("continue")
+            print("continue")
         
             
         
         
         
         
-            // Search for nodes by CSS selector
-          //  for show in doc.css("td[id^='Text']") {
+            
                 
                 // Search for nodes by CSS
-        for notices in doc.css("a[href*='public-notices']") {
-                    print(notices.text)
-                    print(notices["href"])
+            for notices in doc.css("a[href*='/public-notices/2']") {
+                    //print(notices.text)
+                    //print(notices["href"])
                 
                 
                 // Search for nodes by XPath
@@ -120,8 +119,7 @@ class EventViewController: SetGovTableViewController{
                  //   print(link.text)
                    // print(link["href"])
                 //}
-                print("continue")
-                print("made it into the loop")
+               
                 
                 // Strip the string of surrounding whitespace.
                 let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
@@ -159,7 +157,7 @@ class EventViewController: SetGovTableViewController{
         //}
     
 
-
+    }
         
         
         
@@ -643,6 +641,17 @@ class EventViewController: SetGovTableViewController{
                 performSegue(withIdentifier: "showEvent", sender: nil)
                 print(eventTitle)
             }
+            
+            if indexPath.row > 3 {
+                
+                indexofEvent = indexPath.row
+                print("index of event")
+                print(indexofEvent)
+                performSegue(withIdentifier: "showEvent", sender: nil)
+                
+                
+            }
+
             
             
             
