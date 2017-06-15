@@ -91,6 +91,24 @@ class EventViewController: SetGovTableViewController{
         self.setCity()
         print(selectedCity)
         
+        let html = "<html>...</html>"
+        
+        if let doc = HTML(html: html, encoding: .utf8) {
+            print(doc.title)
+            
+            // Search for nodes by CSS
+            for link in doc.css("a, link") {
+                print(link.text)
+                print(link["href"])
+            }
+            
+            // Search for nodes by XPath
+            for link in doc.xpath("//a | //link") {
+                print(link.text)
+                print(link["href"])
+            }
+        }
+        
       
         
         
