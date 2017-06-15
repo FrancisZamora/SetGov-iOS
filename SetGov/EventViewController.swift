@@ -30,14 +30,63 @@ class EventViewController: SetGovTableViewController{
     var eventImages = [Int:UIImage]()
     var eventInfo = [Int: [String]]()
     var firstTime = true
-    var string = " "
+    var html = " "
     
     
     @IBOutlet var cityDisplay: UINavigationItem!
-    
+    func scraper()  {
+        
+               let url = URL(string: "https://fortlauderdale.legistar.com/Calendar.aspx")!
+        
+                let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                    guard let data = data, error == nil else {
+                        print("\(error)")
+                        
+                        return
+                    }
+        
+                    let string = String(data: data, encoding: .utf8)
+                    self.html = string!
+                    print("\(self.html)")
+                    self.parseFortLauderdaleHTML(html: self.html)
+
+
+                    print("\(string)")
+                }
+        
+                task.resume()
+                
+                
+            }
     
     func fortlauderdaleScraper() -> Void {
-        
+     
+        let url = URL(string: "http://nycmetalscene.com")!
+     
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        guard let data = data, error == nil else {
+        print("\(error)")
+            return
+            
+        }
+     
+        guard let string = String(data: data, encoding: .utf8) else {
+            return
+            
+            }
+            
+        print("\(string)")
+        self.html = string
+        print("fort lauderdale scraper")
+            
+        self.parseFortLauderdaleHTML(html: string)
+            
+        }
+     
+        task.resume()
+
+   }
+       /*
         //let url = URL(string: "https://fortlauderdale.legistar.com/Calendar.aspx")!
         guard let url = URL(string: "http://nycmetalscene.com")  else {
             print("Parsing Failed")
@@ -55,7 +104,7 @@ class EventViewController: SetGovTableViewController{
             }
             print("Successfully Scraped Fort Lauderdale Event Page")
             
-            
+            print(data)
             self.string = String(data: data, encoding: .utf8)!
             
             print("Parsing Fort Lauderdale")
@@ -71,30 +120,51 @@ class EventViewController: SetGovTableViewController{
         
         
     }
+    */
     
     
     func parseFortLauderdaleHTML(html:String) -> Void {
-        let html = self.string
-        guard let doc = HTML(html: html, encoding: .utf8) else {
-            
+        print("parse fort lauderdale successfully called")
+        
+        guard let doc = HTML(html: self.html, encoding: .utf8) else {
+         
                 return
             }
-        print(doc.title as Any)
+        
+        
+            // Search for nodes by CSS selector
+            for show in doc.css("td[id^='Text']") {
+                
+                // Strip the string of surrounding whitespace.
+                let showString = show.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                
+                // All text involving shows on this page currently start with the weekday.
+                // Weekday formatting is inconsistent, but the first three letters are always there.
+                let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.caseInsensitive])
+                
+                if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
+                    //shows.add(showString)
+                    print("\(showString)\n")
+                }
+            }
+        }
+
+      //  print(doc.title as Any)
         
         
         
             // Search for nodes by CSS
-            for link in doc.css("a, link") {
-                print(link.text as Any)
-                print(link["href"] as Any)
-            }
+        //    for link in doc.css("a, link") {
+          //      print(link.text as Any)
+            //    print(link["href"] as Any)
+            //}
             
             // Search for nodes by XPath
-            for link in doc.xpath("//a | //link") {
-                print(link.text as Any)
-                print(link["href"] as Any)
-            }
-        }
+            //for link in doc.xpath("//a | //link") {
+              //  print(link.text as Any)
+             //   print(link["href"] as Any)
+            //}
+        //}
     
 
 
@@ -113,6 +183,8 @@ class EventViewController: SetGovTableViewController{
         print("EventViewController")
         self.setCity()
         print(selectedCity)
+        self.scraper()
+        //self.fortlauderdaleScraper()
     
         
         
