@@ -30,11 +30,13 @@ class EventViewController: SetGovTableViewController{
     var eventImages = [Int:UIImage]()
     var eventInfo = [Int: [String]]()
     var firstTime = true
+    var string = " "
+    
     
     @IBOutlet var cityDisplay: UINavigationItem!
     
     
-    func bostonScraper()  {
+    func bostonScraper() -> String {
         
         let url = URL(string: "https://fortlauderdale.legistar.com/Calendar.aspx")!
         
@@ -45,25 +47,39 @@ class EventViewController: SetGovTableViewController{
             }
             
             
-            let string = String(data: data, encoding: .utf8)
-            
-            //var array = string?.components(separatedBy: "tr")
-            
-            guard var array = string?.components(separatedBy: "tr") else {
-                return
-            }
             
             
+            self.string = String(data: data, encoding: .utf8)!
+            
+            print(self.string)
+            
+            let array = self.string.components(separatedBy: "</thead><tbody>")
+            print(self.string)
+            print(array)
+            print("\(array)")
             
             
-            array.remove(at: 0)
+            
+            //guard let array = string.components(separatedBy: "<tbody") else {
+              //  return
+            //}
+            
+            
+            // tbody 
+            //
+            
+            
+            
+            
             //print(array![0].joined(separator: "\n"))
-            print(array[0])
             
-            //print("\(string)")
+            print("\(array)")
+            
         }
         
         task.resume()
+        
+        return string
         
         
     }
@@ -75,11 +91,27 @@ class EventViewController: SetGovTableViewController{
         self.setCity()
         print(selectedCity)
         
+      
         
-        bostonScraper()
+        
+        
+        
+        
         
         
         }
+    
+    
+    
+    
+    func processString () -> String {
+        
+        var x = string
+        return x
+    }
+    
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
     }
@@ -136,7 +168,6 @@ class EventViewController: SetGovTableViewController{
         print(indexPath.row)
         if selectedCity == "Fort Lauderdale" {
             if indexPath.row == 0 {
-                
                 print("CELL IS ONE")
                 let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
                 cell.hashtagOne.text = "environmental"
@@ -270,13 +301,13 @@ class EventViewController: SetGovTableViewController{
                 print("CELL IS THREE")
                 
                 
-                cell.hashtagOne.text = "nature"
-                cell.hashtagTwo.text = "committee"
-                cell.eventOriginalTitle = "Parks & Recreation"
+                cell.hashtagOne.text = "natural"
+                cell.hashtagTwo.text = "legislation"
+                cell.eventOriginalTitle = "Parks and Recreation"
                 cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                cell.eventDescription.text = "Monthly meeting"
+                cell.eventDescription.text = "Quarterly meeting"
                 cell.eventDate.text = "June 3rd"
-                cell.eventImage.image = #imageLiteral(resourceName: "Image-8")
+                cell.eventImage.image = #imageLiteral(resourceName: "fortlauderdalepark")
                 time = "5:00pm"
                 eventTitle = cell.eventOriginalTitle
                 eventImage = cell.eventImage.image!
@@ -306,7 +337,6 @@ class EventViewController: SetGovTableViewController{
                 
                 print(eventTitle)
                 return cell
-
     
                 
             }
@@ -532,6 +562,18 @@ class EventViewController: SetGovTableViewController{
 
                     
             }
+            
+            
+            
+            if indexPath.row == 3 {
+                indexofEvent = indexPath.row
+                performSegue(withIdentifier: "showEvent", sender: nil)
+                print(eventTitle)
+            }
+            
+            
+            
+            
         }
         if selectedCity == "Boston" {
                     print("yo")
