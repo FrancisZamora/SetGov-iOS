@@ -113,7 +113,7 @@ class EventViewController: SetGovTableViewController{
                 
                 print("continue")
                 
-                for notices in doc.css("a[href*='/public-notices/2']") {
+                for notices in doc.css("a[href*='MeetingDetail.aspx?']") {
                     
                     let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                     print("\(showString)\n")
@@ -147,6 +147,7 @@ class EventViewController: SetGovTableViewController{
                         print("string was printed twice")
                         
                     }
+                    
                 }
                 print(infoEvents)
 
