@@ -107,7 +107,9 @@ class EventViewController: SetGovTableViewController{
                     let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                     print("\(showString)\n")
                     
-                    eventTimes.append(showString)
+                    var newArray = showString.components(separatedBy: ",")
+                    var newString = newArray[0]
+                    eventTimes.append(newString)
                     
                     //print(titleEvents)
                     
@@ -126,6 +128,7 @@ class EventViewController: SetGovTableViewController{
                 print(infoEvents)
             
             }
+        
             print(arrayEvents)
             print(eventTimes)
 
@@ -700,22 +703,7 @@ class EventViewController: SetGovTableViewController{
     
                 
                 
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-    
 
-    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showEvent") {
