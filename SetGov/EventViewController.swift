@@ -42,7 +42,7 @@ class EventViewController: SetGovTableViewController{
     
     @IBOutlet var cityDisplay: UINavigationItem!
 
-    func parseFortLauderdaleHTML(html:String) -> Void {
+    func parseHTML(html:String) -> Void {
         print("parse fort lauderdale successfully called")
         if selectedCity == "Boston" {
             let url = URL(string: "https://www.boston.gov/public-notices")
@@ -109,26 +109,68 @@ class EventViewController: SetGovTableViewController{
         self.setCity()
         print(selectedCity)
         self.fetchEventData()
-        self.parseFortLauderdaleHTML(html: "swag")
+        self.parseHTML(html: "swag")
  
     }
     
     func fetchEventData() {
         
-        let event = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+        if selectedCity == "Boston" {
+            
+            
+            let event = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
       
         
-        dataList.append(event)
+            dataList.append(event)
         
-        let event2 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+            let event2 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
         
-        let event3 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+            dataList.append(event2)
         
-        let event4 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+            let event3 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
         
-        let event5 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+            dataList.append(event3)
+        
+            let event4 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+        
+            dataList.append(event4)
+        
+                let event5 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+        
+            dataList.append(event5)
     
+        }
+        
+        
+        if selectedCity == "Miami" {
+            
+            
+            let event = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+            
+            
+            dataList.append(event)
+            
+            let event2 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+            
+            dataList.append(event2)
+            
+            let event3 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+            
+            dataList.append(event3)
+            
+            let event4 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+            
+            dataList.append(event4)
+            
+            let event5 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+            
+            dataList.append(event5)
+            
+        }
+        
     }
+        
+
     
     
     
