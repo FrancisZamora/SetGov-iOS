@@ -29,8 +29,11 @@ class EventViewController: SetGovTableViewController{
     var eventList = [Int:String]()
     var eventImages = [Int:UIImage]()
     var eventInfo = [Int: [String]]()
+    var titleEvents = [Int: String]()
     var firstTime = true
     var html = " "
+    var numIterations = 0
+    
     
     
     @IBOutlet var cityDisplay: UINavigationItem!
@@ -121,9 +124,16 @@ class EventViewController: SetGovTableViewController{
                 //}
                
                 
+                
                 // Strip the string of surrounding whitespace.
                 let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                     print("\(showString)\n")
+                
+                titleEvents.updateValue(showString, forKey: numIterations)
+                
+                numIterations = numIterations + 1
+
+                print(titleEvents)
 
                 // All text involving shows on this page currently start with the weekday.
                 // Weekday formatting is inconsistent, but the first three letters are always there.
@@ -137,6 +147,7 @@ class EventViewController: SetGovTableViewController{
                 
             }
             }
+            
         }
 
       //  print(doc.title as Any)
@@ -271,6 +282,12 @@ class EventViewController: SetGovTableViewController{
                 eventInfo.updateValue(eventArray, forKey: indexPath.row)
                 print(eventInfo)
                 eventImages.updateValue(eventImage, forKey: indexPath.row)
+                print(eventList)
+                
+                
+                print (eventArray)
+                print(eventTitles)
+                print(eventInfo)
                 print(eventList)
                 eventArray = []
                 
