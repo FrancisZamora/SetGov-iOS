@@ -41,58 +41,7 @@ class EventViewController: SetGovTableViewController{
     
     
     @IBOutlet var cityDisplay: UINavigationItem!
-    func scraper()  {
-        if selectedCity == "Boston" {
-            guard let url = URL(string: "https://www.boston.gov/public-notices") else {
-                return
-            }
-            let task = URLSession.shared.dataTask(with: url) { data, response, error in
-                guard let data = data, error == nil else {
-                    print("\(error)")
-                    
-                    return
-                }
-                
-                let string = String(data: data, encoding: .utf8)
-                self.html = string!
-                print("\(self.html)")
-                self.parseFortLauderdaleHTML(html: self.html)
-                
-                
-                print("\(string)")
-            }
-            
-            task.resume()
-        }
-        if selectedCity == "Fort Lauderdale" {
-            guard let url = URL(string: "https://fortlauderdale.legistar.com/Calendar.aspx") else {
-                return
-            }
-            let task = URLSession.shared.dataTask(with: url) { data, response, error in
-                guard let data = data, error == nil else {
-                    print("\(error)")
-                    
-                    return
-                }
-                
-                let string = String(data: data, encoding: .utf8)
-                self.html = string!
-                print("\(self.html)")
-                self.parseFortLauderdaleHTML(html: self.html)
-                
-                
-                print("\(string)")
-            }
-            
-            task.resume()
-        }
-        
-            
-                
-    }
-    
 
-    
     func parseFortLauderdaleHTML(html:String) -> Void {
         print("parse fort lauderdale successfully called")
         if selectedCity == "Boston" {
@@ -108,14 +57,6 @@ class EventViewController: SetGovTableViewController{
         
             print("continue")
         
-            
-        
-        
-        
-        
-            
-                
-                // Search for nodes by CSS
             for notices in doc.css("a[href*='/public-notices/2']") {
                     //print(notices.text)
                     //print(notices["href"])
@@ -166,10 +107,9 @@ class EventViewController: SetGovTableViewController{
                     let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                     print("\(showString)\n")
                     
-                    arrayEvents.append(showString)
+                    eventTimes.append(showString)
                     
                     //print(titleEvents)
-                    print(arrayEvents)
                     
                     // All text involving shows on this page currently start with the weekday.
                     // Weekday formatting is inconsistent, but the first three letters are always there.
@@ -183,63 +123,26 @@ class EventViewController: SetGovTableViewController{
                         
                     }
                 }
-                self.infoEvents.updateValue(arrayEvents, forKey: self.numIterations)
-                self.numIterations = self.numIterations + 1
-                arrayEvents = []
                 print(infoEvents)
             
             }
-            print(infoEvents)
+            print(arrayEvents)
+            print(eventTimes)
 
         
         }
     
 
-        
-
-      //  print(doc.title as Any)
-        
-        
-        
-            // Search for nodes by CSS
-        //    for link in doc.css("a, link") {
-          //      print(link.text as Any)
-            //    print(link["href"] as Any)
-            //}
-            
-            // Search for nodes by XPath
-            //for link in doc.xpath("//a | //link") {
-              //  print(link.text as Any)
-             //   print(link["href"] as Any)
-            //}
-        //}
-    
-
-
-        
-        
-        
-        
-        
-        
-        
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         print("EventViewController")
         self.setCity()
         print(selectedCity)
-        self.scraper()
         self.fetchEventData()
         self.parseFortLauderdaleHTML(html: "swag")
         //self.fortlauderdaleScraper()
-    
-        
-        
-        
-        
+ 
     }
     
     func fetchEventData() {
@@ -355,7 +258,7 @@ class EventViewController: SetGovTableViewController{
                 print(eventInfo)
                 eventImages.updateValue(eventImage, forKey: indexPath.row)
                 print(eventList)
-                
+                //cell.hashtagTwo.text =
                 
                 print (eventArray)
                 print(eventTitles)
