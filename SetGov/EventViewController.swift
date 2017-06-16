@@ -99,6 +99,80 @@ class EventViewController: SetGovTableViewController{
             }
             print(arrayEvents)
            // print(eventTimes)
+        
+            if selectedCity == "Fort Lauderdale" {
+                let url = URL(string: "https://fortlauderdale.legistar.com/Calendar.aspx")
+                print(url as Any)
+                print("continue")
+                
+                guard let doc = HTML(url: url!, encoding: .utf8) else  {
+                    return
+                }
+                print(doc.title as Any)
+                print(doc.body as Any)
+                
+                print("continue")
+                
+                for notices in doc.css("a[href*='/public-notices/2']") {
+                    
+                    let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                    print("\(showString)\n")
+                    titleEvents.updateValue(showString, forKey: numIterations)
+                    numIterations = numIterations + 1
+                    print(titleEvents)
+                    let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.caseInsensitive])
+                    
+                    if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
+                        
+                        print("\(showString)\n")
+                        print("string was printed once")
+                    }
+                    arrayEvents.append(showString)
+                    
+                }
+                for notices in doc.css(".date-display-single") {
+                    numIterations = 0
+                    
+                    let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                    print("\(showString)\n")
+                    var newArray = showString.components(separatedBy: ",")
+                    var newString = newArray[0]
+                    eventTimes.append(newString)
+                    let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.caseInsensitive])
+                    
+                    if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
+                        //shows.add(showString)
+                        
+                        print("\(showString)\n")
+                        print("string was printed twice")
+                        
+                    }
+                }
+                print(infoEvents)
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            }
         }
     
     
