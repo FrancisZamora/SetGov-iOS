@@ -50,7 +50,6 @@ class EventViewController: SetGovTableViewController{
             let url = URL(string: "https://www.boston.gov/public-notices")
             print(url as Any)
             print("continue")
-        
             guard let doc = HTML(url: url!, encoding: .utf8) else  {
                 return
             }
@@ -112,7 +111,6 @@ class EventViewController: SetGovTableViewController{
                 //print(doc.body as Any)
                 
                 //print("continue")
-                
                 for notices in doc.css("a[href*='MeetingDetail.aspx?']") {
                     
                     let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
@@ -125,8 +123,8 @@ class EventViewController: SetGovTableViewController{
                     
                     if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
                         
-                        print("\(showString)\n")
-                        print("string was printed once")
+                       print("\(showString)\n")
+                       print("string was printed once")
                     }
                     arrayEvents.append(showString)
                     
@@ -150,9 +148,28 @@ class EventViewController: SetGovTableViewController{
                     //}
                    //
                 ///}
+            print(arrayEvents)
+            // for x in arrayEvents {
+            // if arrayEvents[index] == "Meeting details" {
+            //    arrayEvents.removeCharacter(at:index)
+            //    }
+            //}
+                
+            for (index, element) in arrayEvents.enumerated() {
+                if arrayEvents[index] == "Meeting details" {
+                    arrayEvents.remove(at:index)
+                    print(arrayEvents)
+                }
+            }
+                
+           
+                
+                print(arrayEvents)
+                
+                print(titleEvents)
                 print(infoEvents)
 
-            
+               
             
             
             
