@@ -58,63 +58,30 @@ class EventViewController: SetGovTableViewController{
             print("continue")
         
             for notices in doc.css("a[href*='/public-notices/2']") {
-                    //print(notices.text)
-                    //print(notices["href"])
                 
-                
-                // Search for nodes by XPath
-               // for link in doc.xpath("//a | //link") {
-                 //   print(link.text)
-                   // print(link["href"])
-                //
-                // Strip the string of surrounding whitespace.
                 let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                    print("\(showString)\n")
-                
+                print("\(showString)\n")
                 titleEvents.updateValue(showString, forKey: numIterations)
-                
                 numIterations = numIterations + 1
-
                 print(titleEvents)
-
-                // All text involving shows on this page currently start with the weekday.
-                // Weekday formatting is inconsistent, but the first three letters are always there.
                 let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.caseInsensitive])
                 
                 if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
-                    //shows.add(showString)
                     
                     print("\(showString)\n")
                     print("string was printed once")
-                    
-                
                 }
                 arrayEvents.append(showString)
                 
             }
                 for notices in doc.css(".date-display-single") {
                     numIterations = 0
-                    //print(notices.text)
-                    //print(notices["href"])
-                    
-                    
-                    // Search for nodes by XPath
-                    // for link in doc.xpath("//a | //link") {
-                    //   print(link.text)
-                    // print(link["href"])
-                    //}
-                    // Strip the string of surrounding whitespace.
+                   
                     let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                     print("\(showString)\n")
-                    
                     var newArray = showString.components(separatedBy: ",")
                     var newString = newArray[0]
                     eventTimes.append(newString)
-                    
-                    //print(titleEvents)
-                    
-                    // All text involving shows on this page currently start with the weekday.
-                    // Weekday formatting is inconsistent, but the first three letters are always there.
                     let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.caseInsensitive])
                     
                     if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
@@ -128,14 +95,13 @@ class EventViewController: SetGovTableViewController{
                 print(infoEvents)
             
             }
-        
             print(arrayEvents)
             print(eventTimes)
-
-        
         }
     
-
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
@@ -144,7 +110,6 @@ class EventViewController: SetGovTableViewController{
         print(selectedCity)
         self.fetchEventData()
         self.parseFortLauderdaleHTML(html: "swag")
-        //self.fortlauderdaleScraper()
  
     }
     
@@ -162,15 +127,16 @@ class EventViewController: SetGovTableViewController{
         let event4 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
         
         let event5 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
-        
-        
-        
-        
-        
-        
-        
-        
+    
     }
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     override func viewDidAppear(_ animated: Bool) {
