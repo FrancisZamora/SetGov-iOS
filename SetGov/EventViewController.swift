@@ -414,7 +414,7 @@ class EventViewController: SetGovTableViewController{
                     cell.selectionStyle = .none
                     cell.hashtagOne.text = "environmental"
                     cell.hashtagTwo.text = "legislation"
-                    cell.eventOriginalTitle = "City Council"
+                    cell.eventOriginalTitle = arrayEvents[indexPath.row]
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
                     cell.eventImage.image = #imageLiteral(resourceName: "Image-12")
                     print(eventTitles)
@@ -424,7 +424,7 @@ class EventViewController: SetGovTableViewController{
                     eventInfo.updateValue(eventArray, forKey: indexPath.row)
 
                     cell.eventDescription.text = "Meeting"
-                    cell.eventDate.text = "May 23rd"
+                    cell.eventDate.text = eventTimes[indexPath.row]
                     time = "6:00pm"
                     
                     address = "1 City Hall Square"
@@ -458,12 +458,12 @@ class EventViewController: SetGovTableViewController{
                     let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
                     cell.hashtagTwo.text = "bureaucracy"
                     cell.hashtagOne.text = "engagement"
-                    cell.eventOriginalTitle = "Annual Race for Mayor"
+                    cell.eventOriginalTitle = arrayEvents[indexPath.row]
                     address = "1 City Hall Square"
 
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
                     cell.eventDescription.text = "Election"
-                    cell.eventDate.text = "May 25th"
+                    cell.eventDate.text = eventTimes[indexPath.row]
                     cell.eventImage.image = #imageLiteral(resourceName: "Image-13")
                     if firstTime == true {
                         cell.configure()
@@ -505,10 +505,10 @@ class EventViewController: SetGovTableViewController{
 
                     cell.hashtagOne.text = "fire-safety"
                     cell.hashtagTwo.text = "committee"
-                    cell.eventOriginalTitle = "Fire-Rescue"
+                    cell.eventOriginalTitle = arrayEvents[indexPath.row]
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
                     cell.eventDescription.text = "Quarterly meeting"
-                    cell.eventDate.text = "June 3rd"
+                    cell.eventDate.text = eventTimes[indexPath.row+1]
                     cell.eventImage.image = #imageLiteral(resourceName: "brownstone")
                     time = "7:00pm"
                     eventTitle = cell.eventOriginalTitle
@@ -546,10 +546,10 @@ class EventViewController: SetGovTableViewController{
 
                     cell.hashtagOne.text = "fire-safety"
                     cell.hashtagTwo.text = "committee"
-                    cell.eventOriginalTitle = "Parks & Recreation"
+                    cell.eventOriginalTitle = arrayEvents[indexPath.row+1]
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
                     cell.eventDescription.text = "Quarterly meeting"
-                    cell.eventDate.text = "June 3rd"
+                    cell.eventDate.text = eventTimes[indexPath.row]
                     cell.eventImage.image = #imageLiteral(resourceName: "bostonPark")
                     time = "4:00pm"
                     eventTitle = cell.eventOriginalTitle
