@@ -201,6 +201,7 @@ class EventStream:  UITableViewCell {
 
     
     @IBAction func buttonPressed(_ sender: Any) {
+        // send api request whenever button is pressed
         if firstpress == true {
             self.attendButton.setTitle("Attending", for: .normal)
             firstpress = false
@@ -210,7 +211,7 @@ class EventStream:  UITableViewCell {
     
         if compareTime() == true {
             print(compareTime())
-            let when1 = DispatchTime.now() + 3 // change 2 to desired number of seconds
+            let when1 = DispatchTime.now() + 1  // change 2 to desired number of seconds
             DispatchQueue.main.asyncAfter(deadline: when1) {
             self.nowLive()
             }
@@ -225,7 +226,7 @@ class EventStream:  UITableViewCell {
         
         
         
-        let when2 = DispatchTime.now() + 6 // change 2 to desired number of seconds
+        let when2 = DispatchTime.now() + 2  // change 2 to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when2) {
             if let callback = self.eventStreamCallback {
                 callback.refreshTap(tapped: true)

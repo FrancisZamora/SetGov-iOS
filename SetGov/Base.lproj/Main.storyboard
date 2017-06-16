@@ -83,7 +83,7 @@
             <objects>
                 <tableViewController id="01s-Z9-rOr" customClass="EventViewController" customModule="SetGov" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="315" sectionHeaderHeight="28" sectionFooterHeight="28" id="tDH-l0-WQN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="868"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1045,7 +1045,7 @@
             <objects>
                 <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="Ajf-WK-mc0" customClass="CityNavigationViewController" customModule="SetGov" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="212" sectionHeaderHeight="28" sectionFooterHeight="28" id="vby-GX-0WV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="868"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1053,7 +1053,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="213"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dQQ-2K-Mwm" id="VMW-Zj-jP8">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="212.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="212"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-9" translatesAutoresizingMaskIntoConstraints="NO" id="NFD-z2-oYF">
@@ -1093,7 +1093,7 @@
                                 <rect key="frame" x="0.0" y="241" width="375" height="213"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hY5-95-pto" id="7Rc-Mw-tbt">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="212.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="212"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-11" translatesAutoresizingMaskIntoConstraints="NO" id="spO-6K-KFL">
@@ -1132,7 +1132,7 @@
                                 <rect key="frame" x="0.0" y="454" width="375" height="213"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bKU-1C-cAD" id="GUF-3s-lbQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="212.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="212"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-10" translatesAutoresizingMaskIntoConstraints="NO" id="wDa-mX-C3e">
@@ -1165,6 +1165,45 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MiamiCell" rowHeight="213" id="ocn-sT-teu" customClass="MiamiCell" customModule="SetGov" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="667" width="375" height="213"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ocn-sT-teu" id="FD2-e4-HMe">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="212"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="miami" translatesAutoresizingMaskIntoConstraints="NO" id="fxu-R6-zom">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="212"/>
+                                        </imageView>
+                                        <view clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R7J-tm-of9">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="212"/>
+                                            <color key="backgroundColor" red="0.4519454658" green="0.4519454658" blue="0.4519454658" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miami" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2g-u8-xHT">
+                                            <rect key="frame" x="135" y="81" width="105" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="105" id="HqO-6k-9TS"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="38"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="p2g-u8-xHT" firstAttribute="top" secondItem="FD2-e4-HMe" secondAttribute="topMargin" constant="73" id="2NK-zH-6PS"/>
+                                        <constraint firstItem="p2g-u8-xHT" firstAttribute="centerX" secondItem="R7J-tm-of9" secondAttribute="centerX" id="N95-r1-1gE"/>
+                                        <constraint firstItem="R7J-tm-of9" firstAttribute="top" secondItem="fxu-R6-zom" secondAttribute="top" id="OiX-OX-Gav"/>
+                                        <constraint firstItem="R7J-tm-of9" firstAttribute="trailing" secondItem="fxu-R6-zom" secondAttribute="trailing" id="PGZ-zi-z25"/>
+                                        <constraint firstItem="p2g-u8-xHT" firstAttribute="centerY" secondItem="R7J-tm-of9" secondAttribute="centerY" id="Psk-Ri-l7D"/>
+                                        <constraint firstItem="R7J-tm-of9" firstAttribute="leading" secondItem="fxu-R6-zom" secondAttribute="leading" id="X8R-yb-4K0"/>
+                                        <constraint firstItem="R7J-tm-of9" firstAttribute="top" secondItem="FD2-e4-HMe" secondAttribute="top" id="dul-Cz-12s"/>
+                                        <constraint firstItem="R7J-tm-of9" firstAttribute="leading" secondItem="FD2-e4-HMe" secondAttribute="leading" id="iUj-r3-h0M"/>
+                                        <constraint firstItem="R7J-tm-of9" firstAttribute="bottom" secondItem="fxu-R6-zom" secondAttribute="bottom" id="iie-GT-Gj3"/>
+                                        <constraint firstAttribute="trailing" secondItem="R7J-tm-of9" secondAttribute="trailing" id="oeo-Tv-1N4"/>
+                                        <constraint firstAttribute="bottom" secondItem="R7J-tm-of9" secondAttribute="bottom" id="teu-LF-y4X"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="Ajf-WK-mc0" id="Q0n-FR-bWq"/>
@@ -1174,6 +1213,8 @@
                     <navigationItem key="navigationItem" id="cZx-Su-NJz">
                         <barButtonItem key="backBarButtonItem" title=" " id="qJ4-3e-ljh"/>
                     </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="868"/>
                     <connections>
                         <outlet property="navBar" destination="cZx-Su-NJz" id="LGE-zm-Tqj"/>
                     </connections>
@@ -1214,6 +1255,7 @@
         <image name="Image-6" width="63" height="46"/>
         <image name="Image-9" width="300" height="100"/>
         <image name="Image1" width="250" height="166"/>
+        <image name="miami" width="1640" height="892"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="V6K-gC-1yc"/>

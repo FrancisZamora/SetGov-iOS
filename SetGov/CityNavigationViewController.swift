@@ -48,7 +48,7 @@ class CityNavigationViewController: SetGovTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("numberofRows")
-        return 3
+        return 4
         
     }
     
@@ -105,6 +105,20 @@ class CityNavigationViewController: SetGovTableViewController {
 
             
         }
+        if (indexPath.row == 3) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MiamiCell", for:indexPath) as! MiamiCell
+            cell.selectionStyle = .none
+            //cell.selectionStyle = UITableViewCellSelectionStyle.blue
+            // cell.isUserInteractionEnabled = true
+            print(indexPath.row)
+            // if cell.isSelected == true {
+            print("cell was selected")
+            //}
+            return cell
+            
+            
+        }
+
         let cell =  tableView.dequeueReusableCell(withIdentifier: "FortLauderdaleCell", for:indexPath) as! FortLauderdaleCell
         return cell
         
@@ -152,6 +166,17 @@ class CityNavigationViewController: SetGovTableViewController {
             
             
         }
+        
+        if (indexPath.row == 3) {
+            let alert = UIAlertController(title: "Miami Coming Soon", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            
+            
+            
+        }
+
     
     }
 }
