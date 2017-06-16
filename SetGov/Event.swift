@@ -11,22 +11,22 @@ import UIKit
 
 class Event {
     var eventTitle = " "
-    var eventType = " "
     var eventDate = "June 30th"
+    var eventDescription = " "
     var eventImage = #imageLiteral(resourceName: "Image1")
     var eventTags = [String]()
-    var eventUsers = [String]()
+    //var eventUsers = [String]() once facebook is linked up with SetGov, use this constructor
     
     
     
     
-    init(eventTitle:String, eventType: String, eventDate: String, eventImageName: String, eventTags:[String], eventUsers:[String]) {
+    init(eventTitle:String, eventDescription: String, eventDate: String, eventImageName: String, eventTags:[String]) {
         self.eventTitle = eventTitle
-        self.eventType = " "
+        self.eventDescription = " "
         self.eventDate = eventDate
         self.eventImage = UIImage(imageLiteralResourceName: eventImageName)
         self.eventTags = eventTags
-        self.eventUsers = eventUsers
+        // ** read top comment self.eventUsers = eventUsers
     }
     
     

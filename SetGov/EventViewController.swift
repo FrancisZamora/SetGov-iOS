@@ -37,6 +37,8 @@ class EventViewController: SetGovTableViewController{
     var html = " "
     var numIterations = 0
     var eventTimes = [String]()
+    var eventDescriptions = [String]()
+    var descriptionArray = [String]()
     
     
     
@@ -96,8 +98,41 @@ class EventViewController: SetGovTableViewController{
             
             }
             print(arrayEvents)
-            print(eventTimes)
+           // print(eventTimes)
         }
+    
+    
+    func splitEventDescription() {
+        var x = 0
+        for (_) in eventDescriptions {
+            var eventDescriptions = arrayEvents[0].components(separatedBy: " ")
+            print(eventDescriptions)
+            print(eventDescriptions)
+            print("what just printed")
+           // print(arrayEvents)
+            
+            print("EVENT DESCRIPTIONS")
+            var lastIndex = eventDescriptions.count
+            descriptionArray.append(eventDescriptions[lastIndex])
+            print(x)
+            x = x + 1
+            if x > count {
+                return
+            }
+
+
+            
+        }
+        
+      //  print(descriptionArray)
+        
+        
+        
+        
+        
+        
+        
+    }
     
     
     
@@ -110,6 +145,7 @@ class EventViewController: SetGovTableViewController{
         print(selectedCity)
         self.fetchEventData()
         self.parseHTML(html: "swag")
+        self.splitEventDescription()
  
     }
     
@@ -118,25 +154,24 @@ class EventViewController: SetGovTableViewController{
         if selectedCity == "Boston" {
             
             
-            let event = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+            let event = Event (eventTitle: "Parks and Recreation", eventDescription: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"])
       
         
             dataList.append(event)
         
-            let event2 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+            let event2 = Event (eventTitle: "Parks and Recreation", eventDescription: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"])
         
             dataList.append(event2)
         
-            let event3 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+            let event3 = Event (eventTitle: "Parks and Recreation", eventDescription: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"])
         
             dataList.append(event3)
         
-            let event4 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+            let event4 = Event (eventTitle: "Parks and Recreation", eventDescription: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"])
         
             dataList.append(event4)
         
-                let event5 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
-        
+                let event5 = Event (eventTitle: "Parks and Recreation", eventDescription: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"])
             dataList.append(event5)
     
         }
@@ -145,24 +180,24 @@ class EventViewController: SetGovTableViewController{
         if selectedCity == "Miami" {
             
             
-            let event = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+            let event = Event (eventTitle: "Parks and Recreation", eventDescription: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"])
             
             
             dataList.append(event)
             
-            let event2 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+            let event2 = Event (eventTitle: "Parks and Recreation", eventDescription: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"])
             
             dataList.append(event2)
             
-            let event3 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+            let event3 = Event (eventTitle: "Parks and Recreation", eventDescription: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"])
             
             dataList.append(event3)
             
-            let event4 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+            let event4 = Event (eventTitle: "Parks and Recreation", eventDescription: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"])
             
             dataList.append(event4)
             
-            let event5 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+            let event5 = Event (eventTitle: "Parks and Recreation", eventDescription: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"])
             
             dataList.append(event5)
             
@@ -234,6 +269,11 @@ class EventViewController: SetGovTableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(indexPath.row)
+        //new cell for row refactor
+        //cell = dataList[indexPath.row]
+        //hashtagOne = dataList[indexPath.row][eventTag[0]]
+        //hashtagTwo = dataList[indexPath.row][eventTag[1]]
+        //
         if selectedCity == "Fort Lauderdale" {
             if indexPath.row == 0 {
                 print("CELL IS ONE")
