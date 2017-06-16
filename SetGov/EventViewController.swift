@@ -30,9 +30,13 @@ class EventViewController: SetGovTableViewController{
     var eventImages = [Int:UIImage]()
     var eventInfo = [Int: [String]]()
     var titleEvents = [Int: String]()
+    var arrayEvents = [String]()
+    var infoEvents = [Int:[String]]()
     var firstTime = true
+    var dataList = [Event]()
     var html = " "
     var numIterations = 0
+    var eventTimes = [String]()
     
     
     
@@ -121,10 +125,7 @@ class EventViewController: SetGovTableViewController{
                // for link in doc.xpath("//a | //link") {
                  //   print(link.text)
                    // print(link["href"])
-                //}
-               
-                
-                
+                //
                 // Strip the string of surrounding whitespace.
                 let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                     print("\(showString)\n")
@@ -143,12 +144,58 @@ class EventViewController: SetGovTableViewController{
                     //shows.add(showString)
                     
                     print("\(showString)\n")
-                    print("string was printed")
+                    print("string was printed once")
+                    
+                
+                }
+                arrayEvents.append(showString)
                 
             }
-            }
+                for notices in doc.css(".date-display-single") {
+                    numIterations = 0
+                    //print(notices.text)
+                    //print(notices["href"])
+                    
+                    
+                    // Search for nodes by XPath
+                    // for link in doc.xpath("//a | //link") {
+                    //   print(link.text)
+                    // print(link["href"])
+                    //}
+                    // Strip the string of surrounding whitespace.
+                    let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                    print("\(showString)\n")
+                    
+                    arrayEvents.append(showString)
+                    
+                    //print(titleEvents)
+                    print(arrayEvents)
+                    
+                    // All text involving shows on this page currently start with the weekday.
+                    // Weekday formatting is inconsistent, but the first three letters are always there.
+                    let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.caseInsensitive])
+                    
+                    if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
+                        //shows.add(showString)
+                        
+                        print("\(showString)\n")
+                        print("string was printed twice")
+                        
+                    }
+                }
+                self.infoEvents.updateValue(arrayEvents, forKey: self.numIterations)
+                self.numIterations = self.numIterations + 1
+                arrayEvents = []
+                print(infoEvents)
             
+            }
+            print(infoEvents)
+
+        
         }
+    
+
+        
 
       //  print(doc.title as Any)
         
@@ -168,7 +215,7 @@ class EventViewController: SetGovTableViewController{
         //}
     
 
-    }
+
         
         
         
@@ -185,9 +232,34 @@ class EventViewController: SetGovTableViewController{
         self.setCity()
         print(selectedCity)
         self.scraper()
+        self.fetchEventData()
         self.parseFortLauderdaleHTML(html: "swag")
         //self.fortlauderdaleScraper()
     
+        
+        
+        
+        
+    }
+    
+    func fetchEventData() {
+        
+        let event = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+      
+        
+        dataList.append(event)
+        
+        let event2 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+        
+        let event3 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+        
+        let event4 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+        
+        let event5 = Event (eventTitle: "Parks and Recreation", eventType: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"], eventUsers: ["Tim","Balin"])
+        
+        
+        
+        
         
         
         
