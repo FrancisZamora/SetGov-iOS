@@ -379,7 +379,7 @@ class EventViewController: SetGovTableViewController{
                 if firstTime == true {
                     cell.configure()
                 }
-                eventArray.append("5/29/17")
+                eventArray.append("6/19/17")
                 eventArray.append(address)
                 print("eventTitle")
                 print(eventTitle)
@@ -564,14 +564,17 @@ class EventViewController: SetGovTableViewController{
 
                     cell.eventDescription.text = "Meeting"
                     cell.eventDate.text = eventTimes[indexPath.row]
-                    time = "6:00pm"
+                    time = "16:00pm"
+                    var modifiedTime = 16
+                    let finalTime = String(16-12) +  ":00pm"
+
                     
                     address = "1 City Hall Square"
 
-                    eventArray.append("6/13/17")
+                    eventArray.append("6/19/17")
                     eventArray.append(address)
+                    eventArray.append(finalTime)
                     eventArray.append(time)
-                    eventArray.append("10:00")
                     print(eventArray)
                     eventTitle = cell.eventOriginalTitle
                     
@@ -690,7 +693,7 @@ class EventViewController: SetGovTableViewController{
                     cell.eventDescription.text = "Quarterly meeting"
                     cell.eventDate.text = eventTimes[indexPath.row]
                     cell.eventImage.image = #imageLiteral(resourceName: "bostonPark")
-                    time = "4:00pm"
+                    time = "16:00"
                     eventTitle = cell.eventOriginalTitle
                     eventImage = cell.eventImage.image!
                     eventImages.updateValue(eventImage, forKey: indexPath.row)

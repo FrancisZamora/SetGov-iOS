@@ -70,7 +70,12 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         currentTime = self.configureTime()
         guard let array = eventInfo[indexofEvent] else {
             return false
+            
         }
+        
+        print(array[0])
+        print(array[2])
+        
         eventTime.append((array[0]))
         
         eventTime.append((array[3]))
@@ -81,12 +86,14 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         print(eventTime[1])
         print(timeArray[1]>eventTime[1])
         if (eventTime[0] == timeArray[0] && timeArray[1] >= eventTime[1]) {
+            
             print("times are compatible")
             return true
         
         }
         
         else {
+            
             print("times not compatible")
             return false
         }
@@ -292,6 +299,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventLiveStream.configure()
                 eventLiveStream.playVideo()
                 eventLiveStream.switchTitleOn()
+                print("Times are the same")
+                
                 return eventLiveStream
                 
             }
@@ -354,6 +363,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 return UITableViewCell()
                 
             }
+            print(array)
+            
             infoCell.eventAddress.text = array[1]
             infoCell.eventTime.text = array[0]
             infoCell.eventHour.text = array[2]

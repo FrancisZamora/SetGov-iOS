@@ -106,6 +106,7 @@ class EventStream:  UITableViewCell {
         guard let array = eventInfo[indexofEvent] else {
             return false
         }
+        print(array)
         eventTime.append((array[0]))
         
         eventTime.append((array[3]))
@@ -114,6 +115,8 @@ class EventStream:  UITableViewCell {
         print(timeArray[0])
         print(timeArray[1])
         print(eventTime[1])
+        
+        
         print(timeArray[1]>eventTime[1])
         if (eventTime[0] == timeArray[0] && timeArray[1] >= eventTime[1]) {
             print("times are compatible")

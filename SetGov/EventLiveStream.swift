@@ -46,6 +46,7 @@ class EventLiveStream: UITableViewCell {
     
     func switchTitleOn() {
         liveView.isHidden = false
+        print("title on")
     }
     
     func incrementTime() {
