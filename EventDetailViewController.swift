@@ -283,17 +283,31 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 }
 
                 
-
+            if compareTime() == true {
+                
                 let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream") as! EventLiveStream
                 eventLiveStream.selectionStyle = .none
+                eventLiveStream.switchTitleOn()
                 print ("returning stream")
                 eventLiveStream.configure()
                 eventLiveStream.playVideo()
-                    
+                eventLiveStream.switchTitleOn()
                 return eventLiveStream
                 
+            }
                 
-                    
+            if compareTime() == false {
+                
+                let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream") as! EventLiveStream
+                eventLiveStream.selectionStyle = .none
+                eventLiveStream.switchTitleOn()
+                print ("returning stream")
+                eventLiveStream.configure()
+                eventLiveStream.playVideo()
+                eventLiveStream.switchTitleOff()
+                return eventLiveStream
+                
+            }
 
                                         //present event stream
                 
