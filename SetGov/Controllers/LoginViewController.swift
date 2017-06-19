@@ -40,8 +40,8 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view, typically from a nib.
     }
        
-    //    UIView.animateWithDuration(1.5, delay: 1.5, options: UIViewAnimationOptions.CurveLinear, animations: {
-      //      self.SSImage.alpha = 1.0
+        //UIView.animateWithDuration(1.5, delay: 1.5, options: UIViewAnimationOptions.CurveLinear, animations: {
+        //self.SSImage.alpha = 1.0
         //}, completion: nil)
         //}
 

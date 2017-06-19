@@ -173,11 +173,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         tableView.reloadData()
         
         
-        
-        
-        
-        
-        
     }
     
    

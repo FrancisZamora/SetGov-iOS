@@ -19,13 +19,12 @@ class SetGovTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
     }
     
            
     func setupAppearanceAndRefreshControl() {
-    self.tableView.backgroundColor = SG_NEARLY_WHITE_COLOR
-   // self.view.backgroundColor = SG_NEARLY_WHITE_COLOR
-
+        self.tableView.backgroundColor = SG_NEARLY_WHITE_COLOR
     }
         
     

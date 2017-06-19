@@ -18,4 +18,8 @@ class AgendaDetailHeader: UITableViewCell {
     @IBOutlet var secondaryTitle: UILabel!
     
     @IBOutlet var tertiaryTitle: UILabel!
+
+
+
+
 }

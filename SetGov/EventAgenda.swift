@@ -93,8 +93,6 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
                 callback.loadAgendaDetail(data: agendaInfo,index:0)
 
             }
-            
-
         }
         
         if (indexPath.row == 1 ) {
@@ -102,12 +100,8 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
             print("ROW 1")
             if let callback = eventAgendaCallback {
                 callback.loadAgendaDetail(data: agendaInfo,index:1)
-                
             }
 
-
-
-            
         }
         
         if (indexPath.row == 2 ) {
@@ -123,7 +117,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     }
     
     
-    }
+}
     
 
 

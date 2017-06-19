@@ -168,16 +168,10 @@ class EventStream:  UITableViewCell {
             self.attendButton.clipsToBounds = true
             self.attendButton.layer.borderWidth = 1.5
             self.attendButton.layer.borderColor = UIColor(red:0.18, green:0.26, blue:0.35, alpha:0.0).cgColor
-            
-            
             buttonBackground.startColor = SG_SECONDARY_REDCOLOR
             buttonBackground.endColor = UIColor.red
             print(buttonBackground.startColor)
             print( "adding gradient")
-            
-            
-            
-            print("BUTTON WAS PRESSED")
             let transition2: CATransition = CATransition()
             transition2.duration = 0.5
             transition2.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
