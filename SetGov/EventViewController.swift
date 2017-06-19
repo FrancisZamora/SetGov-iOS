@@ -351,7 +351,14 @@ class EventViewController: SetGovTableViewController{
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("numberofRows")
-        return 4
+        if selectedCity == "Boston" {
+            return arrayEvents.count
+
+        }
+        
+        else {
+            return 4
+        }
         
     }
     
@@ -723,9 +730,27 @@ class EventViewController: SetGovTableViewController{
 
                     return cell
                 }
+                
+                if indexPath.row > 3 {
+                    let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+                    cell.selectionStyle = .none
+                    address = "1 City Hall Square"
+                    cell.eventOriginalTitle = arrayEvents[indexPath.row]
+                    cell.eventTitle.text = spacer + cell.eventOriginalTitle
+                    cell.eventDescription.text = "Quarterly meeting"
+                    cell.eventDate.text = eventTimes[indexPath.row]
+                    cell.eventImage.image = #imageLiteral(resourceName: "bostonPark")
+                    eventImages.updateValue(eventImage, forKey: indexPath.row)
+                    eventTitle = cell.eventOriginalTitle
+                    eventImage = cell.eventImage.image!
+                    time = "16:00"
+                    eventTitle = cell.eventOriginalTitle
+                    return cell
+                    
+                }
 
             }
-            
+        
             
             
             
@@ -859,6 +884,7 @@ class EventViewController: SetGovTableViewController{
             EventDetailViewController.eventImages = eventImages
             EventDetailViewController.eventInfo = eventInfo
             EventDetailViewController.selectedCity = selectedCity
+            EventDetailViewController.arrayEvents = arrayEvents
         }
         
 

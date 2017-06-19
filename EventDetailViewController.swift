@@ -35,6 +35,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var streamPressed = false
     var timeArray = [String]()
     var eventTime = [String]()
+    var arrayEvents = [String]()
+
   
 
 
@@ -148,7 +150,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         print(selectedEvents)
         print(eventList)
         print(indexofEvent)
-        navTitle.title = eventList[indexofEvent]
+        navTitle.title = arrayEvents[indexofEvent]
         eventTitle = navTitle.title!
     }
     
