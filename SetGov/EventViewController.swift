@@ -39,6 +39,7 @@ class EventViewController: SetGovTableViewController{
     var eventTimes = [String]()
     var eventDescriptions = [String]()
     var descriptionArray = [String]()
+    var eventID = [String]()
     
     
     
@@ -92,6 +93,28 @@ class EventViewController: SetGovTableViewController{
                         print("string was printed twice")
                         
                     }
+                    
+                    for notices in doc.css(".ahref") {
+                        numIterations = 0
+                        
+                        let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                        print("\(showString)\n")
+                        var newArray = showString.components(separatedBy: ",")
+                        var newString = newArray[0]
+                        eventTimes.append(newString)
+                        let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.caseInsensitive])
+                        
+                        if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
+                            //shows.add(showString)
+                            
+                            print("\(showString)\n")
+                            print("string was printed twice")
+                            
+                        }
+                        
+
+                    }
+                    
                 }
                 print(infoEvents)
             
@@ -117,57 +140,54 @@ class EventViewController: SetGovTableViewController{
                     print("\(showString)\n")
                     titleEvents.updateValue(showString, forKey: numIterations)
                     numIterations = numIterations + 1
-                    print(titleEvents)
+                    //print(titleEvents)
                     
                     let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.caseInsensitive])
                     
                     if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
                         
-                       print("\(showString)\n")
-                       print("string was printed once")
+                    //   print("\(showString)\n")
+                      // print("string was printed once")
                     }
                     arrayEvents.append(showString)
                     
                 }
-              //  for notices in doc.css(".date-display-single") {
-                    //numIterations = 0
+    
+                print("loop codeblock")
+                //print(arrayEvents)
+                //let array: [String] = arrayEvents
+                let array: [String] = ["Meeting details", "Meeting details","Meeting details","Meeting details",]
+                for (index, value) in arrayEvents.enumerated().reversed() {
+                    let s1 = value
+                    let s2 = "Meeting details"
+                    print(s1)
+                    print(s2)
                     
-                    //let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                    //print("\(showString)\n")
-                    //var newArray = showString.components(separatedBy: ",")
-                    //var newString = newArray[0]
-                    //eventTimes.append(newString)
-                    //let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.caseInsensitive])
-                    
-                    //if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
-                        //shows.add(showString)
-                        
-                        //print("\(showString)\n")
-                      //  print("string was printed twice")
-                        
-                    //}
-                   //
-                ///}
-            print(arrayEvents)
-            // for x in arrayEvents {
-            // if arrayEvents[index] == "Meeting details" {
-            //    arrayEvents.removeCharacter(at:index)
-            //    }
-            //}
-                
-            for (index, element) in arrayEvents.enumerated() {
-                if arrayEvents[index] == "Meeting details" {
-                    arrayEvents.remove(at:index)
-                    print(arrayEvents)
+                    if(s1 == s2) {
+                        print("VALUES EQUAL")
+                    }
                 }
-            }
+//            for (index, element) in arrayEvents.enumerated().reversed() {
+//                print(index)
+//              //  print("a" == "a")
+//                print(arrayEvents[index])
+//                
+//                if (arrayEvents[index] == "Meeting details") {
+//                    
+//                    arrayEvents.remove(at:index)
+//                    
+//                    print("removing")
+//                }
+//
+//                
+//            }
                 
            
                 
-                print(arrayEvents)
+                //print("NEW ARRAY: \(arrayEvents)")
                 
-                print(titleEvents)
-                print(infoEvents)
+                //print(titleEvents)
+                //print(infoEvents)
 
                
             
