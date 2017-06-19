@@ -295,7 +295,17 @@ class EventViewController: SetGovTableViewController{
         }
         
     }
-        
+    
+    
+    
+    func isEven (num:Int) -> Bool {
+        if num % 2 == 0 {
+            return true
+        }
+        else {
+            return false
+        }
+    }
 
     
     
@@ -731,7 +741,7 @@ class EventViewController: SetGovTableViewController{
                     return cell
                 }
                 
-                if indexPath.row > 3 {
+                if indexPath.row > 3 && isEven(num: indexPath.row) == true  {
                     let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
                     cell.selectionStyle = .none
                     address = "1 City Hall Square"
@@ -740,6 +750,24 @@ class EventViewController: SetGovTableViewController{
                     cell.eventDescription.text = "Quarterly meeting"
                     cell.eventDate.text = eventTimes[indexPath.row]
                     cell.eventImage.image = #imageLiteral(resourceName: "bostonPark")
+                    eventImages.updateValue(eventImage, forKey: indexPath.row)
+                    eventTitle = cell.eventOriginalTitle
+                    eventImage = cell.eventImage.image!
+                    time = "16:00"
+                    eventTitle = cell.eventOriginalTitle
+                    return cell
+                    
+                }
+                
+                if indexPath.row > 3 && isEven(num: indexPath.row) == false  {
+                    let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+                    cell.selectionStyle = .none
+                    address = "1 City Hall Square"
+                    cell.eventOriginalTitle = arrayEvents[indexPath.row]
+                    cell.eventTitle.text = spacer + cell.eventOriginalTitle
+                    cell.eventDescription.text = "Quarterly meeting"
+                    cell.eventDate.text = eventTimes[indexPath.row]
+                    cell.eventImage.image = #imageLiteral(resourceName: "brownstone")
                     eventImages.updateValue(eventImage, forKey: indexPath.row)
                     eventTitle = cell.eventOriginalTitle
                     eventImage = cell.eventImage.image!
