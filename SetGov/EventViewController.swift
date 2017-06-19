@@ -94,14 +94,14 @@ class EventViewController: SetGovTableViewController{
                         
                     }
                     
-                    for notices in doc.css(".ahref") {
+                    for notices in doc.css("<a.+?href='([^']+)") {
                         numIterations = 0
                         
                         let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                         print("\(showString)\n")
                         var newArray = showString.components(separatedBy: ",")
                         var newString = newArray[0]
-                        eventTimes.append(newString)
+                        eventID.append(newString)
                         let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.caseInsensitive])
                         
                         if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
@@ -117,6 +117,7 @@ class EventViewController: SetGovTableViewController{
                     
                 }
                 print(infoEvents)
+                print(eventID)
             
             }
             print(arrayEvents)
@@ -134,9 +135,9 @@ class EventViewController: SetGovTableViewController{
                 //print(doc.body as Any)
                 
                 //print("continue")
-                for notices in doc.css("a[href*='MeetingDetail.aspx?']") {
+                for notices in doc.css("<a.+?href='([^']+)") {
                     
-                    let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                    var showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                     print("\(showString)\n")
                     titleEvents.updateValue(showString, forKey: numIterations)
                     numIterations = numIterations + 1
@@ -149,6 +150,7 @@ class EventViewController: SetGovTableViewController{
                     //   print("\(showString)\n")
                       // print("string was printed once")
                     }
+                    showString = String(showString)
                     arrayEvents.append(showString)
                     
                 }
@@ -162,6 +164,10 @@ class EventViewController: SetGovTableViewController{
                     let s2 = "Meeting details"
                     print(s1)
                     print(s2)
+                    print(s1.characters.count)
+                    print(s2.characters.count)
+                    
+                    print(s1==s2)
                     
                     if(s1 == s2) {
                         print("VALUES EQUAL")
@@ -182,18 +188,7 @@ class EventViewController: SetGovTableViewController{
 //                
 //            }
                 
-           
-                
-                //print("NEW ARRAY: \(arrayEvents)")
-                
-                //print(titleEvents)
-                //print(infoEvents)
-
-               
-            
-            
-            
-            
+    
             }
         }
     
