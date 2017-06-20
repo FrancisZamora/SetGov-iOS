@@ -146,12 +146,24 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     
     func loadTitle() {
-        print("loading title")
-        print(selectedEvents)
-        print(eventList)
-        print(indexofEvent)
-        navTitle.title = arrayEvents[indexofEvent]
-        eventTitle = navTitle.title!
+        if selectedCity == "Boston" {
+            print("loading title")
+            print(selectedEvents)
+            print(eventList)
+            print(indexofEvent)
+            navTitle.title = arrayEvents[indexofEvent]
+            eventTitle = navTitle.title!
+        }
+        if selectedCity == "Fort Lauderdale" {
+            print("loading title")
+            print(selectedEvents)
+            print(eventList)
+            print(indexofEvent)
+    
+            navTitle.title = selectedEvents[indexofEvent]
+            eventTitle = navTitle.title!
+       
+        }
     }
     
     func loadAgendaDetail(data: Dictionary<Int,String>,index:Int) {
