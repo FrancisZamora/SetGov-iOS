@@ -63,9 +63,42 @@ class EventViewController: SetGovTableViewController{
                 
                 let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                 print("\(showString)\n")
-                titleEvents.updateValue(showString, forKey: numIterations)
-                numIterations = numIterations + 1
+                titleEvents.updateValue(showString, forKey: self.numIterations)
+                let currentValue = titleEvents[self.numIterations]
+                var newArray = currentValue?.components(separatedBy: ",")
+                print(newArray)
+                print(newArray?.count)
+                guard let x = (newArray?.count)  else {
+                    return
+                    
+                }
+                guard let  lastElement = newArray?[x-1] else {
+                    return
+                }
+                eventID.append(lastElement)
+                print(eventID)
+                var finalArray = lastElement.components(separatedBy: ",")
+                print(finalArray)
+                var y = finalArray.count
+                var elementDescription = finalArray[y-1]
+                descriptionArray.append(elementDescription)
+                // if string contains ints give it a docket title
+                print(elementDescription)
+                
+                
+                descriptionArray.append(lastElement)
+                
+                
+                self.numIterations = self.numIterations + 1
                 print(titleEvents)
+                print("\(showString)\n")
+                //var newArray = showString.components(separatedBy: ",")
+                //var newString = newArray[numIterations].components(separatedBy: " ")
+                //print(newString)
+              
+                print(descriptionArray)
+                print("attempting to print event description")
+
                 let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.caseInsensitive])
                 
                 if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
@@ -76,8 +109,9 @@ class EventViewController: SetGovTableViewController{
                 arrayEvents.append(showString)
                 
             }
+            
                 for notices in doc.css(".date-display-single") {
-                    numIterations = 0
+                    self.numIterations = 0
                    
                     let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                     print("\(showString)\n")
@@ -98,10 +132,7 @@ class EventViewController: SetGovTableViewController{
                         numIterations = 0
                         
                         let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                        print("\(showString)\n")
-                        var newArray = showString.components(separatedBy: ",")
-                        var newString = newArray[0]
-                        eventID.append(newString)
+                        
                         let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.caseInsensitive])
                         
                         if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
@@ -117,6 +148,9 @@ class EventViewController: SetGovTableViewController{
                     
                 }
                 print(infoEvents)
+               // var newArray = infoEvents.components(separatedBy: ",")
+              //  print(newArray)
+            
                 print(eventID)
             
             }
