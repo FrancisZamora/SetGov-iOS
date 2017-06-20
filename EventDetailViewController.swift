@@ -36,6 +36,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var timeArray = [String]()
     var eventTime = [String]()
     var arrayEvents = [String]()
+    var eventTimeFormatted = [String]()
+
 
   
 
@@ -114,6 +116,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         print("EventDetailViewController")
         self.loadTitle()
         print(agendaInfo)
+        print(indexofEvent)
         
         print(self.compareTime())
         
@@ -261,7 +264,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventStream.streamContent()
                 eventStream.eventImage.image = eventImages[indexofEvent]
                 eventStream.secondaryEventImage.image = #imageLiteral(resourceName: "Image-5")
-                //secondary event image should be the user
                 agendaImage = eventStream.eventImage.image!
             
             
@@ -375,14 +377,19 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             print(eventInfo)
             print("stop")
             print(indexofEvent)
+            
             guard let array = eventInfo[indexofEvent] else {
                 return UITableViewCell()
                 
+                
             }
             print(array)
+            print(indexofEvent)
             
             infoCell.eventAddress.text = array[1]
-            infoCell.eventTime.text = array[0]
+            print(eventTimeFormatted)
+            
+            infoCell.eventTime.text = eventTimeFormatted[indexofEvent]
             infoCell.eventHour.text = array[2]
             
             return infoCell
@@ -394,7 +401,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             agendaCell.agendaInfo = agendaInfo
             agendaCell.index = Index
             agendaCell.eventAgendaCallback = self
-
+            print("HELLO")
+            
             return agendaCell
         }
         
