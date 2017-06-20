@@ -468,9 +468,9 @@ class EventViewController: SetGovTableViewController{
                 cell.eventDescription.text = "Bi-Monthly meeting"
                 cell.eventDate.text = "May 29th"
                 cell.eventImage.image = #imageLiteral(resourceName: "Image-7")
-                if firstTime == true {
-                    cell.configure()
-                }
+                //if firstTime == true {
+                cell.configure()
+                //}
                 eventArray.append("6/19/17")
                 eventArray.append(address)
                 print("eventTitle")
@@ -515,9 +515,9 @@ class EventViewController: SetGovTableViewController{
                 cell.eventDescription.text = "Annual Race for Mayor"
                 cell.eventDate.text = "June 1st"
                 cell.eventImage.image = #imageLiteral(resourceName: "Image-14")
-                if firstTime == true {
-                    cell.configure()
-                }
+                //if firstTime == true {
+                cell.configure()
+                //}
                 time = "3:30pm"
                 eventImage = cell.eventImage.image!
                 eventImages.updateValue(eventImage, forKey: indexPath.row)
@@ -567,9 +567,9 @@ class EventViewController: SetGovTableViewController{
                 eventArray.append("6/3/17")
                 eventArray.append(address)
                 cell.selectionStyle = .none
-                if firstTime == true {
-                    cell.configure()
-                }
+               // if firstTime == true {
+                cell.configure()
+                //}
             
                 eventArray.append(time)
                 eventArray.append("17:00")
@@ -612,9 +612,9 @@ class EventViewController: SetGovTableViewController{
                 eventArray.append("6/3/17")
                 eventArray.append(address)
                 cell.selectionStyle = .none
-                if firstTime == true {
-                    cell.configure()
-                }
+              //  if firstTime == true {
+                cell.configure()
+                //}
                 
                 eventArray.append(time)
                 eventArray.append("17:00")

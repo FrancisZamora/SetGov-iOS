@@ -383,16 +383,30 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 
                 
             }
-            print(array)
-            print(indexofEvent)
             
-            infoCell.eventAddress.text = array[1]
-            print(eventTimeFormatted)
+            if selectedCity == "Boston" {
+                print(array)
+                print(indexofEvent)
             
-            infoCell.eventTime.text = eventTimeFormatted[indexofEvent]
-            infoCell.eventHour.text = array[2]
+                infoCell.eventAddress.text = array[1]
+                print(eventTimeFormatted)
             
-            return infoCell
+                infoCell.eventTime.text = eventTimeFormatted[indexofEvent]
+                infoCell.eventHour.text = array[2]
+            
+                return infoCell
+            }
+            
+            if selectedCity == "Fort Lauderdale" {
+                infoCell.eventTime.text = array[0]
+                infoCell.eventAddress.text = array[1]
+                infoCell.eventHour.text = array[2]
+                
+                
+                return infoCell
+                
+                
+            }
         }
         
         if(indexPath.row == 2) {
@@ -423,8 +437,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         return cell
         
     
-        }
-    
+        
+    }
    
     
    
