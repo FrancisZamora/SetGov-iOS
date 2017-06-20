@@ -628,7 +628,7 @@ class EventViewController: SetGovTableViewController{
                     eventImages.updateValue(eventImage, forKey: indexPath.row)
                     eventInfo.updateValue(eventArray, forKey: indexPath.row)
 
-                    cell.eventDescription.text = "Meeting"
+                    cell.eventDescription.text = descriptionArray[indexPath.row]
                     cell.eventDate.text = eventTimes[indexPath.row]
                     time = "16:00pm"
                     var modifiedTime = 16
@@ -670,7 +670,7 @@ class EventViewController: SetGovTableViewController{
                     address = "1 City Hall Square"
 
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                    cell.eventDescription.text = "Election"
+                    cell.eventDescription.text = descriptionArray[indexPath.row]
                     cell.eventDate.text = eventTimes[indexPath.row]
                     cell.eventImage.image = #imageLiteral(resourceName: "Image-13")
                     if firstTime == true {
@@ -715,7 +715,7 @@ class EventViewController: SetGovTableViewController{
                     cell.hashtagTwo.text = "committee"
                     cell.eventOriginalTitle = arrayEvents[indexPath.row]
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                    cell.eventDescription.text = "Quarterly meeting"
+                    cell.eventDescription.text = descriptionArray[indexPath.row]
                     cell.eventDate.text = eventTimes[indexPath.row+1]
                     cell.eventImage.image = #imageLiteral(resourceName: "brownstone")
                     time = "7:00pm"
@@ -756,7 +756,7 @@ class EventViewController: SetGovTableViewController{
                     cell.hashtagTwo.text = "committee"
                     cell.eventOriginalTitle = arrayEvents[indexPath.row+1]
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                    cell.eventDescription.text = "Quarterly meeting"
+                    cell.eventDescription.text = descriptionArray[indexPath.row]
                     cell.eventDate.text = eventTimes[indexPath.row]
                     cell.eventImage.image = #imageLiteral(resourceName: "bostonPark")
                     time = "16:00"
@@ -796,7 +796,7 @@ class EventViewController: SetGovTableViewController{
                     address = "1 City Hall Square"
                     cell.eventOriginalTitle = arrayEvents[indexPath.row]
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                    cell.eventDescription.text = "Quarterly meeting"
+                    cell.eventDescription.text = descriptionArray[indexPath.row]
                     cell.eventDate.text = eventTimes[indexPath.row]
                     cell.eventImage.image = #imageLiteral(resourceName: "bostonPark")
                     eventImages.updateValue(eventImage, forKey: indexPath.row)
@@ -814,7 +814,7 @@ class EventViewController: SetGovTableViewController{
                     address = "1 City Hall Square"
                     cell.eventOriginalTitle = arrayEvents[indexPath.row]
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                    cell.eventDescription.text = "Quarterly meeting"
+                    cell.eventDescription.text = descriptionArray[indexPath.row]
                     cell.eventDate.text = eventTimes[indexPath.row]
                     cell.eventImage.image = #imageLiteral(resourceName: "brownstone")
                     eventImages.updateValue(eventImage, forKey: indexPath.row)
