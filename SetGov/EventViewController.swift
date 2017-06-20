@@ -135,7 +135,17 @@ class EventViewController: SetGovTableViewController{
                     print("\(showString)\n")
                     var newArray = showString.components(separatedBy: ",")
                     var newString = newArray[0]
+                    var formattedDate = newString + " 2017"
+                    
+                    let date = Date()
+                    var dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "MM-dd-yyyy"
+                    var dateString = dateFormatter.string(from: date)
+                    
+                    print (dateString)
                     eventTimes.append(newString)
+                    print(eventTimes)
+                    
                     let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.caseInsensitive])
                     
                     if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {

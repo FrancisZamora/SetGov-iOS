@@ -9,29 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SetGov/EventAgenda.swift"
-            timestampString = "519615438.804531"
+            filePath = "SetGov/EventViewController.swift"
+            timestampString = "519665746.713139"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EventDetailViewController.swift"
-            timestampString = "519663426.502049"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "loadTitle()"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "parseHTML(html:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
