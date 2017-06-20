@@ -68,11 +68,11 @@ class EventViewController: SetGovTableViewController{
                 var newArray = currentValue?.components(separatedBy: ",")
                 print(newArray)
                 print(newArray?.count)
-                guard let x = (newArray?.count)  else {
+                guard var x = (newArray?.count)  else {
                     return
                     
                 }
-                guard let  lastElement = newArray?[x-1] else {
+                guard var lastElement = newArray?[x-1] else {
                     return
                 }
                 eventID.append(lastElement)
@@ -82,15 +82,29 @@ class EventViewController: SetGovTableViewController{
                 print(finalArray)
                 var finalElement = finalArray[finalArray.count-1]
                 print(finalElement)
+                let decimalCharacters = CharacterSet.decimalDigits
                 
-                var y = finalArray.count
-                var elementDescription = finalArray[y-1]
-                descriptionArray.append(elementDescription)
+                let decimalRange = finalElement.rangeOfCharacter(from: decimalCharacters)
+                
+                if decimalRange != nil {
+                    finalElement = ("Docket " + finalElement)
+                }
+                descriptionArray.append(finalElement)
+                
+                finalArray = []
+                finalElement = " "
+                
+                
+
+                
+               // var y = finalArray.count
+                //var elementDescription = finalArray[y-1]
+                //descriptionArray.append(elementDescription)
                 // if string contains ints give it a docket title
                 
                 
                 
-                descriptionArray.append(lastElement)
+               // descriptionArray.append(lastElement)
                 
                 
                 self.numIterations = self.numIterations + 1
@@ -160,6 +174,7 @@ class EventViewController: SetGovTableViewController{
             
             
             }
+            print(descriptionArray)
             print(arrayEvents)
            // print(eventTimes)
         
