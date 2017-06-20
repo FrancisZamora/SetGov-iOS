@@ -78,12 +78,16 @@ class EventViewController: SetGovTableViewController{
                 eventID.append(lastElement)
                 print(eventID)
                 var finalArray = lastElement.components(separatedBy: ",")
+                finalArray = finalArray[finalArray.count-1].components(separatedBy: " ")
                 print(finalArray)
+                var finalElement = finalArray[finalArray.count-1]
+                print(finalElement)
+                
                 var y = finalArray.count
                 var elementDescription = finalArray[y-1]
                 descriptionArray.append(elementDescription)
                 // if string contains ints give it a docket title
-                print(elementDescription)
+                
                 
                 
                 descriptionArray.append(lastElement)
@@ -152,6 +156,8 @@ class EventViewController: SetGovTableViewController{
               //  print(newArray)
             
                 print(eventID)
+                print(eventDescriptions)
+            
             
             }
             print(arrayEvents)
@@ -250,12 +256,6 @@ class EventViewController: SetGovTableViewController{
         }
         
       //  print(descriptionArray)
-        
-        
-        
-        
-        
-        
         
     }
     
