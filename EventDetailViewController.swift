@@ -46,68 +46,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     
     
-    func configureTime() -> String{
-        
-        let date = Date()
-        let calendar = Calendar.current
-        let hour = calendar.component(.hour, from: date)
-        let day = calendar.component(.day, from: date)
-        let month = calendar.component(.month,from:date)
-        let year = calendar.component(.year, from: date)
-        
-        
-        let dateString = String(month) + "/" + String(day) + "/" + String(year) + " " + String(hour)
-        
-        timeArray.append(String(month) + "/" + String(day) + "/" + String("17"))
-     
-        timeArray.append(String(hour) + ":00")
-        
-        print (timeArray)
-        
-        return dateString
-        
-        
-    }
-    
-    
-    func compareTime() -> Bool {
-        currentTime = self.configureTime()
-        guard let array = eventInfo[indexofEvent] else {
-            return false
-            
-        }
-        
-        print(array[0])
-        print(array[2])
-        
-        eventTime.append((array[0]))
-        
-        eventTime.append((array[3]))
-        
-        print(eventTime[0])
-        print(timeArray[0])
-        print(timeArray[1])
-        print(eventTime[1])
-        print(timeArray[1]>eventTime[1])
-        if (eventTime[0] == timeArray[0] && timeArray[1] >= eventTime[1]) {
-            
-            print("times are compatible")
-            return true
-        
-        }
-        
-        else {
-            
-            print("times not compatible")
-            return false
-        }
-        
-        
-        
-        
-        
-    }
-
     
    
     
@@ -118,7 +56,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         print(agendaInfo)
         print(indexofEvent)
         
-        print(self.compareTime())
         
         
         
@@ -255,6 +192,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         if (indexPath.row == 0) {
             let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream") as! EventStream
                 eventStream.selectionStyle = .none
+                eventStream.eventTimeFormatted = eventTimeFormatted 
             
                 eventStream.eventInfo = eventInfo
                 eventStream.indexofEvent = indexofEvent
@@ -268,7 +206,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             
             
         if selectedCity == "Boston" {
-            if eventStream.firstpress == false  && compareTime() == false {
+            if eventStream.firstpress == false  && eventStream.compareTime() == false {
                 if noAlert == false && selectedCity == "Boston" {
                     let alert = UIAlertController(title: "Constant Stream Available", message: "Boston offers a 24/7 live stream", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Watch", style: .default, handler: { (action: UIAlertAction!) in
@@ -298,7 +236,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 }
             }
             
-            if compareTime() == true && eventStream.firstpress == false || videoRequested == true {
+            if eventStream.compareTime() == true && eventStream.firstpress == false || videoRequested == true {
                 print(checkAlert())
                 // only works when cell for row is refreshed 
                 
@@ -308,7 +246,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 }
 
                 
-            if compareTime() == true {
+            if eventStream.compareTime() == true {
                 
                 let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream") as! EventLiveStream
                 eventLiveStream.selectionStyle = .none
@@ -323,7 +261,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 
             }
                 
-            if compareTime() == false {
+            if eventStream.compareTime() == false {
                 
                 let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream") as! EventLiveStream
                 eventLiveStream.selectionStyle = .none

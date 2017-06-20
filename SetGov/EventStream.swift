@@ -44,7 +44,8 @@ class EventStream:  UITableViewCell {
     var timeArray = [String]()
     var eventTime = [String]()
     var indexofEvent = 0
-    var selectedCity = " " 
+    var selectedCity = " "
+    var eventTimeFormatted = [String]()
 
     
     weak var eventStreamCallback: EventStreamCallback!
@@ -91,9 +92,10 @@ class EventStream:  UITableViewCell {
         
         timeArray.append(String(month) + "/" + String(day) + "/" + String("17"))
         
-        timeArray.append(String(hour) + ":00")
+        //timeArray.append(String(hour) + ":00")
         
         print (timeArray)
+        print("time array")
         
         return dateString
         
@@ -102,37 +104,28 @@ class EventStream:  UITableViewCell {
     
     
     func compareTime() -> Bool {
-        currentTime = self.configureTime()
-        guard let array = eventInfo[indexofEvent] else {
-            return false
-        }
-        print(array)
-        eventTime.append((array[0]))
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yy"
+        let newDate = dateFormatter.string(from: date)
+        print(newDate)
+        print(eventTimeFormatted[indexofEvent])
+        print(newDate)
+        print(newDate == eventTimeFormatted[indexofEvent])
+        let x = newDate == eventTimeFormatted[indexofEvent]
+        print(x)
         
-        eventTime.append((array[3]))
-        
-        print(eventTime[0])
-        print(timeArray[0])
-        print(timeArray[1])
-        print(eventTime[1])
-        
-        
-        print(timeArray[1]>eventTime[1])
-        if (eventTime[0] == timeArray[0] && timeArray[1] >= eventTime[1]) {
+        if x {
             print("times are compatible")
             return true
             
         }
             
         else {
+            
             print("times not compatible")
             return false
         }
-        
-        
-        
-        
-        
     }
     
     
