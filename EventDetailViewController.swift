@@ -38,6 +38,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var arrayEvents = [String]()
     var eventTimeFormatted = [String]()
     var eventHours = [String]()
+    var finalArray =  [String]()
+
 
 
   
@@ -331,7 +333,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 print(eventTimeFormatted)
             
                 infoCell.eventTime.text = eventTimeFormatted[indexofEvent]
-                //infoCell.eventHour.text = eventHours[indexofEvent]
+                infoCell.eventHour.text = finalArray[indexofEvent]
             
                 return infoCell
             }

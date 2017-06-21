@@ -219,7 +219,7 @@ class EventViewController: SetGovTableViewController{
                     
                     print(eventTimeNoFormat)
 
-                    self.numIterations = 0
+                   // self.numIterations = 0
                     var xy = 0
                     for notices in doc.css(".dl-d") {
                         print(eventTimeNoFormat[numIterations])
@@ -238,21 +238,7 @@ class EventViewController: SetGovTableViewController{
                             
                         eventHours.append(eventHour)
                         
-                        print(eventTimeNoFormat[numIterations])
-                        print(eventHours[numIterations][0])
-                        let splitString = eventHours[numIterations][0].components(separatedBy: ",")
-                        print(splitString)
-                            
-                        
-                            
-                            
-                        if eventTimeNoFormat[numIterations] == splitString[0] {
-                            print("true")
-                            print(eventHours[numIterations][1])
-                            finalArray.append(eventHours[numIterations][1])
-                        }
-                        numIterations = self.numIterations + 1
-    
+                          
 
 
                         
@@ -263,26 +249,20 @@ class EventViewController: SetGovTableViewController{
                         
                        // eventHours.append(eventHour)
 
-                        let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.caseInsensitive])
-                        
-                        if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
-                            //shows.add(showString)
-                            
-                            print("\(showString)\n")
-                            print("string was printed twice")
-                            
+                       
                         }
-                        }
-                        numIterations = numIterations + 1
+                        //numIterations = numIterations + 1
                     }
                         
 
                     
                     
                 }
+            
                 print(infoEvents)
                // var newArray = infoEvents.components(separatedBy: ",")
               //  print(newArray)
+                print(finalArray)
                 print(eventHours)
             
                 print(eventID)
@@ -503,6 +483,40 @@ class EventViewController: SetGovTableViewController{
 
     }
     
+    func seperateTime() {
+        for (index, value) in eventTimeNoFormat.enumerated() {
+            
+        //print(eventTimeNoFormat[numIterations])
+        //print(eventHours[numIterations][0])
+        let splitString = eventHours[index][0].components(separatedBy: ",")
+        print(splitString)
+        print("formatted time" + eventTimeNoFormat[index])
+        //print("we are looking for this" + eventHours[numIterations][1])
+        if eventTimeNoFormat[index] == splitString[0] {
+            print("true")
+            print(eventHours[index][1])
+            finalArray.append(eventHours[index][1])
+        }
+        //print(numIterations)
+        //print(numIterations)
+
+        }
+        
+        print(eventTimeNoFormat)
+        
+        if finalArray.count >= eventTimeNoFormat.count {
+            return
+        }
+        print(finalArray)
+        
+    }
+        
+        
+        
+        
+        
+        
+    
    
 
     
@@ -543,6 +557,7 @@ class EventViewController: SetGovTableViewController{
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        self.seperateTime()
         print(indexPath.row)
         //new cell for row refactor
         //cell = dataList[indexPath.row]
@@ -1098,6 +1113,7 @@ class EventViewController: SetGovTableViewController{
             EventDetailViewController.selectedCity = selectedCity
             EventDetailViewController.arrayEvents = arrayEvents
             EventDetailViewController.eventTimeFormatted = eventTimeFormatted
+            EventDetailViewController.finalArray = finalArray
            // EventDetailViewController.eventHours = eventHours
         }
         
