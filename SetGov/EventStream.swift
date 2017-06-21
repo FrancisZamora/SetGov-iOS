@@ -116,6 +116,9 @@ class EventStream:  UITableViewCell {
     
     
     func compareTime() -> Bool {
+        if selectedCity == "Fort Lauderdale" {
+            return false
+        }
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yy"

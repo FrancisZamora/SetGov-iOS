@@ -37,7 +37,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var eventTimeFormatted = [String]()
     var eventHours = [String]()
     var finalArray =  [String]()
-
+    var EventAddresses = [String]()
 
 
   
@@ -327,8 +327,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             if selectedCity == "Boston" {
                 print(array)
                 print(indexofEvent)
-            
-                infoCell.eventAddress.text = array[1]
+                
+                infoCell.eventAddress.text = EventAddresses[indexofEvent]
                 print(eventTimeFormatted)
             
                 infoCell.eventTime.text = eventTimeFormatted[indexofEvent]

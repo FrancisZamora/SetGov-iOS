@@ -43,6 +43,7 @@ class EventViewController: SetGovTableViewController{
     var eventTimeFormatted = [String]()
     var eventHours = [[String]]()
     var finalArray =  [String]()
+    var eventAddresses = [String]()
     
     
     
@@ -71,6 +72,7 @@ class EventViewController: SetGovTableViewController{
                 var newArray = currentValue?.components(separatedBy: ",")
                 print(newArray)
                 print(newArray?.count)
+                
                 
                 guard let x = (newArray?.count)  else {
                     return
@@ -120,6 +122,18 @@ class EventViewController: SetGovTableViewController{
                 arrayEvents.append(showString)
                 
             }
+            
+            
+            for notices in doc.css(".thoroughfare") {
+                
+                let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                print("\(showString)\n")
+                eventAddresses.append(showString)
+                
+           
+            }
+            print(eventAddresses)
+            
             
                 for notices in doc.css(".date-display-single") {
 
@@ -223,7 +237,7 @@ class EventViewController: SetGovTableViewController{
                         print(numIterations)
                         let eventHour = tempArray
                         print(eventHour)
-                            
+                        
                         eventHours.append(eventHour)
                         
                           
@@ -234,6 +248,8 @@ class EventViewController: SetGovTableViewController{
                        
                         }
                     }
+                    print(eventHours)
+                    
                         
 
                     
@@ -255,6 +271,7 @@ class EventViewController: SetGovTableViewController{
                 //print(doc.body as Any)
                 
                 //print("continue")
+                /*
                 for notices in doc.css("<a.+?href='([^']+)") {
                     
                     var showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
@@ -274,6 +291,7 @@ class EventViewController: SetGovTableViewController{
                     arrayEvents.append(showString)
                     
                 }
+                */
     
                 print("loop codeblock")
                 //print(arrayEvents)
@@ -297,6 +315,13 @@ class EventViewController: SetGovTableViewController{
     
             }
         }
+  //  func asyncTest(completion: @escaping() -> Void) {
+    //    print("starting test")
+      //  DispatchQueue.global().async() {
+        //    completion()
+        //}
+    //}
+
     
     
     func splitEventDescription() {
@@ -326,6 +351,9 @@ class EventViewController: SetGovTableViewController{
     }
     
     func seperateTime() {
+        if selectedCity == "Fort Lauderdale" {
+            return
+        }
         arrayEvents.remove(at: 0)
         for (index, value) in eventTimeNoFormat.enumerated() {
             
@@ -1078,6 +1106,7 @@ class EventViewController: SetGovTableViewController{
             EventDetailViewController.arrayEvents = arrayEvents
             EventDetailViewController.eventTimeFormatted = eventTimeFormatted
             EventDetailViewController.finalArray = finalArray
+            EventDetailViewController.EventAddresses = eventAddresses
            // EventDetailViewController.eventHours = eventHours
         }
         
