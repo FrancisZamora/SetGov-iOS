@@ -44,6 +44,7 @@ class EventViewController: SetGovTableViewController{
     var eventHours = [[String]]()
     var finalArray =  [String]()
     var eventAddresses = [String]()
+    var eventhashTags = [[String]]()
     
     
     
@@ -86,6 +87,7 @@ class EventViewController: SetGovTableViewController{
                 var finalArray = lastElement.components(separatedBy: ",")
                 finalArray = finalArray[finalArray.count-1].components(separatedBy: " ")
                 print(finalArray)
+             
                 var finalElement = finalArray[finalArray.count-1]
                 print(finalElement)
                 let decimalCharacters = CharacterSet.decimalDigits
@@ -96,7 +98,7 @@ class EventViewController: SetGovTableViewController{
                     finalElement = ("Docket " + finalElement)
                 }
                 descriptionArray.append(finalElement)
-                
+                print(descriptionArray)
                 finalArray = []
                 finalElement = " "
                 
@@ -122,16 +124,41 @@ class EventViewController: SetGovTableViewController{
                 arrayEvents.append(showString)
                 
             }
-            
-            
             for notices in doc.css(".thoroughfare") {
                 
                 let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                 print("\(showString)\n")
                 eventAddresses.append(showString)
                 
+                
+            }
+
+            
+            for link in doc.css("a ,img") {
+                print(link.text)
+                
+                
+                
+                //let showString = departments.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                //print("\(showString)\n")
+                //var tempArray = showString.components(separatedBy: ",")
+                //print(showString)
+                
+                //if tempArray.count == 1 {
+                //tempArray.append("engagement")
+                //}
+                
+              //  eventhashTags.append(tempArray)
+                
+                
+
+                
+                
+                
            
             }
+            print(eventhashTags)
+            
             print(eventAddresses)
             
             
