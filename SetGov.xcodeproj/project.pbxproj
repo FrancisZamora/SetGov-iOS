@@ -168,6 +168,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		1502CDB91EFB354000CD658F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1502CDB71EFB2F4F00CD658F /* Users.swift */,
+				152DBEE81EF1BC1E00322E56 /* Event.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		151547571EF2D4D3003FF351 /* Additional Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,13 +226,12 @@
 		151CDA821E64CF3700440CDE /* SetGov */ = {
 			isa = PBXGroup;
 			children = (
-				151CDA871E64CF3700440CDE /* Main.storyboard */,
+				151CDA8C1E64CF3700440CDE /* LaunchScreen.storyboard */,
 				151CDAB51E64F2C500440CDE /* constants.swift */,
 				151CDA831E64CF3700440CDE /* AppDelegate.swift */,
-				1502CDB71EFB2F4F00CD658F /* Users.swift */,
-				152DBEE81EF1BC1E00322E56 /* Event.swift */,
-				151CDA8C1E64CF3700440CDE /* LaunchScreen.storyboard */,
+				151CDA871E64CF3700440CDE /* Main.storyboard */,
 				151CDA8F1E64CF3700440CDE /* Info.plist */,
+				1502CDB91EFB354000CD658F /* Models */,
 				151CDA8A1E64CF3700440CDE /* Assets.xcassets */,
 				15D3DB851E7A165900CD35DD /* UI Element Classes */,
 				153F3F831E6DF1AA0004E2F4 /* Controllers */,

@@ -19,14 +19,14 @@ class Event {
     var eventImage = #imageLiteral(resourceName: "Image1")
     
     var eventTags = [String]()
-    var eventUser = String()
     var eventUsers = [String]()
+    var loggedUser = User(userName: " " , attendingStatus: false, interestedStatus: false)
     
     
     
     
     
-    init(eventTitle:String, eventAddress: String, eventUser: String,  eventDescription: String, eventDate: String, eventImageName: String, eventTags:[String]) {
+    init(eventTitle:String, eventAddress: String, eventUser: String,  eventDescription: String, eventDate: String, eventImageName: String, eventTime: String, eventTags:[String],loggedUser:User) {
         self.eventTitle = eventTitle
         self.eventDescription = " "
         self.eventDate = eventDate
@@ -34,7 +34,7 @@ class Event {
         self.eventTags = eventTags
         self.eventDate = eventDate
         self.eventTime = eventTime
-        self.eventUser = eventUser
+        self.loggedUser = loggedUser
         self.eventAddress = eventAddress
         
         // ** read top comment self.eventUsers = eventUsers

@@ -9,13 +9,17 @@
 import Foundation
 import UIKit
 
-class Users {
+class User {
     var userName = " "
     var attendingStatus = false
     var interestedStatus = false
     
     
-    
+    init(userName:String, attendingStatus:Bool, interestedStatus:Bool){
+        self.userName = userName
+        self.attendingStatus = attendingStatus
+        self.interestedStatus = interestedStatus
+    }
 
 
 
