@@ -42,7 +42,7 @@ class EventViewController: SetGovTableViewController{
     var eventID = [String]()
     var eventTimeFormatted = [String]()
     var eventHours = [[String]]()
-    
+    var finalArray =  [String]()
     
     
     
@@ -216,25 +216,43 @@ class EventViewController: SetGovTableViewController{
                             
                         }
                     }
+                    
+                    print(eventTimeNoFormat)
 
                     self.numIterations = 0
                     var xy = 0
                     for notices in doc.css(".dl-d") {
+                        print(eventTimeNoFormat[numIterations])
+                        
                         print(xy)
-                        xy+=1
-                        if numIterations == 2 {
-                            self.numIterations = 0
-                        }
+                        xy = xy + 1
+                        
                         if numIterations == 0 {
                         let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                         print(showString)
                         let tempArray = showString.components(separatedBy: "-")
-                        numIterations = self.numIterations + 1
                         print(tempArray)
                         print(numIterations)
                         let eventHour = tempArray
                         print(eventHour)
+                            
                         eventHours.append(eventHour)
+                        
+                        print(eventTimeNoFormat[numIterations])
+                        print(eventHours[numIterations][0])
+                        let splitString = eventHours[numIterations][0].components(separatedBy: ",")
+                        print(splitString)
+                            
+                        
+                            
+                            
+                        if eventTimeNoFormat[numIterations] == splitString[0] {
+                            print("true")
+                            print(eventHours[numIterations][1])
+                            finalArray.append(eventHours[numIterations][1])
+                        }
+                        numIterations = self.numIterations + 1
+    
 
 
                         
