@@ -46,6 +46,9 @@ class EventStream:  UITableViewCell {
     var indexofEvent = 0
     var selectedCity = " "
     var eventTimeFormatted = [String]()
+    var finalArray =  [String]()
+    var currentHour = String()
+
 
     
     weak var eventStreamCallback: EventStreamCallback!
@@ -102,6 +105,15 @@ class EventStream:  UITableViewCell {
         
     }
     
+    func configureHour() {
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let hourString = String(hour)
+        currentHour = hourString
+        
+    }
+    
     
     func compareTime() -> Bool {
         let date = Date()
@@ -111,11 +123,17 @@ class EventStream:  UITableViewCell {
         print(newDate)
         print(eventTimeFormatted[indexofEvent])
         print(newDate)
+        
         print(newDate == eventTimeFormatted[indexofEvent])
         let x = newDate == eventTimeFormatted[indexofEvent]
         print(x)
+        self.configureHour()
+        let y = currentHour >= finalArray[indexofEvent]
+        print(currentHour)
+        print(finalArray[indexofEvent])
+        print(y)
         
-        if x {
+        if x && y  {
             print("times are compatible")
             return true
             

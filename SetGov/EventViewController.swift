@@ -62,7 +62,7 @@ class EventViewController: SetGovTableViewController{
         
             print("continue")
         
-            for notices in doc.css("a[href*='/public-notices/2']") {
+            for notices in doc.css("a[href*='/public-notices/']") {
                 
                 let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                 print("\(showString)\n")
@@ -100,23 +100,12 @@ class EventViewController: SetGovTableViewController{
                 
                 
 
-                
-               // var y = finalArray.count
-                //var elementDescription = finalArray[y-1]
-                //descriptionArray.append(elementDescription)
-                // if string contains ints give it a docket title
-                
-                
-                
-               // descriptionArray.append(lastElement)
-                
+       
                 
                 self.numIterations = self.numIterations + 1
                 print(titleEvents)
                 print("\(showString)\n")
-                //var newArray = showString.components(separatedBy: ",")
-                //var newString = newArray[numIterations].components(separatedBy: " ")
-                //print(newString)
+        
               
                 print(descriptionArray)
                 print("attempting to print event description")
@@ -219,7 +208,6 @@ class EventViewController: SetGovTableViewController{
                     
                     print(eventTimeNoFormat)
 
-                   // self.numIterations = 0
                     var xy = 0
                     for notices in doc.css(".dl-d") {
                         print(eventTimeNoFormat[numIterations])
@@ -242,16 +230,9 @@ class EventViewController: SetGovTableViewController{
 
 
                         
-                     //   let tempArray = showString.components(separatedBy: "-")
-                     //   print(tempArray)
-                        //let eventHour = tempArray[1]
-                     //   print(eventHour)
-                        
-                       // eventHours.append(eventHour)
-
+                 
                        
                         }
-                        //numIterations = numIterations + 1
                     }
                         
 
@@ -259,23 +240,9 @@ class EventViewController: SetGovTableViewController{
                     
                 }
             
-                print(infoEvents)
-               // var newArray = infoEvents.components(separatedBy: ",")
-              //  print(newArray)
-                print(finalArray)
-                print(eventHours)
-            
-                print(eventID)
-                print(eventDescriptions)
-                print(eventTimeNoFormat)
-            
+           
             }
-            print(descriptionArray)
-            print(arrayEvents)
-           // print(eventTimes)
-            print(eventTimeNoFormat)
-            print(eventTimeFormatted)
-
+        
             if selectedCity == "Fort Lauderdale" {
                 let url = URL(string: "https://fortlauderdale.legistar.com/Calendar.aspx")
                 print(url as Any)
@@ -326,21 +293,7 @@ class EventViewController: SetGovTableViewController{
                         print("VALUES EQUAL")
                     }
                 }
-//            for (index, element) in arrayEvents.enumerated().reversed() {
-//                print(index)
-//              //  print("a" == "a")
-//                print(arrayEvents[index])
-//                
-//                if (arrayEvents[index] == "Meeting details") {
-//                    
-//                    arrayEvents.remove(at:index)
-//                    
-//                    print("removing")
-//                }
-//
-//                
-//            }
-                
+
     
             }
         }
@@ -372,6 +325,35 @@ class EventViewController: SetGovTableViewController{
         
     }
     
+    func seperateTime() {
+        arrayEvents.remove(at: 0)
+        for (index, value) in eventTimeNoFormat.enumerated() {
+            
+            //print(eventTimeNoFormat[numIterations])
+            //print(eventHours[numIterations][0])
+            let splitString = eventHours[index][0].components(separatedBy: ",")
+            print(splitString)
+            print("formatted time" + eventTimeNoFormat[index])
+            //print("we are looking for this" + eventHours[numIterations][1])
+            if eventTimeNoFormat[index] == splitString[0] {
+                print("true")
+                print(eventHours[index][1])
+                finalArray.append(eventHours[index][1])
+            }
+            //print(numIterations)
+            //print(numIterations)
+            
+        }
+        
+        print(eventTimeNoFormat)
+        
+        if finalArray.count >= eventTimeNoFormat.count {
+            return
+        }
+        print(finalArray)
+        
+    }
+    
     
     
     
@@ -384,6 +366,8 @@ class EventViewController: SetGovTableViewController{
         self.fetchEventData()
         self.parseHTML(html: "swag")
         self.splitEventDescription()
+        self.seperateTime()
+
  
     }
     
@@ -483,33 +467,7 @@ class EventViewController: SetGovTableViewController{
 
     }
     
-    func seperateTime() {
-        for (index, value) in eventTimeNoFormat.enumerated() {
-            
-        //print(eventTimeNoFormat[numIterations])
-        //print(eventHours[numIterations][0])
-        let splitString = eventHours[index][0].components(separatedBy: ",")
-        print(splitString)
-        print("formatted time" + eventTimeNoFormat[index])
-        //print("we are looking for this" + eventHours[numIterations][1])
-        if eventTimeNoFormat[index] == splitString[0] {
-            print("true")
-            print(eventHours[index][1])
-            finalArray.append(eventHours[index][1])
-        }
-        //print(numIterations)
-        //print(numIterations)
-
-        }
-        
-        print(eventTimeNoFormat)
-        
-        if finalArray.count >= eventTimeNoFormat.count {
-            return
-        }
-        print(finalArray)
-        
-    }
+  
         
         
         
@@ -557,8 +515,11 @@ class EventViewController: SetGovTableViewController{
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        self.seperateTime()
+        print(finalArray)
+        
         print(indexPath.row)
+        print(arrayEvents)
+        
         //new cell for row refactor
         //cell = dataList[indexPath.row]
         //hashtagOne = dataList[indexPath.row][eventTag[0]]
@@ -887,7 +848,7 @@ class EventViewController: SetGovTableViewController{
 
                     cell.hashtagOne.text = "fire-safety"
                     cell.hashtagTwo.text = "committee"
-                    cell.eventOriginalTitle = arrayEvents[indexPath.row+1]
+                    cell.eventOriginalTitle = arrayEvents[indexPath.row]
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
                     cell.eventDescription.text = descriptionArray[indexPath.row]
                     cell.eventDate.text = eventTimeNoFormat[indexPath.row]
@@ -900,6 +861,7 @@ class EventViewController: SetGovTableViewController{
                     eventArray.append(address)
                     eventArray.append(time)
                     eventArray.append("16:00")
+                    indexofEvent = indexPath.row
 
 
                     cell.selectionStyle = .none
@@ -931,7 +893,7 @@ class EventViewController: SetGovTableViewController{
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
                     cell.eventDescription.text = descriptionArray[indexPath.row]
                     cell.eventDate.text = eventTimeNoFormat[indexPath.row]
-                    cell.eventImage.image = #imageLiteral(resourceName: "bostonPark")
+                    cell.eventImage.image = #imageLiteral(resourceName: "brownstone")
                     eventImages.updateValue(eventImage, forKey: indexPath.row)
                     eventTitle = cell.eventOriginalTitle
                     eventImage = cell.eventImage.image!
@@ -942,6 +904,7 @@ class EventViewController: SetGovTableViewController{
                     eventArray.append(time)
                     eventArray.append("16:00")
                     eventInfo.updateValue(eventArray, forKey: indexPath.row)
+                    indexofEvent = indexPath.row
 
                     return cell
                     
@@ -955,7 +918,7 @@ class EventViewController: SetGovTableViewController{
                     cell.eventTitle.text = spacer + cell.eventOriginalTitle
                     cell.eventDescription.text = descriptionArray[indexPath.row]
                     cell.eventDate.text = eventTimeNoFormat[indexPath.row]
-                    cell.eventImage.image = #imageLiteral(resourceName: "brownstone")
+                    cell.eventImage.image = #imageLiteral(resourceName: "bostonPark")
                     eventImages.updateValue(eventImage, forKey: indexPath.row)
                     eventTitle = cell.eventOriginalTitle
                     eventImage = cell.eventImage.image!
@@ -966,6 +929,7 @@ class EventViewController: SetGovTableViewController{
                     eventArray.append(time)
                     eventArray.append("16:00")
                     eventInfo.updateValue(eventArray, forKey: indexPath.row)
+                    indexofEvent = indexPath.row
 
                     return cell
                     

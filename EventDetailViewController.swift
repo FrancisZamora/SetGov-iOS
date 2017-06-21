@@ -14,10 +14,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var activate = true
     var infoCell = true
     var memberCell = true
-    var count = 0
     var numsections = 0
     var animateView: Bool = false
-    var counter = 0
     var selectedEvent = ""
     var selectedEvents = [String]()
     var indexofEvent = 0
@@ -199,6 +197,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             
                 eventStream.eventInfo = eventInfo
                 eventStream.indexofEvent = indexofEvent
+                eventStream.finalArray = finalArray
                 eventStream.eventStreamCallback = self
                 eventStream.selectedCity = selectedCity
                 eventStream.configure()
