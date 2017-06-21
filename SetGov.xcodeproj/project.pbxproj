@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0CB5FF9E6290176D97F27383 /* Pods_SetGovTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E00276BDDDA0EE096103FE55 /* Pods_SetGovTests.framework */; };
+		1502CDB81EFB2F4F00CD658F /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1502CDB71EFB2F4F00CD658F /* Users.swift */; };
 		1508547C1E97077F00838D85 /* AgendaDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1508547B1E97077F00838D85 /* AgendaDetailHeader.swift */; };
 		1508547E1E97078C00838D85 /* AgendaDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1508547D1E97078C00838D85 /* AgendaDetailData.swift */; };
 		150854801E97079C00838D85 /* AgendaDetailComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1508547F1E97079C00838D85 /* AgendaDetailComments.swift */; };
@@ -69,6 +70,7 @@
 
 /* Begin PBXFileReference section */
 		0A291636C27A3A4A0D6A8E83 /* Pods_SetGovUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetGovUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1502CDB71EFB2F4F00CD658F /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		1508547B1E97077F00838D85 /* AgendaDetailHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaDetailHeader.swift; sourceTree = "<group>"; };
 		1508547D1E97078C00838D85 /* AgendaDetailData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaDetailData.swift; sourceTree = "<group>"; };
 		1508547F1E97079C00838D85 /* AgendaDetailComments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaDetailComments.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				151CDA871E64CF3700440CDE /* Main.storyboard */,
 				151CDAB51E64F2C500440CDE /* constants.swift */,
 				151CDA831E64CF3700440CDE /* AppDelegate.swift */,
+				1502CDB71EFB2F4F00CD658F /* Users.swift */,
 				152DBEE81EF1BC1E00322E56 /* Event.swift */,
 				151CDA8C1E64CF3700440CDE /* LaunchScreen.storyboard */,
 				151CDA8F1E64CF3700440CDE /* Info.plist */,
@@ -613,6 +616,7 @@
 				1508A69F1E9343F900C92410 /* AgendaDetailViewController.swift in Sources */,
 				1515475B1EF2D513003FF351 /* CSS.swift in Sources */,
 				1523A4941E8B385C00AE93C2 /* AgendaCell.swift in Sources */,
+				1502CDB81EFB2F4F00CD658F /* Users.swift in Sources */,
 				15C64B471EADA84200B123A5 /* CityNavigationViewController.swift in Sources */,
 				15C64B4B1EADA94200B123A5 /* FortLauderdaleCell.swift in Sources */,
 				153F3F891E6DF7190004E2F4 /* EventCell.swift in Sources */,

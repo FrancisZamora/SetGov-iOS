@@ -12,6 +12,7 @@ import QuartzCore
 
 
 class EventViewController: SetGovTableViewController{
+    
     var activate = true
     var selectedCity = "Fort Lauderdale"
     var count = 0
@@ -161,7 +162,7 @@ class EventViewController: SetGovTableViewController{
             
             print(eventAddresses)
             
-            
+        
                 for notices in doc.css(".date-display-single") {
 
                     self.numIterations = 0
@@ -418,14 +419,14 @@ class EventViewController: SetGovTableViewController{
         print("EventViewController")
         self.setCity()
         print(selectedCity)
-        self.fetchEventData()
+        //self.fetchEventData()
         self.parseHTML(html: "swag")
         self.splitEventDescription()
         self.seperateTime()
 
  
     }
-    
+    /*
     func fetchEventData() {
         
         if selectedCity == "Boston" {
@@ -481,6 +482,7 @@ class EventViewController: SetGovTableViewController{
         }
         
     }
+ */
     
     
     
