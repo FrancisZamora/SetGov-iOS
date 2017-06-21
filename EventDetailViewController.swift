@@ -351,6 +351,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             let agendaCell = tableView.dequeueReusableCell(withIdentifier: "EventAgenda", for:indexPath) as! EventAgenda
             agendaCell.selectionStyle = .none
             agendaCell.agendaInfo = agendaInfo
+            print(agendaInfo)
             agendaCell.index = Index
             agendaCell.eventAgendaCallback = self
             print("HELLO")
@@ -379,7 +380,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-
+        print(indexPath.row)
+        
         if (indexPath.row == 2) {
             let agendaCell = tableView.dequeueReusableCell(withIdentifier: "EventAgenda", for:indexPath) as! EventAgenda
             
@@ -387,6 +389,11 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             agendaCell.index = Index
             agendaCell.eventAgendaCallback = self
             print("HELLO")
+            
+            
+            performSegue(withIdentifier: "showAgenda", sender: nil)
+
+            
         }
         
         
