@@ -377,6 +377,24 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
         
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+
+        if (indexPath.row == 2) {
+            let agendaCell = tableView.dequeueReusableCell(withIdentifier: "EventAgenda", for:indexPath) as! EventAgenda
+            
+            agendaCell.agendaInfo = agendaInfo
+            agendaCell.index = Index
+            agendaCell.eventAgendaCallback = self
+            print("HELLO")
+        }
+        
+        
+        
+        
+        
+    }
+
    
     
    

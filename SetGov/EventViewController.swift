@@ -70,7 +70,7 @@ class EventViewController: SetGovTableViewController{
                 print(newArray)
                 print(newArray?.count)
                 
-                guard var x = (newArray?.count)  else {
+                guard let x = (newArray?.count)  else {
                     return
                 }
                 
@@ -136,20 +136,20 @@ class EventViewController: SetGovTableViewController{
                     let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                     print("\(showString)\n")
                     var newArray = showString.components(separatedBy: ",")
-                    var newString = newArray[0]
-                    var formattedDate = (newString + " 2017")
+                    let newString = newArray[0]
+                    let formattedDate = (newString + " 2017")
                     
                     let date = Date()
                     print(date)
                     
-                    var dateFormatter = DateFormatter()
+                    let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "MM/dd/yy"
                     guard let newDate = dateFormatter.date(from: formattedDate) else {
                         return
                     }
                     let dateString2 = dateFormatter.string(from: (newDate))
                     
-                    var dateString = dateFormatter.string(from:date)
+                    let dateString = dateFormatter.string(from:date)
                     print(newDate)
                     print("this is the right string")
                     print (dateString)
@@ -284,7 +284,7 @@ class EventViewController: SetGovTableViewController{
            // print(arrayEvents)
             
             print("EVENT DESCRIPTIONS")
-            var lastIndex = eventDescriptions.count
+            let lastIndex = eventDescriptions.count
             descriptionArray.append(eventDescriptions[lastIndex])
             print(x)
             x = x + 1

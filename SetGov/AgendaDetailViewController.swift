@@ -84,6 +84,8 @@ class AgendaDetailViewController: SetGovTableViewController {
             let agendadetailHeader =  tableView.dequeueReusableCell(withIdentifier: "AgendaDetailHeader", for:indexPath) as! AgendaDetailHeader
             agendadetailHeader.selectionStyle = .none
             agendadetailHeader.agendaImage.image = agendaImage
+            print(agendaInfo)
+            
             agendadetailHeader.titleLabel.text = agendaInfo[index]! + " Discussion Topic"
             agendadetailHeader.secondaryTitle.text = " "
             agendadetailHeader.tertiaryTitle.text = agendaInfo[index]! + " Updates"
