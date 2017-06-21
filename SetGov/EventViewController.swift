@@ -41,6 +41,8 @@ class EventViewController: SetGovTableViewController{
     var descriptionArray = [String]()
     var eventID = [String]()
     var eventTimeFormatted = [String]()
+    var eventHours = [[String]]()
+    
     
     
     
@@ -131,6 +133,7 @@ class EventViewController: SetGovTableViewController{
             }
             
                 for notices in doc.css(".date-display-single") {
+
                     self.numIterations = 0
                    
                     let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
@@ -138,6 +141,7 @@ class EventViewController: SetGovTableViewController{
                     var newArray = showString.components(separatedBy: ",")
                     let newString = newArray[0]
                     let formattedDate = (newString + " 2017")
+                    print(showString)
                     
                     let date = Date()
                     print(date)
@@ -170,10 +174,37 @@ class EventViewController: SetGovTableViewController{
                         
                     }
                     
-                    for notices in doc.css("<a.+?href='([^']+)") {
-                        numIterations = 0
+                    for notices in doc.css(".date-display-single") {
+                        
+                        self.numIterations = 0
                         
                         let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                        print("\(showString)\n")
+                        var newArray = showString.components(separatedBy: ",")
+                        let newString = newArray[0]
+                        let formattedDate = (newString + " 2017")
+                        print(showString)
+                        
+                        let date = Date()
+                        print(date)
+                        
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "MM/dd/yy"
+                        guard let newDate = dateFormatter.date(from: formattedDate) else {
+                            return
+                        }
+                        let dateString2 = dateFormatter.string(from: (newDate))
+                        
+                        let dateString = dateFormatter.string(from:date)
+                        print(newDate)
+                        print("this is the right string")
+                        print (dateString)
+                        print(dateString2)
+                        eventTimeFormatted.append(dateString2)
+                        
+                        eventTimeNoFormat.append(newString)
+                        
+                        print(eventTimeNoFormat)
                         
                         let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.caseInsensitive])
                         
@@ -184,14 +215,57 @@ class EventViewController: SetGovTableViewController{
                             print("string was printed twice")
                             
                         }
+                    }
+
+                    self.numIterations = 0
+                    var xy = 0
+                    for notices in doc.css(".dl-d") {
+                        print(xy)
+                        xy+=1
+                        if numIterations == 2 {
+                            self.numIterations = 0
+                        }
+                        if numIterations == 0 {
+                        let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                        print(showString)
+                        let tempArray = showString.components(separatedBy: "-")
+                        numIterations = self.numIterations + 1
+                        print(tempArray)
+                        print(numIterations)
+                        let eventHour = tempArray
+                        print(eventHour)
+                        eventHours.append(eventHour)
+
+
+                        
+                     //   let tempArray = showString.components(separatedBy: "-")
+                     //   print(tempArray)
+                        //let eventHour = tempArray[1]
+                     //   print(eventHour)
+                        
+                       // eventHours.append(eventHour)
+
+                        let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.caseInsensitive])
+                        
+                        if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
+                            //shows.add(showString)
+                            
+                            print("\(showString)\n")
+                            print("string was printed twice")
+                            
+                        }
+                        }
+                        numIterations = numIterations + 1
+                    }
                         
 
-                    }
+                    
                     
                 }
                 print(infoEvents)
                // var newArray = infoEvents.components(separatedBy: ",")
               //  print(newArray)
+                print(eventHours)
             
                 print(eventID)
                 print(eventDescriptions)
@@ -1006,6 +1080,7 @@ class EventViewController: SetGovTableViewController{
             EventDetailViewController.selectedCity = selectedCity
             EventDetailViewController.arrayEvents = arrayEvents
             EventDetailViewController.eventTimeFormatted = eventTimeFormatted
+           // EventDetailViewController.eventHours = eventHours
         }
         
 
