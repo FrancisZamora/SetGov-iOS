@@ -85,10 +85,16 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
         if (indexPath.row == 0 ) {
             index = indexPath.row
             print("ROW 0")
+            print(agendaInfo)
+            agendaInfo.updateValue(cell.topicLabel.text!, forKey: indexPath.row)
+            print(agendaInfo)
+
+            
+
             if let callback = eventAgendaCallback {
                 callback.loadAgendaDetail(data: agendaInfo,index:0)
 
@@ -98,6 +104,9 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         if (indexPath.row == 1 ) {
            index = indexPath.row
             print("ROW 1")
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
+            agendaInfo.updateValue(cell.topicLabel.text!, forKey: indexPath.row)
+
             if let callback = eventAgendaCallback {
                 callback.loadAgendaDetail(data: agendaInfo,index:1)
             }
@@ -107,6 +116,9 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         if (indexPath.row == 2 ) {
            index = indexPath.row
             print("ROW 2")
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
+            agendaInfo.updateValue(cell.topicLabel.text!, forKey: indexPath.row)
+
             if let callback = eventAgendaCallback {
                 callback.loadAgendaDetail(data: agendaInfo,index:2)
                 
