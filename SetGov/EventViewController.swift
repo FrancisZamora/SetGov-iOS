@@ -145,6 +145,9 @@ class EventViewController: SetGovTableViewController{
                 }
                 descriptionArray.append(finalElement)
                 print(descriptionArray)
+                
+                
+                
                 finalArray = []
                 finalElement = " "
                 
@@ -167,9 +170,14 @@ class EventViewController: SetGovTableViewController{
                     print("\(showString)\n")
                     print("string was printed once")
                 }
+                print(descriptionArray)
+                
                 arrayEvents.append(showString)
                 
             }
+            
+            print(descriptionArray)
+            
             for notices in doc.css(".thoroughfare") {
                 
                 let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
@@ -453,11 +461,14 @@ class EventViewController: SetGovTableViewController{
     
     
      func fetchEventData() {
-     
+        
      if selectedCity == "Boston" {
         for (index, value) in arrayEvents.enumerated() {
+            print(descriptionArray[0])
             //let event = Event(eventTitle: spacer + arrayEvents[evt], eventDescription: descriptionArray[evt], eventDate: eventTimeNoFormat[evt], eventImage: "boston" + string(evt), eventTime = finalArray[evt] loggedUser = "Tim", eventAddress =  eventAddresses[evt], eventTags = ["engagement", "bureaucracy"])
             let event = Event(eventTitle: spacer + value, eventAddress: eventAddresses[index], eventUsers: ["Tim","Sam"] , eventDescription: descriptionArray[index], eventDate:eventTimeNoFormat[index], eventImageName: "bostonPark", eventTime: finalArray[index], eventTags: ["engagement", "bureaucracy"], loggedUser: User(userName: "Tim", attendingStatus: false, interestedStatus: false))
+            
+            print(event.eventDescription)
             
             if isEven(num: index) == true {
                 event.eventImage = #imageLiteral(resourceName: "brownstone")
@@ -534,15 +545,19 @@ class EventViewController: SetGovTableViewController{
         
         print(indexPath.row)
         print(arrayEvents)
-               
+        print(selectedCity)
+        
+        
         if selectedCity == "Boston" {
             
             let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
             cell.selectionStyle = .none
+            print(dataList)
+            
+            cell.editCell(Event:dataList[indexPath.row])
             
             eventImage = cell.eventImage.image!
             eventImages.updateValue(eventImage, forKey: indexPath.row)
-            cell.editCell(Event:dataList[indexPath.row])
             
             if firstTime == true {
                 cell.configure()

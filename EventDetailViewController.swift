@@ -315,14 +315,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             print("stop")
             print(indexofEvent)
             
-            guard let array = eventInfo[indexofEvent] else {
-                return UITableViewCell()
-                
-                
-            }
-            
+           
+            print(selectedCity)
             if selectedCity == "Boston" {
-                print(array)
                 print(indexofEvent)
                 
                 infoCell.eventAddress.text = EventAddresses[indexofEvent]
@@ -335,6 +330,11 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             }
             
             if selectedCity == "Fort Lauderdale" {
+                guard let array = eventInfo[indexofEvent] else {
+                    return UITableViewCell()
+                    
+                    
+                }
                 infoCell.eventTime.text = array[0]
                 infoCell.eventAddress.text = array[1]
                 infoCell.eventHour.text = array[2]
