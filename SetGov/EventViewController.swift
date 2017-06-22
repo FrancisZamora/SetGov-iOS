@@ -534,22 +534,15 @@ class EventViewController: SetGovTableViewController{
         
         print(indexPath.row)
         print(arrayEvents)
-        
-        //new cell for row refactor
-        //cell = dataList[indexPath.row]
-        //hashtagOne = dataList[indexPath.row][eventTag[0]]
-        //hashtagTwo = dataList[indexPath.row][eventTag[1]]
-        //
-        
-        
+               
         if selectedCity == "Boston" {
             
-            dataList[indexPath.row]
             let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
             cell.selectionStyle = .none
             
             eventImage = cell.eventImage.image!
             eventImages.updateValue(eventImage, forKey: indexPath.row)
+            cell.editCell(Event:dataList[indexPath.row])
             
             if firstTime == true {
                 cell.configure()
