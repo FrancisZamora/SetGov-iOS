@@ -26,10 +26,11 @@ class Event {
     
     
     
-    init(eventTitle:String, eventAddress: String, eventUser: String,  eventDescription: String, eventDate: String, eventImageName: String, eventTime: String, eventTags:[String],loggedUser:User) {
+    init(eventTitle:String, eventAddress: String, eventUsers: [String],  eventDescription: String, eventDate: String, eventImageName: String, eventTime: String, eventTags:[String],loggedUser:User) {
         self.eventTitle = eventTitle
         self.eventDescription = " "
         self.eventDate = eventDate
+        self.eventUsers = eventUsers
         self.eventImage = UIImage(imageLiteralResourceName: eventImageName)
         self.eventTags = eventTags
         self.eventDate = eventDate

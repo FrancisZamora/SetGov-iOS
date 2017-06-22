@@ -48,9 +48,54 @@ class EventViewController: SetGovTableViewController{
     var eventhashTags = [[String]]()
     
     
-    
     @IBOutlet var cityDisplay: UINavigationItem!
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    func isEven (num:Int) -> Bool {
+        if num % 2 == 0 {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    
+    
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        print("EventViewController")
+        self.setCity()
+        print(selectedCity)
+        //self.fetchEventData()
+        self.parseHTML(html: "swag")
+        self.splitEventDescription()
+        self.seperateTime()
+        
+        
+    }
+    
+    
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+    }
+    
 
+    
+    //fetching data
     func parseHTML(html:String) -> Void {
         print("parse fort lauderdale successfully called")
         if selectedCity == "Boston" {
@@ -343,13 +388,9 @@ class EventViewController: SetGovTableViewController{
     
             }
         }
-  //  func asyncTest(completion: @escaping() -> Void) {
-    //    print("starting test")
-      //  DispatchQueue.global().async() {
-        //    completion()
-        //}
-    //}
-
+  
+    
+    //parse data
     
     
     func splitEventDescription() {
@@ -411,106 +452,20 @@ class EventViewController: SetGovTableViewController{
     }
     
     
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
-        print("EventViewController")
-        self.setCity()
-        print(selectedCity)
-        //self.fetchEventData()
-        self.parseHTML(html: "swag")
-        self.splitEventDescription()
-        self.seperateTime()
-
- 
-    }
-    /*
-    func fetchEventData() {
-        
-        if selectedCity == "Boston" {
-            
-            
-            let event = Event (eventTitle: "Parks and Recreation", eventDescription: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"])
-      
-        
+     func fetchEventData() {
+     
+     if selectedCity == "Boston" {
+        for (index, value) in arrayEvents.enumerated() {
+            //let event = Event(eventTitle: spacer + arrayEvents[evt], eventDescription: descriptionArray[evt], eventDate: eventTimeNoFormat[evt], eventImage: "boston" + string(evt), eventTime = finalArray[evt] loggedUser = "Tim", eventAddress =  eventAddresses[evt], eventTags = ["engagement", "bureaucracy"])
+            let event = Event(eventTitle: spacer + arrayEvents[index], eventAddress: eventAddresses[index], eventUsers: ["Tim","Sam"] , eventDescription: descriptionArray[index], eventDate:eventTimeNoFormat[index], eventImageName: "bostonPark", eventTime: finalArray[index], eventTags: ["engagement", "bureaucracy"], loggedUser: User(userName: "Tim", attendingStatus: false, interestedStatus: false))
             dataList.append(event)
-        
-            let event2 = Event (eventTitle: "Parks and Recreation", eventDescription: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"])
-        
-            dataList.append(event2)
-        
-            let event3 = Event (eventTitle: "Parks and Recreation", eventDescription: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"])
-        
-            dataList.append(event3)
-        
-            let event4 = Event (eventTitle: "Parks and Recreation", eventDescription: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"])
-        
-            dataList.append(event4)
-        
-                let event5 = Event (eventTitle: "Parks and Recreation", eventDescription: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"])
-            dataList.append(event5)
-    
         }
-        
-        
-        if selectedCity == "Miami" {
-            
-            
-            let event = Event (eventTitle: "Parks and Recreation", eventDescription: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"])
-            
-            
-            dataList.append(event)
-            
-            let event2 = Event (eventTitle: "Parks and Recreation", eventDescription: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"])
-            
-            dataList.append(event2)
-            
-            let event3 = Event (eventTitle: "Parks and Recreation", eventDescription: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"])
-            
-            dataList.append(event3)
-            
-            let event4 = Event (eventTitle: "Parks and Recreation", eventDescription: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"])
-            
-            dataList.append(event4)
-            
-            let event5 = Event (eventTitle: "Parks and Recreation", eventDescription: "Quarterly meeting", eventDate: "June 3rd", eventImageName: "fortlauderdalepark", eventTags: ["natural","legislation"])
-            
-            dataList.append(event5)
-            
         }
-        
-    }
- */
-    
-    
-    
-    func isEven (num:Int) -> Bool {
-        if num % 2 == 0 {
-            return true
-        }
-        else {
-            return false
-        }
-    }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
     }
     
     func setCity() {
         if selectedCity == "Fort Lauderdale" {
-           cityDisplay.title = "Fort Lauderdale, FL "
+            cityDisplay.title = "Fort Lauderdale, FL "
             
         }
         if selectedCity == "Boston"
@@ -521,13 +476,9 @@ class EventViewController: SetGovTableViewController{
         if selectedCity == "New York City" {
             cityDisplay.title = "New York, NY "
         }
-
+        
     }
     
-  
-        
-        
-        
         
         
         
@@ -535,7 +486,7 @@ class EventViewController: SetGovTableViewController{
    
 
     
-    
+    //tableview methods
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50.0
     }
@@ -583,6 +534,9 @@ class EventViewController: SetGovTableViewController{
         //hashtagTwo = dataList[indexPath.row][eventTag[1]]
         //
         if selectedCity == "Fort Lauderdale" {
+            //dataList[indexPath.row[]
+            //let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+            //cell.selectionStyle = .none
             if indexPath.row == 0 {
                 print("CELL IS ONE")
                 let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
@@ -1112,22 +1066,12 @@ class EventViewController: SetGovTableViewController{
                 
             }
     }
-
-    
-                
-                
-
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showEvent") {
             print("preparing view")
-            print(firstTime)
-            
             let EventDetailViewController = segue.destination as! EventDetailViewController
             EventDetailViewController.selectedEvents = eventTitles
             EventDetailViewController.indexofEvent = indexofEvent
-            print(EventDetailViewController.indexofEvent)
-            
             EventDetailViewController.eventList = eventList
             EventDetailViewController.eventImages = eventImages
             EventDetailViewController.eventInfo = eventInfo
@@ -1136,7 +1080,6 @@ class EventViewController: SetGovTableViewController{
             EventDetailViewController.eventTimeFormatted = eventTimeFormatted
             EventDetailViewController.finalArray = finalArray
             EventDetailViewController.EventAddresses = eventAddresses
-           // EventDetailViewController.eventHours = eventHours
         }
         
 
