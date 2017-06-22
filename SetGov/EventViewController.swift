@@ -555,7 +555,6 @@ class EventViewController: SetGovTableViewController{
             print(dataList)
             
             cell.editCell(Event:dataList[indexPath.row])
-            
             eventImage = cell.eventImage.image!
             eventImages.updateValue(eventImage, forKey: indexPath.row)
             

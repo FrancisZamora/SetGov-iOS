@@ -70,7 +70,7 @@ class EventCell: UITableViewCell {
     }
     
     func editCell(Event: Event){
-        eventTitle.text = Event.eventTitle
+        eventTitle.text = Event.eventTitle        
         eventDescription.text = Event.eventDescription
         eventImage.image = Event.eventImage
         eventDate.text = Event.eventDate
