@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import QuartzCore
 
-
 class EventViewController: SetGovTableViewController{
     
     var activate = true
@@ -79,10 +78,11 @@ class EventViewController: SetGovTableViewController{
         print("EventViewController")
         self.setCity()
         print(selectedCity)
-        //self.fetchEventData()
         self.parseHTML(html: "swag")
         self.splitEventDescription()
         self.seperateTime()
+        self.fetchEventData()
+
         
         
     }
@@ -457,8 +457,15 @@ class EventViewController: SetGovTableViewController{
      if selectedCity == "Boston" {
         for (index, value) in arrayEvents.enumerated() {
             //let event = Event(eventTitle: spacer + arrayEvents[evt], eventDescription: descriptionArray[evt], eventDate: eventTimeNoFormat[evt], eventImage: "boston" + string(evt), eventTime = finalArray[evt] loggedUser = "Tim", eventAddress =  eventAddresses[evt], eventTags = ["engagement", "bureaucracy"])
-            let event = Event(eventTitle: spacer + arrayEvents[index], eventAddress: eventAddresses[index], eventUsers: ["Tim","Sam"] , eventDescription: descriptionArray[index], eventDate:eventTimeNoFormat[index], eventImageName: "bostonPark", eventTime: finalArray[index], eventTags: ["engagement", "bureaucracy"], loggedUser: User(userName: "Tim", attendingStatus: false, interestedStatus: false))
-            dataList.append(event)
+            let event = Event(eventTitle: spacer + value, eventAddress: eventAddresses[index], eventUsers: ["Tim","Sam"] , eventDescription: descriptionArray[index], eventDate:eventTimeNoFormat[index], eventImageName: "bostonPark", eventTime: finalArray[index], eventTags: ["engagement", "bureaucracy"], loggedUser: User(userName: "Tim", attendingStatus: false, interestedStatus: false))
+            
+            if isEven(num: index) == true {
+                event.eventImage = #imageLiteral(resourceName: "brownstone")
+            }
+            else {
+                event.eventImage = #imageLiteral(resourceName: "bostonPark")
+            }
+                dataList.append(event)
         }
         }
     }
@@ -533,6 +540,26 @@ class EventViewController: SetGovTableViewController{
         //hashtagOne = dataList[indexPath.row][eventTag[0]]
         //hashtagTwo = dataList[indexPath.row][eventTag[1]]
         //
+        
+        
+        if selectedCity == "Boston" {
+            
+            dataList[indexPath.row]
+            let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
+            cell.selectionStyle = .none
+            
+            eventImage = cell.eventImage.image!
+            eventImages.updateValue(eventImage, forKey: indexPath.row)
+            
+            if firstTime == true {
+                cell.configure()
+            }
+            
+            return cell
+            
+        }
+    
+        
         if selectedCity == "Fort Lauderdale" {
             //dataList[indexPath.row[]
             //let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
@@ -717,236 +744,7 @@ class EventViewController: SetGovTableViewController{
                 
             }
         }
-            if selectedCity == "Boston" {
-                if indexPath.row == 0 {
-                    
-                    let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-                    cell.selectionStyle = .none
-                    cell.hashtagOne.text = "environmental"
-                    cell.hashtagTwo.text = "legislation"
-                    cell.eventOriginalTitle = arrayEvents[indexPath.row]
-                    cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                    cell.eventImage.image = #imageLiteral(resourceName: "Image-12")
-                    print(eventTitles)
-                    
-                    eventImage = cell.eventImage.image!
-                    eventImages.updateValue(eventImage, forKey: indexPath.row)
-                    eventInfo.updateValue(eventArray, forKey: indexPath.row)
-
-                    cell.eventDescription.text = descriptionArray[indexPath.row]
-                    cell.eventDate.text = eventTimeNoFormat[indexPath.row]
-                    time = "16:00pm"
-                    var modifiedTime = 16
-                    let finalTime = String(16-12) +  ":00pm"
-
-                    
-                    address = "1 City Hall Square"
-
-                    eventArray.append("6/19/17")
-                    eventArray.append(address)
-                    eventArray.append(finalTime)
-                    eventArray.append(time)
-                    print(eventArray)
-                    eventTitle = cell.eventOriginalTitle
-                    
-                    cell.selectionStyle = .none
-
-                    print(cell.eventOriginalTitle)
-                    if firstTime == true {
-                        cell.configure()
-                    }
-                    
-                    eventTitles.insert(eventTitle, at: indexPath.row)
-                    eventList.updateValue(cell.eventOriginalTitle, forKey: indexPath.row)
-                    eventInfo.updateValue(eventArray, forKey: indexPath.row)
-                    eventArray = []
-
-                    print(eventList)
-                    print(eventTitle)
-                    return cell
-                }
-                if indexPath.row == 1 {
-                    print("CELL IS TWO")
-                    
-                    let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-                    cell.hashtagTwo.text = "bureaucracy"
-                    cell.hashtagOne.text = "engagement"
-                    cell.eventOriginalTitle = arrayEvents[indexPath.row]
-                    address = "1 City Hall Square"
-
-                    cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                    cell.eventDescription.text = descriptionArray[indexPath.row]
-                    cell.eventDate.text = eventTimeNoFormat[indexPath.row]
-                    cell.eventImage.image = #imageLiteral(resourceName: "Image-13")
-                    if firstTime == true {
-                        cell.configure()
-                    }
-                    
-                    time = "8:15pm"
-                    eventImage = cell.eventImage.image!
-                    eventImages.updateValue(eventImage, forKey: indexPath.row)
-                    eventArray.append("5/25/17")
-                    eventArray.append(address)
-                    eventArray.append(time)
-                    eventArray.append("20:15")
-
-
-                    print("eventTitle")
-                    print(eventTitle)
-                    print(cell.eventOriginalTitle)
-                    eventInfo.updateValue(eventArray, forKey: indexPath.row)
-
-                    eventTitle = cell.eventOriginalTitle
-                    cell.selectionStyle = .none
-                    
-                    print(cell.eventOriginalTitle)
-                    eventTitles.insert(eventTitle, at: indexPath.row)
-                    eventList.updateValue(cell.eventOriginalTitle, forKey: indexPath.row)
-                    print(eventList)
-                    print(eventTitles)
-                    print(eventTitle)
-                    eventArray = []
-
-                    return cell
-                    
-                }
-                
-                if indexPath.row == 2 {
-                    let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-                    cell.selectionStyle = .none
-                    address = "1 City Hall Square"
-
-                    cell.hashtagOne.text = "fire-safety"
-                    cell.hashtagTwo.text = "committee"
-                    cell.eventOriginalTitle = arrayEvents[indexPath.row]
-                    cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                    cell.eventDescription.text = descriptionArray[indexPath.row]
-                    cell.eventDate.text = eventTimeNoFormat[indexPath.row+1]
-                    cell.eventImage.image = #imageLiteral(resourceName: "brownstone")
-                    time = "7:00pm"
-                    eventTitle = cell.eventOriginalTitle
-                    eventImage = cell.eventImage.image!
-                    eventImages.updateValue(eventImage, forKey: indexPath.row)
-                    eventArray.append("6/3/17")
-                    eventArray.append(address)
-                    eventArray.append(time)
-                    eventArray.append("16:00")
-
-                    cell.selectionStyle = .none
-                    if firstTime == true {
-                        cell.configure()
-                    }
-                    
-                    eventInfo.updateValue(eventArray, forKey: indexPath.row)
-
-                    print(cell.eventOriginalTitle)
-                    print("STOP HERE")
-                    print(eventTitles)
-                    
-                    eventTitles.insert(eventTitle, at: indexPath.row)
-                    print(eventTitles)
-                    eventList.updateValue(cell.eventOriginalTitle, forKey: indexPath.row)
-                    print(eventList)
-                    print(eventTitle)
-                    eventArray = []
-
-                    return cell
-                }
-                if indexPath.row == 3 {
-                    let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-                    cell.selectionStyle = .none
-                    address = "1 City Hall Square"
-
-                    cell.hashtagOne.text = "fire-safety"
-                    cell.hashtagTwo.text = "committee"
-                    cell.eventOriginalTitle = arrayEvents[indexPath.row]
-                    cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                    cell.eventDescription.text = descriptionArray[indexPath.row]
-                    cell.eventDate.text = eventTimeNoFormat[indexPath.row]
-                    cell.eventImage.image = #imageLiteral(resourceName: "bostonPark")
-                    time = "16:00"
-                    eventTitle = cell.eventOriginalTitle
-                    eventImage = cell.eventImage.image!
-                    eventImages.updateValue(eventImage, forKey: indexPath.row)
-                    eventArray.append("6/3/17")
-                    eventArray.append(address)
-                    eventArray.append(time)
-                    eventArray.append("16:00")
-                    indexofEvent = indexPath.row
-
-
-                    cell.selectionStyle = .none
-                    if firstTime == true {
-                        cell.configure()
-                    }
-                    
-                    eventInfo.updateValue(eventArray, forKey: indexPath.row)
-
-                    print(cell.eventOriginalTitle)
-                    print("STOP HERE")
-                    print(eventTitles)
-                    
-                    eventTitles.insert(eventTitle, at: indexPath.row)
-                    print(eventTitles)
-                    eventList.updateValue(cell.eventOriginalTitle, forKey: indexPath.row)
-                    print(eventList)
-                    print(eventTitle)
-                    eventArray = []
-
-                    return cell
-                }
-                
-                if indexPath.row > 3 && isEven(num: indexPath.row) == true  {
-                    let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-                    cell.selectionStyle = .none
-                    address = "1 City Hall Square"
-                    cell.eventOriginalTitle = arrayEvents[indexPath.row]
-                    cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                    cell.eventDescription.text = descriptionArray[indexPath.row]
-                    cell.eventDate.text = eventTimeNoFormat[indexPath.row]
-                    cell.eventImage.image = #imageLiteral(resourceName: "brownstone")
-                    eventImages.updateValue(eventImage, forKey: indexPath.row)
-                    eventTitle = cell.eventOriginalTitle
-                    eventImage = cell.eventImage.image!
-                    time = "16:00"
-                    eventTitle = cell.eventOriginalTitle
-                    eventArray.append("6/3/17")
-                    eventArray.append(address)
-                    eventArray.append(time)
-                    eventArray.append("16:00")
-                    eventInfo.updateValue(eventArray, forKey: indexPath.row)
-                    indexofEvent = indexPath.row
-
-                    return cell
-                    
-                }
-                
-                if indexPath.row > 3 && isEven(num: indexPath.row) == false  {
-                    let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-                    cell.selectionStyle = .none
-                    address = "1 City Hall Square"
-                    cell.eventOriginalTitle = arrayEvents[indexPath.row]
-                    cell.eventTitle.text = spacer + cell.eventOriginalTitle
-                    cell.eventDescription.text = descriptionArray[indexPath.row]
-                    cell.eventDate.text = eventTimeNoFormat[indexPath.row]
-                    cell.eventImage.image = #imageLiteral(resourceName: "bostonPark")
-                    eventImages.updateValue(eventImage, forKey: indexPath.row)
-                    eventTitle = cell.eventOriginalTitle
-                    eventImage = cell.eventImage.image!
-                    time = "16:00"
-                    eventTitle = cell.eventOriginalTitle
-                    eventArray.append("6/3/17")
-                    eventArray.append(address)
-                    eventArray.append(time)
-                    eventArray.append("16:00")
-                    eventInfo.updateValue(eventArray, forKey: indexPath.row)
-                    indexofEvent = indexPath.row
-
-                    return cell
-                    
-                }
-
-            }
+        
         
             
             

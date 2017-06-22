@@ -39,7 +39,9 @@ class EventCell: UITableViewCell {
     
     @IBOutlet var hashtagTwo: UILabel!
     
-    var eventOriginalTitle = " " 
+    var eventOriginalTitle = " "
+    
+    
     
     func configure() {
         hashtagTwo.textAlignment = .center
@@ -64,6 +66,17 @@ class EventCell: UITableViewCell {
         eventDate.textAlignment = .center
         hashtagView2.makeCircular()
         hashTagView.makeCircular()
+        
+    }
+    
+    func editCell(Event: Event){
+        eventTitle.text = Event.eventTitle
+        eventDescription.text = Event.eventDescription
+        eventImage.image = Event.eventImage
+        eventDate.text = Event.eventDate
+        hashtagOne.text = Event.eventTags[0]
+        hashtagTwo.text = Event.eventTags[1]
+        
         
     }
     
