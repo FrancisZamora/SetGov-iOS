@@ -44,28 +44,7 @@ class EventCell: UITableViewCell {
     
     
     func configure() {
-        hashtagTwo.textAlignment = .center
-        hashtagOne.textAlignment = .center
-        hashtagTwo.numberOfLines = 0
-        hashtagOne.numberOfLines = 0
-        let rect = CGRect(x: 20, y: 20, width: 200, height: 200)
-
-        hashtagOne.frame = rect
-        hashtagTwo.frame = rect
-        hashtagTwo.sizeToFit()
-        hashtagOne.sizeToFit()
-        
-        hashtagTwo.layer.backgroundColor = UIColor(red:0.93, green:0.93, blue:0.93, alpha:0.0).cgColor
-        hashtagOne.layer.backgroundColor = UIColor(red:0.93,green:0.93, blue:0.93, alpha:0.0).cgColor
-        hashtagTwo.layer.cornerRadius = hashtagTwo.frame.height/2
-        hashtagOne.layer.cornerRadius = hashtagOne.frame.height/2
-        hashtagOne.clipsToBounds = true
-        hashtagOne.layer.masksToBounds = false
-        hashtagTwo.clipsToBounds = true
-        hashtagTwo.layer.masksToBounds = false
-        eventDate.textAlignment = .center
-        hashtagView2.makeCircular()
-        hashTagView.makeCircular()
+        print("nothing here")
         
     }
     
@@ -74,8 +53,7 @@ class EventCell: UITableViewCell {
         eventDescription.text = Event.eventDescription
         eventImage.image = Event.eventImage
         eventDate.text = Event.eventDate
-        hashtagOne.text = Event.eventTags[0]
-        hashtagTwo.text = Event.eventTags[1]
+     
         
         
     }

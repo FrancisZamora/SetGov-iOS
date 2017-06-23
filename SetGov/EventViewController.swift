@@ -45,7 +45,7 @@ class EventViewController: SetGovTableViewController{
     var finalArray =  [String]()
     var eventAddresses = [String]()
     var eventhashTags = [[String]]()
-    
+    var hrefArray = [String]()
     
     @IBOutlet var cityDisplay: UINavigationItem!
     
@@ -109,6 +109,11 @@ class EventViewController: SetGovTableViewController{
             print(doc.body as Any)
         
             print("continue")
+            
+            let regex = try! NSRegularExpression(pattern: "href='")
+            var newString = " "
+            
+            
         
             for notices in doc.css("a[href*='/public-notices/']") {
                 
@@ -163,12 +168,15 @@ class EventViewController: SetGovTableViewController{
                 print(descriptionArray)
                 print("attempting to print event description")
 
-                let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.caseInsensitive])
+                let regex = try! NSRegularExpression(pattern: "href='")
                 
                 if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
-                    
+                    print("regex string")
                     print("\(showString)\n")
                     print("string was printed once")
+                    
+                    
+                    
                 }
                 print(descriptionArray)
                 
@@ -176,6 +184,18 @@ class EventViewController: SetGovTableViewController{
                 
             }
             
+            for notices in doc.css("<a.+?href='([^']+)") {
+                
+                let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                
+                 let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.caseInsensitive])
+                
+                hrefArray.append(showString)
+
+            }
+                
+            print(hrefArray)
+                
             print(descriptionArray)
             
             for notices in doc.css(".thoroughfare") {
@@ -257,6 +277,10 @@ class EventViewController: SetGovTableViewController{
                         print("string was printed twice")
                         
                     }
+                    
+                    print(eventTimeNoFormat)
+                    print(eventTimeFormatted)
+                    
                     
                     for notices in doc.css(".date-display-single") {
                         
@@ -558,9 +582,7 @@ class EventViewController: SetGovTableViewController{
             eventImage = cell.eventImage.image!
             eventImages.updateValue(eventImage, forKey: indexPath.row)
             
-            if firstTime == true {
-                cell.configure()
-            }
+           
             
             return cell
             
@@ -579,10 +601,9 @@ class EventViewController: SetGovTableViewController{
                 cell.eventOriginalTitle = "City Council"
                 cell.eventTitle.text = spacer + cell.eventOriginalTitle
                 cell.eventDescription.text = "Bi-Monthly meeting"
-                cell.eventDate.text = "May 29th"
+                cell.eventDate.text = "June 23rd"
                 cell.eventImage.image = #imageLiteral(resourceName: "Image-7")
                 //if firstTime == true {
-                cell.configure()
                 //}
                 eventArray.append("6/19/17")
                 eventArray.append(address)
@@ -626,10 +647,9 @@ class EventViewController: SetGovTableViewController{
                 cell.eventOriginalTitle = "City Election"
                 cell.eventTitle.text = spacer + cell.eventOriginalTitle
                 cell.eventDescription.text = "Annual Race for Mayor"
-                cell.eventDate.text = "June 1st"
+                cell.eventDate.text = "June 28th"
                 cell.eventImage.image = #imageLiteral(resourceName: "Image-14")
                 //if firstTime == true {
-                cell.configure()
                 //}
                 time = "3:30pm"
                 eventImage = cell.eventImage.image!
@@ -681,7 +701,6 @@ class EventViewController: SetGovTableViewController{
                 eventArray.append(address)
                 cell.selectionStyle = .none
                // if firstTime == true {
-                cell.configure()
                 //}
             
                 eventArray.append(time)
@@ -716,7 +735,7 @@ class EventViewController: SetGovTableViewController{
                 cell.eventOriginalTitle = "Parks and Recreation"
                 cell.eventTitle.text = spacer + cell.eventOriginalTitle
                 cell.eventDescription.text = "Quarterly meeting"
-                cell.eventDate.text = "June 3rd"
+                cell.eventDate.text = "June 30th"
                 cell.eventImage.image = #imageLiteral(resourceName: "fortlauderdalepark")
                 time = "5:00pm"
                 eventTitle = cell.eventOriginalTitle
@@ -726,7 +745,6 @@ class EventViewController: SetGovTableViewController{
                 eventArray.append(address)
                 cell.selectionStyle = .none
               //  if firstTime == true {
-                cell.configure()
                 //}
                 
                 eventArray.append(time)
@@ -867,9 +885,7 @@ class EventViewController: SetGovTableViewController{
 
 
                 }
-
-                
-            }
+           }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showEvent") {
@@ -886,17 +902,5 @@ class EventViewController: SetGovTableViewController{
             EventDetailViewController.finalArray = finalArray
             EventDetailViewController.EventAddresses = eventAddresses
         }
-        
-
     }
-
-    
-    
-
 }
-
-
-
-
-
-
