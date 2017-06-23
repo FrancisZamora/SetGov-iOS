@@ -200,9 +200,15 @@ class EventViewController: SetGovTableViewController{
             
             for notices in doc.css(".thoroughfare") {
                 
-                let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                var showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                 print("\(showString)\n")
+                
+                if showString.range(of:"Room") != nil {
+                    
+                    showString = "1 City Hall Square"
+                }
                 eventAddresses.append(showString)
+
                 
                 
             }
