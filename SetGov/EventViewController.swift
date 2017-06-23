@@ -896,6 +896,7 @@ class EventViewController: SetGovTableViewController{
             EventDetailViewController.finalArray = finalArray
             EventDetailViewController.EventAddresses = eventAddresses
             EventDetailViewController.hrefArray = hrefArray
+            EventDetailViewController.descriptionArray = descriptionArray
         }
     }
 }

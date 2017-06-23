@@ -17,4 +17,8 @@ class AgendaCell: UICollectionViewCell {
     @IBOutlet var topicLabel: UILabel!
     
     @IBOutlet var agendaPic: UIImageView!
+    
+    func configureCell(title: String) {
+        mLabel.text = title
+    }
 }

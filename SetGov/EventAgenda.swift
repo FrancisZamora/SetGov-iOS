@@ -28,6 +28,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     var agendaArray = [String]()
     var agendaStringArray = [[String]()]
     var agendaTitles = [String]()
+    var descriptionArray = [String]()
     
 
     
@@ -51,14 +52,14 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
             
             for a in doc.css("strong") {
                 
-                let showString = a.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            let showString = a.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                 
-                print(showString)
-                agendaTitles.append(showString)
-                
+            print(showString)
+            agendaTitles.append(showString)
                 
                 
             }
+            
             print(agendaTitles)
 
         
@@ -100,19 +101,23 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
             if (indexPath.row == 0) {
                 
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
-                
+                cell.configureCell(title: agendaTitles[indexPath.row])
+
                 cell.layer.cornerRadius = 10
                 cell.layer.masksToBounds = true
-                cell.mLabel.text = "Tuck Tuck Tour"
-                cell.topicLabel.text = "Licensing"
+                cell.configureCell(title: agendaTitles[indexPath.row])
                 
+                
+                cell.topicLabel.text = descriptionArray[indexofEvent]
                 agendaInfo.updateValue(cell.topicLabel.text!, forKey: indexPath.row)
 
                 return cell
         }
         if (indexPath.row == 1) {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
-
+            print(agendaTitles[1])
+            
+            cell.configureCell(title: agendaTitles[indexPath.row])
             cell.mLabel.text = "Expand Las Olas"
             cell.topicLabel.text = "Ordinance"
             cell.layer.cornerRadius = 10
@@ -126,7 +131,10 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         if (indexPath.row == 2) {
            
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
+                print(agendaTitles)
             
+                cell.configureCell(title: agendaTitles[indexPath.row])
+
                 cell.mLabel.text = "Waterworks"
                 cell.topicLabel.text = "Safety"
                 cell.layer.cornerRadius = 10
@@ -152,11 +160,18 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
+        
         if (indexPath.row == 0 ) {
             index = indexPath.row
             print("ROW 0")
+            
             print(agendaInfo)
+            
+            
+            cell.configureCell(title: agendaTitles[indexPath.row])
             agendaInfo.updateValue(cell.topicLabel.text!, forKey: indexPath.row)
+            print(cell.topicLabel.text)
+            
             print(agendaInfo)
 
             

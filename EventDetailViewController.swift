@@ -39,6 +39,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var finalArray =  [String]()
     var EventAddresses = [String]()
     var hrefArray = [String]()
+    var descriptionArray = [String]()
+
     
   
 
@@ -350,6 +352,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         if(indexPath.row == 2) {
             let agendaCell = tableView.dequeueReusableCell(withIdentifier: "EventAgenda", for:indexPath) as! EventAgenda
             agendaCell.selectionStyle = .none
+            agendaCell.descriptionArray = descriptionArray
             agendaCell.agendaInfo = agendaInfo
             agendaCell.selectedCity = selectedCity
             print(agendaInfo)
