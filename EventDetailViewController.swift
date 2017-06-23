@@ -39,7 +39,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var finalArray =  [String]()
     var EventAddresses = [String]()
     var hrefArray = [String]()
-
+    
   
 
 
@@ -56,7 +56,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         self.loadTitle()
         print(agendaInfo)
         print(indexofEvent)
-        self.prepareAgenda()
         
         
         
@@ -78,28 +77,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     }
     
     
-    func prepareAgenda() {
-        let secondUrl =  hrefArray[indexofEvent]
-        let url = URL(string: "https://www.boston.gov" + secondUrl)
-    
-        print(url as Any)
-        
-        print("continue")
-        guard let doc = HTML(url: url!, encoding: .utf8) else  {
-            return
-        }
-        for notices in doc.css(".body") {
-            
-           
-            let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-            
-            print(showString)
-            
-        }
-        
-        
-    }
-    
+
     
         
         
@@ -373,9 +351,12 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             let agendaCell = tableView.dequeueReusableCell(withIdentifier: "EventAgenda", for:indexPath) as! EventAgenda
             agendaCell.selectionStyle = .none
             agendaCell.agendaInfo = agendaInfo
+            agendaCell.selectedCity = selectedCity
             print(agendaInfo)
             agendaCell.index = Index
             agendaCell.eventAgendaCallback = self
+            agendaCell.indexofEvent = indexofEvent
+            agendaCell.hrefArray = hrefArray
             print("HELLO")
             
             return agendaCell

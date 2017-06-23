@@ -22,7 +22,14 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     var agendaInfo = [Int: String]()
     var index = 0
     weak var eventAgendaCallback: EventAgendaCallback!
+    var hrefArray = [String]()
+    var indexofEvent = 0
+    var selectedCity = " "
+    var agendaArray = [String]()
+    var agendaStringArray = [[String]()]
+    var agendaTitles = [String]()
     
+
     
     override func awakeFromNib() {
         print("EventAgenda")
@@ -30,7 +37,66 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         agendaCollectionView.dataSource = self
     }
     
+    func prepareAgenda() {
+        if selectedCity == "Boston" {
+            let secondUrl =  hrefArray[indexofEvent]
+            let url = URL(string: "https://www.boston.gov" + secondUrl)
+        
+            print(url as Any)
+        
+            print("continue")
+            guard let doc = HTML(url: url!, encoding: .utf8) else  {
+                return
+            }
+            
+            for a in doc.css("strong") {
+                
+                let showString = a.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                
+                print(showString)
+                agendaTitles.append(showString)
+                
+                
+                
+            }
+            print(agendaTitles)
+
+        
+            for link in doc.css(".body") {
+                // print(link.text)
+                let showString = link.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            
+                let agendaString = showString.components(separatedBy: "\n")
+                print(agendaString)
+                let agendaTitle = [agendaString][0]
+                agendaStringArray.append([agendaTitle][0])
+            
+            
+            }
+            print(agendaStringArray)
+        
+            print(agendaArray)
+    
+    
+        for notices in doc.css(".body") {
+            
+            
+            let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            
+            print(showString)
+            
+        }
+        
+        
+        }
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        
+        self.prepareAgenda()
+        
             if (indexPath.row == 0) {
                 
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
