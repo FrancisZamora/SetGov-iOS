@@ -596,8 +596,7 @@ class EventViewController: SetGovTableViewController{
             if indexPath.row == 0 {
                 print("CELL IS ONE")
                 let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-                cell.hashtagOne.text = "environmental"
-                cell.hashtagTwo.text = "committee"
+                
                 cell.eventOriginalTitle = "City Council"
                 cell.eventTitle.text = spacer + cell.eventOriginalTitle
                 cell.eventDescription.text = "Bi-Monthly meeting"
@@ -642,8 +641,6 @@ class EventViewController: SetGovTableViewController{
                 print("CELL IS TWO")
 
                 let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-                cell.hashtagOne.text = "bureaucracy"
-                cell.hashtagTwo.text = "engagement"
                 cell.eventOriginalTitle = "City Election"
                 cell.eventTitle.text = spacer + cell.eventOriginalTitle
                 cell.eventDescription.text = "Annual Race for Mayor"
@@ -685,9 +682,6 @@ class EventViewController: SetGovTableViewController{
                 print("eventTitle")
                 print("CELL IS THREE")
 
-                
-                cell.hashtagOne.text = "fire-safety"
-                cell.hashtagTwo.text = "committee"
                 cell.eventOriginalTitle = "Fire-Rescue"
                 cell.eventTitle.text = spacer + cell.eventOriginalTitle
                 cell.eventDescription.text = "Quarterly meeting"
@@ -729,9 +723,6 @@ class EventViewController: SetGovTableViewController{
                 print("eventTitle")
                 print("CELL IS THREE")
                 
-                
-                cell.hashtagOne.text = "natural"
-                cell.hashtagTwo.text = "legislation"
                 cell.eventOriginalTitle = "Parks and Recreation"
                 cell.eventTitle.text = spacer + cell.eventOriginalTitle
                 cell.eventDescription.text = "Quarterly meeting"
