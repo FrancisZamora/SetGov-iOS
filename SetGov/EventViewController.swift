@@ -82,7 +82,13 @@ class EventViewController: SetGovTableViewController{
         self.splitEventDescription()
         self.seperateTime()
         self.fetchEventData()
+        if selectedCity == "Boston" {
+            self.hrefArray.remove(at: 0)
+            print(hrefArray)
+            print("we made it")
 
+        }
+            
         
         
     }
@@ -110,12 +116,37 @@ class EventViewController: SetGovTableViewController{
         
             print("continue")
             
-            let regex = try! NSRegularExpression(pattern: "href='")
-            var newString = " "
+            //let regex =  try !NSRegularExpression (pattern:"<a\shref=\'(.*?)\'>.*?</a>")
             
+           // var modifiedString = [regex stringByReplacingMatchesInString:inputString options:0 range:NSMakeRange(0, [inputString length]) withTemplate:@"$1"];
             
-        
+
+            
+           // let regex = try! NSRegularExpression(pattern: "href='")
+            //var newString = " "
+            
+            for link in doc.css("a, link") {
+                print(link.text)
+                guard let uneditedHref = link["href"] else {
+                    return
+                }
+                
+                if uneditedHref.range(of:"/public-notices/") != nil {
+                    hrefArray.append(uneditedHref)
+
+                }
+                
+                
+                
+            }
+            
+            print(hrefArray)
+    
             for notices in doc.css("a[href*='/public-notices/']") {
+                print("configuring new string")
+                //var newString = notices.
+                //newString.
+               // print(newString)
                 
                 var showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                 print("\(showString)\n")
@@ -187,19 +218,7 @@ class EventViewController: SetGovTableViewController{
             }
             
             
-            for notices in doc.css("<a.+?href='([^']+)") {
-                
-                let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                
-                 let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.caseInsensitive])
-                
-                hrefArray.append(showString)
-
-            }
-                
-            print(hrefArray)
-                
-            print(descriptionArray)
+  
             
             for notices in doc.css(".thoroughfare") {
                 
@@ -217,32 +236,7 @@ class EventViewController: SetGovTableViewController{
             }
 
             
-            for link in doc.css("a ,img") {
-                print(link.text)
-                
-                
-                
-                //let showString = departments.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                //print("\(showString)\n")
-                //var tempArray = showString.components(separatedBy: ",")
-                //print(showString)
-                
-                //if tempArray.count == 1 {
-                //tempArray.append("engagement")
-                //}
-                
-              //  eventhashTags.append(tempArray)
-                
-                
 
-                
-                
-                
-           
-            }
-            print(eventhashTags)
-            
-            print(eventAddresses)
             
         
                 for notices in doc.css(".date-display-single") {
@@ -901,6 +895,7 @@ class EventViewController: SetGovTableViewController{
             EventDetailViewController.eventTimeFormatted = eventTimeFormatted
             EventDetailViewController.finalArray = finalArray
             EventDetailViewController.EventAddresses = eventAddresses
+            EventDetailViewController.hrefArray = hrefArray
         }
     }
 }

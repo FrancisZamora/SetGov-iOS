@@ -38,7 +38,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var eventHours = [String]()
     var finalArray =  [String]()
     var EventAddresses = [String]()
-
+    var hrefArray = [String]()
 
   
 
@@ -56,6 +56,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         self.loadTitle()
         print(agendaInfo)
         print(indexofEvent)
+        self.prepareAgenda()
         
         
         
@@ -76,6 +77,28 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         }
     }
     
+    
+    func prepareAgenda() {
+        let secondUrl =  hrefArray[indexofEvent]
+        let url = URL(string: "https://www.boston.gov" + secondUrl)
+    
+        print(url as Any)
+        
+        print("continue")
+        guard let doc = HTML(url: url!, encoding: .utf8) else  {
+            return
+        }
+        for notices in doc.css(".body") {
+            
+           
+            let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            
+            print(showString)
+            
+        }
+        
+        
+    }
     
     
         
