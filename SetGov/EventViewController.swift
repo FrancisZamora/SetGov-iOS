@@ -117,8 +117,10 @@ class EventViewController: SetGovTableViewController{
         
             for notices in doc.css("a[href*='/public-notices/']") {
                 
-                let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                var showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                 print("\(showString)\n")
+                showString = showString.capitalized  // "Castration: The Advantages And The Disadvantages"
+
                 titleEvents.updateValue(showString, forKey: self.numIterations)
                 let currentValue = titleEvents[self.numIterations]
                 var newArray = currentValue?.components(separatedBy: ",")
@@ -183,6 +185,7 @@ class EventViewController: SetGovTableViewController{
                 arrayEvents.append(showString)
                 
             }
+            
             
             for notices in doc.css("<a.+?href='([^']+)") {
                 
