@@ -22,6 +22,7 @@ class EventLiveStream: UITableViewCell {
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var liveView: UIView!
     @IBOutlet var liveTitle: UILabel!
+    var selectedCity = " "
     var timer = Timer()
     var counter = 0
     
@@ -100,13 +101,27 @@ class EventLiveStream: UITableViewCell {
     
     
     func playVideo () {
-        let youtubeURL = "https://www.youtube.com/embed/r2bswv815M8"
-        streamView.loadHTMLString("<iframe width=\"\(streamView.frame.width)\" height=\"\(streamView.frame.height)\" src=\"\(youtubeURL)?&playsinline=1\" frameborder=\"0\" allowfullscreen></iframe>", baseURL:nil)
+        if selectedCity == "Boston" {
+            let youtubeURL = "https://www.youtube.com/embed/r2bswv815M8"
+            
+            
+            // streamView.loadHTMLString("<iframe width=\"\(streamView.frame.width)\" height=\"\(streamView.frame.height)\" src=\"\(youtubeURL)?&playsinline=1\" frameborder=\"0\" allowfullscreen></iframe>", baseURL:nil)
+            streamView.allowsInlineMediaPlayback = true
+            streamView.mediaPlaybackRequiresUserAction = false
+            
+        }
+        
+        if selectedCity == "Fort Lauderdale" {
+        let youtubeURL = "https://fortlauderdale.granicus.com/MediaPlayer.php?view_id=2&clip_id=732&embed=1"
+        streamView.loadHTMLString("<iframe width= 500 height= 400 frameborder= 0 src=\"\(youtubeURL)?&playsinline=1\" frameborder=\"0\" allowfullscreen></iframe>", baseURL:nil)
+      // streamView.loadHTMLString("<iframe width=\"\(streamView.frame.width)\" height=\"\(streamView.frame.height)\" src=\"\(youtubeURL)?&playsinline=1\" frameborder=\"0\" allowfullscreen></iframe>", baseURL:nil)
         streamView.allowsInlineMediaPlayback = true
         streamView.mediaPlaybackRequiresUserAction = false
 
 
       
+        }
+    
     }
     
     

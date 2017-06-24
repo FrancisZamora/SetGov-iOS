@@ -252,6 +252,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 
                 let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream") as! EventLiveStream
                 eventLiveStream.selectionStyle = .none
+                eventLiveStream.selectedCity = selectedCity
                 eventLiveStream.switchTitleOn()
                 print ("returning stream")
                 eventLiveStream.configure()
@@ -267,6 +268,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 
                 let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream") as! EventLiveStream
                 eventLiveStream.selectionStyle = .none
+                eventLiveStream.selectedCity = selectedCity
                 eventLiveStream.switchTitleOn()
                 print ("returning stream")
                 eventLiveStream.configure()

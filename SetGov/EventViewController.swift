@@ -126,7 +126,7 @@ class EventViewController: SetGovTableViewController{
             //var newString = " "
             
             for link in doc.css("a, link") {
-                print(link.text)
+                print(link.text as Any)
                 guard let uneditedHref = link["href"] else {
                     return
                 }
@@ -155,15 +155,15 @@ class EventViewController: SetGovTableViewController{
                 titleEvents.updateValue(showString, forKey: self.numIterations)
                 let currentValue = titleEvents[self.numIterations]
                 var newArray = currentValue?.components(separatedBy: ",")
-                print(newArray)
-                print(newArray?.count)
+                print(newArray as Any)
+                print(newArray?.count as Any)
                 
                 
                 guard let x = (newArray?.count)  else {
                     return
                 }
                 
-                guard var lastElement = newArray?[x-1] else {
+                guard let lastElement = newArray?[x-1] else {
                     return
                 }
                 eventID.append(lastElement)
@@ -368,13 +368,13 @@ class EventViewController: SetGovTableViewController{
             }
         
             if selectedCity == "Fort Lauderdale" {
-                let url = URL(string: "https://fortlauderdale.legistar.com/Calendar.aspx")
-                print(url as Any)
+                //let url = URL(string: "https://fortlauderdale.legistar.com/Calendar.aspx")
+                //print(url as Any)
                // print("continue")
                 
-                guard let doc = HTML(url: url!, encoding: .utf8) else  {
-                    return
-                }
+               // guard let doc = HTML(url: url!, encoding: .utf8) else  {
+                 //   return
+                //}
               //  print(doc.title as Any)
                 //print(doc.body as Any)
                 
@@ -404,6 +404,7 @@ class EventViewController: SetGovTableViewController{
                 print("loop codeblock")
                 //print(arrayEvents)
                 //let array: [String] = arrayEvents
+                /*
                 let array: [String] = ["Meeting details", "Meeting details","Meeting details","Meeting details",]
                 for (index, value) in arrayEvents.enumerated().reversed() {
                     let s1 = value
@@ -419,6 +420,7 @@ class EventViewController: SetGovTableViewController{
                         print("VALUES EQUAL")
                     }
                 }
+                */
 
     
             }

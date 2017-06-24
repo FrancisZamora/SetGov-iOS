@@ -97,7 +97,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         
         
         self.prepareAgenda()
-        
+        if selectedCity == "Boston" {
             if (indexPath.row == 0) {
                 
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
@@ -146,6 +146,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
                 return cell
             
         }
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
         
         cell.layer.cornerRadius = 10
@@ -170,7 +171,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
             
             cell.configureCell(title: agendaTitles[indexPath.row])
             agendaInfo.updateValue(cell.topicLabel.text!, forKey: indexPath.row)
-            print(cell.topicLabel.text)
+            print(cell.topicLabel.text as Any)
             
             print(agendaInfo)
 
