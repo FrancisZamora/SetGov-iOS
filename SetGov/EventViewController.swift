@@ -46,17 +46,9 @@ class EventViewController: SetGovTableViewController{
     var eventAddresses = [String]()
     var eventhashTags = [[String]]()
     var hrefArray = [String]()
+    var fortLauderdaleEvents = [String]()
     
     @IBOutlet var cityDisplay: UINavigationItem!
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     func isEven (num:Int) -> Bool {
         if num % 2 == 0 {
@@ -88,23 +80,14 @@ class EventViewController: SetGovTableViewController{
             print("we made it")
 
         }
-            
-        
-        
     }
-    
-    
-    
     
     override func viewDidAppear(_ animated: Bool) {
     }
     
-
-    
-    //fetching data
     func parseHTML(html:String) -> Void {
-        print("parse fort lauderdale successfully called")
         if selectedCity == "Boston" {
+            print("parsing Boston")
             let url = URL(string: "https://www.boston.gov/public-notices")
             print(url as Any)
             print("continue")
@@ -239,7 +222,7 @@ class EventViewController: SetGovTableViewController{
 
             
         
-                for notices in doc.css(".date-display-single") {
+            for notices in doc.css(".date-display-single") {
 
                     self.numIterations = 0
                    
@@ -368,68 +351,27 @@ class EventViewController: SetGovTableViewController{
             }
         
             if selectedCity == "Fort Lauderdale" {
-                //let url = URL(string: "https://fortlauderdale.legistar.com/Calendar.aspx")
-                //print(url as Any)
-               // print("continue")
-                
-               // guard let doc = HTML(url: url!, encoding: .utf8) else  {
-                 //   return
-                //}
-              //  print(doc.title as Any)
-                //print(doc.body as Any)
-                
-                //print("continue")
-                /*
-                for notices in doc.css("<a.+?href='([^']+)") {
-                    
-                    var showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                    print("\(showString)\n")
-                    titleEvents.updateValue(showString, forKey: numIterations)
-                    numIterations = numIterations + 1
-                    //print(titleEvents)
-                    
-                    let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.caseInsensitive])
-                    
-                    if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
-                        
-                    //   print("\(showString)\n")
-                      // print("string was printed once")
-                    }
-                    showString = String(showString)
-                    arrayEvents.append(showString)
-                    
+                print("parsing Fort Lauderdale")
+                let url = URL(string: "https://fortlauderdale.legistar.com/Calendar.aspx")
+                             guard let doc = HTML(url: url!, encoding: .utf8) else  {
+                    return
                 }
-                */
-    
-                print("loop codeblock")
-                //print(arrayEvents)
-                //let array: [String] = arrayEvents
-                /*
-                let array: [String] = ["Meeting details", "Meeting details","Meeting details","Meeting details",]
-                for (index, value) in arrayEvents.enumerated().reversed() {
-                    let s1 = value
-                    let s2 = "Meeting details"
-                    print(s1)
-                    print(s2)
-                    print(s1.characters.count)
-                    print(s2.characters.count)
+                
+                for events in doc.css(".rgRow") {
+                    let showString = events.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                    var newArray = showString.components(separatedBy: "\n")
                     
-                    print(s1==s2)
+                    print(showString)
+                    print(newArray)
+                    fortLauderdaleEvents.append(showString)
                     
-                    if(s1 == s2) {
-                        print("VALUES EQUAL")
-                    }
-                }
-                */
 
+                }
+               
     
             }
         }
   
-    
-    //parse data
-    
-    
     func splitEventDescription() {
         var x = 0
         for (_) in eventDescriptions {
