@@ -49,7 +49,7 @@ class EventViewController: SetGovTableViewController{
     var fortLauderdaleEvents = [[String]]()
     var fortLauderdaleTitles = [String]()
     var fortLauderdaleDates = [String]()
-    var fortLauderdaleDictionary = [String:[String]]()
+    var fortLauderdaleDictionary = [Date:[String]]()
     var fortLauderdaleDate = [String]()
     
     
@@ -385,8 +385,11 @@ class EventViewController: SetGovTableViewController{
                     fortLauderdaleEvents.append(newArray)
                     fortLauderdaleEvents[numIterations][0] = fortLauderdaleEvents[numIterations][0].capitalized
                     fortLauderdaleEvents[numIterations][1] = fortLauderdaleEvents[numIterations][1].trimmingCharacters(in: .whitespaces)
-                    
-                    fortLauderdaleDictionary.updateValue(fortLauderdaleEvents[numIterations], forKey: (fortLauderdaleEvents[numIterations][1]))
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "MM/dd/yyyy"
+                    if let date = formatter.date(from: fortLauderdaleEvents[numIterations][1]) {
+                        fortLauderdaleDictionary.updateValue(fortLauderdaleEvents[numIterations], forKey: date)
+                    }
                     
                     
                     self.numIterations = self.numIterations + 1
@@ -410,32 +413,24 @@ class EventViewController: SetGovTableViewController{
         print(day)
         print(month)
         
+        
         for (key, value) in fortLauderdaleDictionary {
-            let x = key
-            fortLauderdaleDate = x.components(separatedBy: "/")
-            print(fortLauderdaleDate)
-            
-            guard let  eventMonth = Int(fortLauderdaleDate[0]) else {
-                return
-            }
-            print(eventMonth)
-            guard let eventDay = Int(fortLauderdaleDate[1]) else {
-                return
-            }
-            print(eventDay)
-            
-            if eventMonth <= 6 && eventDay < day {
-                print(x)
-                fortLauderdaleDictionary.removeValue(forKey: x)
+            if calendar.component(.month, from: key) <= month && calendar.component(.day, from: key) < day {
+                fortLauderdaleDictionary.removeValue(forKey: key)
                 
-            
             }
-            
             
         }
         
-        let sortedKeys = Array(fortLauderdaleDictionary.keys).sorted(by: >) // ["A", "D", "Z"]
-        print(sortedKeys.reversed())
+        
+        let keys = Array(fortLauderdaleDictionary.keys)
+        let sorted = keys.sorted(by: {$0.timeIntervalSince1970 < $1.timeIntervalSince1970})
+        for sort in sorted {
+            print("SORT: \(sort)")
+        }
+        
+//        let sortedKeys = Array(fortLauderdaleDictionary.keys).sorted { ($0["1/1/2017"]) < ($1["12/31/2017"]) } // ["A", "D", "Z"]
+//        print(sortedKeys.reversed())
         
         
         
