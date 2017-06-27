@@ -82,6 +82,7 @@ class EventViewController: SetGovTableViewController{
         self.filterDictionary()
         print(fortLauderdaleDictionary)
         
+        
         if selectedCity == "Boston" {
             self.hrefArray.remove(at: 0)
             print(hrefArray)
@@ -404,28 +405,49 @@ class EventViewController: SetGovTableViewController{
     func filterDictionary() {
         let date = Date()
         let calendar = Calendar.current
+        let month = calendar.component(.month, from: date)
         let day = calendar.component(.day, from: date)
-
+        print(day)
+        print(month)
         
-        for (key, _) in fortLauderdaleDictionary {
+        for (key, value) in fortLauderdaleDictionary {
             let x = key
             fortLauderdaleDate = x.components(separatedBy: "/")
+            print(fortLauderdaleDate)
+            
             guard let  eventMonth = Int(fortLauderdaleDate[0]) else {
                 return
             }
+            print(eventMonth)
             guard let eventDay = Int(fortLauderdaleDate[1]) else {
                 return
             }
+            print(eventDay)
             
-            if eventMonth < 6 && eventDay < day {
+            if eventMonth <= 6 && eventDay < day {
+                print(x)
                 fortLauderdaleDictionary.removeValue(forKey: x)
                 
-            }
-        }
             
+            }
+            
+            
+        }
+        
+        let sortedKeys = Array(fortLauderdaleDictionary.keys).sorted(by: >) // ["A", "D", "Z"]
+        print(sortedKeys.reversed())
+        
+        
+        
+        print(fortLauderdaleDictionary)
+        
         
     }
     
+
+
+
+
     
     func splitEventDescription() {
         var x = 0
