@@ -46,7 +46,12 @@ class EventViewController: SetGovTableViewController{
     var eventAddresses = [String]()
     var eventhashTags = [[String]]()
     var hrefArray = [String]()
-    var fortLauderdaleEvents = [String]()
+    var fortLauderdaleEvents = [[String]]()
+    var fortLauderdaleTitles = [String]()
+    var fortLauderdaleDates = [String]()
+    var fortLauderdaleDictionary = [String:[String]]()
+    var fortLauderdaleDate = [String]()
+    
     
     @IBOutlet var cityDisplay: UINavigationItem!
     
@@ -74,6 +79,9 @@ class EventViewController: SetGovTableViewController{
         self.splitEventDescription()
         self.seperateTime()
         self.fetchEventData()
+        self.filterDictionary()
+        print(fortLauderdaleDictionary)
+        
         if selectedCity == "Boston" {
             self.hrefArray.remove(at: 0)
             print(hrefArray)
@@ -357,21 +365,68 @@ class EventViewController: SetGovTableViewController{
                     return
                 }
                 
+                numIterations = 0
+                
                 for events in doc.css(".rgRow") {
-                    let showString = events.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                    
+                    var showString = events.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                    let trimmedString = showString.trimmingCharacters(in: .whitespacesAndNewlines)
+                    print(showString)
+                    
                     var newArray = showString.components(separatedBy: "\n")
                     
                     print(showString)
                     print(newArray)
-                    fortLauderdaleEvents.append(showString)
                     
+                    
+                    print(showString)
+                    
+                    fortLauderdaleEvents.append(newArray)
+                    fortLauderdaleEvents[numIterations][0] = fortLauderdaleEvents[numIterations][0].capitalized
+                    fortLauderdaleEvents[numIterations][1] = fortLauderdaleEvents[numIterations][1].trimmingCharacters(in: .whitespaces)
+                    
+                    fortLauderdaleDictionary.updateValue(fortLauderdaleEvents[numIterations], forKey: (fortLauderdaleEvents[numIterations][1]))
+                    
+                    
+                    self.numIterations = self.numIterations + 1
 
                 }
-               
+                print(fortLauderdaleDictionary)
+                
+                
+                print(fortLauderdaleEvents.count)
+                print(fortLauderdaleEvents[0][1])
     
             }
         }
-  
+    
+    
+    func filterDictionary() {
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+
+        
+        for (key, _) in fortLauderdaleDictionary {
+            let x = key
+            fortLauderdaleDate = x.components(separatedBy: "/")
+            guard let  eventMonth = Int(fortLauderdaleDate[0]) else {
+                return
+            }
+            guard let eventDay = Int(fortLauderdaleDate[1]) else {
+                return
+            }
+            
+            if eventMonth < 6 && eventDay < day {
+                fortLauderdaleDictionary.removeValue(forKey: x)
+                
+            }
+        }
+            
+        
+    }
+    
+    
     func splitEventDescription() {
         var x = 0
         for (_) in eventDescriptions {
@@ -403,7 +458,7 @@ class EventViewController: SetGovTableViewController{
             return
         }
         arrayEvents.remove(at: 0)
-        for (index, value) in eventTimeNoFormat.enumerated() {
+        for (index, _) in eventTimeNoFormat.enumerated() {
             
             //print(eventTimeNoFormat[numIterations])
             //print(eventHours[numIterations][0])
