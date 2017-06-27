@@ -51,6 +51,7 @@ class EventViewController: SetGovTableViewController{
     var fortLauderdaleDates = [String]()
     var fortLauderdaleDictionary = [Date:[String]]()
     var fortLauderdaleDate = [String]()
+    var fortlauderdaleArray = [[String]()]
     
     
     @IBOutlet var cityDisplay: UINavigationItem!
@@ -78,8 +79,8 @@ class EventViewController: SetGovTableViewController{
         self.parseHTML(html: "swag")
         self.splitEventDescription()
         self.seperateTime()
-        self.fetchEventData()
         self.filterDictionary()
+        self.fetchEventData()
         print(fortLauderdaleDictionary)
         
         
@@ -415,7 +416,13 @@ class EventViewController: SetGovTableViewController{
         
         
         for (key, value) in fortLauderdaleDictionary {
-            if calendar.component(.month, from: key) <= month && calendar.component(.day, from: key) < day {
+            print(key)
+            print(month)
+            print(calendar.component(.month, from: key ))
+            var x = calendar.component(.month, from: key) == month && calendar.component(.day, from: key) < day
+            var y = calendar.component(.month, from: key) < month
+             if x == true  || y == true {
+                print(key)
                 fortLauderdaleDictionary.removeValue(forKey: key)
                 
             }
@@ -423,21 +430,27 @@ class EventViewController: SetGovTableViewController{
         }
         
         
+        
         let keys = Array(fortLauderdaleDictionary.keys)
+        print(keys)
+       
         let sorted = keys.sorted(by: {$0.timeIntervalSince1970 < $1.timeIntervalSince1970})
         for sort in sorted {
             print("SORT: \(sort)")
+            guard let y = fortLauderdaleDictionary[sort] else {
+                return
+            }
+            fortlauderdaleArray.append(y)
+            
+
+            
         }
         
-//        let sortedKeys = Array(fortLauderdaleDictionary.keys).sorted { ($0["1/1/2017"]) < ($1["12/31/2017"]) } // ["A", "D", "Z"]
-//        print(sortedKeys.reversed())
-        
-        
-        
-        print(fortLauderdaleDictionary)
-        
+        print(fortlauderdaleArray)
         
     }
+    
+    
     
 
 
@@ -503,8 +516,32 @@ class EventViewController: SetGovTableViewController{
     }
     
     
-     func fetchEventData() {
-        
+   func fetchEventData() {
+    fortlauderdaleArray.remove(at: 0)
+    if selectedCity == "Fort Lauderdale" {
+        for (index,value) in fortlauderdaleArray.enumerated() {
+            print("INDEX: \(index)")
+            
+            let dateformatter = DateFormatter()
+            dateformatter.dateStyle = DateFormatter.Style.medium
+            print(fortlauderdaleArray.count)
+            print("ARRAY STARTS HERE")
+            print(fortlauderdaleArray)
+            print(index)
+            print(fortlauderdaleArray[0][0])
+            
+            
+
+            
+            let now = dateformatter.date(from: fortlauderdaleArray[index][1])
+            var casted = String(describing: now)
+            var castedArray = casted.components(separatedBy:",")
+            let date = castedArray[0]
+            //let split = now.components.
+           // let event = Event(eventTitle: fortlauderdaleArray[index][0], eventAddress: , eventUsers: <#T##[String]#>, eventDescription: <#T##String#>, eventDate: , eventImageName: <#T##String#>, eventTime: <#T##String#>, eventTags: <#T##[String]#>, loggedUser: <#T##User#>)
+        }
+    }
+    
      if selectedCity == "Boston" {
         for (index, value) in arrayEvents.enumerated() {
             print(descriptionArray[0])
@@ -606,7 +643,14 @@ class EventViewController: SetGovTableViewController{
             return cell
             
         }
-    
+        // if selectedCity == "Fort Lauderdale {
+        //  let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventCell
+        //  cell.selectionStye = .none
+        //  cell.editCell(Event:dataList[indexPath.row])
+        //  eventImage = cell.eventImage.image!
+        //  eventImages.updateValue(eventImage,forKey: indexPath.row)
+        //  return cell
+        
         
         if selectedCity == "Fort Lauderdale" {
             //dataList[indexPath.row[]
