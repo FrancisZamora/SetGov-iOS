@@ -147,6 +147,21 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
             
         }
         }
+        if selectedCity == "Fort Lauderdale" {
+            self.prepareAgenda()
+
+            if (indexPath.row == 0) {
+                
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
+                cell.mLabel.text = "Agenda"
+                cell.topicLabel.text = " "
+                cell.layer.cornerRadius = 10
+                cell.layer.masksToBounds = true
+                
+                agendaInfo.updateValue(cell.topicLabel.text!, forKey: indexPath.row)
+                
+            }
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
         
         cell.layer.cornerRadius = 10
@@ -156,6 +171,9 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if selectedCity == "Fort Lauderdale" {
+            return 2
+        }
         return 3
     }
     

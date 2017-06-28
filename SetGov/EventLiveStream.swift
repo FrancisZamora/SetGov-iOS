@@ -102,10 +102,9 @@ class EventLiveStream: UITableViewCell {
     
     func playVideo () {
         if selectedCity == "Boston" {
-            let youtubeURL = "https://fortlauderdale.granicus.com/MediaPlayer.php?view_id=2&clip_id=732&embed=1"
-            streamView.loadHTMLString("<iframe width= 500 height= 400 frameborder= 0 src=\"\(youtubeURL)?&playsinline=1&autostart=1\" frameborder=\"0\" allowfullscreen></iframe>", baseURL:nil)
-          //  let youtubeURL = "https://www.youtube.com/embed/r2bswv815M8"
-            //streamView.loadHTMLString("<iframe width=\"\(streamView.frame.width)\" height=\"\(streamView.frame.height)\" src=\"\(youtubeURL)?&playsinline=1\" frameborder=\"0\" allowfullscreen></iframe>", baseURL:nil)
+            
+           let youtubeURL = "https://www.youtube.com/embed/r2bswv815M8"
+           streamView.loadHTMLString("<iframe width=\"\(streamView.frame.width)\" height=\"\(streamView.frame.height)\" src=\"\(youtubeURL)?&playsinline=1\" frameborder=\"0\" allowfullscreen></iframe>", baseURL:nil)
             streamView.allowsInlineMediaPlayback = true
             streamView.mediaPlaybackRequiresUserAction = false
             
