@@ -312,6 +312,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             }
             
             if selectedCity == "Fort Lauderdale" {
+                print(fortlauderdaleArray)
+                
                 let formatter = DateFormatter()
                 formatter.dateFormat = "MM/dd/yy"
                 formatter.dateStyle = .short
