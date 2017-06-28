@@ -596,47 +596,46 @@
                                     <outlet property="profilePicture6" destination="Obz-Fv-gcQ" id="ajg-Uy-3gC"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventDiscussion" rowHeight="280" id="MYI-qh-THg" customClass="EventDiscussion" customModule="SetGov" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="572" width="375" height="280"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventDiscussion" rowHeight="94" id="MYI-qh-THg" customClass="EventDiscussion" customModule="SetGov" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="572" width="375" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MYI-qh-THg" id="IwL-Ej-qcu">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="279.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discussion Thread" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BkO-Qn-kHr">
-                                            <rect key="frame" x="8" y="8" width="203" height="55"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="203" id="Ien-Uy-adf"/>
-                                                <constraint firstAttribute="height" constant="55" id="zeq-kr-wTp"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                            <color key="textColor" red="0.087962217628955841" green="0.19097673892974854" blue="0.38617235422134399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image-16" translatesAutoresizingMaskIntoConstraints="NO" id="EQk-aK-ot8">
+                                            <rect key="frame" x="8" y="8" width="19" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYn-zV-rkD">
+                                            <rect key="frame" x="8" y="28" width="25" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.13333333333333333" green="0.19215686274509802" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TfD-vn-xwg">
-                                            <rect key="frame" x="41" y="71" width="303" height="173.5"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <string key="text">Ofc. Clemons continued that "wake boats," which are designed to create a large wake for surfers, are becoming an issue in the area. Most of these boats are over 21ft. in lengh with twin engines; however, if smaller single engine vessels become common this problem can be reduced.</string>
-                                            <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        </textView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="PTh-6c-2Gh" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
+                                            <rect key="frame" x="41" y="21" width="35" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="35" id="iiw-l6-mj2"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Francis Zamora" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIJ-qa-E8Q">
+                                            <rect key="frame" x="84" y="17" width="75" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image-15" translatesAutoresizingMaskIntoConstraints="NO" id="FhQ-IO-pRS">
+                                            <rect key="frame" x="8" y="50" width="19" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="TfD-vn-xwg" firstAttribute="top" secondItem="BkO-Qn-kHr" secondAttribute="bottom" constant="8" symbolic="YES" id="9LQ-0c-nG5"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="TfD-vn-xwg" secondAttribute="trailing" constant="23" id="BL4-j3-DPe"/>
-                                        <constraint firstItem="BkO-Qn-kHr" firstAttribute="leading" secondItem="IwL-Ej-qcu" secondAttribute="leadingMargin" id="NDD-1K-SNE"/>
-                                        <constraint firstItem="BkO-Qn-kHr" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" id="OXe-zY-Iad"/>
-                                        <constraint firstItem="TfD-vn-xwg" firstAttribute="leading" secondItem="IwL-Ej-qcu" secondAttribute="leadingMargin" constant="33" id="TS6-GK-FYB"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="TfD-vn-xwg" secondAttribute="bottom" constant="27" id="yfD-d5-ROR"/>
-                                    </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="commentField" destination="TfD-vn-xwg" id="2bf-GC-MDK"/>
-                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventLiveStream" rowHeight="216" id="5GD-rW-UBB" customClass="EventLiveStream" customModule="SetGov" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="852" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="666" width="375" height="216"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5GD-rW-UBB" id="CER-XE-Gh6">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="215.5"/>
@@ -1209,6 +1208,8 @@
         <image name="Image-1" width="160" height="160"/>
         <image name="Image-10" width="130" height="96"/>
         <image name="Image-11" width="401" height="205"/>
+        <image name="Image-15" width="12" height="7"/>
+        <image name="Image-16" width="12" height="7"/>
         <image name="Image-2" width="160" height="160"/>
         <image name="Image-3" width="819" height="819"/>
         <image name="Image-4" width="160" height="160"/>
