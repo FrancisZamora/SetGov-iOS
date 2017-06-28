@@ -603,35 +603,63 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image-16" translatesAutoresizingMaskIntoConstraints="NO" id="EQk-aK-ot8">
-                                            <rect key="frame" x="8" y="8" width="19" height="19"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-15" translatesAutoresizingMaskIntoConstraints="NO" id="FhQ-IO-pRS">
+                                            <rect key="frame" x="8" y="50" width="19" height="19"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="19" id="m9C-Nr-h4L"/>
+                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYn-zV-rkD">
-                                            <rect key="frame" x="8" y="28" width="25" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-16" translatesAutoresizingMaskIntoConstraints="NO" id="EQk-aK-ot8">
+                                            <rect key="frame" x="8" y="8" width="19" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="mPw-8b-fJY"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="tYn-zV-rkD">
+                                            <rect key="frame" x="8" y="29" width="25" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.13333333333333333" green="0.19215686274509802" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="PTh-6c-2Gh" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="PTh-6c-2Gh" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
                                             <rect key="frame" x="41" y="21" width="35" height="35"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="35" id="iiw-l6-mj2"/>
+                                                <constraint firstAttribute="width" constant="35" id="ydh-3L-ik3"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Francis Zamora" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIJ-qa-E8Q">
-                                            <rect key="frame" x="84" y="17" width="75" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Francis Zamora" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIJ-qa-E8Q">
+                                            <rect key="frame" x="84" y="17" width="88" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image-15" translatesAutoresizingMaskIntoConstraints="NO" id="FhQ-IO-pRS">
-                                            <rect key="frame" x="8" y="50" width="19" height="19"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 hrs ago " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4H-aZ-Gve">
+                                            <rect key="frame" x="84" y="37" width="88" height="12"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="FhQ-IO-pRS" firstAttribute="top" secondItem="tYn-zV-rkD" secondAttribute="bottom" constant="1" id="1J6-R4-aMf"/>
+                                        <constraint firstItem="nIJ-qa-E8Q" firstAttribute="trailing" secondItem="K4H-aZ-Gve" secondAttribute="trailing" id="6Mv-sF-ygb"/>
+                                        <constraint firstItem="PTh-6c-2Gh" firstAttribute="leading" secondItem="EQk-aK-ot8" secondAttribute="trailing" constant="14" id="8h3-Pk-xph"/>
+                                        <constraint firstItem="EQk-aK-ot8" firstAttribute="leading" secondItem="tYn-zV-rkD" secondAttribute="leading" id="A9Q-Zg-CEW"/>
+                                        <constraint firstItem="PTh-6c-2Gh" firstAttribute="leading" secondItem="tYn-zV-rkD" secondAttribute="trailing" constant="8" symbolic="YES" id="DAO-tu-Cyg"/>
+                                        <constraint firstItem="K4H-aZ-Gve" firstAttribute="bottom" secondItem="tYn-zV-rkD" secondAttribute="bottom" id="I56-xc-laA"/>
+                                        <constraint firstItem="EQk-aK-ot8" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" id="Pce-ep-zm9"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="PTh-6c-2Gh" secondAttribute="bottom" constant="29" id="Q4w-gp-CjJ"/>
+                                        <constraint firstItem="EQk-aK-ot8" firstAttribute="trailing" secondItem="FhQ-IO-pRS" secondAttribute="trailing" id="SB0-5U-VzO"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="nIJ-qa-E8Q" secondAttribute="bottom" constant="47" id="Uzo-UP-sI3"/>
+                                        <constraint firstItem="nIJ-qa-E8Q" firstAttribute="leading" secondItem="PTh-6c-2Gh" secondAttribute="trailing" constant="8" symbolic="YES" id="XdQ-bm-hku"/>
+                                        <constraint firstItem="PTh-6c-2Gh" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" constant="13" id="ajE-pa-bky"/>
+                                        <constraint firstItem="K4H-aZ-Gve" firstAttribute="leading" secondItem="IwL-Ej-qcu" secondAttribute="leading" constant="84" id="bAw-mG-TV5"/>
+                                        <constraint firstItem="FhQ-IO-pRS" firstAttribute="leading" secondItem="tYn-zV-rkD" secondAttribute="leading" id="kZ1-rT-ZHO"/>
+                                        <constraint firstItem="K4H-aZ-Gve" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" constant="29" id="plm-mp-YnF"/>
+                                        <constraint firstItem="nIJ-qa-E8Q" firstAttribute="leading" secondItem="K4H-aZ-Gve" secondAttribute="leading" id="y7N-JS-0cN"/>
+                                        <constraint firstItem="EQk-aK-ot8" firstAttribute="leading" secondItem="IwL-Ej-qcu" secondAttribute="leadingMargin" id="yR1-0Q-Dal"/>
+                                        <constraint firstItem="nIJ-qa-E8Q" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" constant="9" id="yXg-vq-wx3"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventLiveStream" rowHeight="216" id="5GD-rW-UBB" customClass="EventLiveStream" customModule="SetGov" customModuleProvider="target">

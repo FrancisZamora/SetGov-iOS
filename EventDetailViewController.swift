@@ -167,7 +167,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         case 3:
             return 94
         case 4:
-            return 280
+            return 94
         default:
             return 0
         }
