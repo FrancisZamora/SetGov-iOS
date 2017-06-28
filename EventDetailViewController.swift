@@ -40,17 +40,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var EventAddresses = [String]()
     var hrefArray = [String]()
     var descriptionArray = [String]()
-
+    var fortlauderdaleArray = [[String()]]
     
-  
-
-
     @IBOutlet var navTitle: UINavigationItem!
-    
-    
-    
-    
-   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,10 +50,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         self.loadTitle()
         print(agendaInfo)
         print(indexofEvent)
-        
-        
-        
-        
     }
     
     func delayTransition() {
@@ -77,17 +65,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             
         }
     }
-    
-    
-
-    
-        
-        
-        
-        
-        
-    
-    
     
     func loadTitle() {
         if selectedCity == "Boston" {
@@ -105,7 +82,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             print(eventList)
             print(indexofEvent)
     
-            navTitle.title = selectedEvents[indexofEvent]
+            navTitle.title = fortlauderdaleArray[indexofEvent][0]
             eventTitle = navTitle.title!
        
         }
@@ -335,14 +312,19 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             }
             
             if selectedCity == "Fort Lauderdale" {
-                guard let array = eventInfo[indexofEvent] else {
-                    return UITableViewCell()
-                    
-                    
+                let formatter = DateFormatter()
+                formatter.dateFormat = "MM/dd/yy"
+                formatter.dateStyle = .short
+                if let date = formatter.date(from: fortlauderdaleArray[indexofEvent][1]){
+                    let y = formatter.string(from: date)
+                    infoCell.eventTime.text = String(describing: y)
                 }
-                infoCell.eventTime.text = array[0]
-                infoCell.eventAddress.text = array[1]
-                infoCell.eventHour.text = array[2]
+                infoCell.eventAddress.text = "100 North Andrews Avenue"
+                let z = fortlauderdaleArray[indexofEvent][6].trimmingCharacters(in: .whitespacesAndNewlines)
+                print(z)
+                print(fortlauderdaleArray[indexofEvent])
+                
+                infoCell.eventHour.text = z
                 
                 
                 return infoCell

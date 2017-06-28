@@ -589,7 +589,6 @@ class EventViewController: SetGovTableViewController{
             let finalTitle = (finalDescription[finalDescription.count-1])
             
             print(z[1])
-            let counter = z.count
             
 
             //let split = now.components.
@@ -844,6 +843,7 @@ class EventViewController: SetGovTableViewController{
             EventDetailViewController.EventAddresses = eventAddresses
             EventDetailViewController.hrefArray = hrefArray
             EventDetailViewController.descriptionArray = descriptionArray
+            EventDetailViewController.fortlauderdaleArray = fortlauderdaleArray 
         }
     }
 }
