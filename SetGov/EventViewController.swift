@@ -251,11 +251,13 @@ class EventViewController: SetGovTableViewController{
                         let formattedDate = (newString + " 2017")
                         print(showString)
                         
+                        
                         let date = Date()
                         print(date)
                         
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "MM/dd/yy"
+                        
                         guard let newDate = dateFormatter.date(from: formattedDate) else {
                             return
                         }
@@ -485,45 +487,40 @@ class EventViewController: SetGovTableViewController{
         
     }
    func fetchEventData() {
+    var count = 0
     fortlauderdaleArray.remove(at: 0)
     if selectedCity == "Fort Lauderdale" {
         for (index,_) in fortlauderdaleArray.enumerated() {
-            print("INDEX: \(index)")
-            print(fortlauderdaleArray.count)
-            print("ARRAY STARTS HERE")
-            print(fortlauderdaleArray)
-            print(index)
-            print(fortlauderdaleArray[0][0])
+         
             let dateformatter = DateFormatter()
             dateformatter.dateFormat = "MM/dd/yyyy"
-            print(fortlauderdaleArray[index][1])
             let dateObj = dateformatter.date(from: fortlauderdaleArray[index][1])
             
             dateformatter.dateStyle = DateFormatter.Style.medium
             let now = dateformatter.string(from: dateObj!)
 
-            print(fortlauderdaleArray[index][1])
-            print(now as Any)
-            
-            print(now)
             
             var castedArray = now.components(separatedBy:",")
-            print(castedArray)
             
             let date = castedArray[0]
             let y = fortlauderdaleArray[index][5].trimmingCharacters(in: .whitespacesAndNewlines)
             let z = fortlauderdaleArray[index][0].components(separatedBy: " ")
-            print(fortlauderdaleArray[index][0])
             let finalDescription = z
-            print(z.count)
             let finalTitle = (finalDescription[finalDescription.count-1])
             
-            print(z[1])
             
 
-            //let split = now.components.
             let event = Event(eventTitle: spacer + fortlauderdaleArray[index][0], eventAddress:"100 N Andrews Ave", eventUsers: ["Tim","Sam"], eventDescription: finalTitle, eventDate:date , eventImageName: "Image1", eventTime: y, eventTags: ["swag","swag"], loggedUser: User(userName: "Tim", attendingStatus: false, interestedStatus: false))
+            if isEven(num: count) {
+                event.eventImage = #imageLiteral(resourceName: "Image-12")
+                
+            }
             
+            if count % 3 == 0 {
+                event.eventImage = #imageLiteral(resourceName: "fortlauderdalepark")
+            }
+            
+           count = count + 1
            dataList.append(event)
 
         }
