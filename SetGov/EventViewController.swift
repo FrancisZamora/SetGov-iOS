@@ -11,7 +11,6 @@ import UIKit
 import QuartzCore
 
 class EventViewController: SetGovTableViewController{
-    
     var activate = true
     var selectedCity = "Fort Lauderdale"
     var count = 0
@@ -65,11 +64,6 @@ class EventViewController: SetGovTableViewController{
         }
     }
     
-    
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
@@ -108,18 +102,8 @@ class EventViewController: SetGovTableViewController{
             print(doc.body as Any)
         
             print("continue")
-            
-            //let regex =  try !NSRegularExpression (pattern:"<a\shref=\'(.*?)\'>.*?</a>")
-            
-           // var modifiedString = [regex stringByReplacingMatchesInString:inputString options:0 range:NSMakeRange(0, [inputString length]) withTemplate:@"$1"];
-            
-
-            
-           // let regex = try! NSRegularExpression(pattern: "href='")
-            //var newString = " "
-            
             for link in doc.css("a, link") {
-                print(link.text as Any)
+            print(link.text as Any)
                 guard let uneditedHref = link["href"] else {
                     return
                 }
@@ -136,14 +120,11 @@ class EventViewController: SetGovTableViewController{
             print(hrefArray)
     
             for notices in doc.css("a[href*='/public-notices/']") {
-                print("configuring new string")
-                //var newString = notices.
-                //newString.
-               // print(newString)
                 
+                print("configuring new string")
                 var showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                 print("\(showString)\n")
-                showString = showString.capitalized  // "Castration: The Advantages And The Disadvantages"
+                showString = showString.capitalized
 
                 titleEvents.updateValue(showString, forKey: self.numIterations)
                 let currentValue = titleEvents[self.numIterations]
@@ -177,15 +158,9 @@ class EventViewController: SetGovTableViewController{
                 descriptionArray.append(finalElement)
                 print(descriptionArray)
                 
-                
-                
                 finalArray = []
                 finalElement = " "
-                
-                
 
-       
-                
                 self.numIterations = self.numIterations + 1
                 print(titleEvents)
                 print("\(showString)\n")
@@ -210,9 +185,6 @@ class EventViewController: SetGovTableViewController{
                 
             }
             
-            
-  
-            
             for notices in doc.css(".thoroughfare") {
                 
                 var showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
@@ -224,25 +196,15 @@ class EventViewController: SetGovTableViewController{
                 }
                 eventAddresses.append(showString)
 
-                
-                
             }
-
-            
-
-            
-        
             for notices in doc.css(".date-display-single") {
-
                     self.numIterations = 0
-                   
                     let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                     print("\(showString)\n")
                     var newArray = showString.components(separatedBy: ",")
                     let newString = newArray[0]
                     let formattedDate = (newString + " 2017")
                     print(showString)
-                    
                     let date = Date()
                     print(date)
                     
@@ -317,10 +279,8 @@ class EventViewController: SetGovTableViewController{
                             
                             print("\(showString)\n")
                             print("string was printed twice")
-                            
                         }
                     }
-                    
                     print(eventTimeNoFormat)
 
                     var xy = 0
@@ -340,26 +300,12 @@ class EventViewController: SetGovTableViewController{
                         print(eventHour)
                         
                         eventHours.append(eventHour)
-                        
-                          
-
-
-                        
-                 
-                       
                         }
                     }
                     print(eventHours)
                     
-                        
-
-                    
-                    
                 }
-            
-           
             }
-        
             if selectedCity == "Fort Lauderdale" {
                 print("parsing Fort Lauderdale")
                 let url = URL(string: "https://fortlauderdale.legistar.com/Calendar.aspx")
@@ -485,14 +431,7 @@ class EventViewController: SetGovTableViewController{
         print(fortlauderdaleArray)
         
     }
-    
-    
-    
 
-
-
-
-    
     func splitEventDescription() {
         var x = 0
         for (_) in eventDescriptions {
@@ -515,7 +454,6 @@ class EventViewController: SetGovTableViewController{
             
         }
         
-      //  print(descriptionArray)
         
     }
     
@@ -526,8 +464,7 @@ class EventViewController: SetGovTableViewController{
         arrayEvents.remove(at: 0)
         for (index, _) in eventTimeNoFormat.enumerated() {
             
-            //print(eventTimeNoFormat[numIterations])
-            //print(eventHours[numIterations][0])
+            
             let splitString = eventHours[index][0].components(separatedBy: ",")
             print(splitString)
             print("formatted time" + eventTimeNoFormat[index])
@@ -537,9 +474,6 @@ class EventViewController: SetGovTableViewController{
                 print(eventHours[index][1])
                 finalArray.append(eventHours[index][1])
             }
-            //print(numIterations)
-            //print(numIterations)
-            
         }
         
         print(eventTimeNoFormat)
@@ -550,8 +484,6 @@ class EventViewController: SetGovTableViewController{
         print(finalArray)
         
     }
-    
-    
    func fetchEventData() {
     fortlauderdaleArray.remove(at: 0)
     if selectedCity == "Fort Lauderdale" {
@@ -678,9 +610,6 @@ class EventViewController: SetGovTableViewController{
         
     }
     
-   
-
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(finalArray)
         
@@ -724,12 +653,9 @@ class EventViewController: SetGovTableViewController{
        cell.selectionStyle = .none
        print(cell.eventOriginalTitle)
        print("this is the title")
-
-        
        print("cell for row" )
        return cell
     }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
         tableView.deselectRow(at: indexPath, animated: false)
@@ -754,12 +680,7 @@ class EventViewController: SetGovTableViewController{
                     indexofEvent = indexPath.row
                     performSegue(withIdentifier: "showEvent", sender: nil)
                     print(eventTitle)
-
-                    
             }
-            
-            
-            
             if indexPath.row == 3 {
                 indexofEvent = indexPath.row
                 performSegue(withIdentifier: "showEvent", sender: nil)
@@ -776,11 +697,6 @@ class EventViewController: SetGovTableViewController{
                 
                 
             }
-
-            
-            
-            
-            
         }
         if selectedCity == "Boston" {
                     print("yo")

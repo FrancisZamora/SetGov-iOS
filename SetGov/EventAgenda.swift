@@ -29,6 +29,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     var agendaStringArray = [[String]()]
     var agendaTitles = [String]()
     var descriptionArray = [String]()
+    var eventDescription = String()
     
 
     
@@ -154,12 +155,13 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
                 
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
                 cell.mLabel.text = "Agenda"
-                cell.topicLabel.text = " "
+                cell.topicLabel.text = eventDescription
                 cell.layer.cornerRadius = 10
                 cell.layer.masksToBounds = true
                 
                 agendaInfo.updateValue(cell.topicLabel.text!, forKey: indexPath.row)
                 
+                return cell
             }
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell

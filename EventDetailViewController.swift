@@ -41,6 +41,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var hrefArray = [String]()
     var descriptionArray = [String]()
     var fortlauderdaleArray = [[String()]]
+    var eventDescription = String()
+    
     
     @IBOutlet var navTitle: UINavigationItem!
     
@@ -83,6 +85,13 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             print(indexofEvent)
     
             navTitle.title = fortlauderdaleArray[indexofEvent][0]
+            let z = fortlauderdaleArray[indexofEvent][0].components(separatedBy: " ")
+            print(fortlauderdaleArray[indexofEvent][0])
+            let finalDescription = z
+            print(z.count)
+            self.eventDescription = (finalDescription[finalDescription.count-1])
+
+            
             eventTitle = navTitle.title!
        
         }
@@ -313,7 +322,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             
             if selectedCity == "Fort Lauderdale" {
                 print(fortlauderdaleArray)
-                
+
                 let formatter = DateFormatter()
                 formatter.dateFormat = "MM/dd/yy"
                 formatter.dateStyle = .short
@@ -338,6 +347,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         if(indexPath.row == 2) {
             let agendaCell = tableView.dequeueReusableCell(withIdentifier: "EventAgenda", for:indexPath) as! EventAgenda
             agendaCell.selectionStyle = .none
+            agendaCell.eventDescription = eventDescription
             agendaCell.descriptionArray = descriptionArray
             agendaCell.agendaInfo = agendaInfo
             agendaCell.selectedCity = selectedCity
@@ -406,7 +416,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             let AgendaDetailViewController = segue.destination as! AgendaDetailViewController
             AgendaDetailViewController.agendaImage = agendaImage
             AgendaDetailViewController.eventTitle = eventTitle
-            
             print(agendaInfo)
             
             AgendaDetailViewController.agendaInfo = agendaInfo
