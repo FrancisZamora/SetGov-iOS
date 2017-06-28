@@ -40,6 +40,12 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     }
     
     func prepareAgenda() {
+        if selectedCity == "Fort Lauderdale" {
+            print("CONFIGURING FORT LAUDERDALE")
+            
+            self.agenda.text = "Agenda & Meeting Details"
+        }
+
         if selectedCity == "Boston" {
             let secondUrl =  hrefArray[indexofEvent]
             let url = URL(string: "https://www.boston.gov" + secondUrl)
@@ -163,6 +169,8 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
                 
                 return cell
             }
+            
+            
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
         
