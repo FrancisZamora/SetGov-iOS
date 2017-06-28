@@ -170,7 +170,20 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
                 return cell
             }
             
-            
+            if (indexPath.row == 1) {
+                
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
+                cell.mLabel.text = "Meeting Details"
+                
+                cell.topicLabel.text = eventDescription
+                cell.layer.cornerRadius = 10
+                cell.layer.masksToBounds = true
+                
+                agendaInfo.updateValue(cell.topicLabel.text!, forKey: indexPath.row)
+                
+                return cell
+            }
+
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
         
@@ -193,10 +206,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         if (indexPath.row == 0 ) {
             index = indexPath.row
             print("ROW 0")
-            
             print(agendaInfo)
-            
-            
             cell.configureCell(title: agendaTitles[indexPath.row])
             agendaInfo.updateValue(cell.topicLabel.text!, forKey: indexPath.row)
             print(cell.topicLabel.text as Any)

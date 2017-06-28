@@ -317,11 +317,11 @@ class EventViewController: SetGovTableViewController{
                 
                 for events in doc.css(".rgRow") {
                     
-                    var showString = events.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                    let trimmedString = showString.trimmingCharacters(in: .whitespacesAndNewlines)
+                    let showString = events.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                    _ = showString.trimmingCharacters(in: .whitespacesAndNewlines)
                     print(showString)
                     
-                    var newArray = showString.components(separatedBy: "\n")
+                    let newArray = showString.components(separatedBy: "\n")
                     
                     print(showString)
                     print(newArray)
@@ -345,11 +345,11 @@ class EventViewController: SetGovTableViewController{
                 
                 for events in doc.css(".rgAltRow") {
                     
-                    var showString = events.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                    let trimmedString = showString.trimmingCharacters(in: .whitespacesAndNewlines)
+                    let showString = events.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                    _ = showString.trimmingCharacters(in: .whitespacesAndNewlines)
                     print(showString)
                     
-                    var newArray = showString.components(separatedBy: "\n")
+                    let newArray = showString.components(separatedBy: "\n")
                     
                     print(showString)
                     print(newArray)
@@ -391,15 +391,15 @@ class EventViewController: SetGovTableViewController{
       //  print(month)
         
         
-        for (key, value) in fortLauderdaleDictionary {
+        for (key, _) in fortLauderdaleDictionary {
             print(key)
             //print(month)
             
             //print(calendar.component(.month, from: key ))
             //print(calendar.component(.month, from: key ) > month)
             
-            var x = calendar.component(.month, from: key) == month && calendar.component(.day, from: key) < day
-            var y = calendar.component(.month, from: key) < month
+            let x = calendar.component(.month, from: key) == month && calendar.component(.day, from: key) < day
+            let y = calendar.component(.month, from: key) < month
             //var z = calendar.component(.month, from: key) > month
              if (x == true  || y == true) {
                 
@@ -487,10 +487,8 @@ class EventViewController: SetGovTableViewController{
    func fetchEventData() {
     fortlauderdaleArray.remove(at: 0)
     if selectedCity == "Fort Lauderdale" {
-        for (index,value) in fortlauderdaleArray.enumerated() {
+        for (index,_) in fortlauderdaleArray.enumerated() {
             print("INDEX: \(index)")
-            
-           
             print(fortlauderdaleArray.count)
             print("ARRAY STARTS HERE")
             print(fortlauderdaleArray)
