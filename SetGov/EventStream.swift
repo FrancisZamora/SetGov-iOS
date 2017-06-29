@@ -48,7 +48,8 @@ class EventStream:  UITableViewCell {
     var eventTimeFormatted = [String]()
     var finalArray =  [String]()
     var currentHour = String()
-
+    var eventHours = [[String]()]
+    
 
     
     weak var eventStreamCallback: EventStreamCallback!
@@ -131,9 +132,10 @@ class EventStream:  UITableViewCell {
         let x = newDate == eventTimeFormatted[indexofEvent]
         print(x)
         self.configureHour()
-        let y = currentHour >= finalArray[indexofEvent]
+        print(eventHours)
+        
+        let y = currentHour >=  eventHours[indexofEvent][1]
         print(currentHour)
-        print(finalArray[indexofEvent])
         print(y)
         
         if x && y  {

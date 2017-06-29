@@ -72,9 +72,12 @@ class EventViewController: SetGovTableViewController{
         print(selectedCity)
         self.parseHTML(html: "swag")
         self.splitEventDescription()
-        self.seperateTime()
         self.filterDictionary()
         self.fetchEventData()
+        if selectedCity == "Boston" {
+            self.cleanArray()
+
+        }
         print(fortLauderdaleDictionary)
         
         
@@ -87,6 +90,11 @@ class EventViewController: SetGovTableViewController{
     }
     
     override func viewDidAppear(_ animated: Bool) {
+    }
+    
+    func cleanArray() {
+        arrayEvents.remove(at: 0)
+
     }
     
     func parseHTML(html:String) -> Void {
@@ -105,6 +113,7 @@ class EventViewController: SetGovTableViewController{
             for link in doc.css("a, link") {
             print(link.text as Any)
                 guard let uneditedHref = link["href"] else {
+                    
                     return
                 }
                 
@@ -134,10 +143,12 @@ class EventViewController: SetGovTableViewController{
                 
                 
                 guard let x = (newArray?.count)  else {
+                    
                     return
                 }
                 
                 guard let lastElement = newArray?[x-1] else {
+                    
                     return
                 }
                 eventID.append(lastElement)
@@ -167,6 +178,7 @@ class EventViewController: SetGovTableViewController{
         
               
                 print(descriptionArray)
+                
                 print("attempting to print event description")
 
                 let regex = try! NSRegularExpression(pattern: "href='")
@@ -186,6 +198,7 @@ class EventViewController: SetGovTableViewController{
             }
             
             for notices in doc.css(".thoroughfare") {
+                print("we made it")
                 
                 var showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                 print("\(showString)\n")
@@ -194,124 +207,106 @@ class EventViewController: SetGovTableViewController{
                     
                     showString = "1 City Hall Square"
                 }
+                print(showString)
+                
                 eventAddresses.append(showString)
 
             }
+            
+            print(eventAddresses)
+            
+            self.numIterations = 0
+
             for notices in doc.css(".date-display-single") {
-                    self.numIterations = 0
+                    print(numIterations)
+                self.numIterations = self.numIterations + 1
                     let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                    print("RIGHT STRING")
                     print("\(showString)\n")
-                    var newArray = showString.components(separatedBy: ",")
-                    let newString = newArray[0]
-                    let formattedDate = (newString + " 2017")
                     print(showString)
+                    var newArray = showString.components(separatedBy: ",")
+                
+                    let newString = newArray[0]
+                
+                    var formattedDate = (newString + ", 2017")
+                
+                
                     let date = Date()
-                    print(date)
-                    
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "MM/dd/yy"
-                    guard let newDate = dateFormatter.date(from: formattedDate) else {
-                        return
-                    }
-                    let dateString2 = dateFormatter.string(from: (newDate))
+                    if formattedDate.range(of:"pm") != nil {
                     
+                    formattedDate = "June 30, 2017"
+                }
+                    let newDate = dateFormatter.date(from: formattedDate)
+                
+                
+                
+                    let dateString2 = dateFormatter.string(from: newDate!)
+                    dateFormatter.dateFormat = "MMM dd, yyyy"
+                
                     let dateString = dateFormatter.string(from:date)
+                    print(dateString)
+                    let eventTimeArray = dateString.components(separatedBy: ",")
+
+                    print(eventTimeArray)
+                
+                    let eventShortTime = eventTimeArray[0]
+                    print(eventShortTime)
+                
+                
                     print(newDate)
                     print("this is the right string")
                     print (dateString)
                     print(dateString2)
+                
                     eventTimeFormatted.append(dateString2)
                     
-                    eventTimeNoFormat.append(newString)
+                    eventTimeNoFormat.append(eventShortTime)
                     
                     print(eventTimeNoFormat)
-                    
-                    let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.caseInsensitive])
-                    
-                    if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
-                        //shows.add(showString)
-                        
-                        print("\(showString)\n")
-                        print("string was printed twice")
-                        
-                    }
-                    
+                
+                
+            }
                     print(eventTimeNoFormat)
                     print(eventTimeFormatted)
                     
                     
-                    for notices in doc.css(".date-display-single") {
-                        
-                        self.numIterations = 0
-                        
-                        let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                        print("\(showString)\n")
-                        var newArray = showString.components(separatedBy: ",")
-                        let newString = newArray[0]
-                        let formattedDate = (newString + " 2017")
-                        print(showString)
-                        
-                        
-                        let date = Date()
-                        print(date)
-                        
-                        let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "MM/dd/yy"
-                        
-                        guard let newDate = dateFormatter.date(from: formattedDate) else {
-                            return
-                        }
-                        let dateString2 = dateFormatter.string(from: (newDate))
-                        
-                        let dateString = dateFormatter.string(from:date)
-                        print(newDate)
-                        print("this is the right string")
-                        print (dateString)
-                        print(dateString2)
-                        eventTimeFormatted.append(dateString2)
-                        
-                        eventTimeNoFormat.append(newString)
-                        
-                        print(eventTimeNoFormat)
-                        
-                        let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.caseInsensitive])
-                        
-                        if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
-                            //shows.add(showString)
-                            
-                            print("\(showString)\n")
-                            print("string was printed twice")
-                        }
-                    }
                     print(eventTimeNoFormat)
 
                     var xy = 0
+                    self.numIterations = 0
                     for notices in doc.css(".dl-d") {
-                        print(eventTimeNoFormat[numIterations])
+                        print("SWAG")
                         
                         print(xy)
                         xy = xy + 1
-                        
-                        if numIterations == 0 {
-                        let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                        print(showString)
-                        let tempArray = showString.components(separatedBy: "-")
-                        print(tempArray)
-                        print(numIterations)
-                        let eventHour = tempArray
-                        print(eventHour)
-                        
-                        eventHours.append(eventHour)
+                        if self.numIterations == 3 {
+                            self.numIterations = 0
                         }
+                        if numIterations == 0 {
+                            let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                            print(showString)
+                            let tempArray = showString.components(separatedBy: "-")
+                            print(tempArray)
+                            print(numIterations)
+                            let eventHour = tempArray
+                            print(eventHour)
+                            
+                            eventHours.append(eventHour)
+                        }
+                        self.numIterations = self.numIterations + 1
                     }
                     print(eventHours)
                     
-                }
             }
+    
+    
+    
             if selectedCity == "Fort Lauderdale" {
                 print("parsing Fort Lauderdale")
                 let url = URL(string: "https://fortlauderdale.legistar.com/Calendar.aspx")
-                             guard let doc = HTML(url: url!, encoding: .utf8) else  {
+                guard let doc = HTML(url: url!, encoding: .utf8) else  {
                     return
                 }
                 
@@ -455,6 +450,7 @@ class EventViewController: SetGovTableViewController{
         arrayEvents.remove(at: 0)
         for (index, _) in eventTimeNoFormat.enumerated() {
             
+            print(eventHours)
             
             let splitString = eventHours[index][0].components(separatedBy: ",")
             print(splitString)
@@ -517,10 +513,25 @@ class EventViewController: SetGovTableViewController{
     }
     
      if selectedCity == "Boston" {
-        for (index, value) in arrayEvents.enumerated() {
+        for (index, value) in eventAddresses.enumerated() {
             print(descriptionArray[0])
-            //let event = Event(eventTitle: spacer + arrayEvents[evt], eventDescription: descriptionArray[evt], eventDate: eventTimeNoFormat[evt], eventImage: "boston" + string(evt), eventTime = finalArray[evt] loggedUser = "Tim", eventAddress =  eventAddresses[evt], eventTags = ["engagement", "bureaucracy"])
-            let event = Event(eventTitle: spacer + value, eventAddress: eventAddresses[index], eventUsers: ["Tim","Sam"] , eventDescription: descriptionArray[index], eventDate:eventTimeNoFormat[index], eventImageName: "bostonPark", eventTime: finalArray[index], eventTags: ["engagement", "bureaucracy"], loggedUser: User(userName: "Tim", attendingStatus: false, interestedStatus: false))
+            print(eventAddresses.count)
+            print(arrayEvents)
+            print(arrayEvents.count)
+            
+           // print(eventAddresses[index])
+            //print(eventTimeNoFormat)
+            //print(descriptionArray[index])
+            
+            //print(eventTimeNoFormat[index])
+            
+           // print(arrayEvents)
+            
+            
+            
+            let event = Event(eventTitle: spacer + arrayEvents[index], eventAddress: value, eventUsers: ["Tim","Sam"] , eventDescription: descriptionArray[index], eventDate:eventTimeNoFormat[index], eventImageName: "bostonPark", eventTime: eventHours[index][1], eventTags: ["engagement", "bureaucracy"], loggedUser: User(userName: "Tim", attendingStatus: false, interestedStatus: false))
+
+            //let event = Event(eventTitle: spacer + value, eventAddress: eventAddresses[index], eventUsers: ["Tim","Sam"] , eventDescription: descriptionArray[index], eventDate:eventTimeNoFormat[index], eventImageName: "bostonPark", eventTime: finalArray[index], eventTags: ["engagement", "bureaucracy"], loggedUser: User(userName: "Tim", attendingStatus: false, interestedStatus: false))
             
             print(event.eventDescription)
             
@@ -648,6 +659,7 @@ class EventViewController: SetGovTableViewController{
             EventDetailViewController.EventAddresses = eventAddresses
             EventDetailViewController.hrefArray = hrefArray
             EventDetailViewController.descriptionArray = descriptionArray
+            EventDetailViewController.eventHours = eventHours
             EventDetailViewController.fortlauderdaleArray = fortlauderdaleArray 
         }
     }

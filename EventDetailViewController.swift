@@ -35,7 +35,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var eventTime = [String]()
     var arrayEvents = [String]()
     var eventTimeFormatted = [String]()
-    var eventHours = [String]()
+    var eventHours = [[String]()]
     var finalArray =  [String]()
     var EventAddresses = [String]()
     var hrefArray = [String]()
@@ -180,7 +180,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream") as! EventStream
                 eventStream.selectionStyle = .none
                 eventStream.eventTimeFormatted = eventTimeFormatted 
-            
+                eventStream.eventHours = eventHours
                 eventStream.eventInfo = eventInfo
                 eventStream.indexofEvent = indexofEvent
                 eventStream.finalArray = finalArray
@@ -315,7 +315,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 print(eventTimeFormatted)
             
                 infoCell.eventTime.text = eventTimeFormatted[indexofEvent]
-                infoCell.eventHour.text = finalArray[indexofEvent]
+                infoCell.eventHour.text = eventHours[indexofEvent][1]
             
                 return infoCell
             }
