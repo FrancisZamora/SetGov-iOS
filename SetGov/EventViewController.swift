@@ -411,10 +411,6 @@ class EventViewController: SetGovTableViewController{
             }
             
         }
-        
-        
-        
-        
         let keys = Array(fortLauderdaleDictionary.keys)
         print(keys)
        
@@ -425,9 +421,7 @@ class EventViewController: SetGovTableViewController{
                 return
             }
             fortlauderdaleArray.append(y)
-            
 
-            
         }
         
         print(fortlauderdaleArray)
@@ -451,12 +445,7 @@ class EventViewController: SetGovTableViewController{
             if x > count {
                 return
             }
-
-
-            
         }
-        
-        
     }
     
     func seperateTime() {
@@ -486,6 +475,7 @@ class EventViewController: SetGovTableViewController{
         print(finalArray)
         
     }
+    
    func fetchEventData() {
     var count = 0
     fortlauderdaleArray.remove(at: 0)
@@ -542,7 +532,7 @@ class EventViewController: SetGovTableViewController{
             }
                 dataList.append(event)
         }
-        }
+    }
     }
     
     func setCity() {
@@ -560,13 +550,6 @@ class EventViewController: SetGovTableViewController{
         }
         
     }
-    
-        
-        
-        
-    
-   
-
     
     //tableview methods
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -606,27 +589,15 @@ class EventViewController: SetGovTableViewController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(finalArray)
-        
-        print(indexPath.row)
-        print(arrayEvents)
-        print(selectedCity)
-        
         
         if selectedCity == "Boston" {
-            
             let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
             cell.selectionStyle = .none
-            print(dataList)
             
             cell.editCell(Event:dataList[indexPath.row])
             eventImage = cell.eventImage.image!
             eventImages.updateValue(eventImage, forKey: indexPath.row)
-            
-           
-            
             return cell
-            
         }
          if selectedCity == "Fort Lauderdale" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventCell
@@ -638,17 +609,9 @@ class EventViewController: SetGovTableViewController{
             eventImages.updateValue(eventImage,forKey: indexPath.row)
             return cell
        }
-    
-        
-       firstTime = false
-       print(firstTime)
-        
        let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCell
        cell.configure()
        cell.selectionStyle = .none
-       print(cell.eventOriginalTitle)
-       print("this is the title")
-       print("cell for row" )
        return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
@@ -656,88 +619,19 @@ class EventViewController: SetGovTableViewController{
         tableView.deselectRow(at: indexPath, animated: false)
         print("selected")
         if selectedCity == "Fort Lauderdale" {
-            if indexPath.row == 0 {
-               
-                indexofEvent = indexPath.row
-                performSegue(withIdentifier: "showEvent", sender: nil)
-            }
-            if indexPath.row == 1 {
-                let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-               
-                indexofEvent = indexPath.row
-                eventTitles.append(cell.eventOriginalTitle)
-
-                performSegue(withIdentifier: "showEvent", sender: nil)
-
-            }
-            if indexPath.row == 2 {
-                
-                    indexofEvent = indexPath.row
-                    performSegue(withIdentifier: "showEvent", sender: nil)
-                    print(eventTitle)
-            }
-            if indexPath.row == 3 {
-                indexofEvent = indexPath.row
-                performSegue(withIdentifier: "showEvent", sender: nil)
-                print(eventTitle)
-            }
             
-            if indexPath.row > 3 {
-                
-                indexofEvent = indexPath.row
-                print("index of event")
-                print(indexofEvent)
-                
-                performSegue(withIdentifier: "showEvent", sender: nil)
-                
-                
-            }
+            indexofEvent = indexPath.row
+            performSegue(withIdentifier: "showEvent", sender: nil)
+            
         }
+        
         if selectedCity == "Boston" {
                     print("yo")
-                
-                    if indexPath.row == 0 {
-                        
-                        indexofEvent = indexPath.row
-                        performSegue(withIdentifier: "showEvent", sender: nil)
-                        
-                        print(eventTitle)
-                    }
-                
-                    if indexPath.row == 1 {
-                        
-                        indexofEvent = indexPath.row
-
-                        performSegue(withIdentifier: "showEvent", sender: nil)
-                        
-                        print(eventTitle)
-                        
-                    }
-                
-                   if indexPath.row == 2 {
-                        indexofEvent = indexPath.row
-                        performSegue(withIdentifier: "showEvent", sender: nil)
-                    
-                        print(eventTitles)
-                    
-                }
-                if indexPath.row == 3 {
-                    indexofEvent = indexPath.row
-                    performSegue(withIdentifier: "showEvent", sender: nil)
-                
-                    print(eventTitles)
-                }
-            
-               if indexPath.row > 3 {
-            
-                    indexofEvent = indexPath.row
-                    print("index of event")
-                    print(indexofEvent)
-                
-                    performSegue(withIdentifier: "showEvent", sender: nil)
-                }
-           }
+            indexofEvent = indexPath.row
+            performSegue(withIdentifier: "showEvent", sender: nil)
+        }
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showEvent") {
             print("preparing view")

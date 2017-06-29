@@ -202,7 +202,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
-        
+    
         if (indexPath.row == 0 ) {
             index = indexPath.row
             print("ROW 0")
