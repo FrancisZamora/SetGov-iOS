@@ -575,25 +575,13 @@ class EventViewController: SetGovTableViewController{
     }
     
     func cleanseArray() {
-        print(testArray)
         var indexArray = [Int]()
         for (index, value) in testArray.enumerated() {
-            print(index)
-            print(testArray.count)
-            
            if value.range(of:":") != nil {
                indexArray.append(index)
-            
-               print(value)
-               print(index)
-               print(testArray)
-               testArray.remove(at: index)
-               print(testArray)
             }
-            print(indexArray)
         }
-        print(testArray)
-        
+        testArray = testArray.enumerated().filter { !indexArray.contains($0.offset) }.map { $0.element }
     
     }
     
