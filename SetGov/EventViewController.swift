@@ -52,6 +52,8 @@ class EventViewController: SetGovTableViewController{
     var fortLauderdaleDate = [String]()
     var fortlauderdaleArray = [[String]()]
     var testArray = [String]()
+    var dateArray = [Date]()
+    var formatArray = [String]()
     
     
     @IBOutlet var cityDisplay: UINavigationItem!
@@ -272,6 +274,7 @@ class EventViewController: SetGovTableViewController{
             }
                     self.cleanseArray()
                     print(testArray)
+                    self.breakTime()
             
                     print(eventTimeNoFormat)
                     print(eventTimeFormatted)
@@ -448,6 +451,51 @@ class EventViewController: SetGovTableViewController{
         }
     }
     
+    func breakTime() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yy"
+        var dupArray = testArray
+        var format = [String]()
+        
+        for (index,_) in testArray.enumerated() {
+            testArray[index].components(separatedBy: ",")
+
+            guard let  x = dateFormatter.date(from: testArray[index]) else {
+                
+                return
+                
+            }
+            dateArray.append(x)
+            testArray[index] = dateFormatter.string(from: x)
+        }
+        
+        dateFormatter.dateFormat = "MMM dd, yyyy"
+        
+        
+        for (index,_) in testArray.enumerated() {
+            guard let  x = dateFormatter.date(from: dupArray[index]) else {
+                
+                return
+            }
+            dateArray.append(x)
+            
+             let y = dateFormatter.string(from: dateArray[index])
+             format.append(y)
+        }
+        
+        print(testArray)
+        
+        for (index, _) in format.enumerated() {
+            var x = format[index].components(separatedBy: ",")
+            formatArray.append(x[0])
+            
+        }
+        print(formatArray)
+        
+    }
+
+    
+        
     func seperateTime() {
         if selectedCity == "Fort Lauderdale" {
             return
