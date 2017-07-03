@@ -51,9 +51,7 @@ class EventViewController: SetGovTableViewController{
     var fortLauderdaleDictionary = [Date:[String]]()
     var fortLauderdaleDate = [String]()
     var fortlauderdaleArray = [[String]()]
-    var testArray = [String]()
     var dateArray = [Date]()
-    var formatArray = [String]()
     
     
     @IBOutlet var cityDisplay: UINavigationItem!
@@ -223,57 +221,15 @@ class EventViewController: SetGovTableViewController{
                     print("RIGHT STRING")
                     print("\(showString)\n")
                     print(showString)
-                    testArray.append(showString)
-                    var newArray = showString.components(separatedBy: ",")
+                    eventTimeNoFormat.append(showString)
                 
-                    let newString = newArray[0]
-                
-                    var formattedDate = (newString + ", 2017")
-                
-                
-                    let date = Date()
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "MM/dd/yy"
-                
-                    if formattedDate.range(of:"pm") != nil {
-                        formattedDate = "June 30, 2017"
-                    }
-                
-                
-                    let newDate = dateFormatter.date(from: formattedDate)
-                
-                
-                
-                    let dateString2 = dateFormatter.string(from: newDate!)
-                    dateFormatter.dateFormat = "MMM dd, yyyy"
-                
-                    let dateString = dateFormatter.string(from:date)
-                    print(dateString)
-                    let eventTimeArray = dateString.components(separatedBy: ",")
-
-                    print(eventTimeArray)
-                
-                    let eventShortTime = eventTimeArray[0]
-                    print(eventShortTime)
-                
-                
-                    print(newDate)
-                    print("this is the right string")
-                    print (dateString)
-                    print(dateString2)
-                
-                    eventTimeFormatted.append(dateString2)
-                    
-                    eventTimeNoFormat.append(eventShortTime)
-                    
-                    print(eventTimeNoFormat)
                     self.numIterations = self.numIterations + 1
 
                 
                 
             }
                     self.cleanseArray()
-                    print(testArray)
+                    print(eventTimeNoFormat)
                     self.breakTime()
             
                     print(eventTimeNoFormat)
@@ -454,25 +410,25 @@ class EventViewController: SetGovTableViewController{
     func breakTime() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yy"
-        var dupArray = testArray
+        var dupArray = eventTimeNoFormat
         var format = [String]()
         
-        for (index,_) in testArray.enumerated() {
-            testArray[index].components(separatedBy: ",")
+        for (index,_) in eventTimeNoFormat.enumerated() {
+            eventTimeNoFormat[index].components(separatedBy: ",")
 
-            guard let  x = dateFormatter.date(from: testArray[index]) else {
+            guard let  x = dateFormatter.date(from: eventTimeNoFormat[index]) else {
                 
                 return
                 
             }
             dateArray.append(x)
-            testArray[index] = dateFormatter.string(from: x)
+            eventTimeNoFormat[index] = dateFormatter.string(from: x)
         }
         
         dateFormatter.dateFormat = "MMM dd, yyyy"
         
         
-        for (index,_) in testArray.enumerated() {
+        for (index,_) in eventTimeNoFormat.enumerated() {
             guard let  x = dateFormatter.date(from: dupArray[index]) else {
                 
                 return
@@ -483,14 +439,14 @@ class EventViewController: SetGovTableViewController{
              format.append(y)
         }
         
-        print(testArray)
+        print(eventTimeNoFormat)
         
         for (index, _) in format.enumerated() {
             var x = format[index].components(separatedBy: ",")
-            formatArray.append(x[0])
+            eventTimeFormatted.append(x[0])
             
         }
-        print(formatArray)
+        print(eventTimeFormatted)
         
     }
 
@@ -584,7 +540,7 @@ class EventViewController: SetGovTableViewController{
             
             
             
-            let event = Event(eventTitle: spacer + arrayEvents[index], eventAddress: value, eventUsers: ["Tim","Sam"] , eventDescription: descriptionArray[index], eventDate:eventTimeNoFormat[index], eventImageName: "bostonPark", eventTime: eventHours[index][1], eventTags: ["engagement", "bureaucracy"], loggedUser: User(userName: "Tim", attendingStatus: false, interestedStatus: false))
+            let event = Event(eventTitle: spacer + arrayEvents[index], eventAddress: value, eventUsers: ["Tim","Sam"] , eventDescription: descriptionArray[index], eventDate:eventTimeFormatted[index], eventImageName: "bostonPark", eventTime: eventHours[index][1], eventTags: ["engagement", "bureaucracy"], loggedUser: User(userName: "Tim", attendingStatus: false, interestedStatus: false))
 
             //let event = Event(eventTitle: spacer + value, eventAddress: eventAddresses[index], eventUsers: ["Tim","Sam"] , eventDescription: descriptionArray[index], eventDate:eventTimeNoFormat[index], eventImageName: "bostonPark", eventTime: finalArray[index], eventTags: ["engagement", "bureaucracy"], loggedUser: User(userName: "Tim", attendingStatus: false, interestedStatus: false))
             
@@ -624,12 +580,12 @@ class EventViewController: SetGovTableViewController{
     
     func cleanseArray() {
         var indexArray = [Int]()
-        for (index, value) in testArray.enumerated() {
+        for (index, value) in eventTimeNoFormat.enumerated() {
            if value.range(of:":") != nil {
                indexArray.append(index)
             }
         }
-        testArray = testArray.enumerated().filter { !indexArray.contains($0.offset) }.map { $0.element }
+        eventTimeNoFormat = eventTimeNoFormat.enumerated().filter { !indexArray.contains($0.offset) }.map { $0.element }
     
     }
     
@@ -720,7 +676,7 @@ class EventViewController: SetGovTableViewController{
             EventDetailViewController.eventInfo = eventInfo
             EventDetailViewController.selectedCity = selectedCity
             EventDetailViewController.arrayEvents = arrayEvents
-            EventDetailViewController.eventTimeFormatted = eventTimeFormatted
+            EventDetailViewController.eventTimeFormatted = eventTimeNoFormat
             EventDetailViewController.finalArray = finalArray
             EventDetailViewController.EventAddresses = eventAddresses
             EventDetailViewController.hrefArray = hrefArray
