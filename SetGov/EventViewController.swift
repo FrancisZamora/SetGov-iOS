@@ -74,10 +74,6 @@ class EventViewController: SetGovTableViewController{
         self.splitEventDescription()
         self.filterDictionary()
         self.fetchEventData()
-        if selectedCity == "Boston" {
-            self.cleanArray()
-
-        }
         print(fortLauderdaleDictionary)
         
         
@@ -98,7 +94,9 @@ class EventViewController: SetGovTableViewController{
     }
     
     func parseHTML(html:String) -> Void {
+        
         if selectedCity == "Boston" {
+            
             print("parsing Boston")
             let url = URL(string: "https://www.boston.gov/public-notices")
             print(url as Any)
@@ -234,10 +232,11 @@ class EventViewController: SetGovTableViewController{
                     let date = Date()
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "MM/dd/yy"
+                
                     if formattedDate.range(of:"pm") != nil {
-                    
-                    formattedDate = "June 30, 2017"
-                }
+                        formattedDate = "June 30, 2017"
+                    }
+                
                     let newDate = dateFormatter.date(from: formattedDate)
                 
                 
@@ -298,7 +297,7 @@ class EventViewController: SetGovTableViewController{
                         self.numIterations = self.numIterations + 1
                     }
                     print(eventHours)
-                    
+                    self.cleanArray()
             }
     
     
@@ -513,6 +512,8 @@ class EventViewController: SetGovTableViewController{
     }
     
      if selectedCity == "Boston" {
+        self.descriptionArray.remove(at: 0)
+        
         for (index, value) in eventAddresses.enumerated() {
             print(descriptionArray[0])
             print(eventAddresses.count)

@@ -169,8 +169,8 @@
                                                 <constraint firstAttribute="width" constant="35" id="goo-oA-MBC"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feb 23rd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="TxJ-ID-Gdr">
-                                            <rect key="frame" x="271" y="186" width="89" height="23"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feb 23rd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="TxJ-ID-Gdr">
+                                            <rect key="frame" x="278" y="186" width="89" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" red="0.087962217628955841" green="0.19097673892974854" blue="0.38617235422134399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -191,7 +191,7 @@
                                         <constraint firstItem="AHx-jR-O2K" firstAttribute="trailing" secondItem="yMK-AS-5CE" secondAttribute="trailing" id="L39-E3-Oge"/>
                                         <constraint firstItem="Lru-Dk-bur" firstAttribute="top" secondItem="4i3-sx-hcP" secondAttribute="top" id="MOi-09-Yje"/>
                                         <constraint firstItem="Oce-wR-LxC" firstAttribute="bottom" secondItem="qGK-K0-mTm" secondAttribute="bottom" id="RTu-nu-Scb"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="TxJ-ID-Gdr" secondAttribute="trailing" constant="7" id="WQg-Z5-ISX"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="TxJ-ID-Gdr" secondAttribute="trailing" id="WQg-Z5-ISX"/>
                                         <constraint firstItem="Oce-wR-LxC" firstAttribute="top" secondItem="qGK-K0-mTm" secondAttribute="top" id="WnT-Wu-pa1"/>
                                         <constraint firstItem="AHx-jR-O2K" firstAttribute="leading" secondItem="qaz-B6-2HM" secondAttribute="leading" id="X9F-eL-hpf"/>
                                         <constraint firstAttribute="trailing" secondItem="AHx-jR-O2K" secondAttribute="trailing" id="Y7X-d3-wfQ"/>
@@ -203,7 +203,7 @@
                                         <constraint firstItem="0cP-0T-gIY" firstAttribute="firstBaseline" secondItem="qaz-B6-2HM" secondAttribute="firstBaseline" constant="-4" id="gbb-LV-vAs"/>
                                         <constraint firstItem="qaz-B6-2HM" firstAttribute="leading" secondItem="yMK-AS-5CE" secondAttribute="leading" id="jHo-w0-Ysg"/>
                                         <constraint firstItem="qGK-K0-mTm" firstAttribute="leading" secondItem="1Jc-OS-76J" secondAttribute="trailing" constant="13" id="jZw-B4-Gg9"/>
-                                        <constraint firstItem="TxJ-ID-Gdr" firstAttribute="leading" secondItem="qaz-B6-2HM" secondAttribute="trailing" constant="28" id="nHD-PI-Nhk"/>
+                                        <constraint firstItem="TxJ-ID-Gdr" firstAttribute="leading" secondItem="qaz-B6-2HM" secondAttribute="trailing" constant="35" id="nHD-PI-Nhk"/>
                                         <constraint firstItem="nPe-2t-EyG" firstAttribute="top" secondItem="1Jc-OS-76J" secondAttribute="top" id="nu9-Y9-gsi"/>
                                         <constraint firstItem="1Jc-OS-76J" firstAttribute="bottom" secondItem="qGK-K0-mTm" secondAttribute="bottom" id="olb-RM-V1Z"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Lru-Dk-bur" secondAttribute="bottom" constant="0.5" id="qCA-7g-lMM"/>
@@ -381,7 +381,7 @@
                                 <rect key="frame" x="0.0" y="266" width="375" height="212"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5gE-8z-yj5" id="C8x-hT-HLl">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="212"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="211.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZAT-vw-PeJ">
@@ -600,7 +600,7 @@
                                 <rect key="frame" x="0.0" y="572" width="375" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MYI-qh-THg" id="IwL-Ej-qcu">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="93.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-15" translatesAutoresizingMaskIntoConstraints="NO" id="FhQ-IO-pRS">
