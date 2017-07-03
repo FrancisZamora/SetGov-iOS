@@ -676,7 +676,7 @@ class EventViewController: SetGovTableViewController{
             EventDetailViewController.eventInfo = eventInfo
             EventDetailViewController.selectedCity = selectedCity
             EventDetailViewController.arrayEvents = arrayEvents
-            EventDetailViewController.eventTimeFormatted = eventTimeNoFormat
+            EventDetailViewController.eventTimeNoFormat = eventTimeNoFormat
             EventDetailViewController.finalArray = finalArray
             EventDetailViewController.EventAddresses = eventAddresses
             EventDetailViewController.hrefArray = hrefArray

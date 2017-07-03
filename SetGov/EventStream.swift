@@ -45,7 +45,7 @@ class EventStream:  UITableViewCell {
     var eventTime = [String]()
     var indexofEvent = 0
     var selectedCity = " "
-    var eventTimeFormatted = [String]()
+    var eventTimeNoFormat = [String]()
     var finalArray =  [String]()
     var currentHour = String()
     var eventHours = [[String]()]
@@ -125,11 +125,9 @@ class EventStream:  UITableViewCell {
         dateFormatter.dateFormat = "MM/dd/yy"
         let newDate = dateFormatter.string(from: date)
         print(newDate)
-        print(eventTimeFormatted[indexofEvent])
         print(newDate)
         
-        print(newDate == eventTimeFormatted[indexofEvent])
-        let x = newDate == eventTimeFormatted[indexofEvent]
+        let x = newDate == eventTimeNoFormat[indexofEvent]
         print(x)
         self.configureHour()
         print(eventHours)
