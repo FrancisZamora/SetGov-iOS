@@ -51,6 +51,7 @@ class EventViewController: SetGovTableViewController{
     var fortLauderdaleDictionary = [Date:[String]]()
     var fortLauderdaleDate = [String]()
     var fortlauderdaleArray = [[String]()]
+    var testArray = [String]()
     
     
     @IBOutlet var cityDisplay: UINavigationItem!
@@ -214,14 +215,13 @@ class EventViewController: SetGovTableViewController{
             print(eventAddresses)
             
             self.numIterations = 0
-
             for notices in doc.css(".date-display-single") {
                     print(numIterations)
-                self.numIterations = self.numIterations + 1
                     let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                     print("RIGHT STRING")
                     print("\(showString)\n")
                     print(showString)
+                    testArray.append(showString)
                     var newArray = showString.components(separatedBy: ",")
                 
                     let newString = newArray[0]
@@ -236,6 +236,7 @@ class EventViewController: SetGovTableViewController{
                     if formattedDate.range(of:"pm") != nil {
                         formattedDate = "June 30, 2017"
                     }
+                
                 
                     let newDate = dateFormatter.date(from: formattedDate)
                 
@@ -264,9 +265,14 @@ class EventViewController: SetGovTableViewController{
                     eventTimeNoFormat.append(eventShortTime)
                     
                     print(eventTimeNoFormat)
+                    self.numIterations = self.numIterations + 1
+
                 
                 
             }
+                    self.cleanseArray()
+                    print(testArray)
+            
                     print(eventTimeNoFormat)
                     print(eventTimeFormatted)
                     
@@ -566,6 +572,29 @@ class EventViewController: SetGovTableViewController{
     //tableview methods
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50.0
+    }
+    
+    func cleanseArray() {
+        print(testArray)
+        var indexArray = [Int]()
+        for (index, value) in testArray.enumerated() {
+            print(index)
+            print(testArray.count)
+            
+           if value.range(of:":") != nil {
+               indexArray.append(index)
+            
+               print(value)
+               print(index)
+               print(testArray)
+               testArray.remove(at: index)
+               print(testArray)
+            }
+            print(indexArray)
+        }
+        print(testArray)
+        
+    
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
