@@ -661,6 +661,12 @@
                                         <constraint firstItem="nIJ-qa-E8Q" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" constant="9" id="yXg-vq-wx3"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="downVote" destination="FhQ-IO-pRS" id="s0b-Ut-wvL"/>
+                                    <outlet property="timeStamp" destination="K4H-aZ-Gve" id="UNi-EN-PS6"/>
+                                    <outlet property="upVote" destination="EQk-aK-ot8" id="gDI-6f-B1K"/>
+                                    <outlet property="userPicture" destination="PTh-6c-2Gh" id="nQq-Ep-8ek"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventLiveStream" rowHeight="216" id="5GD-rW-UBB" customClass="EventLiveStream" customModule="SetGov" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="666" width="375" height="216"/>

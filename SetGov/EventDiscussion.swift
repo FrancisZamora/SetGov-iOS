@@ -11,7 +11,11 @@ import UIKit
 import QuartzCore
 
 class EventDiscussion: UITableViewCell {
-   
+    @IBOutlet var upVote: UIImageView!
+    @IBOutlet var downVote: UIImageView!
+    @IBOutlet var userPicture: ProfilePicture!
+    @IBOutlet var userName: UILabel!
+    @IBOutlet var timeStamp: UILabel!
 
     
 
