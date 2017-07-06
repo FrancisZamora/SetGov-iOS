@@ -17,6 +17,13 @@ class EventDiscussion: UITableViewCell {
     @IBOutlet var userName: UILabel!
     @IBOutlet var timeStamp: UILabel!
     @IBOutlet var karma: UILabel!
+    var upVoted = false
+    var downVoted = false
+    
+    
+    
+    
+    
     
 
     
