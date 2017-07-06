@@ -15,6 +15,14 @@ class SetGovTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if  Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+        } else {
+            print("Internet connection FAILED")
+            let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
+
 
     }
     

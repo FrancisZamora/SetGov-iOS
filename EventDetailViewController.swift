@@ -36,7 +36,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var arrayEvents = [String]()
     var eventTimeNoFormat = [String]()
     var eventHours = [[String]()]
-    var finalArray =  [String]()
     var EventAddresses = [String]()
     var hrefArray = [String]()
     var descriptionArray = [String]()
@@ -183,7 +182,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventStream.eventHours = eventHours
                 eventStream.eventInfo = eventInfo
                 eventStream.indexofEvent = indexofEvent
-                eventStream.finalArray = finalArray
                 eventStream.eventStreamCallback = self
                 eventStream.selectedCity = selectedCity
                 eventStream.configure()

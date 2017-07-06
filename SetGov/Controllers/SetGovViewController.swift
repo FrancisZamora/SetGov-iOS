@@ -21,6 +21,14 @@ class SetGovViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if  Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+        } else {
+            print("Internet connection FAILED")
+            let alert = UIAlertView(title: "No Internet Connection", message: "Your device is connected to the internet, SetGov will not work.", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
+
         
         /*
          * NAVIGATION BAR

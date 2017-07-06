@@ -41,7 +41,6 @@ class EventViewController: SetGovTableViewController{
     var eventID = [String]()
     var eventTimeFormatted = [String]()
     var eventHours = [[String]]()
-    var finalArray =  [String]()
     var eventAddresses = [String]()
     var eventhashTags = [[String]]()
     var hrefArray = [String]()
@@ -252,7 +251,6 @@ class EventViewController: SetGovTableViewController{
                             let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                             print(showString)
                             let tempArray = showString.components(separatedBy: "-")
-                            print(tempArray)
                             print(numIterations)
                             let eventHour = tempArray
                             print(eventHour)
@@ -452,35 +450,7 @@ class EventViewController: SetGovTableViewController{
 
     
         
-    func seperateTime() {
-        if selectedCity == "Fort Lauderdale" {
-            return
-        }
-        arrayEvents.remove(at: 0)
-        for (index, _) in eventTimeNoFormat.enumerated() {
-            
-            print(eventHours)
-            
-            let splitString = eventHours[index][0].components(separatedBy: ",")
-            print(splitString)
-            print("formatted time" + eventTimeNoFormat[index])
-            //print("we are looking for this" + eventHours[numIterations][1])
-            if eventTimeNoFormat[index] == splitString[0] {
-                print("true")
-                print(eventHours[index][1])
-                finalArray.append(eventHours[index][1])
-            }
-        }
-        
-        print(eventTimeNoFormat)
-        
-        if finalArray.count >= eventTimeNoFormat.count {
-            return
-        }
-        print(finalArray)
-        
-    }
-    
+  
    func fetchEventData() {
     var count = 0
     fortlauderdaleArray.remove(at: 0)
@@ -522,6 +492,7 @@ class EventViewController: SetGovTableViewController{
     }
     
      if selectedCity == "Boston" {
+        
         self.descriptionArray.remove(at: 0)
         
         for (index, value) in eventAddresses.enumerated() {
@@ -677,7 +648,6 @@ class EventViewController: SetGovTableViewController{
             EventDetailViewController.selectedCity = selectedCity
             EventDetailViewController.arrayEvents = arrayEvents
             EventDetailViewController.eventTimeNoFormat = eventTimeNoFormat
-            EventDetailViewController.finalArray = finalArray
             EventDetailViewController.EventAddresses = eventAddresses
             EventDetailViewController.hrefArray = hrefArray
             EventDetailViewController.descriptionArray = descriptionArray
