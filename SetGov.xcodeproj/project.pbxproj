@@ -40,6 +40,7 @@
 		156BD4CF1E836B7800E8F98B /* EventStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4CE1E836B7800E8F98B /* EventStream.swift */; };
 		156BD4D11E836B9800E8F98B /* EventMembers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4D01E836B9800E8F98B /* EventMembers.swift */; };
 		156BD4D31E836BB300E8F98B /* EventDiscussion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4D21E836BB300E8F98B /* EventDiscussion.swift */; };
+		15A344D11F0ECC1E00E80D85 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A344D01F0ECC1E00E80D85 /* Reachability.swift */; };
 		15B945941E9DD75700226A32 /* EventLiveStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B945931E9DD75700226A32 /* EventLiveStream.swift */; };
 		15C64B471EADA84200B123A5 /* CityNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C64B461EADA84200B123A5 /* CityNavigationViewController.swift */; };
 		15C64B491EADA8FF00B123A5 /* BostonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C64B481EADA8FF00B123A5 /* BostonCell.swift */; };
@@ -108,6 +109,7 @@
 		156BD4CE1E836B7800E8F98B /* EventStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventStream.swift; sourceTree = "<group>"; };
 		156BD4D01E836B9800E8F98B /* EventMembers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMembers.swift; sourceTree = "<group>"; };
 		156BD4D21E836BB300E8F98B /* EventDiscussion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDiscussion.swift; sourceTree = "<group>"; };
+		15A344D01F0ECC1E00E80D85 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		15B945931E9DD75700226A32 /* EventLiveStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventLiveStream.swift; sourceTree = "<group>"; };
 		15C64B461EADA84200B123A5 /* CityNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityNavigationViewController.swift; sourceTree = "<group>"; };
 		15C64B481EADA8FF00B123A5 /* BostonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BostonCell.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				151CDA8C1E64CF3700440CDE /* LaunchScreen.storyboard */,
 				151CDAB51E64F2C500440CDE /* constants.swift */,
 				151CDA831E64CF3700440CDE /* AppDelegate.swift */,
+				15A344D01F0ECC1E00E80D85 /* Reachability.swift */,
 				151CDA871E64CF3700440CDE /* Main.storyboard */,
 				151CDA8F1E64CF3700440CDE /* Info.plist */,
 				1502CDB91EFB354000CD658F /* Models */,
@@ -626,6 +629,7 @@
 				1523A4941E8B385C00AE93C2 /* AgendaCell.swift in Sources */,
 				1502CDB81EFB2F4F00CD658F /* Users.swift in Sources */,
 				15C64B471EADA84200B123A5 /* CityNavigationViewController.swift in Sources */,
+				15A344D11F0ECC1E00E80D85 /* Reachability.swift in Sources */,
 				15C64B4B1EADA94200B123A5 /* FortLauderdaleCell.swift in Sources */,
 				153F3F891E6DF7190004E2F4 /* EventCell.swift in Sources */,
 				154E5C0B1E89FB6900F96FB6 /* EventAgenda.swift in Sources */,
