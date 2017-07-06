@@ -55,9 +55,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         if selectedCity == "Boston" {
             let url = URL(string: "https://www.boston.gov" + secondUrl)
     
-            print(url as Any)
         
-            print("continue")
             guard let doc = HTML(url: url!, encoding: .utf8) else  {
                 return
             }
@@ -74,15 +72,16 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
             
             print(agendaTitles)
 
-        
-            for link in doc.css(".body") {
-                // print(link.text)
-                let showString = link.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        // seg fault is here
             
-                let agendaString = showString.components(separatedBy: "\n")
-                print(agendaString)
-                let agendaTitle = [agendaString][0]
-                agendaStringArray.append([agendaTitle][0])
+          //  for link in doc.css(".body") {
+                // print(link.text)
+            //    let showString = link.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            
+              //  let agendaString = showString.components(separatedBy: "\n")
+                //print(agendaString)
+                //let agendaTitle = [agendaString][0]
+                //agendaStringArray.append([agendaTitle][0])
             
             
             }
@@ -101,7 +100,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         //}
         
         
-        }
+        //  }
     
         return
     }
