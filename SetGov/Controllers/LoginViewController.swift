@@ -16,6 +16,13 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate {
     let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
+        if  Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+        } else {
+            print("Internet connection FAILED")
+            let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
         LoginField.delegate = self
         PassField.delegate = self
         
