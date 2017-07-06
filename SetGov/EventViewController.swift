@@ -321,6 +321,8 @@ class EventViewController: SetGovTableViewController{
                     fortLauderdaleEvents[numIterations][1] = fortLauderdaleEvents[numIterations][1].trimmingCharacters(in: .whitespaces)
                     let formatter = DateFormatter()
                     formatter.dateFormat = "MM/dd/yyyy"
+                    print(fortLauderdaleEvents)
+                    
                     if let date = formatter.date(from: fortLauderdaleEvents[numIterations][1]) {
                         fortLauderdaleDictionary.updateValue(fortLauderdaleEvents[numIterations], forKey: date)
                     }

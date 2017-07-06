@@ -30,7 +30,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     var agendaTitles = [String]()
     var descriptionArray = [String]()
     var eventDescription = String()
-    
+    var secondUrl = String()
 
     
     override func awakeFromNib() {
@@ -39,17 +39,22 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         agendaCollectionView.dataSource = self
     }
     
+    func generateBoston() {
+        secondUrl = hrefArray[indexofEvent]
+    }
+    
+    func configureLauderdale() {
+        self.agenda.text = "Agenda & Meeting Details"
+    }
+    
     func prepareAgenda() {
         if selectedCity == "Fort Lauderdale" {
-            print("CONFIGURING FORT LAUDERDALE")
-            
-            self.agenda.text = "Agenda & Meeting Details"
+            configureLauderdale()
         }
-
-        if selectedCity == "Boston" {
-            let secondUrl =  hrefArray[indexofEvent]
-            let url = URL(string: "https://www.boston.gov" + secondUrl)
         
+        if selectedCity == "Boston" {
+            let url = URL(string: "https://www.boston.gov" + secondUrl)
+    
             print(url as Any)
         
             print("continue")
@@ -86,23 +91,25 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
             print(agendaArray)
     
     
-        for notices in doc.css(".body") {
+       // for notices in doc.css(".body") {
             
             
-            let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+         //   let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             
-            print(showString)
+           // print(showString)
             
-        }
+        //}
         
         
         }
+    
+        return
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        
+        self.generateBoston()
         self.prepareAgenda()
         if selectedCity == "Boston" {
             if (indexPath.row == 0) {
@@ -160,6 +167,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
             if (indexPath.row == 0) {
                 
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
+
                 cell.mLabel.text = "Agenda"
                 cell.topicLabel.text = eventDescription
                 cell.layer.cornerRadius = 10
@@ -207,7 +215,6 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
             index = indexPath.row
             print("ROW 0")
             print(agendaInfo)
-            cell.configureCell(title: agendaTitles[indexPath.row])
             agendaInfo.updateValue(cell.topicLabel.text!, forKey: indexPath.row)
             print(cell.topicLabel.text as Any)
             
