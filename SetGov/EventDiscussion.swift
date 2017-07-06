@@ -11,8 +11,8 @@ import UIKit
 import QuartzCore
 
 class EventDiscussion: UITableViewCell {
-    @IBOutlet var upVote: UIImageView!
-    @IBOutlet var downVote: UIImageView!
+    @IBOutlet var upVote: UIButton!
+    @IBOutlet var downVote: UIButton!
     @IBOutlet var userPicture: ProfilePicture!
     @IBOutlet var userName: UILabel!
     @IBOutlet var timeStamp: UILabel!
@@ -23,12 +23,17 @@ class EventDiscussion: UITableViewCell {
     
     
     
+    @IBAction func upvoteAction(_ sender: Any) {
+    }
+    
     
     
 
     
     
     
+    @IBAction func downvoteAction(_ sender: Any) {
+    }
     
     
     
