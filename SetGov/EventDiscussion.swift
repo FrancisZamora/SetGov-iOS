@@ -27,8 +27,8 @@ class EventDiscussion: UITableViewCell {
         if self.upVoted == false {
             var x = Int(karma.text!)
             x = x! +  1
-            print(x)
-            karma.text = String(describing: x)
+            karma.text = String(describing: x!)
+            print(karma.text)
             self.upVoted = true
             self.downVoted = false
         }
@@ -45,7 +45,7 @@ class EventDiscussion: UITableViewCell {
         if self.downVoted == false {
             var x = Int(karma.text!)
             x = x! -  1
-            karma.text = String(describing: x)
+            karma.text = String(describing: x!)
             self.upVoted = false
             self.downVoted = true
         }
