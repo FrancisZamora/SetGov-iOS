@@ -16,7 +16,7 @@ class EventDiscussion: UITableViewCell {
     @IBOutlet var userPicture: ProfilePicture!
     @IBOutlet var userName: UILabel!
     @IBOutlet var timeStamp: UILabel!
-
+    @IBOutlet var karma: UILabel!
     
 
     

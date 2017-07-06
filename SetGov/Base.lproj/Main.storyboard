@@ -663,8 +663,10 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="downVote" destination="FhQ-IO-pRS" id="s0b-Ut-wvL"/>
+                                    <outlet property="karma" destination="tYn-zV-rkD" id="MHY-Xh-aAq"/>
                                     <outlet property="timeStamp" destination="K4H-aZ-Gve" id="UNi-EN-PS6"/>
                                     <outlet property="upVote" destination="EQk-aK-ot8" id="gDI-6f-B1K"/>
+                                    <outlet property="userName" destination="nIJ-qa-E8Q" id="AQP-yG-Qxd"/>
                                     <outlet property="userPicture" destination="PTh-6c-2Gh" id="nQq-Ep-8ek"/>
                                 </connections>
                             </tableViewCell>
