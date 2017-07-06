@@ -23,12 +23,12 @@ class EventDiscussion: UITableViewCell {
     
     
     
+    
     @IBAction func upvoteAction(_ sender: Any) {
         if self.upVoted == false {
             var x = Int(karma.text!)
             x = x! +  1
             karma.text = String(describing: x!)
-            print(karma.text)
             self.upVoted = true
             self.downVoted = false
         }
@@ -36,6 +36,10 @@ class EventDiscussion: UITableViewCell {
     }
     
     
+    @IBAction func replyAction(_ sender: Any) {
+        
+        
+    }
     
 
     

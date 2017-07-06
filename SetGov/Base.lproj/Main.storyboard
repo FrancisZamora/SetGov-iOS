@@ -661,6 +661,9 @@
                                             <state key="normal" title="Reply">
                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="replyAction:" destination="MYI-qh-THg" eventType="touchUpInside" id="MKc-hy-mi2"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
