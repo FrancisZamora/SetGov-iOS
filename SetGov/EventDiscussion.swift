@@ -17,13 +17,22 @@ class EventDiscussion: UITableViewCell {
     @IBOutlet var userName: UILabel!
     @IBOutlet var timeStamp: UILabel!
     @IBOutlet var karma: UILabel!
-    var upVoted = false
-    var downVoted = false
+    var upVoted =  Bool()
+    var downVoted = Bool()
     
     
     
     
     @IBAction func upvoteAction(_ sender: Any) {
+        if self.upVoted == false {
+            var x = Int(karma.text!)
+            x = x! +  1
+            print(x)
+            karma.text = String(describing: x)
+            self.upVoted = true
+            self.downVoted = false
+        }
+        
     }
     
     
@@ -33,6 +42,13 @@ class EventDiscussion: UITableViewCell {
     
     
     @IBAction func downvoteAction(_ sender: Any) {
+        if self.downVoted == false {
+            var x = Int(karma.text!)
+            x = x! -  1
+            karma.text = String(describing: x)
+            self.upVoted = false
+            self.downVoted = true
+        }
     }
     
     
