@@ -31,6 +31,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     var descriptionArray = [String]()
     var eventDescription = String()
     var secondUrl = String()
+    var agendaTitle = [String]()
 
     
     override func awakeFromNib() {
@@ -73,36 +74,21 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
             print(agendaTitles)
 
         // seg fault is here
-            
-          //  for link in doc.css(".body") {
-                // print(link.text)
-            //    let showString = link.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-            
-              //  let agendaString = showString.components(separatedBy: "\n")
-                //print(agendaString)
-                //let agendaTitle = [agendaString][0]
-                //agendaStringArray.append([agendaTitle][0])
+          for link in doc.css(".body") {
+            let showString = link.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            let agendaString = showString.components(separatedBy: "\n")
+            agendaTitle = [agendaString][0]
+            let x = [agendaTitle][0]
+            agendaStringArray.append(x)
             
             
-            }
+          }
             print(agendaStringArray)
         
             print(agendaArray)
     
     
-       // for notices in doc.css(".body") {
-            
-            
-         //   let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-            
-           // print(showString)
-            
-        //}
-        
-        
-        //  }
-    
-        return
+        }
     }
     
     

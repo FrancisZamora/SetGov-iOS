@@ -21,7 +21,6 @@ class EventViewController: SetGovTableViewController{
     var indexofEvent = 0
     var counter = -1
     var eventImage = #imageLiteral(resourceName: "Image1")
-    var address = "100 North Andrews Avenue"
     var time = "9:00pm"
     var eventArray = [String]()
     var firstVisited = [Bool]()
@@ -196,54 +195,34 @@ class EventViewController: SetGovTableViewController{
             }
             
             for notices in doc.css(".thoroughfare") {
-                print("we made it")
                 
                 var showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                print("\(showString)\n")
                 
                 if showString.range(of:"Room") != nil {
                     
                     showString = "1 City Hall Square"
                 }
-                print(showString)
                 
                 eventAddresses.append(showString)
 
             }
             
-            print(eventAddresses)
-            
             self.numIterations = 0
             for notices in doc.css(".date-display-single") {
-                    print(numIterations)
                     let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                    print("RIGHT STRING")
-                    print("\(showString)\n")
-                    print(showString)
                     eventTimeNoFormat.append(showString)
-                
                     self.numIterations = self.numIterations + 1
 
                 
                 
             }
                     self.cleanseArray()
-                    print(eventTimeNoFormat)
                     self.breakTime()
             
-                    print(eventTimeNoFormat)
-                    print(eventTimeFormatted)
-                    
-                    
-                    print(eventTimeNoFormat)
 
-                    var xy = 0
                     self.numIterations = 0
                     for notices in doc.css(".dl-d") {
-                        print("SWAG")
                         
-                        print(xy)
-                        xy = xy + 1
                         if self.numIterations == 3 {
                             self.numIterations = 0
                         }
@@ -278,16 +257,9 @@ class EventViewController: SetGovTableViewController{
                     
                     let showString = events.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                     _ = showString.trimmingCharacters(in: .whitespacesAndNewlines)
-                    print(showString)
                     
                     let newArray = showString.components(separatedBy: "\n")
-                    
-                    print(showString)
-                    print(newArray)
-                    
-                    
-                    print(showString)
-                    
+    
                     fortLauderdaleEvents.append(newArray)
                     fortLauderdaleEvents[numIterations][0] = fortLauderdaleEvents[numIterations][0].capitalized
                     fortLauderdaleEvents[numIterations][1] = fortLauderdaleEvents[numIterations][1].trimmingCharacters(in: .whitespaces)
@@ -309,20 +281,12 @@ class EventViewController: SetGovTableViewController{
                     print(showString)
                     
                     let newArray = showString.components(separatedBy: "\n")
-                    
-                    print(showString)
-                    print(newArray)
-                    
-                    
-                    print(showString)
-                    
                     fortLauderdaleEvents.append(newArray)
                     fortLauderdaleEvents[numIterations][0] = fortLauderdaleEvents[numIterations][0].capitalized
                     fortLauderdaleEvents[numIterations][1] = fortLauderdaleEvents[numIterations][1].trimmingCharacters(in: .whitespaces)
                     let formatter = DateFormatter()
                     formatter.dateFormat = "MM/dd/yyyy"
                     print(fortLauderdaleEvents)
-                    
                     if let date = formatter.date(from: fortLauderdaleEvents[numIterations][1]) {
                         fortLauderdaleDictionary.updateValue(fortLauderdaleEvents[numIterations], forKey: date)
                     }
@@ -348,25 +312,13 @@ class EventViewController: SetGovTableViewController{
         let calendar = Calendar.current
         let month = calendar.component(.month, from: date)
         let day = calendar.component(.day, from: date)
-       // print(day)
-      //  print(month)
-        
-        
         for (key, _) in fortLauderdaleDictionary {
-            print(key)
-            //print(month)
-            
-            //print(calendar.component(.month, from: key ))
-            //print(calendar.component(.month, from: key ) > month)
             
             let x = calendar.component(.month, from: key) == month && calendar.component(.day, from: key) < day
             let y = calendar.component(.month, from: key) < month
-            //var z = calendar.component(.month, from: key) > month
-             if (x == true  || y == true) {
-                
+            if (x == true  || y == true) {
                 print(key)
                 fortLauderdaleDictionary.removeValue(forKey: key)
-                
             }
             
         }
@@ -391,12 +343,7 @@ class EventViewController: SetGovTableViewController{
         var x = 0
         for (_) in eventDescriptions {
             var eventDescriptions = arrayEvents[0].components(separatedBy: " ")
-            print(eventDescriptions)
-            print(eventDescriptions)
-            print("what just printed")
-           // print(arrayEvents)
             
-            print("EVENT DESCRIPTIONS")
             let lastIndex = eventDescriptions.count
             descriptionArray.append(eventDescriptions[lastIndex])
             print(x)
@@ -414,7 +361,6 @@ class EventViewController: SetGovTableViewController{
         var format = [String]()
         
         for (index,_) in eventTimeNoFormat.enumerated() {
-            eventTimeNoFormat[index].components(separatedBy: ",")
 
             guard let  x = dateFormatter.date(from: eventTimeNoFormat[index]) else {
                 
@@ -449,10 +395,7 @@ class EventViewController: SetGovTableViewController{
         print(eventTimeFormatted)
         
     }
-
     
-        
-  
    func fetchEventData() {
     var count = 0
     fortlauderdaleArray.remove(at: 0)
@@ -498,24 +441,11 @@ class EventViewController: SetGovTableViewController{
         self.descriptionArray.remove(at: 0)
         
         for (index, value) in eventAddresses.enumerated() {
-            print(descriptionArray[0])
-            print(eventAddresses.count)
-            print(arrayEvents)
-            print(arrayEvents.count)
-            
-           // print(eventAddresses[index])
-            //print(eventTimeNoFormat)
-            //print(descriptionArray[index])
-            
-            //print(eventTimeNoFormat[index])
-            
-           // print(arrayEvents)
             
             
             
             let event = Event(eventTitle: spacer + arrayEvents[index], eventAddress: value, eventUsers: ["Tim","Sam"] , eventDescription: descriptionArray[index], eventDate:eventTimeFormatted[index], eventImageName: "bostonPark", eventTime: eventHours[index][1], eventTags: ["engagement", "bureaucracy"], loggedUser: User(userName: "Tim", attendingStatus: false, interestedStatus: false))
 
-            //let event = Event(eventTitle: spacer + value, eventAddress: eventAddresses[index], eventUsers: ["Tim","Sam"] , eventDescription: descriptionArray[index], eventDate:eventTimeNoFormat[index], eventImageName: "bostonPark", eventTime: finalArray[index], eventTags: ["engagement", "bureaucracy"], loggedUser: User(userName: "Tim", attendingStatus: false, interestedStatus: false))
             
             print(event.eventDescription)
             
