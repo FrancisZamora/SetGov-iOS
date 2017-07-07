@@ -157,6 +157,7 @@ class CityNavigationViewController: SetGovTableViewController {
             print("Fort Lauderdale Cell")
             
         }
+        
         if (indexPath.row == 2) {
             let alert = UIAlertController(title: "New York City Coming Soon", message: "", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))

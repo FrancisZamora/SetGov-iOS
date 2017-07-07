@@ -78,10 +78,16 @@ class SettingsTableViewController: SetGovTableViewController {
         
         }
         
-        let cell =  tableView.dequeueReusableCell(withIdentifier: "homeCity") as! homeCity
+        if (indexPath.row == 3) {
+        
+            let cell =  tableView.dequeueReusableCell(withIdentifier: "logOut") as! logOut
+            
+            return cell
+        
+        }
+        
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "logOut") as! logOut
         return cell
-        
-        
     }
     
     

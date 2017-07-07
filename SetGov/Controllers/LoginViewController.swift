@@ -16,6 +16,7 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate {
     let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         LoginField.delegate = self
         PassField.delegate = self
         
