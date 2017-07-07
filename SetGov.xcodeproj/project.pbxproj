@@ -32,6 +32,7 @@
 		1523A4941E8B385C00AE93C2 /* AgendaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1523A4931E8B385C00AE93C2 /* AgendaCell.swift */; };
 		1523A49A1E8B38CB00AE93C2 /* AgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1523A4991E8B38CB00AE93C2 /* AgendaViewController.swift */; };
 		1529E0AE1F103524001FE4BB /* profileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1529E0AD1F103524001FE4BB /* profileCell.swift */; };
+		1529E0B01F103A6D001FE4BB /* logOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1529E0AF1F103A6D001FE4BB /* logOut.swift */; };
 		152DBEE91EF1BC1E00322E56 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152DBEE81EF1BC1E00322E56 /* Event.swift */; };
 		153F3F7C1E6DF0E50004E2F4 /* SetGovViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F7B1E6DF0E50004E2F4 /* SetGovViewController.swift */; };
 		153F3F7E1E6DF0ED0004E2F4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F7D1E6DF0ED0004E2F4 /* LoginViewController.swift */; };
@@ -105,6 +106,7 @@
 		1523A4931E8B385C00AE93C2 /* AgendaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaCell.swift; sourceTree = "<group>"; };
 		1523A4991E8B38CB00AE93C2 /* AgendaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaViewController.swift; sourceTree = "<group>"; };
 		1529E0AD1F103524001FE4BB /* profileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileCell.swift; sourceTree = "<group>"; };
+		1529E0AF1F103A6D001FE4BB /* logOut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = logOut.swift; sourceTree = "<group>"; };
 		152DBEE81EF1BC1E00322E56 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		153F3F7B1E6DF0E50004E2F4 /* SetGovViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetGovViewController.swift; path = Controllers/SetGovViewController.swift; sourceTree = "<group>"; };
 		153F3F7D1E6DF0ED0004E2F4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controllers/LoginViewController.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				153F3F881E6DF7190004E2F4 /* EventCell.swift */,
+				1529E0AF1F103A6D001FE4BB /* logOut.swift */,
 				1515A6C41F10166C004312F2 /* pushNotification.swift */,
 				1515A6C61F101677004312F2 /* homeCity.swift */,
 				154E5C0A1E89FB6900F96FB6 /* EventAgenda.swift */,
@@ -614,6 +617,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				150854801E97079C00838D85 /* AgendaDetailComments.swift in Sources */,
+				1529E0B01F103A6D001FE4BB /* logOut.swift in Sources */,
 				151547611EF2D527003FF351 /* libxmlParserOption.swift in Sources */,
 				153F3F7E1E6DF0ED0004E2F4 /* LoginViewController.swift in Sources */,
 				15D3DB871E7A169E00CD35DD /* ProfileImage.swift in Sources */,

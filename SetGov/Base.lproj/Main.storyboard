@@ -1071,13 +1071,13 @@
         <!--Settings-->
         <scene sceneID="a10-v7-jf3">
             <objects>
-                <tableViewController id="klJ-bK-BL2" sceneMemberID="viewController">
+                <tableViewController id="klJ-bK-BL2" customClass="SettingsTableViewController" customModule="SetGov" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="233" sectionHeaderHeight="28" sectionFooterHeight="28" id="dPu-c2-LYD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileCell" rowHeight="326" id="95x-ac-FWj" customClass="profileCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileCell" rowHeight="326" id="95x-ac-FWj" customClass="profileCell" customModule="SetGov">
                                 <rect key="frame" x="0.0" y="28" width="375" height="326"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="95x-ac-FWj" id="O9k-6e-m7K">
@@ -1115,7 +1115,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pushNotification" rowHeight="69" id="QDg-oU-OqU" customClass="pushNotification">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pushNotification" rowHeight="69" id="QDg-oU-OqU" customClass="pushNotification" customModule="SetGov">
                                 <rect key="frame" x="0.0" y="354" width="375" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QDg-oU-OqU" id="4WM-D1-3UL">
@@ -1136,7 +1136,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeCity" rowHeight="69" id="KLZ-QB-BYB" customClass="homeCity">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeCity" rowHeight="69" id="KLZ-QB-BYB" customClass="homeCity" customModule="SetGov">
                                 <rect key="frame" x="0.0" y="423" width="375" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KLZ-QB-BYB" id="rU4-4S-Evv">
@@ -1165,7 +1165,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="69" id="WX7-si-14s">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="69" id="WX7-si-14s" customClass="logOut" customModule="SetGov">
                                 <rect key="frame" x="0.0" y="492" width="375" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WX7-si-14s" id="vbo-vm-Lkp">
