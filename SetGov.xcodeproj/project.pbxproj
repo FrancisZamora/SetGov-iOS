@@ -18,6 +18,7 @@
 		1515475F1EF2D527003FF351 /* libxmlHTMLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1515475C1EF2D527003FF351 /* libxmlHTMLDocument.swift */; };
 		151547601EF2D527003FF351 /* libxmlHTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1515475D1EF2D527003FF351 /* libxmlHTMLNode.swift */; };
 		151547611EF2D527003FF351 /* libxmlParserOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1515475E1EF2D527003FF351 /* libxmlParserOption.swift */; };
+		1515A6C31F0FCF80004312F2 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1515A6C21F0FCF80004312F2 /* SettingsTableViewController.swift */; };
 		151B8B331E7CBD410021BF89 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151B8B321E7CBD410021BF89 /* GradientView.swift */; };
 		151CDA841E64CF3700440CDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CDA831E64CF3700440CDE /* AppDelegate.swift */; };
 		151CDA891E64CF3700440CDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151CDA871E64CF3700440CDE /* Main.storyboard */; };
@@ -81,6 +82,7 @@
 		1515475C1EF2D527003FF351 /* libxmlHTMLDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = libxmlHTMLDocument.swift; path = "../Kanna-master/Sources/Kanna/libxmlHTMLDocument.swift"; sourceTree = "<group>"; };
 		1515475D1EF2D527003FF351 /* libxmlHTMLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = libxmlHTMLNode.swift; path = "../Kanna-master/Sources/Kanna/libxmlHTMLNode.swift"; sourceTree = "<group>"; };
 		1515475E1EF2D527003FF351 /* libxmlParserOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = libxmlParserOption.swift; path = "../Kanna-master/Sources/Kanna/libxmlParserOption.swift"; sourceTree = "<group>"; };
+		1515A6C21F0FCF80004312F2 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		151B8B321E7CBD410021BF89 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		151CDA801E64CF3700440CDE /* SetGov.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetGov.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		151CDA831E64CF3700440CDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				156BD4C81E83185200E8F98B /* EventDetailViewController.swift */,
+				1515A6C21F0FCF80004312F2 /* SettingsTableViewController.swift */,
 				153F3F7D1E6DF0ED0004E2F4 /* LoginViewController.swift */,
 				153F3F861E6DF54B0004E2F4 /* EventViewController.swift */,
 				153F3F7B1E6DF0E50004E2F4 /* SetGovViewController.swift */,
@@ -609,6 +612,7 @@
 				1508547E1E97078C00838D85 /* AgendaDetailData.swift in Sources */,
 				153F3F7C1E6DF0E50004E2F4 /* SetGovViewController.swift in Sources */,
 				153F3F851E6DF2A20004E2F4 /* SetGovTableViewController.swift in Sources */,
+				1515A6C31F0FCF80004312F2 /* SettingsTableViewController.swift in Sources */,
 				1508547C1E97077F00838D85 /* AgendaDetailHeader.swift in Sources */,
 				156BD4D11E836B9800E8F98B /* EventMembers.swift in Sources */,
 				15B945941E9DD75700226A32 /* EventLiveStream.swift in Sources */,
