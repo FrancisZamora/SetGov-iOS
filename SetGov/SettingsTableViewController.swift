@@ -31,7 +31,7 @@ class SettingsTableViewController: SetGovTableViewController {
 
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
         
     }
     
@@ -47,9 +47,11 @@ class SettingsTableViewController: SetGovTableViewController {
         case 0:
             return 200
         case 1:
-            return 38
+            return 69
         case 2:
-            return 176
+            return 69
+        case 3:
+            return 69
         default:
             return 0
         }
