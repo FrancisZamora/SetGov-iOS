@@ -19,6 +19,8 @@
 		151547601EF2D527003FF351 /* libxmlHTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1515475D1EF2D527003FF351 /* libxmlHTMLNode.swift */; };
 		151547611EF2D527003FF351 /* libxmlParserOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1515475E1EF2D527003FF351 /* libxmlParserOption.swift */; };
 		1515A6C31F0FCF80004312F2 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1515A6C21F0FCF80004312F2 /* SettingsTableViewController.swift */; };
+		1515A6C51F10166C004312F2 /* pushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1515A6C41F10166C004312F2 /* pushNotification.swift */; };
+		1515A6C71F101677004312F2 /* homeCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1515A6C61F101677004312F2 /* homeCity.swift */; };
 		151B8B331E7CBD410021BF89 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151B8B321E7CBD410021BF89 /* GradientView.swift */; };
 		151CDA841E64CF3700440CDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CDA831E64CF3700440CDE /* AppDelegate.swift */; };
 		151CDA891E64CF3700440CDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151CDA871E64CF3700440CDE /* Main.storyboard */; };
@@ -83,6 +85,8 @@
 		1515475D1EF2D527003FF351 /* libxmlHTMLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = libxmlHTMLNode.swift; path = "../Kanna-master/Sources/Kanna/libxmlHTMLNode.swift"; sourceTree = "<group>"; };
 		1515475E1EF2D527003FF351 /* libxmlParserOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = libxmlParserOption.swift; path = "../Kanna-master/Sources/Kanna/libxmlParserOption.swift"; sourceTree = "<group>"; };
 		1515A6C21F0FCF80004312F2 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		1515A6C41F10166C004312F2 /* pushNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pushNotification.swift; sourceTree = "<group>"; };
+		1515A6C61F101677004312F2 /* homeCity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeCity.swift; sourceTree = "<group>"; };
 		151B8B321E7CBD410021BF89 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		151CDA801E64CF3700440CDE /* SetGov.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetGov.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		151CDA831E64CF3700440CDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -267,6 +271,8 @@
 			isa = PBXGroup;
 			children = (
 				153F3F881E6DF7190004E2F4 /* EventCell.swift */,
+				1515A6C41F10166C004312F2 /* pushNotification.swift */,
+				1515A6C61F101677004312F2 /* homeCity.swift */,
 				154E5C0A1E89FB6900F96FB6 /* EventAgenda.swift */,
 				1508547B1E97077F00838D85 /* AgendaDetailHeader.swift */,
 				1508547D1E97078C00838D85 /* AgendaDetailData.swift */,
@@ -625,6 +631,8 @@
 				156BD4CF1E836B7800E8F98B /* EventStream.swift in Sources */,
 				151CDAB61E64F2C500440CDE /* constants.swift in Sources */,
 				156BD4C91E83185200E8F98B /* EventDetailViewController.swift in Sources */,
+				1515A6C71F101677004312F2 /* homeCity.swift in Sources */,
+				1515A6C51F10166C004312F2 /* pushNotification.swift in Sources */,
 				156BD4D31E836BB300E8F98B /* EventDiscussion.swift in Sources */,
 				153F3F871E6DF54B0004E2F4 /* EventViewController.swift in Sources */,
 				15C64B491EADA8FF00B123A5 /* BostonCell.swift in Sources */,
