@@ -41,7 +41,9 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     }
     
     func generateBoston() {
-        secondUrl = hrefArray[indexofEvent]
+        if selectedCity == "Boston" {
+            secondUrl = hrefArray[indexofEvent]
+        }
     }
     
     func configureLauderdale() {
