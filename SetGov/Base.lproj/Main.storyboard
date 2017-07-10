@@ -1152,7 +1152,7 @@
                                 <rect key="frame" x="0.0" y="423" width="375" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KLZ-QB-BYB" id="rU4-4S-Evv">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="68.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VnQ-gq-ksO">
@@ -1162,7 +1162,7 @@
                                             </constraints>
                                         </pickerView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1p-eB-Pxh">
-                                            <rect key="frame" x="51" y="24" width="81" height="21"/>
+                                            <rect key="frame" x="8" y="24" width="81" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -1170,10 +1170,10 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="VnQ-gq-ksO" secondAttribute="trailing" id="DQS-DQ-6mp"/>
+                                        <constraint firstItem="y1p-eB-Pxh" firstAttribute="centerY" secondItem="VnQ-gq-ksO" secondAttribute="centerY" id="KVH-r4-z8O"/>
                                         <constraint firstAttribute="bottom" secondItem="VnQ-gq-ksO" secondAttribute="bottom" id="RBa-gF-Qk3"/>
-                                        <constraint firstItem="VnQ-gq-ksO" firstAttribute="leading" secondItem="y1p-eB-Pxh" secondAttribute="trailing" constant="86" id="Tz1-G7-eac"/>
-                                        <constraint firstItem="VnQ-gq-ksO" firstAttribute="centerY" secondItem="y1p-eB-Pxh" secondAttribute="centerY" id="ZHV-rI-rRb"/>
                                         <constraint firstItem="VnQ-gq-ksO" firstAttribute="top" secondItem="rU4-4S-Evv" secondAttribute="top" id="bd6-rj-urU"/>
+                                        <constraint firstItem="y1p-eB-Pxh" firstAttribute="leading" secondItem="rU4-4S-Evv" secondAttribute="leadingMargin" id="dEB-5s-oOa"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>

@@ -45,7 +45,7 @@ class SettingsTableViewController: SetGovTableViewController {
     {
         switch indexPath.row {
         case 0:
-            return 200
+            return 400
         case 1:
             return 69
         case 2:
@@ -62,18 +62,21 @@ class SettingsTableViewController: SetGovTableViewController {
         
         if (indexPath.row == 0) {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "profileCell") as! profileCell
+            cell.selectionStyle = .none
             return cell
         }
         
         if (indexPath.row == 1) {
             
             let cell =  tableView.dequeueReusableCell(withIdentifier: "pushNotification") as! pushNotification
+            cell.selectionStyle = .none
             return cell
         }
         
         if (indexPath.row == 2) {
             
             let cell =  tableView.dequeueReusableCell(withIdentifier: "homeCity") as! homeCity
+            cell.selectionStyle = .none
             return cell
         
         }
@@ -81,6 +84,7 @@ class SettingsTableViewController: SetGovTableViewController {
         if (indexPath.row == 3) {
         
             let cell =  tableView.dequeueReusableCell(withIdentifier: "logOut") as! logOut
+            cell.selectionStyle = .none
             
             return cell
         
