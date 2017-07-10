@@ -78,6 +78,7 @@ class CityNavigationViewController: SetGovTableViewController {
         if (indexPath.row == 0 ) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "BostonCell", for:indexPath) as! BostonCell
             cell.selectionStyle = .none
+
             print(indexPath.row)
            
             return cell
