@@ -13,7 +13,9 @@ class User {
     var userName = " "
     var attendingStatus = false
     var interestedStatus = false
-    
+    //push notifications
+    //homeCity
+    //pic
     
     init(userName:String, attendingStatus:Bool, interestedStatus:Bool){
         self.userName = userName
