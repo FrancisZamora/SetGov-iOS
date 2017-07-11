@@ -27,7 +27,21 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return  1
     }
-
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        
+        var label = view as! UILabel!
+        if label == nil {
+            label = UILabel()
+        }
+        
+        let data = pickerData[row]
+        let title = NSAttributedString(string: data, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17, weight: UIFontWeightRegular)])
+        label?.attributedText = title
+        label?.textAlignment = .center
+        return label!
+        
+    }
     
     
     // The number of rows of data
