@@ -11,10 +11,13 @@ import UIKit
 
 class SetGovTableViewController: UITableViewController {
     
+     var appDelegate = UIApplication.shared.delegate as! AppDelegate
+
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         if  Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
         } else {

@@ -89,6 +89,14 @@ class SettingsTableViewController: SetGovTableViewController {
             
             let cell =  tableView.dequeueReusableCell(withIdentifier: "pushNotification") as! pushNotification
             cell.selectionStyle = .none
+            
+            if self.appDelegate.francis.pushNotifications == true {
+                cell.pushSwitch.isOn = true
+            }
+            else {
+                cell.pushSwitch.isOn = false
+            }
+            
             return cell
         }
         
@@ -97,6 +105,7 @@ class SettingsTableViewController: SetGovTableViewController {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "homeCity") as! homeCity
             cell.selectionStyle = .none
             cell.configurePicker()
+            cell.francis = self.appDelegate.francis
             return cell
         
         }
