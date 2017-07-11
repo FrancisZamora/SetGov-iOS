@@ -45,7 +45,7 @@ class SettingsTableViewController: SetGovTableViewController {
     {
         switch indexPath.row {
         case 0:
-            return 400
+            return 435
         case 1:
             return 69
         case 2:
