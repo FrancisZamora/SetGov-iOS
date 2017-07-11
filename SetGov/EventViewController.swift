@@ -76,6 +76,8 @@ class EventViewController: SetGovTableViewController{
         self.fetchEventData()
         self.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
+
+        
         print(fortLauderdaleDictionary)
         
         
@@ -92,12 +94,13 @@ class EventViewController: SetGovTableViewController{
     
     func refresh(sender:AnyObject) {
         print("refreshed")
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
             self.refreshControl?.endRefreshing()
             print("stop refreshing")
-            
         }
     }
+    
     
     
     func cleanArray() {
@@ -433,7 +436,7 @@ class EventViewController: SetGovTableViewController{
             
             
 
-            let event = Event(eventTitle: spacer + fortlauderdaleArray[index][0], eventAddress:"100 N Andrews Ave", eventUsers: ["Tim","Sam"], eventDescription: finalTitle, eventDate:date , eventImageName: "Image1", eventTime: y, eventTags: ["swag","swag"], loggedUser: User(userName: "Tim", attendingStatus: false, interestedStatus: false))
+            let event = Event(eventTitle: spacer + fortlauderdaleArray[index][0], eventAddress:"100 N Andrews Ave", eventUsers: ["Tim","Sam"], eventDescription: finalTitle, eventDate:date , eventImageName: "Image1", eventTime: y, eventTags: ["swag","swag"])
             if isEven(num: count) {
                 event.eventImage = #imageLiteral(resourceName: "Image-12")
                 
@@ -457,7 +460,7 @@ class EventViewController: SetGovTableViewController{
             
             
             
-            let event = Event(eventTitle: spacer + arrayEvents[index], eventAddress: value, eventUsers: ["Tim","Sam"] , eventDescription: descriptionArray[index], eventDate:eventTimeFormatted[index], eventImageName: "bostonPark", eventTime: eventHours[index][1], eventTags: ["engagement", "bureaucracy"], loggedUser: User(userName: "Tim", attendingStatus: false, interestedStatus: false))
+            let event = Event(eventTitle: spacer + arrayEvents[index], eventAddress: value, eventUsers: ["Tim","Sam"] , eventDescription: descriptionArray[index], eventDate:eventTimeFormatted[index], eventImageName: "bostonPark", eventTime: eventHours[index][1], eventTags: ["engagement", "bureaucracy"])
 
             
             print(event.eventDescription)

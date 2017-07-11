@@ -20,13 +20,13 @@ class Event {
     
     var eventTags = [String]()
     var eventUsers = [String]()
-    var loggedUser = User(userName: " " , attendingStatus: false, interestedStatus: false)
+   // var loggedUser = User(userName: " " , attendingStatus: false, interestedStatus: false)
     
     
     
     
     
-    init(eventTitle:String, eventAddress: String, eventUsers: [String],  eventDescription: String, eventDate: String, eventImageName: String, eventTime: String, eventTags:[String],loggedUser:User) {
+    init(eventTitle:String, eventAddress: String, eventUsers: [String],  eventDescription: String, eventDate: String, eventImageName: String, eventTime: String, eventTags:[String]) {
         self.eventTitle = eventTitle
         self.eventDescription = eventDescription
         self.eventDate = eventDate
@@ -35,7 +35,6 @@ class Event {
         self.eventTags = eventTags
         self.eventDate = eventDate
         self.eventTime = eventTime
-        self.loggedUser = loggedUser
         self.eventAddress = eventAddress
         
         // ** read top comment self.eventUsers = eventUsers

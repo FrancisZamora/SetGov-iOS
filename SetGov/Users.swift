@@ -13,14 +13,16 @@ class User {
     var userName = " "
     var attendingStatus = false
     var interestedStatus = false
-    //push notifications
-    //homeCity
+    var pushNotifications = true
+    var homeCity = " "
     //pic
     
-    init(userName:String, attendingStatus:Bool, interestedStatus:Bool){
+    init(userName:String, attendingStatus:Bool, interestedStatus:Bool,pushNotifications:Bool, homeCity:String){
         self.userName = userName
         self.attendingStatus = attendingStatus
         self.interestedStatus = interestedStatus
+        self.pushNotifications = pushNotifications
+        self.homeCity = homeCity
     }
 
 
