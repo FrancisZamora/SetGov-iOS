@@ -250,6 +250,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Fort Lauderdale, FL" id="uvx-Vh-Pau">
                         <barButtonItem key="backBarButtonItem" title=" " id="8Iz-4q-XJS"/>
+                        <barButtonItem key="rightBarButtonItem" image="Image-19" id="ppa-Pb-Nwb">
+                            <connections>
+                                <segue destination="klJ-bK-BL2" kind="show" id="N7x-HX-zy0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="TableView" destination="tDH-l0-WQN" id="fdH-gK-8CC"/>
@@ -777,6 +782,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Marine Advisory" id="7YE-DJ-ug6">
                         <barButtonItem key="backBarButtonItem" title=" " id="wjb-sU-KGE"/>
+                        <barButtonItem key="rightBarButtonItem" image="Image-19" id="Dax-x1-kkS">
+                            <connections>
+                                <segue destination="klJ-bK-BL2" kind="show" id="Thq-tV-mwK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1165"/>
@@ -1069,7 +1079,13 @@
                             <outlet property="delegate" destination="1Ae-3g-4yy" id="9dJ-IN-FGm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Marine Advisory" id="ZhH-TI-eYw"/>
+                    <navigationItem key="navigationItem" title="Marine Advisory" id="ZhH-TI-eYw">
+                        <barButtonItem key="rightBarButtonItem" image="Image-19" id="aFW-Vq-USA">
+                            <connections>
+                                <segue destination="klJ-bK-BL2" kind="show" id="dQc-Cz-wKe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="900"/>
                     <connections>
@@ -1210,7 +1226,10 @@
                             <outlet property="delegate" destination="klJ-bK-BL2" id="KKa-cG-JhJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="SRI-zv-5nv"/>
+                    <navigationItem key="navigationItem" title="Settings" id="SRI-zv-5nv">
+                        <barButtonItem key="backBarButtonItem" title=" " id="gsR-4x-vie"/>
+                        <barButtonItem key="rightBarButtonItem" image="Image-19" id="t2l-GS-J8O"/>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="900"/>
                 </tableViewController>
@@ -1428,6 +1447,7 @@
         <image name="Image-11" width="401" height="205"/>
         <image name="Image-15" width="12" height="7"/>
         <image name="Image-16" width="12" height="7"/>
+        <image name="Image-19" width="32" height="28"/>
         <image name="Image-2" width="160" height="160"/>
         <image name="Image-3" width="819" height="819"/>
         <image name="Image-4" width="160" height="160"/>
@@ -1439,5 +1459,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="V6K-gC-1yc"/>
+        <segue reference="dQc-Cz-wKe"/>
     </inferredMetricsTieBreakers>
 </document>

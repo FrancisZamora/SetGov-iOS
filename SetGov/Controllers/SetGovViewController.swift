@@ -25,7 +25,7 @@ class SetGovViewController: UIViewController {
             print("Internet connection OK")
         } else {
             print("Internet connection FAILED")
-            let alert = UIAlertView(title: "No Internet Connection", message: "Your device is connected to the internet, SetGov will not work.", delegate: nil, cancelButtonTitle: "OK")
+            let alert = UIAlertView(title: "No Internet Connection", message: "Your device is not connected to the internet, SetGov will not work.", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
         }
 
