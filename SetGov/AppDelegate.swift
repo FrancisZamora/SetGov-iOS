@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var francis =  User(userName: "Francis Zamora", attendingStatus: false , interestedStatus: false, pushNotifications: false, homeCity: " ")
+    var francis =  User(userName: "Francis Zamora", attendingStatus: false , interestedStatus: false, pushNotifications: true, homeCity: " ")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //Mark - Styling

@@ -12,6 +12,8 @@ import QuartzCore
 
 protocol EventAgendaCallback: class {
     func loadAgendaDetail(data:Dictionary<Int,String>, index: Int)
+    func loadVC()
+
 }
 
 class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -206,11 +208,14 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
             print(cell.topicLabel.text as Any)
             
             print(agendaInfo)
-
             
 
             if let callback = eventAgendaCallback {
+
                 callback.loadAgendaDetail(data: agendaInfo,index:0)
+                
+                callback.loadVC()
+
 
             }
         }
@@ -223,6 +228,8 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
 
             if let callback = eventAgendaCallback {
                 callback.loadAgendaDetail(data: agendaInfo,index:1)
+                callback.loadVC()
+
             }
 
         }
@@ -235,6 +242,8 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
 
             if let callback = eventAgendaCallback {
                 callback.loadAgendaDetail(data: agendaInfo,index:2)
+                callback.loadVC()
+
                 
             }
 

@@ -831,7 +831,6 @@
                     </refreshControl>
                     <connections>
                         <outlet property="navTitle" destination="7YE-DJ-ug6" id="tBg-L3-B4d"/>
-                        <segue destination="1Ae-3g-4yy" kind="show" identifier="showAgenda" id="FwS-uM-f1y"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ee-nh-oYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -882,12 +881,12 @@ which you can ....
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Cg-un-PwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3828" y="-1825"/>
+            <point key="canvasLocation" x="3502" y="-1639"/>
         </scene>
         <!--Marine Advisory-->
         <scene sceneID="pnb-67-GvK">
             <objects>
-                <tableViewController id="1Ae-3g-4yy" customClass="AgendaDetailViewController" customModule="SetGov" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AgendaDetailViewController" id="1Ae-3g-4yy" customClass="AgendaDetailViewController" customModule="SetGov" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="270" sectionHeaderHeight="28" sectionFooterHeight="28" id="T71-Vh-nfU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1179,7 +1178,7 @@ which you can ....
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tIU-w1-eZh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5400" y="-189"/>
+            <point key="canvasLocation" x="6630" y="-608"/>
         </scene>
         <!--Settings-->
         <scene sceneID="a10-v7-jf3">
@@ -1508,6 +1507,7 @@ which you can ....
                     <size key="freeformSize" width="375" height="868"/>
                     <connections>
                         <outlet property="navBar" destination="cZx-Su-NJz" id="LGE-zm-Tqj"/>
+                        <segue destination="REO-fl-V9Q" kind="presentation" modalPresentationStyle="overCurrentContext" id="vh4-ty-EvP"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rYC-IQ-8Mw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1577,7 +1577,7 @@ which you can ....
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k0e-Hz-UYC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4686" y="-1826"/>
+            <point key="canvasLocation" x="4524" y="-1551"/>
         </scene>
     </scenes>
     <resources>
@@ -1602,7 +1602,7 @@ which you can ....
         <image name="miami" width="1640" height="892"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="dQc-Cz-wKe"/>
         <segue reference="V6K-gC-1yc"/>
-        <segue reference="Thq-tV-mwK"/>
     </inferredMetricsTieBreakers>
 </document>

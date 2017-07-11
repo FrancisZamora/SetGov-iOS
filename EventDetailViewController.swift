@@ -114,7 +114,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         print(agendaInfo)
         Index = index
         
-        performSegue(withIdentifier: "showAgenda", sender: nil)
         
         print(data)
         print(data)
@@ -133,9 +132,20 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
     }
     
-   
+    func loadVC() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "AgendaDetailViewController") as! AgendaDetailViewController
+        controller.agendaImage = agendaImage
+        controller.eventTitle = eventTitle
+        
+        controller.agendaInfo = agendaInfo
+        controller.index = Index
+
+        self.present(controller, animated:true, completion: nil )
     
    
+    
+    }
     
       
     
@@ -399,7 +409,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             print("HELLO")
             
             
-            performSegue(withIdentifier: "showAgenda", sender: nil)
 
             
         }
@@ -415,22 +424,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
    
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "showAgenda") {
-            print("preparing view")
-            print("view for agenda detail")
-            let AgendaDetailViewController = segue.destination as! AgendaDetailViewController
-            AgendaDetailViewController.agendaImage = agendaImage
-            AgendaDetailViewController.eventTitle = eventTitle
-            print(agendaInfo)
-            
-            AgendaDetailViewController.agendaInfo = agendaInfo
-            print(AgendaDetailViewController.agendaInfo)
-            AgendaDetailViewController.index = Index
-        }
-        
-        
-    }
+   
     
     
     
