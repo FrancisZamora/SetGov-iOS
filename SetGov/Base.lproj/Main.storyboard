@@ -744,16 +744,15 @@
                                 <rect key="frame" x="0.0" y="666" width="375" height="216"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5GD-rW-UBB" id="CER-XE-Gh6">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="215.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <webView contentMode="scaleToFill" mediaPlaybackRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfY-ak-PRf">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
                                             <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </webView>
-                                        <view alpha="0.65000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8dL-zh-HbT">
+                                        <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8dL-zh-HbT">
                                             <rect key="frame" x="153" y="13" width="80" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" 0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnv-Ff-qpr">
                                                     <rect key="frame" x="14" y="3" width="52" height="25"/>
@@ -765,9 +764,8 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
-                                        <view alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wfm-E9-e4e">
+                                        <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wfm-E9-e4e">
                                             <rect key="frame" x="56" y="13" width="80" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="live " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrG-In-4Gb">
                                                     <rect key="frame" x="25" y="3" width="30" height="25"/>
@@ -781,10 +779,18 @@
                                         </view>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="8dL-zh-HbT" firstAttribute="bottom" secondItem="wfm-E9-e4e" secondAttribute="bottom" id="4Tg-gt-sTm"/>
+                                        <constraint firstItem="wfm-E9-e4e" firstAttribute="leading" secondItem="CER-XE-Gh6" secondAttribute="leadingMargin" constant="48" id="5tu-NO-GQH"/>
                                         <constraint firstAttribute="trailing" secondItem="jfY-ak-PRf" secondAttribute="trailing" id="Cle-3r-ML7"/>
+                                        <constraint firstAttribute="trailing" secondItem="8dL-zh-HbT" secondAttribute="trailing" constant="142" id="He0-d4-xvr"/>
                                         <constraint firstItem="jfY-ak-PRf" firstAttribute="leading" secondItem="CER-XE-Gh6" secondAttribute="leading" id="MQk-gW-9nr"/>
                                         <constraint firstItem="jfY-ak-PRf" firstAttribute="top" secondItem="CER-XE-Gh6" secondAttribute="top" id="S61-WW-eaV"/>
                                         <constraint firstItem="jfY-ak-PRf" firstAttribute="centerY" secondItem="CER-XE-Gh6" secondAttribute="centerY" id="XGV-b6-kB4"/>
+                                        <constraint firstAttribute="trailing" secondItem="wfm-E9-e4e" secondAttribute="trailing" constant="239" id="c1r-Ip-67h"/>
+                                        <constraint firstAttribute="bottom" secondItem="wfm-E9-e4e" secondAttribute="bottom" constant="172" id="ppJ-Uj-INb"/>
+                                        <constraint firstItem="8dL-zh-HbT" firstAttribute="leading" secondItem="wfm-E9-e4e" secondAttribute="trailing" constant="17" id="t7a-y1-lMY"/>
+                                        <constraint firstItem="wfm-E9-e4e" firstAttribute="top" secondItem="CER-XE-Gh6" secondAttribute="topMargin" constant="5" id="vnC-Xf-qZn"/>
+                                        <constraint firstItem="8dL-zh-HbT" firstAttribute="top" secondItem="wfm-E9-e4e" secondAttribute="top" id="yxS-sb-wbH"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -1213,6 +1219,9 @@
                                         <constraint firstItem="y1p-eB-Pxh" firstAttribute="leading" secondItem="rU4-4S-Evv" secondAttribute="leadingMargin" id="dEB-5s-oOa"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="pickerView" destination="VnQ-gq-ksO" id="g0X-hj-7T4"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="logOut" rowHeight="69" id="WX7-si-14s" customClass="logOut" customModule="SetGov">
                                 <rect key="frame" x="0.0" y="492" width="375" height="69"/>
@@ -1253,6 +1262,9 @@
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="900"/>
+                    <connections>
+                        <outlet property="rightbarItem" destination="t2l-GS-J8O" id="6t8-nh-To9"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REf-s8-120" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1483,6 +1495,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="V6K-gC-1yc"/>
-        <segue reference="N7x-HX-zy0"/>
+        <segue reference="Thq-tV-mwK"/>
     </inferredMetricsTieBreakers>
 </document>

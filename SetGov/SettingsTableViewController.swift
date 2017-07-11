@@ -11,12 +11,35 @@ import UIKit
 
 class SettingsTableViewController: SetGovTableViewController {
     var numsections = 0
+    var pickerData: [String] = [String]()
+
+    @IBOutlet var rightbarItem: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem = nil
+
+        
+        
+       
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
+    }
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // The number of rows of data
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    // The data to return for the row and component (column) that's being passed in
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -77,6 +100,7 @@ class SettingsTableViewController: SetGovTableViewController {
             
             let cell =  tableView.dequeueReusableCell(withIdentifier: "homeCity") as! homeCity
             cell.selectionStyle = .none
+            cell.configurePicker()
             return cell
         
         }
