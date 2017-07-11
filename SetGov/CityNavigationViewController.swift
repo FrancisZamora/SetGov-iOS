@@ -18,9 +18,7 @@ class CityNavigationViewController: SetGovTableViewController {
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 213
-        print("autoresizing")
-
-       
+              
     }
   
     
@@ -33,12 +31,13 @@ class CityNavigationViewController: SetGovTableViewController {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-    
-    
+       
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         return 50.0
     }
+    
+       
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         self.numsections = 1

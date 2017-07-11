@@ -49,12 +49,10 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         super.viewDidLoad()
         print("EventDetailViewController")
         self.loadTitle()
+        self.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        
         print(agendaInfo)
         print(indexofEvent)
-    }
-    
-    func delayTransition() {
-        print("transition to video being delayed")
     }
     
     func checkAlert() -> Bool {
@@ -66,6 +64,16 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             
         }
     }
+    
+    func refresh(sender:AnyObject) {
+        print("refreshed")
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
+            self.refreshControl?.endRefreshing()
+            print("stop refreshing")
+        }
+    }
+    
+
     
     func loadTitle() {
         if selectedCity == "Boston" {

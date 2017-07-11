@@ -19,10 +19,6 @@ class SettingsTableViewController: SetGovTableViewController {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = nil
 
-        
-        
-       
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {

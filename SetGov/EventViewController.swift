@@ -74,6 +74,8 @@ class EventViewController: SetGovTableViewController{
         self.splitEventDescription()
         self.filterDictionary()
         self.fetchEventData()
+        self.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        
         print(fortLauderdaleDictionary)
         
         
@@ -87,6 +89,16 @@ class EventViewController: SetGovTableViewController{
     
     override func viewDidAppear(_ animated: Bool) {
     }
+    
+    func refresh(sender:AnyObject) {
+        print("refreshed")
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
+            self.refreshControl?.endRefreshing()
+            print("stop refreshing")
+            
+        }
+    }
+    
     
     func cleanArray() {
         arrayEvents.remove(at: 0)

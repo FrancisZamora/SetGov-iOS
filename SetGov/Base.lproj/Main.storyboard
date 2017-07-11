@@ -82,7 +82,7 @@
         <scene sceneID="WqO-r7-02k">
             <objects>
                 <tableViewController id="01s-Z9-rOr" customClass="EventViewController" customModule="SetGov" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="315" sectionHeaderHeight="28" sectionFooterHeight="28" id="tDH-l0-WQN">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="315" sectionHeaderHeight="28" sectionFooterHeight="28" id="tDH-l0-WQN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="868"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -265,6 +265,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="AOG-Ix-XFo">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                     <connections>
                         <outlet property="TableView" destination="tDH-l0-WQN" id="fdH-gK-8CC"/>
                         <outlet property="cityDisplay" destination="uvx-Vh-Pau" id="91L-tS-8Ve"/>
@@ -279,7 +282,7 @@
         <scene sceneID="v0j-HM-U6D">
             <objects>
                 <tableViewController id="c7E-st-00Y" customClass="EventDetailViewController" customModule="SetGov" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZQu-Ov-ftT">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZQu-Ov-ftT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1165"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -638,7 +641,7 @@
                                 <rect key="frame" x="0.0" y="572" width="375" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MYI-qh-THg" id="IwL-Ej-qcu">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="93.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="PTh-6c-2Gh" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
@@ -684,7 +687,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I agree with the council's position on capitalism" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hb5-0U-EhE">
-                                            <rect key="frame" x="84" y="48" width="283" height="21"/>
+                                            <rect key="frame" x="84" y="48" width="229" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -703,28 +706,37 @@
                                                 <action selector="replyAction:" destination="MYI-qh-THg" eventType="touchUpInside" id="MKc-hy-mi2"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Wb-a2-xwa">
+                                            <rect key="frame" x="332" y="41" width="35" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="35" id="RVy-EJ-mth"/>
+                                            </constraints>
+                                            <state key="normal" title="Button" image="Image-23"/>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="nIJ-qa-E8Q" firstAttribute="leading" secondItem="PTh-6c-2Gh" secondAttribute="trailing" constant="8" symbolic="YES" id="36H-bm-j71"/>
-                                        <constraint firstItem="Hb5-0U-EhE" firstAttribute="trailing" secondItem="IwL-Ej-qcu" secondAttribute="trailingMargin" id="BkO-dc-EcO"/>
+                                        <constraint firstItem="Hb5-0U-EhE" firstAttribute="centerY" secondItem="f3e-Tx-som" secondAttribute="centerY" id="Cuh-nX-WAF"/>
                                         <constraint firstItem="tYn-zV-rkD" firstAttribute="trailing" secondItem="hFQ-Pa-QV4" secondAttribute="trailing" constant="3" id="Dd5-cq-mP2"/>
                                         <constraint firstItem="K4H-aZ-Gve" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" constant="29" id="ERy-1Q-gVZ"/>
                                         <constraint firstItem="PTh-6c-2Gh" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" constant="13" id="EoH-ch-2uo"/>
+                                        <constraint firstItem="Hb5-0U-EhE" firstAttribute="leading" secondItem="K4H-aZ-Gve" secondAttribute="leading" id="IPK-ck-CKf"/>
                                         <constraint firstItem="tYn-zV-rkD" firstAttribute="leading" secondItem="hFQ-Pa-QV4" secondAttribute="leading" constant="5" id="LRL-rR-xGS"/>
                                         <constraint firstItem="tYn-zV-rkD" firstAttribute="top" secondItem="hFQ-Pa-QV4" secondAttribute="bottom" constant="-1" id="LZP-XM-5fO"/>
                                         <constraint firstItem="tYn-zV-rkD" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" constant="21" id="NWC-lU-anm"/>
+                                        <constraint firstItem="0Wb-a2-xwa" firstAttribute="trailing" secondItem="IwL-Ej-qcu" secondAttribute="trailingMargin" id="RV6-HY-kuW"/>
                                         <constraint firstItem="K4H-aZ-Gve" firstAttribute="leading" secondItem="nIJ-qa-E8Q" secondAttribute="leading" id="SVc-8H-7Co"/>
+                                        <constraint firstItem="Hb5-0U-EhE" firstAttribute="top" secondItem="f3e-Tx-som" secondAttribute="top" id="XPD-5d-e88"/>
                                         <constraint firstItem="f3e-Tx-som" firstAttribute="top" secondItem="tYn-zV-rkD" secondAttribute="bottom" constant="1" id="b0M-Ae-MZW"/>
                                         <constraint firstItem="K4H-aZ-Gve" firstAttribute="trailing" secondItem="nIJ-qa-E8Q" secondAttribute="trailing" id="bo5-Do-M3y"/>
-                                        <constraint firstItem="Hb5-0U-EhE" firstAttribute="top" secondItem="f3e-Tx-som" secondAttribute="top" id="dr7-uy-Dyn"/>
                                         <constraint firstItem="tYn-zV-rkD" firstAttribute="leading" secondItem="IwL-Ej-qcu" secondAttribute="leadingMargin" constant="5" id="lbW-IE-V6N"/>
-                                        <constraint firstItem="Hb5-0U-EhE" firstAttribute="centerY" secondItem="f3e-Tx-som" secondAttribute="centerY" id="ln8-ht-Ad6"/>
                                         <constraint firstItem="SVV-Wj-Vnj" firstAttribute="leading" secondItem="IwL-Ej-qcu" secondAttribute="leadingMargin" constant="89" id="mKw-t8-65D"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="SVV-Wj-Vnj" secondAttribute="bottom" constant="4" id="nQH-iX-h8j"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="0Wb-a2-xwa" secondAttribute="bottom" constant="9" id="oSz-Ta-1DB"/>
                                         <constraint firstItem="PTh-6c-2Gh" firstAttribute="leading" secondItem="tYn-zV-rkD" secondAttribute="trailing" constant="11" id="rk1-Sj-xr4"/>
                                         <constraint firstItem="tYn-zV-rkD" firstAttribute="leading" secondItem="f3e-Tx-som" secondAttribute="leading" constant="5" id="sro-EI-FM2"/>
-                                        <constraint firstItem="Hb5-0U-EhE" firstAttribute="leading" secondItem="K4H-aZ-Gve" secondAttribute="leading" id="wkD-gW-z2n"/>
                                         <constraint firstItem="tYn-zV-rkD" firstAttribute="trailing" secondItem="f3e-Tx-som" secondAttribute="trailing" constant="3" id="x2c-KO-txc"/>
+                                        <constraint firstItem="0Wb-a2-xwa" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" constant="33" id="xTP-u0-Etw"/>
                                         <constraint firstItem="nIJ-qa-E8Q" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" constant="9" id="yIw-eP-Pz1"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="nIJ-qa-E8Q" secondAttribute="bottom" constant="47" id="yh2-Au-gCk"/>
                                         <constraint firstItem="PTh-6c-2Gh" firstAttribute="centerY" secondItem="tYn-zV-rkD" secondAttribute="centerY" id="zu3-uD-oWd"/>
@@ -810,6 +822,9 @@
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1165"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="7yY-E2-jgf">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                     <connections>
                         <outlet property="navTitle" destination="7YE-DJ-ug6" id="tBg-L3-B4d"/>
                         <segue destination="1Ae-3g-4yy" kind="show" identifier="showAgenda" id="FwS-uM-f1y"/>
@@ -1270,7 +1285,7 @@
         <scene sceneID="yhh-Ik-FLb">
             <objects>
                 <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="Ajf-WK-mc0" customClass="CityNavigationViewController" customModule="SetGov" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="212" sectionHeaderHeight="28" sectionFooterHeight="28" id="vby-GX-0WV">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="212" sectionHeaderHeight="28" sectionFooterHeight="28" id="vby-GX-0WV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="868"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1481,6 +1496,7 @@
         <image name="Image-20" width="11" height="12"/>
         <image name="Image-21" width="8" height="12"/>
         <image name="Image-22" width="8" height="8"/>
+        <image name="Image-23" width="39" height="39"/>
         <image name="Image-3" width="819" height="819"/>
         <image name="Image-4" width="160" height="160"/>
         <image name="Image-5" width="160" height="160"/>
@@ -1491,6 +1507,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="V6K-gC-1yc"/>
-        <segue reference="Thq-tV-mwK"/>
+        <segue reference="N7x-HX-zy0"/>
     </inferredMetricsTieBreakers>
 </document>

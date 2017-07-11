@@ -12,7 +12,7 @@ import UIKit
 
 
 class SetGovViewController: UIViewController {
-    
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -21,6 +21,7 @@ class SetGovViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if  Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
         } else {
