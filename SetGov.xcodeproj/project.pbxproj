@@ -39,6 +39,8 @@
 		153F3F851E6DF2A20004E2F4 /* SetGovTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F841E6DF2A20004E2F4 /* SetGovTableViewController.swift */; };
 		153F3F871E6DF54B0004E2F4 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F861E6DF54B0004E2F4 /* EventViewController.swift */; };
 		153F3F891E6DF7190004E2F4 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F881E6DF7190004E2F4 /* EventCell.swift */; };
+		15433B921F15765800B8FE0D /* CityOnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15433B911F15765800B8FE0D /* CityOnboardingScreen.swift */; };
+		15433B941F15766700B8FE0D /* EventOnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15433B931F15766700B8FE0D /* EventOnboardingScreen.swift */; };
 		154E5C0B1E89FB6900F96FB6 /* EventAgenda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E5C0A1E89FB6900F96FB6 /* EventAgenda.swift */; };
 		156BD4C91E83185200E8F98B /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4C81E83185200E8F98B /* EventDetailViewController.swift */; };
 		156BD4CD1E836B6300E8F98B /* EventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4CC1E836B6300E8F98B /* EventInfo.swift */; };
@@ -113,6 +115,8 @@
 		153F3F841E6DF2A20004E2F4 /* SetGovTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetGovTableViewController.swift; sourceTree = "<group>"; };
 		153F3F861E6DF54B0004E2F4 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		153F3F881E6DF7190004E2F4 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		15433B911F15765800B8FE0D /* CityOnboardingScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityOnboardingScreen.swift; sourceTree = "<group>"; };
+		15433B931F15766700B8FE0D /* EventOnboardingScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventOnboardingScreen.swift; sourceTree = "<group>"; };
 		154E5C0A1E89FB6900F96FB6 /* EventAgenda.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAgenda.swift; sourceTree = "<group>"; };
 		156BD4C81E83185200E8F98B /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailViewController.swift; path = ../EventDetailViewController.swift; sourceTree = "<group>"; };
 		156BD4CC1E836B6300E8F98B /* EventInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInfo.swift; sourceTree = "<group>"; };
@@ -309,6 +313,8 @@
 				1523A4991E8B38CB00AE93C2 /* AgendaViewController.swift */,
 				1508A69E1E9343F900C92410 /* AgendaDetailViewController.swift */,
 				15C64B461EADA84200B123A5 /* CityNavigationViewController.swift */,
+				15433B911F15765800B8FE0D /* CityOnboardingScreen.swift */,
+				15433B931F15766700B8FE0D /* EventOnboardingScreen.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -634,10 +640,12 @@
 				152DBEE91EF1BC1E00322E56 /* Event.swift in Sources */,
 				15D442261EF355BC00AC8FD1 /* MiamiCell.swift in Sources */,
 				151547601EF2D527003FF351 /* libxmlHTMLNode.swift in Sources */,
+				15433B921F15765800B8FE0D /* CityOnboardingScreen.swift in Sources */,
 				15C64B4D1EADA96200B123A5 /* NewYorkCityCell.swift in Sources */,
 				151CDA841E64CF3700440CDE /* AppDelegate.swift in Sources */,
 				156BD4CF1E836B7800E8F98B /* EventStream.swift in Sources */,
 				151CDAB61E64F2C500440CDE /* constants.swift in Sources */,
+				15433B941F15766700B8FE0D /* EventOnboardingScreen.swift in Sources */,
 				156BD4C91E83185200E8F98B /* EventDetailViewController.swift in Sources */,
 				1515A6C71F101677004312F2 /* homeCity.swift in Sources */,
 				1515A6C51F10166C004312F2 /* pushNotification.swift in Sources */,

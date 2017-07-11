@@ -56,9 +56,7 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.francis.homeCity = pickerData[row]
-        print(self.francis.homeCity)
-        
+        self.francis.homeCity = pickerData[row]        
     }
 
 
