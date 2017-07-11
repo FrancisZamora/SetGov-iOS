@@ -91,7 +91,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="315"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yWR-Uh-6D5" id="2og-D5-wgS">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="314.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="315"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image1" translatesAutoresizingMaskIntoConstraints="NO" id="AHx-jR-O2K">
@@ -184,9 +184,11 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GRj-y3-cPc">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-22" translatesAutoresizingMaskIntoConstraints="NO" id="GRj-y3-cPc">
                                             <rect key="frame" x="336" y="249" width="13" height="13"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="13" id="arF-uD-bd5"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>
@@ -195,6 +197,7 @@
                                         <constraint firstItem="yMK-AS-5CE" firstAttribute="top" secondItem="TxJ-ID-Gdr" secondAttribute="bottom" constant="38" id="4Hf-g5-eq4"/>
                                         <constraint firstItem="Lru-Dk-bur" firstAttribute="top" secondItem="yMK-AS-5CE" secondAttribute="bottom" constant="8" symbolic="YES" id="7Ld-rn-yCw"/>
                                         <constraint firstItem="0cP-0T-gIY" firstAttribute="baseline" secondItem="qaz-B6-2HM" secondAttribute="baseline" constant="4" id="8QP-dp-cPZ"/>
+                                        <constraint firstItem="GRj-y3-cPc" firstAttribute="centerY" secondItem="mle-iW-4Jf" secondAttribute="centerY" id="Ao6-ao-exJ"/>
                                         <constraint firstItem="Oce-wR-LxC" firstAttribute="leading" secondItem="qGK-K0-mTm" secondAttribute="trailing" constant="16" id="Ayb-hT-pCt"/>
                                         <constraint firstItem="AHx-jR-O2K" firstAttribute="leading" secondItem="2og-D5-wgS" secondAttribute="leading" id="CxT-gL-Lb2"/>
                                         <constraint firstItem="Lru-Dk-bur" firstAttribute="bottom" secondItem="4i3-sx-hcP" secondAttribute="bottom" id="DN7-Ty-dmI"/>
@@ -205,6 +208,7 @@
                                         <constraint firstItem="Lru-Dk-bur" firstAttribute="top" secondItem="4i3-sx-hcP" secondAttribute="top" id="MOi-09-Yje"/>
                                         <constraint firstItem="AHx-jR-O2K" firstAttribute="top" secondItem="2og-D5-wgS" secondAttribute="top" id="QYU-4w-xDK"/>
                                         <constraint firstItem="Oce-wR-LxC" firstAttribute="bottom" secondItem="qGK-K0-mTm" secondAttribute="bottom" id="RTu-nu-Scb"/>
+                                        <constraint firstItem="GRj-y3-cPc" firstAttribute="top" secondItem="0cP-0T-gIY" secondAttribute="bottom" constant="33" id="W8s-XD-7RA"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="TxJ-ID-Gdr" secondAttribute="trailing" id="WQg-Z5-ISX"/>
                                         <constraint firstItem="Oce-wR-LxC" firstAttribute="top" secondItem="qGK-K0-mTm" secondAttribute="top" id="WnT-Wu-pa1"/>
                                         <constraint firstItem="1Jc-OS-76J" firstAttribute="leading" secondItem="nPe-2t-EyG" secondAttribute="trailing" constant="14" id="YZh-fK-m8l"/>
@@ -214,6 +218,7 @@
                                         <constraint firstItem="1Jc-OS-76J" firstAttribute="top" secondItem="qGK-K0-mTm" secondAttribute="top" id="g96-fq-Pgq"/>
                                         <constraint firstItem="4i3-sx-hcP" firstAttribute="top" secondItem="nPe-2t-EyG" secondAttribute="top" id="gGN-Fz-0TK"/>
                                         <constraint firstItem="0cP-0T-gIY" firstAttribute="firstBaseline" secondItem="qaz-B6-2HM" secondAttribute="firstBaseline" constant="-4" id="gbb-LV-vAs"/>
+                                        <constraint firstItem="mle-iW-4Jf" firstAttribute="leading" secondItem="GRj-y3-cPc" secondAttribute="trailing" constant="3" id="hSU-gI-Ozy"/>
                                         <constraint firstItem="qaz-B6-2HM" firstAttribute="leading" secondItem="yMK-AS-5CE" secondAttribute="leading" id="jHo-w0-Ysg"/>
                                         <constraint firstItem="qGK-K0-mTm" firstAttribute="leading" secondItem="1Jc-OS-76J" secondAttribute="trailing" constant="13" id="jZw-B4-Gg9"/>
                                         <constraint firstItem="TxJ-ID-Gdr" firstAttribute="leading" secondItem="qaz-B6-2HM" secondAttribute="trailing" constant="35" id="nHD-PI-Nhk"/>
@@ -1467,6 +1472,7 @@
         <image name="Image-2" width="160" height="160"/>
         <image name="Image-20" width="11" height="12"/>
         <image name="Image-21" width="8" height="12"/>
+        <image name="Image-22" width="8" height="8"/>
         <image name="Image-3" width="819" height="819"/>
         <image name="Image-4" width="160" height="160"/>
         <image name="Image-5" width="160" height="160"/>
@@ -1477,6 +1483,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="V6K-gC-1yc"/>
-        <segue reference="Thq-tV-mwK"/>
+        <segue reference="N7x-HX-zy0"/>
     </inferredMetricsTieBreakers>
 </document>
