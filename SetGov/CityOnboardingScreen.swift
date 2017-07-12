@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import FacebookLogin
+import FacebookCore
 
 class CityOnboardingScreen: SetGovViewController{
     
@@ -19,6 +21,11 @@ class CityOnboardingScreen: SetGovViewController{
          super.viewDidLoad()
         // self.background.backgroundColor = UIColor.black.withAlphaComponent(0.8)
          print("yo")
+        
+        let loginButton = LoginButton(readPermissions: [ .publicProfile ])
+        loginButton.center = view.center
+        
+        view.addSubview(loginButton)
       
         gotIt.layer.cornerRadius = 5
     }

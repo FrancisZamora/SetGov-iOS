@@ -10,7 +10,7 @@ import UIKit
 import FacebookLogin
 class LoginViewController: SetGovViewController, UITextFieldDelegate {
     @IBOutlet var LoginField: UITextField!
-    @IBOutlet var LoginButton: UIButton!
+    
     @IBOutlet var PassField: UITextField!
     
     let defaults = UserDefaults.standard
@@ -21,6 +21,7 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate {
         PassField.delegate = self
         
         super.viewDidLoad()
+       
         LoginField.center.y = self.view.frame.height + 30
         UIView.animate(withDuration: 1.0, delay: 0.5, usingSpringWithDamping: 1.5, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
             self.LoginField.center.y = self.view.frame.width / CGFloat(3.0)
