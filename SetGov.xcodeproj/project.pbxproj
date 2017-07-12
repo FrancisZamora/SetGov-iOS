@@ -47,6 +47,7 @@
 		156BD4CF1E836B7800E8F98B /* EventStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4CE1E836B7800E8F98B /* EventStream.swift */; };
 		156BD4D11E836B9800E8F98B /* EventMembers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4D01E836B9800E8F98B /* EventMembers.swift */; };
 		156BD4D31E836BB300E8F98B /* EventDiscussion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4D21E836BB300E8F98B /* EventDiscussion.swift */; };
+		159CA9E81F16A8B900679EEA /* Pods_SetGov.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B788141A78B320963331B47 /* Pods_SetGov.framework */; };
 		15A344D11F0ECC1E00E80D85 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A344D01F0ECC1E00E80D85 /* Reachability.swift */; };
 		15B945941E9DD75700226A32 /* EventLiveStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B945931E9DD75700226A32 /* EventLiveStream.swift */; };
 		15C64B471EADA84200B123A5 /* CityNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C64B461EADA84200B123A5 /* CityNavigationViewController.swift */; };
@@ -56,7 +57,6 @@
 		15D3DB871E7A169E00CD35DD /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D3DB861E7A169E00CD35DD /* ProfileImage.swift */; };
 		15D442261EF355BC00AC8FD1 /* MiamiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D442251EF355BC00AC8FD1 /* MiamiCell.swift */; };
 		1D98C468A8545E290887D257 /* Pods_SetGovUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A291636C27A3A4A0D6A8E83 /* Pods_SetGovUITests.framework */; };
-		BDE7A984CE4B1E646BA5F97E /* Pods_SetGov.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B788141A78B320963331B47 /* Pods_SetGov.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,7 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDE7A984CE4B1E646BA5F97E /* Pods_SetGov.framework in Frameworks */,
+				159CA9E81F16A8B900679EEA /* Pods_SetGov.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -819,13 +819,20 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2374A0556EB1F59A21F79D7B /* Pods-SetGov.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 7JQM8M6QG2;
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FacebookCore\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FBSDKLoginKit\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FBSDKCoreKit\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Bolts\"",
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FacebookLogin\"",
+				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				"HEADER_SEARCH_PATHS[arch=*]" = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = SetGov/Info.plist;
@@ -844,13 +851,19 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E9DB1E0556D1C2600D5D751E /* Pods-SetGov.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 7JQM8M6QG2;
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FacebookCore\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FBSDKLoginKit\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FBSDKCoreKit\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Bolts\"",
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FacebookLogin\"",
+				);
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				"HEADER_SEARCH_PATHS[arch=*]" = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = SetGov/Info.plist;

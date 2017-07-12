@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FacebookLogin
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
