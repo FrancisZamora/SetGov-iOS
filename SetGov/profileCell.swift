@@ -10,5 +10,8 @@ import Foundation
 import UIKit
 
 class profileCell: UITableViewCell {
+    @IBOutlet var backgroundPic: UIImageView!
     
+  
+
 }

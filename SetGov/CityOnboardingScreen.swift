@@ -13,6 +13,19 @@ class CityOnboardingScreen: SetGovViewController{
     
     @IBOutlet var gotIt: UIButton!
     
+    @IBOutlet var background: UIView!
+    
+    override func viewDidLoad() {
+         super.viewDidLoad()
+        // self.background.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+         print("yo")
+      
+        gotIt.layer.cornerRadius = 5
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
     @IBAction func gotItAction(_ sender: Any) {
         self.dismiss(animated: false, completion: {})
     }
