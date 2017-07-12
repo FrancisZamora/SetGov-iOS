@@ -19,53 +19,5 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SetGov/AgendaDetailHeader.swift"
-            timestampString = "521512497.919899"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "buttonPressed(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SetGov.AgendaDetailHeader.buttonPressed (Any) -&gt; ()"
-                  moduleName = "SetGov"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Francis/Desktop/SetGov-iOS/SetGov/AgendaDetailHeader.swift"
-                  timestampString = "521512498.273315"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "23">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SetGov.AgendaDetailHeader.buttonPressed (Any) -&gt; ()"
-                  moduleName = "SetGov"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Francis/Desktop/SetGov-iOS/SetGov/AgendaDetailHeader.swift"
-                  timestampString = "521512498.275181"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "74">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

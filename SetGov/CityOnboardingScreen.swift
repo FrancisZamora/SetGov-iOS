@@ -11,4 +11,10 @@ import UIKit
 
 class CityOnboardingScreen: SetGovViewController{
     
+    @IBOutlet var gotIt: UIButton!
+    
+    @IBAction func gotItAction(_ sender: Any) {
+        self.dismiss(animated: false, completion: {})
+    }
+    
 }

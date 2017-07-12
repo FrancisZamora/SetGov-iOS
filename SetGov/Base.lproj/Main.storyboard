@@ -837,10 +837,10 @@
             </objects>
             <point key="canvasLocation" x="4524" y="-580.65967016491754"/>
         </scene>
-        <!--View Controller-->
+        <!--City Onboarding Screen-->
         <scene sceneID="lWm-SX-ecJ">
             <objects>
-                <viewController id="REO-fl-V9Q" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CityOnboardingScreen" id="REO-fl-V9Q" customClass="CityOnboardingScreen" customModule="SetGov" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WH7-g8-zMS"/>
                         <viewControllerLayoutGuide type="bottom" id="1nh-bD-8wb"/>
@@ -863,7 +863,15 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NzV-2l-ZTC">
                                 <rect key="frame" x="121" y="617" width="134" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Got It !"/>
+                                <color key="backgroundColor" red="0.087962217630000006" green="0.1909767389" blue="0.38617235420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.087962217630000006" green="0.1909767389" blue="0.38617235420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Got It !">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="gotItAction:" destination="REO-fl-V9Q" eventType="touchUpInside" id="MAj-fm-rYi"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idZ-nN-5WH">
                                 <rect key="frame" x="69" y="298" width="239" height="71"/>
@@ -878,10 +886,13 @@ which you can ....
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="gotIt" destination="NzV-2l-ZTC" id="kl6-ov-3He"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Cg-un-PwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3502" y="-1639"/>
+            <point key="canvasLocation" x="3474" y="-1682"/>
         </scene>
         <!--Marine Advisory-->
         <scene sceneID="pnb-67-GvK">
@@ -1523,7 +1534,7 @@ which you can ....
                     <size key="freeformSize" width="375" height="868"/>
                     <connections>
                         <outlet property="navBar" destination="cZx-Su-NJz" id="LGE-zm-Tqj"/>
-                        <segue destination="REO-fl-V9Q" kind="presentation" modalPresentationStyle="overCurrentContext" id="vh4-ty-EvP"/>
+                        <segue destination="REO-fl-V9Q" kind="presentation" modalPresentationStyle="overCurrentContext" id="lRe-Qb-LZM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rYC-IQ-8Mw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1620,6 +1631,6 @@ which you can ....
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dQc-Cz-wKe"/>
-        <segue reference="V6K-gC-1yc"/>
+        <segue reference="lbO-Gs-uWG"/>
     </inferredMetricsTieBreakers>
 </document>

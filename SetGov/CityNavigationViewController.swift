@@ -12,12 +12,17 @@ import QuartzCore
 
 class CityNavigationViewController: SetGovTableViewController {
     var numsections = 0
-    
+    //user ns user default
     @IBOutlet var navBar: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 213
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "CityOnboardingScreen") as! CityOnboardingScreen
+        self.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        self.present(controller, animated: true, completion: nil)
               
     }
   
