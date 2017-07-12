@@ -18,9 +18,25 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate {
     let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        let loginButton = LoginButton(readPermissions: [ .publicProfile ])
+        loginButton.center = view.center
+        view.addSubview(loginButton)
+        
+        
+        super.viewDidLoad()
+        /*
         LoginField.delegate = self
         PassField.delegate = self
+        let myLoginButton = UIButton(type: .custom)
+        myLoginButton.backgroundColor = UIColor.darkGray
+        myLoginButton.frame.origin.y = 500
+        myLoginButton.setTitle("My Login Button", for: .normal)
+        
+        // Handle clicks on the button
+       
+        
+        // Add the button to the view
+        view.addSubview(myLoginButton)
         let loginButton = LoginButton(readPermissions: [ .publicProfile ])
         loginButton.center = view.center
         
@@ -44,7 +60,7 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate {
         }) { (completed) -> Void in }
         
       
-
+        */
         // Do any additional setup after loading the view, typically from a nib.
     }
        
@@ -54,10 +70,11 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate {
         //}
 
 
-   func textFieldShouldReturn(_ LoginField: UITextField) -> Bool {
+  /* func textFieldShouldReturn(_ LoginField: UITextField) -> Bool {
         self.view.endEditing(true)
         return true
     }
+ */
 
 }
 
