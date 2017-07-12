@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  SetGov
 //
 //  Created by Francis Zamora on 2/27/17.
@@ -8,9 +8,11 @@
 
 import UIKit
 import FacebookLogin
+import FacebookCore
 class LoginViewController: SetGovViewController, UITextFieldDelegate {
     @IBOutlet var LoginField: UITextField!
     
+    @IBOutlet var Login: UIButton!
     @IBOutlet var PassField: UITextField!
     
     let defaults = UserDefaults.standard
@@ -19,6 +21,10 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         LoginField.delegate = self
         PassField.delegate = self
+        let loginButton = LoginButton(readPermissions: [ .publicProfile ])
+        loginButton.center = view.center
+        
+        view.addSubview(loginButton)
         
         super.viewDidLoad()
        
@@ -32,9 +38,9 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate {
             self.PassField.center.y = self.view.frame.width / CGFloat(3.0)
         }) { (completed) -> Void in }
         
-        LoginButton.center.y = self.view.frame.height + 30
+        Login.center.y = self.view.frame.height + 30
         UIView.animate(withDuration: 1.0, delay: 0.7, usingSpringWithDamping: 1.5, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
-            self.LoginButton.center.y = self.view.frame.width / CGFloat(3.0)
+            self.Login.center.y = self.view.frame.width / CGFloat(3.0)
         }) { (completed) -> Void in }
         
       
