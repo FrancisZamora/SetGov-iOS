@@ -10,6 +10,11 @@ import Foundation
 import UIKit
 import QuartzCore
 
+protocol HeaderCallBack: class {
+    func dismissView()
+    
+}
+
 class AgendaDetailHeader: UITableViewCell {
     
     @IBOutlet var agendaImage: UIImageView!
@@ -19,7 +24,18 @@ class AgendaDetailHeader: UITableViewCell {
     
     @IBOutlet var tertiaryTitle: UILabel!
 
+    @IBOutlet var exitButton: UIButton!
+    weak var headerCallBack: HeaderCallBack!
 
 
+    @IBAction func buttonPressed(_ sender: Any) {
+        
+        if let callback = headerCallBack {
+            callback.dismissView()
+        }
+    
+}
 
 }
+
+

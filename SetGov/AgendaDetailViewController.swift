@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import QuartzCore
 
-class AgendaDetailViewController: SetGovTableViewController {
+class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
     var  numsections = 0
     var agendaImage = #imageLiteral(resourceName: "Image1")
     var eventTitle = " "
@@ -31,6 +31,11 @@ class AgendaDetailViewController: SetGovTableViewController {
         
         
     }
+    
+    func dismissView() {
+        self.dismiss(animated: true, completion: {})
+    }
+    
     
     
   // func editTitle() -> String {
@@ -57,6 +62,7 @@ class AgendaDetailViewController: SetGovTableViewController {
         return 6
         
     }
+    
     
     
     

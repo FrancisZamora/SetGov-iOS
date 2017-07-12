@@ -920,13 +920,28 @@ which you can ....
                                             <color key="textColor" red="0.087962217628955841" green="0.19097673892974854" blue="0.38617235422134399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6j-kK-mZG">
+                                            <rect key="frame" x="8" y="26" width="25" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="25" id="fq9-Hf-2hP"/>
+                                            </constraints>
+                                            <state key="normal" image="Image-24">
+                                                <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="buttonPressed:" destination="Pqb-03-Dgg" eventType="touchUpInside" id="6FJ-cn-LaT"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="1rn-53-NNT" secondAttribute="trailing" constant="108" id="1eh-5o-5Gm"/>
+                                        <constraint firstItem="J6j-kK-mZG" firstAttribute="leading" secondItem="JZU-TL-H0o" secondAttribute="leadingMargin" id="2cL-TZ-gzj"/>
                                         <constraint firstItem="cZz-Lb-cpx" firstAttribute="leading" secondItem="JZU-TL-H0o" secondAttribute="leadingMargin" constant="14" id="4eN-BU-os4"/>
+                                        <constraint firstItem="J6j-kK-mZG" firstAttribute="top" secondItem="JZU-TL-H0o" secondAttribute="topMargin" constant="18" id="52g-Mc-hD5"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="1rn-53-NNT" secondAttribute="bottom" constant="22" id="8Ww-r2-GOf"/>
                                         <constraint firstItem="1rn-53-NNT" firstAttribute="top" secondItem="JZU-TL-H0o" secondAttribute="topMargin" constant="163" id="Flc-Hy-YnC"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="7WQ-j7-kZc" secondAttribute="bottom" constant="-8" id="Gok-DK-KmZ"/>
+                                        <constraint firstItem="cZz-Lb-cpx" firstAttribute="top" secondItem="J6j-kK-mZG" secondAttribute="bottom" constant="23" id="JdF-4p-82N"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="7WQ-j7-kZc" secondAttribute="trailing" constant="-8" id="Oqg-KG-Oq1"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="rOa-aP-Kpc" secondAttribute="bottom" constant="77" id="Rs9-6m-Mwz"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="cZz-Lb-cpx" secondAttribute="trailing" constant="14" id="TKh-Oc-QDg"/>
@@ -944,6 +959,7 @@ which you can ....
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="agendaImage" destination="7WQ-j7-kZc" id="XFh-GO-wc3"/>
+                                    <outlet property="exitButton" destination="J6j-kK-mZG" id="UYA-cz-hHS"/>
                                     <outlet property="secondaryTitle" destination="rOa-aP-Kpc" id="OpH-od-7v5"/>
                                     <outlet property="tertiaryTitle" destination="1rn-53-NNT" id="ryl-nW-zyu"/>
                                     <outlet property="titleLabel" destination="cZz-Lb-cpx" id="MNz-GJ-dSm"/>
@@ -1178,7 +1194,7 @@ which you can ....
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tIU-w1-eZh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6630" y="-608"/>
+            <point key="canvasLocation" x="6629.6000000000004" y="-608.09595202398805"/>
         </scene>
         <!--Settings-->
         <scene sceneID="a10-v7-jf3">
@@ -1593,6 +1609,7 @@ which you can ....
         <image name="Image-21" width="8" height="12"/>
         <image name="Image-22" width="8" height="8"/>
         <image name="Image-23" width="39" height="39"/>
+        <image name="Image-24" width="16" height="16"/>
         <image name="Image-3" width="819" height="819"/>
         <image name="Image-4" width="160" height="160"/>
         <image name="Image-5" width="160" height="160"/>
