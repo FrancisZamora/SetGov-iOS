@@ -66,6 +66,12 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
       
         */
         // Do any additional setup after loading the view, typically from a nib.
+        if let accessToken = AccessToken.current {
+            print(accessToken)
+            performSegue(withIdentifier: "loginCompleted", sender: self)
+
+        }
+        
     }
     
     
@@ -77,7 +83,15 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
     }
     
     func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
+        if let accessToken = AccessToken.current {
             loginSuccessful = true
+            loginButton.isHidden = true
+
+            performSegue(withIdentifier: "loginCompleted", sender: self)
+
+            print("swag")
+            
+        }
 
         }
     
@@ -85,7 +99,9 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
     
     
         override func viewDidAppear(_ animated: Bool) {
+            
             if loginSuccessful == true {
+
                 performSegue(withIdentifier: "loginCompleted", sender: self)
             }
             
@@ -96,7 +112,6 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
         guard let identifier = segue.identifier else {
             return
         }
-        print(identifier)
     }
     
     
