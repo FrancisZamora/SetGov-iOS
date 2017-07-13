@@ -20,7 +20,7 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
     func configurePicker() {
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
-        pickerData = ["Boston","Fort Lauderdale","New York City", "Miami"]
+        pickerData = ["Boston","Fort Lauderdale"]
         
     }
     
@@ -56,7 +56,8 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.francis.homeCity = pickerData[row]        
+        self.francis.homeCity = pickerData[row]
+        //always direct to home city
     }
 
 

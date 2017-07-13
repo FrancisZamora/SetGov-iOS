@@ -119,6 +119,11 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
         }
     }
     
+    func postToken() {
+        //post api  token and receive response, parse it for necesary information
+        //appDelegate.francis
+    }
+    
     
     func loginButtonDidLogOut(_ loginButton: LoginButton) {
         return
