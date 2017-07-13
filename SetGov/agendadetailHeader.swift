@@ -31,8 +31,10 @@ class AgendaDetailHeader: UITableViewCell {
     @IBAction func buttonPressed(_ sender: Any) {
         
         if let callback = headerCallBack {
+            
             callback.dismissView()
         }
+       
     
 }
 

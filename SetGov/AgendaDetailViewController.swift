@@ -33,6 +33,7 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
     }
     
     func dismissView() {
+        
         self.dismiss(animated: true, completion: {})
     }
     
@@ -95,7 +96,8 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
             agendadetailHeader.titleLabel.text = agendaInfo[index]! + " Discussion Topic"
             agendadetailHeader.secondaryTitle.text = " "
             agendadetailHeader.tertiaryTitle.text = agendaInfo[index]! + " Updates"
-            
+            agendadetailHeader.headerCallBack = self
+
             
             print("cell for row" )
             return agendadetailHeader

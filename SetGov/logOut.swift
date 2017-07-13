@@ -23,6 +23,9 @@ class logOut: UITableViewCell, LoginButtonDelegate {
         let loginButton = LoginButton(readPermissions: [ .publicProfile ])
         loginButton.center = contView.center
         contView.addSubview(loginButton)
+        if let callBack = logoutcallBack {
+            callBack.loggingOut()
+        }
 
         
     }
