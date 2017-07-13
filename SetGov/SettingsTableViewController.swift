@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SettingsTableViewController: SetGovTableViewController {
+class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
     var numsections = 0
     var pickerData: [String] = [String]()
 
@@ -28,6 +28,10 @@ class SettingsTableViewController: SetGovTableViewController {
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
+    }
+    
+    func loggingOut(){
+        performSegue(withIdentifier:"logOut", sender: nil)
     }
     
     

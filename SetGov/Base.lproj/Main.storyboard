@@ -1297,11 +1297,12 @@ which you can ....
                     <size key="freeformSize" width="375" height="900"/>
                     <connections>
                         <outlet property="rightbarItem" destination="t2l-GS-J8O" id="6t8-nh-To9"/>
+                        <segue destination="Qlq-Mi-tT5" kind="show" identifier="logOut" id="VqU-0A-zmz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REf-s8-120" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4292" y="-1159.52023988006"/>
+            <point key="canvasLocation" x="3772" y="-1483"/>
         </scene>
         <!--City Navigation View Controller-->
         <scene sceneID="yhh-Ik-FLb">
