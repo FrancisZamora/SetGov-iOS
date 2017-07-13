@@ -18,8 +18,12 @@ class CityOnboardingScreen: SetGovViewController{
     @IBOutlet var background: UIView!
     
     override func viewDidLoad() {
+       
          super.viewDidLoad()
-         self.background.backgroundColor = .black
+        self.background.alpha = 0.5
+
+        self.background.backgroundColor = .gray
+          
         // self.background.backgroundColor = UIColor.black.withAlphaComponent(0.8)
          gotIt.layer.cornerRadius = 5
     }
@@ -28,7 +32,7 @@ class CityOnboardingScreen: SetGovViewController{
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     @IBAction func gotItAction(_ sender: Any) {
-        self.dismiss(animated: false, completion: {})
+        self.dismiss(animated: true, completion: {})
     }
     
 }

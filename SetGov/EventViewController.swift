@@ -75,7 +75,15 @@ class EventViewController: SetGovTableViewController{
         self.filterDictionary()
         self.fetchEventData()
         self.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "EventOnboardingScreen") as! EventOnboardingScreen
+            self.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            self.navigationController?.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            self.present(controller, animated: true, completion: nil)
+            
+        }
+
 
         
         print(fortLauderdaleDictionary)
