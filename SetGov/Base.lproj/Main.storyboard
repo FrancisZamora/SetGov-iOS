@@ -1532,6 +1532,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FoL-fh-HD0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here you can find a list of your cty government's political events  which are happening in your city" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neo-am-TfO">
                                 <rect key="frame" x="55" y="363" width="267" height="71"/>
                                 <constraints>
@@ -1547,6 +1552,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="134" id="f6E-4w-oKe"/>
                                 </constraints>
+                                <color key="tintColor" red="0.087962217630000006" green="0.1909767389" blue="0.38617235420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Got It !">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1554,17 +1560,16 @@
                                     <action selector="buttonPressed:" destination="yVW-CO-yJY" eventType="touchUpInside" id="Cje-ex-pH7"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-27" translatesAutoresizingMaskIntoConstraints="NO" id="lwV-ZZ-bdZ">
-                                <rect key="frame" x="128" y="162" width="120" height="160"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discover Local Events " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bjs-55-mX0">
                                 <rect key="frame" x="55" y="68" width="267" height="65"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-27" translatesAutoresizingMaskIntoConstraints="NO" id="lwV-ZZ-bdZ">
+                                <rect key="frame" x="128" y="162" width="120" height="160"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="neo-am-TfO" firstAttribute="top" secondItem="lwV-ZZ-bdZ" secondAttribute="bottom" constant="41" id="9Pw-si-GER"/>
                             <constraint firstItem="Bjs-55-mX0" firstAttribute="top" secondItem="9v8-dd-ep4" secondAttribute="bottom" constant="48" id="Ajt-ln-1CY"/>
