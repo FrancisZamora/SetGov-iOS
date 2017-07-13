@@ -30,6 +30,10 @@ class SettingsTableViewController: SetGovTableViewController {
         return 1
     }
     
+    
+    
+
+    
     // The number of rows of data
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData.count
@@ -116,6 +120,7 @@ class SettingsTableViewController: SetGovTableViewController {
         
             let cell =  tableView.dequeueReusableCell(withIdentifier: "logOut") as! logOut
             cell.selectionStyle = .none
+            cell.createButton()
             
             return cell
         

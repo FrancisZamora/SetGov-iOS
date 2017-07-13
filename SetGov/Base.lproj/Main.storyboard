@@ -1278,26 +1278,10 @@ which you can ....
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WX7-si-14s" id="vbo-vm-Lkp">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="68.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oLM-jH-IjX">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
-                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
-                                            <state key="normal" title="Log Out">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <segue destination="Qlq-Mi-tT5" kind="presentation" id="G4m-M9-Znj"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="oLM-jH-IjX" firstAttribute="leading" secondItem="vbo-vm-Lkp" secondAttribute="leading" id="5Zc-xd-vrh"/>
-                                        <constraint firstItem="oLM-jH-IjX" firstAttribute="top" secondItem="vbo-vm-Lkp" secondAttribute="top" id="MAD-6E-5VZ"/>
-                                        <constraint firstAttribute="trailing" secondItem="oLM-jH-IjX" secondAttribute="trailing" id="SaJ-hk-Q8J"/>
-                                        <constraint firstItem="oLM-jH-IjX" firstAttribute="centerY" secondItem="vbo-vm-Lkp" secondAttribute="centerY" id="Whb-Cn-byw"/>
-                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contView" destination="vbo-vm-Lkp" id="txq-Vw-bOm"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1317,7 +1301,7 @@ which you can ....
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REf-s8-120" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4292" y="-1159"/>
+            <point key="canvasLocation" x="4292" y="-1159.52023988006"/>
         </scene>
         <!--City Navigation View Controller-->
         <scene sceneID="yhh-Ik-FLb">
