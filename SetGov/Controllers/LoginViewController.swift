@@ -13,6 +13,7 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
     @IBOutlet var LoginField: UITextField!
     
     @IBOutlet var Login: UIButton!
+    @IBOutlet var setGov: UIImageView!
     @IBOutlet var PassField: UITextField!
     var loginSuccessful = false
     let defaults = UserDefaults.standard
@@ -20,13 +21,24 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
     override func viewDidLoad() {
         super.viewDidLoad()
         let loginButton = LoginButton(readPermissions: [ .publicProfile ])
-       
+        let screenSize:CGRect = UIScreen.main.bounds
+        let screenHeight = screenSize.height - 100 //real screen height
+        let newCenter = CGPoint(x: view.center.x, y:screenHeight)
+
         loginButton.delegate = self
         loginButton.frame.size.width = 340
-        loginButton.center = view.center
+        loginButton.center = newCenter
 
         view.addSubview(loginButton)
+        setGov.layer.shadowColor = UIColor.black.cgColor
+        setGov.layer.shadowRadius = 2
+        setGov.layer.shadowOffset = CGSize(width:-2,height:2)
 
+        setGov.layer.shadowOpacity = 0.5
+        
+        
+        //fade in from zero
+        self.setGov.alpha = 0
         let gesture = UITapGestureRecognizer(target: self, action: #selector(selector))
         loginButton.addGestureRecognizer(gesture)
         
@@ -111,6 +123,10 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
 
                 performSegue(withIdentifier: "loginCompleted", sender: self)
             }
+            
+            UIView.animate(withDuration: 1.5, delay: 1.5, options: UIViewAnimationOptions.curveLinear, animations: {
+                self.setGov.alpha = 1.0
+            }, completion: nil)
             
         }
 

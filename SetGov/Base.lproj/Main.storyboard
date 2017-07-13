@@ -29,17 +29,27 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-28" translatesAutoresizingMaskIntoConstraints="NO" id="Z43-oO-YdZ">
+                                <rect key="frame" x="115" y="131" width="145" height="196"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Z43-oO-YdZ" secondAttribute="bottom" constant="340" id="6fr-Oq-qyo"/>
+                            <constraint firstItem="Z43-oO-YdZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="99" id="MKV-eX-cgw"/>
+                            <constraint firstItem="Z43-oO-YdZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="67" id="iNX-2S-cLe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Z43-oO-YdZ" secondAttribute="trailing" constant="99" id="ib7-Wn-KY1"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wyI-WX-f4C"/>
                     <connections>
+                        <outlet property="setGov" destination="Z43-oO-YdZ" id="grk-1Q-pY4"/>
                         <segue destination="Ajf-WK-mc0" kind="show" identifier="loginCompleted" id="WRx-eB-IuD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1760.8" y="-188.00599700149925"/>
+            <point key="canvasLocation" x="1760.8" y="-188.45577211394306"/>
         </scene>
         <!--Fort Lauderdale, FL-->
         <scene sceneID="WqO-r7-02k">
@@ -808,16 +818,15 @@
                         <viewControllerLayoutGuide type="top" id="WH7-g8-zMS"/>
                         <viewControllerLayoutGuide type="bottom" id="1nh-bD-8wb"/>
                     </layoutGuides>
-                    <view key="view" alpha="0.80000000000000004" contentMode="scaleToFill" id="4do-lc-YnP">
+                    <view key="view" contentMode="scaleToFill" id="4do-lc-YnP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Engage Your City Government" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEe-XG-xI7">
-                                <rect key="frame" x="15" y="63" width="347" height="65"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B4P-YP-XXH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NzV-2l-ZTC">
                                 <rect key="frame" x="121" y="617" width="134" height="30"/>
                                 <color key="backgroundColor" red="0.087962217630000006" green="0.1909767389" blue="0.38617235420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -833,9 +842,6 @@
                                     <action selector="gotItAction:" destination="REO-fl-V9Q" eventType="touchUpInside" id="MAj-fm-rYi"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-26" translatesAutoresizingMaskIntoConstraints="NO" id="oUc-fd-wbi">
-                                <rect key="frame" x="115" y="153" width="144" height="160"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idZ-nN-5WH">
                                 <rect key="frame" x="61" y="352" width="253" height="82"/>
                                 <string key="text">Setgov connects citizens with their city government. Select your default city
@@ -844,8 +850,16 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-26" translatesAutoresizingMaskIntoConstraints="NO" id="oUc-fd-wbi">
+                                <rect key="frame" x="115" y="153" width="144" height="160"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Engage Your City Government" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEe-XG-xI7">
+                                <rect key="frame" x="15" y="63" width="347" height="65"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="NzV-2l-ZTC" secondAttribute="bottom" constant="20" symbolic="YES" id="1Mz-mO-q8R"/>
                             <constraint firstItem="fEe-XG-xI7" firstAttribute="top" secondItem="WH7-g8-zMS" secondAttribute="bottom" constant="43" id="3Pp-3w-VaT"/>
@@ -870,7 +884,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Cg-un-PwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1185" y="-1179"/>
+            <point key="canvasLocation" x="1184.8" y="-1179.7601199400301"/>
         </scene>
         <!--Marine Advisory-->
         <scene sceneID="pnb-67-GvK">
@@ -1613,6 +1627,7 @@
         <image name="Image-25" width="490" height="326"/>
         <image name="Image-26" width="144" height="160"/>
         <image name="Image-27" width="120" height="160"/>
+        <image name="Image-28" width="134" height="181"/>
         <image name="Image-3" width="819" height="819"/>
         <image name="Image-4" width="160" height="160"/>
         <image name="Image-5" width="160" height="160"/>
