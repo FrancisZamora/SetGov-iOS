@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Qlq-Mi-tT5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="REO-fl-V9Q">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -812,17 +812,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Engage Your City Government" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEe-XG-xI7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Engage Your City Government" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEe-XG-xI7">
                                 <rect key="frame" x="15" y="63" width="347" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NzV-2l-ZTC">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NzV-2l-ZTC">
                                 <rect key="frame" x="121" y="617" width="134" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.087962217630000006" green="0.1909767389" blue="0.38617235420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="134" id="cYW-Ny-4BX"/>
+                                </constraints>
                                 <color key="tintColor" red="0.087962217630000006" green="0.1909767389" blue="0.38617235420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Got It !">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -832,9 +833,11 @@
                                     <action selector="gotItAction:" destination="REO-fl-V9Q" eventType="touchUpInside" id="MAj-fm-rYi"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idZ-nN-5WH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idZ-nN-5WH">
                                 <rect key="frame" x="69" y="351" width="239" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="6Ix-sL-fgL"/>
+                                </constraints>
                                 <string key="text">Here you can find a list of cities
 which you can ....
 </string>
@@ -842,13 +845,22 @@ which you can ....
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image-26" translatesAutoresizingMaskIntoConstraints="NO" id="oUc-fd-wbi">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-26" translatesAutoresizingMaskIntoConstraints="NO" id="oUc-fd-wbi">
                                 <rect key="frame" x="115" y="153" width="144" height="160"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="NzV-2l-ZTC" secondAttribute="bottom" constant="20" symbolic="YES" id="1Mz-mO-q8R"/>
+                            <constraint firstItem="oUc-fd-wbi" firstAttribute="centerX" secondItem="4do-lc-YnP" secondAttribute="centerX" id="7rV-T0-cfp"/>
+                            <constraint firstItem="oUc-fd-wbi" firstAttribute="top" secondItem="fEe-XG-xI7" secondAttribute="bottom" constant="25" id="8zs-hv-MeW"/>
+                            <constraint firstItem="idZ-nN-5WH" firstAttribute="top" secondItem="oUc-fd-wbi" secondAttribute="bottom" constant="38" id="A97-lD-7vL"/>
+                            <constraint firstItem="idZ-nN-5WH" firstAttribute="centerX" secondItem="NzV-2l-ZTC" secondAttribute="centerX" id="Dok-Zt-F06"/>
+                            <constraint firstItem="oUc-fd-wbi" firstAttribute="top" secondItem="4do-lc-YnP" secondAttribute="top" constant="153" id="MCf-9K-bJY"/>
+                            <constraint firstItem="NzV-2l-ZTC" firstAttribute="centerX" secondItem="fEe-XG-xI7" secondAttribute="centerX" id="pYe-TN-N7A"/>
+                            <constraint firstItem="NzV-2l-ZTC" firstAttribute="centerX" secondItem="4do-lc-YnP" secondAttribute="centerX" id="xsd-3v-a50"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="background" destination="4do-lc-YnP" id="Pcd-Vx-fyH"/>
@@ -1506,9 +1518,11 @@ which you can ....
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neo-am-TfO">
-                                <rect key="frame" x="69" y="298" width="239" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neo-am-TfO">
+                                <rect key="frame" x="69" y="363" width="239" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="PV9-P7-ffW"/>
+                                </constraints>
                                 <string key="text">Here you can find a list of cities
 which you can ....
 </string>
@@ -1516,24 +1530,36 @@ which you can ....
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lwV-ZZ-bdZ">
-                                <rect key="frame" x="95" y="140" width="184" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXQ-Q4-98j">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXQ-Q4-98j">
                                 <rect key="frame" x="121" y="617" width="134" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Got It !"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Discover Local Events " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bjs-55-mX0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discover Local Events " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bjs-55-mX0">
                                 <rect key="frame" x="47" y="67" width="282" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-27" translatesAutoresizingMaskIntoConstraints="NO" id="lwV-ZZ-bdZ">
+                                <rect key="frame" x="128" y="162" width="120" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="M4L-k3-RLe"/>
+                                    <constraint firstAttribute="height" constant="160" id="NcC-d3-p2y"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="lwV-ZZ-bdZ" firstAttribute="top" secondItem="Bjs-55-mX0" secondAttribute="bottom" constant="30" id="3eb-Rf-JqL"/>
+                            <constraint firstItem="neo-am-TfO" firstAttribute="centerX" secondItem="lwV-ZZ-bdZ" secondAttribute="centerX" id="4Q2-cm-0VJ"/>
+                            <constraint firstItem="lwV-ZZ-bdZ" firstAttribute="centerX" secondItem="8LQ-sD-Xdw" secondAttribute="centerX" id="5ZW-Nv-Q0o"/>
+                            <constraint firstItem="Bjs-55-mX0" firstAttribute="top" secondItem="9v8-dd-ep4" secondAttribute="bottom" constant="47" id="Ajt-ln-1CY"/>
+                            <constraint firstItem="neo-am-TfO" firstAttribute="top" secondItem="lwV-ZZ-bdZ" secondAttribute="bottom" constant="41" id="SKr-ND-7hn"/>
+                            <constraint firstItem="lwV-ZZ-bdZ" firstAttribute="top" secondItem="8LQ-sD-Xdw" secondAttribute="top" constant="162" id="Sdb-KY-Ubf"/>
+                            <constraint firstItem="lwV-ZZ-bdZ" firstAttribute="centerX" secondItem="kXQ-Q4-98j" secondAttribute="centerX" id="Umd-lh-bHd"/>
+                            <constraint firstItem="Bjs-55-mX0" firstAttribute="leading" secondItem="8LQ-sD-Xdw" secondAttribute="leadingMargin" constant="31" id="rgS-6K-2t5"/>
+                            <constraint firstItem="Bjs-55-mX0" firstAttribute="centerX" secondItem="lwV-ZZ-bdZ" secondAttribute="centerX" id="sXE-DA-0uV"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k0e-Hz-UYC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1575,6 +1601,7 @@ which you can ....
         <image name="Image-24" width="16" height="16"/>
         <image name="Image-25" width="490" height="326"/>
         <image name="Image-26" width="144" height="160"/>
+        <image name="Image-27" width="120" height="160"/>
         <image name="Image-3" width="819" height="819"/>
         <image name="Image-4" width="160" height="160"/>
         <image name="Image-5" width="160" height="160"/>
