@@ -125,6 +125,8 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "logOut") as! logOut
             cell.selectionStyle = .none
             cell.createButton()
+            cell.logoutcallBack = self
+
             
             return cell
         

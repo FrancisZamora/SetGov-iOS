@@ -23,6 +23,13 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1il-0d-7b8" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="16" y="780" width="343" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="wyI-WX-f4C"/>
@@ -32,7 +39,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1762" y="-188"/>
+            <point key="canvasLocation" x="1760.8" y="-188.00599700149925"/>
         </scene>
         <!--Fort Lauderdale, FL-->
         <scene sceneID="WqO-r7-02k">
@@ -891,9 +898,9 @@ which you can ....
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6j-kK-mZG">
-                                            <rect key="frame" x="8" y="26" width="25" height="25"/>
+                                            <rect key="frame" x="4" y="17" width="29" height="29"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="25" id="fq9-Hf-2hP"/>
+                                                <constraint firstAttribute="width" constant="29" id="fq9-Hf-2hP"/>
                                             </constraints>
                                             <state key="normal" image="Image-24">
                                                 <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -905,13 +912,13 @@ which you can ....
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="1rn-53-NNT" secondAttribute="trailing" constant="108" id="1eh-5o-5Gm"/>
-                                        <constraint firstItem="J6j-kK-mZG" firstAttribute="leading" secondItem="JZU-TL-H0o" secondAttribute="leadingMargin" id="2cL-TZ-gzj"/>
+                                        <constraint firstItem="J6j-kK-mZG" firstAttribute="leading" secondItem="JZU-TL-H0o" secondAttribute="leadingMargin" constant="-4" id="2cL-TZ-gzj"/>
                                         <constraint firstItem="cZz-Lb-cpx" firstAttribute="leading" secondItem="JZU-TL-H0o" secondAttribute="leadingMargin" constant="14" id="4eN-BU-os4"/>
-                                        <constraint firstItem="J6j-kK-mZG" firstAttribute="top" secondItem="JZU-TL-H0o" secondAttribute="topMargin" constant="18" id="52g-Mc-hD5"/>
+                                        <constraint firstItem="J6j-kK-mZG" firstAttribute="top" secondItem="JZU-TL-H0o" secondAttribute="topMargin" constant="9" id="52g-Mc-hD5"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="1rn-53-NNT" secondAttribute="bottom" constant="22" id="8Ww-r2-GOf"/>
                                         <constraint firstItem="1rn-53-NNT" firstAttribute="top" secondItem="JZU-TL-H0o" secondAttribute="topMargin" constant="163" id="Flc-Hy-YnC"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="7WQ-j7-kZc" secondAttribute="bottom" constant="-8" id="Gok-DK-KmZ"/>
-                                        <constraint firstItem="cZz-Lb-cpx" firstAttribute="top" secondItem="J6j-kK-mZG" secondAttribute="bottom" constant="23" id="JdF-4p-82N"/>
+                                        <constraint firstItem="cZz-Lb-cpx" firstAttribute="top" secondItem="J6j-kK-mZG" secondAttribute="bottom" constant="28" id="JdF-4p-82N"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="7WQ-j7-kZc" secondAttribute="trailing" constant="-8" id="Oqg-KG-Oq1"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="rOa-aP-Kpc" secondAttribute="bottom" constant="77" id="Rs9-6m-Mwz"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="cZz-Lb-cpx" secondAttribute="trailing" constant="14" id="TKh-Oc-QDg"/>
@@ -1278,6 +1285,13 @@ which you can ....
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WX7-si-14s" id="vbo-vm-Lkp">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="68.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5AD-D1-Vuf" customClass="FBSDKLoginButton">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button"/>
+                                        </button>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="contView" destination="vbo-vm-Lkp" id="txq-Vw-bOm"/>
@@ -1302,7 +1316,7 @@ which you can ....
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REf-s8-120" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3772" y="-1483"/>
+            <point key="canvasLocation" x="3772" y="-1483.3583208395803"/>
         </scene>
         <!--City Navigation View Controller-->
         <scene sceneID="yhh-Ik-FLb">
