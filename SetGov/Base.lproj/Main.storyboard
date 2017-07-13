@@ -21,7 +21,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1il-0d-7b8" customClass="FBSDKLoginButton">
@@ -798,7 +798,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ee-nh-oYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5463.1999999999998" y="-580.65967016491754"/>
+            <point key="canvasLocation" x="5463" y="-243"/>
         </scene>
         <!--City Onboarding Screen-->
         <scene sceneID="lWm-SX-ecJ">
@@ -808,11 +808,11 @@
                         <viewControllerLayoutGuide type="top" id="WH7-g8-zMS"/>
                         <viewControllerLayoutGuide type="bottom" id="1nh-bD-8wb"/>
                     </layoutGuides>
-                    <view key="view" alpha="0.5" contentMode="scaleToFill" id="4do-lc-YnP">
+                    <view key="view" alpha="0.80000000000000004" contentMode="scaleToFill" id="4do-lc-YnP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Engage Your City Government" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEe-XG-xI7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Engage Your City Government" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEe-XG-xI7">
                                 <rect key="frame" x="15" y="63" width="347" height="65"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -833,31 +833,29 @@
                                     <action selector="gotItAction:" destination="REO-fl-V9Q" eventType="touchUpInside" id="MAj-fm-rYi"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idZ-nN-5WH">
-                                <rect key="frame" x="69" y="351" width="239" height="71"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="71" id="6Ix-sL-fgL"/>
-                                </constraints>
-                                <string key="text">Here you can find a list of cities
-which you can ....
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-26" translatesAutoresizingMaskIntoConstraints="NO" id="oUc-fd-wbi">
+                                <rect key="frame" x="115" y="153" width="144" height="160"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idZ-nN-5WH">
+                                <rect key="frame" x="61" y="352" width="253" height="82"/>
+                                <string key="text">Setgov connects citizens with their city government. Select your default city
 </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-26" translatesAutoresizingMaskIntoConstraints="NO" id="oUc-fd-wbi">
-                                <rect key="frame" x="115" y="153" width="144" height="160"/>
-                            </imageView>
                         </subviews>
-                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="NzV-2l-ZTC" secondAttribute="bottom" constant="20" symbolic="YES" id="1Mz-mO-q8R"/>
+                            <constraint firstItem="fEe-XG-xI7" firstAttribute="top" secondItem="WH7-g8-zMS" secondAttribute="bottom" constant="43" id="3Pp-3w-VaT"/>
                             <constraint firstItem="oUc-fd-wbi" firstAttribute="centerX" secondItem="4do-lc-YnP" secondAttribute="centerX" id="7rV-T0-cfp"/>
-                            <constraint firstItem="oUc-fd-wbi" firstAttribute="top" secondItem="fEe-XG-xI7" secondAttribute="bottom" constant="25" id="8zs-hv-MeW"/>
-                            <constraint firstItem="idZ-nN-5WH" firstAttribute="top" secondItem="oUc-fd-wbi" secondAttribute="bottom" constant="38" id="A97-lD-7vL"/>
-                            <constraint firstItem="idZ-nN-5WH" firstAttribute="centerX" secondItem="NzV-2l-ZTC" secondAttribute="centerX" id="Dok-Zt-F06"/>
+                            <constraint firstItem="idZ-nN-5WH" firstAttribute="leading" secondItem="4do-lc-YnP" secondAttribute="leadingMargin" constant="45" id="Faq-oS-b6z"/>
                             <constraint firstItem="oUc-fd-wbi" firstAttribute="top" secondItem="4do-lc-YnP" secondAttribute="top" constant="153" id="MCf-9K-bJY"/>
-                            <constraint firstItem="NzV-2l-ZTC" firstAttribute="centerX" secondItem="fEe-XG-xI7" secondAttribute="centerX" id="pYe-TN-N7A"/>
+                            <constraint firstItem="oUc-fd-wbi" firstAttribute="top" secondItem="fEe-XG-xI7" secondAttribute="bottom" constant="25" id="Nep-9N-Eq1"/>
+                            <constraint firstItem="fEe-XG-xI7" firstAttribute="centerX" secondItem="NzV-2l-ZTC" secondAttribute="centerX" id="Nld-QR-rfA"/>
+                            <constraint firstItem="idZ-nN-5WH" firstAttribute="centerX" secondItem="oUc-fd-wbi" secondAttribute="centerX" id="Pvh-ui-gav"/>
+                            <constraint firstItem="idZ-nN-5WH" firstAttribute="top" secondItem="oUc-fd-wbi" secondAttribute="bottom" constant="39" id="Tht-mO-FL0"/>
                             <constraint firstItem="NzV-2l-ZTC" firstAttribute="centerX" secondItem="4do-lc-YnP" secondAttribute="centerX" id="xsd-3v-a50"/>
                         </constraints>
                     </view>
@@ -869,7 +867,7 @@ which you can ....
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Cg-un-PwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="352.80000000000001" y="-1284.1079460269866"/>
+            <point key="canvasLocation" x="1185" y="-1179"/>
         </scene>
         <!--Marine Advisory-->
         <scene sceneID="pnb-67-GvK">
@@ -1182,7 +1180,7 @@ which you can ....
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tIU-w1-eZh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7568.8000000000002" y="-608.09595202398805"/>
+            <point key="canvasLocation" x="6546" y="-189"/>
         </scene>
         <!--Settings-->
         <scene sceneID="a10-v7-jf3">
@@ -1320,7 +1318,7 @@ which you can ....
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REf-s8-120" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3772" y="-1483.3583208395803"/>
+            <point key="canvasLocation" x="3246" y="-1179"/>
         </scene>
         <!--City Navigation View Controller-->
         <scene sceneID="yhh-Ik-FLb">
@@ -1513,18 +1511,15 @@ which you can ....
                         <viewControllerLayoutGuide type="top" id="9v8-dd-ep4"/>
                         <viewControllerLayoutGuide type="bottom" id="yPR-I5-KBk"/>
                     </layoutGuides>
-                    <view key="view" alpha="0.80000001192092896" contentMode="scaleToFill" id="8LQ-sD-Xdw">
+                    <view key="view" alpha="0.80000000000000004" contentMode="scaleToFill" id="8LQ-sD-Xdw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neo-am-TfO">
-                                <rect key="frame" x="69" y="363" width="239" height="71"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here you can find a list of your cty government's political events  which are happening in your city" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neo-am-TfO">
+                                <rect key="frame" x="55" y="363" width="267" height="71"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="71" id="PV9-P7-ffW"/>
+                                    <constraint firstAttribute="height" constant="71" id="Rqi-Kg-Ixc"/>
                                 </constraints>
-                                <string key="text">Here you can find a list of cities
-which you can ....
-</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1554,12 +1549,13 @@ which you can ....
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="neo-am-TfO" firstAttribute="top" secondItem="lwV-ZZ-bdZ" secondAttribute="bottom" constant="41" id="5Gb-0O-wNE"/>
+                            <constraint firstItem="neo-am-TfO" firstAttribute="top" secondItem="lwV-ZZ-bdZ" secondAttribute="bottom" constant="41" id="9Pw-si-GER"/>
                             <constraint firstItem="Bjs-55-mX0" firstAttribute="top" secondItem="9v8-dd-ep4" secondAttribute="bottom" constant="48" id="Ajt-ln-1CY"/>
-                            <constraint firstItem="lwV-ZZ-bdZ" firstAttribute="centerX" secondItem="neo-am-TfO" secondAttribute="centerX" id="BA3-eq-VZJ"/>
                             <constraint firstItem="lwV-ZZ-bdZ" firstAttribute="top" secondItem="8LQ-sD-Xdw" secondAttribute="top" constant="162" id="FVc-Ux-ARR"/>
                             <constraint firstItem="lwV-ZZ-bdZ" firstAttribute="centerX" secondItem="Bjs-55-mX0" secondAttribute="centerX" id="JI1-Pn-MHI"/>
-                            <constraint firstItem="kXQ-Q4-98j" firstAttribute="centerX" secondItem="neo-am-TfO" secondAttribute="centerX" id="Myb-wj-HkM"/>
+                            <constraint firstItem="neo-am-TfO" firstAttribute="leading" secondItem="Bjs-55-mX0" secondAttribute="leading" id="MAM-zr-ZfV"/>
+                            <constraint firstItem="neo-am-TfO" firstAttribute="centerX" secondItem="kXQ-Q4-98j" secondAttribute="centerX" id="X86-71-0aZ"/>
+                            <constraint firstItem="neo-am-TfO" firstAttribute="trailing" secondItem="Bjs-55-mX0" secondAttribute="trailing" id="jTP-HE-Rk5"/>
                             <constraint firstItem="lwV-ZZ-bdZ" firstAttribute="top" secondItem="Bjs-55-mX0" secondAttribute="bottom" constant="29" id="lQ8-Ee-wsM"/>
                             <constraint firstItem="lwV-ZZ-bdZ" firstAttribute="centerX" secondItem="8LQ-sD-Xdw" secondAttribute="centerX" id="mDg-uG-sFx"/>
                             <constraint firstAttribute="bottom" secondItem="kXQ-Q4-98j" secondAttribute="bottom" constant="20" symbolic="YES" id="qgI-YW-dW5"/>
@@ -1573,7 +1569,7 @@ which you can ....
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k0e-Hz-UYC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1144.8" y="-1284.1079460269866"/>
+            <point key="canvasLocation" x="2108" y="-1179.7601199400301"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dQt-zI-iE9">
@@ -1621,6 +1617,6 @@ which you can ....
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lbO-Gs-uWG"/>
-        <segue reference="Thq-tV-mwK"/>
+        <segue reference="dQc-Cz-wKe"/>
     </inferredMetricsTieBreakers>
 </document>
