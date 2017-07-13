@@ -68,12 +68,17 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
         // Do any additional setup after loading the view, typically from a nib.
         if let accessToken = AccessToken.current {
             print(accessToken)
+            self.loginSuccessful = true
+            loginButton.isHidden = true
             performSegue(withIdentifier: "loginCompleted", sender: self)
-
-        }
+       }
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
     
     
     

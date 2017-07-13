@@ -22,19 +22,19 @@ class CityNavigationViewController: SetGovTableViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "CityOnboardingScreen") as! CityOnboardingScreen
         self.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        self.present(controller, animated: true, completion: nil)
+       // self.present(controller, animated: true, completion: nil)
               
     }
   
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(false, animated: animated);
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         super.viewWillDisappear(animated)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
        
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
