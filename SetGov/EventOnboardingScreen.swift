@@ -12,6 +12,9 @@ import UIKit
 class EventOnboardingScreen: SetGovViewController{
         @IBOutlet var background: UIView!
         @IBOutlet var gotIt: UIButton!
+        @IBOutlet var textBlock: UILabel!
+        @IBOutlet var discover: UILabel!
+        @IBOutlet var icon: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

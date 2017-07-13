@@ -21,7 +21,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1il-0d-7b8" customClass="FBSDKLoginButton">
@@ -861,7 +861,10 @@
                     </view>
                     <connections>
                         <outlet property="background" destination="4do-lc-YnP" id="Pcd-Vx-fyH"/>
+                        <outlet property="engage" destination="fEe-XG-xI7" id="9Tr-M1-2oh"/>
                         <outlet property="gotIt" destination="NzV-2l-ZTC" id="kl6-ov-3He"/>
+                        <outlet property="icon" destination="oUc-fd-wbi" id="sDH-7Y-Xz1"/>
+                        <outlet property="textBlock" destination="idZ-nN-5WH" id="Kca-B4-gxe"/>
                         <outlet property="view" destination="4do-lc-YnP" id="nn5-nl-lAi"/>
                     </connections>
                 </viewController>
@@ -1564,7 +1567,10 @@
                     </view>
                     <connections>
                         <outlet property="background" destination="8LQ-sD-Xdw" id="bG5-Yq-ENO"/>
+                        <outlet property="discover" destination="Bjs-55-mX0" id="MXh-jw-bqd"/>
                         <outlet property="gotIt" destination="kXQ-Q4-98j" id="PgO-gs-A0x"/>
+                        <outlet property="icon" destination="lwV-ZZ-bdZ" id="fSc-z4-1Ob"/>
+                        <outlet property="textBlock" destination="neo-am-TfO" id="DaO-xY-jCH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k0e-Hz-UYC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1617,6 +1623,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lbO-Gs-uWG"/>
-        <segue reference="dQc-Cz-wKe"/>
+        <segue reference="Thq-tV-mwK"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -14,14 +14,17 @@ import FacebookCore
 class CityOnboardingScreen: SetGovViewController{
     
     @IBOutlet var gotIt: UIButton!
-    
+    @IBOutlet var engage: UILabel!
+    @IBOutlet var icon: UIImageView!
+    @IBOutlet var textBlock: UILabel!
     @IBOutlet var background: UIView!
     
     override func viewDidLoad() {
        
          super.viewDidLoad()
         self.background.alpha = 0.5
-
+        self.gotIt.alpha = 1
+        
         self.background.backgroundColor = .gray
           
         // self.background.backgroundColor = UIColor.black.withAlphaComponent(0.8)
