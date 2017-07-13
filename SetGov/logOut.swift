@@ -21,8 +21,9 @@ class logOut: UITableViewCell, LoginButtonDelegate {
     weak var logoutcallBack: LogOutCallBack!
     func createButton() {
         let loginButton = LoginButton(readPermissions: [ .publicProfile ])
-        loginButton.center = contView.center
         loginButton.delegate = self
+        loginButton.frame.size.width = 340
+        loginButton.center = contView.center
         contView.addSubview(loginButton)
         if let callBack = logoutcallBack {
             callBack.loggingOut()

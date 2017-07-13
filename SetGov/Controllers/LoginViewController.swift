@@ -20,10 +20,12 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
     override func viewDidLoad() {
         super.viewDidLoad()
         let loginButton = LoginButton(readPermissions: [ .publicProfile ])
-        loginButton.center = view.center
-        view.addSubview(loginButton)
+       
         loginButton.delegate = self
-        
+        loginButton.frame.size.width = 340
+        loginButton.center = view.center
+
+        view.addSubview(loginButton)
 
         let gesture = UITapGestureRecognizer(target: self, action: #selector(selector))
         loginButton.addGestureRecognizer(gesture)
