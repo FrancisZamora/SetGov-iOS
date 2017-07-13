@@ -13,10 +13,12 @@ class SettingsTableViewController: SetGovTableViewController {
     var numsections = 0
     var pickerData: [String] = [String]()
 
+
     @IBOutlet var rightbarItem: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationItem.rightBarButtonItem = nil
 
     }

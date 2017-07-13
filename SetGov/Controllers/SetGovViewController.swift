@@ -21,7 +21,7 @@ class SetGovViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         if  Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
         } else {

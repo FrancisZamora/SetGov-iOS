@@ -15,7 +15,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="SetGov" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginCompleted" id="BYZ-38-t0r" customClass="LoginViewController" customModule="SetGov" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -23,55 +23,10 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="161-eY-hN0">
-                                <rect key="frame" x="36" y="445" width="303" height="50"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iyB-Ch-mdQ">
-                                <rect key="frame" x="36" y="509" width="303" height="50"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
-                                <state key="normal" title="Login with Facebook">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Nge-W7-BnL" kind="show" id="7h5-H3-pVO"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="chh-pX-TYh">
-                                <rect key="frame" x="36" y="375" width="303" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="rHV-tY-BDc"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="chh-pX-TYh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="3B0-KN-FdO"/>
-                            <constraint firstItem="iyB-Ch-mdQ" firstAttribute="width" secondItem="161-eY-hN0" secondAttribute="width" id="4Ye-oY-p7I"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iyB-Ch-mdQ" secondAttribute="bottom" constant="108" id="4m5-Bz-rrr"/>
-                            <constraint firstItem="iyB-Ch-mdQ" firstAttribute="height" secondItem="161-eY-hN0" secondAttribute="height" id="NEA-zK-Ee1"/>
-                            <constraint firstItem="chh-pX-TYh" firstAttribute="leading" secondItem="161-eY-hN0" secondAttribute="leading" id="Nkh-9C-XI9"/>
-                            <constraint firstItem="chh-pX-TYh" firstAttribute="height" secondItem="161-eY-hN0" secondAttribute="height" id="Pvo-z2-5iE"/>
-                            <constraint firstItem="161-eY-hN0" firstAttribute="top" secondItem="chh-pX-TYh" secondAttribute="bottom" constant="20" id="cQj-Uv-uU3"/>
-                            <constraint firstItem="chh-pX-TYh" firstAttribute="width" secondItem="161-eY-hN0" secondAttribute="width" id="cuN-dD-6s0"/>
-                            <constraint firstItem="chh-pX-TYh" firstAttribute="trailing" secondItem="iyB-Ch-mdQ" secondAttribute="trailing" id="gKU-zH-4mE"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="chh-pX-TYh" secondAttribute="bottom" constant="242" id="sIX-rv-F4s"/>
-                            <constraint firstItem="iyB-Ch-mdQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="tlc-Oj-e8H"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="iyB-Ch-mdQ" secondAttribute="trailing" constant="20" id="tsQ-qA-WzU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="chh-pX-TYh" secondAttribute="trailing" constant="20" id="zUz-9Y-xQW"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="Login" destination="iyB-Ch-mdQ" id="8JN-Qh-koi"/>
-                        <outlet property="LoginField" destination="chh-pX-TYh" id="aUQ-eB-Ido"/>
-                        <outlet property="PassField" destination="161-eY-hN0" id="MK9-bC-stk"/>
+                        <segue destination="Nge-W7-BnL" kind="show" identifier="loginCompleted" id="WcM-NR-ZFf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1549,7 +1504,7 @@ which you can ....
         <!--Navigation Controller-->
         <scene sceneID="wFV-eG-g39">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nge-W7-BnL" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Nge-W7-BnL" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Keh-lM-c0i"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="l4i-1u-eU0">
@@ -1563,7 +1518,7 @@ which you can ....
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ksr-vP-FqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1367.2" y="-188.45577211394306"/>
+            <point key="canvasLocation" x="1300" y="226"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="oDk-CA-1pW">
@@ -1636,7 +1591,7 @@ which you can ....
         <image name="miami" width="1640" height="892"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="N7x-HX-zy0"/>
         <segue reference="lbO-Gs-uWG"/>
+        <segue reference="Thq-tV-mwK"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,15 +8,23 @@
 
 import UIKit
 import FacebookLogin
-
+import FacebookCore
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var francis =  User(userName: "Francis Zamora", attendingStatus: false , interestedStatus: false, pushNotifications: true, homeCity: " ")
 
+    
+    
+    
+    
+
+    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //Mark - Styling
+        
         UINavigationBar.appearance().titleTextAttributes = [
             NSForegroundColorAttributeName: SG_PRIMARY_WHITECOLOR,
             NSFontAttributeName: UIFont.systemFont(ofSize: 24.0, weight: UIFontWeightLight)

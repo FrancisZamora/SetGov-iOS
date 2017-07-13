@@ -110,6 +110,7 @@
 		1529E0AD1F103524001FE4BB /* profileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileCell.swift; sourceTree = "<group>"; };
 		1529E0AF1F103A6D001FE4BB /* logOut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = logOut.swift; sourceTree = "<group>"; };
 		152DBEE81EF1BC1E00322E56 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		152E12B11F16E8E500306967 /* SetGov.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SetGov.entitlements; sourceTree = "<group>"; };
 		153F3F7B1E6DF0E50004E2F4 /* SetGovViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetGovViewController.swift; path = Controllers/SetGovViewController.swift; sourceTree = "<group>"; };
 		153F3F7D1E6DF0ED0004E2F4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controllers/LoginViewController.swift; sourceTree = "<group>"; };
 		153F3F841E6DF2A20004E2F4 /* SetGovTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetGovTableViewController.swift; sourceTree = "<group>"; };
@@ -242,6 +243,7 @@
 		151CDA821E64CF3700440CDE /* SetGov */ = {
 			isa = PBXGroup;
 			children = (
+				152E12B11F16E8E500306967 /* SetGov.entitlements */,
 				151CDA8C1E64CF3700440CDE /* LaunchScreen.storyboard */,
 				151CDAB51E64F2C500440CDE /* constants.swift */,
 				151CDA831E64CF3700440CDE /* AppDelegate.swift */,
@@ -417,6 +419,14 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 7JQM8M6QG2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					151CDA931E64CF3700440CDE = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -821,6 +831,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SetGov/SetGov.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 7JQM8M6QG2;
@@ -853,6 +864,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SetGov/SetGov.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 7JQM8M6QG2;

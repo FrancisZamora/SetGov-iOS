@@ -9,21 +9,25 @@
 import UIKit
 import FacebookLogin
 import FacebookCore
-class LoginViewController: SetGovViewController, UITextFieldDelegate {
+class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButtonDelegate {
     @IBOutlet var LoginField: UITextField!
     
     @IBOutlet var Login: UIButton!
     @IBOutlet var PassField: UITextField!
-    
+    var loginSuccessful = false
     let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
+        super.viewDidLoad()
         let loginButton = LoginButton(readPermissions: [ .publicProfile ])
         loginButton.center = view.center
         view.addSubview(loginButton)
+        loginButton.delegate = self
         
+
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(selector))
+        loginButton.addGestureRecognizer(gesture)
         
-        super.viewDidLoad()
         /*
         LoginField.delegate = self
         PassField.delegate = self
@@ -63,7 +67,43 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate {
         */
         // Do any additional setup after loading the view, typically from a nib.
     }
-       
+    
+    
+    
+    
+    func selector() {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "CityNavigationViewController") as! AgendaDetailViewController
+        self.show(controller, sender: nil)
+    }
+    
+    func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
+            loginSuccessful = true
+
+        }
+    
+    
+    
+    
+        override func viewDidAppear(_ animated: Bool) {
+            if loginSuccessful == true {
+                performSegue(withIdentifier: "loginCompleted", sender: self)
+            }
+            
+        }
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else {
+            return
+        }
+        print(identifier)
+    }
+    
+    
+    func loginButtonDidLogOut(_ loginButton: LoginButton) {
+        return
+    }
+    
         //UIView.animateWithDuration(1.5, delay: 1.5, options: UIViewAnimationOptions.CurveLinear, animations: {
         //self.SSImage.alpha = 1.0
         //}, completion: nil)
