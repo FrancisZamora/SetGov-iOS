@@ -51,6 +51,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         self.loadTitle()
         self.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
+
         print(agendaInfo)
         print(indexofEvent)
     }
