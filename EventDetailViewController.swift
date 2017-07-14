@@ -67,8 +67,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     func refresh(sender:AnyObject) {
         print("refreshed")
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
+        self.refreshControl?.beginRefreshing()
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
             self.refreshControl?.endRefreshing()
             print("stop refreshing")
         }

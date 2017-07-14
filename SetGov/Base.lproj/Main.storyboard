@@ -823,7 +823,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.10000000000000001" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B4P-YP-XXH">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B4P-YP-XXH">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </view>
@@ -1643,7 +1643,7 @@
         <image name="miami" width="1640" height="892"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lbO-Gs-uWG"/>
-        <segue reference="N7x-HX-zy0"/>
+        <segue reference="V6K-gC-1yc"/>
+        <segue reference="Thq-tV-mwK"/>
     </inferredMetricsTieBreakers>
 </document>

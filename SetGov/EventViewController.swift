@@ -75,6 +75,8 @@ class EventViewController: SetGovTableViewController{
         self.filterDictionary()
         self.fetchEventData()
         self.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+
+       
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
          //   let storyboard = UIStoryboard(name: "Main", bundle: nil)
            // let controller = storyboard.instantiateViewController(withIdentifier: "EventOnboardingScreen") as! EventOnboardingScreen
@@ -109,8 +111,6 @@ class EventViewController: SetGovTableViewController{
             print("stop refreshing")
         }
     }
-    
-    
     
     func cleanArray() {
         arrayEvents.remove(at: 0)
