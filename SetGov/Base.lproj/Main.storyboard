@@ -1533,12 +1533,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FoL-fh-HD0">
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FoL-fh-HD0">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here you can find a list of your cty government's political events  which are happening in your city" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neo-am-TfO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here you can find a list of your cty government's political events  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neo-am-TfO">
                                 <rect key="frame" x="55" y="363" width="267" height="71"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="71" id="Rqi-Kg-Ixc"/>
@@ -1572,6 +1571,8 @@
                             </imageView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="FoL-fh-HD0" firstAttribute="leading" secondItem="8LQ-sD-Xdw" secondAttribute="leading" id="1mn-3T-bky"/>
+                            <constraint firstItem="FoL-fh-HD0" firstAttribute="top" secondItem="8LQ-sD-Xdw" secondAttribute="top" id="3LI-r2-ai5"/>
                             <constraint firstItem="neo-am-TfO" firstAttribute="top" secondItem="lwV-ZZ-bdZ" secondAttribute="bottom" constant="41" id="9Pw-si-GER"/>
                             <constraint firstItem="Bjs-55-mX0" firstAttribute="top" secondItem="9v8-dd-ep4" secondAttribute="bottom" constant="48" id="Ajt-ln-1CY"/>
                             <constraint firstItem="lwV-ZZ-bdZ" firstAttribute="top" secondItem="8LQ-sD-Xdw" secondAttribute="top" constant="162" id="FVc-Ux-ARR"/>
@@ -1581,8 +1582,10 @@
                             <constraint firstItem="neo-am-TfO" firstAttribute="trailing" secondItem="Bjs-55-mX0" secondAttribute="trailing" id="jTP-HE-Rk5"/>
                             <constraint firstItem="lwV-ZZ-bdZ" firstAttribute="top" secondItem="Bjs-55-mX0" secondAttribute="bottom" constant="29" id="lQ8-Ee-wsM"/>
                             <constraint firstItem="lwV-ZZ-bdZ" firstAttribute="centerX" secondItem="8LQ-sD-Xdw" secondAttribute="centerX" id="mDg-uG-sFx"/>
+                            <constraint firstItem="FoL-fh-HD0" firstAttribute="bottom" secondItem="yPR-I5-KBk" secondAttribute="top" id="ouf-Ns-mS4"/>
                             <constraint firstAttribute="bottom" secondItem="kXQ-Q4-98j" secondAttribute="bottom" constant="20" symbolic="YES" id="qgI-YW-dW5"/>
                             <constraint firstItem="Bjs-55-mX0" firstAttribute="leading" secondItem="8LQ-sD-Xdw" secondAttribute="leadingMargin" constant="39" id="rgS-6K-2t5"/>
+                            <constraint firstItem="FoL-fh-HD0" firstAttribute="centerX" secondItem="lwV-ZZ-bdZ" secondAttribute="centerX" id="uWY-Pm-Ty8"/>
                         </constraints>
                     </view>
                     <connections>
