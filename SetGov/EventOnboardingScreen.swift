@@ -18,9 +18,8 @@ class EventOnboardingScreen: SetGovViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.background.alpha = 0.5
         
-        self.background.backgroundColor = .gray
+        background.backgroundColor =  UIColor.black.withAlphaComponent(0.4)
         gotIt.layer.cornerRadius = 5
 
     }

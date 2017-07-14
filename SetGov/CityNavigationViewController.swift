@@ -20,12 +20,12 @@ class CityNavigationViewController: SetGovTableViewController {
         self.tableView.estimatedRowHeight = 213
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "CityOnboardingScreen") as! CityOnboardingScreen
-            self.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-            self.navigationController?.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-            self.present(controller, animated: true, completion: nil)
-
+           // let storyboard = UIStoryboard(name: "Main", bundle: nil)
+          //  let controller = storyboard.instantiateViewController(withIdentifier: "CityOnboardingScreen") as! CityOnboardingScreen
+            //self.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+          //  self.navigationController?.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+          //  self.present(controller, animated: true, completion: nil)
+            self.performSegue(withIdentifier: "overLay", sender: nil)
         }
         
     }

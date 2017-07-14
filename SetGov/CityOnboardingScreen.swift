@@ -23,8 +23,7 @@ class CityOnboardingScreen: SetGovViewController{
        
          super.viewDidLoad()
          self.gotIt.alpha = 1
-        
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+         background.backgroundColor =  UIColor.black.withAlphaComponent(0.4)
           
         // self.background.backgroundColor = UIColor.black.withAlphaComponent(0.8)
          gotIt.layer.cornerRadius = 5

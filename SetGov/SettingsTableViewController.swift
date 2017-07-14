@@ -76,11 +76,11 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
         case 0:
             return 435
         case 1:
-            return 69
+            return 62
         case 2:
-            return 69
+            return 62
         case 3:
-            return 69
+            return 62
         default:
             return 0
         }
