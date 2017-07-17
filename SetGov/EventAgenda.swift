@@ -67,6 +67,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
             
             for a in doc.css("strong") {
                 
+                
             let showString = a.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                 
             print(showString)
@@ -84,6 +85,12 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
             agendaTitle = [agendaString][0]
             let x = [agendaTitle][0]
             agendaStringArray.append(x)
+            for paragraph in doc.css("p") {
+                let showString = link.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                print(showString)
+                
+            }
+            
             
             
           }
