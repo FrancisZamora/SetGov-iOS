@@ -12,9 +12,12 @@ import QuartzCore
 
 class CityNavigationViewController: SetGovTableViewController {
     var numsections = 0
+    var activityIndicator = UIActivityIndicatorView()
+
     //user ns user default
     @IBOutlet var navBar: UINavigationItem!
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 213
@@ -25,10 +28,20 @@ class CityNavigationViewController: SetGovTableViewController {
         }
         UserDefaults.standard.set(1,forKey:"cityoverLay")
         print(UserDefaults.standard.integer(forKey:"cityoverLay"))
-        
 
         
     }
+    
+    func loadingAnimation() {
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        activityIndicator.startAnimating()
+        
+        view.addSubview(activityIndicator)
+    }
+    
+
   
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -39,8 +52,9 @@ class CityNavigationViewController: SetGovTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+
     }
-       
+    
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         return 50.0
@@ -86,7 +100,7 @@ class CityNavigationViewController: SetGovTableViewController {
         if (indexPath.row == 0 ) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "BostonCell", for:indexPath) as! BostonCell
             cell.selectionStyle = .none
-
+            
             print(indexPath.row)
            
             return cell
@@ -158,10 +172,25 @@ class CityNavigationViewController: SetGovTableViewController {
         
         if indexPath.row == 0 {
             print("Boston Cell")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BostonCell", for:indexPath) as! BostonCell
+            cell.selectionStyle = .none
+            cell.activityIndicator.center = cell.contView.center
+            cell.activityIndicator.hidesWhenStopped = true
+            cell.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+            cell.contView.addSubview(activityIndicator)
+            
+            cell.activityIndicator.startAnimating()
+            print("animation")
+            
+           // DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2), execute: {
+             //   cell.activityIndicator.stopAnimating()
+            //})
         }
         
         if indexPath.row == 1 {
             print("Fort Lauderdale Cell")
+            self.loadingAnimation()
+
             
         }
         
