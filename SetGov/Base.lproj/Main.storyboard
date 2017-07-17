@@ -1383,6 +1383,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="contView" destination="VMW-Zj-jP8" id="pGJ-Sg-vLe"/>
                                     <segue destination="01s-Z9-rOr" kind="show" identifier="boston" id="lbO-Gs-uWG"/>
                                 </connections>
                             </tableViewCell>

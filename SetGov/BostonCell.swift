@@ -10,8 +10,18 @@ import Foundation
 import UIKit
 import QuartzCore
 
-
 class BostonCell: UITableViewCell {
+    var activityIndicator = UIActivityIndicatorView()
+    @IBOutlet var contView: UIView!
+    
+    func loadingAnimation() {
+        activityIndicator.center = self.contView.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        contView.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+    }
+
     
     
 }

@@ -157,12 +157,10 @@ class CityNavigationViewController: SetGovTableViewController {
         print(indexPath.row)
         
         if indexPath.row == 0 {
-
             print("Boston Cell")
         }
         
         if indexPath.row == 1 {
-
             print("Fort Lauderdale Cell")
             
         }
