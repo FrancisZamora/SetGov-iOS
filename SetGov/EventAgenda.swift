@@ -34,6 +34,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     var eventDescription = String()
     var secondUrl = String()
     var agendaTitle = [String]()
+    var paragraphArray = [[String]()]
 
     
     override func awakeFromNib() {
@@ -41,6 +42,8 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         agendaCollectionView.delegate = self
         agendaCollectionView.dataSource = self
     }
+    
+    
     
     func generateBoston() {
         if selectedCity == "Boston" {
@@ -86,16 +89,18 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
             let x = [agendaTitle][0]
             agendaStringArray.append(x)
             for paragraph in doc.css("p") {
-                let showString = link.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                let showString = paragraph.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                 print(showString)
+                let agendaString = showString.components(separatedBy: "\n")
+                paragraphArray.append(agendaString)
                 
             }
             
             
             
           }
-            print(agendaStringArray)
-        
+            print(paragraphArray)
+            
             print(agendaArray)
     
     
@@ -105,8 +110,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        self.generateBoston()
-        self.prepareAgenda()
+      
         
         if selectedCity == "Boston" {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
@@ -165,7 +169,6 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         }
         self.generateBoston()
         self.prepareAgenda()
-        print(agendaTitles)
         
         return agendaTitles.count
     }
