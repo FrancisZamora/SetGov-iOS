@@ -20,7 +20,7 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
     var agendaInfo = [Int:String]()
     var index = 0
     var paragraphArray = [[String]()]
-    
+    var agendaTitles = [String]()
     @IBOutlet var navTitle: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,9 +81,9 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
             agendadetailHeader.agendaImage.image = agendaImage
             print(agendaInfo)
             
-            agendadetailHeader.titleLabel.text = agendaInfo[index]! + " Discussion Topic"
-            agendadetailHeader.secondaryTitle.text = " "
-            agendadetailHeader.tertiaryTitle.text = agendaInfo[index]! + " Updates"
+            agendadetailHeader.titleLabel.text = agendaTitles[index]
+            
+          
             agendadetailHeader.headerCallBack = self
 
             

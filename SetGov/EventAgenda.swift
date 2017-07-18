@@ -11,7 +11,7 @@ import UIKit
 import QuartzCore
 
 protocol EventAgendaCallback: class {
-    func loadAgendaDetail(data:Dictionary<Int,String>, infoData:[[String]], index: Int)
+    func loadAgendaDetail(data:Dictionary<Int,String>, infoData:[[String]], agendaTitles:[String], index: Int)
     func loadVC()
 
 
@@ -190,7 +190,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
 
             if let callback = eventAgendaCallback {
 
-                callback.loadAgendaDetail(data: agendaInfo,infoData: paragraphArray, index:0)
+                callback.loadAgendaDetail(data: agendaInfo,infoData: paragraphArray,agendaTitles:agendaTitles,index:0)
                 
                 callback.loadVC()
 
@@ -205,7 +205,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
             agendaInfo.updateValue(cell.topicLabel.text!, forKey: indexPath.row)
 
             if let callback = eventAgendaCallback {
-                callback.loadAgendaDetail(data: agendaInfo,infoData:paragraphArray, index:1)
+                callback.loadAgendaDetail(data: agendaInfo,infoData:paragraphArray, agendaTitles: agendaTitles, index:1)
                 callback.loadVC()
 
             }
@@ -219,7 +219,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
             agendaInfo.updateValue(cell.topicLabel.text!, forKey: indexPath.row)
 
             if let callback = eventAgendaCallback {
-                callback.loadAgendaDetail(data: agendaInfo,infoData:paragraphArray, index:2)
+                callback.loadAgendaDetail(data: agendaInfo,infoData:paragraphArray,agendaTitles:agendaTitles, index:2)
                 callback.loadVC()
 
                 

@@ -906,19 +906,7 @@
                                         <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image1" translatesAutoresizingMaskIntoConstraints="NO" id="7WQ-j7-kZc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Safety Report" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="rOa-aP-Kpc">
-                                            <rect key="frame" x="102" y="114" width="171" height="32"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                            <color key="textColor" red="0.087962217628955841" green="0.19097673892974854" blue="0.38617235422134399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Safety Updates" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="1rn-53-NNT">
-                                            <rect key="frame" x="115" y="171" width="144" height="31"/>
-                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="21"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waterway Crime &amp; Boating" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="cZz-Lb-cpx">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waterway Crime &amp; Boating " textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="cZz-Lb-cpx">
                                             <rect key="frame" x="22" y="74" width="331" height="32"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                             <color key="textColor" red="0.087962217628955841" green="0.19097673892974854" blue="0.38617235422134399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -938,34 +926,24 @@
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="1rn-53-NNT" secondAttribute="trailing" constant="108" id="1eh-5o-5Gm"/>
                                         <constraint firstItem="J6j-kK-mZG" firstAttribute="leading" secondItem="JZU-TL-H0o" secondAttribute="leadingMargin" constant="-4" id="2cL-TZ-gzj"/>
                                         <constraint firstItem="cZz-Lb-cpx" firstAttribute="leading" secondItem="JZU-TL-H0o" secondAttribute="leadingMargin" constant="14" id="4eN-BU-os4"/>
                                         <constraint firstItem="J6j-kK-mZG" firstAttribute="top" secondItem="JZU-TL-H0o" secondAttribute="topMargin" constant="9" id="52g-Mc-hD5"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="1rn-53-NNT" secondAttribute="bottom" constant="22" id="8Ww-r2-GOf"/>
-                                        <constraint firstItem="1rn-53-NNT" firstAttribute="top" secondItem="JZU-TL-H0o" secondAttribute="topMargin" constant="163" id="Flc-Hy-YnC"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="7WQ-j7-kZc" secondAttribute="bottom" constant="-8" id="Gok-DK-KmZ"/>
                                         <constraint firstItem="cZz-Lb-cpx" firstAttribute="top" secondItem="J6j-kK-mZG" secondAttribute="bottom" constant="28" id="JdF-4p-82N"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="7WQ-j7-kZc" secondAttribute="trailing" constant="-8" id="Oqg-KG-Oq1"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="rOa-aP-Kpc" secondAttribute="bottom" constant="77" id="Rs9-6m-Mwz"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="cZz-Lb-cpx" secondAttribute="trailing" constant="14" id="TKh-Oc-QDg"/>
-                                        <constraint firstItem="1rn-53-NNT" firstAttribute="leading" secondItem="JZU-TL-H0o" secondAttribute="leadingMargin" constant="107" id="VQ9-gh-vFx"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="rOa-aP-Kpc" secondAttribute="trailing" constant="94" id="Xac-yb-mMA"/>
                                         <constraint firstItem="7WQ-j7-kZc" firstAttribute="centerX" secondItem="JZU-TL-H0o" secondAttribute="centerX" id="Xhj-9s-cbD"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="cZz-Lb-cpx" secondAttribute="bottom" constant="117" id="ffp-dI-P9Y"/>
-                                        <constraint firstItem="rOa-aP-Kpc" firstAttribute="top" secondItem="JZU-TL-H0o" secondAttribute="topMargin" constant="106" id="fiy-7S-TXC"/>
                                         <constraint firstItem="7WQ-j7-kZc" firstAttribute="leading" secondItem="JZU-TL-H0o" secondAttribute="leadingMargin" constant="-8" id="k93-gU-duY"/>
                                         <constraint firstItem="7WQ-j7-kZc" firstAttribute="top" secondItem="JZU-TL-H0o" secondAttribute="topMargin" constant="-8" id="n7X-Kp-KIF"/>
                                         <constraint firstItem="cZz-Lb-cpx" firstAttribute="top" secondItem="JZU-TL-H0o" secondAttribute="topMargin" constant="66" id="njn-ij-L9K"/>
                                         <constraint firstItem="7WQ-j7-kZc" firstAttribute="centerY" secondItem="JZU-TL-H0o" secondAttribute="centerY" id="wcV-OK-iPu"/>
-                                        <constraint firstItem="rOa-aP-Kpc" firstAttribute="leading" secondItem="JZU-TL-H0o" secondAttribute="leadingMargin" constant="94" id="y8r-WJ-m4m"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="agendaImage" destination="7WQ-j7-kZc" id="XFh-GO-wc3"/>
                                     <outlet property="exitButton" destination="J6j-kK-mZG" id="UYA-cz-hHS"/>
-                                    <outlet property="secondaryTitle" destination="rOa-aP-Kpc" id="OpH-od-7v5"/>
-                                    <outlet property="tertiaryTitle" destination="1rn-53-NNT" id="ryl-nW-zyu"/>
                                     <outlet property="titleLabel" destination="cZz-Lb-cpx" id="MNz-GJ-dSm"/>
                                 </connections>
                             </tableViewCell>

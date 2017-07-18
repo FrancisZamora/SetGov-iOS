@@ -42,7 +42,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var fortlauderdaleArray = [[String()]]
     var eventDescription = String()
     var paragraphArray = [[String()]]
-    
+    var agendaTitle = [String]()
     
     @IBOutlet var navTitle: UINavigationItem!
     
@@ -109,7 +109,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
     }
     
-    func loadAgendaDetail(data: Dictionary<Int,String>,infoData:[[String]],index:Int) {
+    func loadAgendaDetail(data: Dictionary<Int,String>,infoData:[[String]],agendaTitles:[String],index:Int) {
         
         print("EVENT AGENDA CALLBACK")
         print("LOADING AGENDA DETAIL HERE")
@@ -117,7 +117,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         print(agendaInfo)
         Index = index
         paragraphArray = infoData
-        
+        agendaTitle = agendaTitles
         print(data)
         print(data)
         
@@ -143,7 +143,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         controller.paragraphArray = paragraphArray
         controller.agendaInfo = agendaInfo
         controller.index = Index
-
+        controller.agendaTitles = agendaTitle
         self.present(controller, animated:true, completion: nil )
     
    
