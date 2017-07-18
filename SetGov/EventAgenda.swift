@@ -107,55 +107,17 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         
         self.generateBoston()
         self.prepareAgenda()
+        
         if selectedCity == "Boston" {
-            if (indexPath.row == 0) {
-                
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
-                cell.configureCell(title: agendaTitles[indexPath.row])
-
-                cell.layer.cornerRadius = 10
-                cell.layer.masksToBounds = true
-                cell.configureCell(title: agendaTitles[indexPath.row])
-                
-                
-                cell.topicLabel.text = descriptionArray[indexofEvent]
-                agendaInfo.updateValue(cell.topicLabel.text!, forKey: indexPath.row)
-
-                return cell
-        }
-        if (indexPath.row == 1) {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
-            print(agendaTitles[1])
-            
             cell.configureCell(title: agendaTitles[indexPath.row])
-            cell.mLabel.text = "Expand Las Olas"
-            cell.topicLabel.text = "Ordinance"
             cell.layer.cornerRadius = 10
             cell.layer.masksToBounds = true
-            
+            cell.topicLabel.text = descriptionArray[indexofEvent]
             agendaInfo.updateValue(cell.topicLabel.text!, forKey: indexPath.row)
-
             return cell
-
-        }
-        if (indexPath.row == 2) {
-           
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
-                print(agendaTitles)
+    
             
-                cell.configureCell(title: agendaTitles[indexPath.row])
-
-                cell.mLabel.text = "Waterworks"
-                cell.topicLabel.text = "Safety"
-                cell.layer.cornerRadius = 10
-                cell.layer.masksToBounds = true
-            
-                agendaInfo.updateValue(cell.topicLabel.text!, forKey: indexPath.row)
-                print(agendaInfo)
-            
-                return cell
-            
-        }
         }
         if selectedCity == "Fort Lauderdale" {
             self.prepareAgenda()
@@ -201,7 +163,11 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         if selectedCity == "Fort Lauderdale" {
             return 2
         }
-        return 3
+        self.generateBoston()
+        self.prepareAgenda()
+        print(agendaTitles)
+        
+        return agendaTitles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
