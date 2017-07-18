@@ -19,6 +19,7 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
     var tertiaryTitle = " "
     var agendaInfo = [Int:String]()
     var index = 0
+    var paragraphArray = [[String]()]
     
     @IBOutlet var navTitle: UINavigationItem!
     override func viewDidLoad() {

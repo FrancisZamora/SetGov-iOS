@@ -41,6 +41,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var descriptionArray = [String]()
     var fortlauderdaleArray = [[String()]]
     var eventDescription = String()
+    var paragraphArray = [[String()]]
     
     
     @IBOutlet var navTitle: UINavigationItem!
@@ -108,14 +109,14 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
     }
     
-    func loadAgendaDetail(data: Dictionary<Int,String>,index:Int) {
+    func loadAgendaDetail(data: Dictionary<Int,String>,infoData:[[String]],index:Int) {
         
         print("EVENT AGENDA CALLBACK")
         print("LOADING AGENDA DETAIL HERE")
         agendaInfo = data
         print(agendaInfo)
         Index = index
-        
+        paragraphArray = infoData
         
         print(data)
         print(data)
@@ -139,7 +140,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         let controller = storyboard.instantiateViewController(withIdentifier: "AgendaDetailViewController") as! AgendaDetailViewController
         controller.agendaImage = agendaImage
         controller.eventTitle = eventTitle
-        
+        controller.paragraphArray = paragraphArray
         controller.agendaInfo = agendaInfo
         controller.index = Index
 

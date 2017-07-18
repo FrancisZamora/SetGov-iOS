@@ -11,8 +11,9 @@ import UIKit
 import QuartzCore
 
 protocol EventAgendaCallback: class {
-    func loadAgendaDetail(data:Dictionary<Int,String>, index: Int)
+    func loadAgendaDetail(data:Dictionary<Int,String>, infoData:[[String]], index: Int)
     func loadVC()
+
 
 }
 
@@ -43,12 +44,6 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         agendaCollectionView.dataSource = self
     }
     
-    func cleanseArray(){
-        paragraphArray.remove(at: 0)
-        paragraphArray.remove(at: 1)
-        print(paragraphArray)
-        
-    }
     
     
     func generateBoston() {
@@ -109,10 +104,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
           }
             paragraphArray.remove(at: 0)
             paragraphArray.remove(at: 0)
-            print(paragraphArray)
-            
-            print(agendaArray)
-    
+         
     
         }
     }
@@ -179,8 +171,6 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         }
         self.generateBoston()
         self.prepareAgenda()
-     
-        print(paragraphArray)
         
         return agendaTitles.count
     }
@@ -200,7 +190,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
 
             if let callback = eventAgendaCallback {
 
-                callback.loadAgendaDetail(data: agendaInfo,index:0)
+                callback.loadAgendaDetail(data: agendaInfo,infoData: paragraphArray, index:0)
                 
                 callback.loadVC()
 
@@ -215,7 +205,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
             agendaInfo.updateValue(cell.topicLabel.text!, forKey: indexPath.row)
 
             if let callback = eventAgendaCallback {
-                callback.loadAgendaDetail(data: agendaInfo,index:1)
+                callback.loadAgendaDetail(data: agendaInfo,infoData:paragraphArray, index:1)
                 callback.loadVC()
 
             }
@@ -229,7 +219,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
             agendaInfo.updateValue(cell.topicLabel.text!, forKey: indexPath.row)
 
             if let callback = eventAgendaCallback {
-                callback.loadAgendaDetail(data: agendaInfo,index:2)
+                callback.loadAgendaDetail(data: agendaInfo,infoData:paragraphArray, index:2)
                 callback.loadVC()
 
                 
