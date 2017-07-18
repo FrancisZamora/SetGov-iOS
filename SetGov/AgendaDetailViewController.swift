@@ -25,26 +25,13 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
     override func viewDidLoad() {
         super.viewDidLoad()
         navTitle.title = eventTitle
-        print("EventDetailViewController")
-        print(agendaInfo)
-        print(index)
-        
-        
-        
     }
     
     func dismissView() {
-        
         self.dismiss(animated: true, completion: {})
     }
     
-    
-    
-  // func editTitle() -> String {
-    //    return agendaInfo[Index]!
-    //}
 
-    
     override func viewDidAppear(_ animated: Bool) {
     }
     
@@ -113,7 +100,7 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
         if(indexPath.row == 2) {
             let agendadetailComments = tableView.dequeueReusableCell(withIdentifier: "AgendaDetailComments", for:indexPath) as! AgendaDetailComments
             agendadetailComments.selectionStyle = .none
-            
+            agendadetailComments.commentField.text = paragraphArray[index][0]
             agendadetailComments.disableEditing()
             
             return agendadetailComments
