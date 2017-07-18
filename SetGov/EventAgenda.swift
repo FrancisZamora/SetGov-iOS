@@ -43,6 +43,12 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         agendaCollectionView.dataSource = self
     }
     
+    func cleanseArray(){
+        paragraphArray.remove(at: 0)
+        paragraphArray.remove(at: 1)
+        print(paragraphArray)
+        
+    }
     
     
     func generateBoston() {
@@ -96,9 +102,13 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
                 
             }
             
+
+            
             
             
           }
+            paragraphArray.remove(at: 0)
+            paragraphArray.remove(at: 0)
             print(paragraphArray)
             
             print(agendaArray)
@@ -169,6 +179,8 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         }
         self.generateBoston()
         self.prepareAgenda()
+     
+        print(paragraphArray)
         
         return agendaTitles.count
     }
