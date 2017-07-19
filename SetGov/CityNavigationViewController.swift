@@ -98,45 +98,64 @@ class CityNavigationViewController: SetGovTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.row == 0 ) {
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "BostonCell", for:indexPath) as! BostonCell
             cell.selectionStyle = .none
             
             print(indexPath.row)
-           
+            cell.alpha = 0.80
+            
+            UIView.animate(withDuration: 0.5 ) {
+                cell.alpha = 1
+            }
+
+            
             return cell
 
         }
         
         if (indexPath.row == 1) {
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "FortLauderdaleCell", for:indexPath) as! FortLauderdaleCell
             cell.selectionStyle = .none
+            cell.alpha = 0.35
+            
+            UIView.animate(withDuration: 1.0) {
+                cell.alpha = 1
+            }
+
             print(indexPath.row)
             
             return cell
 
         }
         if (indexPath.row == 2) {
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewYorkCityCell", for:indexPath) as! NewYorkCityCell
             cell.selectionStyle = .none
-            //cell.selectionStyle = UITableViewCellSelectionStyle.blue
-           // cell.isUserInteractionEnabled = true
-            print(indexPath.row)
-           // if cell.isSelected == true {
-            print("cell was selected")
-                           //}
+            cell.alpha = 0.35
+            
+            UIView.animate(withDuration: 1.0) {
+                cell.alpha = 1
+            }
+
+           
             return cell
 
             
         }
         if (indexPath.row == 3) {
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "MiamiCell", for:indexPath) as! MiamiCell
             cell.selectionStyle = .none
-            //cell.selectionStyle = UITableViewCellSelectionStyle.blue
-            // cell.isUserInteractionEnabled = true
-            print(indexPath.row)
-            // if cell.isSelected == true {
-            print("cell was selected")
-            //}
+            
+            cell.alpha = 0.35
+            
+            UIView.animate(withDuration: 1.0) {
+                cell.alpha = 1
+            }
+
+           
             return cell
             
             

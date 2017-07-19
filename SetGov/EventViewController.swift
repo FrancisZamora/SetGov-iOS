@@ -140,18 +140,11 @@ class EventViewController: SetGovTableViewController{
                     
                     return
                 }
-                
                 if uneditedHref.range(of:"/public-notices/") != nil {
                     hrefArray.append(uneditedHref)
 
                 }
-                
-                
-                
             }
-            
-            print(hrefArray)
-    
             for notices in doc.css("a[href*='/public-notices/']") {
                 
                 print("configuring new string")
@@ -425,6 +418,7 @@ class EventViewController: SetGovTableViewController{
     
    func fetchEventData() {
     var count = 0
+    
     fortlauderdaleArray.remove(at: 0)
     if selectedCity == "Fort Lauderdale" {
         for (index,_) in fortlauderdaleArray.enumerated() {
@@ -469,22 +463,19 @@ class EventViewController: SetGovTableViewController{
         
         for (index, value) in eventAddresses.enumerated() {
             
-            
-            
             let event = Event(eventTitle: spacer + arrayEvents[index], eventAddress: value, eventUsers: ["Tim","Sam"] , eventDescription: descriptionArray[index], eventDate:eventTimeFormatted[index], eventImageName: "bostonPark", eventTime: eventHours[index][1], eventTags: ["engagement", "bureaucracy"])
-
             
-            print(event.eventDescription)
+                if isEven(num: index) == true {
+                    event.eventImage = #imageLiteral(resourceName: "brownstone")
+                }
+                else {
+                    event.eventImage = #imageLiteral(resourceName: "bostonPark")
+                }
             
-            if isEven(num: index) == true {
-                event.eventImage = #imageLiteral(resourceName: "brownstone")
-            }
-            else {
-                event.eventImage = #imageLiteral(resourceName: "bostonPark")
-            }
                 dataList.append(event)
-        }
-    }
+                }
+        
+            }
     }
     
     func setCity() {
@@ -535,19 +526,23 @@ class EventViewController: SetGovTableViewController{
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("numberofRows")
+
+        
         if selectedCity == "Boston" {
             return arrayEvents.count
 
         }
         
+        
         if selectedCity == "Fort Lauderdale" {
             return fortlauderdaleArray.count
         }
+            
         
         else {
             return 0
         }
+        
         
     }
     
@@ -555,32 +550,47 @@ class EventViewController: SetGovTableViewController{
         
         if selectedCity == "Boston" {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-            cell.selectionStyle = .none
             
+            cell.selectionStyle = .none
             cell.editCell(Event:dataList[indexPath.row])
+            cell.alpha = 0.50
+            
+            UIView.animate(withDuration: 0.88) {
+                cell.alpha = 1
+            }
+            
             eventImage = cell.eventImage.image!
             eventImages.updateValue(eventImage, forKey: indexPath.row)
+            
             return cell
         }
          if selectedCity == "Fort Lauderdale" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventCell
-            print(dataList)
-            
             cell.selectionStyle = .none
             cell.editCell(Event:dataList[indexPath.row])
+            cell.alpha = 0
+            UIView.animate(withDuration: 1.0) {
+                cell.alpha = 1
+            }
+            
             eventImage = cell.eventImage.image!
             eventImages.updateValue(eventImage,forKey: indexPath.row)
+            
             return cell
        }
+        
        let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCell
        cell.configure()
        cell.selectionStyle = .none
+        
        return cell
+        
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
         tableView.deselectRow(at: indexPath, animated: false)
-        print("selected")
+        
+        
         if selectedCity == "Fort Lauderdale" {
             
             indexofEvent = indexPath.row
@@ -588,16 +598,18 @@ class EventViewController: SetGovTableViewController{
             
         }
         
+        
         if selectedCity == "Boston" {
-                    print("yo")
             indexofEvent = indexPath.row
             performSegue(withIdentifier: "showEvent", sender: nil)
         }
+        
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showEvent") {
-            print("preparing view")
+            
             let EventDetailViewController = segue.destination as! EventDetailViewController
             EventDetailViewController.selectedEvents = eventTitles
             EventDetailViewController.indexofEvent = indexofEvent
@@ -611,7 +623,8 @@ class EventViewController: SetGovTableViewController{
             EventDetailViewController.hrefArray = hrefArray
             EventDetailViewController.descriptionArray = descriptionArray
             EventDetailViewController.eventHours = eventHours
-            EventDetailViewController.fortlauderdaleArray = fortlauderdaleArray 
+            EventDetailViewController.fortlauderdaleArray = fortlauderdaleArray
+            
         }
     }
 }
