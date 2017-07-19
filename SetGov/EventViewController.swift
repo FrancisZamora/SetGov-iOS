@@ -65,6 +65,8 @@ class EventViewController: SetGovTableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(selectedCity)
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "CityNavigationViewController") as! CityNavigationViewController
         self.navigationController?.viewControllers.insert(controller, at: 1)
