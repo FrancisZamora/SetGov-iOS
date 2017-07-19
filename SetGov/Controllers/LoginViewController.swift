@@ -10,11 +10,9 @@ import UIKit
 import FacebookLogin
 import FacebookCore
 class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButtonDelegate {
-    @IBOutlet var LoginField: UITextField!
     
-    @IBOutlet var Login: UIButton!
     @IBOutlet var setGov: UIImageView!
-    @IBOutlet var PassField: UITextField!
+    
     var loginSuccessful = false
     let defaults = UserDefaults.standard
 
@@ -24,7 +22,6 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
         let screenSize:CGRect = UIScreen.main.bounds
         let screenHeight = screenSize.height - 100 //real screen height
         let newCenter = CGPoint(x: view.center.x, y:screenHeight)
-
         loginButton.delegate = self
         loginButton.frame.size.width = 340
         loginButton.center = newCenter

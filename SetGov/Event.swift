@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftyJSON
 
 class Event {
     var eventTitle = " "
@@ -29,7 +30,6 @@ class Event {
     init(eventTitle:String, eventAddress: String, eventUsers: [String],  eventDescription: String, eventDate: String, eventImageName: String, eventTime: String, eventTags:[String]) {
         self.eventTitle = eventTitle
         self.eventDescription = eventDescription
-        self.eventDate = eventDate
         self.eventUsers = eventUsers
         self.eventImage = UIImage(imageLiteralResourceName: eventImageName)
         self.eventTags = eventTags
@@ -40,6 +40,15 @@ class Event {
         // ** read top comment self.eventUsers = eventUsers
     }
     
+    
+    static func createFromJson(json: JSON) -> Event? {
+        
+        guard let name = json["name"].string,
+            let date = json["date"].string else {
+                return nil
+        }
+        
+    }
     
 }
 

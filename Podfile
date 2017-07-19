@@ -8,6 +8,10 @@ target 'SetGov' do
   # Pods for SetGov
   pod 'FacebookCore'
   pod 'FacebookLogin'
+  pod 'Alamofire', '~> 4.4'
+  pod 'SwiftyJSON'
+
+
   target 'SetGovTests' do
     inherit! :search_paths
     # Pods for testing

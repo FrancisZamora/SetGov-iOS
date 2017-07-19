@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import FacebookLogin
 import FacebookCore
-
+import Alamofire
 class CityOnboardingScreen: SetGovViewController{
     
     @IBOutlet var gotIt: UIButton!
@@ -23,7 +23,16 @@ class CityOnboardingScreen: SetGovViewController{
        
          super.viewDidLoad()
          background.backgroundColor =  UIColor.black.withAlphaComponent(0.55)
-          
+        Alamofire.request("https://localhost:3000",
+                          method: .post,
+                          parameters: ["query":"query{"],
+                          encoding: JSONEncoding.default,
+                          headers: [:])
+            .responseJSON { json in
+            
+            
+            }
+            
          gotIt.layer.cornerRadius = 5
     }
     

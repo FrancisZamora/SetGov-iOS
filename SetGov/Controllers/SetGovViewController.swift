@@ -22,6 +22,13 @@ class SetGovViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+       // ApiClient.login(onCompletion: { value in
+         //   print(value)
+        //})
+        
+        print("login response")
+
         if  Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
         } else {
