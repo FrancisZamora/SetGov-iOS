@@ -129,7 +129,15 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
             ApiClient.login(token: accessToken.authenticationToken, onCompletion: { (json) in
                 print("JSON is here\(json)")
                 
+                let profileID = json["data"]["authenticateUser"]["profileImage"]["url"]
+                print(profileID)
+                
+
+                
+                
             })
+            
+            
             
             loginSuccessful = true
             loginButton.isHidden = true
@@ -165,27 +173,11 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
         }
     }
     
-    func postToken() {
-        //post api  token and receive response, parse it for necesary information
-        //appDelegate.francis
-    }
-    
     
     func loginButtonDidLogOut(_ loginButton: LoginButton) {
         return
     }
     
-        //UIView.animateWithDuration(1.5, delay: 1.5, options: UIViewAnimationOptions.CurveLinear, animations: {
-        //self.SSImage.alpha = 1.0
-        //}, completion: nil)
-        //}
-
-
-  /* func textFieldShouldReturn(_ LoginField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return true
-    }
- */
-
+  
 }
 

@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class ApiClient {
     
-    static func login(token:String,onCompletion: @escaping(String) -> Void) {
+    static func login(token:String,onCompletion: @escaping(JSON) -> Void) {
         
     Alamofire.request("http://localhost:3000/api/v/1/graph",
     method: .post,
@@ -22,15 +22,14 @@ class ApiClient {
             onCompletion("error")
             return
         }
-        
+         
         let json = JSON(jsonString)
-        
-            print("api client json \(json)")
+        print("api client json \(json)")
         //   guard let UserData = User.createFromJson(json: json) else {
           //   onCompletion()
            //}
         //onCompletion(json)
-        onCompletion("hello")
+        onCompletion(json)
     }
         
     
