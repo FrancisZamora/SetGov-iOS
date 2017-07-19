@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import SwiftyJSON
+
 
 class User {
     var userName = " "
@@ -24,6 +26,14 @@ class User {
         self.pushNotifications = pushNotifications
         self.homeCity = homeCity
     }
+  //  static func createFromJson(json: JSON) -> User? {
+    
+    //  guard let name = json["name"].string,
+      //  let date = json["date"].string else {
+        // return nil
+      //}
+    //}
+
 
 
 

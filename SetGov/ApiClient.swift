@@ -8,32 +8,34 @@
 
 import Foundation
 import Alamofire
-
+import SwiftyJSON
 
 class ApiClient {
     
-    //static func login(token:String,onCompletion: @escaping() -> Event?) {
+    static func login(token:String,onCompletion: @escaping(String) -> Void) {
         
+    Alamofire.request("https://localhost:3000",
+    method: .post,
+    parameters: ["query":"mutation {authenticateUser(facebook_token:\"\(token)\") {id,first_name,last_name, profileImage{ id, url}}}"],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
+       print(response.response?.statusCode)
         
-      //  Alamofire.request(<#T##url: URLConvertible##URLConvertible#>,
-        //                  method: <#T##HTTPMethod#>,
-          //                parameters: <#T##Parameters?#>,
-            //              encoding: <#T##ParameterEncoding#>,
-              //            headers: <#T##HTTPHeaders?#>)
-       //     .responseJson { json in
+        guard let jsonString = response.result.value else {
+            onCompletion("error")
+            return
+        }
+        let json = JSON(jsonString)
         
-         //       let json = JSON(json)
-           //     let jsonArray = json.array
-                
-             //   guard let event = Event.createFromJson(json: json) else {
-               //     onCompletion(nil)
-                //}
-                //print("response received")
-                //onCompletion(event)
-                
+            print("api client json \(json)")
+        //   guard let UserData = User.createFromJson(json: json) else {
+          //   onCompletion()
+           //}
+        //onCompletion(json)
+        onCompletion("hello")
+    }
         
-        //}
-        
+    
+    }
+    
         
     
     

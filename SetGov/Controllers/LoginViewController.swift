@@ -9,6 +9,7 @@
 import UIKit
 import FacebookLogin
 import FacebookCore
+import SwiftyJSON
 class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButtonDelegate {
     
     @IBOutlet var setGov: UIImageView!
@@ -122,6 +123,14 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
     
     func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
         if let accessToken = AccessToken.current {
+//            ApiClient.login( token:String(describing: accessToken), onCompletion: { json in
+//                
+//            })
+            ApiClient.login(token: String(describing: accessToken), onCompletion: { (json) in
+                print("JSON is here\(json)")
+                
+            })
+            
             loginSuccessful = true
             loginButton.isHidden = true
 
