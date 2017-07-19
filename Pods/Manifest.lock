@@ -18,12 +18,16 @@ PODS:
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.24.0):
     - FBSDKCoreKit
+  - NVActivityIndicatorView (3.7.0):
+    - NVActivityIndicatorView/Presenter (= 3.7.0)
+  - NVActivityIndicatorView/Presenter (3.7.0)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
   - FacebookCore
   - FacebookLogin
+  - NVActivityIndicatorView
   - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -33,8 +37,9 @@ SPEC CHECKSUMS:
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FBSDKCoreKit: f8c9eb0dd34a9cd277c7b60da4b32226d142502d
   FBSDKLoginKit: 1214c6d5a1c4995b694d8db8a9ba6910c6028acf
+  NVActivityIndicatorView: d3738df7e2e476aca0ba6bf32a8c9fbcfc33d64b
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 26c6a78f8e78e321a7318b63e1a3125e5020d23a
+PODFILE CHECKSUM: a9dbb9248ae2268a2123ee4a82bc278222b0fc28
 
 COCOAPODS: 1.1.0.rc.2

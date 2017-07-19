@@ -10,6 +10,7 @@ target 'SetGov' do
   pod 'FacebookLogin'
   pod 'Alamofire', '~> 4.4'
   pod 'SwiftyJSON'
+  pod 'NVActivityIndicatorView'
 
 
   target 'SetGovTests' do

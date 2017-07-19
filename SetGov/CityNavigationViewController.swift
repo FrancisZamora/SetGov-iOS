@@ -151,11 +151,14 @@ class CityNavigationViewController: SetGovTableViewController {
         if (segue.identifier == "boston") {
             let EventViewController = segue.destination as! EventViewController
             EventViewController.selectedCity = "Boston"
+            UserDefaults.standard.set("Boston",forKey:"homeCity")
+
             
         }
         if (segue.identifier == "fort lauderdale") {
             let EventViewController = segue.destination as! EventViewController
-            EventViewController.selectedCity = "Fort Lauderdale"
+            UserDefaults.standard.set("Fort Lauderdale",forKey:"homeCity")
+
             
         }
         if (segue.identifier == "new york ") {
