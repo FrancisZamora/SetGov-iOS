@@ -14,15 +14,15 @@ class ApiClient {
     
     static func login(token:String,onCompletion: @escaping(String) -> Void) {
         
-    Alamofire.request("https://localhost:3000",
+    Alamofire.request("http://localhost:3000/api/v/1/graph",
     method: .post,
     parameters: ["query":"mutation {authenticateUser(facebook_token:\"\(token)\") {id,first_name,last_name, profileImage{ id, url}}}"],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
-       print(response.response?.statusCode)
-        
+        print(response)
         guard let jsonString = response.result.value else {
             onCompletion("error")
             return
         }
+        
         let json = JSON(jsonString)
         
             print("api client json \(json)")

@@ -126,7 +126,7 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
 //            ApiClient.login( token:String(describing: accessToken), onCompletion: { json in
 //                
 //            })
-            ApiClient.login(token: String(describing: accessToken), onCompletion: { (json) in
+            ApiClient.login(token: accessToken.authenticationToken, onCompletion: { (json) in
                 print("JSON is here\(json)")
                 
             })
