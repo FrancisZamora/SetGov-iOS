@@ -41,14 +41,14 @@ class Event {
     }
     
     
-    static func createFromJson(json: JSON) -> Event? {
+    //static func createFromJson(json: JSON) -> Event? {
         
-        guard let name = json["name"].string,
-            let date = json["date"].string else {
-                return nil
-        }
+      //  guard let name = json["name"].string,
+        //    let date = json["date"].string else {
+          //      return nil
+        //}
         
-    }
+    
     
 }
 

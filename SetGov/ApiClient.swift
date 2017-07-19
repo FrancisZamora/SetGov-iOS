@@ -35,7 +35,6 @@ class ApiClient {
         
         //}
         
-        print("login return")
         
     
     
