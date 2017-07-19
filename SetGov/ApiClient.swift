@@ -12,8 +12,7 @@ import Alamofire
 
 class ApiClient {
     
-    
-    //static func login(onCompletion: @escaping() -> Event?) {
+    //static func login(token:String,onCompletion: @escaping() -> Event?) {
         
         
       //  Alamofire.request(<#T##url: URLConvertible##URLConvertible#>,

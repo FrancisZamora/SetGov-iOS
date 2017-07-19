@@ -91,8 +91,8 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
                     print(accessToken)
                     //self.loginSuccessful = true
                 loginButton.isHidden = true
-                //performSegue(withIdentifier: "defaultSet", sender: nil)
-                performSegue(withIdentifier: "loginCompleted", sender: self)
+                performSegue(withIdentifier: "defaultSet", sender: nil)
+                //performSegue(withIdentifier: "loginCompleted", sender: self)
 
                 }
                 

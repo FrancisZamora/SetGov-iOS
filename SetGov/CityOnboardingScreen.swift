@@ -23,6 +23,7 @@ class CityOnboardingScreen: SetGovViewController{
        
          super.viewDidLoad()
          background.backgroundColor =  UIColor.black.withAlphaComponent(0.55)
+         
      //   Alamofire.request("https://localhost:3000",
        //                   method: .post,
          //                 parameters: ["query":"mutation {authenticateUser(facebook_token:\"(word)" {id,first_name,last_name, profileImage{ id, url}}}"],encoding: JSONEncoding.default,headers: [:]).responseJSON { json in
