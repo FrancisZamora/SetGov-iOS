@@ -18,18 +18,21 @@ class SplashViewController: SetGovViewController {
         super.viewDidLoad()
        
         self.loading.alpha  = 0
-   
-    
+        if UserDefaults.standard.string(forKey:"logged") == "out" {
+            self.loading.text = "Changing the world, one city a time"
+            UIView.animate(withDuration: 2.0, delay: 0.0, options: .curveEaseOut, animations: {
+                self.loading.alpha = 1.0
+            })
+        }
         self.animationView.startAnimating()
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 6) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
             self.animationView.stopAnimating()
             
-            if UserDefaults.standard.string(forKey:"loggedIn") == "in" {
+            if UserDefaults.standard.string(forKey:"logged") == "in" && UserDefaults.standard.string(forKey: "homeCity") != nil {
                 UIView.animate(withDuration: 2.0, delay: 0.0, options: .curveEaseOut, animations: {
                     self.loading.alpha = 1.0
                 })
                 
-
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let controller = storyboard.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
                 guard let city = UserDefaults.standard.string(forKey: "homeCity") else {
@@ -44,7 +47,11 @@ class SplashViewController: SetGovViewController {
             }
             
             else {
-                self.loading.isHidden = true
+                
+                self.loading.text = "Changing the world, one city a time"
+                UIView.animate(withDuration: 2.0, delay: 0.0, options: .curveEaseOut, animations: {
+                    self.loading.alpha = 1.0
+                })
                 self.performSegue(withIdentifier: "actionNeeded", sender: nil)
                 
             }

@@ -117,7 +117,7 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
                 performSegue(withIdentifier: "loginCompleted", sender: self)
             }
             
-            UIView.animate(withDuration: 1.0, delay: 1.0, options: UIViewAnimationOptions.curveLinear, animations: {
+            UIView.animate(withDuration: 1.0, delay: 0.5, options: UIViewAnimationOptions.curveLinear, animations: {
                 self.setGov.alpha = 1.0
             }, completion: nil)
             
