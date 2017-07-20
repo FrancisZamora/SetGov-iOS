@@ -20,9 +20,15 @@ class SplashViewController: SetGovViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loading.alpha  = 0
+        if UserDefaults.standard.string(forKey: "logged") == nil{
+            self.loading.text = "Beta"
+            UIView.animate(withDuration: 2.0, delay: 0.0, options: .curveEaseOut, animations: {
+                self.loading.alpha = 1.0
+            })
+        }
         
-
         if UserDefaults.standard.string(forKey:"logged") == "out" {
+            
             self.loading.text = "Changing the world, one city a time"
             UIView.animate(withDuration: 2.0, delay: 0.0, options: .curveEaseOut, animations: {
                 self.loading.alpha = 1.0
@@ -95,11 +101,11 @@ class SplashViewController: SetGovViewController {
             
             else {
                 
-                //self.loading.text = "Changing the world, one city a time"
-                //UIView.animate(withDuration: 2.0, delay: 0.0, options: .curveEaseOut, animations: {
+               // self.loading.text = "Changing the world, one city a time"
+                UIView.animate(withDuration: 2.0, delay: 0.0, options: .curveEaseOut, animations: {
                     self.loading.alpha = 1.0
-                //})
-              //  self.performSegue(withIdentifier: "actionNeeded", sender: nil)
+                })
+               // self.performSegue(withIdentifier: "actionNeeded", sender: nil)
                 
             }
             
