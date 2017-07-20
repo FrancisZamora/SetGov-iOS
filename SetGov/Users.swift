@@ -9,7 +9,34 @@
 import Foundation
 import UIKit
 import SwiftyJSON
+import ObjectMapper
+class FacebookUser: Mappable {
+    var fullName: String?
+    var pictureData: [FacebookImage]?
+        
+        required init?(map: Map){
+            
+        }
+        
+        func mapping(map: Map) {
+            fullName <- map["full_name"]
+            pictureData <- map["profileImage"]
+        }
+    }
 
+
+class FacebookImage: Mappable {
+    var url: String?
+    
+    required init?(map: Map){
+            
+    }
+        
+    func mapping(map: Map) {
+        url <- map["url"]
+    }
+    
+}
 
 class User {
     var userName = " "

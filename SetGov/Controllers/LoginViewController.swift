@@ -42,6 +42,7 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
 
         if let accessToken = AccessToken.current {
             UserDefaults.standard.set("in",forKey:"logged")
+            UserDefaults.standard.set(accessToken.authenticationToken, forKey:"token")
             print(accessToken)
             loginButton.isHidden = true
             if UserDefaults.standard.string(forKey: "homeCity") == nil {
@@ -82,17 +83,8 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
     
     func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
         if let accessToken = AccessToken.current {
+            UserDefaults.standard.set(accessToken.authenticationToken, forKey:"token")
 
-            ApiClient.login(token: accessToken.authenticationToken, onCompletion: { (json) in
-                print("JSON is here\(json)")
-                
-                let profileID = json["data"]["authenticateUser"]["profileImage"]["url"]
-                print(profileID)
-                
-
-                
-                
-            })
             
             
             

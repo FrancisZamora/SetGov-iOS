@@ -12,14 +12,14 @@ import SwiftyJSON
 
 class ApiClient {
     
-    static func login(token:String,onCompletion: @escaping(JSON) -> Void) {
+    static func login(token:String,onCompletion: @escaping(DataResponse<FacebookUser>) -> Void) {
         
     Alamofire.request("http://localhost:3000/api/v/1/graph",
     method: .post,
     parameters: ["query":"mutation {authenticateUser(facebook_token:\"\(token)\") {id,full_name, profileImage{ id, url}}}"],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
         print(response)
         guard let jsonString = response.result.value else {
-            onCompletion("error")
+            onCompletion(nil)
             return
         }
          
@@ -29,7 +29,7 @@ class ApiClient {
           //   onCompletion()
            //}
         //onCompletion(json)
-        onCompletion(json)
+        onCompletion(jsonString as! DataResponse<FacebookUser>)
     }
         
     

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import ObjectMapper
 import NVActivityIndicatorView
 
 class SplashViewController: SetGovViewController {
@@ -23,6 +24,26 @@ class SplashViewController: SetGovViewController {
             UIView.animate(withDuration: 2.0, delay: 0.0, options: .curveEaseOut, animations: {
                 self.loading.alpha = 1.0
             })
+        }
+        
+        if UserDefaults.standard.string(forKey:"token") != nil {
+            ApiClient.login(token: UserDefaults.standard.string(forKey: "token")!, onCompletion: { (json) in
+                print("JSON is here\(json)")
+                
+               // let profileID = json["data"]["authenticateUser"]["profileImage"]["url"]
+                //print(profileID)
+                
+                
+                
+                
+            })
+            
+            ApiClient.login(token: UserDefaults.standard.string(forKey: "token")!, onCompletion: { (rawData) in
+                 let x = FacebookUser?.fullName
+                
+            
+
+        }
         }
         self.animationView.startAnimating()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
