@@ -37,6 +37,8 @@ class logOut: UITableViewCell, LoginButtonDelegate {
         
         if let callBack = logoutcallBack {
             callBack.loggingOut()
+            UserDefaults.standard.set("out",forKey:"logged")
+
         }
         return
     }

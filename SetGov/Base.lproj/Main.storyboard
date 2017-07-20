@@ -1601,7 +1601,7 @@
         <!--Splash View Controller-->
         <scene sceneID="kEo-5q-glo">
             <objects>
-                <viewController id="Bzv-Bg-sUP" customClass="SplashViewController" customModule="SetGov" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginview" id="Bzv-Bg-sUP" customClass="SplashViewController" customModule="SetGov" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iAC-vN-KtY"/>
                         <viewControllerLayoutGuide type="bottom" id="Mgt-tZ-e1i"/>
@@ -1634,7 +1634,7 @@
                     <connections>
                         <outlet property="animationView" destination="DPc-dn-elC" id="Ozu-y2-8uA"/>
                         <outlet property="loading" destination="Ud9-pr-W3G" id="tR1-9L-tRH"/>
-                        <segue destination="BYZ-38-t0r" kind="show" id="QBc-1v-cW3"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="actionNeeded" id="QBc-1v-cW3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GrJ-j7-BGa" userLabel="First Responder" sceneMemberID="firstResponder"/>

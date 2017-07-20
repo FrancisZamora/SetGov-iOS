@@ -19,6 +19,7 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         let loginButton = LoginButton(readPermissions: [ .publicProfile ])
         let screenSize:CGRect = UIScreen.main.bounds
         let screenHeight = screenSize.height - 100 //real screen height
@@ -35,52 +36,13 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
         setGov.layer.shadowOpacity = 0.5
         
         
-        //fade in from zero
         self.setGov.alpha = 0
         let gesture = UITapGestureRecognizer(target: self, action: #selector(selector))
         loginButton.addGestureRecognizer(gesture)
-        
-        /*
-        LoginField.delegate = self
-        PassField.delegate = self
-        let myLoginButton = UIButton(type: .custom)
-        myLoginButton.backgroundColor = UIColor.darkGray
-        myLoginButton.frame.origin.y = 500
-        myLoginButton.setTitle("My Login Button", for: .normal)
-        
-        // Handle clicks on the button
-       
-        
-        // Add the button to the view
-        view.addSubview(myLoginButton)
-        let loginButton = LoginButton(readPermissions: [ .publicProfile ])
-        loginButton.center = view.center
-        
-        view.addSubview(loginButton)
-        
-        super.viewDidLoad()
-       
-        LoginField.center.y = self.view.frame.height + 30
-        UIView.animate(withDuration: 1.0, delay: 0.5, usingSpringWithDamping: 1.5, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
-            self.LoginField.center.y = self.view.frame.width / CGFloat(3.0)
-        }) { (completed) -> Void in }
-        
-        PassField.center.y = self.view.frame.height + 30
-        UIView.animate(withDuration: 1.0, delay: 0.6, usingSpringWithDamping: 1.5, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
-            self.PassField.center.y = self.view.frame.width / CGFloat(3.0)
-        }) { (completed) -> Void in }
-        
-        Login.center.y = self.view.frame.height + 30
-        UIView.animate(withDuration: 1.0, delay: 0.7, usingSpringWithDamping: 1.5, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
-            self.Login.center.y = self.view.frame.width / CGFloat(3.0)
-        }) { (completed) -> Void in }
-        
-      
-        */
-        // Do any additional setup after loading the view, typically from a nib.
+
         if let accessToken = AccessToken.current {
+            UserDefaults.standard.set("in",forKey:"logged")
             print(accessToken)
-         //   self.loginSuccessful = true
             loginButton.isHidden = true
             if UserDefaults.standard.string(forKey: "homeCity") == nil {
                 performSegue(withIdentifier: "loginCompleted", sender: self)
@@ -93,14 +55,11 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
                     return
                 }
                 controller.selectedCity = city
-                //controller.selectedCity = UserDefaults.standard.string(forKey: "homeCity")!
                     print(accessToken)
-                    //self.loginSuccessful = true
                 loginButton.isHidden = true
                 
                 show(controller, sender: nil)
                 
-                //performSegue(withIdentifier: "loginCompleted", sender: self)
 
                 }
                 
@@ -123,9 +82,7 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
     
     func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
         if let accessToken = AccessToken.current {
-//            ApiClient.login( token:String(describing: accessToken), onCompletion: { json in
-//                
-//            })
+
             ApiClient.login(token: accessToken.authenticationToken, onCompletion: { (json) in
                 print("JSON is here\(json)")
                 
@@ -160,7 +117,7 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
                 performSegue(withIdentifier: "loginCompleted", sender: self)
             }
             
-            UIView.animate(withDuration: 1.5, delay: 1.5, options: UIViewAnimationOptions.curveLinear, animations: {
+            UIView.animate(withDuration: 1.0, delay: 1.0, options: UIViewAnimationOptions.curveLinear, animations: {
                 self.setGov.alpha = 1.0
             }, completion: nil)
             

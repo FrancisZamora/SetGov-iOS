@@ -41,7 +41,7 @@ let INSTAGRAM_BLUE_COLOR = UIColor(red: 81/255.0, green: 127/255.0, blue: 164/25
 //NSUSERDEFAULTKEYS
 let PASSWORD = "password"
 let EMAIL = "email"
-
+let loggedIn = false 
 
 let DATA_SET_COLORS = [
     SG_RED_COLOR,
