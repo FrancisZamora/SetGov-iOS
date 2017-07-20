@@ -19,7 +19,7 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+      
         let loginButton = LoginButton(readPermissions: [ .publicProfile ])
         let screenSize:CGRect = UIScreen.main.bounds
         let screenHeight = screenSize.height - 100 //real screen height

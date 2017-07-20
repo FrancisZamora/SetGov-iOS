@@ -19,6 +19,8 @@ class SplashViewController: SetGovViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+   
+
         self.loading.alpha  = 0
         if UserDefaults.standard.string(forKey: "logged") == nil{
             self.loading.text = "Beta"

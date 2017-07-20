@@ -1681,7 +1681,7 @@
         <image name="miami" width="1640" height="892"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="N7x-HX-zy0"/>
         <segue reference="igs-LU-32O"/>
+        <segue reference="Thq-tV-mwK"/>
     </inferredMetricsTieBreakers>
 </document>

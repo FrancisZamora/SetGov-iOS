@@ -71,12 +71,8 @@ class EventViewController: SetGovTableViewController{
 
         print(self.user.fullName)
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "CityNavigationViewController") as! CityNavigationViewController
-        self.navigationController?.viewControllers.insert(controller, at: 2)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+               self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.navigationBar.tintColor = .white
-        
         print("EventViewController")
         self.setCity()
         print(selectedCity)
@@ -442,10 +438,14 @@ class EventViewController: SetGovTableViewController{
             let z = fortlauderdaleArray[index][0].components(separatedBy: " ")
             let finalDescription = z
             let finalTitle = (finalDescription[finalDescription.count-1])
-            
+            let zz = fortlauderdaleArray[index][6].trimmingCharacters(in: .whitespacesAndNewlines)
+
             
 
-            let event = Event(eventTitle: spacer + fortlauderdaleArray[index][0], eventAddress:"100 N Andrews Ave", eventUsers: ["Tim","Sam"], eventDescription: finalTitle, eventDate:date , eventImageName: "Image1", eventTime: y, eventTags: ["swag","swag"])
+            let event = Event(eventTitle: spacer + fortlauderdaleArray[index][0], eventAddress:"100 N Andrews Ave", eventUsers: [" "], eventDescription: finalTitle, eventDate:date , eventImageName: "Image1", eventTime: zz, eventCity: "Fort Lauderdale")
+            print("THIS IS THE EVENT TIME")
+            print(zz)
+            
             if isEven(num: count) {
                 event.eventImage = #imageLiteral(resourceName: "Image-12")
                 
@@ -455,6 +455,10 @@ class EventViewController: SetGovTableViewController{
                 event.eventImage = #imageLiteral(resourceName: "fortlauderdalepark")
             }
             
+            
+            ApiClient.createEvent(event: event,onCompletion: {
+                
+            })
            count = count + 1
            dataList.append(event)
 
@@ -467,7 +471,7 @@ class EventViewController: SetGovTableViewController{
         
         for (index, value) in eventAddresses.enumerated() {
             
-            let event = Event(eventTitle: spacer + arrayEvents[index], eventAddress: value, eventUsers: ["Tim","Sam"] , eventDescription: descriptionArray[index], eventDate:eventTimeFormatted[index], eventImageName: "bostonPark", eventTime: eventHours[index][1], eventTags: ["engagement", "bureaucracy"])
+            let event = Event(eventTitle: spacer + arrayEvents[index], eventAddress: value, eventUsers: [" "] , eventDescription: descriptionArray[index], eventDate:eventTimeFormatted[index], eventImageName: "bostonPark", eventTime: eventHours[index][1], eventCity: "Boston")
             
                 if isEven(num: index) == true {
                     event.eventImage = #imageLiteral(resourceName: "brownstone")
@@ -476,8 +480,13 @@ class EventViewController: SetGovTableViewController{
                     event.eventImage = #imageLiteral(resourceName: "bostonPark")
                 }
             
+                ApiClient.createEvent(event: event,onCompletion: {
+                    
+                })
+            
                 dataList.append(event)
                 }
+        
         
             }
     }
