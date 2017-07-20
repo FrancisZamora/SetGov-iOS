@@ -19,16 +19,27 @@ class SplashViewController: SetGovViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         self.loading.alpha  = 0
+
+
         if UserDefaults.standard.string(forKey:"logged") == "out" {
             self.loading.text = "Changing the world, one city a time"
             UIView.animate(withDuration: 2.0, delay: 0.0, options: .curveEaseOut, animations: {
                 self.loading.alpha = 1.0
             })
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: "loginCompleted") as! LoginViewController
+                self.show(controller, sender: nil)
+            }
+            
         }
         
         if UserDefaults.standard.string(forKey:"token") != nil {
+            self.animateText()
+
             ApiClient.login(token: UserDefaults.standard.string(forKey: "token")!, onCompletion: { (json) in
                 print("JSON is here\(json)")
                 let fullName = json["data"]["authenticateUser"]["full_name"]
@@ -52,19 +63,7 @@ class SplashViewController: SetGovViewController {
                     self.user.fullName = name
                     self.user.profilePictureURL = fbpID
                     
-                    
-                   
-                    
                 }
-                
-               // self.user.profilePictureURL = String(describing: profileID)
-                //self.user.fullName = String(describing: fullName)
-               // print(self.user.fullName)
-                
-                //print(profileID)
-                
-                
-                
                 
             })
             
@@ -72,9 +71,9 @@ class SplashViewController: SetGovViewController {
             
         }
         self.animationView.startAnimating()
+
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
             self.animationView.stopAnimating()
-            
             if UserDefaults.standard.string(forKey:"logged") == "in" && UserDefaults.standard.string(forKey: "homeCity") != nil {
                 UIView.animate(withDuration: 2.0, delay: 0.0, options: .curveEaseOut, animations: {
                     self.loading.alpha = 1.0
@@ -95,11 +94,11 @@ class SplashViewController: SetGovViewController {
             
             else {
                 
-                self.loading.text = "Changing the world, one city a time"
-                UIView.animate(withDuration: 2.0, delay: 0.0, options: .curveEaseOut, animations: {
+                //self.loading.text = "Changing the world, one city a time"
+                //UIView.animate(withDuration: 2.0, delay: 0.0, options: .curveEaseOut, animations: {
                     self.loading.alpha = 1.0
-                })
-                self.performSegue(withIdentifier: "actionNeeded", sender: nil)
+                //})
+              //  self.performSegue(withIdentifier: "actionNeeded", sender: nil)
                 
             }
             
@@ -107,7 +106,6 @@ class SplashViewController: SetGovViewController {
             
         }
         
-        self.animateText()
         
     }
     
@@ -119,27 +117,27 @@ class SplashViewController: SetGovViewController {
     
     
     func animateText() {
-        if UserDefaults.standard.string(forKey:"loggedIn") == "in" {
-
+        if UserDefaults.standard.string(forKey:"token") != nil {
+            self.loading.text = "Loading"
       
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
                 self.loading.alpha  = 0
-                UIView.animate(withDuration: 3.0, delay: 0.0, options: .curveEaseOut, animations: {
+                UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseOut, animations: {
                     self.loading.alpha = 1.0
                 })
             }
 
         
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 4.5) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0) {
                 self.loading.alpha  = 0
-                UIView.animate(withDuration: 3.0, delay: 0.0, options: .curveEaseOut, animations: {
+                UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseOut, animations: {
                     self.loading.alpha = 1.0
                     })
                 }
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 7.5) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.0) {
                 self.loading.alpha  = 0
-                UIView.animate(withDuration: 3.0, delay: 0.0, options: .curveEaseOut, animations: {
+                UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseOut, animations: {
                     self.loading.alpha = 1.0
                 })
             }

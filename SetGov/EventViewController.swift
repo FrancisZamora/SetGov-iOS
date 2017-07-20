@@ -73,7 +73,7 @@ class EventViewController: SetGovTableViewController{
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "CityNavigationViewController") as! CityNavigationViewController
-        self.navigationController?.viewControllers.insert(controller, at: 2)
+        self.navigationController?.viewControllers.insert(controller, at: 1)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.navigationBar.tintColor = .white
         
