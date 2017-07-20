@@ -85,15 +85,33 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
         if let accessToken = AccessToken.current {
             UserDefaults.standard.set(accessToken.authenticationToken, forKey:"token")
 
-            
-            
-            
-            loginSuccessful = true
-            loginButton.isHidden = true
+            if UserDefaults.standard.string(forKey:"homeCity") != nil {
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+                guard let city = UserDefaults.standard.string(forKey: "homeCity") else {
+                    return
+                }
+                controller.selectedCity = city
+                print(accessToken)
+                loginButton.isHidden = true
+                
+                show(controller, sender: nil)
+                loginSuccessful = true
 
-            performSegue(withIdentifier: "loginCompleted", sender: self)
+                
+            }
+            
+            else {
 
-            print("swag")
+            
+            
+                loginButton.isHidden = true
+
+                performSegue(withIdentifier: "loginCompleted", sender: self)
+
+                print("swag")
+            }
             
         }
 

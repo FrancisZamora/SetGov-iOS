@@ -20,7 +20,7 @@ class SplashViewController: SetGovViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loading.alpha  = 0
-
+        
 
         if UserDefaults.standard.string(forKey:"logged") == "out" {
             self.loading.text = "Changing the world, one city a time"
@@ -75,6 +75,7 @@ class SplashViewController: SetGovViewController {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
             self.animationView.stopAnimating()
             if UserDefaults.standard.string(forKey:"logged") == "in" && UserDefaults.standard.string(forKey: "homeCity") != nil {
+                self.loading.text = "Loading"
                 UIView.animate(withDuration: 2.0, delay: 0.0, options: .curveEaseOut, animations: {
                     self.loading.alpha = 1.0
                 })
@@ -118,7 +119,6 @@ class SplashViewController: SetGovViewController {
     
     func animateText() {
         if UserDefaults.standard.string(forKey:"token") != nil {
-            self.loading.text = "Loading"
       
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
                 self.loading.alpha  = 0
