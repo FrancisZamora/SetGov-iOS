@@ -10,11 +10,13 @@ import Foundation
 import UIKit
 import ObjectMapper
 import NVActivityIndicatorView
+import SwiftyJSON
 
 class SplashViewController: SetGovViewController {
     @IBOutlet var animationView: NVActivityIndicatorView!
     @IBOutlet var loading: UILabel!
-
+    var user: User!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -29,8 +31,36 @@ class SplashViewController: SetGovViewController {
         if UserDefaults.standard.string(forKey:"token") != nil {
             ApiClient.login(token: UserDefaults.standard.string(forKey: "token")!, onCompletion: { (json) in
                 print("JSON is here\(json)")
+                let fullName = json["data"]["authenticateUser"]["full_name"]
+                let profileURL = json["data"]["authenticateUser"]["profileImage"]["url"]
                 
-               // let profileID = json["data"]["authenticateUser"]["profileImage"]["url"]
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                    print(fullName.string)
+                    print(profileURL.string)
+                    self.user = self.appDelegate.user
+
+                    guard let name = fullName.string else {
+                        return
+                    }
+                    guard let fbpID = profileURL.string else {
+                        return
+                    }
+                    
+                    print(name)
+                    print(fbpID)
+                    
+                    self.user.fullName = name
+                    self.user.profilePictureURL = fbpID
+                    
+                    
+                   
+                    
+                }
+                
+               // self.user.profilePictureURL = String(describing: profileID)
+                //self.user.fullName = String(describing: fullName)
+               // print(self.user.fullName)
+                
                 //print(profileID)
                 
                 
@@ -38,12 +68,8 @@ class SplashViewController: SetGovViewController {
                 
             })
             
-           // ApiClient.login(token: UserDefaults.standard.string(forKey: "token")!, onCompletion: { (rawData) in
-             //    let x = FacebookUser?.fullName
-                
+        
             
-
-        //}
         }
         self.animationView.startAnimating()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {

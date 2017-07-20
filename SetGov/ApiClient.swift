@@ -33,6 +33,8 @@ class ApiClient {
         print("api client json \(json)")
 
         print(response)
+            
+            
        // let facebookUser = response.result.value
         //let facebookImage = facebookUser?.pictureData
         

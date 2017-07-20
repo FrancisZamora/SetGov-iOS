@@ -50,6 +50,7 @@ class EventViewController: SetGovTableViewController{
     var fortLauderdaleDate = [String]()
     var fortlauderdaleArray = [[String]()]
     var dateArray = [Date]()
+    var user: User!
     
     
     @IBOutlet var cityDisplay: UINavigationItem!
@@ -66,6 +67,9 @@ class EventViewController: SetGovTableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         print(selectedCity)
+        self.user = self.appDelegate.user
+
+        print(self.user.fullName)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "CityNavigationViewController") as! CityNavigationViewController

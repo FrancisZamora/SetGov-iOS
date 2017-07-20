@@ -1226,6 +1226,8 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="backgroundPic" destination="ADM-bj-4L1" id="rb9-Eo-OxU"/>
+                                    <outlet property="profileName" destination="LR2-WJ-pDg" id="ahQ-uj-qvU"/>
+                                    <outlet property="profilePic" destination="MsA-JU-vlK" id="MT6-E1-bAr"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pushNotification" rowHeight="69" id="QDg-oU-OqU" customClass="pushNotification" customModule="SetGov">

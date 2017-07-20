@@ -13,13 +13,9 @@ import FacebookCore
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var francis =  User(userName: "Francis Zamora", attendingStatus: false , interestedStatus: false, pushNotifications: true, homeCity: " ")
+    var user =  User(fullName: " ",  profilePictureURL: " ", interestedStatus: false, attendingStatus: false)
     let UserDefault = UserDefaults.standard
 
-    public struct UserProfile {
-        public let fullName : String?
-        
-    }
     
     
     

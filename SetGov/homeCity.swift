@@ -11,7 +11,7 @@ import UIKit
 
 class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
     var pickerData: [String] = [String]()
-    var francis: User!
+    var user: User!
 
    
 
@@ -62,7 +62,6 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.francis.homeCity = pickerData[row]
         print(pickerData[row])
         
         UserDefaults.standard.set(pickerData[row],forKey:"homeCity")

@@ -12,7 +12,7 @@ import UIKit
 class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
     var numsections = 0
     var pickerData: [String] = [String]()
-
+    var user: User!
 
     @IBOutlet var rightbarItem: UIBarButtonItem!
     
@@ -92,6 +92,8 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
         if (indexPath.row == 0) {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "profileCell") as! profileCell
             cell.selectionStyle = .none
+            cell.user = self.appDelegate.user
+            cell.configure()
             return cell
         }
         
@@ -100,12 +102,12 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "pushNotification") as! pushNotification
             cell.selectionStyle = .none
             
-            if self.appDelegate.francis.pushNotifications == true {
-                cell.pushSwitch.isOn = true
-            }
-            else {
-                cell.pushSwitch.isOn = false
-            }
+           // if self.appDelegate.francis.pushNotifications == true {
+             //   cell.pushSwitch.isOn = true
+            //}
+            //else {
+              //  cell.pushSwitch.isOn = false
+           // }
             
             return cell
         }
@@ -115,7 +117,7 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "homeCity") as! homeCity
             cell.selectionStyle = .none
             cell.configurePicker()
-            cell.francis = self.appDelegate.francis
+            
             return cell
         
         }
