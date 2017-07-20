@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '76F828ADFFE02811C885A922B36BCC61'
-               BlueprintName = 'Pods-SetGov'
+               BlueprintIdentifier = 'C5CBCAA97E951CC882334464FBDF983D'
+               BlueprintName = 'ObjectMapper'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods-SetGov.framework'>
+               BuildableName = 'ObjectMapper.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
