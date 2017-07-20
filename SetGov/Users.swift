@@ -40,19 +40,18 @@ class FacebookImage: Mappable {
 }
 
 class User {
-    var userName = " "
-    var attendingStatus = false
+    var fullName = " "
+    var profilePictureURL = " "
     var interestedStatus = false
-    var pushNotifications = true
-    var homeCity = " "
+    var attendingStatus = false
     //pic
     
-    init(userName:String, attendingStatus:Bool, interestedStatus:Bool,pushNotifications:Bool, homeCity:String){
-        self.userName = userName
+    init(fullName:String, profilePictureURL:String, interestedStatus:Bool,attendingStatus:Bool){
+        self.fullName = fullName
+        self.profilePictureURL = profilePictureURL
         self.attendingStatus = attendingStatus
         self.interestedStatus = interestedStatus
-        self.pushNotifications = pushNotifications
-        self.homeCity = homeCity
+       
     }
   //  static func createFromJson(json: JSON) -> User? {
     
