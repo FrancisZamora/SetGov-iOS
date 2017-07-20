@@ -38,12 +38,12 @@ class SplashViewController: SetGovViewController {
                 
             })
             
-            ApiClient.login(token: UserDefaults.standard.string(forKey: "token")!, onCompletion: { (rawData) in
-                 let x = FacebookUser?.fullName
+           // ApiClient.login(token: UserDefaults.standard.string(forKey: "token")!, onCompletion: { (rawData) in
+             //    let x = FacebookUser?.fullName
                 
             
 
-        }
+        //}
         }
         self.animationView.startAnimating()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {

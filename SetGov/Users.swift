@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import SwiftyJSON
 import ObjectMapper
+
 class FacebookUser: Mappable {
     var fullName: String?
     var pictureData: [FacebookImage]?
