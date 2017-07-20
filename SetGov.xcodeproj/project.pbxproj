@@ -13,6 +13,7 @@
 		1508547E1E97078C00838D85 /* AgendaDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1508547D1E97078C00838D85 /* AgendaDetailData.swift */; };
 		150854801E97079C00838D85 /* AgendaDetailComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1508547F1E97079C00838D85 /* AgendaDetailComments.swift */; };
 		1508A69F1E9343F900C92410 /* AgendaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1508A69E1E9343F900C92410 /* AgendaDetailViewController.swift */; };
+		150B17671F2028C20056FB96 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150B17661F2028C20056FB96 /* SplashViewController.swift */; };
 		151547591EF2D50A003FF351 /* Kanna.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151547581EF2D50A003FF351 /* Kanna.swift */; };
 		1515475B1EF2D513003FF351 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1515475A1EF2D513003FF351 /* CSS.swift */; };
 		1515475F1EF2D527003FF351 /* libxmlHTMLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1515475C1EF2D527003FF351 /* libxmlHTMLDocument.swift */; };
@@ -84,6 +85,7 @@
 		1508547D1E97078C00838D85 /* AgendaDetailData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaDetailData.swift; sourceTree = "<group>"; };
 		1508547F1E97079C00838D85 /* AgendaDetailComments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaDetailComments.swift; sourceTree = "<group>"; };
 		1508A69E1E9343F900C92410 /* AgendaDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaDetailViewController.swift; sourceTree = "<group>"; };
+		150B17661F2028C20056FB96 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		151547581EF2D50A003FF351 /* Kanna.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Kanna.swift; path = "../Kanna-master/Sources/Kanna/Kanna.swift"; sourceTree = "<group>"; };
 		1515475A1EF2D513003FF351 /* CSS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSS.swift; path = "../Kanna-master/Sources/Kanna/CSS.swift"; sourceTree = "<group>"; };
 		1515475C1EF2D527003FF351 /* libxmlHTMLDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = libxmlHTMLDocument.swift; path = "../Kanna-master/Sources/Kanna/libxmlHTMLDocument.swift"; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 				15C64B461EADA84200B123A5 /* CityNavigationViewController.swift */,
 				15433B911F15765800B8FE0D /* CityOnboardingScreen.swift */,
 				15433B931F15766700B8FE0D /* EventOnboardingScreen.swift */,
+				150B17661F2028C20056FB96 /* SplashViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -686,6 +689,7 @@
 				151B8B331E7CBD410021BF89 /* GradientView.swift in Sources */,
 				1523A49A1E8B38CB00AE93C2 /* AgendaViewController.swift in Sources */,
 				151547591EF2D50A003FF351 /* Kanna.swift in Sources */,
+				150B17671F2028C20056FB96 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
