@@ -31,6 +31,7 @@ class EventStream:  UITableViewCell {
     @IBOutlet var buttonBackground: GradientView!
     var pressedButton: Bool?
     var onePress: Bool = false
+    var dataList = [Event]()
     var initiateStream: Bool = false
     var firstpress: Bool = true
     var EventDetailViewController:EventDetailViewController?
@@ -49,7 +50,8 @@ class EventStream:  UITableViewCell {
     var finalArray =  [String]()
     var currentHour = String()
     var eventHours = [[String]()]
-    
+    var eventTitle = " "
+    var user: User!
 
     
     weak var eventStreamCallback: EventStreamCallback!
@@ -215,6 +217,14 @@ class EventStream:  UITableViewCell {
         // send api request whenever button is pressed
         if firstpress == true {
             self.attendButton.setTitle("Attending", for: .normal)
+            print(eventTitle)
+
+            ApiClient.attendEvent( eventTitle: self.eventTitle,onComepletion: {
+                let currentEvent =  self.dataList[self.indexofEvent]
+                currentEvent.eventUsers.append(self.user.fullName)
+                
+            })
+
             firstpress = false
 
         }

@@ -628,6 +628,7 @@ class EventViewController: SetGovTableViewController{
             EventDetailViewController.indexofEvent = indexofEvent
             EventDetailViewController.eventList = eventList
             EventDetailViewController.eventImages = eventImages
+            EventDetailViewController.dataList = dataList
             EventDetailViewController.eventInfo = eventInfo
             EventDetailViewController.selectedCity = selectedCity
             EventDetailViewController.arrayEvents = arrayEvents

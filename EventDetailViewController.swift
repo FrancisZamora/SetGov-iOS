@@ -22,6 +22,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var eventList = [Int:String]()
     var eventImages = [Int: UIImage]()
     var agendaImage = #imageLiteral(resourceName: "Image1")
+    var dataList = [Event]()
     var eventInfo = [Int: [String]]()
     var eventTitle = "Marine Advisory"
     var agendaInfo = [Int: String]()
@@ -43,10 +44,12 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var eventDescription = String()
     var paragraphArray = [[String()]]
     var agendaTitle = [String]()
+    var user: User!
     
     @IBOutlet var navTitle: UINavigationItem!
     
     override func viewDidLoad() {
+        self.user = self.appDelegate.user
         super.viewDidLoad()
         print("EventDetailViewController")
         self.loadTitle()
@@ -96,6 +99,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             print(indexofEvent)
     
             navTitle.title = fortlauderdaleArray[indexofEvent][0]
+            print(fortlauderdaleArray)
+            
             let z = fortlauderdaleArray[indexofEvent][0].components(separatedBy: " ")
             print(fortlauderdaleArray[indexofEvent][0])
             let finalDescription = z
@@ -199,6 +204,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
         if (indexPath.row == 0) {
             let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream") as! EventStream
+                eventStream.dataList = dataList
+                eventStream.user = self.user
+                eventStream.eventTitle = eventTitle
                 eventStream.selectionStyle = .none
                 eventStream.eventTimeNoFormat = eventTimeNoFormat
                 eventStream.eventHours = eventHours
