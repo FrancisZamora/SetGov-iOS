@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import QuartzCore
+import SwiftyJSON
 
 class EventViewController: SetGovTableViewController{
     var activate = true
@@ -51,6 +52,8 @@ class EventViewController: SetGovTableViewController{
     var fortlauderdaleArray = [[String]()]
     var dateArray = [Date]()
     var user: User!
+    var eventIDS = [String]()
+    
     
     
     @IBOutlet var cityDisplay: UINavigationItem!
@@ -456,8 +459,15 @@ class EventViewController: SetGovTableViewController{
             }
             
             
-            ApiClient.createEvent(event: event,onCompletion: {
+            ApiClient.createEvent(event: event,onCompletion: { (json) in
+                let eventID = json["data"]["createEvent"]
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                    guard let id = eventID.string else {
+                        return
+                    }
                 
+                  self.eventIDS.append(id)
+                }
             })
            count = count + 1
            dataList.append(event)
@@ -480,9 +490,24 @@ class EventViewController: SetGovTableViewController{
                     event.eventImage = #imageLiteral(resourceName: "bostonPark")
                 }
             
-                ApiClient.createEvent(event: event,onCompletion: {
+            ApiClient.createEvent(event: event,onCompletion: { (json) in
+                let eventID = json["data"]["createEvent"]["id"]
+                print(eventID)
+                print("JSON HERE")
+                print(json["data"]["createEvent"]["id"])
+                    guard let id = eventID.string else {
+                        return
+                        
+                    }
+                    print(id)
+                    self.eventIDS.append(id)
+                    print(self.eventIDS)
                     
-                })
+                    
+                
+            })
+                    
+            
             
                 dataList.append(event)
                 }

@@ -207,6 +207,20 @@ class EventStream:  UITableViewCell {
         
     }
     
+    func checkStatus() {
+        let currentEvent = self.dataList[self.indexofEvent]
+        print(currentEvent.eventUsers)
+        print(currentEvent.eventUsers.contains(self.user.fullName))
+        
+        if currentEvent.eventUsers.contains(self.user.fullName) {
+            self.attendButton.setTitle("Attending", for: .normal)
+            
+        }
+        else {
+            return 
+        }
+    }
+    
     
     
     

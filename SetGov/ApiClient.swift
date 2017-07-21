@@ -54,7 +54,7 @@ class ApiClient {
     
     }
     
-    static func createEvent(event:Event, onCompletion: @escaping(Void) -> Void) {
+    static func createEvent(event:Event, onCompletion: @escaping(JSON) -> Void) {
         let address = event.eventAddress
         let name = event.eventTitle
         let city = event.eventCity
@@ -67,8 +67,17 @@ class ApiClient {
         let URL = "http://localhost:3000/api/v/1/graph"
         let query = "mutation{createEvent(name:\"\(name)\",city:\"\(city)\",address:\"\(address)\",date:\"\(date)\",description:\"\(description)\",time:\"\(time)\", image_name:\"\(image)\"){id}}"
         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
+            
+            guard let jsonString = response.result.value else {
+                onCompletion(nil)
+                return
+            }
+            let json = JSON(jsonString)
+
            
-        print(response)
+            print(response)
+            onCompletion(json)
+
         }
         
         
