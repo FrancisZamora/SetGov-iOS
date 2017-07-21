@@ -459,7 +459,7 @@ class EventViewController: SetGovTableViewController{
             }
             
             
-            ApiClient.createEvent(event: event,onCompletion: { (json) in
+            ApiClient.addEvent(event: event,onCompletion: { (json) in
                 let eventID = json["data"]["createEvent"]
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                     guard let id = eventID.string else {
@@ -490,7 +490,7 @@ class EventViewController: SetGovTableViewController{
                     event.eventImage = #imageLiteral(resourceName: "bostonPark")
                 }
             
-            ApiClient.createEvent(event: event,onCompletion: { (json) in
+            ApiClient.addEvent(event: event,onCompletion: { (json) in
                 let eventID = json["data"]["createEvent"]["id"]
                 print(eventID)
                 print("JSON HERE")
