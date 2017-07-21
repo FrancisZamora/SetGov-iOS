@@ -218,8 +218,9 @@ class EventStream:  UITableViewCell {
         if firstpress == true {
             self.attendButton.setTitle("Attending", for: .normal)
             print(eventTitle)
+            self.eventTitle  =  "  " + self.eventTitle
 
-            ApiClient.attendEvent( eventTitle: self.eventTitle,onComepletion: {
+            ApiClient.attendEvent( eventTitle: self.eventTitle,onCompletion: {
                 let currentEvent =  self.dataList[self.indexofEvent]
                 currentEvent.eventUsers.append(self.user.fullName)
                 
