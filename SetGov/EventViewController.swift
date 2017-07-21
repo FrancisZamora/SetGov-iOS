@@ -491,10 +491,10 @@ class EventViewController: SetGovTableViewController{
                 }
             
             ApiClient.addEvent(event: event,onCompletion: { (json) in
-                let eventID = json["data"]["createEvent"]["id"]
+                let eventID = json["data"]["addEvent"]["id"]
                 print(eventID)
                 print("JSON HERE")
-                print(json["data"]["createEvent"]["id"])
+                print(json["data"]["addEvent"]["id"])
                     guard let id = eventID.string else {
                         return
                         

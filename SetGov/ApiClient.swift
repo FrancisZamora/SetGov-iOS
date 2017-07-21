@@ -65,7 +65,7 @@ class ApiClient {
         
         let description = event.eventDescription
         let URL = "http://localhost:3000/api/v/1/graph"
-        let query = "mutation{createEvent(name:\"\(name)\",city:\"\(city)\",address:\"\(address)\",date:\"\(date)\",description:\"\(description)\",time:\"\(time)\", image_name:\"\(image)\"){id}}"
+        let query = "mutation{addEvent(name:\"\(name)\",city:\"\(city)\",address:\"\(address)\",date:\"\(date)\",description:\"\(description)\",time:\"\(time)\", image_name:\"\(image)\"){id}}"
         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
             
             guard let jsonString = response.result.value else {
