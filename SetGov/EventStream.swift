@@ -234,7 +234,7 @@ class EventStream:  UITableViewCell {
             print(eventTitle)
             self.eventTitle  =  "  " + self.eventTitle
 
-            ApiClient.attendEvent( eventTitle: self.eventTitle,onCompletion: {
+            ApiClient.attendEvent( eventID: 1 ,onCompletion: {
                 let currentEvent =  self.dataList[self.indexofEvent]
                 currentEvent.eventUsers.append(self.user.fullName)
                 

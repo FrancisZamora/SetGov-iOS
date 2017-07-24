@@ -52,7 +52,8 @@ class EventViewController: SetGovTableViewController{
     var fortlauderdaleArray = [[String]()]
     var dateArray = [Date]()
     var user: User!
-    var eventIDS = [String]()
+    var fortlauderdaleIDS = [String]()
+    var bostonIDS = [String]()
     
     
     
@@ -466,7 +467,7 @@ class EventViewController: SetGovTableViewController{
                         return
                     }
                 
-                  self.eventIDS.append(id)
+                  self.fortlauderdaleIDS.append(id)
                 }
             })
            count = count + 1
@@ -500,8 +501,8 @@ class EventViewController: SetGovTableViewController{
                         
                     }
                     print(id)
-                    self.eventIDS.append(id)
-                    print(self.eventIDS)
+                    self.bostonIDS.append(id)
+                    print(self.bostonIDS)
                     
                     
                 
