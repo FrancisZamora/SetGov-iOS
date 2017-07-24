@@ -237,6 +237,7 @@ class EventStream:  UITableViewCell {
             self.eventTitle  =  "  " + self.eventTitle
             if self.selectedCity == "Boston" {
                 let eventID = bostonIDS[indexofEvent]
+                print(eventID)
                 ApiClient.attendEvent( eventID: eventID ,onCompletion: {
                     let currentEvent =  self.dataList[self.indexofEvent]
                     currentEvent.eventUsers.append(self.user.fullName)

@@ -84,8 +84,10 @@ class ApiClient {
     }
     
     static func attendEvent(eventID:Int, onCompletion: @escaping(Void) -> Void) {
+        print(eventID)
+        
         let URL = "http://localhost:3000/api/v/1/graph"
-        let query = "mutation {attendEvent(event_id:\"\(eventID)\"){id }}"
+        let query = "mutation {attendEvent(event_id:\(eventID)){id }}"
         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
             
             print(response)
