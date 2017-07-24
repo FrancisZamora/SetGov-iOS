@@ -44,6 +44,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var eventDescription = String()
     var paragraphArray = [[String()]]
     var agendaTitle = [String]()
+    var fortlauderdaleIDS = [Int]()
+    var bostonIDS = [Int]()
     var user: User!
     
     @IBOutlet var navTitle: UINavigationItem!
@@ -206,6 +208,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream") as! EventStream
                 eventStream.dataList = dataList
                 eventStream.user = self.user
+                eventStream.bostonIDS = bostonIDS
+                eventStream.fortlauderdaleIDS = fortlauderdaleIDS
                 eventStream.eventTitle = eventTitle
                 eventStream.selectionStyle = .none
                 eventStream.eventTimeNoFormat = eventTimeNoFormat

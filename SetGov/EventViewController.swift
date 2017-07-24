@@ -52,8 +52,8 @@ class EventViewController: SetGovTableViewController{
     var fortlauderdaleArray = [[String]()]
     var dateArray = [Date]()
     var user: User!
-    var fortlauderdaleIDS = [String]()
-    var bostonIDS = [String]()
+    var fortlauderdaleIDS = [Int]()
+    var bostonIDS = [Int]()
     
     
     
@@ -463,7 +463,7 @@ class EventViewController: SetGovTableViewController{
             ApiClient.addEvent(event: event,onCompletion: { (json) in
                 let eventID = json["data"]["createEvent"]
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                    guard let id = eventID.string else {
+                    guard let id = eventID.int else {
                         return
                     }
                 
@@ -496,7 +496,7 @@ class EventViewController: SetGovTableViewController{
                 print(eventID)
                 print("JSON HERE")
                 print(json["data"]["addEvent"]["id"])
-                    guard let id = eventID.string else {
+                    guard let id = eventID.int else {
                         return
                         
                     }
@@ -664,7 +664,8 @@ class EventViewController: SetGovTableViewController{
             EventDetailViewController.descriptionArray = descriptionArray
             EventDetailViewController.eventHours = eventHours
             EventDetailViewController.fortlauderdaleArray = fortlauderdaleArray
-            
+            EventDetailViewController.bostonIDS = bostonIDS
+            EventDetailViewController.fortlauderdaleIDS = fortlauderdaleIDS
         }
     }
 }

@@ -51,6 +51,8 @@ class EventStream:  UITableViewCell {
     var currentHour = String()
     var eventHours = [[String]()]
     var eventTitle = " "
+    var bostonIDS = [Int]()
+    var fortlauderdaleIDS = [Int]()
     var user: User!
 
     
@@ -233,16 +235,29 @@ class EventStream:  UITableViewCell {
             self.attendButton.setTitle("Attending", for: .normal)
             print(eventTitle)
             self.eventTitle  =  "  " + self.eventTitle
+            if self.selectedCity == "Boston" {
+                let eventID = bostonIDS[indexofEvent]
+                ApiClient.attendEvent( eventID: eventID ,onCompletion: {
+                    let currentEvent =  self.dataList[self.indexofEvent]
+                    currentEvent.eventUsers.append(self.user.fullName)
+                    
+                })
 
-            ApiClient.attendEvent( eventID: 1 ,onCompletion: {
-                let currentEvent =  self.dataList[self.indexofEvent]
-                currentEvent.eventUsers.append(self.user.fullName)
+            }
+            
+            if self.selectedCity == "Fort Lauderdale" {
+                let eventID = bostonIDS[indexofEvent]
+
+                ApiClient.attendEvent( eventID: eventID ,onCompletion: {
+                    let currentEvent =  self.dataList[self.indexofEvent]
+                    currentEvent.eventUsers.append(self.user.fullName)
                 
-            })
-
+                })
+            }
             firstpress = false
 
         }
+        
         
     
         if compareTime() == true {
