@@ -46,6 +46,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var agendaTitle = [String]()
     var fortlauderdaleIDS = [Int]()
     var bostonIDS = [Int]()
+    var currentEvent: Event!
     var user: User!
     
     @IBOutlet var navTitle: UINavigationItem!
@@ -56,7 +57,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         print("EventDetailViewController")
         self.loadTitle()
         self.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        
+        self.currentEvent = dataList[indexofEvent]
 
         print(agendaInfo)
         print(indexofEvent)
@@ -210,6 +211,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventStream.user = self.user
                 eventStream.bostonIDS = bostonIDS
                 eventStream.fortlauderdaleIDS = fortlauderdaleIDS
+                eventStream.currentEvent = currentEvent
                 eventStream.eventTitle = eventTitle
                 eventStream.selectionStyle = .none
                 eventStream.eventTimeNoFormat = eventTimeNoFormat
@@ -218,7 +220,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventStream.indexofEvent = indexofEvent
                 eventStream.eventStreamCallback = self
                 eventStream.selectedCity = selectedCity
-                eventStream.checkStatus()
             
                 eventStream.configure()
                 eventStream.streamContent()

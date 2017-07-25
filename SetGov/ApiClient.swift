@@ -83,14 +83,39 @@ class ApiClient {
         
     }
     
-    static func attendEvent(eventID:Int, onCompletion: @escaping(Void) -> Void) {
+    static func attendEvent(eventID:Int, onCompletion: @escaping(JSON) -> Void) {
         print(eventID)
         
         let URL = "http://localhost:3000/api/v/1/graph"
         let query = "mutation {attendEvent(event_id:\(eventID)){id }}"
         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
+            guard let jsonString = response.result.value else {
+                onCompletion(nil)
+                return
+            }
+            let json = JSON(jsonString)
+            
+
+            print(response)
+        }
+
+    }
+    
+    static func fetchEvent(eventID:Int, onCompletion: @escaping(JSON) -> Void) {
+         let URL = "http://localhost:3000/api/v/1/graph"
+         let query = "query{ event(id:\(eventID)){attendingUsers{full_name}}}"
+         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
+    
+            
+            guard let jsonString = response.result.value else {
+                onCompletion(nil)
+                return
+            }
+            let json = JSON(jsonString)
+            
             
             print(response)
+            onCompletion(json)
         }
 
     }
