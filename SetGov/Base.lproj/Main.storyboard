@@ -607,6 +607,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
+                                    <outlet property="conView" destination="j4F-Lz-aA7" id="uCR-Zj-0PI"/>
                                     <outlet property="profilePicture1" destination="rJT-UP-jqh" id="Vi8-6W-jfA"/>
                                     <outlet property="profilePicture2" destination="99H-sQ-o1n" id="ZAR-1m-xyh"/>
                                     <outlet property="profilePicture3" destination="mQm-tS-01G" id="pmm-pg-5bC"/>
