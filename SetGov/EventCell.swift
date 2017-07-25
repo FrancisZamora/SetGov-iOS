@@ -24,7 +24,7 @@ class EventCell: UITableViewCell {
     @IBOutlet var eventDate: UILabel!
     var selectedCity = " "
     var eventOriginalTitle = " "
-    
+    var index = 0
     
     
     func configure() {
@@ -46,8 +46,9 @@ class EventCell: UITableViewCell {
     func checkMembers() {
         ApiClient.fetchEvents(city: selectedCity,  onCompletion:{ json in
             
-            let pictureIDArray = json["data"]["event"]["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
+            let pictureIDArray = json["data"]["cityEvents"][self.index]["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
             print(pictureIDArray)
+            
             for (index,_) in pictureIDArray.enumerated() {
                 var xy = 8
                 var imageView : UIImageView
