@@ -398,9 +398,13 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         }
         
         if (indexPath.row==3) {
-            let newCell = tableView.dequeueReusableCell(withIdentifier: "EventMembers", for:indexPath) as! EventMembers
-            newCell.selectionStyle = .none
-            return newCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "EventMembers", for:indexPath) as! EventMembers
+            cell.selectionStyle = .none
+            cell.indexofEvent = indexofEvent
+            cell.bostonIDS = bostonIDS
+            cell.fortlauderdaleIDS = fortlauderdaleIDS
+            cell.checkMembers()
+            return cell
         }
         
         if (indexPath.row==4) {

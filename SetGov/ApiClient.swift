@@ -103,12 +103,12 @@ class ApiClient {
     
     static func fetchEvent(eventID:Int, onCompletion: @escaping(JSON) -> Void) {
          let URL = "http://localhost:3000/api/v/1/graph"
-         let query = "query{ event(id:\(eventID)){attendingUsers{full_name}}}"
+         let query = "query{ event(id:\(eventID)){attendingUsers{full_name,profileImage{url}}}}"
          Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
     
             
             guard let jsonString = response.result.value else {
-                onCompletion(nil)
+                onCompletion(JSON.null)
                 return
             }
             let json = JSON(jsonString)

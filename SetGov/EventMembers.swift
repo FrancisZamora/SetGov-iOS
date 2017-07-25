@@ -11,6 +11,9 @@ import UIKit
 
 class EventMembers: UITableViewCell {
     
+    var bostonIDS = [Int]()
+    var fortlauderdaleIDS = [Int]()
+    var indexofEvent = 0
     
     @IBOutlet var profilePicture1: ProfilePicture!
     @IBOutlet var profilePicture2: ProfilePicture!
@@ -19,6 +22,23 @@ class EventMembers: UITableViewCell {
     @IBOutlet var profilePicture5: ProfilePicture!
     @IBOutlet var profilePicture6: ProfilePicture!
     
+    
+    func checkMembers() {
+        ApiClient.fetchEvent(eventID:bostonIDS[indexofEvent] , onCompletion:{ json in
+            
+            let pictureIDArray = json["data"]["event"]["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
+            print(pictureIDArray)
+            
+            
+            
+            
+            
+            
+        })
+        
+
+        
+    }
     
     
     
