@@ -590,7 +590,7 @@ class EventViewController: SetGovTableViewController{
         if selectedCity == "Boston" {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
             cell.selectedCity = selectedCity
-            cell.index = indexPath.row
+            
             cell.selectionStyle = .none
             cell.editCell(Event:dataList[indexPath.row])
             cell.alpha = 0.50

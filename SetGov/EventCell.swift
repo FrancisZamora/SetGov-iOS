@@ -45,14 +45,14 @@ class EventCell: UITableViewCell {
     
     func checkMembers() {
         ApiClient.fetchEvents(city: selectedCity,  onCompletion:{ json in
-            
-            let pictureIDArray = json["data"]["cityEvents"][self.index]["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
+            print(self.index)
+            var  pictureIDArray = json["data"]["cityEvents"][0]["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
             print(pictureIDArray)
             
             for (index,_) in pictureIDArray.enumerated() {
                 var xy = 8
                 var imageView : UIImageView
-                imageView  = UIImageView(frame:CGRect(x: xy, y:42, width:35, height:35))
+                imageView  = UIImageView(frame:CGRect(x: xy, y:271, width:35, height:35))
                 imageView.layer.cornerRadius = imageView.frame.height / 2
                 
                 imageView.clipsToBounds = true
@@ -68,7 +68,8 @@ class EventCell: UITableViewCell {
                 
                 
                 self.conView.addSubview(imageView)
-                xy = xy + 48
+                xy = xy + 51
+                pictureIDArray = []
             }
             
             
