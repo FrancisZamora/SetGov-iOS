@@ -21,6 +21,7 @@ class EventMembers: UITableViewCell {
     @IBOutlet var profilePicture3: ProfilePicture!
     @IBOutlet var profilePicture4: ProfilePicture!
     @IBOutlet var profilePicture5: ProfilePicture!
+    
     @IBOutlet var profilePicture6: ProfilePicture!
     
     
@@ -34,13 +35,12 @@ class EventMembers: UITableViewCell {
             for (index,_) in pictureIDArray.enumerated() {
                 var xy = 8
                 var imageView : UIImageView
-                self.imageView?.layer.cornerRadius = self.frame.height / 2
-                self.imageView?.clipsToBounds = true
-                self.imageView?.layer.borderWidth = 1.5
-                self.imageView?.layer.borderColor = UIColor(red:0.18, green:0.26, blue:0.35, alpha:1.0).cgColor
-                
-
                 imageView  = UIImageView(frame:CGRect(x: xy, y:42, width:35, height:35))
+                imageView.layer.cornerRadius = imageView.frame.height / 2
+
+                imageView.clipsToBounds = true
+                imageView.layer.borderWidth = 1.5
+                imageView.layer.borderColor = UIColor(red:0.18, green:0.26, blue:0.35, alpha:1.0).cgColor
                 let theProfileImageUrl = URL(string:pictureIDArray[index])
                 do {
                     let imageData = try Data(contentsOf: theProfileImageUrl!)
