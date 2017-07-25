@@ -213,16 +213,11 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="conView" destination="2og-D5-wgS" id="bfk-6s-Ne3"/>
                                     <outlet property="eventDate" destination="TxJ-ID-Gdr" id="CBU-uu-fXC"/>
                                     <outlet property="eventDescription" destination="Xae-5N-CWj" id="BnU-8W-M6G"/>
                                     <outlet property="eventImage" destination="AHx-jR-O2K" id="ARp-rS-tnO"/>
                                     <outlet property="eventTitle" destination="qaz-B6-2HM" id="7Yi-ND-mzM"/>
-                                    <outlet property="profileImage1" destination="Lru-Dk-bur" id="MGD-Ns-ShJ"/>
-                                    <outlet property="profileImage2" destination="4i3-sx-hcP" id="s5i-Vc-XXd"/>
-                                    <outlet property="profileImage3" destination="nPe-2t-EyG" id="4Om-me-CuY"/>
-                                    <outlet property="profileImage4" destination="1Jc-OS-76J" id="sJf-jw-JZL"/>
-                                    <outlet property="profileImage5" destination="qGK-K0-mTm" id="8Cc-aQ-pOI"/>
-                                    <outlet property="profileImage6" destination="Oce-wR-LxC" id="74K-L2-uOG"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -520,100 +515,16 @@
                                                 <color key="titleColor" red="0.087962217628955841" green="0.19097673892974854" blue="0.38617235422134399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOJ-dF-Uxj">
-                                            <rect key="frame" x="138" y="4" width="115" height="30"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="115" id="bLr-n7-WUc"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                            <state key="normal" title="Interested">
-                                                <color key="titleColor" red="0.087962217628955841" green="0.19097673892974854" blue="0.38617235422134399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </state>
-                                        </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AjP-p4-iPi">
-                                            <rect key="frame" x="124" y="4" width="6" height="30"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                            <color key="textColor" red="0.09551713615655899" green="0.22882530093193054" blue="0.55778402090072632" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-1" translatesAutoresizingMaskIntoConstraints="NO" id="99H-sQ-o1n" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
-                                            <rect key="frame" x="56" y="42" width="35" height="35"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="35" id="BSd-nh-chy"/>
-                                            </constraints>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-4" translatesAutoresizingMaskIntoConstraints="NO" id="nVY-7b-Jr0" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
-                                            <rect key="frame" x="152" y="42" width="35" height="35"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="35" id="5v6-wE-vn1"/>
-                                            </constraints>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-2" translatesAutoresizingMaskIntoConstraints="NO" id="oUF-h5-mRb" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
-                                            <rect key="frame" x="199" y="42" width="35" height="35"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="35" id="fPe-9L-3NR"/>
-                                            </constraints>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-5" translatesAutoresizingMaskIntoConstraints="NO" id="Obz-Fv-gcQ" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
-                                            <rect key="frame" x="249" y="42" width="35" height="35"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="35" id="pjJ-ta-QG8"/>
-                                                <constraint firstAttribute="height" constant="35" id="wvC-o0-Zce"/>
-                                            </constraints>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="rJT-UP-jqh" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
-                                            <rect key="frame" x="8" y="42" width="35" height="35"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="35" id="JNn-of-Dgz"/>
-                                            </constraints>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-3" translatesAutoresizingMaskIntoConstraints="NO" id="mQm-tS-01G" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
-                                            <rect key="frame" x="104" y="42" width="35" height="35"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="35" id="MZ7-gW-hpa"/>
-                                            </constraints>
-                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstItem="rJT-UP-jqh" firstAttribute="bottom" secondItem="99H-sQ-o1n" secondAttribute="bottom" id="1qn-o2-Q0E"/>
-                                        <constraint firstItem="rJT-UP-jqh" firstAttribute="top" secondItem="99H-sQ-o1n" secondAttribute="top" id="7kp-pI-MYU"/>
-                                        <constraint firstItem="mQm-tS-01G" firstAttribute="bottom" secondItem="nVY-7b-Jr0" secondAttribute="bottom" id="9so-9K-4VK"/>
-                                        <constraint firstItem="rJT-UP-jqh" firstAttribute="top" secondItem="CgD-IJ-v98" secondAttribute="bottom" constant="8" symbolic="YES" id="B8j-of-cdy"/>
-                                        <constraint firstItem="mQm-tS-01G" firstAttribute="top" secondItem="nVY-7b-Jr0" secondAttribute="top" id="BJG-L2-WVQ"/>
                                         <constraint firstItem="CgD-IJ-v98" firstAttribute="top" secondItem="j4F-Lz-aA7" secondAttribute="topMargin" constant="-4" id="CJ1-yI-EZt"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="rJT-UP-jqh" secondAttribute="bottom" constant="8.5" id="E2R-cS-LzT"/>
-                                        <constraint firstItem="CgD-IJ-v98" firstAttribute="top" secondItem="AjP-p4-iPi" secondAttribute="top" id="EFq-B3-oaA"/>
-                                        <constraint firstItem="nVY-7b-Jr0" firstAttribute="bottom" secondItem="oUF-h5-mRb" secondAttribute="bottom" id="J8w-sJ-tPO"/>
-                                        <constraint firstItem="oUF-h5-mRb" firstAttribute="top" secondItem="Obz-Fv-gcQ" secondAttribute="top" id="JrF-Jt-Ukh"/>
-                                        <constraint firstItem="oUF-h5-mRb" firstAttribute="leading" secondItem="nVY-7b-Jr0" secondAttribute="trailing" constant="12" id="QZc-pf-lKs"/>
-                                        <constraint firstItem="99H-sQ-o1n" firstAttribute="bottom" secondItem="mQm-tS-01G" secondAttribute="bottom" id="U2D-Bv-p96"/>
-                                        <constraint firstItem="DOJ-dF-Uxj" firstAttribute="leading" secondItem="AjP-p4-iPi" secondAttribute="trailing" constant="8" symbolic="YES" id="Vtk-gz-4h6"/>
-                                        <constraint firstItem="nVY-7b-Jr0" firstAttribute="leading" secondItem="mQm-tS-01G" secondAttribute="trailing" constant="13" id="X3e-SS-Fo5"/>
                                         <constraint firstItem="CgD-IJ-v98" firstAttribute="leading" secondItem="j4F-Lz-aA7" secondAttribute="leadingMargin" id="ZjJ-4C-8qy"/>
-                                        <constraint firstItem="99H-sQ-o1n" firstAttribute="leading" secondItem="rJT-UP-jqh" secondAttribute="trailing" constant="13" id="aPK-po-8yw"/>
-                                        <constraint firstItem="CgD-IJ-v98" firstAttribute="firstBaseline" secondItem="DOJ-dF-Uxj" secondAttribute="baseline" id="bPw-Y6-Hos"/>
-                                        <constraint firstItem="CgD-IJ-v98" firstAttribute="top" secondItem="DOJ-dF-Uxj" secondAttribute="top" id="dXS-dG-0HW"/>
-                                        <constraint firstItem="Obz-Fv-gcQ" firstAttribute="leading" secondItem="oUF-h5-mRb" secondAttribute="trailing" constant="15" id="fqA-ch-5fE"/>
-                                        <constraint firstItem="mQm-tS-01G" firstAttribute="leading" secondItem="99H-sQ-o1n" secondAttribute="trailing" constant="13" id="jUP-Ib-J0Y"/>
-                                        <constraint firstItem="AjP-p4-iPi" firstAttribute="leading" secondItem="CgD-IJ-v98" secondAttribute="trailing" constant="5" id="mKv-4S-yfm"/>
-                                        <constraint firstItem="CgD-IJ-v98" firstAttribute="baseline" secondItem="DOJ-dF-Uxj" secondAttribute="firstBaseline" id="mg5-0F-NMg"/>
-                                        <constraint firstItem="CgD-IJ-v98" firstAttribute="bottom" secondItem="AjP-p4-iPi" secondAttribute="bottom" id="s9P-Tf-4f8"/>
-                                        <constraint firstItem="99H-sQ-o1n" firstAttribute="top" secondItem="mQm-tS-01G" secondAttribute="top" id="sx1-RE-2XT"/>
-                                        <constraint firstItem="nVY-7b-Jr0" firstAttribute="top" secondItem="oUF-h5-mRb" secondAttribute="top" id="tjM-gd-sSj"/>
-                                        <constraint firstItem="oUF-h5-mRb" firstAttribute="bottom" secondItem="Obz-Fv-gcQ" secondAttribute="bottom" id="vtx-e9-9yB"/>
-                                        <constraint firstItem="rJT-UP-jqh" firstAttribute="leading" secondItem="CgD-IJ-v98" secondAttribute="leading" id="wGC-TT-SGX"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
                                     <outlet property="conView" destination="j4F-Lz-aA7" id="fh8-1W-IfT"/>
-                                    <outlet property="profilePicture1" destination="rJT-UP-jqh" id="Vi8-6W-jfA"/>
-                                    <outlet property="profilePicture2" destination="99H-sQ-o1n" id="ZAR-1m-xyh"/>
-                                    <outlet property="profilePicture3" destination="mQm-tS-01G" id="pmm-pg-5bC"/>
-                                    <outlet property="profilePicture4" destination="nVY-7b-Jr0" id="sZd-L6-iGb"/>
-                                    <outlet property="profilePicture5" destination="oUF-h5-mRb" id="s5c-vq-ron"/>
-                                    <outlet property="profilePicture6" destination="Obz-Fv-gcQ" id="ajg-Uy-3gC"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventDiscussion" rowHeight="94" id="MYI-qh-THg" customClass="EventDiscussion" customModule="SetGov" customModuleProvider="target">
@@ -1682,7 +1593,7 @@
         <image name="miami" width="1640" height="892"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Thq-tV-mwK"/>
+        <segue reference="N7x-HX-zy0"/>
         <segue reference="igs-LU-32O"/>
     </inferredMetricsTieBreakers>
 </document>

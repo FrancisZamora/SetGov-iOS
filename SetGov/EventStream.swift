@@ -51,6 +51,7 @@ class EventStream:  UITableViewCell {
     var finalArray =  [String]()
     var currentHour = String()
     var eventHours = [[String]()]
+    
     var eventTitle = " "
     var bostonIDS = [Int]()
     var fortlauderdaleIDS = [Int]()
@@ -61,7 +62,18 @@ class EventStream:  UITableViewCell {
     weak var eventStreamCallback: EventStreamCallback!
 
     var eventTVController: EventDetailViewController?
-    
+    func configureImage() {
+        
+        let theProfileImageUrl = URL(string:self.user.profilePictureURL)
+        do {
+            let imageData = try Data(contentsOf: theProfileImageUrl!)
+            secondaryEventImage.image = UIImage(data: imageData)
+        } catch {
+            
+            print("Unable to load data: \(error)")
+        }
+        
+    }
     func configureColor () {
         
         buttonBackground.startColor = SG_SECONDARY_REDCOLOR
@@ -70,6 +82,9 @@ class EventStream:  UITableViewCell {
         
         
     }
+    
+    
+    
     func activateStream () {
         self.initiateStream = true
     }
@@ -311,16 +326,7 @@ class EventStream:  UITableViewCell {
             self.nowLive()
             }
         }
-        
-        
-        
 
-        
-        
-        
-        
-        
-        
         let when2 = DispatchTime.now() + 2  // change 2 to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when2) {
             if let callback = self.eventStreamCallback {
@@ -329,11 +335,7 @@ class EventStream:  UITableViewCell {
             
 
         }
-        
-        
-
-        
- 
+    
        
     }
     

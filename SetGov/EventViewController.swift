@@ -592,8 +592,9 @@ class EventViewController: SetGovTableViewController{
             
             cell.selectionStyle = .none
             cell.editCell(Event:dataList[indexPath.row])
+            cell.selectedCity = selectedCity 
             cell.alpha = 0.50
-            
+            cell.checkMembers()
             UIView.animate(withDuration: 0.88) {
                 cell.alpha = 1
             }

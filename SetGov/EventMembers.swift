@@ -15,20 +15,11 @@ class EventMembers: UITableViewCell {
     var fortlauderdaleIDS = [Int]()
     var indexofEvent = 0
     
-    @IBOutlet var profilePicture1: ProfilePicture!
-    @IBOutlet var profilePicture2: ProfilePicture!
-    @IBOutlet var conView: UIView!
-    @IBOutlet var profilePicture3: ProfilePicture!
-    @IBOutlet var profilePicture4: ProfilePicture!
-    @IBOutlet var profilePicture5: ProfilePicture!
-    
-    @IBOutlet var profilePicture6: ProfilePicture!
-    
+        @IBOutlet var conView: UIView!
+  
     
     func checkMembers() {
-        profilePicture1.isHidden = true
-        
-        ApiClient.fetchEvent(eventID:bostonIDS[indexofEvent] , onCompletion:{ json in
+            ApiClient.fetchEvent(eventID:bostonIDS[indexofEvent] , onCompletion:{ json in
             
             let pictureIDArray = json["data"]["event"]["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
             print(pictureIDArray)

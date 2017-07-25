@@ -209,6 +209,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream") as! EventStream
                 eventStream.dataList = dataList
                 eventStream.user = self.user
+                eventStream.configureImage()
                 eventStream.bostonIDS = bostonIDS
                 eventStream.fortlauderdaleIDS = fortlauderdaleIDS
                 eventStream.currentEvent = currentEvent
@@ -225,7 +226,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventStream.streamContent()
                 eventStream.checkStatus()
                 eventStream.eventImage.image = eventImages[indexofEvent]
-                eventStream.secondaryEventImage.image = #imageLiteral(resourceName: "Image")
                 agendaImage = eventStream.eventImage.image!
             
             
