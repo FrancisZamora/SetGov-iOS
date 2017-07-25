@@ -220,20 +220,26 @@ class EventStream:  UITableViewCell {
         
     }
     
-    func checkStatus() {
+    func checkStatus() -> Bool {
+        var x = false
         if selectedCity == "Boston" {
             
             ApiClient.fetchEvent(eventID:bostonIDS[indexofEvent] , onCompletion:{ json in
                 
-                let fullName = json["data"]["event"]["attendingUsers"]["full_name"].string
-                print(fullName)
-                
-                if fullName == self.user.fullName {
+                let fullNameArray =  json["data"]["event"]["attendingUsers"].arrayValue.map({$0["full_name"].stringValue})
+                print(fullNameArray)
+                if fullNameArray.contains(self.user.fullName){
                     self.attendButton.setTitle("Attending", for: .normal)
-
+                    x = true
                 }
                 
             })
+            
+            return x
+            
+            
+            
+       
             
             
             
@@ -244,7 +250,13 @@ class EventStream:  UITableViewCell {
         if selectedCity == "Fort Lauderdale" {
             ApiClient.fetchEvent(eventID:fortlauderdaleIDS[indexofEvent] , onCompletion: { json in
                
-              let fullName = json["data"]["event"]["attendingUsers"]
+                let fullNameArray =  json["data"]["event"]["attendingUsers"].arrayValue.map({$0["full_name"].stringValue})
+                print(fullNameArray)
+                print(fullNameArray.contains("Francis Zamora"))
+                if fullNameArray.contains(self.user.fullName){
+                    self.attendButton.setTitle("Attending", for: .normal)
+
+                }
         })
 
 
@@ -252,7 +264,7 @@ class EventStream:  UITableViewCell {
 
         print(currentEvent.eventUsers)
         print(currentEvent.eventUsers.contains(self.user.fullName))
-        
+        return false 
        
     }
     

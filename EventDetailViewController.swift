@@ -230,7 +230,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             
             
         if selectedCity == "Boston" {
-            if eventStream.firstpress == false  && eventStream.compareTime() == false {
+            if eventStream.firstpress == false  && eventStream.compareTime() == false || eventStream.checkStatus() == true && eventStream.compareTime() == false {
                 if noAlert == false && selectedCity == "Boston" {
                     let alert = UIAlertController(title: "Constant Stream Available", message: "Boston offers a 24/7 live stream", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Watch", style: .default, handler: { (action: UIAlertAction!) in
