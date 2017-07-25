@@ -590,11 +590,11 @@ class EventViewController: SetGovTableViewController{
         if selectedCity == "Boston" {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
             cell.selectedCity = selectedCity
-            
+            cell.dataList = dataList
             cell.selectionStyle = .none
             cell.editCell(Event:dataList[indexPath.row])
             cell.alpha = 0.50
-            cell.checkMembers()
+            cell.checkMembers(index: indexPath.row)
             UIView.animate(withDuration: 0.88) {
                 cell.alpha = 1
             }
@@ -607,6 +607,7 @@ class EventViewController: SetGovTableViewController{
          if selectedCity == "Fort Lauderdale" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventCell
             cell.selectionStyle = .none
+            cell.dataList = dataList
             cell.editCell(Event:dataList[indexPath.row])
             cell.alpha = 0
             UIView.animate(withDuration: 1.0) {
