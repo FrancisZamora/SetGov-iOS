@@ -12,7 +12,6 @@ import Alamofire
 import AlamofireObjectMapper
 
 class ApiClient {
-    
     static func login(token:String,onCompletion: @escaping(JSON) -> Void) {
         let URL = "http://localhost:3000/api/v/1/graph"
         let query = "mutation {authenticateUser(facebook_token:\"\(token)\") {id,full_name, profileImage{ id, url}}}"
@@ -55,17 +54,29 @@ class ApiClient {
     }
     
     static func addEvent(event:Event, onCompletion: @escaping(JSON) -> Void) {
+        var dater = String()
         let address = event.eventAddress
         let name = event.eventTitle
         let city = event.eventCity
-        let date = event.eventDate
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yy"
+        formatter.dateStyle = .short
+        var x = event.eventDate + " 2017"
+        let date = formatter.date(from: x)
+            print(date)
+            
+            let y = formatter.string(from: date!)
+            print(y)
+            
+            dater = y
+        
         let time = event.eventTime
         let image = event.eventImage
         
         
         let description = event.eventDescription
         let URL = "http://localhost:3000/api/v/1/graph"
-        let query = "mutation{addEvent(name:\"\(name)\",city:\"\(city)\",address:\"\(address)\",date:\"\(date)\",description:\"\(description)\",time:\"\(time)\", image_name:\"\(image)\"){id}}"
+        let query = "mutation{addEvent(name:\"\(name)\",city:\"\(city)\",address:\"\(address)\",date:\"\(dater)\",description:\"\(description)\",time:\"\(time)\", image_name:\"\(image)\"){id}}"
         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
             
             guard let jsonString = response.result.value else {

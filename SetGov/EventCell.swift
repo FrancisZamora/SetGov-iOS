@@ -26,6 +26,8 @@ class EventCell: UITableViewCell {
     var dataList = [Event]()
     var eventOriginalTitle = " "
     var index = 0
+    var spacer = "  "
+
     
     
     func configure() {
@@ -38,21 +40,22 @@ class EventCell: UITableViewCell {
         eventDescription.text = Event.eventDescription
         eventImage.image = Event.eventImage
         eventDate.text = Event.eventDate
-     
+        
         
         
     }
     
     
     func checkMembers(index:Int) {
-        ApiClient.fetchEvents(city: selectedCity,  onCompletion:{ json in
+        ApiClient.fetchEvents(city: selectedCity,  onCompletion: { json in
             print(self.index)
-            
             var  pictureIDArray = json["data"]["cityEvents"][index]["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
             print(pictureIDArray)
             
-            if pictureIDArray.count == 0 {
-                return
+            if pictureIDArray != json["data"]["cityEvents"][index]["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue}) {
+                
+                    print("phony")
+                    return
             }
             
             

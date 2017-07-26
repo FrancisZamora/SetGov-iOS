@@ -19,6 +19,7 @@ class Event {
     var eventDescription = " "
     var eventImage = #imageLiteral(resourceName: "Image1")
     var eventCity = " "
+    var eventDate2 = " " 
     var eventUsers = [String]()
    // var loggedUser = User(userName: " " , attendingStatus: false, interestedStatus: false)
     

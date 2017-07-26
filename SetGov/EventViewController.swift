@@ -443,6 +443,7 @@ class EventViewController: SetGovTableViewController{
             let finalDescription = z
             let finalTitle = (finalDescription[finalDescription.count-1])
             let zz = fortlauderdaleArray[index][6].trimmingCharacters(in: .whitespacesAndNewlines)
+                        
 
             
 
