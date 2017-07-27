@@ -22,7 +22,6 @@ class EventMembers: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     override func awakeFromNib() {
         userCollection.delegate = self
         userCollection.dataSource = self
-        //self.checkMembers()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -34,6 +33,9 @@ class EventMembers: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Attendee", for: indexPath) as! Attendee
+        print("THIS IS THE PIC ARRAY")
+        print(self.picArray)
+        cell.configure()
         cell.generateImage(rawData: picArray[indexPath.row])
         
         return cell
@@ -41,22 +43,7 @@ class EventMembers: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
 
 
     
-    
-  //  func checkMembers() {
-    //        print(bostonIDS)
-      //      ApiClient.fetchEvent(eventID:bostonIDS[indexofEvent] , onCompletion:{ json in
-            
-        //    let pictureIDArray = json["data"]["event"]["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
-          //  print(pictureIDArray)
-            //self.picArray = pictureIDArray
-                
-            
-            
-       // })
-        
 
-        
-    //}
     
     
     

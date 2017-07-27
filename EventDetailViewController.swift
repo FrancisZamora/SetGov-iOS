@@ -47,6 +47,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var fortlauderdaleIDS = [Int]()
     var bostonIDS = [Int]()
     var currentEvent: Event!
+    var picArray = [String]()
     var user: User!
     
     @IBOutlet var navTitle: UINavigationItem!
@@ -72,6 +73,22 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             return false
             
         }
+    }
+    
+    func fetchUsers() {
+        ApiClient.fetchEvent(eventID:self.bostonIDS[indexofEvent] , onCompletion:{ json in
+            self.bostonIDS = self.bostonIDS.sorted() { $0 < $1 }
+            
+            print(self.bostonIDS[self.indexofEvent])
+            
+            let pictureIDArray = json["data"]["event"]["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
+            self.picArray = pictureIDArray
+            print(pictureIDArray)
+            print(self.picArray)
+            
+        })
+        
+        
     }
     
     func refresh(sender:AnyObject) {
@@ -401,13 +418,12 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         if (indexPath.row==3) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventMembers", for:indexPath) as! EventMembers
             print(bostonIDS)
-
+            self.fetchUsers()
             cell.selectionStyle = .none
-            cell.indexofEvent = indexofEvent
-            
-            cell.bostonIDS = bostonIDS
+            cell.picArray = picArray
+            print(picArray)
+            print(cell.picArray)
             cell.fortlauderdaleIDS = fortlauderdaleIDS
-           // cell.checkMembers()
             return cell
         }
         
