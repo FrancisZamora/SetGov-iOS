@@ -37,46 +37,11 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     override func awakeFromNib() {
         usersCollection.delegate = self
         usersCollection.dataSource = self
+        self.usersCollection.reloadData()
+
     }
     
-    func checkMembers(index:Int) {
-        ApiClient.fetchEvents(city: selectedCity,  onCompletion: { json in
-            print("this is the index")
-            var  event = json["data"]["upcomingEvents"][index]
-            print(event)
-            var pictureIDArray = event["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
-            print(pictureIDArray)
-            print("THIS IS THE ARRAY")
-            self.attendee.isHidden = true
-            
-            for (index,_) in pictureIDArray.enumerated() {
-                //var xy = 8
-                //var imageView : UIImageView
-                //imageView  = UIImageView(frame:CGRect(x: xy, y:271, width:35, height:35))
-                //                imageView.layer.cornerRadius = imageView.frame.height / 2
-                //
-                //                imageView.clipsToBounds = true
-                //                imageView.layer.borderWidth = 1.5
-                //                imageView.layer.borderColor = UIColor(red:0.18, green:0.26, blue:0.35, alpha:1.0).cgColor
-                
-                let theProfileImageUrl = URL(string:pictureIDArray[index])
-                do {
-                    let imageData = try Data(contentsOf: theProfileImageUrl!)
-                    //imageView.image = UIImage(data: imageData)
-                    self.attendee.image = UIImage(data:imageData)
-                    self.attendee.isHidden = false
-                } catch {
-                    print("Unable to load data: \(error)")
-                }
-     
-                // self.conView.addSubview(imageView)
-                //xy = xy + 51
-            }
 
-            
-        })
-
-    }
 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
