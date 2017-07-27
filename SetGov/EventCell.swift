@@ -15,7 +15,9 @@ extension UIView {
         self.clipsToBounds = true
     }
 }
-class EventCell: UITableViewCell {
+class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    @IBOutlet var usersCollection: UICollectionView!
     var count = 0
     @IBOutlet var eventTitle: UILabel!
     @IBOutlet var eventDescription: UILabel!
@@ -30,7 +32,23 @@ class EventCell: UITableViewCell {
 
     @IBOutlet var attendee: ProfilePicture!
     
+    override func awakeFromNib() {
+        usersCollection.delegate = self
+        usersCollection.dataSource = self
+    }
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Attendee", for: indexPath) as! Attendee
+        
+        return cell
+    }
     func configure() {
         print("nothing here")
         

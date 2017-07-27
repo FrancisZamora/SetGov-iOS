@@ -126,7 +126,7 @@
                                                 <constraint firstAttribute="width" constant="13" id="arF-uD-bd5"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="A5499284-DB32-4DB0-A59B-9D78C3B62AB2" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="9E9C6EA2-8E3A-4AB2-A0F0-7D307BD83BA5" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
                                             <rect key="frame" x="61" y="271" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="gCa-oq-bRh"/>
@@ -211,6 +211,7 @@
                                     <outlet property="eventDescription" destination="Xae-5N-CWj" id="BnU-8W-M6G"/>
                                     <outlet property="eventImage" destination="AHx-jR-O2K" id="ARp-rS-tnO"/>
                                     <outlet property="eventTitle" destination="qaz-B6-2HM" id="7Yi-ND-mzM"/>
+                                    <outlet property="usersCollection" destination="XAM-XX-GOF" id="QGI-Yh-A1n"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -494,7 +495,7 @@
                                 <rect key="frame" x="0.0" y="478" width="375" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rE9-cr-Z9l" id="j4F-Lz-aA7">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="93.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgD-IJ-v98">
@@ -508,9 +509,8 @@
                                                 <color key="titleColor" red="0.087962217628955841" green="0.19097673892974854" blue="0.38617235422134399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                         </button>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cdM-Yc-ZUW">
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cdM-Yc-ZUW">
                                             <rect key="frame" x="8" y="32" width="359" height="53"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Fjy-bP-RXx">
                                                 <size key="itemSize" width="35" height="35"/>
@@ -547,7 +547,11 @@
                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="CgD-IJ-v98" firstAttribute="top" secondItem="j4F-Lz-aA7" secondAttribute="topMargin" constant="-4" id="CJ1-yI-EZt"/>
+                                        <constraint firstItem="cdM-Yc-ZUW" firstAttribute="leading" secondItem="CgD-IJ-v98" secondAttribute="leading" id="Ggb-Hp-9FV"/>
                                         <constraint firstItem="CgD-IJ-v98" firstAttribute="leading" secondItem="j4F-Lz-aA7" secondAttribute="leadingMargin" id="ZjJ-4C-8qy"/>
+                                        <constraint firstItem="cdM-Yc-ZUW" firstAttribute="top" secondItem="j4F-Lz-aA7" secondAttribute="topMargin" constant="24" id="bQr-8M-AgC"/>
+                                        <constraint firstItem="cdM-Yc-ZUW" firstAttribute="trailing" secondItem="j4F-Lz-aA7" secondAttribute="trailingMargin" id="gi6-uQ-yI8"/>
+                                        <constraint firstItem="cdM-Yc-ZUW" firstAttribute="bottom" secondItem="j4F-Lz-aA7" secondAttribute="bottomMargin" id="lNi-ak-AAS"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -1595,7 +1599,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="A5499284-DB32-4DB0-A59B-9D78C3B62AB2" width="479" height="586">
+        <image name="9E9C6EA2-8E3A-4AB2-A0F0-7D307BD83BA5" width="479" height="586">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
