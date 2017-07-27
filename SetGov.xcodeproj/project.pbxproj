@@ -58,6 +58,7 @@
 		15C64B4D1EADA96200B123A5 /* NewYorkCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C64B4C1EADA96200B123A5 /* NewYorkCityCell.swift */; };
 		15D3DB871E7A169E00CD35DD /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D3DB861E7A169E00CD35DD /* ProfileImage.swift */; };
 		15D442261EF355BC00AC8FD1 /* MiamiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D442251EF355BC00AC8FD1 /* MiamiCell.swift */; };
+		15F882421F2A391D001BA502 /* Attendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F882411F2A391D001BA502 /* Attendee.swift */; };
 		1D98C468A8545E290887D257 /* Pods_SetGovUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A291636C27A3A4A0D6A8E83 /* Pods_SetGovUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +139,7 @@
 		15D442251EF355BC00AC8FD1 /* MiamiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiamiCell.swift; sourceTree = "<group>"; };
 		15E10C841EF2D9FC0075C24C /* libxml2-kanna.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libxml2-kanna.h"; sourceTree = "<group>"; };
 		15E10C851EF2DA040075C24C /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		15F882411F2A391D001BA502 /* Attendee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attendee.swift; sourceTree = "<group>"; };
 		2374A0556EB1F59A21F79D7B /* Pods-SetGov.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetGov.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SetGov/Pods-SetGov.debug.xcconfig"; sourceTree = "<group>"; };
 		455A404A8F064ABF2283C4D0 /* Pods-SetGovUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetGovUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SetGovUITests/Pods-SetGovUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5B788141A78B320963331B47 /* Pods_SetGov.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetGov.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -304,6 +306,7 @@
 				15C64B4C1EADA96200B123A5 /* NewYorkCityCell.swift */,
 				15D442251EF355BC00AC8FD1 /* MiamiCell.swift */,
 				1529E0AD1F103524001FE4BB /* profileCell.swift */,
+				15F882411F2A391D001BA502 /* Attendee.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -651,6 +654,7 @@
 				151547611EF2D527003FF351 /* libxmlParserOption.swift in Sources */,
 				153F3F7E1E6DF0ED0004E2F4 /* LoginViewController.swift in Sources */,
 				15D3DB871E7A169E00CD35DD /* ProfileImage.swift in Sources */,
+				15F882421F2A391D001BA502 /* Attendee.swift in Sources */,
 				1515475F1EF2D527003FF351 /* libxmlHTMLDocument.swift in Sources */,
 				1508547E1E97078C00838D85 /* AgendaDetailData.swift in Sources */,
 				153F3F7C1E6DF0E50004E2F4 /* SetGovViewController.swift in Sources */,
