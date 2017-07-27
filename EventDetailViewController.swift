@@ -58,7 +58,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         self.loadTitle()
         self.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         self.currentEvent = dataList[indexofEvent]
-
+        print("these are the boston ids")
+        print(bostonIDS)
         print(agendaInfo)
         print(indexofEvent)
     }
@@ -399,11 +400,14 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
         if (indexPath.row==3) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventMembers", for:indexPath) as! EventMembers
+            print(bostonIDS)
+
             cell.selectionStyle = .none
             cell.indexofEvent = indexofEvent
+            
             cell.bostonIDS = bostonIDS
             cell.fortlauderdaleIDS = fortlauderdaleIDS
-            cell.checkMembers()
+           // cell.checkMembers()
             return cell
         }
         

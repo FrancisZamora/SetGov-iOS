@@ -503,6 +503,7 @@ class EventViewController: SetGovTableViewController{
                     }
                     print(id)
                     self.bostonIDS.append(id)
+                    print("THESE ARE THE IDS")
                     print(self.bostonIDS)
                     
                     
