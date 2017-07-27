@@ -49,15 +49,10 @@ class EventCell: UITableViewCell {
     func checkMembers(index:Int) {
         ApiClient.fetchEvents(city: selectedCity,  onCompletion: { json in
             print(self.index)
-            var  pictureIDArray = json["data"]["cityEvents"][index]["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
+            var  pictureIDArray = json["data"]["upcomingEvents"][index]["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
             print(pictureIDArray)
-            
-            if pictureIDArray != json["data"]["cityEvents"][index]["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue}) {
-                
-                    print("phony")
-                    return
-            }
-            
+            print("THIS IS THE ARRAY")
+          
             
             for (index,_) in pictureIDArray.enumerated() {
                 var xy = 8
@@ -79,8 +74,9 @@ class EventCell: UITableViewCell {
                 
                 self.conView.addSubview(imageView)
                 xy = xy + 51
-                pictureIDArray = []
             }
+            
+
             
             
             
@@ -90,7 +86,8 @@ class EventCell: UITableViewCell {
             
         })
         
-        self.index = self.index + 1
+    
+        
         
         
         

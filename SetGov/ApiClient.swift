@@ -71,12 +71,11 @@ class ApiClient {
             dater = y
         
         let time = event.eventTime
-        let image = event.eventImage
         
         
         let description = event.eventDescription
         let URL = "http://localhost:3000/api/v/1/graph"
-        let query = "mutation{addEvent(name:\"\(name)\",city:\"\(city)\",address:\"\(address)\",date:\"\(dater)\",description:\"\(description)\",time:\"\(time)\", image_name:\"\(image)\"){id}}"
+        let query = "mutation{addEvent(name:\"\(name)\",city:\"\(city)\",address:\"\(address)\",date:\"\(dater)\",description:\"\(description)\",time:\"\(time)\"){id}}"
         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
             
             guard let jsonString = response.result.value else {
@@ -84,7 +83,8 @@ class ApiClient {
                 return
             }
             let json = JSON(jsonString)
-
+            print(json)
+            
            
             print(response)
             onCompletion(json)
@@ -133,15 +133,14 @@ class ApiClient {
     
     static func fetchEvents(city:String, onCompletion: @escaping(JSON) -> Void) {
         let URL = "http://localhost:3000/api/v/1/graph"
-        let query = "query { cityEvents(city:\"\(city)\"){id,name,date, description, attendingUsers{full_name, profileImage{url}}, address, city}}"
+        let query = "query { upcomingEvents(city:\"\(city)\"){id,name,date, description, attendingUsers{full_name, profileImage{url}}, address, city}}"
         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
-            
             guard let jsonString = response.result.value else {
                 onCompletion(JSON.null)
                 return
             }
             let json = JSON(jsonString)
-            
+            print(json)
             
             print(response)
             onCompletion(json)
