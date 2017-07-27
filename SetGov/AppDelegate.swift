@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var user =  User(fullName: " ",  profilePictureURL: " ", interestedStatus: false, attendingStatus: false)
+    var fortlauderdaleEvents = [Event]()
+    var bostonEvents = [Event]() 
     let UserDefault = UserDefaults.standard
 
     
