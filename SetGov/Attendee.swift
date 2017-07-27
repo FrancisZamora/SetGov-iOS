@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class Attendee: UICollectionViewCell {
+    @IBOutlet var userPicture: UIImageView!
     
     
 }
