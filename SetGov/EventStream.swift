@@ -13,6 +13,7 @@ import SwiftyJSON
 
 protocol EventStreamCallback: class {
     func refreshTap(tapped:Bool)
+    func attendbuttonTapped()
 }
 
 
@@ -300,6 +301,19 @@ class EventStream:  UITableViewCell {
                 print(eventID)
                 ApiClient.attendEvent(eventID: eventID ,onCompletion: { json in
                     self.currentEvent.eventUsers.append(self.user.fullName)
+                    if let callback = self.eventStreamCallback {
+                        print("callback in progress")
+                        
+                        callback.attendbuttonTapped()
+                    }
+                    
+                    else {
+                        print("callback is nil")
+                    }
+                    
+                    
+                    
+
                     
                 })
 
@@ -310,8 +324,18 @@ class EventStream:  UITableViewCell {
 
                 ApiClient.attendEvent( eventID: eventID ,onCompletion: { json in
                     self.currentEvent.eventUsers.append(self.user.fullName)
+                    if let callback = self.eventStreamCallback {
+                        print("callback in progress")
+                        callback.attendbuttonTapped()
+                    }
+                    else {
+                        print("callback is nil")
+                    }
+                    
+
                 
                 })
+                
             }
             firstpress = false
 
@@ -335,8 +359,8 @@ class EventStream:  UITableViewCell {
             
 
         }
-    
-       
+        
+        
     }
     
  

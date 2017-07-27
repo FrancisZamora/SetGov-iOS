@@ -47,6 +47,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var fortlauderdaleIDS = [Int]()
     var bostonIDS = [Int]()
     var currentEvent: Event!
+    weak var collectionView: UICollectionView!
     var picArray = [String]()
     var user: User!
     
@@ -57,6 +58,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         super.viewDidLoad()
         print("EventDetailViewController")
         self.loadTitle()
+        
         self.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         self.currentEvent = dataList[indexofEvent]
         print("these are the boston ids")
@@ -64,6 +66,12 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         print(agendaInfo)
         print(indexofEvent)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.fetchUsers()
+
+    }
+    
     
     func checkAlert() -> Bool {
         if videoRequested == true {
@@ -83,6 +91,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             
             let pictureIDArray = json["data"]["event"]["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
             self.picArray = pictureIDArray
+            self.tableView.reloadData()
             
             
         })
@@ -146,6 +155,12 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         print(data)
         
         
+        
+    }
+    
+    func attendbuttonTapped() {
+        print("attend button tapped, callback now")
+        self.fetchUsers()
         
     }
     
@@ -416,11 +431,14 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         if (indexPath.row==3) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventMembers", for:indexPath) as! EventMembers
             print(bostonIDS)
-            self.fetchUsers()
             cell.selectionStyle = .none
-            cell.picArray = picArray
+            print("picture array from event detail")
             print(picArray)
+            cell.picArray = picArray
+            collectionView = cell.userCollection
+            cell.userCollection.reloadData()
             print(cell.picArray)
+            
             cell.fortlauderdaleIDS = fortlauderdaleIDS
             return cell
         }

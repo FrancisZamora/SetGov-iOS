@@ -101,11 +101,11 @@ class ApiClient {
         let query = "mutation {attendEvent(event_id:\(eventID)){id }}"
         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
             guard let jsonString = response.result.value else {
-                onCompletion(nil)
+                onCompletion(JSON.null)
                 return
             }
             let json = JSON(jsonString)
-            
+            onCompletion(json)
 
             print(response)
         }
