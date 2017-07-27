@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import QuartzCore
+
 extension UIView {
     func makeCircular() {
         self.layer.cornerRadius = min(self.frame.size.height, self.frame.size.width) / 2.0
@@ -29,6 +30,7 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     var eventOriginalTitle = " "
     var index = 0
     var spacer = "  "
+    var picArray = [String]()
 
     @IBOutlet var attendee: ProfilePicture!
     
@@ -78,17 +80,24 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        print("this is the pic array")
+        print(picArray)
+        return picArray.count
+ 
     }
     
-    
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Attendee", for: indexPath) as! Attendee
+        print("THIS IS THE PIC ARRAY")
+        print(self.picArray)
+        cell.configure()
+        cell.generateImage(rawData: picArray[indexPath.row])
         
         return cell
     }
+    
+    
     func configure() {
         print("nothing here")
         

@@ -52,6 +52,7 @@ class EventViewController: SetGovTableViewController{
     var fortlauderdaleArray = [[String]()]
     var dateArray = [Date]()
     var user: User!
+    var picArray = [[String]()]
     var fortlauderdaleIDS = [Int]()
     var bostonIDS = [Int]()
     
@@ -68,6 +69,28 @@ class EventViewController: SetGovTableViewController{
         }
     }
     
+    
+    func checkMembers() {
+        ApiClient.fetchEvents(city: selectedCity,  onCompletion: { json in
+            print("this is the index")
+            for (index,_):(String, JSON) in json {
+                var  event = json["data"]["upcomingEvents"][index]
+                print(event)
+                let pictureIDArray = event["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
+                print("this is the picture id array")
+                print(pictureIDArray)
+                print(json["data"]["upcomingEvents"].count)
+                self.picArray.append(pictureIDArray)
+                print(self.picArray)
+                
+            }
+          
+        })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.checkMembers()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         print(selectedCity)
@@ -596,7 +619,7 @@ class EventViewController: SetGovTableViewController{
             cell.selectionStyle = .none
             cell.editCell(Event:dataList[indexPath.row])
             cell.alpha = 0.50
-            cell.checkMembers(index: indexPath.row)
+            //cell.picArray = picArray[indexPath.row]
             UIView.animate(withDuration: 0.88) {
                 cell.alpha = 1
             }

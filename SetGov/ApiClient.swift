@@ -34,19 +34,9 @@ class ApiClient {
         print(response)
             
             
-       // let facebookUser = response.result.value
-        //let facebookImage = facebookUser?.pictureData
-        
-       //guard let jsonString = response.result.value else {
-         //   onCompletion(nil)
-           // return
-        //}
-         
+   
         print("api client json \(json)")
-        //   guard let UserData = User.createFromJson(json: json) else {
-          //   onCompletion()
-           //}
-        //onCompletion(json)
+       
         onCompletion(json)
     }
         

@@ -126,7 +126,7 @@
                                                 <constraint firstAttribute="width" constant="13" id="arF-uD-bd5"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="E9D0F2BD-BA62-4D41-AF62-BE8B032F08E1" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AC7A52AF-2C85-42F8-B41D-0DCB703FAAAD" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
                                             <rect key="frame" x="61" y="271" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="gCa-oq-bRh"/>
@@ -526,17 +526,12 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JF6-OJ-MWm">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JF6-OJ-MWm">
                                                                 <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             </imageView>
                                                         </subviews>
                                                     </view>
-                                                    <constraints>
-                                                        <constraint firstItem="JF6-OJ-MWm" firstAttribute="leading" secondItem="To5-E3-b0l" secondAttribute="leading" id="OgB-S6-McL"/>
-                                                        <constraint firstItem="JF6-OJ-MWm" firstAttribute="top" secondItem="To5-E3-b0l" secondAttribute="top" id="f7H-cN-KOM"/>
-                                                        <constraint firstAttribute="trailing" secondItem="JF6-OJ-MWm" secondAttribute="trailing" id="hxI-fu-IS6"/>
-                                                        <constraint firstAttribute="bottom" secondItem="JF6-OJ-MWm" secondAttribute="bottom" id="lE6-Av-nSa"/>
-                                                    </constraints>
                                                     <connections>
                                                         <outlet property="userPicture" destination="JF6-OJ-MWm" id="2cd-m0-YoM"/>
                                                     </connections>
@@ -1600,7 +1595,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="E9D0F2BD-BA62-4D41-AF62-BE8B032F08E1" width="479" height="586">
+        <image name="AC7A52AF-2C85-42F8-B41D-0DCB703FAAAD" width="479" height="586">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -20389,7 +20384,7 @@ A
         <image name="miami" width="1640" height="892"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="N7x-HX-zy0"/>
         <segue reference="igs-LU-32O"/>
-        <segue reference="Thq-tV-mwK"/>
     </inferredMetricsTieBreakers>
 </document>
