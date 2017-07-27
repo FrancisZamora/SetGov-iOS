@@ -22,11 +22,15 @@ class EventMembers: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     override func awakeFromNib() {
         userCollection.delegate = self
         userCollection.dataSource = self
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("this is the pic array")
         return picArray.count
     }
+    
+    
     
     
     
@@ -40,6 +44,8 @@ class EventMembers: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
         
         return cell
     }
+    
+    
 
 
     

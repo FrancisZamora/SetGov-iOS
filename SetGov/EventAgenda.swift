@@ -178,7 +178,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
     
-        if (indexPath.row == 0 ) {
+        
             index = indexPath.row
             print("ROW 0")
             print(agendaInfo)
@@ -190,7 +190,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
 
             if let callback = eventAgendaCallback {
 
-                callback.loadAgendaDetail(data: agendaInfo,infoData: paragraphArray,agendaTitles:agendaTitles,index:0)
+                callback.loadAgendaDetail(data: agendaInfo,infoData: paragraphArray,agendaTitles:agendaTitles,index:indexPath.row)
                 
                 callback.loadVC()
 
@@ -198,39 +198,12 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
             }
         }
         
-        if (indexPath.row == 1 ) {
-           index = indexPath.row
-            print("ROW 1")
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
-            agendaInfo.updateValue(cell.topicLabel.text!, forKey: indexPath.row)
 
-            if let callback = eventAgendaCallback {
-                callback.loadAgendaDetail(data: agendaInfo,infoData:paragraphArray, agendaTitles: agendaTitles, index:1)
-                callback.loadVC()
-
-            }
-
-        }
-        
-        if (indexPath.row == 2 ) {
-           index = indexPath.row
-            print("ROW 2")
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
-            agendaInfo.updateValue(cell.topicLabel.text!, forKey: indexPath.row)
-
-            if let callback = eventAgendaCallback {
-                callback.loadAgendaDetail(data: agendaInfo,infoData:paragraphArray,agendaTitles:agendaTitles, index:2)
-                callback.loadVC()
-
-                
-            }
-
-        }
         
     }
     
     
-}
+
     
 
 

@@ -25,8 +25,10 @@ class Attendee: UICollectionViewCell {
         do {
             let imageData = try Data(contentsOf: theProfileImageUrl!)
             userPicture.image = UIImage(data: imageData)
+            print("image created")
         } catch {
             print("Unable to load data: \(error)")
+            print("image failed")
         }
 
     }

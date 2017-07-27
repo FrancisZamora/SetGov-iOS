@@ -65,7 +65,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="315"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yWR-Uh-6D5" id="2og-D5-wgS">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="315"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="314.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image1" translatesAutoresizingMaskIntoConstraints="NO" id="AHx-jR-O2K">
@@ -126,7 +126,7 @@
                                                 <constraint firstAttribute="width" constant="13" id="arF-uD-bd5"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="D27FF0AE-0F13-475A-A672-366AF437B6C3" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="E9D0F2BD-BA62-4D41-AF62-BE8B032F08E1" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
                                             <rect key="frame" x="61" y="271" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="gCa-oq-bRh"/>
@@ -495,7 +495,7 @@
                                 <rect key="frame" x="0.0" y="478" width="375" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rE9-cr-Z9l" id="j4F-Lz-aA7">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="93.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgD-IJ-v98">
@@ -511,7 +511,7 @@
                                         </button>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cdM-Yc-ZUW">
                                             <rect key="frame" x="8" y="32" width="359" height="53"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Fjy-bP-RXx">
                                                 <size key="itemSize" width="35" height="35"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -1600,7 +1600,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="D27FF0AE-0F13-475A-A672-366AF437B6C3" width="479" height="586">
+        <image name="E9D0F2BD-BA62-4D41-AF62-BE8B032F08E1" width="479" height="586">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

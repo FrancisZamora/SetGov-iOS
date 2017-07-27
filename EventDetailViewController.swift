@@ -83,12 +83,10 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             
             let pictureIDArray = json["data"]["event"]["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
             self.picArray = pictureIDArray
-            print(pictureIDArray)
-            print(self.picArray)
+            
             
         })
-        
-        
+    
     }
     
     func refresh(sender:AnyObject) {
