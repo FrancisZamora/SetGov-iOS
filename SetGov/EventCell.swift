@@ -25,6 +25,7 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     @IBOutlet var eventImage: UIImageView!
     @IBOutlet var conView: UIView!
     @IBOutlet var eventDate: UILabel!
+    @IBOutlet var memberCount: UILabel!
     var selectedCity = " "
     var dataList = [Event]()
     var eventOriginalTitle = " "

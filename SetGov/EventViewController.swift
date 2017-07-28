@@ -87,6 +87,7 @@ class EventViewController: SetGovTableViewController{
             }
         
         })
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -151,6 +152,7 @@ class EventViewController: SetGovTableViewController{
     
     func cleanArray() {
         arrayEvents.remove(at: 0)
+        self.picArray.remove(at: 0)
 
     }
     
@@ -646,6 +648,8 @@ class EventViewController: SetGovTableViewController{
             print(picArray)
             print(indexPath.row)
             cell.picArray = picArray[indexPath.row]
+            let counter = cell.picArray.count
+            cell.memberCount.text = String(describing: counter)
             cell.usersCollection.reloadData()
 
             UIView.animate(withDuration: 0.88) {
