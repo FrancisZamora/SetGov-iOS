@@ -663,6 +663,9 @@ class EventViewController: SetGovTableViewController{
             cell.dataList = dataList
             cell.editCell(Event:dataList[indexPath.row])
             cell.alpha = 0
+            
+            cell.picArray = picArray[indexPath.row]
+            cell.usersCollection.reloadData()
             UIView.animate(withDuration: 1.0) {
                 cell.alpha = 1
             }
