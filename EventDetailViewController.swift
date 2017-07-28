@@ -90,10 +90,12 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
    
     
     func fetchUsers() {
+
         if selectedCity == "Boston" {
+            self.bostonIDS = self.bostonIDS.sorted() { $0 < $1 }
+
             ApiClient.fetchEvent(eventID:self.bostonIDS[indexofEvent] , onCompletion:{ json in
-                self.bostonIDS = self.bostonIDS.sorted() { $0 < $1 }
-            
+                self.tableView.reloadData()
                 print(self.bostonIDS[self.indexofEvent])
             
                 let pictureIDArray = json["data"]["event"]  ["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})

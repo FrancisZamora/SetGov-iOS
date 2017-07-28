@@ -63,7 +63,7 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
         case 0:
             return 275
         case 1:
-            return 275
+            return 350
         default:
             return 0
         }
@@ -97,7 +97,9 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
             if paragraphArray.isEmpty == true {
                 agendadetailComments.commentField.text = "Agenda Details not available"
             }
-            agendadetailComments.commentField.text = paragraphArray[index][0]
+            if paragraphArray.isEmpty == false {
+                agendadetailComments.commentField.text = paragraphArray[index][0]
+            }
             agendadetailComments.disableEditing()
             
             return agendadetailComments
