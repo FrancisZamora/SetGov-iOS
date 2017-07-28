@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class Attendee: UICollectionViewCell {
     @IBOutlet var userPicture: UIImageView!
@@ -24,7 +25,8 @@ class Attendee: UICollectionViewCell {
         let theProfileImageUrl = URL(string:rawData)
         do {
             let imageData = try Data(contentsOf: theProfileImageUrl!)
-            userPicture.image = UIImage(data: imageData)
+            
+            userPicture.kf.setImage(with: theProfileImageUrl)
             print("image created")
         } catch {
             print("Unable to load data: \(error)")

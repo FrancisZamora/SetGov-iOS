@@ -12,6 +12,7 @@ target 'SetGov' do
   pod 'SwiftyJSON'
   pod 'NVActivityIndicatorView'
   pod 'AlamofireObjectMapper', '~> 4.0'
+  pod 'Kingfisher', '~> 3.0'
 
 
   target 'SetGovTests' do

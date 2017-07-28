@@ -91,7 +91,6 @@ class EventViewController: SetGovTableViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.checkMembers()
         
     }
     override func viewDidLoad() {
