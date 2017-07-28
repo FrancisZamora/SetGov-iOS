@@ -190,7 +190,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         streamPressed = tapped
         
         print("event stream callback")
-        tableView.reloadData()
+        //tableView.reloadData()
         
         
     }
@@ -364,15 +364,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             
 
             }
-            if eventStream.initiateStream == false {
-                return eventStream
-            }
-            if (animateView == true) {
-                print("reloading data")
-                eventStream.activateStream() 
-                self.tableView.reloadData()
-            }
-            
+          
+          
             if eventStream.initiateStream == true {
                 // add transition with 2 second delay coming in from the right 
                 print(eventStream.presentStream)

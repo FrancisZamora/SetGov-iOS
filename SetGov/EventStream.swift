@@ -176,12 +176,12 @@ class EventStream:  UITableViewCell {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(increment), userInfo: nil, repeats: true)
         print("streamContent initiliazing")
 
-        if (self.initiateStream == true) {
-             self.EventDetailViewController?.tableView.reloadData()
-            print("reloading data")
-            self.presentStream = true
-            print("present Stream")
-        }
+      //  if (self.initiateStream == true) {
+        //     self.EventDetailViewController?.tableView.reloadData()
+          //  print("reloading data")
+            //self.presentStream = true
+            //print("present Stream")
+        //}
         
     }
     
