@@ -104,15 +104,28 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
             if selectedCity == "Boston" {
                 if paragraphArray.isEmpty == true {
                     agendadetailComments.commentField.text = "Agenda Details not available"
+                    agendadetailComments.disableEditing()
+                    return agendadetailComments
                 }
                 
                 
                 if paragraphArray.count < index   {
                     agendadetailComments.commentField.text = "Agenda Details not available"
+                    agendadetailComments.disableEditing()
+                    return agendadetailComments
+
                 }
                 
+                if paragraphArray[index][0].isEmpty {
+                    agendadetailComments.commentField.text = "Agenda Details not available"
+                    agendadetailComments.disableEditing()
+                    return agendadetailComments
+
+                }
                 if paragraphArray.count >= index {
                     agendadetailComments.commentField.text = paragraphArray[index][0]
+                    agendadetailComments.disableEditing()
+                    return agendadetailComments
                 }
                 
             

@@ -14,7 +14,7 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
     var user: User!
 
    
-
+ 
     @IBOutlet var pickerView: UIPickerView!
     
     func configurePicker() {

@@ -19,10 +19,20 @@ class EventDiscussion: UITableViewCell {
     @IBOutlet var karma: UILabel!
     var upVoted =  Bool()
     var downVoted = Bool()
+    var user: User!
     
     
     
-    
+    func configure() {
+        let theProfileImageUrl = URL(string:self.user.profilePictureURL)
+        do {
+            let imageData = try Data(contentsOf: theProfileImageUrl!)
+            userPicture.image = UIImage(data: imageData)
+        } catch {
+            print("Unable to load data: \(error)")
+        }
+        
+    }
     
     @IBAction func upvoteAction(_ sender: Any) {
         if self.upVoted == false {

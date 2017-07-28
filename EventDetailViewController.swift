@@ -471,6 +471,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
         if (indexPath.row==4) {
             let discussionCell = tableView.dequeueReusableCell(withIdentifier: "EventDiscussion", for:indexPath) as! EventDiscussion
+            discussionCell.user = self.appDelegate.user
+            discussionCell.configure()
             discussionCell.selectionStyle = .none
             return discussionCell
         }
