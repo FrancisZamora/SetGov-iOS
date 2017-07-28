@@ -207,6 +207,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         controller.agendaInfo = agendaInfo
         controller.index = Index
         controller.agendaTitles = agendaTitle
+        controller.selectedCity = selectedCity 
         self.present(controller, animated:true, completion: nil )
     
    

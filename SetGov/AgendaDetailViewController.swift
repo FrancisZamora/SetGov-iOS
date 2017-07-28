@@ -21,6 +21,7 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
     var index = 0
     var paragraphArray = [[String]()]
     var agendaTitles = [String]()
+    var selectedCity = " "
     @IBOutlet var navTitle: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,8 +79,12 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
             agendadetailHeader.selectionStyle = .none
             agendadetailHeader.agendaImage.image = agendaImage
             print(agendaInfo)
-            
-            agendadetailHeader.titleLabel.text = agendaTitles[index]
+            if selectedCity == "Fort Lauderdale"{
+                agendadetailHeader.titleLabel.text = "Not Available"
+            }
+            if selectedCity == "Boston" {
+                agendadetailHeader.titleLabel.text = agendaTitles[index]
+            }
             
           
             agendadetailHeader.headerCallBack = self
@@ -93,13 +98,23 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
         
         if(indexPath.row == 1) {
             let agendadetailComments = tableView.dequeueReusableCell(withIdentifier: "AgendaDetailComments", for:indexPath) as! AgendaDetailComments
+            
             agendadetailComments.selectionStyle = .none
-            if paragraphArray.isEmpty == true {
+            
+            if selectedCity == "Boston" {
+                if paragraphArray.isEmpty == true {
+                    agendadetailComments.commentField.text = "Agenda Details    not available"
+                }
+                
+                if paragraphArray.isEmpty == false {
+                    agendadetailComments.commentField.text = paragraphArray[index][0]
+                }
+            }
+            
+            if selectedCity == "Fort Lauderdale" {
                 agendadetailComments.commentField.text = "Agenda Details not available"
             }
-            if paragraphArray.isEmpty == false {
-                agendadetailComments.commentField.text = paragraphArray[index][0]
-            }
+            
             agendadetailComments.disableEditing()
             
             return agendadetailComments
