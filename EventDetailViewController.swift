@@ -98,6 +98,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             
                 let pictureIDArray = json["data"]["event"]  ["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
                 self.picArray = pictureIDArray
+                print("THIS IS THE PICTURE ARRAY FOR BOSTON \(self.picArray)")
                 self.tableView.reloadData()
             
             

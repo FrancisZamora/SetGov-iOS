@@ -238,7 +238,7 @@ class EventStream:  UITableViewCell {
     
     func checkStatus() -> Bool {
         var x = false
-        if selectedCity == "Boston" && compareTime() == false  {
+        if selectedCity == "Boston"  {
             
             ApiClient.fetchEvent(eventID:bostonIDS[indexofEvent] , onCompletion:{ json in
                 
@@ -253,6 +253,7 @@ class EventStream:  UITableViewCell {
             
             if compareTime() == true {
                 self.nowLive()
+                firstpress = false 
 
             }
 

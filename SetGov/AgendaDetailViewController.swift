@@ -94,6 +94,9 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
         if(indexPath.row == 1) {
             let agendadetailComments = tableView.dequeueReusableCell(withIdentifier: "AgendaDetailComments", for:indexPath) as! AgendaDetailComments
             agendadetailComments.selectionStyle = .none
+            if paragraphArray.isEmpty == true {
+                agendadetailComments.commentField.text = "Agenda Details not available"
+            }
             agendadetailComments.commentField.text = paragraphArray[index][0]
             agendadetailComments.disableEditing()
             
