@@ -263,6 +263,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventStream.user = self.user
                 eventStream.configureImage()
                 eventStream.bostonIDS = bostonIDS
+    
                 eventStream.fortlauderdaleIDS = fortlauderdaleIDS
                 print(fortlauderdaleIDS)
                 print(eventStream.fortlauderdaleIDS)
@@ -315,6 +316,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 
                 }
             }
+            
+            
             
             if eventStream.compareTime() == true && eventStream.firstpress == false || videoRequested == true {
                 print(checkAlert())

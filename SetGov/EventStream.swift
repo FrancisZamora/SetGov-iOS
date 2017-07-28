@@ -238,7 +238,7 @@ class EventStream:  UITableViewCell {
     
     func checkStatus() -> Bool {
         var x = false
-        if selectedCity == "Boston" {
+        if selectedCity == "Boston" && compareTime() == false  {
             
             ApiClient.fetchEvent(eventID:bostonIDS[indexofEvent] , onCompletion:{ json in
                 
@@ -251,6 +251,11 @@ class EventStream:  UITableViewCell {
                 
             })
             
+            if compareTime() == true {
+                self.nowLive()
+
+            }
+
             return x
             
             
@@ -263,7 +268,7 @@ class EventStream:  UITableViewCell {
             
         }
         
-        if selectedCity == "Fort Lauderdale" {
+        if selectedCity == "Fort Lauderdale" && compareTime() == false {
             print(fortlauderdaleIDS)
             ApiClient.fetchEvent(eventID:fortlauderdaleIDS[indexofEvent] , onCompletion: { json in
                
@@ -275,6 +280,11 @@ class EventStream:  UITableViewCell {
 
                 }
         })
+        
+            if compareTime() == true {
+                self.nowLive()
+
+            }
 
 
         }
@@ -317,6 +327,10 @@ class EventStream:  UITableViewCell {
 
                     
                 })
+                
+                if compareTime() == true {
+                    self.nowLive()
+                }
 
             }
             
@@ -337,6 +351,9 @@ class EventStream:  UITableViewCell {
                 
                 })
                 
+            }
+            if compareTime() == true {
+                self.nowLive()
             }
             firstpress = false
 
