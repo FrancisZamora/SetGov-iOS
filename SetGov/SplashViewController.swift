@@ -27,6 +27,12 @@ class SplashViewController: SetGovViewController {
             UIView.animate(withDuration: 2.0, delay: 0.0, options: .curveEaseOut, animations: {
                 self.loading.alpha = 1.0
             })
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "loginCompleted") as! LoginViewController
+            self.show(controller, sender: nil)
+
+            
         }
         
         if UserDefaults.standard.string(forKey:"logged") == "out" {

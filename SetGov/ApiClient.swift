@@ -13,7 +13,7 @@ import AlamofireObjectMapper
 
 class ApiClient {
     static func login(token:String,onCompletion: @escaping(JSON) -> Void) {
-        let URL = "http://localhost:3000/api/v/1/graph"
+        let URL = "https://setgov.herokuapp.com/api/v/1/graph"
         let query = "mutation {authenticateUser(facebook_token:\"\(token)\") {id,full_name, profileImage{ id, url}}}"
 
 
@@ -64,7 +64,7 @@ class ApiClient {
         
         
         let description = event.eventDescription
-        let URL = "http://localhost:3000/api/v/1/graph"
+        let URL = "https://setgov.herokuapp.com/api/v/1/graph"
         let query = "mutation{addEvent(name:\"\(name)\",city:\"\(city)\",address:\"\(address)\",date:\"\(dater)\",description:\"\(description)\",time:\"\(time)\"){id}}"
         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
             
@@ -87,7 +87,7 @@ class ApiClient {
     static func attendEvent(eventID:Int, onCompletion: @escaping(JSON) -> Void) {
         print(eventID)
         
-        let URL = "http://localhost:3000/api/v/1/graph"
+        let URL = "https://setgov.herokuapp.com/api/v/1/graph"
         let query = "mutation {attendEvent(event_id:\(eventID)){id }}"
         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
             guard let jsonString = response.result.value else {
@@ -103,7 +103,7 @@ class ApiClient {
     }
     
     static func fetchEvent(eventID:Int, onCompletion: @escaping(JSON) -> Void) {
-         let URL = "http://localhost:3000/api/v/1/graph"
+         let URL = "https://setgov.herokuapp.com/api/v/1/graph"
          let query = "query{ event(id:\(eventID)){attendingUsers{full_name,profileImage{url}}}}"
          Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
     
@@ -122,7 +122,7 @@ class ApiClient {
     }
     
     static func fetchEvents(city:String, onCompletion: @escaping(JSON) -> Void) {
-        let URL = "http://localhost:3000/api/v/1/graph"
+        let URL = "https://setgov.herokuapp.com/api/v/1/graph"
         let query = "query { upcomingEvents(city:\"\(city)\"){id,name,date, description, attendingUsers{full_name, profileImage{url}}, address, city}}"
         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
             guard let jsonString = response.result.value else {
