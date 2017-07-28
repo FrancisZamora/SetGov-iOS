@@ -669,6 +669,9 @@ class EventViewController: SetGovTableViewController{
             cell.alpha = 0
             
             cell.picArray = picArray[indexPath.row]
+            let counter = cell.picArray.count
+            cell.memberCount.text = String(describing: counter)
+            cell.usersCollection.reloadData()
             cell.usersCollection.reloadData()
             UIView.animate(withDuration: 1.0) {
                 cell.alpha = 1
