@@ -82,9 +82,10 @@ class EventViewController: SetGovTableViewController{
                 self.picArray.append(pictureIDArray)
                 self.tableView.reloadData()
                 print(self.picArray)
+           
                 
             }
-          
+        
         })
     }
     
@@ -95,6 +96,11 @@ class EventViewController: SetGovTableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         print(selectedCity)
+            
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "CityNavigationViewController") as! CityNavigationViewController
+        self.navigationController?.viewControllers.insert(controller, at: 1)
+
         self.user = self.appDelegate.user
 
         print(self.user.fullName)
@@ -487,13 +493,16 @@ class EventViewController: SetGovTableViewController{
             
             
             ApiClient.addEvent(event: event,onCompletion: { (json) in
-                let eventID = json["data"]["createEvent"]
+                let eventID = json["data"]["addEvent"]["id"]
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                     guard let id = eventID.int else {
                         return
                     }
                 
                   self.fortlauderdaleIDS.append(id)
+                  print("these are the ids")
+                  print(self.fortlauderdaleIDS)
+                
                 }
             })
            count = count + 1

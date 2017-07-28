@@ -86,19 +86,36 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         }
     }
     
-    func fetchUsers() {
-        ApiClient.fetchEvent(eventID:self.bostonIDS[indexofEvent] , onCompletion:{ json in
-            self.bostonIDS = self.bostonIDS.sorted() { $0 < $1 }
-            
-            print(self.bostonIDS[self.indexofEvent])
-            
-            let pictureIDArray = json["data"]["event"]["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
-            self.picArray = pictureIDArray
-            self.tableView.reloadData()
-            
-            
-        })
+   
     
+    func fetchUsers() {
+        if selectedCity == "Boston" {
+            ApiClient.fetchEvent(eventID:self.bostonIDS[indexofEvent] , onCompletion:{ json in
+                self.bostonIDS = self.bostonIDS.sorted() { $0 < $1 }
+            
+                print(self.bostonIDS[self.indexofEvent])
+            
+                let pictureIDArray = json["data"]["event"]  ["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
+                self.picArray = pictureIDArray
+                self.tableView.reloadData()
+            
+            
+            })
+        }
+        if selectedCity == "Fort Lauderdale" {
+            ApiClient.fetchEvent(eventID:self.fortlauderdaleIDS[indexofEvent] , onCompletion:{ json in
+                self.fortlauderdaleIDS = self.bostonIDS.sorted() { $0 < $1 }
+        
+        
+                let pictureIDArray = json["data"]["event"]  ["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
+                self.picArray = pictureIDArray
+                self.tableView.reloadData()
+        
+        
+        })
+        }
+
+        
     }
     
     func refresh(sender:AnyObject) {
