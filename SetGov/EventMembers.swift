@@ -27,7 +27,7 @@ class EventMembers: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("this is the pic array")
+        print("this is the pic array for event detail")
         print(picArray)
         return picArray.count
     }
@@ -39,7 +39,7 @@ class EventMembers: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Attendee", for: indexPath) as! Attendee
-        print("THIS IS THE PIC ARRAY")
+        print("THIS IS THE PIC ARRAY FOR EVENT DETAIL")
         print(self.picArray)
         cell.configure()
         cell.generateImage(rawData: picArray[indexPath.row])

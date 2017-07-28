@@ -94,6 +94,8 @@ class SplashViewController: SetGovViewController {
                     return
                 }
                 controller.selectedCity = city
+                controller.checkMembers()
+
                 //self.loginSuccessful = true
                 
                 self.show(controller, sender: nil)

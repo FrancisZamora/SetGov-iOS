@@ -23,7 +23,7 @@ class ApiClient {
     
             print(response)
         guard let jsonString = response.result.value else {
-            onCompletion(nil)
+            onCompletion(JSON.null)
             return
         }
     
@@ -51,7 +51,7 @@ class ApiClient {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yy"
         formatter.dateStyle = .short
-        var x = event.eventDate + " 2017"
+        let x = event.eventDate + " 2017"
         let date = formatter.date(from: x)
             print(date)
             
@@ -69,7 +69,7 @@ class ApiClient {
         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
             
             guard let jsonString = response.result.value else {
-                onCompletion(nil)
+                onCompletion(JSON.null)
                 return
             }
             let json = JSON(jsonString)

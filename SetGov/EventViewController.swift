@@ -74,7 +74,7 @@ class EventViewController: SetGovTableViewController{
         ApiClient.fetchEvents(city: selectedCity,  onCompletion: { json in
             print("this is the index")
             var event = json["data"]["upcomingEvents"]
-            for (index,val):(String, JSON) in event  {
+            for (_,val):(String, JSON) in event  {
                 let pictureIDArray = val["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
                 print("this is the picture id array")
                 print(pictureIDArray)
@@ -463,7 +463,7 @@ class EventViewController: SetGovTableViewController{
             var castedArray = now.components(separatedBy:",")
             
             let date = castedArray[0]
-            let y = fortlauderdaleArray[index][5].trimmingCharacters(in: .whitespacesAndNewlines)
+            _ = fortlauderdaleArray[index][5].trimmingCharacters(in: .whitespacesAndNewlines)
             let z = fortlauderdaleArray[index][0].components(separatedBy: " ")
             let finalDescription = z
             let finalTitle = (finalDescription[finalDescription.count-1])
@@ -613,11 +613,14 @@ class EventViewController: SetGovTableViewController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if picArray.count <= 1 {
+        if picArray.count <= 1 || picArray.isEmpty == true  {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCell
             cell.configure()
             cell.selectionStyle = .none
-            
+            cell.selectedCity = selectedCity
+            cell.editCell(Event: dataList[indexPath.row])
+            cell.selectionStyle = .none
+            print(" we hit the conditional")
             return cell
 
             

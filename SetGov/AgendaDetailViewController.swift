@@ -43,12 +43,12 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         self.numsections = 1
         print("numberofSections")
-        return 1
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("numberofRows")
-        return 6
+        return 2
         
     }
     
@@ -61,11 +61,9 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
     {
         switch indexPath.row {
         case 0:
-            return 231
+            return 275
         case 1:
-            return 248
-        case 2:
-            return 249
+            return 275
         default:
             return 0
         }
@@ -91,13 +89,9 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
             return agendadetailHeader
         }
         
-        if(indexPath.row == 1) {
-            let agendadetailData =  tableView.dequeueReusableCell(withIdentifier: "AgendaDetailData", for:indexPath) as! AgendaDetailData
-            agendadetailData.selectionStyle = .none
-            return agendadetailData
-        }
         
-        if(indexPath.row == 2) {
+        
+        if(indexPath.row == 1) {
             let agendadetailComments = tableView.dequeueReusableCell(withIdentifier: "AgendaDetailComments", for:indexPath) as! AgendaDetailComments
             agendadetailComments.selectionStyle = .none
             agendadetailComments.commentField.text = paragraphArray[index][0]
@@ -105,7 +99,7 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
             
             return agendadetailComments
         }
-        let agendadetailHeader =  tableView.dequeueReusableCell(withIdentifier: "AgendaDetailHeader", for:indexPath) as! AgendaDetailHeader
+        let agendadetailHeader =  tableView.dequeueReusableCell(withIdentifier: "AgendaDetailComments", for:indexPath) as! AgendaDetailComments
         agendadetailHeader.selectionStyle = .none
         
         return agendadetailHeader
@@ -114,18 +108,6 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
 
     
     
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

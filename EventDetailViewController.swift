@@ -55,6 +55,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     override func viewDidLoad() {
         self.user = self.appDelegate.user
+        self.fetchUsers()
+
         super.viewDidLoad()
         print("EventDetailViewController")
         self.loadTitle()
@@ -69,6 +71,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     override func viewWillAppear(_ animated: Bool) {
         self.fetchUsers()
+        tableView.reloadData()
 
     }
     
