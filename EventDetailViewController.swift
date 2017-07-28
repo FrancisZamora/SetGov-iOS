@@ -65,6 +65,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         self.currentEvent = dataList[indexofEvent]
         print("these are the boston ids")
         print(bostonIDS)
+        print("these are the fort lauderdale ids \(fortlauderdaleIDS)")
         print(agendaInfo)
         print(indexofEvent)
     }
@@ -104,7 +105,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         }
         if selectedCity == "Fort Lauderdale" {
             ApiClient.fetchEvent(eventID:self.fortlauderdaleIDS[indexofEvent] , onCompletion:{ json in
-                self.fortlauderdaleIDS = self.bostonIDS.sorted() { $0 < $1 }
+                self.fortlauderdaleIDS = self.fortlauderdaleIDS.sorted() { $0 < $1 }
         
         
                 let pictureIDArray = json["data"]["event"]  ["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
@@ -263,6 +264,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventStream.configureImage()
                 eventStream.bostonIDS = bostonIDS
                 eventStream.fortlauderdaleIDS = fortlauderdaleIDS
+                print(fortlauderdaleIDS)
+                print(eventStream.fortlauderdaleIDS)
                 eventStream.currentEvent = currentEvent
                 eventStream.eventTitle = eventTitle
                 eventStream.selectionStyle = .none
@@ -276,6 +279,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventStream.configure()
                 eventStream.streamContent()
                 eventStream.checkStatus()
+                eventStream.fortlauderdaleIDS = fortlauderdaleIDS
+
                 eventStream.eventImage.image = eventImages[indexofEvent]
                 agendaImage = eventStream.eventImage.image!
             

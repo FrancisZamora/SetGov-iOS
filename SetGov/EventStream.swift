@@ -264,6 +264,7 @@ class EventStream:  UITableViewCell {
         }
         
         if selectedCity == "Fort Lauderdale" {
+            print(fortlauderdaleIDS)
             ApiClient.fetchEvent(eventID:fortlauderdaleIDS[indexofEvent] , onCompletion: { json in
                
                 let fullNameArray =  json["data"]["event"]["attendingUsers"].arrayValue.map({$0["full_name"].stringValue})
@@ -320,7 +321,7 @@ class EventStream:  UITableViewCell {
             }
             
             if self.selectedCity == "Fort Lauderdale" {
-                let eventID = bostonIDS[indexofEvent]
+                let eventID = fortlauderdaleIDS[indexofEvent]
 
                 ApiClient.attendEvent( eventID: eventID ,onCompletion: { json in
                     self.currentEvent.eventUsers.append(self.user.fullName)
