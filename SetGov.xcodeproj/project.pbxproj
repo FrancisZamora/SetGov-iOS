@@ -34,6 +34,8 @@
 		1529E0AE1F103524001FE4BB /* profileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1529E0AD1F103524001FE4BB /* profileCell.swift */; };
 		1529E0B01F103A6D001FE4BB /* logOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1529E0AF1F103A6D001FE4BB /* logOut.swift */; };
 		152DBEE91EF1BC1E00322E56 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152DBEE81EF1BC1E00322E56 /* Event.swift */; };
+		1534AD801F2C09760001D08D /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1534AD7F1F2C09760001D08D /* Comment.swift */; };
+		1534AD821F2C0B3C0001D08D /* CreateComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1534AD811F2C0B3C0001D08D /* CreateComment.swift */; };
 		153F3F7C1E6DF0E50004E2F4 /* SetGovViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F7B1E6DF0E50004E2F4 /* SetGovViewController.swift */; };
 		153F3F7E1E6DF0ED0004E2F4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F7D1E6DF0ED0004E2F4 /* LoginViewController.swift */; };
 		153F3F851E6DF2A20004E2F4 /* SetGovTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F3F841E6DF2A20004E2F4 /* SetGovTableViewController.swift */; };
@@ -113,6 +115,8 @@
 		1529E0AF1F103A6D001FE4BB /* logOut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = logOut.swift; sourceTree = "<group>"; };
 		152DBEE81EF1BC1E00322E56 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		152E12B11F16E8E500306967 /* SetGov.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SetGov.entitlements; sourceTree = "<group>"; };
+		1534AD7F1F2C09760001D08D /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		1534AD811F2C0B3C0001D08D /* CreateComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateComment.swift; sourceTree = "<group>"; };
 		153F3F7B1E6DF0E50004E2F4 /* SetGovViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetGovViewController.swift; path = Controllers/SetGovViewController.swift; sourceTree = "<group>"; };
 		153F3F7D1E6DF0ED0004E2F4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controllers/LoginViewController.swift; sourceTree = "<group>"; };
 		153F3F841E6DF2A20004E2F4 /* SetGovTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetGovTableViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 			children = (
 				1502CDB71EFB2F4F00CD658F /* Users.swift */,
 				152DBEE81EF1BC1E00322E56 /* Event.swift */,
+				1534AD7F1F2C09760001D08D /* Comment.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 				15D442251EF355BC00AC8FD1 /* MiamiCell.swift */,
 				1529E0AD1F103524001FE4BB /* profileCell.swift */,
 				15F882411F2A391D001BA502 /* Attendee.swift */,
+				1534AD811F2C0B3C0001D08D /* CreateComment.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -665,12 +671,14 @@
 				15D442261EF355BC00AC8FD1 /* MiamiCell.swift in Sources */,
 				151547601EF2D527003FF351 /* libxmlHTMLNode.swift in Sources */,
 				15433B921F15765800B8FE0D /* CityOnboardingScreen.swift in Sources */,
+				1534AD821F2C0B3C0001D08D /* CreateComment.swift in Sources */,
 				15C64B4D1EADA96200B123A5 /* NewYorkCityCell.swift in Sources */,
 				151CDA841E64CF3700440CDE /* AppDelegate.swift in Sources */,
 				156BD4CF1E836B7800E8F98B /* EventStream.swift in Sources */,
 				151CDAB61E64F2C500440CDE /* constants.swift in Sources */,
 				15433B941F15766700B8FE0D /* EventOnboardingScreen.swift in Sources */,
 				156BD4C91E83185200E8F98B /* EventDetailViewController.swift in Sources */,
+				1534AD801F2C09760001D08D /* Comment.swift in Sources */,
 				1515A6C71F101677004312F2 /* homeCity.swift in Sources */,
 				1515A6C51F10166C004312F2 /* pushNotification.swift in Sources */,
 				156BD4D31E836BB300E8F98B /* EventDiscussion.swift in Sources */,

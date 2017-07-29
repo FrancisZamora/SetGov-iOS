@@ -253,7 +253,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         case 3:
             return 94
         case 4:
-            return 94
+            return 50
         default:
             return 0
         }
@@ -470,11 +470,11 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         }
         
         if (indexPath.row==4) {
-            let discussionCell = tableView.dequeueReusableCell(withIdentifier: "EventDiscussion", for:indexPath) as! EventDiscussion
-            discussionCell.user = self.appDelegate.user
-            discussionCell.configure()
-            discussionCell.selectionStyle = .none
-            return discussionCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CreateComment", for:indexPath) as! CreateComment
+          //  discussionCell.user = self.appDelegate.user
+            //discussionCell.configure()
+            //discussionCell.selectionStyle = .none
+            return cell
         }
         
         let cell =  tableView.dequeueReusableCell(withIdentifier: "EventStream", for:indexPath) as! EventStream
