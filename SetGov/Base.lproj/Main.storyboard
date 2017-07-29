@@ -9,7 +9,6 @@
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -127,7 +126,7 @@
                                                 <constraint firstAttribute="width" constant="13" id="arF-uD-bd5"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="8205A35C-3A7D-4F46-A1F8-4B878B6B092E" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="A5FE07F3-95B1-4107-BB4B-8F7A7C3C169F" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
                                             <rect key="frame" x="61" y="271" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="gCa-oq-bRh"/>
@@ -734,19 +733,25 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Comment" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FCB-Zy-XkH">
-                                            <rect key="frame" x="0.0" y="6" width="375" height="37.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <action selector="createAction:" destination="Lp1-Ad-oth" eventType="primaryActionTriggered" id="vn3-8L-wIl"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="FCB-Zy-XkH" firstAttribute="centerX" secondItem="HXy-VX-XSg" secondAttribute="centerX" id="16X-lr-LjV"/>
-                                        <constraint firstItem="FCB-Zy-XkH" firstAttribute="height" secondItem="HXy-VX-XSg" secondAttribute="height" multiplier="3:4" id="HWi-jv-NnA"/>
+                                        <constraint firstItem="FCB-Zy-XkH" firstAttribute="height" secondItem="HXy-VX-XSg" secondAttribute="height" id="HWi-jv-NnA"/>
                                         <constraint firstItem="FCB-Zy-XkH" firstAttribute="centerY" secondItem="HXy-VX-XSg" secondAttribute="centerY" id="i7v-Az-Eev"/>
                                         <constraint firstItem="FCB-Zy-XkH" firstAttribute="width" secondItem="HXy-VX-XSg" secondAttribute="width" id="xzm-1k-h1i"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="commentField" destination="FCB-Zy-XkH" id="fpg-yX-9rh"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1450,7 +1455,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="8205A35C-3A7D-4F46-A1F8-4B878B6B092E" width="479" height="586">
+        <image name="A5FE07F3-95B1-4107-BB4B-8F7A7C3C169F" width="479" height="586">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

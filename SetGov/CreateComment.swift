@@ -9,6 +9,20 @@
 import Foundation
 import UIKit
 
-class CreateComment: UITableViewCell {
+protocol commentCallBack: class {
+    func retrievecommentData(comment:String)
+}
+
+class CreateComment: UITableViewCell, UITextFieldDelegate {
+    @IBOutlet var commentField: UITextField!
+    
+    
+    
+    @IBAction func createAction(_ sender: Any) {
+        print("comment being created")
+        
+    }
+    
+ 
     
 }
