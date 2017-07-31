@@ -126,7 +126,7 @@
                                                 <constraint firstAttribute="width" constant="13" id="arF-uD-bd5"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="A5FE07F3-95B1-4107-BB4B-8F7A7C3C169F" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="20F823C3-F6A5-4B29-A45A-0FD950175A34" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
                                             <rect key="frame" x="61" y="271" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="gCa-oq-bRh"/>
@@ -1455,7 +1455,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="A5FE07F3-95B1-4107-BB4B-8F7A7C3C169F" width="479" height="586">
+        <image name="20F823C3-F6A5-4B29-A45A-0FD950175A34" width="479" height="586">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

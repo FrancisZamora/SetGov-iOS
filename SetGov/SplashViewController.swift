@@ -60,8 +60,7 @@ class SplashViewController: SetGovViewController {
                 let profileURL = json["data"]["authenticateUser"]["profileImage"]["url"]
                 
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                    print(fullName.string)
-                    print(profileURL.string)
+                    
                     self.user = self.appDelegate.user
 
                     guard let name = fullName.string else {

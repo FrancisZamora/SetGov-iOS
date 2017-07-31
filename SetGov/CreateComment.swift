@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol commentCallBack: class {
+protocol CommentCallBack: class {
     func retrievecommentData(comment:String)
 }
 
@@ -20,6 +20,7 @@ class CreateComment: UITableViewCell, UITextFieldDelegate {
     
     @IBAction func createAction(_ sender: Any) {
         print("comment being created")
+        
         
     }
     

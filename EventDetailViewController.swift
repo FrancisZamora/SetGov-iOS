@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import QuartzCore
 
-class EventDetailViewController: SetGovTableViewController, EventAgendaCallback, EventStreamCallback{
+class EventDetailViewController: SetGovTableViewController, EventAgendaCallback, EventStreamCallback, CommentCallBack{
     var activate = true
     var infoCell = true
     var memberCell = true
@@ -47,6 +47,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var fortlauderdaleIDS = [Int]()
     var bostonIDS = [Int]()
     var currentEvent: Event!
+    var comment = String()
     weak var collectionView: UICollectionView!
     var picArray = [String]()
     var user: User!
@@ -164,6 +165,13 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             eventTitle = navTitle.title!
        
         }
+        
+    }
+    
+    func retrievecommentData(comment:String) {
+        self.comment = comment
+        
+        self.tableView.reloadData()
         
     }
     

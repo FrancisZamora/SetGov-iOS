@@ -53,7 +53,6 @@ class ApiClient {
         formatter.dateStyle = .short
         let x = event.eventDate + " 2017"
         let date = formatter.date(from: x)
-            print(date)
             
             let y = formatter.string(from: date!)
             print(y)
@@ -83,6 +82,32 @@ class ApiClient {
         
         
     }
+    
+    static func createComment(comment:String, eventID:Int, onCompletion: @escaping(JSON) -> Void) {
+        let URL = "https://setgov.herokuapp.com/api/v/1/graph"
+        let query = "mutation{ addComment(text:\"\(comment)\",event_id:\(eventID)) {timestamp}}"
+        Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
+            guard let jsonString = response.result.value else {
+                onCompletion(JSON.null)
+                return
+            }
+            let json = JSON(jsonString)
+            onCompletion(json)
+            
+            print(response)
+        }
+        
+        
+        
+        
+    }
+    
+    static func fetchComments(comment:String,eventID:Int) {
+       
+
+        
+    }
+    
     
     static func attendEvent(eventID:Int, onCompletion: @escaping(JSON) -> Void) {
         print(eventID)
