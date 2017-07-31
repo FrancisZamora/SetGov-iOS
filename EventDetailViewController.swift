@@ -176,6 +176,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             ApiClient.createComment(comment: comment, eventID: self.bostonIDS[indexofEvent], onCompletion:{ json in
             
             })
+            self.tableView.reloadData()
         
         }
         
@@ -183,6 +184,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             ApiClient.createComment(comment: comment, eventID: self.fortlauderdaleIDS[indexofEvent], onCompletion:{ json in
                 
             })
+            self.tableView.reloadData()
             
         }
         
