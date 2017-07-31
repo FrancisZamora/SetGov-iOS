@@ -46,8 +46,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var agendaTitle = [String]()
     var fortlauderdaleIDS = [Int]()
     var bostonIDS = [Int]()
+    var commentArray = [Comment]()
     var currentEvent: Event!
-    var comment = String()
     weak var collectionView: UICollectionView!
     var picArray = [String]()
     var user: User!
@@ -56,7 +56,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     override func viewDidLoad() {
         self.user = self.appDelegate.user
-        self.fetchUsers()
+        self.fetchEvent()
 
         super.viewDidLoad()
         print("EventDetailViewController")
@@ -72,7 +72,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.fetchUsers()
+        self.fetchEvent()
         tableView.reloadData()
 
     }
@@ -90,7 +90,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
    
     
-    func fetchUsers() {
+    func fetchEvent() {
 
         if selectedCity == "Boston" {
             self.bostonIDS = self.bostonIDS.sorted() { $0 < $1 }
@@ -102,6 +102,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 let pictureIDArray = json["data"]["event"]  ["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
                 self.picArray = pictureIDArray
                 print("THIS IS THE PICTURE ARRAY FOR BOSTON \(self.picArray)")
+                
+                
                 self.tableView.reloadData()
             
             
@@ -169,12 +171,25 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     }
     
     func retrievecommentData(comment:String) {
-        self.comment = comment
         print(comment)
+        if selectedCity == "Boston" {
+            ApiClient.createComment(comment: comment, eventID: self.bostonIDS[indexofEvent], onCompletion:{ json in
+            
+            })
         
-        self.tableView.reloadData()
+        }
+        
+        if selectedCity == "Fort Lauderdale" {
+            ApiClient.createComment(comment: comment, eventID: self.fortlauderdaleIDS[indexofEvent], onCompletion:{ json in
+                
+            })
+            
+        }
         
     }
+    
+    
+    
     
     func loadAgendaDetail(data: Dictionary<Int,String>,infoData:[[String]],agendaTitles:[String],index:Int) {
         
@@ -194,7 +209,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     func attendbuttonTapped() {
         print("attend button tapped, callback now")
-        self.fetchUsers()
+        self.fetchEvent()
         
     }
     

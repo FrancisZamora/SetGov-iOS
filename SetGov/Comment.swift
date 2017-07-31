@@ -11,14 +11,14 @@ import Foundation
 
 class Comment {
     var text = " "
-    var parentEvent = " "
+    //var parentEvent = " "
     var karma = 0
     var timeStamp = "0 mins ago"
     var user: User
     
-    init(text:String, parentEvent:String, user:User, karma:Int,timeStamp:String) {
+    init(text:String,  user:User, karma:Int,timeStamp:String) {
         self.text = text
-        self.parentEvent = parentEvent
+       // self.parentEvent = parentEvent
         self.karma = karma
         self.user = user
         self.timeStamp = timeStamp
