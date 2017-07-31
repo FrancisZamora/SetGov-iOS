@@ -170,6 +170,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     func retrievecommentData(comment:String) {
         self.comment = comment
+        print(comment)
         
         self.tableView.reloadData()
         
@@ -479,6 +480,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
         if (indexPath.row==4) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CreateComment", for:indexPath) as! CreateComment
+            cell.commentCallBack = self 
           //  discussionCell.user = self.appDelegate.user
             //discussionCell.configure()
             //discussionCell.selectionStyle = .none
@@ -495,35 +497,13 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         print(indexPath.row)
         
-       // if (indexPath.row == 2) {
-         //   let agendaCell = tableView.dequeueReusableCell(withIdentifier: "EventAgenda", for:indexPath) as! EventAgenda
-           // agendaCell.selectionStyle = .none
-            //agendaCell.agendaInfo = agendaInfo
-            //agendaCell.index = Index
-            //agendaCell.eventAgendaCallback = self
-            //print("HELLO")
-            
-            
-
-            
-       // }
-        
+    
         
         
         
         
     }
 
-   
-    
-   
-    
-    
-   
-    
-    
-    
-    
-
+  
     }
 

@@ -13,13 +13,24 @@ protocol CommentCallBack: class {
     func retrievecommentData(comment:String)
 }
 
+
+
 class CreateComment: UITableViewCell, UITextFieldDelegate {
     @IBOutlet var commentField: UITextField!
+    weak var commentCallBack: CommentCallBack!
+
     
     
     
     @IBAction func createAction(_ sender: Any) {
         print("comment being created")
+        if let callback = self.commentCallBack {
+            print("callback in progress")
+            
+            callback.retrievecommentData(comment: self.commentField.text!)
+        }
+
+        
         
         
     }

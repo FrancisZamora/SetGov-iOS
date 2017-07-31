@@ -102,7 +102,7 @@ class ApiClient {
         
     }
     
-    static func fetchComments(comment:String,eventID:Int) {
+    static func fetchComments(eventID:Int) {
        
 
         
