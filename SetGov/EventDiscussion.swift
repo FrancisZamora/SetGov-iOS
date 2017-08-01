@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import QuartzCore
-
+import Kingfisher
 class EventDiscussion: UITableViewCell {
     @IBOutlet var upVote: UIButton!
     @IBOutlet var downVote: UIButton!
