@@ -298,7 +298,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         case 3:
             return 94
         case 4:
-            return 50
+            return 94
         default:
             return 0
         }
@@ -513,14 +513,31 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             cell.fortlauderdaleIDS = fortlauderdaleIDS
             return cell
         }
+        if commentArray.count == 0 {
         
-        if (indexPath.row==4) {
+            if (indexPath.row==4) {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "CreateComment", for:indexPath) as! CreateComment
+                cell.commentCallBack = self
+                //  discussionCell.user = self.appDelegate.user
+                //discussionCell.configure()
+                //discussionCell.selectionStyle = .none
+                return cell
+            }
+        }
+        else {
+            for (_,val) in commentArray.enumerated() {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "EventDiscussion", for:indexPath) as! EventDiscussion
+                cell.configure(comment: val)
+                return cell
+                
+            }
             let cell = tableView.dequeueReusableCell(withIdentifier: "CreateComment", for:indexPath) as! CreateComment
-            cell.commentCallBack = self 
-          //  discussionCell.user = self.appDelegate.user
-            //discussionCell.configure()
-            //discussionCell.selectionStyle = .none
+            cell.commentCallBack = self
+            
             return cell
+            
+            
+            
         }
         
         let cell =  tableView.dequeueReusableCell(withIdentifier: "EventStream", for:indexPath) as! EventStream

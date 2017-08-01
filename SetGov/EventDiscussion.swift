@@ -20,17 +20,28 @@ class EventDiscussion: UITableViewCell {
     var upVoted =  Bool()
     var downVoted = Bool()
     var user: User!
+    @IBOutlet var textBox: UILabel!
     
     
     
-    func configure() {
-        let theProfileImageUrl = URL(string:self.user.profilePictureURL)
+    func configure(comment:Comment) {
+        textBox.text = comment.text
+        karma.text = String(describing:comment.karma)
+        userName.text = comment.user.fullName
+        let theProfileImageUrl = URL(string:comment.user.profilePictureURL)
         do {
             let imageData = try Data(contentsOf: theProfileImageUrl!)
-            userPicture.image = UIImage(data: imageData)
+            
+            userPicture.kf.setImage(with: theProfileImageUrl)
+            print("image created")
         } catch {
             print("Unable to load data: \(error)")
+            print("image failed")
         }
+        
+        
+        
+       
         
     }
     
