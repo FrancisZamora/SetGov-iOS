@@ -80,6 +80,7 @@ class EventViewController: SetGovTableViewController{
                 print(pictureIDArray)
                 print(json["data"]["upcomingEvents"].count)
                 self.picArray.append(pictureIDArray)
+                self.tableView.reloadData()
                 print(self.picArray)
            
                 
