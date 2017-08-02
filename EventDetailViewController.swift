@@ -74,6 +74,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     override func viewWillAppear(_ animated: Bool) {
         self.fetchEvent()
+        print("this is the length of the comment array")
+        print(commentArray.count)
+        
         tableView.reloadData()
 
     }
@@ -109,7 +112,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 print("here is the comment")
                 
                 print(comments)
-                
+
                 for (_,val):(String, JSON) in comments  {
                 
                    
@@ -121,11 +124,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                     print("here is the text")
                     
                 }
-
-                
-                self.tableView.reloadData()
-            
-            
             })
         }
         if selectedCity == "Fort Lauderdale" {
@@ -195,6 +193,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             ApiClient.createComment(comment: comment, eventID: self.bostonIDS[indexofEvent], onCompletion:{ json in
             
             })
+            self.fetchEvent()
             self.tableView.reloadData()
         
         }
@@ -528,9 +527,12 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             for (_,val) in commentArray.enumerated() {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "EventDiscussion", for:indexPath) as! EventDiscussion
                 cell.configure(comment: val)
+                cell.selectionStyle = .none
                 return cell
                 
             }
+            
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "CreateComment", for:indexPath) as! CreateComment
             cell.commentCallBack = self
             
