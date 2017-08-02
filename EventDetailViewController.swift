@@ -123,7 +123,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                     print(val)
                    
                     let user = User(fullName: val["user"]["full_name"].stringValue,profilePictureURL: val["user"]["profileImage"]["url"].stringValue,interestedStatus: false,attendingStatus: false)
-                    let comment = Comment(text: val["text"].stringValue, user: user, karma: val["karma"].int!, timeStamp: "1 min ago")
+                    let comment = Comment(text: val["text"].stringValue, user: user, karma: val["karma"].int!, timeStamp: "1 min ago",commentID:val["id"].int!)
                     
         
                     self.commentArray.append(comment)
