@@ -10,10 +10,17 @@ import Foundation
 import UIKit
 import QuartzCore
 import Kingfisher
+
+protocol DiscussionCallBack: class {
+    func replyCommentData(comment:Comment)
+}
+
 class EventDiscussion: UITableViewCell {
     @IBOutlet var upVote: UIButton!
     @IBOutlet var downVote: UIButton!
     @IBOutlet var userPicture: ProfilePicture!
+    weak var discussionCallBack: DiscussionCallBack!
+
     @IBOutlet var userName: UILabel!
     @IBOutlet var timeStamp: UILabel!
     @IBOutlet var karma: UILabel!
@@ -60,7 +67,7 @@ class EventDiscussion: UITableViewCell {
         self.downVoted = false
         ApiClient.vote(id: self.comment.commentID, value: self.comment.karma + 1 , onCompletion:{json in })
         UserDefaults.standard.set("upvoted",forKey:comment.text)
-
+        
         
         
     }
@@ -68,6 +75,11 @@ class EventDiscussion: UITableViewCell {
     
     @IBAction func replyAction(_ sender: Any) {
         
+        if let callback = self.discussionCallBack {
+            print("callback in progress")
+            
+            callback.replyCommentData(comment: self.comment)
+        }
         
     }
     
@@ -79,14 +91,13 @@ class EventDiscussion: UITableViewCell {
         if UserDefaults.standard.string(forKey: comment.text) == "downvoted" {
             return
         }
-        if self.downVoted == false {
-            ApiClient.vote(id: self.comment.commentID, value: self.comment.karma - 1, onCompletion:{json in })
-            var x = Int(karma.text!)
-            x = x! -  1
-            karma.text = String(describing: x!)
-            self.upVoted = false
-            self.downVoted = true
-        }
+        ApiClient.vote(id: self.comment.commentID, value: self.comment.karma - 1, onCompletion:{json in })
+        var x = Int(karma.text!)
+        x = x! -  1
+        karma.text = String(describing: x!)
+        self.upVoted = false
+        self.downVoted = true
+        
         UserDefaults.standard.set("downvoted",forKey:comment.text)
 
     }

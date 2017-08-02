@@ -11,7 +11,7 @@ import UIKit
 import QuartzCore
 import SwiftyJSON
 
-class EventDetailViewController: SetGovTableViewController, EventAgendaCallback, EventStreamCallback, CommentCallBack{
+class EventDetailViewController: SetGovTableViewController, EventAgendaCallback, EventStreamCallback, CommentCallBack, DiscussionCallBack{
     var activate = true
     var infoCell = true
     var memberCell = true
@@ -52,6 +52,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     weak var collectionView: UICollectionView!
     var picArray = [String]()
     var user: User!
+    var replyComment: Comment!
     
     @IBOutlet var navTitle: UINavigationItem!
     
@@ -131,6 +132,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                     print("here is the text")
                     
                 }
+                
                 self.tableView.reloadData()
 
             })
@@ -160,6 +162,14 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             self.refreshControl?.endRefreshing()
             print("stop refreshing")
         }
+    }
+    
+    func replyCommentData(comment: Comment) {
+        self.replyComment = comment
+        print(self.replyComment.text)
+        self.tableView.reloadData()
+        
+        
     }
     
 
@@ -564,6 +574,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             if (indexPath.row==5) {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CreateComment", for:indexPath) as! CreateComment
                 cell.commentCallBack = self
+              
                 //  discussionCell.user = self.appDelegate.user
                 //discussionCell.configure()
                 //discussionCell.selectionStyle = .none
@@ -577,6 +588,11 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 
                let cell = tableView.dequeueReusableCell(withIdentifier: "CreateComment") as! CreateComment
                 cell.commentCallBack = self
+                
+                if replyComment != nil {
+                    
+                    cell.replytoComment(comment: self.replyComment)
+                }
                 return cell
             }
             
@@ -589,6 +605,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 print(commentArray[indexPath.row - 5].text)
                 cell.configure(comment: commentArray[indexPath.row - 5])
                 cell.selectionStyle = .none
+                cell.discussionCallBack = self 
                 return cell
                 
             

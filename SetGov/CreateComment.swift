@@ -19,7 +19,9 @@ class CreateComment: UITableViewCell, UITextFieldDelegate {
     @IBOutlet var commentField: UITextField!
     weak var commentCallBack: CommentCallBack!
 
-    
+    func replytoComment(comment:Comment){
+        self.commentField.text = "@" + comment.user.fullName
+    }
     
     
     @IBAction func createAction(_ sender: Any) {
