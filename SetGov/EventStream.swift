@@ -260,15 +260,6 @@ class EventStream:  UITableViewCell {
             }
 
             return x
-            
-            
-            
-       
-            
-            
-            
-            
-            
         }
         
         if selectedCity == "Fort Lauderdale" && compareTime() == false {

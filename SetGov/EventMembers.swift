@@ -29,6 +29,7 @@ class EventMembers: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("this is the pic array for event detail")
         print(picArray)
+        
         return picArray.count
     }
     

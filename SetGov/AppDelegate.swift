@@ -18,12 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var bostonEvents = [Event]() 
     let UserDefault = UserDefaults.standard
 
-    
-    
-    
-    
-
-    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //Mark - Styling

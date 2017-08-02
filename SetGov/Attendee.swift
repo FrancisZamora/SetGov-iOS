@@ -24,10 +24,11 @@ class Attendee: UICollectionViewCell {
     func generateImage(rawData:String) {
         let theProfileImageUrl = URL(string:rawData)
         do {
-            let imageData = try Data(contentsOf: theProfileImageUrl!)
+            print(rawData)
             
             userPicture.kf.setImage(with: theProfileImageUrl)
             print("image created")
+            
         } catch {
             print("Unable to load data: \(error)")
             print("image failed")

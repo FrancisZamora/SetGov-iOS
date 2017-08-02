@@ -15,10 +15,7 @@ class ApiClient {
     static func login(token:String,onCompletion: @escaping(JSON) -> Void) {
         let URL = "https://setgov.herokuapp.com/api/v/1/graph"
         let query = "mutation {authenticateUser(facebook_token:\"\(token)\") {id,full_name, profileImage{ id, url}}}"
-
-
-      //  Alamofire.request(URL,method: .post, parameters: ["query":query],encoding:JSONEncoding.default,headers: [:]).responseObject(keyPath: "data") { (response: DataResponse<FacebookUser>) in
-
+        
         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
     
             print(response)
@@ -28,19 +25,8 @@ class ApiClient {
         }
     
         let json = JSON(jsonString)
-                            
-        print("api client json \(json)")
-
-        print(response)
-            
-            
-   
-        print("api client json \(json)")
-       
         onCompletion(json)
-    }
-        
-    
+        }
     }
     
     static func addEvent(event:Event, onCompletion: @escaping(JSON) -> Void) {
@@ -53,15 +39,9 @@ class ApiClient {
         formatter.dateStyle = .short
         let x = event.eventDate + " 2017"
         let date = formatter.date(from: x)
-            
-            let y = formatter.string(from: date!)
-            print(y)
-            
-            dater = y
-        
+        let y = formatter.string(from: date!)
+        dater = y
         let time = event.eventTime
-        
-        
         let description = event.eventDescription
         let URL = "https://setgov.herokuapp.com/api/v/1/graph"
         let query = "mutation{addEvent(name:\"\(name)\",city:\"\(city)\",address:\"\(address)\",date:\"\(dater)\",description:\"\(description)\",time:\"\(time)\"){id}}"
@@ -73,8 +53,6 @@ class ApiClient {
             }
             let json = JSON(jsonString)
             print(json)
-            
-           
             print(response)
             onCompletion(json)
 
@@ -96,19 +74,9 @@ class ApiClient {
             
             print(response)
         }
-        
-        
-        
-        
-    }
-    
-    static func fetchComments(eventID:Int) {
-       
 
-        
     }
-    
-    
+   
     static func attendEvent(eventID:Int, onCompletion: @escaping(JSON) -> Void) {
         print(eventID)
         
@@ -126,10 +94,10 @@ class ApiClient {
         }
 
     }
-    
+
     static func fetchEvent(eventID:Int, onCompletion: @escaping(JSON) -> Void) {
          let URL = "https://setgov.herokuapp.com/api/v/1/graph"
-        let query = "query{ event(id:\(eventID)){id,name,address,date,time,description,attendingUsers{profileImage{id},full_name},comments{text, karma,timestamp,user{full_name, profileImage{url}}}}}"
+         let query = "query{ event(id:\(eventID)){id,name,address,date,time,description,attendingUsers{profileImage{url},full_name},comments{text, karma,timestamp,user{full_name, profileImage{url}}}}}"
          Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
     
             
@@ -138,8 +106,6 @@ class ApiClient {
                 return
             }
             let json = JSON(jsonString)
-            
-            
             print(response)
             onCompletion(json)
         }
@@ -163,7 +129,4 @@ class ApiClient {
         }
     }
 
-       
-    
-    
 }

@@ -39,16 +39,6 @@ class Event {
         // ** read top comment self.eventUsers = eventUsers
     }
     
-    
-    //static func createFromJson(json: JSON) -> Event? {
-        
-      //  guard let name = json["name"].string,
-        //    let date = json["date"].string else {
-          //      return nil
-        //}
-        
-    
-    
 }
 
 

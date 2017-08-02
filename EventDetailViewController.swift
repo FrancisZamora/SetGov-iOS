@@ -92,8 +92,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         }
     }
     
-   
-    
     func fetchEvent() {
 
         if selectedCity == "Boston" {
@@ -230,6 +228,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     func attendbuttonTapped() {
         print("attend button tapped, callback now")
         self.fetchEvent()
+        self.tableView.reloadData()
         
     }
     
