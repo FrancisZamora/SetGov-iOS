@@ -30,7 +30,7 @@ class CreateComment: UITableViewCell, UITextFieldDelegate {
             print("callback in progress")
             
             callback.retrievecommentData(comment: self.commentField.text!)
-                self.commentField.text = " "
+                self.commentField.text = ""
                 self.commentField.placeholder = "Enter Comment"
             
         }

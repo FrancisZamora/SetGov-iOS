@@ -592,6 +592,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 if replyComment != nil {
                     
                     cell.replytoComment(comment: self.replyComment)
+                    self.replyComment = nil
                 }
                 return cell
             }
