@@ -20,8 +20,7 @@ class profileCell: UITableViewCell {
         
         let theProfileImageUrl = URL(string:self.user.profilePictureURL)
             do {
-                let imageData = try Data(contentsOf: theProfileImageUrl!)
-                profilePic.image = UIImage(data: imageData)
+                profilePic.kf.setImage(with: theProfileImageUrl)
             } catch {
                 print("Unable to load data: \(error)")
             }

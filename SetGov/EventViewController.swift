@@ -151,7 +151,9 @@ class EventViewController: SetGovTableViewController{
     
     func cleanArray() {
         arrayEvents.remove(at: 0)
-        self.picArray.remove(at: 0)
+        if selectedCity == "Boston" {
+            self.picArray.remove(at: 0)
+        }
 
     }
     
