@@ -114,7 +114,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 print(comments)
 
                 for (_,val):(String, JSON) in comments  {
-                
+                    print("this is val")
+                    print(val)
                    
                     let user = User(fullName: val["user"]["full_name"].stringValue,profilePictureURL: val["user"]["profileImage"]["url"].stringValue,interestedStatus: false,attendingStatus: false)
                     let comment = Comment(text: val["text"].stringValue, user: user, karma: val["karma"].int!, timeStamp: "1 min ago")
@@ -191,11 +192,10 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         print(comment)
         if selectedCity == "Boston" {
             ApiClient.createComment(comment: comment, eventID: self.bostonIDS[indexofEvent], onCompletion:{ json in
-            
+                self.fetchEvent()
+                self.tableView.reloadData()
             })
-            self.fetchEvent()
-            self.tableView.reloadData()
-        
+           
         }
         
         if selectedCity == "Fort Lauderdale" {
@@ -278,7 +278,11 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("numberofRows")
-        return 6
+       // return 4 + commentArray.count + 1
+        if commentArray.count == 0 {
+            return 6
+        }
+        return 6 + commentArray.count 
         
     }
     
@@ -288,22 +292,49 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        switch indexPath.row {
-        case 0:
-            return 200
-        case 1:
-            return 38
-        case 2:
-            return 176
-        case 3:
-            return 94
-        case 4:
-            return 46
-        case 5:
-            return 94
-        default:
-            return 0
+        if commentArray.count == 0 {
+            switch indexPath.row {
+            case 0:
+                return 200
+            case 1:
+                return 38
+            case 2:
+                return 176
+            case 3:
+                return 94
+            case 4:
+                return 46
+            case 5:
+                return 46
+            default:
+                return 46
+            }
         }
+        else {
+            switch indexPath.row {
+            case 0:
+            return 200
+            case 1:
+            return 38
+            case 2:
+            return 176
+            case 3:
+            return 94
+            case 4:
+            return 46
+            case 5:
+            return 94
+            default:
+            if indexPath.row == (4 + commentArray.count)    {
+                
+                return 46
+            }
+            else {
+                return 94
+            }
+                
+        }
+      }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -533,23 +564,30 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             }
         }
         else {
+            
+            if indexPath.row == (4 + commentArray.count) {
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "CreateComment", for:indexPath) as! CreateComment
+                cell.commentCallBack = self
+                return cell
+            }
+            print(commentArray)
+            
             for (_,val) in commentArray.enumerated() {
+                print(val.text)
+                
                 let cell = tableView.dequeueReusableCell(withIdentifier: "EventDiscussion", for:indexPath) as! EventDiscussion
                 cell.configure(comment: val)
                 cell.selectionStyle = .none
                 return cell
                 
             }
-            
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CreateComment", for:indexPath) as! CreateComment
-            cell.commentCallBack = self
-            
-            return cell
-            
-            
-            
+        
         }
+       
+            
+            
+        
         
         let cell =  tableView.dequeueReusableCell(withIdentifier: "EventStream", for:indexPath) as! EventStream
         return cell
