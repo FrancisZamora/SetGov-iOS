@@ -112,6 +112,25 @@ class ApiClient {
 
     }
     
+    static func vote(id:Int,value:Int, onCompletion: @escaping(JSON) -> Void) {
+        let URL = "https://setgov.herokuapp.com/api/v/1/graph"
+        let query = "mutation{voteOnComment(comment_id:\(id), vote_value:\(value)){id}}"
+        Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
+            guard let jsonString = response.result.value else {
+                onCompletion(JSON.null)
+                return
+            }
+            let json = JSON(jsonString)
+            print(json)
+            
+            print(response)
+            onCompletion(json)
+            
+        }
+    
+
+    }
+    
     static func fetchEvents(city:String, onCompletion: @escaping(JSON) -> Void) {
         let URL = "https://setgov.herokuapp.com/api/v/1/graph"
         let query = "query { upcomingEvents(city:\"\(city)\"){id,name,date, description, attendingUsers{full_name, profileImage{url}}, address, city}}"

@@ -20,11 +20,14 @@ class EventDiscussion: UITableViewCell {
     var upVoted =  Bool()
     var downVoted = Bool()
     var user: User!
+    var comment: Comment!
+    
     @IBOutlet var textBox: UILabel!
     
     
     
     func configure(comment:Comment) {
+        self.comment = comment
         textBox.text = comment.text
         karma.text = String(describing:comment.karma)
         userName.text = comment.user.fullName
@@ -46,13 +49,19 @@ class EventDiscussion: UITableViewCell {
     }
     
     @IBAction func upvoteAction(_ sender: Any) {
-        if self.upVoted == false {
-            var x = Int(karma.text!)
-            x = x! +  1
-            karma.text = String(describing: x!)
-            self.upVoted = true
-            self.downVoted = false
+        if UserDefaults.standard.string(forKey: comment.text) == "upvoted" {
+            return
         }
+       
+        var x = Int(karma.text!)
+        x = x! +  1
+        karma.text = String(describing: x!)
+        self.upVoted = true
+        self.downVoted = false
+        ApiClient.vote(id: self.comment.commentID, value: self.comment.karma + 1 , onCompletion:{json in })
+        UserDefaults.standard.set("upvoted",forKey:comment.text)
+
+        
         
     }
     
@@ -67,13 +76,19 @@ class EventDiscussion: UITableViewCell {
     
     
     @IBAction func downvoteAction(_ sender: Any) {
+        if UserDefaults.standard.string(forKey: comment.text) == "downvoted" {
+            return
+        }
         if self.downVoted == false {
+            ApiClient.vote(id: self.comment.commentID, value: self.comment.karma - 1, onCompletion:{json in })
             var x = Int(karma.text!)
             x = x! -  1
             karma.text = String(describing: x!)
             self.upVoted = false
             self.downVoted = true
         }
+        UserDefaults.standard.set("downvoted",forKey:comment.text)
+
     }
     
     
