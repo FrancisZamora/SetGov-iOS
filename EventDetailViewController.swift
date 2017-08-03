@@ -72,7 +72,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         print(indexofEvent)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         self.fetchEvent()
         print("this is the length of the comment array")
         print(commentArray.count)
@@ -277,10 +277,10 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     }
     
+    
+    
       
     
-      override func viewDidAppear(_ animated: Bool) {
-    }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
