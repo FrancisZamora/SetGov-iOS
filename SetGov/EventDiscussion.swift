@@ -57,39 +57,35 @@ class EventDiscussion: UITableViewCell {
     
     @IBAction func upvoteAction(_ sender: Any) {
         if UserDefaults.standard.string(forKey: String(comment.commentID)) == "upvoted" {
-            
             var x = Int(karma.text!)
-            x = x! -  1
-            karma.text = String(describing: x!)
-            self.upVoted = false
-            self.downVoted = false
+            x = x! - 1
+            self.karma.text = String(describing: x!)
             ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
-            UserDefaults.standard.set(nil,forKey:String(comment.commentID))
+            UserDefaults.standard.set("neutral",forKey:String(comment.commentID))
+            return
 
         }
         
         if UserDefaults.standard.string(forKey: String(comment.commentID)) == "downvoted"  {
             var x = Int(karma.text!)
             x = x! + 2
-            karma.text = String(describing: x!)
+            self.karma.text = String(describing: x!)
             ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
             
-            self.upVoted = true
-            self.downVoted = false
+            
             UserDefaults.standard.set("upvoted",forKey:String(comment.commentID))
             
             
         }
-        else {
+        if UserDefaults.standard.string(forKey: String(comment.commentID)) == "neutral" || UserDefaults.standard.string(forKey: String(comment.commentID)) == nil {
        
             var x = Int(karma.text!)
             x = x! +  1
-            karma.text = String(describing: x!)
-            self.upVoted = true
-            self.downVoted = false
+            self.karma.text = String(describing: x!)
             ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
             UserDefaults.standard.set("upvoted",forKey:String(comment.commentID))
         }
+        
         
         
         
@@ -113,18 +109,13 @@ class EventDiscussion: UITableViewCell {
     @IBAction func downvoteAction(_ sender: Any) {
         if UserDefaults.standard.string(forKey: String(comment.commentID)) == "downvoted" {
             var x = Int(karma.text!)
-            print("this is the karma \(x)")
-            
-            x = x! +  1
-            karma.text = String(describing: x!)
+            x = x! + 1
+            self.karma.text = String(describing: x!)
             ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
+            UserDefaults.standard.set("neutral",forKey:String(comment.commentID))
+            return
             
-            self.upVoted = false
-            self.downVoted = false
-            UserDefaults.standard.set(nil,forKey:String(comment.commentID))
-
         }
-        
         
         
         if UserDefaults.standard.string(forKey: String(comment.commentID)) == "upvoted" {
@@ -132,26 +123,23 @@ class EventDiscussion: UITableViewCell {
             print("this is the karma \(x)")
 
             x = x! -  2
-            karma.text = String(describing: x!)
+            self.karma.text = String(describing: x!)
             ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
             
-            self.upVoted = false
-            self.downVoted = true
+          
             UserDefaults.standard.set("downvoted",forKey:String(comment.commentID))
 
             
         }
-        else {
+        if UserDefaults.standard.string(forKey: String(comment.commentID)) == "neutral" || UserDefaults.standard.string(forKey: String(comment.commentID)) == nil  {
             
             var x = Int(karma.text!)
             print("this is the karma \(x)")
             x = x! -  1
-            karma.text = String(describing: x!)
+            self.karma.text = String(describing: x!)
             ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
         
-            self.upVoted = false
-            self.downVoted = true
-        
+            
             UserDefaults.standard.set("downvoted",forKey:String(comment.commentID))
         }
 
