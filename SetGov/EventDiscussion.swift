@@ -65,7 +65,7 @@ class EventDiscussion: UITableViewCell {
         karma.text = String(describing: x!)
         self.upVoted = true
         self.downVoted = false
-        ApiClient.vote(id: self.comment.commentID, value: self.comment.karma + 1 , onCompletion:{json in })
+        ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
         UserDefaults.standard.set("upvoted",forKey:comment.text)
         
         
@@ -91,10 +91,11 @@ class EventDiscussion: UITableViewCell {
         if UserDefaults.standard.string(forKey: comment.text) == "downvoted" {
             return
         }
-        ApiClient.vote(id: self.comment.commentID, value: self.comment.karma - 1, onCompletion:{json in })
         var x = Int(karma.text!)
         x = x! -  1
         karma.text = String(describing: x!)
+        ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
+        
         self.upVoted = false
         self.downVoted = true
         
