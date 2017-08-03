@@ -21,6 +21,7 @@ class Event {
     var eventCity = " "
     var eventDate2 = " " 
     var eventUsers = [String]()
+    //var eventID: Int
    // var loggedUser = User(userName: " " , attendingStatus: false, interestedStatus: false)
     
     
@@ -36,6 +37,7 @@ class Event {
         self.eventTime = eventTime
         self.eventAddress = eventAddress
         self.eventCity = eventCity
+        //self.eventID = eventID
         // ** read top comment self.eventUsers = eventUsers
     }
     

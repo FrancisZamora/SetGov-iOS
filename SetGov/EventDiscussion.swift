@@ -56,17 +56,40 @@ class EventDiscussion: UITableViewCell {
     }
     
     @IBAction func upvoteAction(_ sender: Any) {
-        if UserDefaults.standard.string(forKey: comment.text) == "upvoted" {
-            return
+        if UserDefaults.standard.string(forKey: String(comment.commentID)) == "upvoted" {
+            
+            var x = Int(karma.text!)
+            x = x! -  1
+            karma.text = String(describing: x!)
+            self.upVoted = false
+            self.downVoted = false
+            ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
+            UserDefaults.standard.set(nil,forKey:String(comment.commentID))
+
         }
+        
+        if UserDefaults.standard.string(forKey: String(comment.commentID)) == "downvoted"  {
+            var x = Int(karma.text!)
+            x = x! + 2
+            karma.text = String(describing: x!)
+            ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
+            
+            self.upVoted = true
+            self.downVoted = false
+            UserDefaults.standard.set("upvoted",forKey:String(comment.commentID))
+            
+            
+        }
+        else {
        
-        var x = Int(karma.text!)
-        x = x! +  1
-        karma.text = String(describing: x!)
-        self.upVoted = true
-        self.downVoted = false
-        ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
-        UserDefaults.standard.set("upvoted",forKey:comment.text)
+            var x = Int(karma.text!)
+            x = x! +  1
+            karma.text = String(describing: x!)
+            self.upVoted = true
+            self.downVoted = false
+            ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
+            UserDefaults.standard.set("upvoted",forKey:String(comment.commentID))
+        }
         
         
         
@@ -88,18 +111,49 @@ class EventDiscussion: UITableViewCell {
     
     
     @IBAction func downvoteAction(_ sender: Any) {
-        if UserDefaults.standard.string(forKey: comment.text) == "downvoted" {
-            return
+        if UserDefaults.standard.string(forKey: String(comment.commentID)) == "downvoted" {
+            var x = Int(karma.text!)
+            print("this is the karma \(x)")
+            
+            x = x! +  1
+            karma.text = String(describing: x!)
+            ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
+            
+            self.upVoted = false
+            self.downVoted = false
+            UserDefaults.standard.set(nil,forKey:String(comment.commentID))
+
         }
-        var x = Int(karma.text!)
-        x = x! -  1
-        karma.text = String(describing: x!)
-        ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
         
-        self.upVoted = false
-        self.downVoted = true
         
-        UserDefaults.standard.set("downvoted",forKey:comment.text)
+        
+        if UserDefaults.standard.string(forKey: String(comment.commentID)) == "upvoted" {
+            var x = Int(karma.text!)
+            print("this is the karma \(x)")
+
+            x = x! -  2
+            karma.text = String(describing: x!)
+            ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
+            
+            self.upVoted = false
+            self.downVoted = true
+            UserDefaults.standard.set("downvoted",forKey:String(comment.commentID))
+
+            
+        }
+        else {
+            
+            var x = Int(karma.text!)
+            print("this is the karma \(x)")
+            x = x! -  1
+            karma.text = String(describing: x!)
+            ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
+        
+            self.upVoted = false
+            self.downVoted = true
+        
+            UserDefaults.standard.set("downvoted",forKey:String(comment.commentID))
+        }
 
     }
     
