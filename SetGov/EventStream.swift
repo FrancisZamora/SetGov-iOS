@@ -250,6 +250,11 @@ class EventStream:  UITableViewCell {
                     self.attendButton.setTitle("Attending", for: .normal)
                     x = true
                 }
+                else {
+                    self.attendButton.setTitle("Attend", for: .normal)
+
+                    
+                }
                 
             })
             
@@ -269,6 +274,7 @@ class EventStream:  UITableViewCell {
                 let fullNameArray =  json["data"]["event"]["attendingUsers"].arrayValue.map({$0["full_name"].stringValue})
                 print(fullNameArray)
                 print(fullNameArray.contains("Francis Zamora"))
+                
                 if fullNameArray.contains(self.user.fullName){
                     self.attendButton.setTitle("Attending", for: .normal)
 

@@ -642,7 +642,7 @@ class EventViewController: SetGovTableViewController{
             cell.dataList = dataList
             cell.selectionStyle = .none
             cell.editCell(Event:dataList[indexPath.row])
-            cell.alpha = 0.50
+            //cell.alpha = 0.50
             print("this is the picture array length\(picArray.count)")
             print(picArray)
             print(indexPath.row)
@@ -651,9 +651,9 @@ class EventViewController: SetGovTableViewController{
             cell.memberCount.text = String(describing: counter)
             cell.usersCollection.reloadData()
 
-            UIView.animate(withDuration: 0.88) {
-                cell.alpha = 1
-            }
+           // UIView.animate(withDuration: 0.88) {
+              //  cell.alpha = 1
+          //  }
             
             eventImage = cell.eventImage.image!
             eventImages.updateValue(eventImage, forKey: indexPath.row)
@@ -665,16 +665,16 @@ class EventViewController: SetGovTableViewController{
             cell.selectionStyle = .none
             cell.dataList = dataList
             cell.editCell(Event:dataList[indexPath.row])
-            cell.alpha = 0
+           // cell.alpha = 0
             
             cell.picArray = picArray[indexPath.row]
             let counter = cell.picArray.count
             cell.memberCount.text = String(describing: counter)
             cell.usersCollection.reloadData()
             cell.usersCollection.reloadData()
-            UIView.animate(withDuration: 1.0) {
-                cell.alpha = 1
-            }
+          //  UIView.animate(withDuration: 1.0) {
+              //  cell.alpha = 1
+          //  }
             
             eventImage = cell.eventImage.image!
             eventImages.updateValue(eventImage,forKey: indexPath.row)
