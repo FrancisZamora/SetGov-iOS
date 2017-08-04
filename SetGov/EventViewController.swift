@@ -73,13 +73,11 @@ class EventViewController: SetGovTableViewController{
     func checkMembers() {
         ApiClient.fetchEvents(city: selectedCity,  onCompletion: { json in
             print("this is the index")
-            let event = json["data"]["upcomingEvents"]
-            for (_,val):(String, JSON) in event  {
-                let pictureIDArray = val["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
-                print("this is the picture id array")
-                print(pictureIDArray)
-                print(json["data"]["upcomingEvents"].count)
-                self.picArray.append(pictureIDArray)
+            let event = json["data"]["upcomingEvents"].array
+            self.picArray = []
+            for (_,val) in (event?.enumerated())!  {
+                
+           self.picArray.append(val["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue}))
                 self.tableView.reloadData()
                 print(self.picArray)
            
