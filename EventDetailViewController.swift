@@ -296,6 +296,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
         if selectedCity == "Fort Lauderdale" {
             ApiClient.deleteComment(comment: comment.text, eventID: self.fortlauderdaleIDS[indexofEvent], onCompletion:{ json in
+                self.fetchEvent()
+
                 self.tableView.reloadData()
             })
             

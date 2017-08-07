@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EventDetailViewController.swift"
-            timestampString = "523834079.105881"
+            timestampString = "523834132.422502"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "316"
-            endingLineNumber = "316"
+            startingLineNumber = "318"
+            endingLineNumber = "318"
             landmarkName = "loadVC()"
             landmarkType = "7">
          </BreakpointContent>
