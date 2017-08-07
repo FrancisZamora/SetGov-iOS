@@ -125,7 +125,7 @@
                                                 <constraint firstAttribute="width" constant="13" id="arF-uD-bd5"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3E0BE96D-3089-482C-A77B-1CE225208038" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="8BB46C98-C3DE-408B-A7EC-0E45438D15CC" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
                                             <rect key="frame" x="61" y="271" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="gCa-oq-bRh"/>
@@ -624,14 +624,26 @@
                                                 <action selector="replyAction:" destination="MYI-qh-THg" eventType="touchUpInside" id="MKc-hy-mi2"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jxn-wt-vmV">
+                                            <rect key="frame" x="357" y="53" width="10" height="10"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="10" id="jXp-7B-bat"/>
+                                            </constraints>
+                                            <state key="normal" image="Image-31"/>
+                                            <connections>
+                                                <action selector="deleteComment:" destination="MYI-qh-THg" eventType="touchUpInside" id="fjb-3u-DRy"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="nIJ-qa-E8Q" firstAttribute="leading" secondItem="PTh-6c-2Gh" secondAttribute="trailing" constant="8" symbolic="YES" id="36H-bm-j71"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Jxn-wt-vmV" secondAttribute="bottom" constant="22" id="6CP-dM-EoG"/>
                                         <constraint firstItem="Hb5-0U-EhE" firstAttribute="centerY" secondItem="f3e-Tx-som" secondAttribute="centerY" id="Cuh-nX-WAF"/>
                                         <constraint firstItem="tYn-zV-rkD" firstAttribute="trailing" secondItem="hFQ-Pa-QV4" secondAttribute="trailing" constant="3" id="Dd5-cq-mP2"/>
                                         <constraint firstItem="K4H-aZ-Gve" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" constant="29" id="ERy-1Q-gVZ"/>
                                         <constraint firstItem="PTh-6c-2Gh" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" constant="13" id="EoH-ch-2uo"/>
                                         <constraint firstItem="Hb5-0U-EhE" firstAttribute="leading" secondItem="K4H-aZ-Gve" secondAttribute="leading" id="IPK-ck-CKf"/>
+                                        <constraint firstItem="Jxn-wt-vmV" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" constant="45" id="KmN-TG-3Eh"/>
                                         <constraint firstItem="tYn-zV-rkD" firstAttribute="leading" secondItem="hFQ-Pa-QV4" secondAttribute="leading" constant="5" id="LRL-rR-xGS"/>
                                         <constraint firstItem="tYn-zV-rkD" firstAttribute="top" secondItem="hFQ-Pa-QV4" secondAttribute="bottom" constant="-1" id="LZP-XM-5fO"/>
                                         <constraint firstItem="tYn-zV-rkD" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" constant="21" id="NWC-lU-anm"/>
@@ -644,6 +656,7 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="SVV-Wj-Vnj" secondAttribute="bottom" constant="4" id="nQH-iX-h8j"/>
                                         <constraint firstItem="PTh-6c-2Gh" firstAttribute="leading" secondItem="tYn-zV-rkD" secondAttribute="trailing" constant="11" id="rk1-Sj-xr4"/>
                                         <constraint firstItem="tYn-zV-rkD" firstAttribute="leading" secondItem="f3e-Tx-som" secondAttribute="leading" constant="5" id="sro-EI-FM2"/>
+                                        <constraint firstItem="Jxn-wt-vmV" firstAttribute="trailing" secondItem="IwL-Ej-qcu" secondAttribute="trailingMargin" id="tDs-R3-4gz"/>
                                         <constraint firstItem="tYn-zV-rkD" firstAttribute="trailing" secondItem="f3e-Tx-som" secondAttribute="trailing" constant="3" id="x2c-KO-txc"/>
                                         <constraint firstItem="nIJ-qa-E8Q" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" constant="9" id="yIw-eP-Pz1"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="nIJ-qa-E8Q" secondAttribute="bottom" constant="47" id="yh2-Au-gCk"/>
@@ -1413,7 +1426,7 @@
             <objects>
                 <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Qlq-Mi-tT5" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2JD-YC-PtD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2JD-YC-PtD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1478,7 +1491,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="3E0BE96D-3089-482C-A77B-1CE225208038" width="479" height="586">
+        <image name="8BB46C98-C3DE-408B-A7EC-0E45438D15CC" width="479" height="586">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -20261,6 +20274,7 @@ A
         <image name="Image-27" width="120" height="160"/>
         <image name="Image-28" width="134" height="181"/>
         <image name="Image-29" width="82" height="42"/>
+        <image name="Image-31" width="16" height="16"/>
         <image name="Image-6" width="63" height="46"/>
         <image name="Image-9" width="300" height="100"/>
         <image name="Image1" width="250" height="166"/>

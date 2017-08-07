@@ -9,6 +9,8 @@
 import UIKit
 import FacebookLogin
 import FacebookCore
+import GoogleMaps
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -20,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        //Mark - Styling
+        UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)
+
         SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: nil)
 
         
@@ -32,11 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor(red:0.18, green:0.26, blue:0.35, alpha:1.0)
        
         UINavigationBar.appearance().barStyle = .black
-        //UIApplication.shared.setStatusBarStyle(.lightContent, animated: false)
-
-        // Override point for customization after application launch.
-       
-        
+               
         return true
     }
 

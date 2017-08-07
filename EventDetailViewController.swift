@@ -53,6 +53,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var picArray = [String]()
     var user: User!
     var replyComment: Comment!
+    var blackListedComment: Comment!
     
     @IBOutlet var navTitle: UINavigationItem!
     
@@ -128,7 +129,20 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                     
         
                     self.commentArray.append(comment)
+                    guard let x =  self.blackListedComment else {
+                        self.tableView.reloadData()
+                        break
                     
+                    }
+                    print(comment.commentID)
+                    print(x.commentID)
+                    
+                    if comment.commentID == x.commentID {
+                        
+                        self.commentArray.removeLast()
+                        
+
+                    }
                     print("here is the text")
                     
                 }
@@ -139,18 +153,45 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         }
         if selectedCity == "Fort Lauderdale" {
             self.fortlauderdaleIDS = self.fortlauderdaleIDS.sorted() { $0 < $1 }
-            ApiClient.fetchEvent(eventID:self.fortlauderdaleIDS[indexofEvent] , onCompletion:{ json in
-                
-        
-        
+            ApiClient.fetchEvent(eventID:self.fortlauderdaleIDS[indexofEvent] , onCompletion:{ json in 
                 let pictureIDArray = json["data"]["event"]  ["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
+                
                 self.picArray = pictureIDArray
+                
+                print("THIS IS THE PICTURE ARRAY FOR BOSTON \(self.picArray)")
+                
+                let comments = json["data"]["event"]["comments"]
+                print("here is the comment")
+                
+                print(comments)
+                guard let comments2 = json["data"]["event"]["comments"].array else {
+                    return
+                }
+                print("this is comments 2\(comments2)")
+                
+                
+                self.commentArray = []
+                
+                for (_,val)in comments2.enumerated()  {
+                    print("this is val")
+                    print(val)
+                    
+                    let user = User(fullName: val["user"]["full_name"].stringValue,profilePictureURL: val["user"]["profileImage"]["url"].stringValue,interestedStatus: false,attendingStatus: false)
+                    let comment = Comment(text: val["text"].stringValue, user: user, karma: val["karma"].int!, timeStamp: "1 min ago",commentID:val["id"].int!)
+                    
+                  
+                    self.commentArray.append(comment)
+                  
+                    print(comment.commentID)
+                  
+                    print("here is the text")
+                    
+                }
+                
                 self.tableView.reloadData()
-        
-        
-        })
+                
+            })
         }
-
         
     }
     
@@ -251,6 +292,13 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
     }
     
+    func removeComment(comment:Comment) {
+        
+        self.blackListedComment = comment
+        print(self.blackListedComment)
+        
+        self.tableView.reloadData()
+    }
     
     func refreshTap(tapped:Bool) {
         streamPressed = tapped
@@ -604,6 +652,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 let cell = tableView.dequeueReusableCell(withIdentifier: "EventDiscussion") as! EventDiscussion
                 print("printing value \(indexPath.row - 5)")
                 print(commentArray[indexPath.row - 5].text)
+           
                 cell.configure(comment: commentArray[indexPath.row - 5])
                 cell.selectionStyle = .none
                 cell.discussionCallBack = self 

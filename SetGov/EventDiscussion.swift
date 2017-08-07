@@ -13,6 +13,7 @@ import Kingfisher
 
 protocol DiscussionCallBack: class {
     func replyCommentData(comment:Comment)
+    func removeComment(comment:Comment)
 }
 
 class EventDiscussion: UITableViewCell {
@@ -55,6 +56,14 @@ class EventDiscussion: UITableViewCell {
         
     }
     
+    @IBAction func deleteComment(_ sender: Any) {
+        if let callback = self.discussionCallBack {
+            print("callback in progress")
+            
+            callback.removeComment(comment: self.comment)
+        }
+      
+    }
     @IBAction func upvoteAction(_ sender: Any) {
         if UserDefaults.standard.string(forKey: String(comment.commentID)) == "upvoted" {
             var x = Int(karma.text!)

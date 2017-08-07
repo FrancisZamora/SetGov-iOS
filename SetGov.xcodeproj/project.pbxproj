@@ -53,6 +53,7 @@
 		156BD4D31E836BB300E8F98B /* EventDiscussion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4D21E836BB300E8F98B /* EventDiscussion.swift */; };
 		159CA9E81F16A8B900679EEA /* Pods_SetGov.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B788141A78B320963331B47 /* Pods_SetGov.framework */; };
 		15A344D11F0ECC1E00E80D85 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A344D01F0ECC1E00E80D85 /* Reachability.swift */; };
+		15A739351F38F19700F9B711 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A739341F38F19700F9B711 /* MapViewController.swift */; };
 		15B945941E9DD75700226A32 /* EventLiveStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B945931E9DD75700226A32 /* EventLiveStream.swift */; };
 		15C64B471EADA84200B123A5 /* CityNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C64B461EADA84200B123A5 /* CityNavigationViewController.swift */; };
 		15C64B491EADA8FF00B123A5 /* BostonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C64B481EADA8FF00B123A5 /* BostonCell.swift */; };
@@ -134,6 +135,7 @@
 		156BD4D01E836B9800E8F98B /* EventMembers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMembers.swift; sourceTree = "<group>"; };
 		156BD4D21E836BB300E8F98B /* EventDiscussion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDiscussion.swift; sourceTree = "<group>"; };
 		15A344D01F0ECC1E00E80D85 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		15A739341F38F19700F9B711 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		15B945931E9DD75700226A32 /* EventLiveStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventLiveStream.swift; sourceTree = "<group>"; };
 		15C64B461EADA84200B123A5 /* CityNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityNavigationViewController.swift; sourceTree = "<group>"; };
 		15C64B481EADA8FF00B123A5 /* BostonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BostonCell.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				156BD4C81E83185200E8F98B /* EventDetailViewController.swift */,
+				15A739341F38F19700F9B711 /* MapViewController.swift */,
 				1515A6C21F0FCF80004312F2 /* SettingsTableViewController.swift */,
 				153F3F7D1E6DF0ED0004E2F4 /* LoginViewController.swift */,
 				153F3F861E6DF54B0004E2F4 /* EventViewController.swift */,
@@ -686,6 +689,7 @@
 				1515A6C71F101677004312F2 /* homeCity.swift in Sources */,
 				1515A6C51F10166C004312F2 /* pushNotification.swift in Sources */,
 				156BD4D31E836BB300E8F98B /* EventDiscussion.swift in Sources */,
+				15A739351F38F19700F9B711 /* MapViewController.swift in Sources */,
 				1547836D1F1FB43D005ABF77 /* ApiClient.swift in Sources */,
 				153F3F871E6DF54B0004E2F4 /* EventViewController.swift in Sources */,
 				15C64B491EADA8FF00B123A5 /* BostonCell.swift in Sources */,
