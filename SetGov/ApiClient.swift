@@ -76,6 +76,23 @@ class ApiClient {
         }
 
     }
+    
+    static func deleteComment(comment:String, eventID:Int, onCompletion: @escaping(JSON) -> Void) {
+        let URL = "https://setgov.herokuapp.com/api/v/1/graph"
+        let query = "mutation{ deleteComment(text:\"\(comment)\",event_id:\(eventID)) {timestamp}}"
+        Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
+            guard let jsonString = response.result.value else {
+                onCompletion(JSON.null)
+                return
+            }
+            let json = JSON(jsonString)
+            onCompletion(json)
+            
+            print(response)
+        }
+        
+    }
+
    
     static func attendEvent(eventID:Int, onCompletion: @escaping(JSON) -> Void) {
         print(eventID)

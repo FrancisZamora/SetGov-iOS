@@ -53,7 +53,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var picArray = [String]()
     var user: User!
     var replyComment: Comment!
-    var blackListedComment: Comment!
     
     @IBOutlet var navTitle: UINavigationItem!
     
@@ -129,20 +128,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                     
         
                     self.commentArray.append(comment)
-                    guard let x =  self.blackListedComment else {
-                        self.tableView.reloadData()
-                        break
                     
-                    }
-                    print(comment.commentID)
-                    print(x.commentID)
                     
-                    if comment.commentID == x.commentID {
-                        
-                        self.commentArray.removeLast()
-                        
-
-                    }
+                   
                     print("here is the text")
                     
                 }
@@ -285,6 +273,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
     }
     
+    
+    
     func attendbuttonTapped() {
         print("attend button tapped, callback now")
         self.fetchEvent()
@@ -294,10 +284,24 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     func removeComment(comment:Comment) {
         
-        self.blackListedComment = comment
-        print(self.blackListedComment)
+        if selectedCity == "Boston" {
+            ApiClient.deleteComment(comment: comment.text, eventID: self.bostonIDS[indexofEvent], onCompletion:{ json in
+                
+                self.fetchEvent()
+                self.tableView.reloadData()
+                
+            })
+            
+        }
         
-        self.tableView.reloadData()
+        if selectedCity == "Fort Lauderdale" {
+            ApiClient.deleteComment(comment: comment.text, eventID: self.fortlauderdaleIDS[indexofEvent], onCompletion:{ json in
+                self.tableView.reloadData()
+            })
+            
+        }
+
+        
     }
     
     func refreshTap(tapped:Bool) {
