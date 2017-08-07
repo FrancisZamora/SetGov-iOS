@@ -60,7 +60,7 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
 
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 3
         
     }
     
@@ -97,22 +97,8 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
             return cell
         }
         
-        if (indexPath.row == 1) {
-            
-            let cell =  tableView.dequeueReusableCell(withIdentifier: "pushNotification") as! pushNotification
-            cell.selectionStyle = .none
-            
-           // if self.appDelegate.francis.pushNotifications == true {
-             //   cell.pushSwitch.isOn = true
-            //}
-            //else {
-              //  cell.pushSwitch.isOn = false
-           // }
-            
-            return cell
-        }
         
-        if (indexPath.row == 2) {
+        if (indexPath.row == 1) {
             
             let cell =  tableView.dequeueReusableCell(withIdentifier: "homeCity") as! homeCity
             cell.selectionStyle = .none
@@ -122,7 +108,7 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
         
         }
         
-        if (indexPath.row == 3) {
+        if (indexPath.row == 2) {
         
             let cell =  tableView.dequeueReusableCell(withIdentifier: "logOut") as! logOut
             cell.selectionStyle = .none

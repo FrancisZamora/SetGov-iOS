@@ -16,6 +16,14 @@ class profileCell: UITableViewCell {
     @IBOutlet var profileName: UILabel!
     
     func configure() {
+        if UserDefaults.standard.string(forKey: "homeCity")! == "Boston" {
+            
+            backgroundPic.image = #imageLiteral(resourceName: "Image-30")
+        }
+        if UserDefaults.standard.string(forKey: "homeCity")! == "Fort Lauderdale" {
+            backgroundPic.image = #imageLiteral(resourceName: "Image-25")
+        }
+       
         profileName.text = self.user.fullName
         
         let theProfileImageUrl = URL(string:self.user.profilePictureURL)
