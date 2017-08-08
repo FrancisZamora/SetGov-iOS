@@ -297,10 +297,6 @@ class EventStream:  UITableViewCell {
     
     
     
-    
-    
-
-    
     @IBAction func buttonPressed(_ sender: Any) {
         // send api request whenever button is pressed
         if firstpress == true {
