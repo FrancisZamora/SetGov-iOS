@@ -21,7 +21,10 @@ PODS:
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.25.0):
     - FBSDKCoreKit
+<<<<<<< HEAD
   - Kanna (2.1.1)
+=======
+>>>>>>> dc3269f7c29cd33f0f45b92626f1cd627aadf7dd
   - Kingfisher (3.10.4)
   - NVActivityIndicatorView (3.7.0):
     - NVActivityIndicatorView/Presenter (= 3.7.0)
@@ -34,7 +37,10 @@ DEPENDENCIES:
   - AlamofireObjectMapper (~> 4.0)
   - FacebookCore
   - FacebookLogin
+<<<<<<< HEAD
   - Kanna (~> 2.1.0)
+=======
+>>>>>>> dc3269f7c29cd33f0f45b92626f1cd627aadf7dd
   - Kingfisher (~> 3.0)
   - NVActivityIndicatorView
   - SwiftyJSON
@@ -47,12 +53,19 @@ SPEC CHECKSUMS:
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FBSDKCoreKit: 53e3f4bfb64e80c5f229dd30ae33ff57fbbbd2d1
   FBSDKLoginKit: f628c09684dae9c17f071cf90b014e886f5093ea
+<<<<<<< HEAD
   Kanna: 9b4b086c218703f2b94f5b21a466217dd2f9332e
+=======
+>>>>>>> dc3269f7c29cd33f0f45b92626f1cd627aadf7dd
   Kingfisher: dc3a4983e86d2dfa89513664983a82340c11a289
   NVActivityIndicatorView: d3738df7e2e476aca0ba6bf32a8c9fbcfc33d64b
   ObjectMapper: 3d571bb5af471c779e1160828cd9ad5c4ef90958
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
+<<<<<<< HEAD
 PODFILE CHECKSUM: dff95c0464f65a7c1ec2252939743437ef5ce8dd
+=======
+PODFILE CHECKSUM: 429e29eea87337ed6f7365f88e5af387c208363f
+>>>>>>> dc3269f7c29cd33f0f45b92626f1cd627aadf7dd
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.3.0
