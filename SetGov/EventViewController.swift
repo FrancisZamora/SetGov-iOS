@@ -454,7 +454,6 @@ class EventViewController: SetGovTableViewController{
     
    func fetchEventData() {
     var count = 0
-    
     fortlauderdaleArray.remove(at: 0)
     if selectedCity == "Fort Lauderdale" {
         for (index,_) in fortlauderdaleArray.enumerated() {
@@ -512,46 +511,42 @@ class EventViewController: SetGovTableViewController{
         }
     }
     
-     if selectedCity == "Boston" {
-        
-        self.descriptionArray.remove(at: 0)
-        
-        for (index, value) in eventAddresses.enumerated() {
+         if selectedCity == "Boston" {
             
-            let event = Event(eventTitle: spacer + arrayEvents[index], eventAddress: value, eventUsers: [" "] , eventDescription: descriptionArray[index], eventDate:eventTimeFormatted[index], eventImageName: "bostonPark", eventTime: eventHours[index][1], eventCity: "Boston")
+            self.descriptionArray.remove(at: 0)
             
-                if isEven(num: index) == true {
-                    event.eventImage = #imageLiteral(resourceName: "brownstone")
-                }
-                else {
-                    event.eventImage = #imageLiteral(resourceName: "bostonPark")
-                }
-            
-            ApiClient.addEvent(event: event,onCompletion: { (json) in
-                let eventID = json["data"]["addEvent"]["id"]
-                print(eventID)
-                print("JSON HERE")
-                print(json["data"]["addEvent"]["id"])
-                    guard let id = eventID.int else {
-                        return
-                        
-                    }
-                    print(id)
-                    self.bostonIDS.append(id)
-                    print("THESE ARE THE IDS")
-                    print(self.bostonIDS)
-                    
-                    
+            for (index, value) in eventAddresses.enumerated() {
                 
-            })
+                let event = Event(eventTitle: spacer + arrayEvents[index], eventAddress: value, eventUsers: [" "] , eventDescription: descriptionArray[index], eventDate:eventTimeFormatted[index], eventImageName: "bostonPark", eventTime: eventHours[index][1], eventCity: "Boston")
+                
+                    if isEven(num: index) == true {
+                        event.eventImage = #imageLiteral(resourceName: "brownstone")
+                    }
+                    else {
+                        event.eventImage = #imageLiteral(resourceName: "bostonPark")
+                    }
+                
+                ApiClient.addEvent(event: event,onCompletion: { (json) in
+                    let eventID = json["data"]["addEvent"]["id"]
+                    print(eventID)
+                    print("JSON HERE")
+                    print(json["data"]["addEvent"]["id"])
+                        guard let id = eventID.int else {
+                            return
+                            
+                        }
+                        print(id)
+                        self.bostonIDS.append(id)
+                        print("THESE ARE THE IDS")
+                        print(self.bostonIDS)
+                        
+                        
                     
-            
-            
-                dataList.append(event)
+                })
+                
+                    dataList.append(event)
                 }
-        
-        
-            }
+        }
     }
     
     func setCity() {

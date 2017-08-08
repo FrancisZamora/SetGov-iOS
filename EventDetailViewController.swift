@@ -357,10 +357,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
     }
     
-    
-    
-    
-    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         if commentArray.count == 0 {
@@ -683,12 +679,38 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         print(indexPath.row)
         
     
-        
+        if(indexPath.row == 1) {
+            loadDirections()
+        }
         
         
         
     }
+    
+    func getState() -> String {
+        switch selectedCity {
+        case "Boston":
+            return "MA"
+        case "Fort Lauderdale":
+            return "FL"
+        default:
+            return "NY"
+        }
+    }
+    
+    func loadDirections() {
 
-  
+        let event = dataList[indexofEvent]
+        
+        let addressString = "\(event.eventAddress) \(selectedCity) \(getState())"
+        let formattedAddress = addressString.replacingOccurrences(of: " ", with: "+")
+        let url = "https://www.google.com/maps/dir/?api=1&destination=\(formattedAddress)"
+        
+        if let url = URL(string: url) {
+            UIApplication.shared.openURL(url)
+        } else {
+            print("INVALID URL STRING")
+        }
     }
+}
 
