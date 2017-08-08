@@ -22,6 +22,7 @@ class EventLiveStream: UITableViewCell {
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var liveView: UIView!
     @IBOutlet var liveTitle: UILabel!
+    var eventTitle = " "
     var selectedCity = " "
     var timer = Timer()
     var counter = 0
@@ -36,9 +37,13 @@ class EventLiveStream: UITableViewCell {
 
         timeLabel.text = " 00:00"
         print("time set to 0 ")
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(incrementTime), userInfo: nil, repeats: true)
-
-    
+        print(eventTitle)
+        
+        if UserDefaults.standard.string(forKey: eventTitle) !=
+            "increment" {
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(incrementTime), userInfo: nil, repeats: true )
+            UserDefaults.standard.set("increment", forKey: eventTitle)
+        }
     }
     
     func switchTitleOff() {

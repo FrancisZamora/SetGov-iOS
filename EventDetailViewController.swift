@@ -92,6 +92,11 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        UserDefaults.standard.set("off", forKey: eventTitle)
+
+    }
+    
     func fetchEvent() {
 
         if selectedCity == "Boston" {
@@ -485,6 +490,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventLiveStream.selectionStyle = .none
                 eventLiveStream.selectedCity = selectedCity
                 eventLiveStream.switchTitleOn()
+                eventLiveStream.eventTitle = eventTitle
                 print ("returning stream")
                 eventLiveStream.configure()
                 eventLiveStream.playVideo()
@@ -501,6 +507,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventLiveStream.selectionStyle = .none
                 eventLiveStream.selectedCity = selectedCity
                 eventLiveStream.switchTitleOn()
+                eventLiveStream.eventTitle = eventTitle
                 print ("returning stream")
                 eventLiveStream.configure()
                 eventLiveStream.playVideo()
@@ -520,6 +527,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 // add transition with 2 second delay coming in from the right 
                 print(eventStream.presentStream)
                 let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream") as! EventLiveStream
+                
+                eventLiveStream.eventTitle = eventTitle
                 eventLiveStream.selectionStyle = .none
                 print ("returning stream")
                 eventLiveStream.configure()
