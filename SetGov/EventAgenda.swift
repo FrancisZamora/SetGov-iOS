@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import QuartzCore
+import Kanna
+
 
 protocol EventAgendaCallback: class {
     func loadAgendaDetail(data:Dictionary<Int,String>, infoData:[[String]], agendaTitles:[String], index: Int)

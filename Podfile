@@ -13,8 +13,7 @@ target 'SetGov' do
   pod 'NVActivityIndicatorView'
   pod 'AlamofireObjectMapper', '~> 4.0'
   pod 'Kingfisher', '~> 3.0'
-  pod 'GoogleMaps'
-  pod 'GooglePlaces'
+  pod 'Kanna', '~> 2.1.0'
 
   target 'SetGovTests' do
     inherit! :search_paths
