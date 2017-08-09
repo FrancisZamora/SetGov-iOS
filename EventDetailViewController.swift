@@ -72,7 +72,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.fetchEvent()
+        //self.fetchEvent()
         print("this is the length of the comment array")
         print(commentArray.count)
         
@@ -126,7 +126,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                     print("this is val")
                     print(val)
                    
-                    let user = User(fullName: val["user"]["full_name"].stringValue,profilePictureURL: val["user"]["profileImage"]["url"].stringValue,interestedStatus: false,attendingStatus: false)
+                    let user = User(fullName: val["user"]["full_name"].stringValue,
+                                    profilePictureURL: val["user"]["profileImage"]["url"].stringValue)
                     let comment = Comment(text: val["text"].stringValue, user: user, karma: val["karma"].int!, timeStamp: "1 min ago",commentID:val["id"].int!)
                     
         
@@ -166,7 +167,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                     print("this is val")
                     print(val)
                     
-                    let user = User(fullName: val["user"]["full_name"].stringValue,profilePictureURL: val["user"]["profileImage"]["url"].stringValue,interestedStatus: false,attendingStatus: false)
+                    let user = User(fullName: val["user"]["full_name"].stringValue,
+                                    profilePictureURL: val["user"]["profileImage"]["url"].stringValue)
                     let comment = Comment(text: val["text"].stringValue, user: user, karma: val["karma"].int!, timeStamp: "1 min ago",commentID:val["id"].int!)
                     
                   

@@ -55,20 +55,20 @@ class EventViewController: SetGovTableViewController{
     
     
     func checkMembers() {
-        ApiClient.fetchEvents(city: selectedCity,  onCompletion: { event in
-            switch self.selectedCity {
-            case "Boston":
-                self.bostonDataList = event
-            case "Fort Lauderdale":
-                self.fortlauderdaleDataList = event
-            default:
-                self.bostonDataList = event
-                
-                
-            }
-            self.tableView.reloadData()
-        
-        })
+//        ApiClient.fetchEvents(city: selectedCity,  onCompletion: { event in
+//            switch self.selectedCity {
+//            case "Boston":
+//                self.bostonDataList = event
+//            case "Fort Lauderdale":
+//                self.fortlauderdaleDataList = event
+//            default:
+//                self.bostonDataList = event
+//                
+//                
+//            }
+//            self.tableView.reloadData()
+//        
+//        })
 
     }
     
@@ -121,7 +121,7 @@ class EventViewController: SetGovTableViewController{
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.checkMembers()
+        //self.checkMembers()
     }
 
     

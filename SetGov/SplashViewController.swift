@@ -20,6 +20,8 @@ class SplashViewController: SetGovViewController {
     var fortlauderdaleDataList = [Event]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        //WebScraper.parseEvents()
+        
         self.fetchEvent()
 
         self.loading.alpha  = 0
@@ -127,11 +129,7 @@ class SplashViewController: SetGovViewController {
                 
                     
                 
-                    
-                    
-                    
-                
-            
+    
                 self.appDelegate.bostonDataList = self.bostonDataList
             })
                 
@@ -143,8 +141,6 @@ class SplashViewController: SetGovViewController {
         ApiClient.fetchEvents(city: "Fort Lauderdale",  onCompletion: { event in
             print("this is the index")
             self.fortlauderdaleDataList = event 
-            
-                
             
             self.appDelegate.fortlauderdaleDataList = self.fortlauderdaleDataList
             
@@ -208,15 +204,7 @@ class SplashViewController: SetGovViewController {
                 
                 self.show(controller, sender: nil)
             }
-        
-
-            
         })
-        
-
-        
-        
-
     }
     
     

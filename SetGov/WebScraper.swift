@@ -12,8 +12,6 @@ import UIKit
 import Kanna
 class WebScraper {
  
-        
-        
         fileprivate static func parseBoston() -> (arrayEvents: [String],
             descriptionArray: [String],
             eventAddresses: [String],
@@ -302,7 +300,7 @@ class WebScraper {
                 
                 let event = Event(title: spacer + arrayEvents[index],
                                   address: value,
-                                  users: [" "] ,
+                                  users: [],
                                   description: descriptionArray[index],
                                   date:eventTimeFormatted[index],
                                   eventImageName: "bostonPark",

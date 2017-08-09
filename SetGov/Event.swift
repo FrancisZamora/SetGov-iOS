@@ -19,8 +19,8 @@ class Event {
     var description = " "
     var image = #imageLiteral(resourceName: "Image1")
     var city = " "
-    var date2 = " "
-    var users = [String]()
+    var realDate = Date()
+    var users = [User]()
     var id: Int
     var agendaItems = [Agenda]()
 
@@ -30,7 +30,7 @@ class Event {
     
     
     
-    init(title:String, address: String, users: [String],  description: String, date: String, eventImageName: String, time: String, city: String,agendaItems: [Agenda], id: Int) {
+    init(title:String, address: String, users: [User],  description: String, date: String, eventImageName: String, time: String, city: String,agendaItems: [Agenda], id: Int) {
         self.title = title
         self.description = description
         self.users = users
@@ -41,6 +41,15 @@ class Event {
         self.city = city
         self.agendaItems = agendaItems
         self.id = id
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+    
+        if let newDate = formatter.date(from: date) {
+            self.realDate = newDate
+        }
+        
+        
         // ** read top comment self.eventUsers = eventUsers
     }
     

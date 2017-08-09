@@ -14,7 +14,7 @@ import FacebookCore
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var user =  User(fullName: " ",  profilePictureURL: " ", interestedStatus: false, attendingStatus: false)
+    var user =  User(fullName: " ",  profilePictureURL: " ")
     var fortlauderdaleDataList = [Event]()
     var bostonDataList = [Event]()
     let UserDefault = UserDefaults.standard

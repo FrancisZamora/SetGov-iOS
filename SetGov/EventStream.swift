@@ -293,7 +293,7 @@ class EventStream:  UITableViewCell {
                 let eventID = bostonDataList[indexofEvent].id
                 print(eventID)
                 ApiClient.attendEvent(eventID: eventID ,onCompletion: { json in
-                    self.currentEvent.users.append(self.user.fullName)
+                    self.currentEvent.users.append(self.user)
                     if let callback = self.eventStreamCallback {
                         print("callback in progress")
                         
@@ -320,7 +320,7 @@ class EventStream:  UITableViewCell {
                 let eventID = fortlauderdaleDataList[indexofEvent].id
 
                 ApiClient.attendEvent( eventID: eventID ,onCompletion: { json in
-                    self.currentEvent.users.append(self.user.fullName)
+                    self.currentEvent.users.append(self.user)
                     if let callback = self.eventStreamCallback {
                         print("callback in progress")
                         callback.attendbuttonTapped()

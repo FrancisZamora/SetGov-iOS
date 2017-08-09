@@ -174,11 +174,34 @@ class ApiClient {
                     return
             }
             
+            
+            print("FETCHED EVENTS: \(events)")
+            
             var eventsArray = [Event]()
-            var users = [String]()
             for event in events {
-                print("EVENT: \(event)")
-                users.append(event["attendingUsers"]["profileImage"]["url"].stringValue)
+                //print("EVENT: \(event)")
+                var userArray = [User]()
+
+                if let users = event["attendingUsers"].array {
+                    for user in users {
+                        if let fullName = user["full_name"].string,
+                            let profileUrl = user["profileImage"]["url"].string {
+                            userArray.append(User(fullName: fullName, profilePictureURL: profileUrl))
+                        }
+                    }
+                }
+                
+                var agendaArray = [Agenda]()
+                if let agendaItems = event["agendaItems"].array {
+                    for agenda in agendaItems {
+                        if let name = agenda["name"].string,
+                            let description = agenda["description"].string {
+                            agendaArray.append(Agenda(name: name, description: description))
+                        }
+                    }
+                }
+                
+                
                 if let city = event["city"].string,
                     let name = event["name"].string,
                     let id = event["id"].int,
@@ -186,10 +209,23 @@ class ApiClient {
                     let time = event["time"].string,
                     let description = event["description"].string,
                     let date = event["date"].string {
-                    eventsArray.append(Event(title: name, address: address, users: users, description: description, date: date, eventImageName: "bostonPark", time: time, city: city, agendaItems: [], id: id))
+                    eventsArray.append(Event(title: name,
+                                             address: address,
+                                             users: userArray,
+                                             description: description,
+                                             date: date,
+                                             eventImageName: "bostonPark",
+                                             time: time,
+                                             city: city,
+                                             agendaItems: agendaArray,
+                                             id: id))
                 }
             }
-            onCompletion(eventsArray)
+            
+            
+            
+            
+            onCompletion(eventsArray.sorted(by: { $0.realDate < $1.realDate }))
             
         }
     }
