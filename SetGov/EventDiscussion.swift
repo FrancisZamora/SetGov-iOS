@@ -42,7 +42,6 @@ class EventDiscussion: UITableViewCell {
         userName.text = comment.user.fullName
         let theProfileImageUrl = URL(string:comment.user.profilePictureURL)
         do {
-            let imageData = try Data(contentsOf: theProfileImageUrl!)
             
             userPicture.kf.setImage(with: theProfileImageUrl)
             print("image created")

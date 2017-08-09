@@ -415,12 +415,15 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventStream.configure()
                 eventStream.streamContent()
                 eventStream.checkStatus()
-
-                eventStream.eventImage.image = eventImages[indexofEvent]
+            if selectedCity == "Fort Lauderdale" {
+                eventStream.eventImage.image = bostonDataList[indexofEvent].image
                 agendaImage = eventStream.eventImage.image!
-            
+            }
             
         if selectedCity == "Boston" {
+            eventStream.eventImage.image = bostonDataList[indexofEvent].image
+            agendaImage = eventStream.eventImage.image!
+            
             if eventStream.firstpress == false  && eventStream.compareTime() == false || eventStream.checkStatus() == true && eventStream.compareTime() == false {
                 if noAlert == false && selectedCity == "Boston" {
                     let alert = UIAlertController(title: "Constant Stream Available", message: "Boston offers a 24/7 live stream", preferredStyle: UIAlertControllerStyle.alert)
@@ -529,12 +532,11 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             if selectedCity == "Boston" {
                 print(indexofEvent)
                 
-                infoCell.eventAddress.text = EventAddresses[indexofEvent]
+                infoCell.eventAddress.text = bostonDataList[indexofEvent].address
                 print(eventTimeNoFormat)
             
-                infoCell.eventTime.text = eventTimeNoFormat[indexofEvent]
-                infoCell.eventHour.text = eventHours[indexofEvent][1]
-            
+                infoCell.eventTime.text = bostonDataList[indexofEvent].date
+                infoCell.eventHour.text = bostonDataList[indexofEvent].time
                 return infoCell
             }
             
@@ -544,16 +546,13 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 let formatter = DateFormatter()
                 formatter.dateFormat = "MM/dd/yy"
                 formatter.dateStyle = .short
-                if let date = formatter.date(from: fortlauderdaleArray[indexofEvent][1]){
-                    let y = formatter.string(from: date)
-                    infoCell.eventTime.text = String(describing: y)
-                }
+              
                 infoCell.eventAddress.text = "100 North Andrews Avenue"
                 let z = fortlauderdaleArray[indexofEvent][6].trimmingCharacters(in: .whitespacesAndNewlines)
                 print(z)
                 print(fortlauderdaleArray[indexofEvent])
-                
-                infoCell.eventHour.text = z
+                infoCell.eventTime.text = fortlauderdaleDataList[indexofEvent].date
+                infoCell.eventHour.text = fortlauderdaleDataList[indexofEvent].time
                 
                 
                 return infoCell

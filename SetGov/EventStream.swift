@@ -145,12 +145,12 @@ class EventStream:  UITableViewCell {
         print(newDate)
         print(newDate)
         
-        let x = newDate == eventTimeNoFormat[indexofEvent]
+        let x = newDate == bostonDataList[indexofEvent].date
         print(x)
         self.configureHour()
         print(eventHours)
         
-        let y = currentHour >=  eventHours[indexofEvent][1]
+        let y = currentHour >=  bostonDataList[indexofEvent].time
         print(currentHour)
         print(y)
         
