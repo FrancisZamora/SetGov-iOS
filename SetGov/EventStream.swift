@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import QuartzCore
 import SwiftyJSON
-
+import Kingfisher
 protocol EventStreamCallback: class {
     func refreshTap(tapped:Bool)
     func attendbuttonTapped()
@@ -63,15 +63,12 @@ class EventStream:  UITableViewCell {
 
     var eventTVController: EventDetailViewController?
     func configureImage() {
+        print(self.user.fullName)
+        print(self.user.profilePictureURL)
         
         let theProfileImageUrl = URL(string:self.user.profilePictureURL)
-        do {
-            let imageData = try Data(contentsOf: theProfileImageUrl!)
-            secondaryEventImage.image = UIImage(data: imageData)
-        } catch {
-            
-            print("Unable to load data: \(error)")
-        }
+        secondaryEventImage.kf.setImage(with: theProfileImageUrl)
+      
         
     }
     func configureColor () {
