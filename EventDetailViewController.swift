@@ -101,7 +101,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
 
         if selectedCity == "Boston" {
 
-            ApiClient.fetchEvent(eventID:self.bostonDataList[indexofEvent].eventID , onCompletion:{ json in
+            ApiClient.fetchEvent(eventID:self.bostonDataList[indexofEvent].id , onCompletion:{ json in
             
             
                 let pictureIDArray = json["data"]["event"]  ["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
@@ -143,7 +143,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             })
         }
         if selectedCity == "Fort Lauderdale" {
-            ApiClient.fetchEvent(eventID:self.fortlauderdaleDataList[indexofEvent].eventID , onCompletion:{ json in
+            ApiClient.fetchEvent(eventID:self.fortlauderdaleDataList[indexofEvent].id , onCompletion:{ json in
                 let pictureIDArray = json["data"]["event"]  ["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
                 
                 self.picArray = pictureIDArray
@@ -207,7 +207,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             print(selectedEvents)
             print(eventList)
             print(indexofEvent)
-            navTitle.title = arrayEvents[indexofEvent]
+            navTitle.title = bostonDataList[indexofEvent].title
             eventTitle = navTitle.title!
         }
         
@@ -236,7 +236,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     func retrievecommentData(comment:String) {
         print(comment)
         if selectedCity == "Boston" {
-            ApiClient.createComment(comment: comment, eventID: self.bostonDataList[indexofEvent].eventID, onCompletion:{ json in
+            ApiClient.createComment(comment: comment, eventID: self.bostonDataList[indexofEvent].id, onCompletion:{ json in
                 self.fetchEvent()
                 
             })
@@ -244,7 +244,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         }
         
         if selectedCity == "Fort Lauderdale" {
-            ApiClient.createComment(comment: comment, eventID: self.fortlauderdaleDataList[indexofEvent].eventID, onCompletion:{ json in
+            ApiClient.createComment(comment: comment, eventID: self.fortlauderdaleDataList[indexofEvent].id, onCompletion:{ json in
                 self.fetchEvent()
             })
             
@@ -679,7 +679,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         var y = getDataList()
         let event = y[indexofEvent]
         
-        let addressString = "\(event.eventAddress) \(selectedCity) \(getState())"
+        let addressString = "\(event.address) \(selectedCity) \(getState())"
         let formattedAddress = addressString.replacingOccurrences(of: " ", with: "+")
         let url = "https://www.google.com/maps/dir/?api=1&destination=\(formattedAddress)"
         

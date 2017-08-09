@@ -118,36 +118,19 @@ class SplashViewController: SetGovViewController {
     }
     
     func fetchEvent () {
-            ApiClient.fetchEvents(city: "Boston",  onCompletion: { json in
+            ApiClient.fetchEvents(city: "Boston",  onCompletion: { event  in
                 print("this is the index")
-                let event = json["data"]["upcomingEvents"].array
-                for (idx ,val) in (event?.enumerated())!  {
-                    let event = Event(eventTitle: val["name"].stringValue, eventAddress: val["address"].stringValue , eventUsers: ["Sam"], eventDescription: val["description"].stringValue, eventDate:val["date"].stringValue, eventImageName: "brownstone", eventTime: val["time"].stringValue, eventCity: val["city"].stringValue, eventID: val["id"].int!)
+                
+                self.bostonDataList = event
+                print(self.bostonDataList)
+                
+                
                     
-                    print(idx)
-                    
-                    if idx == 0 {
-                        event.eventImage = #imageLiteral(resourceName: "brownstone")
-                    }
-                    
-                    if idx == 1 {
-                        event.eventImage = #imageLiteral(resourceName: "bostonPark")
-                    }
-                    
-                    if idx % 2 == 0{
-                        event.eventImage = #imageLiteral(resourceName: "brownstone")
-                    }
-                    else {
-                        event.eventImage = #imageLiteral(resourceName: "bostonPark")
-                        
-                    }
-                    
-                    self.bostonDataList.append(event)
+                
                     
                     
                     
-                    
-                }
+                
             
                 self.appDelegate.bostonDataList = self.bostonDataList
             })
@@ -157,33 +140,12 @@ class SplashViewController: SetGovViewController {
                 
         
         
-        ApiClient.fetchEvents(city: "Fort Lauderdale",  onCompletion: { json in
+        ApiClient.fetchEvents(city: "Fort Lauderdale",  onCompletion: { event in
             print("this is the index")
-            let event = json["data"]["upcomingEvents"].array
-            for (idx,val) in (event?.enumerated())!  {
-                let event = Event(eventTitle: val["name"].stringValue, eventAddress: val["address"].stringValue , eventUsers: ["Sam"], eventDescription: val["description"].stringValue, eventDate:val["date"].stringValue, eventImageName: "brownstone", eventTime: val["time"].stringValue, eventCity: val["city"].stringValue, eventID: val["id"].int!)
+            self.fortlauderdaleDataList = event 
+            
                 
-                if idx == 0 {
-                    event.eventImage = #imageLiteral(resourceName: "fortlauderdalepark")
-                }
-                
-                if idx == 1 {
-                    event.eventImage = #imageLiteral(resourceName: "Image1")
-                }
-                
-                if idx % 2 == 0{
-                    event.eventImage = #imageLiteral(resourceName: "fortlauderdalepark")
-                }
-                else {
-                    event.eventImage = #imageLiteral(resourceName: "Image1")
-                    
-                }
-                
-                self.fortlauderdaleDataList.append(event)
-                
-                
-                
-            }
+            
             self.appDelegate.fortlauderdaleDataList = self.fortlauderdaleDataList
             
             if UserDefaults.standard.string(forKey: "logged") == nil{

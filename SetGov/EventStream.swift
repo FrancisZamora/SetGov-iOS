@@ -229,7 +229,7 @@ class EventStream:  UITableViewCell {
         var x = false
         if selectedCity == "Boston"  {
             
-            ApiClient.fetchEvent(eventID:bostonDataList[indexofEvent].eventID , onCompletion:{ json in
+            ApiClient.fetchEvent(eventID:bostonDataList[indexofEvent].id , onCompletion:{ json in
                 
                 let fullNameArray =  json["data"]["event"]["attendingUsers"].arrayValue.map({$0["full_name"].stringValue})
                 print(fullNameArray)
@@ -257,7 +257,7 @@ class EventStream:  UITableViewCell {
         }
         
         if selectedCity == "Fort Lauderdale" && compareTime() == false {
-            ApiClient.fetchEvent(eventID:fortlauderdaleDataList[indexofEvent].eventID , onCompletion: { json in
+            ApiClient.fetchEvent(eventID:fortlauderdaleDataList[indexofEvent].id , onCompletion: { json in
                
                 let fullNameArray =  json["data"]["event"]["attendingUsers"].arrayValue.map({$0["full_name"].stringValue})
                 print(fullNameArray)
@@ -277,9 +277,7 @@ class EventStream:  UITableViewCell {
 
         }
 
-        print(currentEvent.eventUsers)
-        print(currentEvent.eventUsers.contains(self.user.fullName))
-        return false 
+        return false
        
     }
     
@@ -292,10 +290,10 @@ class EventStream:  UITableViewCell {
             print(eventTitle)
             self.eventTitle  =  "  " + self.eventTitle
             if self.selectedCity == "Boston" {
-                let eventID = bostonDataList[indexofEvent].eventID
+                let eventID = bostonDataList[indexofEvent].id
                 print(eventID)
                 ApiClient.attendEvent(eventID: eventID ,onCompletion: { json in
-                    self.currentEvent.eventUsers.append(self.user.fullName)
+                    self.currentEvent.users.append(self.user.fullName)
                     if let callback = self.eventStreamCallback {
                         print("callback in progress")
                         
@@ -319,10 +317,10 @@ class EventStream:  UITableViewCell {
             }
             
             if self.selectedCity == "Fort Lauderdale" {
-                let eventID = fortlauderdaleDataList[indexofEvent].eventID
+                let eventID = fortlauderdaleDataList[indexofEvent].id
 
                 ApiClient.attendEvent( eventID: eventID ,onCompletion: { json in
-                    self.currentEvent.eventUsers.append(self.user.fullName)
+                    self.currentEvent.users.append(self.user.fullName)
                     if let callback = self.eventStreamCallback {
                         print("callback in progress")
                         callback.attendbuttonTapped()

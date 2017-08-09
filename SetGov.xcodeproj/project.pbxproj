@@ -40,6 +40,7 @@
 		15433B941F15766700B8FE0D /* EventOnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15433B931F15766700B8FE0D /* EventOnboardingScreen.swift */; };
 		1547836D1F1FB43D005ABF77 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1547836C1F1FB43D005ABF77 /* ApiClient.swift */; };
 		154E5C0B1E89FB6900F96FB6 /* EventAgenda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E5C0A1E89FB6900F96FB6 /* EventAgenda.swift */; };
+		155D301E1F3BA0DC0013B7C3 /* Agenda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155D301D1F3BA0DC0013B7C3 /* Agenda.swift */; };
 		1566CC861F321F2E0078FFC8 /* DiscussionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1566CC851F321F2E0078FFC8 /* DiscussionHeader.swift */; };
 		156BD4C91E83185200E8F98B /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4C81E83185200E8F98B /* EventDetailViewController.swift */; };
 		156BD4CD1E836B6300E8F98B /* EventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4CC1E836B6300E8F98B /* EventInfo.swift */; };
@@ -118,6 +119,7 @@
 		15433B931F15766700B8FE0D /* EventOnboardingScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventOnboardingScreen.swift; sourceTree = "<group>"; };
 		1547836C1F1FB43D005ABF77 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		154E5C0A1E89FB6900F96FB6 /* EventAgenda.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAgenda.swift; sourceTree = "<group>"; };
+		155D301D1F3BA0DC0013B7C3 /* Agenda.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Agenda.swift; sourceTree = "<group>"; };
 		1566CC851F321F2E0078FFC8 /* DiscussionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussionHeader.swift; sourceTree = "<group>"; };
 		156BD4C81E83185200E8F98B /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailViewController.swift; path = ../EventDetailViewController.swift; sourceTree = "<group>"; };
 		156BD4CC1E836B6300E8F98B /* EventInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInfo.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				1502CDB71EFB2F4F00CD658F /* Users.swift */,
 				152DBEE81EF1BC1E00322E56 /* Event.swift */,
 				1534AD7F1F2C09760001D08D /* Comment.swift */,
+				155D301D1F3BA0DC0013B7C3 /* Agenda.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -637,6 +640,7 @@
 				15B945941E9DD75700226A32 /* EventLiveStream.swift in Sources */,
 				156BD4CD1E836B6300E8F98B /* EventInfo.swift in Sources */,
 				152DBEE91EF1BC1E00322E56 /* Event.swift in Sources */,
+				155D301E1F3BA0DC0013B7C3 /* Agenda.swift in Sources */,
 				15D442261EF355BC00AC8FD1 /* MiamiCell.swift in Sources */,
 				15433B921F15765800B8FE0D /* CityOnboardingScreen.swift in Sources */,
 				1534AD821F2C0B3C0001D08D /* CreateComment.swift in Sources */,

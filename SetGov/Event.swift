@@ -11,33 +11,36 @@ import UIKit
 import SwiftyJSON
 
 class Event {
-    var eventTitle = " "
-    var eventAddress = " "
-    var eventDate = "June 30th"
-    var eventTime = " "
+    var title = " "
+    var address = " "
+    var date = "June 30th"
+    var time = " "
 
-    var eventDescription = " "
-    var eventImage = #imageLiteral(resourceName: "Image1")
-    var eventCity = " "
-    var eventDate2 = " " 
-    var eventUsers = [String]()
-    var eventID: Int
+    var description = " "
+    var image = #imageLiteral(resourceName: "Image1")
+    var city = " "
+    var date2 = " "
+    var users = [String]()
+    var id: Int
+    var agendaItems = [Agenda]()
+
    // var loggedUser = User(userName: " " , attendingStatus: false, interestedStatus: false)
     
     
     
     
     
-    init(eventTitle:String, eventAddress: String, eventUsers: [String],  eventDescription: String, eventDate: String, eventImageName: String, eventTime: String, eventCity: String,eventID: Int) {
-        self.eventTitle = eventTitle
-        self.eventDescription = eventDescription
-        self.eventUsers = eventUsers
-        self.eventImage = UIImage(imageLiteralResourceName: eventImageName)
-        self.eventDate = eventDate
-        self.eventTime = eventTime
-        self.eventAddress = eventAddress
-        self.eventCity = eventCity
-        self.eventID = eventID
+    init(title:String, address: String, users: [String],  description: String, date: String, eventImageName: String, time: String, city: String,agendaItems: [Agenda], id: Int) {
+        self.title = title
+        self.description = description
+        self.users = users
+        self.image = UIImage(imageLiteralResourceName: eventImageName)
+        self.date = date
+        self.time = time
+        self.address = address
+        self.city = city
+        self.agendaItems = agendaItems
+        self.id = id
         // ** read top comment self.eventUsers = eventUsers
     }
     
