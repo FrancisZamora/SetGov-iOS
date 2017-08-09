@@ -21,14 +21,14 @@ class Event {
     var eventCity = " "
     var eventDate2 = " " 
     var eventUsers = [String]()
-    //var eventID: Int
+    var eventID: Int
    // var loggedUser = User(userName: " " , attendingStatus: false, interestedStatus: false)
     
     
     
     
     
-    init(eventTitle:String, eventAddress: String, eventUsers: [String],  eventDescription: String, eventDate: String, eventImageName: String, eventTime: String, eventCity: String) {
+    init(eventTitle:String, eventAddress: String, eventUsers: [String],  eventDescription: String, eventDate: String, eventImageName: String, eventTime: String, eventCity: String,eventID: Int) {
         self.eventTitle = eventTitle
         self.eventDescription = eventDescription
         self.eventUsers = eventUsers
@@ -37,7 +37,7 @@ class Event {
         self.eventTime = eventTime
         self.eventAddress = eventAddress
         self.eventCity = eventCity
-        //self.eventID = eventID
+        self.eventID = eventID
         // ** read top comment self.eventUsers = eventUsers
     }
     

@@ -54,8 +54,9 @@ class EventViewController: SetGovTableViewController{
     var dateArray = [Date]()
     var user: User!
     var picArray = [[String]()]
-    var fortlauderdaleIDS = [Int]()
-    var bostonIDS = [Int]()
+    var bostonDataList = [Event]()
+    var fortlauderdaleDataList = [Event]()
+    
     
     
     
@@ -81,7 +82,12 @@ class EventViewController: SetGovTableViewController{
            self.picArray.append(val["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue}))
                 self.tableView.reloadData()
                 print(self.picArray)
-           
+                
+                let event = Event(eventTitle: val["name"].stringValue, eventAddress: val["address"].stringValue , eventUsers: ["Sam"], eventDescription: val["description"].stringValue, eventDate:val["date"].stringValue, eventImageName: "brownstone", eventTime: val["time"].stringValue, eventCity: val["city"].stringValue, eventID: val["id"].int!)
+                
+                self.dataList.append(event)
+                
+                
                 
             }
         
@@ -95,7 +101,8 @@ class EventViewController: SetGovTableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         print(selectedCity)
-            
+        self.bostonDataList = self.appDelegate.bostonDataList
+        self.fortlauderdaleDataList = self.appDelegate.fortlauderdaleDataList
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "CityNavigationViewController") as! CityNavigationViewController
         self.navigationController?.viewControllers.insert(controller, at: 1)
@@ -133,6 +140,18 @@ class EventViewController: SetGovTableViewController{
             print("we made it")
 
         }
+    }
+    
+    func getDataList() -> [Event] {
+        switch selectedCity {
+        case "Boston":
+            return bostonDataList
+        case "Fort Lauderdale":
+            return fortlauderdaleDataList
+        default:
+            return bostonDataList
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -479,7 +498,7 @@ class EventViewController: SetGovTableViewController{
 
             
 
-            let event = Event(eventTitle: spacer + fortlauderdaleArray[index][0], eventAddress:"100 N Andrews Ave", eventUsers: [" "], eventDescription: finalTitle, eventDate:date , eventImageName: "Image1", eventTime: zz, eventCity: "Fort Lauderdale")
+            let event = Event(eventTitle: spacer + fortlauderdaleArray[index][0], eventAddress:"100 N Andrews Ave", eventUsers: [" "], eventDescription: finalTitle, eventDate:date , eventImageName: "Image1", eventTime: zz, eventCity: "Fort Lauderdale",eventID: 0)
             print("THIS IS THE EVENT TIME")
             print(zz)
             
@@ -500,14 +519,11 @@ class EventViewController: SetGovTableViewController{
                         return
                     }
                 
-                  self.fortlauderdaleIDS.append(id)
                   print("these are the ids")
-                  print(self.fortlauderdaleIDS)
                 
                 }
             })
            count = count + 1
-           dataList.append(event)
 
         }
     }
@@ -518,7 +534,7 @@ class EventViewController: SetGovTableViewController{
             
             for (index, value) in eventAddresses.enumerated() {
                 
-                let event = Event(eventTitle: spacer + arrayEvents[index], eventAddress: value, eventUsers: [" "] , eventDescription: descriptionArray[index], eventDate:eventTimeFormatted[index], eventImageName: "bostonPark", eventTime: eventHours[index][1], eventCity: "Boston")
+                let event = Event(eventTitle: spacer + arrayEvents[index], eventAddress: value, eventUsers: [" "] , eventDescription: descriptionArray[index], eventDate:eventTimeFormatted[index], eventImageName: "bostonPark", eventTime: eventHours[index][1], eventCity: "Boston",eventID: 0)
                 
                     if isEven(num: index) == true {
                         event.eventImage = #imageLiteral(resourceName: "brownstone")
@@ -532,23 +548,21 @@ class EventViewController: SetGovTableViewController{
                     print(eventID)
                     print("JSON HERE")
                     print(json["data"]["addEvent"]["id"])
-                        guard let id = eventID.int else {
-                            return
+                        event.eventID = eventID.int!
+                    
                             
-                        }
-                        print(id)
-                        self.bostonIDS.append(id)
+                    
+                        //self.bostonIDS.append(id)
                         print("THESE ARE THE IDS")
-                        print(self.bostonIDS)
                         
                         
                     
                 })
                 
-                    dataList.append(event)
                 }
         }
     }
+    
     
     func setCity() {
         if selectedCity == "Fort Lauderdale" {
@@ -624,7 +638,8 @@ class EventViewController: SetGovTableViewController{
             cell.configure()
             cell.selectionStyle = .none
             cell.selectedCity = selectedCity
-            cell.editCell(Event: dataList[indexPath.row])
+            var x = getDataList()
+            cell.editCell(Event: x[indexPath.row])
             cell.selectionStyle = .none
             print(" we hit the conditional")
             return cell
@@ -637,7 +652,8 @@ class EventViewController: SetGovTableViewController{
             cell.selectedCity = selectedCity
             cell.dataList = dataList
             cell.selectionStyle = .none
-            cell.editCell(Event:dataList[indexPath.row])
+            var x = getDataList()
+            cell.editCell(Event:x[indexPath.row])
             //cell.alpha = 0.50
             print("this is the picture array length\(picArray.count)")
             print(picArray)
@@ -660,7 +676,8 @@ class EventViewController: SetGovTableViewController{
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventCell
             cell.selectionStyle = .none
             cell.dataList = dataList
-            cell.editCell(Event:dataList[indexPath.row])
+            var x = getDataList()
+            cell.editCell(Event:x[indexPath.row])
            // cell.alpha = 0
             
             cell.picArray = picArray[indexPath.row]
@@ -724,8 +741,8 @@ class EventViewController: SetGovTableViewController{
             EventDetailViewController.descriptionArray = descriptionArray
             EventDetailViewController.eventHours = eventHours
             EventDetailViewController.fortlauderdaleArray = fortlauderdaleArray
-            EventDetailViewController.bostonIDS = bostonIDS
-            EventDetailViewController.fortlauderdaleIDS = fortlauderdaleIDS
+            EventDetailViewController.fortlauderdaleDataList = fortlauderdaleDataList
+            EventDetailViewController.bostonDataList = bostonDataList 
         }
     }
 }

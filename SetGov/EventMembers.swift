@@ -11,8 +11,6 @@ import UIKit
 
 class EventMembers: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var bostonIDS = [Int]()
-    var fortlauderdaleIDS = [Int]()
     var indexofEvent = 0
     var picArray = [String]()
     

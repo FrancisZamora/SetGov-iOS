@@ -45,14 +45,14 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var eventDescription = String()
     var paragraphArray = [[String()]]
     var agendaTitle = [String]()
-    var fortlauderdaleIDS = [Int]()
-    var bostonIDS = [Int]()
     var commentArray = [Comment]()
     var currentEvent: Event!
     weak var collectionView: UICollectionView!
     var picArray = [String]()
     var user: User!
     var replyComment: Comment!
+    var bostonDataList = [Event]()
+    var fortlauderdaleDataList = [Event]()
     
     @IBOutlet var navTitle: UINavigationItem!
     
@@ -64,10 +64,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         self.loadTitle()
         
         self.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        self.currentEvent = dataList[indexofEvent]
-        print("these are the boston ids")
-        print(bostonIDS)
-        print("these are the fort lauderdale ids \(fortlauderdaleIDS)")
+        var x = getDataList()
+        
+        self.currentEvent = x[indexofEvent]
         print(agendaInfo)
         print(indexofEvent)
     }
@@ -80,6 +79,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         tableView.reloadData()
 
     }
+    
     
     
     func checkAlert() -> Bool {
@@ -100,11 +100,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     func fetchEvent() {
 
         if selectedCity == "Boston" {
-            self.bostonIDS = self.bostonIDS.sorted() { $0 < $1 }
 
-            ApiClient.fetchEvent(eventID:self.bostonIDS[indexofEvent] , onCompletion:{ json in
+            ApiClient.fetchEvent(eventID:self.bostonDataList[indexofEvent].eventID , onCompletion:{ json in
             
-                print(self.bostonIDS[self.indexofEvent])
             
                 let pictureIDArray = json["data"]["event"]  ["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
                 
@@ -145,8 +143,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             })
         }
         if selectedCity == "Fort Lauderdale" {
-            self.fortlauderdaleIDS = self.fortlauderdaleIDS.sorted() { $0 < $1 }
-            ApiClient.fetchEvent(eventID:self.fortlauderdaleIDS[indexofEvent] , onCompletion:{ json in 
+            ApiClient.fetchEvent(eventID:self.fortlauderdaleDataList[indexofEvent].eventID , onCompletion:{ json in
                 let pictureIDArray = json["data"]["event"]  ["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
                 
                 self.picArray = pictureIDArray
@@ -202,11 +199,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         self.replyComment = comment
         print(self.replyComment.text)
         self.tableView.reloadData()
-        
-        
     }
-    
-
     
     func loadTitle() {
         if selectedCity == "Boston" {
@@ -243,7 +236,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     func retrievecommentData(comment:String) {
         print(comment)
         if selectedCity == "Boston" {
-            ApiClient.createComment(comment: comment, eventID: self.bostonIDS[indexofEvent], onCompletion:{ json in
+            ApiClient.createComment(comment: comment, eventID: self.bostonDataList[indexofEvent].eventID, onCompletion:{ json in
                 self.fetchEvent()
                 
             })
@@ -251,16 +244,13 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         }
         
         if selectedCity == "Fort Lauderdale" {
-            ApiClient.createComment(comment: comment, eventID: self.fortlauderdaleIDS[indexofEvent], onCompletion:{ json in
+            ApiClient.createComment(comment: comment, eventID: self.fortlauderdaleDataList[indexofEvent].eventID, onCompletion:{ json in
                 self.fetchEvent()
             })
             
         }
        
     }
-    
-    
-    
     
     func loadAgendaDetail(data: Dictionary<Int,String>,infoData:[[String]],agendaTitles:[String],index:Int) {
         
@@ -272,10 +262,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         paragraphArray = infoData
         agendaTitle = agendaTitles
         print(data)
-        print(data)
-        
-        
-        
     }
     
     
@@ -290,8 +276,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     func removeComment(comment:Comment) {
         
         if selectedCity == "Boston" {
-            ApiClient.deleteComment(comment: comment.text, eventID: self.bostonIDS[indexofEvent], onCompletion:{ json in
-                
+            ApiClient.deleteComment(comment: comment.text, eventID: self.bostonDataList[indexofEvent].eventID, onCompletion:{ json in
                 self.fetchEvent()
                 self.tableView.reloadData()
                 
@@ -300,9 +285,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         }
         
         if selectedCity == "Fort Lauderdale" {
-            ApiClient.deleteComment(comment: comment.text, eventID: self.fortlauderdaleIDS[indexofEvent], onCompletion:{ json in
+            ApiClient.deleteComment(comment: comment.text, eventID: self.fortlauderdaleDataList[indexofEvent].eventID, onCompletion:{ json in
                 self.fetchEvent()
-
                 self.tableView.reloadData()
             })
             
@@ -336,11 +320,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     }
     
-    
-    
-      
-    
-    
+   
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         return 50.0
@@ -417,11 +397,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventStream.dataList = dataList
                 eventStream.user = self.user
                 eventStream.configureImage()
-                eventStream.bostonIDS = bostonIDS
+                eventStream.bostonDataList = bostonDataList
     
-                eventStream.fortlauderdaleIDS = fortlauderdaleIDS
-                print(fortlauderdaleIDS)
-                print(eventStream.fortlauderdaleIDS)
+                eventStream.fortlauderdaleDataList = fortlauderdaleDataList
                 eventStream.currentEvent = currentEvent
                 eventStream.eventTitle = eventTitle
                 eventStream.selectionStyle = .none
@@ -435,7 +413,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventStream.configure()
                 eventStream.streamContent()
                 eventStream.checkStatus()
-                eventStream.fortlauderdaleIDS = fortlauderdaleIDS
 
                 eventStream.eventImage.image = eventImages[indexofEvent]
                 agendaImage = eventStream.eventImage.image!
@@ -483,9 +460,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                     eventStream.nowLive()
                 }
 
-                
             if eventStream.compareTime() == true {
-                
                 let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream") as! EventLiveStream
                 eventLiveStream.selectionStyle = .none
                 eventLiveStream.selectedCity = selectedCity
@@ -502,7 +477,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             }
                 
             if eventStream.compareTime() == false {
-                
                 let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream") as! EventLiveStream
                 eventLiveStream.selectionStyle = .none
                 eventLiveStream.selectedCity = selectedCity
@@ -515,13 +489,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 return eventLiveStream
                 
             }
-
-                                        //present event stream
                 
-            
-
             }
-          
           
             if eventStream.initiateStream == true {
                 // add transition with 2 second delay coming in from the right 
@@ -610,7 +579,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
         if (indexPath.row==3) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventMembers", for:indexPath) as! EventMembers
-            print(bostonIDS)
             cell.selectionStyle = .none
             print("picture array from event detail")
             print(picArray)
@@ -619,7 +587,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             cell.userCollection.reloadData()
             print(cell.picArray)
             
-            cell.fortlauderdaleIDS = fortlauderdaleIDS
             return cell
         }
         
@@ -672,16 +639,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             
         
         }
-       
-            
-            
-        
-        
         let cell =  tableView.dequeueReusableCell(withIdentifier: "EventStream", for:indexPath) as! EventStream
         return cell
-        
-    
-        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
@@ -691,9 +650,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         if(indexPath.row == 1) {
             loadDirections()
         }
-        
-        
-        
     }
     
     func getState() -> String {
@@ -707,9 +663,21 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         }
     }
     
+    func getDataList() -> [Event] {
+        switch selectedCity {
+        case "Boston":
+            return bostonDataList
+        case "Fort Lauderdale":
+            return fortlauderdaleDataList
+        default:
+            return bostonDataList
+        }
+    
+    }
+    
     func loadDirections() {
-
-        let event = dataList[indexofEvent]
+        var y = getDataList()
+        let event = y[indexofEvent]
         
         let addressString = "\(event.eventAddress) \(selectedCity) \(getState())"
         let formattedAddress = addressString.replacingOccurrences(of: " ", with: "+")
