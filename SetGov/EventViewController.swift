@@ -502,14 +502,6 @@ class EventViewController: SetGovTableViewController{
             print("THIS IS THE EVENT TIME")
             print(zz)
             
-            if isEven(num: count) {
-                event.eventImage = #imageLiteral(resourceName: "Image-12")
-                
-            }
-            
-            if count % 3 == 0 {
-                event.eventImage = #imageLiteral(resourceName: "fortlauderdalepark")
-            }
             
             
             ApiClient.addEvent(event: event,onCompletion: { (json) in
@@ -654,6 +646,8 @@ class EventViewController: SetGovTableViewController{
             cell.selectionStyle = .none
             var x = getDataList()
             cell.editCell(Event:x[indexPath.row])
+           
+
             //cell.alpha = 0.50
             print("this is the picture array length\(picArray.count)")
             print(picArray)

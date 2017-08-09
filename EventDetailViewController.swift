@@ -276,7 +276,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     func removeComment(comment:Comment) {
         
         if selectedCity == "Boston" {
-            ApiClient.deleteComment(comment: comment.text, eventID: self.bostonDataList[indexofEvent].eventID, onCompletion:{ json in
+            ApiClient.deleteComment(commentID: comment.commentID,onCompletion:{ json in
                 self.fetchEvent()
                 self.tableView.reloadData()
                 
@@ -285,7 +285,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         }
         
         if selectedCity == "Fort Lauderdale" {
-            ApiClient.deleteComment(comment: comment.text, eventID: self.fortlauderdaleDataList[indexofEvent].eventID, onCompletion:{ json in
+            ApiClient.deleteComment(commentID: comment.commentID,onCompletion:{ json in
                 self.fetchEvent()
                 self.tableView.reloadData()
             })
