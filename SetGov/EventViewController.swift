@@ -201,6 +201,9 @@ class EventViewController: SetGovTableViewController{
             cell.selectedCity = selectedCity
             cell.editCell(Event: x[indexPath.row])
             cell.selectionStyle = .none
+            let counter = x[indexPath.row].users.count
+            cell.memberCount.text = String(describing: counter)
+
             print(" we hit the conditional")
             return cell
 
@@ -221,7 +224,7 @@ class EventViewController: SetGovTableViewController{
             print(picArray)
             print(indexPath.row)
             cell.picArray = picArray[indexPath.row]
-            let counter = cell.picArray.count
+            let counter = x[indexPath.row].users.count
             cell.memberCount.text = String(describing: counter)
             cell.usersCollection.reloadData()
 
@@ -244,8 +247,7 @@ class EventViewController: SetGovTableViewController{
             cell.editCell(Event:x[indexPath.row])
            // cell.alpha = 0
             
-            cell.picArray = picArray[indexPath.row]
-            let counter = cell.picArray.count
+            let counter = x[indexPath.row].users.count
             cell.memberCount.text = String(describing: counter)
             cell.usersCollection.reloadData()
             cell.usersCollection.reloadData()

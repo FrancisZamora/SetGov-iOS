@@ -117,7 +117,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                     print("this is comments 2\(comments2)")
                     
                 
-
+                self.currentEvent.comments = []
                 for (_,val)in comments2.enumerated()  {
                     print("this is val")
                     print(val)
@@ -127,7 +127,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                     let comment = Comment(text: val["text"].stringValue, user: user, karma: val["karma"].int!, timeStamp: "1 min ago",commentID:val["id"].int!)
                     
         
-                    self.bostonDataList[self.indexofEvent].comments.append(comment)
+                    self.currentEvent.comments.append(comment)
                     
                     
                    
@@ -331,12 +331,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("numberofRows")
-       // return 4 + commentArray.count + 1
-        var x = getDataList()
-        if x[indexofEvent].comments.count == 0 {
-            return 6
-        }
-        return 6 + x[indexofEvent].comments.count
+    
+        return 6 + currentEvent.comments.count
         
     }
     
