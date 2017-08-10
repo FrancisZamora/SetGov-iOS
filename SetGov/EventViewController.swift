@@ -190,12 +190,15 @@ class EventViewController: SetGovTableViewController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var x = getDataList()
         if picArray.count <= 1 || picArray.isEmpty == true  {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCell
             cell.configure()
+            cell.index = indexPath.row
+
+            cell.dataList = x
             cell.selectionStyle = .none
             cell.selectedCity = selectedCity
-            var x = getDataList()
             cell.editCell(Event: x[indexPath.row])
             cell.selectionStyle = .none
             print(" we hit the conditional")
@@ -208,7 +211,8 @@ class EventViewController: SetGovTableViewController{
             let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
             cell.selectedCity = selectedCity
             cell.selectionStyle = .none
-            var x = getDataList()
+            cell.index = indexPath.row
+            cell.dataList = x
             cell.editCell(Event:x[indexPath.row])
            
 
@@ -232,7 +236,10 @@ class EventViewController: SetGovTableViewController{
         }
          if selectedCity == "Fort Lauderdale" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventCell
+            cell.dataList = x
             cell.selectionStyle = .none
+            cell.index = indexPath.row
+
             var x = getDataList()
             cell.editCell(Event:x[indexPath.row])
            // cell.alpha = 0

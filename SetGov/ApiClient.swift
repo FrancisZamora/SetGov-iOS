@@ -159,7 +159,7 @@ class ApiClient {
     
     static func fetchEvents(city:String, onCompletion: @escaping([Event]) -> Void) {
         let URL = "https://setgov.herokuapp.com/api/v/1/graph"
-        let query = "query { upcomingEvents(city:\"\(city)\"){id,name,date,description, attendingUsers{full_name, profileImage{url}}, address, time, city, agendaItems{name, description}, comment{id,user{full_name,profileImage{url}},karma,timestamp,text}}"
+        let query = "query { upcomingEvents(city:\"\(city)\"){id,name,date,description, attendingUsers{full_name, profileImage{url}}, address, time, city, agendaItems{name, description}, comments{id,user{full_name,profileImage{url}},karma,timestamp,text}}}"
         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
             guard let jsonString = response.result.value,
                 let events = JSON(jsonString)["data"]["upcomingEvents"].array else {

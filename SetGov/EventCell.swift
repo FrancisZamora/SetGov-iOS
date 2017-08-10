@@ -48,7 +48,7 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("this is the pic array")
         print(picArray)
-        return picArray.count
+        return dataList[index].users.count
  
     }
     
@@ -58,7 +58,7 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
         print("THIS IS THE PIC ARRAY")
         print(self.picArray)
         cell.configure()
-        cell.generateImage(rawData: picArray[indexPath.row])
+        cell.generateImage(rawData: dataList[index].users[indexPath.row].profilePictureURL)
         
         return cell
     }
