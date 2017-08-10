@@ -99,9 +99,7 @@ class ApiClient {
             
             print(response)
         }
-        
     }
-    
     
     static func attendEvent(eventID:Int, onCompletion: @escaping(JSON) -> Void) {
         print(eventID)

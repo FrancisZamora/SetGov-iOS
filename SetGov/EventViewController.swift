@@ -122,9 +122,17 @@ class EventViewController: SetGovTableViewController{
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        var y = getDataList()
-        ApiClient.fetchEvents(city: selectedCity, onCompletion: { event in 
-            y = event
+        ApiClient.fetchEvents(city: selectedCity, onCompletion: { events in
+            switch self.selectedCity {
+                case "Boston":
+                    self.bostonDataList = events
+                    break
+                case "Fort Lauderdale":
+                    self.fortlauderdaleDataList = events
+                    break
+                default:
+                    break
+            }
         })
     }
 
@@ -194,76 +202,10 @@ class EventViewController: SetGovTableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var data = getDataList()
-        //if picArray.count <= 1 || picArray.isEmpty == true  {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCell
         cell.configure(event: data[indexPath.row])
-        //cell.index = indexPath.row
-        //cell.selectedCity = selectedCity
-        //cell.editCell(event: x[indexPath.row])
-        //cell.selectionStyle = .none
-        let counter = data[indexPath.row].users.count
-        cell.memberCount.text = String(describing: counter)
-        cell.usersCollection.reloadData()
         print(" we hit the conditional")
         return cell
-
-            
-        //}
-        
-//        if selectedCity == "Boston" {
-//            let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell", for:indexPath) as! EventCell
-//            cell.selectedCity = selectedCity
-//            cell.selectionStyle = .none
-//            cell.index = indexPath.row
-//            cell.dataList = x
-//            cell.editCell(event: x[indexPath.row])
-//           
-//
-//            //cell.alpha = 0.50
-//            print("this is the picture array length\(picArray.count)")
-//            print(picArray)
-//            print(indexPath.row)
-//            cell.picArray = picArray[indexPath.row]
-        
-//
-//           // UIView.animate(withDuration: 0.88) {
-//              //  cell.alpha = 1
-//          //  }
-//            
-//            eventImage = cell.eventImage.image!
-//            eventImages.updateValue(eventImage, forKey: indexPath.row)
-//            
-//            return cell
-//        }
-//         if selectedCity == "Fort Lauderdale" {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventCell
-//            cell.dataList = x
-//            cell.selectionStyle = .none
-//            cell.index = indexPath.row
-//
-//            var x = getDataList()
-//            cell.editCell(event:x[indexPath.row])
-//           // cell.alpha = 0
-//            
-//            let counter = x[indexPath.row].users.count
-//            cell.memberCount.text = String(describing: counter)
-//            cell.usersCollection.reloadData()
-//            cell.usersCollection.reloadData()
-//          //  UIView.animate(withDuration: 1.0) {
-//              //  cell.alpha = 1
-//          //  }
-//            
-//            eventImage = cell.eventImage.image!
-//            eventImages.updateValue(eventImage,forKey: indexPath.row)
-//            
-//            return cell
-//       }
-//        
-//       let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCell
-//       cell.configure()
-//       cell.selectionStyle = .none
-//        
-//       return cell
         
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){

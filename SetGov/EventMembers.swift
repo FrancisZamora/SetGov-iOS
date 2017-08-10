@@ -21,7 +21,6 @@ class EventMembers: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
         userCollection.delegate = self
         userCollection.dataSource = self
         self.userCollection.reloadData()
-        
     }
     
     func configure(event: Event) {
@@ -33,10 +32,6 @@ class EventMembers: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
         return event.users.count
     }
     
-    
-    
-    
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Attendee", for: indexPath) as! Attendee
@@ -45,14 +40,4 @@ class EventMembers: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
         
         return cell
     }
-    
-    
-
-
-    
-
-    
-    
-    
-    
 }
