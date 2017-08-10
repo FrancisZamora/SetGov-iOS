@@ -236,9 +236,8 @@ class EventStream:  UITableViewCell {
     
     func checkStatus() -> Bool {
         var x = false
-        if selectedCity == "Boston"  {
-            
-            ApiClient.fetchEvent(eventID:bostonDataList[indexofEvent].id , onCompletion:{ json in
+        
+            ApiClient.fetchEvent(eventID:currentEvent.id , onCompletion:{ json in
                 
                 
                 
@@ -262,30 +261,8 @@ class EventStream:  UITableViewCell {
             }
 
             return x
-        }
         
-        if selectedCity == "Fort Lauderdale" && compareTime() == false {
-            ApiClient.fetchEvent(eventID:fortlauderdaleDataList[indexofEvent].id , onCompletion: { json in
-               
-                let fullNameArray =  json["data"]["event"]["attendingUsers"].arrayValue.map({$0["full_name"].stringValue})
-                print(fullNameArray)
-                print(fullNameArray.contains("Francis Zamora"))
-                
-                if fullNameArray.contains(self.user.fullName){
-                    self.attendButton.setTitle("Attending", for: .normal)
-
-                }
-        })
-        
-            if compareTime() == true {
-                self.nowLive()
-
-            }
-
-
-        }
-
-        return false
+      
        
     }
     
@@ -311,8 +288,7 @@ class EventStream:  UITableViewCell {
             self.attendButton.setTitle("Attending", for: .normal)
             print(eventTitle)
             self.eventTitle  =  "  " + self.eventTitle
-            if self.selectedCity == "Boston" {
-                let eventID = bostonDataList[indexofEvent].id
+                let eventID = currentEvent.id
                 print(eventID)
                 ApiClient.attendEvent(eventID: eventID ,onCompletion: { json in
                     self.currentEvent.users.append(self.user)
@@ -339,30 +315,13 @@ class EventStream:  UITableViewCell {
 
             
             
-            if self.selectedCity == "Fort Lauderdale" {
-                let eventID = fortlauderdaleDataList[indexofEvent].id
-
-                ApiClient.attendEvent( eventID: eventID ,onCompletion: { json in
-                    self.currentEvent.users.append(self.user)
-                    if let callback = self.eventStreamCallback {
-                        print("callback in progress")
-                        callback.attendbuttonTapped()
-                    }
-                    else {
-                        print("callback is nil")
-                    }
-                    
-
-                
-                })
-                
-            }
+           
             if compareTime() == true {
                 self.nowLive()
             }
             firstpress = false
 
-        }
+        
         
         
     

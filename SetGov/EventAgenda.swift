@@ -56,6 +56,18 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
+        if currentEvent.city == "Fort Lauderdale" {
+            var AgendaArray = [Agenda]()
+            var x = Agenda(name: "Agenda", description:"Meeting", text: "Agenda Details Not Available")
+            var y = Agenda(name: "Meeting Details ", description: "Meeting", text: "Meeting Details Not Available")
+            AgendaArray.append(x)
+            AgendaArray.append(y)
+
+            
+            cell.configureCell(agenda:AgendaArray[indexPath.row])
+            return cell
+            
+        }
         cell.configureCell(agenda: currentEvent.agendaItems[indexPath.row])
         return cell
         
@@ -72,6 +84,9 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if currentEvent.city == "Fort Lauderdale" {
+            return
+        }
         
         if let callback = eventAgendaCallback {
 

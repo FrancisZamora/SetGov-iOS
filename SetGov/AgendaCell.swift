@@ -19,6 +19,7 @@ class AgendaCell: UICollectionViewCell {
     @IBOutlet var agendaPic: UIImageView!
     
     func configureCell(agenda: Agenda) {
+        
         mLabel.text = agenda.name
         topicLabel.text = agenda.description
         layer.cornerRadius = 10
