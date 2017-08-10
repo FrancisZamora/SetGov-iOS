@@ -11,13 +11,13 @@ import Foundation
 
 class Agenda {
     
-    var name: String  = ""
-    var description: String = ""
+    var agendaItemName: String  = ""
+    var agendaItemDescription: String = ""
     //var type: String = ""
     
     init(name: String, description: String) {
-        self.name = name
-        self.description = description
+        self.agendaItemName = name
+        self.agendaItemDescription = description
     }
 
 }

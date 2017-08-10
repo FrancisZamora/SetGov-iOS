@@ -53,6 +53,8 @@ class Event {
         // ** read top comment self.eventUsers = eventUsers
     }
     
+    
+    
 }
 
 

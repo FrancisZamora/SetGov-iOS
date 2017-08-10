@@ -20,9 +20,10 @@ class SplashViewController: SetGovViewController {
     var fortlauderdaleDataList = [Event]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        //WebScraper.parseEvents()
+        WebScraper.parseEvents(onCompletion: {
+            self.fetchEvents()
+        })
         
-        self.fetchEvent()
 
         self.loading.alpha  = 0
         if UserDefaults.standard.string(forKey: "logged") == nil{
@@ -119,31 +120,8 @@ class SplashViewController: SetGovViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    func fetchEvent () {
-            ApiClient.fetchEvents(city: "Boston",  onCompletion: { event  in
-                print("this is the index")
-                
-                self.bostonDataList = event
-                print(self.bostonDataList)
-                
-                
-                    
-                
-    
-                self.appDelegate.bostonDataList = self.bostonDataList
-            })
-                
-        
-                
-                
-        
-        
-        ApiClient.fetchEvents(city: "Fort Lauderdale",  onCompletion: { event in
-            print("this is the index")
-            self.fortlauderdaleDataList = event 
-            
-            self.appDelegate.fortlauderdaleDataList = self.fortlauderdaleDataList
-            
+    func checkIfComplete() {
+        if(bostonDataList.count > 0 && fortlauderdaleDataList.count > 0) {
             if UserDefaults.standard.string(forKey: "logged") == nil{
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -204,6 +182,27 @@ class SplashViewController: SetGovViewController {
                 
                 self.show(controller, sender: nil)
             }
+
+        }
+    }
+    
+    func fetchEvents () {
+            ApiClient.fetchEvents(city: "Boston",  onCompletion: { event  in
+                print("this is the index")
+                
+                self.bostonDataList = event
+                self.appDelegate.bostonDataList = self.bostonDataList
+                self.checkIfComplete()
+            
+            })
+        
+        
+        
+        ApiClient.fetchEvents(city: "Fort Lauderdale",  onCompletion: { event in
+            print("this is the index")
+            self.fortlauderdaleDataList = event
+            self.appDelegate.fortlauderdaleDataList = self.fortlauderdaleDataList
+            self.checkIfComplete()
         })
     }
     

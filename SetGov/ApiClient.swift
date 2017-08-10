@@ -32,7 +32,6 @@ class ApiClient {
     
     static func addEvent(event:Event, onCompletion: @escaping(Bool) -> Void) {
         
-        print("ADDING EVENT: \(event.title)")
         print("ADDING EVENT: \(event.agendaItems)")
         
         
@@ -46,7 +45,7 @@ class ApiClient {
         //        let dateString = formatter.string(from: date!)
         
         let url = "https://setgov.herokuapp.com/api/v/1/graph"
-        let query = "mutation{addEvent(name:\"\(event.title)\",city:\"\(event.city)\",address:\"\(event.address)\",date:\"\(event.date)\",description:\"\(event.description)\",time:\"\(event.time)\"){id}}"
+        let query = "mutation{addEvent(name:\"\(event.title)\",city:\"\(event.city)\",address:\"\(event.address)\",date:\"\(event.date)\",time:\"\(event.time)\", description:\"\(event.description)\",agendaItems:\(event.agendaItems)){id}}"
         Alamofire.request(url,
                           method: .post,
                           parameters: ["query":query],
@@ -56,25 +55,15 @@ class ApiClient {
                 
                 
                 guard let jsonString = response.result.value,
-                    let eventId = JSON(jsonString)["data"]["addEvent"]["id"].int else {
+                    let _ = JSON(jsonString)["data"]["addEvent"]["id"].int else {
                         onCompletion(false)
                         return
                 }
                 
                 print("ADD EVENT RESPONSE: \(JSON(jsonString))")
+                onCompletion(true)
                 
-                addAgendaItem(eventId: eventId,
-                              agendaItems: event.agendaItems,
-                              onCompletion: onCompletion)
         }
-    }
-    
-    static func addAgendaItem(eventId: Int,
-                              agendaItems: [Agenda],
-                              onCompletion: @escaping(Bool) -> Void) {
-        
-        //        let mutation = "mutation {addAgendaItem(event_id:\(eventId),agendaItem_name:\"\(itemName))\",agendaItem_type:\"\(agendaType)\",agendaItem_description:\"\(agendaDescription)\"){name,description,type}}"
-        
     }
     
     static func createComment(comment:String, eventID:Int, onCompletion: @escaping(JSON) -> Void) {

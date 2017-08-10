@@ -285,7 +285,8 @@ class WebScraper {
                                                   descriptionArray: [String],
                                                   eventAddresses: [String],
                                                   eventHours: [[String]],
-                                                  eventTimeFormatted: [String]) {
+                                                  eventTimeFormatted: [String],
+                                                  onCompletion: @escaping() -> Void) {
             
             print("BUILD BOSTON EVENTS: \(eventTimeFormatted)")
             guard eventTimeFormatted.count > 0 else {
@@ -295,7 +296,7 @@ class WebScraper {
             
             //self.descriptionArray.remove(at: 0)
             let spacer = "  "
-            
+            var count = eventAddresses.count
             for (index, value) in eventAddresses.enumerated() {
                 
                 let event = Event(title: spacer + arrayEvents[index],
@@ -305,7 +306,8 @@ class WebScraper {
                                   date:eventTimeFormatted[index],
                                   eventImageName: "bostonPark",
                                   time: eventHours[index][1],
-                                  city: "Boston", agendaItems: agendaDictionary[index]! , 
+                                  city: "Boston",
+                                  agendaItems: agendaDictionary[index]! ,
                                   id: 0)
                 
                 if index % 2 == 0 {
@@ -316,6 +318,10 @@ class WebScraper {
                 
                 ApiClient.addEvent(event: event,onCompletion: { (success) in
                     
+                    count = count - 1
+                    if(count <= 0 ) {
+                        onCompletion()
+                    }
                     print("JSON HERE")
                     //                    print(json["data"]["addEvent"]["id"])
                     //                        guard let id = eventID.int else {
@@ -334,8 +340,8 @@ class WebScraper {
             
         }
         
-        static func parseEvents() {
-            
+    static func parseEvents(onCompletion: @escaping() -> Void) {
+        
             print("PARSING EVENTS!!!!!")
             
             DispatchQueue.global().async() {
@@ -347,7 +353,10 @@ class WebScraper {
                                   descriptionArray: results.descriptionArray,
                                   eventAddresses: results.eventAddresses,
                                   eventHours: results.eventHours,
-                                  eventTimeFormatted: results.eventTimeFormatted)
+                                  eventTimeFormatted: results.eventTimeFormatted,
+                                  onCompletion: {
+                    onCompletion()
+                })
                 
             }
             

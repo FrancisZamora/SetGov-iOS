@@ -21,9 +21,6 @@ class AgendaViewController: UICollectionView {
         
         return 50.0
     }
-    
-    
-    
   
     func collectionView(_ collectionView: UICollectionView,cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         print("cell for row here we go")
