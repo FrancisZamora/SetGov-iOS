@@ -517,30 +517,18 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             
            
             print(selectedCity)
-            if selectedCity == "Boston" {
+            
                 print(indexofEvent)
                 
                 infoCell.eventAddress.text = currentEvent.address
                 infoCell.eventTime.text = currentEvent.date
                 infoCell.eventHour.text = currentEvent.time
                 return infoCell
-            }
             
-            if selectedCity == "Fort Lauderdale" {
-                print(fortlauderdaleArray)
-
-                let formatter = DateFormatter()
-                formatter.dateFormat = "MM/dd/yy"
-                formatter.dateStyle = .short
-              
-                infoCell.eventAddress.text = "100 North Andrews Avenue"
-               
-                print(fortlauderdaleArray[indexofEvent])
-                infoCell.eventTime.text = fortlauderdaleDataList[indexofEvent].date
-                infoCell.eventHour.text = fortlauderdaleDataList[indexofEvent].time
-                
-                return infoCell
-            }
+            
+        
+            
+            
         }
         
         if(indexPath.row == 2) {
