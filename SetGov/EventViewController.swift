@@ -169,15 +169,7 @@ class EventViewController: SetGovTableViewController{
         print("numberofSections")
         return 3
     }
-    
-    func appendOnce() -> Int {
-        counter += 1
-        print("THIS IS THE COUNTER")
-        print(counter)
-        return counter
-        
-        
-    }
+  
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 

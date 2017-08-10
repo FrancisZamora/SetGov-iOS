@@ -32,6 +32,7 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     var spacer = "  "
     var picArray = [String]()
     var event: Event!
+    var userArray = [User]()
 
     @IBOutlet var attendee: ProfilePicture!
     
@@ -42,12 +43,17 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return event.users.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Attendee", for: indexPath) as! Attendee
+        
+        print(event.users)
+        print(event.users[indexPath.row].profilePictureURL)
+        
         cell.configure(imageUrl: event.users[indexPath.row].profilePictureURL)
         
         return cell
@@ -60,8 +66,11 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
         eventDescription.text = event.description
         eventImage.image = event.image
         eventDate.text = event.eventDate
+        self.userArray = event.users
         memberCount.text = "\(event.users.count)"
         self.event = event
+        print(event.users)
+        
         
     }
   
