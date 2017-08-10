@@ -195,6 +195,7 @@ class EventViewController: SetGovTableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var data = getDataList()
         let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCell
+        cell.event = data[indexPath.row]
         cell.configure(event: data[indexPath.row])
         print(" we hit the conditional")
         return cell

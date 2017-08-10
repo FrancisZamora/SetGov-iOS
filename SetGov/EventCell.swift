@@ -39,11 +39,9 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     override func awakeFromNib() {
         usersCollection.delegate = self
         usersCollection.dataSource = self
-        self.usersCollection.reloadData()
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return event.users.count
     }
     
@@ -68,9 +66,10 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
         eventDate.text = event.eventDate
         self.userArray = event.users
         memberCount.text = "\(event.users.count)"
+      
         self.event = event
         print(event.users)
-        
+        self.usersCollection.reloadData()
         
     }
   
