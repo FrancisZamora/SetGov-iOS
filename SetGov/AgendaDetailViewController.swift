@@ -27,6 +27,7 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
     override func viewDidLoad() {
         super.viewDidLoad()
         navTitle.title = eventTitle
+        
     }
     
     func dismissView() {
@@ -72,6 +73,7 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
         if (indexPath.row == 0) {
             let agendaDetailHeader =  tableView.dequeueReusableCell(withIdentifier: "AgendaDetailHeader", for:indexPath) as! AgendaDetailHeader
             agendaDetailHeader.configure(agenda: agenda)
+            agendaDetailHeader.agendaImage.image = agendaImage
             agendaDetailHeader.headerCallBack = self
             return agendaDetailHeader
         }        

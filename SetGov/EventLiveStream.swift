@@ -39,8 +39,7 @@ class EventLiveStream: UITableViewCell {
         print("time set to 0 ")
         print(eventTitle)
         
-        if UserDefaults.standard.string(forKey: eventTitle) !=
-            "increment" {
+        if UserDefaults.standard.string(forKey: eventTitle) != "increment" {
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(incrementTime), userInfo: nil, repeats: true )
             UserDefaults.standard.set("increment", forKey: eventTitle)
         }
