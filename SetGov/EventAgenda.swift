@@ -38,6 +38,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     var secondUrl = String()
     var agendaTitle = [String]()
     var paragraphArray = [[String]()]
+    var currentEvent: Event!
 
     
     override func awakeFromNib() {
@@ -56,6 +57,11 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     
     func configureLauderdale() {
         self.agenda.text = "Agenda & Meeting Details"
+    }
+    
+    func configureCell(event: Event) {
+        selectionStyle = .none
+        currentEvent = event
     }
     
 //    func prepareAgenda() {
@@ -118,10 +124,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         
         if selectedCity == "Boston" {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
-            cell.configureCell(title: agendaTitles[indexPath.row])
-            cell.layer.cornerRadius = 10
-            cell.layer.masksToBounds = true
-            cell.topicLabel.text = descriptionArray[indexofEvent]
+            cell.configureCell(agenda: currentEvent.agendaItems[indexPath.row])
             agendaInfo.updateValue(cell.topicLabel.text!, forKey: indexPath.row)
             return cell
     
@@ -174,35 +177,34 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         //self.generateBoston()
         //self.prepareAgenda()
         
-        return agendaTitles.count
+        return currentEvent.agendaItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
     
+        index = indexPath.row
+        print("ROW 0")
+        print(agendaInfo)
+        agendaInfo.updateValue(cell.topicLabel.text!,
+                               forKey: indexPath.row)
+        print(cell.topicLabel.text as Any)
         
-            index = indexPath.row
-            print("ROW 0")
-            print(agendaInfo)
-            agendaInfo.updateValue(cell.topicLabel.text!, forKey: indexPath.row)
-            print(cell.topicLabel.text as Any)
+        print(agendaInfo)
+        
+
+        if let callback = eventAgendaCallback {
+
+            callback.loadAgendaDetail(data: agendaInfo,
+                                      infoData: paragraphArray,
+                                      agendaTitles:agendaTitles,
+                                      index:indexPath.row)
             
-            print(agendaInfo)
-            
+            callback.loadVC()
 
-            if let callback = eventAgendaCallback {
-
-                callback.loadAgendaDetail(data: agendaInfo,infoData: paragraphArray,agendaTitles:agendaTitles,index:indexPath.row)
-                
-                callback.loadVC()
-
-
-            }
         }
-        
-
-        
     }
+}
     
     
 

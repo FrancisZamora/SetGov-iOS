@@ -21,13 +21,14 @@ class Event {
     var city = " "
     var realDate = Date()
     var users = [User]()
-    var id: Int
+    var id: Int = -1
     var agendaItems = [Agenda]()
 
    // var loggedUser = User(userName: " " , attendingStatus: false, interestedStatus: false)
     
     
-    
+    init() {
+    }
     
     
     init(title:String, address: String, users: [User],  description: String, date: String, eventImageName: String, time: String, city: String,agendaItems: [Agenda], id: Int) {

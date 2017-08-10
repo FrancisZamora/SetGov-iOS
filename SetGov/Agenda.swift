@@ -11,13 +11,28 @@ import Foundation
 
 class Agenda {
     
-    var agendaItemName: String  = ""
-    var agendaItemDescription: String = ""
+    var name: String  = ""
+    var description: String = ""
     //var type: String = ""
     
     init(name: String, description: String) {
-        self.agendaItemName = name
-        self.agendaItemDescription = description
+        self.name = name
+        self.description = description
+    }
+    
+    static func buildGraphString(agendaList: [Agenda]) -> String {
+        
+        var graphString = "["
+        
+        for agenda in agendaList {
+            graphString.append("{agendaItemName: \"\(agenda.name)\", agendaItemDescription: \"\(agenda.description)\"},")
+        }
+        graphString.remove(at: graphString.index(before: graphString.endIndex))
+        graphString.append("]")
+        
+        print("BUILT GRAPH STRING: \(graphString)")
+        
+        return graphString
     }
 
 }
