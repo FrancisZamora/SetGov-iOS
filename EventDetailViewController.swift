@@ -115,18 +115,14 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 
                 print("THIS IS THE PICTURE ARRAY FOR BOSTON \(self.picArray)")
                 
-               let comments = json["data"]["event"]["comments"]
-                print("here is the comment")
-                
-                print(comments)
-                guard let comments2 = json["data"]["event"]["comments"].array else {
+          
+                guard let comments = json["data"]["event"]["comments"].array else {
                         return
                     }
-                    print("this is comments 2\(comments2)")
-                    
+                
                 
                 self.currentEvent.comments = []
-                for (_,val)in comments2.enumerated()  {
+                for (_,val)in comments.enumerated()  {
                     print("this is val")
                     print(val)
                    
@@ -219,7 +215,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             print(eventList)
             print(indexofEvent)
     
-            navTitle.title = fortlauderdaleArray[indexofEvent][0]
+            navTitle.title = fortlauderdaleDataList[indexofEvent].title
             print(fortlauderdaleArray)
             
             let z = fortlauderdaleArray[indexofEvent][0].components(separatedBy: " ")
