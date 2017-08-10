@@ -223,6 +223,15 @@ class EventStream:  UITableViewCell {
         
     }
     
+    func checkUsers() -> Bool{
+        for (idx,val) in currentEvent.users.enumerated() {
+            if val.fullName == self.user?.fullName {
+                return true
+            }
+        }
+        return false
+    }
+    
    
     
     func checkStatus() -> Bool {
@@ -231,10 +240,9 @@ class EventStream:  UITableViewCell {
             
             ApiClient.fetchEvent(eventID:bostonDataList[indexofEvent].id , onCompletion:{ json in
                 
-                let fullNameArray =  json["data"]["event"]["attendingUsers"].arrayValue.map({$0["full_name"].stringValue})
-                print(fullNameArray)
                 
-                if fullNameArray.contains(self.user.fullName){
+                
+                if self.checkUsers() == true {
                     
                     self.attendButton.setTitle("Attending", for: .normal)
                     x = true
@@ -284,6 +292,20 @@ class EventStream:  UITableViewCell {
     
     
     @IBAction func buttonPressed(_ sender: Any) {
+        if self.checkUsers() == true {
+            ApiClient.unattendEvent(eventID: currentEvent.id, onCompletion:{ user in
+                self.currentEvent.users = user
+                self.attendButton.setTitle("Attend", for: .normal)
+                if let callback = self.eventStreamCallback {
+                    print("callback in progress")
+                    
+                    callback.attendbuttonTapped()
+                    
+                }
+                
+            })
+            
+        }
         // send api request whenever button is pressed
         if firstpress == true {
             self.attendButton.setTitle("Attending", for: .normal)

@@ -119,6 +119,17 @@ class ApiClient {
         
     }
     
+    static func unattendEvent(eventID:Int, onCompletion: @escaping([User]) -> Void) {
+        let URL = "https://setgov.herokuapp.com/api/v/1/graph"
+        let query = "mutation {unattendEvent(event_id:\(eventID)){id,name,address,date,time,description,attendingUsers{profileImage{url},full_name},comments{text,id, karma,timestamp,user{full_name, profileImage{url}}}}}"
+         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
+        let jsonString = response.result.value
+        let event = JSON(jsonString)["data"]["event"]
+        let User = createUsers(event: event)
+        onCompletion(User)
+        }
+    }
+    
     static func fetchEvent(eventID:Int, onCompletion: @escaping(JSON) -> Void) {
         let URL = "https://setgov.herokuapp.com/api/v/1/graph"
         let query = "query{ event(id:\(eventID)){id,name,address,date,time,description,attendingUsers{profileImage{url},full_name},comments{text,id, karma,timestamp,user{full_name, profileImage{url}}}}}"
