@@ -45,7 +45,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var eventDescription = String()
     var paragraphArray = [[String()]]
     var agendaTitle = [String]()
-    var commentArray = [Comment]()
     var currentEvent: Event!
     weak var collectionView: UICollectionView!
     var picArray = [String]()
@@ -73,7 +72,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     override func viewDidAppear(_ animated: Bool) {
         //self.fetchEvent()
         print("this is the length of the comment array")
-        print(commentArray.count)
         
         tableView.reloadData()
 
@@ -119,7 +117,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                     print("this is comments 2\(comments2)")
                     
                 
-                self.commentArray = []
 
                 for (_,val)in comments2.enumerated()  {
                     print("this is val")
@@ -130,7 +127,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                     let comment = Comment(text: val["text"].stringValue, user: user, karma: val["karma"].int!, timeStamp: "1 min ago",commentID:val["id"].int!)
                     
         
-                    self.commentArray.append(comment)
+                    self.bostonDataList[self.indexofEvent].comments.append(comment)
                     
                     
                    
@@ -160,7 +157,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 print("this is comments 2\(comments2)")
                 
                 
-                self.commentArray = []
                 
                 for (_,val)in comments2.enumerated()  {
                     print("this is val")
@@ -170,8 +166,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                                     profilePictureURL: val["user"]["profileImage"]["url"].stringValue)
                     let comment = Comment(text: val["text"].stringValue, user: user, karma: val["karma"].int!, timeStamp: "1 min ago",commentID:val["id"].int!)
                     
-                  
-                    self.commentArray.append(comment)
+                    var x = self.getDataList()
+                    x[self.indexofEvent].comments.append(comment)
                   
                     print(comment.commentID)
                   
@@ -336,16 +332,17 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("numberofRows")
        // return 4 + commentArray.count + 1
-        if commentArray.count == 0 {
+        var x = getDataList()
+        if x[indexofEvent].comments.count == 0 {
             return 6
         }
-        return 6 + commentArray.count
+        return 6 + x[indexofEvent].comments.count
         
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-    {
-        if commentArray.count == 0 {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        var x = getDataList()
+        if x[indexofEvent].comments.count == 0 {
             switch indexPath.row {
             case 0:
                 return 200
@@ -378,7 +375,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             case 5:
             return 94
             default:
-            if indexPath.row == (5 + commentArray.count)    {
+            if indexPath.row == (5 + x[indexofEvent].comments.count)    {
                 
                 return 46
             }
@@ -595,7 +592,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             cell.selectionStyle = .none
             return cell
         }
-        if commentArray.count == 0 {
+        var x = getDataList()
+        if x[indexofEvent].comments.count == 0 {
         
             if (indexPath.row==5) {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CreateComment", for:indexPath) as! CreateComment
@@ -608,9 +606,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             }
         }
         else {
-            
-            if indexPath.row == (5 + commentArray.count) {
-                print(commentArray[0].text)
+            var x = getDataList()
+            if indexPath.row == (5 + x[indexofEvent].comments.count) {
                 
                let cell = tableView.dequeueReusableCell(withIdentifier: "CreateComment") as! CreateComment
                 cell.commentCallBack = self
@@ -623,15 +620,12 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 return cell
             }
             
-            print(commentArray.count)
             
             
        
                 let cell = tableView.dequeueReusableCell(withIdentifier: "EventDiscussion") as! EventDiscussion
                 print("printing value \(indexPath.row - 5)")
-                print(commentArray[indexPath.row - 5].text)
-           
-                cell.configure(comment: commentArray[indexPath.row - 5])
+                cell.configure(comment: x[indexofEvent].comments[indexPath.row - 5])
                 cell.selectionStyle = .none
                 cell.discussionCallBack = self 
                 return cell
