@@ -45,7 +45,7 @@ class ApiClient {
         //        let dateString = formatter.string(from: date!)
         
         let url = "https://setgov.herokuapp.com/api/v/1/graph"
-        let query = "mutation{addEvent(name:\"\(event.title)\",city:\"\(event.city)\",address:\"\(event.address)\",date:\"\(event.date)\",time:\"\(event.time)\", description:\"\(event.description)\",agendaItems:\(event.agendaItems)){id}}"
+        let query = "mutation{addEvent(name:\"\(event.title)\",city:\"\(event.city)\",address:\"\(event.address)\",date:\"\(event.date)\",time:\"\(event.time)\", description:\"\(event.description)\",agendaItems:\(Agenda.buildGraphString(agendaList: event.agendaItems))){id, agendaItems{ name, description}}}"
         Alamofire.request(url,
                           method: .post,
                           parameters: ["query":query],
@@ -56,6 +56,10 @@ class ApiClient {
                 
                 guard let jsonString = response.result.value,
                     let _ = JSON(jsonString)["data"]["addEvent"]["id"].int else {
+                        
+                        print("ADD EVENT ERROR")
+                        
+                        
                         onCompletion(false)
                         return
                 }
@@ -155,7 +159,7 @@ class ApiClient {
     
     static func fetchEvents(city:String, onCompletion: @escaping([Event]) -> Void) {
         let URL = "https://setgov.herokuapp.com/api/v/1/graph"
-        let query = "query { upcomingEvents(city:\"\(city)\"){id,name,date,description, attendingUsers{full_name, profileImage{url}}, address, time, city, agendaItems{name, description, type}}}"
+        let query = "query { upcomingEvents(city:\"\(city)\"){id,name,date,description, attendingUsers{full_name, profileImage{url}}, address, time, city, agendaItems{name, description}}}"
         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
             guard let jsonString = response.result.value,
                 let events = JSON(jsonString)["data"]["upcomingEvents"].array else {
@@ -189,7 +193,6 @@ class ApiClient {
                         }
                     }
                 }
-                
                 
                 if let city = event["city"].string,
                     let name = event["name"].string,

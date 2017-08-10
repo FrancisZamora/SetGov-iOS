@@ -38,6 +38,7 @@ class EventViewController: SetGovTableViewController{
     var picArray = [[String]()]
     var bostonDataList = [Event]()
     var fortlauderdaleDataList = [Event]()
+    var selectedEvent = Event()
     
     
     
@@ -265,6 +266,7 @@ class EventViewController: SetGovTableViewController{
         
         if selectedCity == "Fort Lauderdale" {
             
+            selectedEvent = fortlauderdaleDataList[indexPath.row]
             indexofEvent = indexPath.row
             performSegue(withIdentifier: "showEvent", sender: nil)
             
@@ -272,6 +274,7 @@ class EventViewController: SetGovTableViewController{
         
         
         if selectedCity == "Boston" {
+            selectedEvent = bostonDataList[indexPath.row]
             indexofEvent = indexPath.row
             performSegue(withIdentifier: "showEvent", sender: nil)
         }
@@ -282,14 +285,15 @@ class EventViewController: SetGovTableViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showEvent") {
             
-            let EventDetailViewController = segue.destination as! EventDetailViewController
-            EventDetailViewController.selectedEvents = eventTitles
-            EventDetailViewController.indexofEvent = indexofEvent
-            EventDetailViewController.eventList = eventList
-            EventDetailViewController.eventImages = eventImages
-            EventDetailViewController.selectedCity = selectedCity
-            EventDetailViewController.fortlauderdaleDataList = fortlauderdaleDataList
-            EventDetailViewController.bostonDataList = bostonDataList 
+            let eventDetailViewController = segue.destination as! EventDetailViewController
+            eventDetailViewController.selectedEvents = eventTitles
+            eventDetailViewController.indexofEvent = indexofEvent
+            eventDetailViewController.eventList = eventList
+            eventDetailViewController.eventImages = eventImages
+            eventDetailViewController.currentEvent = selectedEvent
+            eventDetailViewController.selectedCity = selectedCity
+            eventDetailViewController.fortlauderdaleDataList = fortlauderdaleDataList
+            eventDetailViewController.bostonDataList = bostonDataList
         }
     }
 }
