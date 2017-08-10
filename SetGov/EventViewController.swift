@@ -122,6 +122,7 @@ class EventViewController: SetGovTableViewController{
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.tableView.reloadData()
         ApiClient.fetchEvents(city: selectedCity, onCompletion: { events in
             switch self.selectedCity {
                 case "Boston":
