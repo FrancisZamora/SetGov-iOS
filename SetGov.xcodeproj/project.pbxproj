@@ -289,17 +289,17 @@
 		153F3F831E6DF1AA0004E2F4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				156BD4C81E83185200E8F98B /* EventDetailViewController.swift */,
-				1515A6C21F0FCF80004312F2 /* SettingsTableViewController.swift */,
-				153F3F7D1E6DF0ED0004E2F4 /* LoginViewController.swift */,
-				153F3F861E6DF54B0004E2F4 /* EventViewController.swift */,
-				153F3F7B1E6DF0E50004E2F4 /* SetGovViewController.swift */,
-				153F3F841E6DF2A20004E2F4 /* SetGovTableViewController.swift */,
-				1523A4991E8B38CB00AE93C2 /* AgendaViewController.swift */,
 				1508A69E1E9343F900C92410 /* AgendaDetailViewController.swift */,
+				1523A4991E8B38CB00AE93C2 /* AgendaViewController.swift */,
 				15C64B461EADA84200B123A5 /* CityNavigationViewController.swift */,
 				15433B911F15765800B8FE0D /* CityOnboardingScreen.swift */,
+				156BD4C81E83185200E8F98B /* EventDetailViewController.swift */,
 				15433B931F15766700B8FE0D /* EventOnboardingScreen.swift */,
+				153F3F861E6DF54B0004E2F4 /* EventViewController.swift */,
+				153F3F7D1E6DF0ED0004E2F4 /* LoginViewController.swift */,
+				153F3F841E6DF2A20004E2F4 /* SetGovTableViewController.swift */,
+				153F3F7B1E6DF0E50004E2F4 /* SetGovViewController.swift */,
+				1515A6C21F0FCF80004312F2 /* SettingsTableViewController.swift */,
 				150B17661F2028C20056FB96 /* SplashViewController.swift */,
 			);
 			name = Controllers;

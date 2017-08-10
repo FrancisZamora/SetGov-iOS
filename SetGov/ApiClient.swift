@@ -172,43 +172,10 @@ class ApiClient {
             
             var eventsArray = [Event]()
             for event in events {
-                //print("EVENT: \(event)")
-                var userArray = [User]()
-
-                if let users = event["attendingUsers"].array {
-                    for user in users {
-                        if let fullName = user["full_name"].string,
-                            let profileUrl = user["profileImage"]["url"].string {
-                            userArray.append(User(fullName: fullName, profilePictureURL: profileUrl))
-                        }
-                    }
-                }
                 
-                var agendaArray = [Agenda]()
-                if let agendaItems = event["agendaItems"].array {
-                    for agenda in agendaItems {
-                        if let name = agenda["name"].string,
-                            let description = agenda["description"].string {
-                            agendaArray.append(Agenda(name: name, description: description))
-                        }
-                    }
-                }
-                
-                var commentArray = [Comment]()
-                if let comments = event["comments"].array {
-                    for comment in comments {
-                        if let text = comment["text"].string,
-                            let karma = comment["karma"].int,
-                            let timeStamp = comment["timestamp"].string,
-                            let commentID = comment["id"].int,
-                            let fullName = comment["user"]["full_name"].string,
-                            let profilePictureURL = comment["user"]["profileImage"]["url"].string {
-                            commentArray.append(Comment(text: text, user: User(fullName: fullName,profilePictureURL: profilePictureURL), karma: karma, timeStamp: timeStamp, commentID: commentID))
-                        }
-                    }
-                }
-                
-                        
+                let users = createUsers(event: event)
+                let agendas = createAgendas(event: event)
+                let comments = createComments(event: event)
                 
                 
                 if let city = event["city"].string,
@@ -220,23 +187,66 @@ class ApiClient {
                     let date = event["date"].string {
                     eventsArray.append(Event(title: name,
                                              address: address,
-                                             users: userArray,
+                                             users: users,
                                              description: description,
                                              date: date,
                                              eventImageName: "bostonPark",
                                              time: time,
                                              city: city,
-                                             agendaItems: agendaArray, comments: commentArray,
+                                             agendaItems: agendas,
+                                             comments: comments,
                                              id: id))
                 }
             }
             
-            
-            
-            
             onCompletion(eventsArray.sorted(by: { $0.realDate < $1.realDate }))
             
         }
+    }
+    
+    static func createUsers(event: JSON) -> [User] {
+        var userArray = [User]()
+        
+        if let users = event["attendingUsers"].array {
+            for user in users {
+                if let fullName = user["full_name"].string,
+                    let profileUrl = user["profileImage"]["url"].string {
+                    userArray.append(User(fullName: fullName, profilePictureURL: profileUrl))
+                }
+            }
+        }
+        return userArray
+
+    }
+    
+    static func createComments(event: JSON) -> [Comment] {
+        var commentArray = [Comment]()
+        if let comments = event["comments"].array {
+            for comment in comments {
+                if let text = comment["text"].string,
+                    let karma = comment["karma"].int,
+                    let timeStamp = comment["timestamp"].string,
+                    let commentID = comment["id"].int,
+                    let fullName = comment["user"]["full_name"].string,
+                    let profilePictureURL = comment["user"]["profileImage"]["url"].string {
+                    commentArray.append(Comment(text: text, user: User(fullName: fullName,profilePictureURL: profilePictureURL), karma: karma, timeStamp: timeStamp, commentID: commentID))
+                }
+            }
+        }
+        return commentArray
+    }
+    
+    static func createAgendas(event: JSON) -> [Agenda] {
+        var agendaArray = [Agenda]()
+        if let agendaItems = event["agendaItems"].array {
+            for agenda in agendaItems {
+                if let name = agenda["name"].string,
+                    let description = agenda["description"].string {
+                    agendaArray.append(Agenda(name: name, description: description))
+                }
+            }
+        }
+        return agendaArray
     }
     
 }

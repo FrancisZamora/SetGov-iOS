@@ -27,11 +27,11 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     @IBOutlet var eventDate: UILabel!
     @IBOutlet var memberCount: UILabel!
     var selectedCity = " "
-    var dataList = [Event]()
     var eventOriginalTitle = " "
     var index = 0
     var spacer = "  "
     var picArray = [String]()
+    var event: Event!
 
     @IBOutlet var attendee: ProfilePicture!
     
@@ -39,43 +39,29 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
         usersCollection.delegate = self
         usersCollection.dataSource = self
         self.usersCollection.reloadData()
-
     }
-    
 
-
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("this is the pic array")
-        print(picArray)
-        return dataList[index].users.count
- 
+        return event.users.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Attendee", for: indexPath) as! Attendee
-        print("THIS IS THE PIC ARRAY")
-        print(self.picArray)
-        cell.configure()
-        cell.generateImage(rawData: dataList[index].users[indexPath.row].profilePictureURL)
+        cell.configure(imageUrl: event.users[indexPath.row].profilePictureURL)
         
         return cell
     }
     
     
-    func configure() {
-        print("nothing here")
-        
-    }
-    
-    func editCell(Event: Event){
-        eventTitle.text = Event.title
-        eventDescription.text = Event.description
-        eventImage.image = Event.image
-        eventDate.text = Event.date
-        
-        
+    func configure(event: Event) {
+        selectionStyle = .none
+        eventTitle.text = event.title
+        eventDescription.text = event.description
+        eventImage.image = event.image
+        eventDate.text = event.date
+        memberCount.text = "\(event.users.count)"
+        self.event = event
         
     }
   

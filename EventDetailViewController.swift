@@ -521,11 +521,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             if selectedCity == "Boston" {
                 print(indexofEvent)
                 
-                infoCell.eventAddress.text = bostonDataList[indexofEvent].address
-                print(eventTimeNoFormat)
-            
-                infoCell.eventTime.text = bostonDataList[indexofEvent].date
-                infoCell.eventHour.text = bostonDataList[indexofEvent].time
+                infoCell.eventAddress.text = currentEvent.address
+                infoCell.eventTime.text = currentEvent.date
+                infoCell.eventHour.text = currentEvent.time
                 return infoCell
             }
             
@@ -566,13 +564,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
         if (indexPath.row==3) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventMembers", for:indexPath) as! EventMembers
-            cell.selectionStyle = .none
-            print("picture array from event detail")
-            print(picArray)
-            cell.picArray = picArray
-            collectionView = cell.userCollection
-            cell.userCollection.reloadData()
-            print(cell.picArray)
+            cell.configure(event: currentEvent)
+            //collectionView = cell.userCollection
+            //cell.userCollection.reloadData()
             
             return cell
         }

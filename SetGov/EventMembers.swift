@@ -12,8 +12,8 @@ import UIKit
 class EventMembers: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var indexofEvent = 0
-    var picArray = [String]()
-    
+    //var picArray = [String]()
+    var event: Event!
     @IBOutlet var conView: UIView!
     @IBOutlet var userCollection: UICollectionView!
 
@@ -24,11 +24,13 @@ class EventMembers: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
         
     }
     
+    func configure(event: Event) {
+        selectionStyle = .none
+        self.event = event
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("this is the pic array for event detail")
-        print(picArray)
-        
-        return picArray.count
+        return event.users.count
     }
     
     
@@ -39,9 +41,7 @@ class EventMembers: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Attendee", for: indexPath) as! Attendee
         print("THIS IS THE PIC ARRAY FOR EVENT DETAIL")
-        print(self.picArray)
-        cell.configure()
-        cell.generateImage(rawData: picArray[indexPath.row])
+        cell.configure(imageUrl: event.users[indexPath.row].profilePictureURL)
         
         return cell
     }
