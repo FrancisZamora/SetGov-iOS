@@ -564,7 +564,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventMembers", for:indexPath) as! EventMembers
             cell.userCollection.reloadData()
             cell.configure(event: currentEvent)
-            
+
             return cell
         }
         
