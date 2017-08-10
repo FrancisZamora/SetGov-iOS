@@ -122,7 +122,10 @@ class EventViewController: SetGovTableViewController{
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //self.checkMembers()
+        var y = getDataList()
+        ApiClient.fetchEvents(city: selectedCity, onCompletion: { event in 
+            y = event
+        })
     }
 
     
@@ -200,7 +203,7 @@ class EventViewController: SetGovTableViewController{
         //cell.selectionStyle = .none
         let counter = data[indexPath.row].users.count
         cell.memberCount.text = String(describing: counter)
-       // cell.usersCollection.reloadData()
+        cell.usersCollection.reloadData()
         print(" we hit the conditional")
         return cell
 
