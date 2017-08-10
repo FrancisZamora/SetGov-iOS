@@ -159,7 +159,7 @@ class ApiClient {
     
     static func fetchEvents(city:String, onCompletion: @escaping([Event]) -> Void) {
         let URL = "https://setgov.herokuapp.com/api/v/1/graph"
-        let query = "query { upcomingEvents(city:\"\(city)\"){id,name,date,description, attendingUsers{full_name, profileImage{url}}, address, time, city, agendaItems{name, description}}}"
+        let query = "query { upcomingEvents(city:\"\(city)\"){id,name,date,description, attendingUsers{full_name, profileImage{url}}, address, time, city, agendaItems{name, description}, comment{id,user{full_name,profileImage{url}},karma,timestamp,text}}"
         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
             guard let jsonString = response.result.value,
                 let events = JSON(jsonString)["data"]["upcomingEvents"].array else {
@@ -194,6 +194,23 @@ class ApiClient {
                     }
                 }
                 
+                var commentArray = [Comment]()
+                if let comments = event["comments"].array {
+                    for comment in comments {
+                        if let text = comment["text"].string,
+                            let karma = comment["karma"].int,
+                            let timeStamp = comment["timestamp"].string,
+                            let commentID = comment["id"].int,
+                            let fullName = comment["user"]["full_name"].string,
+                            let profilePictureURL = comment["user"]["profileImage"]["url"].string {
+                            commentArray.append(Comment(text: text, user: User(fullName: fullName,profilePictureURL: profilePictureURL), karma: karma, timeStamp: timeStamp, commentID: commentID))
+                        }
+                    }
+                }
+                
+                        
+                
+                
                 if let city = event["city"].string,
                     let name = event["name"].string,
                     let id = event["id"].int,
@@ -209,7 +226,7 @@ class ApiClient {
                                              eventImageName: "bostonPark",
                                              time: time,
                                              city: city,
-                                             agendaItems: agendaArray,
+                                             agendaItems: agendaArray, comments: commentArray,
                                              id: id))
                 }
             }

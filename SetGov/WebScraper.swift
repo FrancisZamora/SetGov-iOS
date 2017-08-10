@@ -307,7 +307,7 @@ class WebScraper {
                                   eventImageName: "bostonPark",
                                   time: eventHours[index][1],
                                   city: "Boston",
-                                  agendaItems: agendaDictionary[index]! ,
+                                  agendaItems: agendaDictionary[index]! , comments:[],
                                   id: 0)
                 
                 if index % 2 == 0 {
