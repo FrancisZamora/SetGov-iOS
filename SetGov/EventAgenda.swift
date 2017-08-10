@@ -15,8 +15,6 @@ import Kanna
 protocol EventAgendaCallback: class {
     func loadAgendaDetail(data:Dictionary<Int,String>, infoData:[[String]], agendaTitles:[String], index: Int)
     func loadVC()
-
-
 }
 
 class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
