@@ -53,6 +53,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var bostonDataList = [Event]()
     var fortlauderdaleDataList = [Event]()
     var userArray = [User]()
+    var currentEventStream: EventLiveStream?
 
     
     @IBOutlet var navTitle: UINavigationItem!
@@ -73,12 +74,16 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     override func viewDidAppear(_ animated: Bool) {
         //self.fetchEvent()
         print("this is the length of the comment array")
-        
         tableView.reloadData()
-
     }
     
-    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if let stream = currentEventStream {
+            stream.timer.invalidate()
+            currentEventStream = nil
+        }
+    }
     
     func checkAlert() -> Bool {
         if videoRequested == true {
@@ -247,26 +252,10 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         let controller = storyboard.instantiateViewController(withIdentifier: "AgendaDetailViewController") as! AgendaDetailViewController
         
         controller.agenda = agenda
-        
-        //controller.agendaImage = agendaImage
-        //controller.eventTitle = eventTitle
-        //controller.paragraphArray = paragraphArray
-        //controller.agendaInfo = agendaInfo
-        //controller.index = Index
-        //controller.agendaTitles = agendaTitle
-        
         controller.selectedCity = selectedCity
+        controller.agendaImage = currentEvent.image
         self.present(controller, animated:true, completion: nil )
-
-        
-        //agendaInfo = data
-        //print(agendaInfo)
-        //Index = index
-        //paragraphArray = infoData
-        //agendaTitle = agendaTitles
-       //print(data)
     }
-    
     
     
     func attendbuttonTapped() {
@@ -377,6 +366,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
         if (indexPath.row == 0) {
             let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream") as! EventStream
+            
+            
                 eventStream.dataList = dataList
                 eventStream.user = self.user
                 eventStream.configureImage()
@@ -396,6 +387,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventStream.configure()
                 eventStream.streamContent()
                 eventStream.checkStatus()
+            
             if selectedCity == "Fort Lauderdale" {
                 eventStream.eventImage.image = bostonDataList[indexofEvent].image
                 agendaImage = eventStream.eventImage.image!
@@ -435,70 +427,28 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 }
             }
             
-            
-            
-            if eventStream.compareTime() == true && eventStream.firstpress == false || videoRequested == true {
+            if eventStream.compareTime() == true || videoRequested == true {
                 print(checkAlert())
                 // only works when cell for row is refreshed 
-                
-                let when = DispatchTime.now() + 5 // change 2 to desired number of seconds
-                DispatchQueue.main.asyncAfter(deadline: when) {
-                    eventStream.nowLive()
+                let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream") as! EventLiveStream
+                eventLiveStream.selectionStyle = .none
+                eventLiveStream.selectedCity = selectedCity
+                eventLiveStream.eventTitle = eventTitle
+                print ("returning stream")
+                eventLiveStream.configure()
+                eventLiveStream.playVideo()
+                if eventStream.compareTime() {
+                    eventLiveStream.switchTitleOn()
+                } else {
+                    eventLiveStream.switchTitleOff()
                 }
-
-            if eventStream.compareTime() == true {
-                let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream") as! EventLiveStream
-                eventLiveStream.selectionStyle = .none
-                eventLiveStream.selectedCity = selectedCity
-                eventLiveStream.switchTitleOn()
-                eventLiveStream.eventTitle = eventTitle
-                print ("returning stream")
-                eventLiveStream.configure()
-                eventLiveStream.playVideo()
-                eventLiveStream.switchTitleOn()
-                print("Times are the same")
+                currentEventStream = eventLiveStream
                 
-                return eventLiveStream
-                
-            }
-                
-            if eventStream.compareTime() == false {
-                let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream") as! EventLiveStream
-                eventLiveStream.selectionStyle = .none
-                eventLiveStream.selectedCity = selectedCity
-                eventLiveStream.switchTitleOn()
-                eventLiveStream.eventTitle = eventTitle
-                print ("returning stream")
-                eventLiveStream.configure()
-                eventLiveStream.playVideo()
-                eventLiveStream.switchTitleOff()
-                return eventLiveStream
-                
-            }
-                
-            }
-          
-            if eventStream.initiateStream == true {
-                // add transition with 2 second delay coming in from the right 
-                print(eventStream.presentStream)
-                let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream") as! EventLiveStream
-                
-                eventLiveStream.eventTitle = eventTitle
-                eventLiveStream.selectionStyle = .none
-                print ("returning stream")
-                eventLiveStream.configure()
-                eventLiveStream.playVideo()
-               
                 return eventLiveStream
 
             }
-            print("cell for row" )
-
             
             return eventStream
-            
-            
-            
         }
         
         if(indexPath.row == 1) {

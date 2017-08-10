@@ -16,7 +16,12 @@ class ApiClient {
         let URL = "https://setgov.herokuapp.com/api/v/1/graph"
         let query = "mutation {authenticateUser(facebook_token:\"\(token)\") {id,full_name, profileImage{ id, url}}}"
         
-        Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
+        Alamofire.request(URL,
+                          method: .post,
+                          parameters: ["query":query],
+                          encoding: JSONEncoding.default,
+                          headers: [:])
+            .responseJSON { response in
             
             print(response)
             guard let jsonString = response.result.value else {
@@ -28,7 +33,6 @@ class ApiClient {
             onCompletion(json)
         }
     }
-    
     
     static func addEvent(event:Event, onCompletion: @escaping(Bool) -> Void) {
         
@@ -148,7 +152,6 @@ class ApiClient {
             print(response)
             onCompletion(json)
         }
-        
     }
     
     static func vote(id:Int,value:Int, onCompletion: @escaping(JSON) -> Void) {
@@ -160,14 +163,8 @@ class ApiClient {
                 return
             }
             let json = JSON(jsonString)
-            print(json)
-            
-            print(response)
             onCompletion(json)
-            
         }
-        
-        
     }
     
     static func fetchEvents(city:String, onCompletion: @escaping([Event]) -> Void) {
