@@ -543,8 +543,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 formatter.dateStyle = .short
               
                 infoCell.eventAddress.text = "100 North Andrews Avenue"
-                let z = fortlauderdaleArray[indexofEvent][6].trimmingCharacters(in: .whitespacesAndNewlines)
-                print(z)
+               
                 print(fortlauderdaleArray[indexofEvent])
                 infoCell.eventTime.text = fortlauderdaleDataList[indexofEvent].date
                 infoCell.eventHour.text = fortlauderdaleDataList[indexofEvent].time
