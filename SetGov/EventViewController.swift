@@ -195,12 +195,12 @@ class EventViewController: SetGovTableViewController{
         let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCell
         cell.configure(event: data[indexPath.row])
         //cell.index = indexPath.row
-        //cell.dataList = x
         //cell.selectedCity = selectedCity
         //cell.editCell(event: x[indexPath.row])
         //cell.selectionStyle = .none
-        //let counter = x[indexPath.row].users.count
-
+        let counter = data[indexPath.row].users.count
+        cell.memberCount.text = String(describing: counter)
+       // cell.usersCollection.reloadData()
         print(" we hit the conditional")
         return cell
 
@@ -221,9 +221,7 @@ class EventViewController: SetGovTableViewController{
 //            print(picArray)
 //            print(indexPath.row)
 //            cell.picArray = picArray[indexPath.row]
-//            let counter = x[indexPath.row].users.count
-//            cell.memberCount.text = String(describing: counter)
-//            cell.usersCollection.reloadData()
+        
 //
 //           // UIView.animate(withDuration: 0.88) {
 //              //  cell.alpha = 1
