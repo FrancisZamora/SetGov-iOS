@@ -52,6 +52,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var replyComment: Comment!
     var bostonDataList = [Event]()
     var fortlauderdaleDataList = [Event]()
+    var userArray = [User]()
+
     
     @IBOutlet var navTitle: UINavigationItem!
     
@@ -98,34 +100,28 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         if selectedCity == "Boston" {
 
             ApiClient.fetchEvent(eventID:self.bostonDataList[indexofEvent].id , onCompletion:{ json in
-            
-                var userArray = [User]()
+                self.userArray = []
                 let attendees = json["data"]["event"]["attendingUsers"].array
                 for users in attendees! {
                     if let fullName = users["full_name"].string,
                         let profileURL = users["profileImage"]["url"].string {
-                        userArray.append(User(fullName: fullName, profilePictureURL: profileURL))
+                        self.userArray.append(User(fullName: fullName, profilePictureURL: profileURL))
                     }
                 }
                 
-                self.currentEvent.users = userArray
+                self.currentEvent.users = self.userArray
                 print(self.currentEvent.users)
-                
                 
                 print("THIS IS THE PICTURE ARRAY FOR BOSTON \(self.picArray)")
                 
-               let comments = json["data"]["event"]["comments"]
-                print("here is the comment")
-                
-                print(comments)
-                guard let comments2 = json["data"]["event"]["comments"].array else {
+          
+                guard let comments = json["data"]["event"]["comments"].array else {
                         return
                     }
-                    print("this is comments 2\(comments2)")
-                    
+                
                 
                 self.currentEvent.comments = []
-                for (_,val)in comments2.enumerated()  {
+                for (_,val)in comments.enumerated()  {
                     print("this is val")
                     print(val)
                    
@@ -173,8 +169,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                                     profilePictureURL: val["user"]["profileImage"]["url"].stringValue)
                     let comment = Comment(text: val["text"].stringValue, user: user, karma: val["karma"].int!, timeStamp: "1 min ago",commentID:val["id"].int!)
                     
-                    var x = self.getDataList()
-                    x[self.indexofEvent].comments.append(comment)
+                    self.currentEvent.comments.append(comment)
                   
                     print(comment.commentID)
                   
@@ -218,14 +213,10 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             print(eventList)
             print(indexofEvent)
     
-            navTitle.title = fortlauderdaleArray[indexofEvent][0]
+            navTitle.title = fortlauderdaleDataList[indexofEvent].title
             print(fortlauderdaleArray)
             
-            let z = fortlauderdaleArray[indexofEvent][0].components(separatedBy: " ")
-            print(fortlauderdaleArray[indexofEvent][0])
-            let finalDescription = z
-            print(z.count)
-            self.eventDescription = (finalDescription[finalDescription.count-1])
+            self.eventDescription = currentEvent.description
 
             eventTitle = navTitle.title!
         }
@@ -529,7 +520,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
         if (indexPath.row==3) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventMembers", for:indexPath) as! EventMembers
+            cell.userCollection.reloadData()
             cell.configure(event: currentEvent)
+
             return cell
         }
         

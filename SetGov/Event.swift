@@ -24,6 +24,7 @@ class Event {
     var id: Int = -1
     var agendaItems = [Agenda]()
     var comments = [Comment]()
+    var eventDate = String()
    // var loggedUser = User(userName: " " , attendingStatus: false, interestedStatus: false)
     
     
@@ -50,6 +51,20 @@ class Event {
         if let newDate = formatter.date(from: date) {
             self.realDate = newDate
         }
+        
+        let eventFormatter = DateFormatter()
+        eventFormatter.dateFormat = "MMM dd, yyyy"
+        let eventfriendlyDate = eventFormatter.string(from:realDate)
+        var eventfriendlyDateArray = eventfriendlyDate.components(separatedBy: ",")
+        print(eventfriendlyDate)
+        print(eventDate)
+        
+        self.eventDate = eventfriendlyDateArray[0]
+        print(self.eventDate)
+        print("EVENT DATE HERE")
+            
+        
+
         
         
         // ** read top comment self.eventUsers = eventUsers

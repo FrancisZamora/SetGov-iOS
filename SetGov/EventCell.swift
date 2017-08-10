@@ -32,13 +32,13 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     var spacer = "  "
     var picArray = [String]()
     var event: Event!
+    var userArray = [User]()
 
     @IBOutlet var attendee: ProfilePicture!
     
     override func awakeFromNib() {
         usersCollection.delegate = self
         usersCollection.dataSource = self
-        self.usersCollection.reloadData()
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -48,6 +48,10 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Attendee", for: indexPath) as! Attendee
+        
+        print(event.users)
+        print(event.users[indexPath.row].profilePictureURL)
+        
         cell.configure(imageUrl: event.users[indexPath.row].profilePictureURL)
         
         return cell
@@ -59,9 +63,13 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
         eventTitle.text = event.title
         eventDescription.text = event.description
         eventImage.image = event.image
-        eventDate.text = event.date
+        eventDate.text = event.eventDate
+        self.userArray = event.users
         memberCount.text = "\(event.users.count)"
+      
         self.event = event
+        print(event.users)
+        self.usersCollection.reloadData()
         
     }
   

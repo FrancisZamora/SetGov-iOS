@@ -298,6 +298,7 @@ class EventStream:  UITableViewCell {
                         print("callback in progress")
                         
                         callback.attendbuttonTapped()
+                        
                     }
                     
                     else {
