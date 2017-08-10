@@ -304,10 +304,10 @@ class EventStream:  UITableViewCell {
                 }
                 
             })
-            
+            return 
         }
         // send api request whenever button is pressed
-        if firstpress == true {
+  
             self.attendButton.setTitle("Attending", for: .normal)
             print(eventTitle)
             self.eventTitle  =  "  " + self.eventTitle
@@ -337,7 +337,7 @@ class EventStream:  UITableViewCell {
                     self.nowLive()
                 }
 
-            }
+            
             
             if self.selectedCity == "Fort Lauderdale" {
                 let eventID = fortlauderdaleDataList[indexofEvent].id
