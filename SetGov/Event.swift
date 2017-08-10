@@ -23,7 +23,7 @@ class Event {
     var users = [User]()
     var id: Int = -1
     var agendaItems = [Agenda]()
-
+    var comments = [Comment]()
    // var loggedUser = User(userName: " " , attendingStatus: false, interestedStatus: false)
     
     
@@ -31,7 +31,7 @@ class Event {
     }
     
     
-    init(title:String, address: String, users: [User],  description: String, date: String, eventImageName: String, time: String, city: String,agendaItems: [Agenda], id: Int) {
+    init(title:String, address: String, users: [User],  description: String, date: String, eventImageName: String, time: String, city: String,agendaItems: [Agenda], comments: [Comment], id: Int) {
         self.title = title
         self.description = description
         self.users = users
@@ -41,6 +41,7 @@ class Event {
         self.address = address
         self.city = city
         self.agendaItems = agendaItems
+        self.comments = comments
         self.id = id
         
         let formatter = DateFormatter()
