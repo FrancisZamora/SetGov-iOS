@@ -122,7 +122,10 @@ class EventViewController: SetGovTableViewController{
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //self.checkMembers()
+        var y = getDataList()
+        ApiClient.fetchEvents(city: selectedCity, onCompletion: { event in 
+            y = event
+        })
     }
 
     

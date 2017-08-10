@@ -100,10 +100,18 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
 
             ApiClient.fetchEvent(eventID:self.bostonDataList[indexofEvent].id , onCompletion:{ json in
             
-            
-                let pictureIDArray = json["data"]["event"]  ["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
+                var userArray = [User]()
+                let attendees = json["data"]["event"]["attendingUsers"].array
+                for users in attendees! {
+                    if let fullName = users["full_name"].string,
+                        let profileURL = users["profileImage"]["url"].string {
+                        userArray.append(User(fullName: fullName, profilePictureURL: profileURL))
+                    }
+                }
                 
-                self.picArray = pictureIDArray
+                self.currentEvent.users = userArray
+                print(self.currentEvent.users)
+                
                 
                 print("THIS IS THE PICTURE ARRAY FOR BOSTON \(self.picArray)")
                 
