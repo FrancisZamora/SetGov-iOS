@@ -17,8 +17,8 @@ class AgendaViewController: UICollectionView {
     
     
 
-    func collectionView(collectionView: UICollectionView, heightForHeaderInSection section: Int) -> CGFloat {
-        
+    func collectionView(collectionView: UICollectionView,
+                        heightForHeaderInSection section: Int) -> CGFloat {
         return 50.0
     }
   

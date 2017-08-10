@@ -122,18 +122,18 @@ class EventViewController: SetGovTableViewController{
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        ApiClient.fetchEvents(city: selectedCity, onCompletion: { events in
-            switch self.selectedCity {
-                case "Boston":
-                    self.bostonDataList = events
-                    break
-                case "Fort Lauderdale":
-                    self.fortlauderdaleDataList = events
-                    break
-                default:
-                    break
-            }
-        })
+//        ApiClient.fetchEvents(city: selectedCity, onCompletion: { events in
+//            switch self.selectedCity {
+//                case "Boston":
+//                    self.bostonDataList = events
+//                    break
+//                case "Fort Lauderdale":
+//                    self.fortlauderdaleDataList = events
+//                    break
+//                default:
+//                    break
+//            }
+//        })
     }
 
     

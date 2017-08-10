@@ -22,6 +22,7 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
     var paragraphArray = [[String]()]
     var agendaTitles = [String]()
     var selectedCity = " "
+    var agenda: Agenda!
     @IBOutlet var navTitle: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,13 +51,7 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("numberofRows")
         return 2
-        
     }
-    
-    
-    
-    
-    
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
@@ -75,77 +70,21 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
         
         
         if (indexPath.row == 0) {
-            let agendadetailHeader =  tableView.dequeueReusableCell(withIdentifier: "AgendaDetailHeader", for:indexPath) as! AgendaDetailHeader
-            agendadetailHeader.selectionStyle = .none
-            agendadetailHeader.agendaImage.image = agendaImage
-            print(agendaInfo)
-            if selectedCity == "Fort Lauderdale"{
-                agendadetailHeader.titleLabel.text = "Not Available"
-            }
-            if selectedCity == "Boston" {
-                agendadetailHeader.titleLabel.text = agendaTitles[index]
-            }
-            
-          
-            agendadetailHeader.headerCallBack = self
-
-            
-            print("cell for row" )
-            return agendadetailHeader
-        }
-        
-        
+            let agendaDetailHeader =  tableView.dequeueReusableCell(withIdentifier: "AgendaDetailHeader", for:indexPath) as! AgendaDetailHeader
+            agendaDetailHeader.configure(agenda: agenda)
+            agendaDetailHeader.headerCallBack = self
+            return agendaDetailHeader
+        }        
         
         if(indexPath.row == 1) {
-            let agendadetailComments = tableView.dequeueReusableCell(withIdentifier: "AgendaDetailComments", for:indexPath) as! AgendaDetailComments
+            let agendaDetailComments = tableView.dequeueReusableCell(withIdentifier: "AgendaDetailComments", for:indexPath) as! AgendaDetailComments
             
-            agendadetailComments.selectionStyle = .none
-            
-            if selectedCity == "Boston" {
-                if paragraphArray.isEmpty == true {
-                    agendadetailComments.commentField.text = "Agenda Details not available"
-                    agendadetailComments.disableEditing()
-                    return agendadetailComments
-                }
-                
-                
-                if paragraphArray.count < index   {
-                    agendadetailComments.commentField.text = "Agenda Details not available"
-                    agendadetailComments.disableEditing()
-                    return agendadetailComments
-
-                }
-                
-                if paragraphArray[index][0].isEmpty {
-                    agendadetailComments.commentField.text = "Agenda Details not available"
-                    agendadetailComments.disableEditing()
-                    return agendadetailComments
-
-                }
-                if paragraphArray.count >= index {
-                    agendadetailComments.commentField.text = paragraphArray[index][0]
-                    agendadetailComments.disableEditing()
-                    return agendadetailComments
-                }
-                
-            
-                
-                
-            
-            }
-            
-            if selectedCity == "Fort Lauderdale" {
-                agendadetailComments.commentField.text = "Agenda Details not available"
-            }
-            
-            agendadetailComments.disableEditing()
-            
-            return agendadetailComments
+            agendaDetailComments.configure(text: agenda.text)
+            return agendaDetailComments
         }
-        let agendadetailHeader =  tableView.dequeueReusableCell(withIdentifier: "AgendaDetailComments", for:indexPath) as! AgendaDetailComments
-        agendadetailHeader.selectionStyle = .none
-        
-        return agendadetailHeader
+        let agendaDetailComments =  tableView.dequeueReusableCell(withIdentifier: "AgendaDetailComments", for:indexPath) as! AgendaDetailComments
+        agendaDetailComments.selectionStyle = .none
+        return agendaDetailComments
         
     }
 

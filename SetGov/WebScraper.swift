@@ -194,17 +194,20 @@ class WebScraper {
                 
                 var agendaList = [Agenda]()
                 
-                print("AGENDA TITLES SIZE: \(agendaTitles.count)")
-                print("DESCRIPTION ARRAY SIZE: \(descriptionArray.count)")
-                print(" ")
-                print("AGENDA TITLES: \(agendaTitles)")
-                print("DESCRIPTION ARRAY : \(descriptionArray)")
-                
-                
-                
-                
-                for title in agendaTitles {
-                    agendaList.append(Agenda(name: title, description: descriptionArray[index]))
+                for (i, title) in agendaTitles.enumerated() {
+                    
+                    var paragraphString = ""
+                    if(i < paragraphArray.count) {
+                        for entry in paragraphArray[i] {
+                            paragraphString.append(entry)
+                        }
+                    }
+                    
+                    print("ADDING PARAGRAPH STRING: \(paragraphString)")
+                    
+                    agendaList.append(Agenda(name: title,
+                                             description: descriptionArray[index],
+                                             text: paragraphString))
                 }
                 
                 agendaDictionary[index] = agendaList

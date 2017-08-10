@@ -16,9 +16,14 @@ class AgendaDetailComments: UITableViewCell {
     
     @IBOutlet var commentField: UITextView!
     
-    func disableEditing() {
-        commentField.isUserInteractionEnabled = false 
-    }
-    
-    
+    func configure(text: String) {
+        selectionStyle = .none
+        commentField.isUserInteractionEnabled = false
+
+        if(text.characters.count > 0) {
+            commentField.text = text
+        } else {
+            commentField.text = "Agenda Details not available"
+        }
+    }    
 }
