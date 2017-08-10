@@ -178,12 +178,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                     print("here is the text")
                     
                 }
-                
                 self.tableView.reloadData()
-                
             })
         }
-        
     }
     
     func refresh(sender:AnyObject) {
@@ -553,10 +550,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 infoCell.eventTime.text = fortlauderdaleDataList[indexofEvent].date
                 infoCell.eventHour.text = fortlauderdaleDataList[indexofEvent].time
                 
-                
                 return infoCell
-                
-                
             }
         }
         

@@ -47,14 +47,6 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         agendaCollectionView.dataSource = self
     }
     
-    
-    
-//    func generateBoston() {
-//        if selectedCity == "Boston" {
-//            secondUrl = hrefArray[indexofEvent]
-//        }
-//    }
-    
     func configureLauderdale() {
         self.agenda.text = "Agenda & Meeting Details"
     }
@@ -63,60 +55,6 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         selectionStyle = .none
         currentEvent = event
     }
-    
-//    func prepareAgenda() {
-//        if selectedCity == "Fort Lauderdale" {
-//            configureLauderdale()
-//        }
-//        
-//        if selectedCity == "Boston" {
-//            let url = URL(string: "https://www.boston.gov" + secondUrl)
-//    
-//        
-//            guard let doc = HTML(url: url!, encoding: .utf8) else  {
-//                return
-//            }
-//            
-//            for a in doc.css("strong") {
-//                
-//                
-//            let showString = a.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-//                
-//            print(showString)
-//            agendaTitles.append(showString)
-//                
-//                
-//            }
-//            
-//            print(agendaTitles)
-//
-//        // seg fault is here
-//          for link in doc.css(".body") {
-//            let showString = link.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-//            let agendaString = showString.components(separatedBy: "\n")
-//            agendaTitle = [agendaString][0]
-//            let x = [agendaTitle][0]
-//            agendaStringArray.append(x)
-//            for paragraph in doc.css("p") {
-//                let showString = paragraph.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-//                print(showString)
-//                let agendaString = showString.components(separatedBy: "\n")
-//                paragraphArray.append(agendaString)
-//                
-//            }
-//            
-//
-//            
-//            
-//            
-//          }
-//            paragraphArray.remove(at: 0)
-//            paragraphArray.remove(at: 0)
-//         
-//    
-//        }
-//    }
-    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -205,9 +143,3 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         }
     }
 }
-    
-    
-
-    
-
-
