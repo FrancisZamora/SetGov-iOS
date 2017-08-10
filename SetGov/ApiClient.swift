@@ -34,6 +34,10 @@ class ApiClient {
         
         print("ADDING EVENT: \(event.agendaItems)")
         
+        for agenda in event.agendaItems {
+            print("ADDING EVENT WITH AGENDA TEXT: \(agenda.text)")
+        }
+        
         
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yy"
@@ -45,7 +49,7 @@ class ApiClient {
         //        let dateString = formatter.string(from: date!)
         
         let url = "https://setgov.herokuapp.com/api/v/1/graph"
-        let query = "mutation{addEvent(name:\"\(event.title)\",city:\"\(event.city)\",address:\"\(event.address)\",date:\"\(event.date)\",time:\"\(event.time)\", description:\"\(event.description)\",agendaItems:\(Agenda.buildGraphString(agendaList: event.agendaItems))){id, agendaItems{ name, description}}}"
+        let query = "mutation{addEvent(name:\"\(event.title)\",city:\"\(event.city)\",address:\"\(event.address)\",date:\"\(event.date)\",time:\"\(event.time)\", description:\"\(event.description)\",agendaItems:\(Agenda.buildGraphString(agendaList: event.agendaItems))){id, agendaItems{ name, description, text}}}"
         Alamofire.request(url,
                           method: .post,
                           parameters: ["query":query],
@@ -168,7 +172,7 @@ class ApiClient {
     
     static func fetchEvents(city:String, onCompletion: @escaping([Event]) -> Void) {
         let URL = "https://setgov.herokuapp.com/api/v/1/graph"
-        let query = "query { upcomingEvents(city:\"\(city)\"){id,name,date,description, attendingUsers{full_name, profileImage{url}}, address, time, city, agendaItems{name, description}, comments{id,user{full_name,profileImage{url}},karma,timestamp,text}}}"
+        let query = "query { upcomingEvents(city:\"\(city)\"){id,name,date,description, attendingUsers{full_name, profileImage{url}}, address, time, city, agendaItems{name, description, text}, comments{id,user{full_name,profileImage{url}},karma,timestamp,text}}}"
         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
             guard let jsonString = response.result.value,
                 let events = JSON(jsonString)["data"]["upcomingEvents"].array else {
@@ -249,10 +253,18 @@ class ApiClient {
         var agendaArray = [Agenda]()
         if let agendaItems = event["agendaItems"].array {
             for agenda in agendaItems {
+        
+                let a = Agenda()
                 if let name = agenda["name"].string,
                     let description = agenda["description"].string {
-                    agendaArray.append(Agenda(name: name, description: description))
+                    a.name = name
+                    a.description = description
                 }
+                
+                if let text = agenda["text"].string {
+                    a.text = text
+                }
+                agendaArray.append(a)
             }
         }
         return agendaArray

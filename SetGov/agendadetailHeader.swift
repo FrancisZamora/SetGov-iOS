@@ -12,7 +12,6 @@ import QuartzCore
 
 protocol HeaderCallBack: class {
     func dismissView()
-    
 }
 
 class AgendaDetailHeader: UITableViewCell {
@@ -36,7 +35,13 @@ class AgendaDetailHeader: UITableViewCell {
         }
        
     
-}
+    }
+    
+    func configure(agenda: Agenda) {
+        selectionStyle = .none
+        titleLabel.text = agenda.name
+        
+    }
 
 }
 

@@ -13,11 +13,17 @@ class Agenda {
     
     var name: String  = ""
     var description: String = ""
+    var text: String = ""
     //var type: String = ""
     
-    init(name: String, description: String) {
+    init(name: String, description: String, text: String) {
         self.name = name
         self.description = description
+        self.text = text
+    }
+    
+    init() {
+        
     }
     
     static func buildGraphString(agendaList: [Agenda]) -> String {
@@ -25,7 +31,7 @@ class Agenda {
         var graphString = "["
         
         for agenda in agendaList {
-            graphString.append("{agendaItemName: \"\(agenda.name)\", agendaItemDescription: \"\(agenda.description)\"},")
+            graphString.append("{agendaItemName: \"\(agenda.name)\", agendaItemDescription: \"\(agenda.description)\", agendaItemText: \"\(agenda.text)\"},")
         }
         graphString.remove(at: graphString.index(before: graphString.endIndex))
         graphString.append("]")

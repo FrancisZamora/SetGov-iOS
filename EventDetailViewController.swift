@@ -65,7 +65,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         self.loadTitle()
         
         self.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        var x = getDataList()
         
         print(agendaInfo)
         print(indexofEvent)
@@ -219,11 +218,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             
             self.eventDescription = currentEvent.description
 
-            
             eventTitle = navTitle.title!
-       
         }
-        
     }
     
     func retrievecommentData(comment:String) {
@@ -231,7 +227,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         if selectedCity == "Boston" {
             ApiClient.createComment(comment: comment, eventID: self.bostonDataList[indexofEvent].id, onCompletion:{ json in
                 self.fetchEvent()
-                
             })
            
         }
@@ -240,21 +235,36 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             ApiClient.createComment(comment: comment, eventID: self.fortlauderdaleDataList[indexofEvent].id, onCompletion:{ json in
                 self.fetchEvent()
             })
-            
         }
-       
     }
     
-    func loadAgendaDetail(data: Dictionary<Int,String>,infoData:[[String]],agendaTitles:[String],index:Int) {
+    func loadAgendaDetail(agenda: Agenda) {
         
         print("EVENT AGENDA CALLBACK")
         print("LOADING AGENDA DETAIL HERE")
-        agendaInfo = data
-        print(agendaInfo)
-        Index = index
-        paragraphArray = infoData
-        agendaTitle = agendaTitles
-        print(data)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "AgendaDetailViewController") as! AgendaDetailViewController
+        
+        controller.agenda = agenda
+        
+        //controller.agendaImage = agendaImage
+        //controller.eventTitle = eventTitle
+        //controller.paragraphArray = paragraphArray
+        //controller.agendaInfo = agendaInfo
+        //controller.index = Index
+        //controller.agendaTitles = agendaTitle
+        
+        controller.selectedCity = selectedCity
+        self.present(controller, animated:true, completion: nil )
+
+        
+        //agendaInfo = data
+        //print(agendaInfo)
+        //Index = index
+        //paragraphArray = infoData
+        //agendaTitle = agendaTitles
+       //print(data)
     }
     
     
@@ -296,23 +306,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
         
     }
-    
-    func loadVC() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "AgendaDetailViewController") as! AgendaDetailViewController
-        controller.agendaImage = agendaImage
-        controller.eventTitle = eventTitle
-        controller.paragraphArray = paragraphArray
-        controller.agendaInfo = agendaInfo
-        controller.index = Index
-        controller.agendaTitles = agendaTitle
-        controller.selectedCity = selectedCity 
-        self.present(controller, animated:true, completion: nil )
-    
-   
-    
-    }
-    
    
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
@@ -511,40 +504,17 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         if(indexPath.row == 1) {
             let infoCell =  tableView.dequeueReusableCell(withIdentifier: "EventInfo", for:indexPath) as! EventInfo
             infoCell.selectionStyle = .none
-            print(eventInfo)
-            print("stop")
-            print(indexofEvent)
-            
-           
-            print(selectedCity)
-            
-                print(indexofEvent)
-                
-                infoCell.eventAddress.text = currentEvent.address
-                infoCell.eventTime.text = currentEvent.date
-                infoCell.eventHour.text = currentEvent.time
-                return infoCell
-            
-            
-        
-            
-            
+            infoCell.eventAddress.text = currentEvent.address
+            infoCell.eventTime.text = currentEvent.date
+            infoCell.eventHour.text = currentEvent.time
+            return infoCell
         }
         
         if(indexPath.row == 2) {
             let agendaCell = tableView.dequeueReusableCell(withIdentifier: "EventAgenda", for:indexPath) as! EventAgenda
             agendaCell.configureCell(event: currentEvent)
-            agendaCell.eventDescription = eventDescription
-            agendaCell.descriptionArray = descriptionArray
-            agendaCell.agendaInfo = agendaInfo
             agendaCell.selectedCity = selectedCity
-            print(agendaInfo)
-            agendaCell.index = Index
             agendaCell.eventAgendaCallback = self
-            agendaCell.indexofEvent = indexofEvent
-            agendaCell.hrefArray = hrefArray
-            print("HELLO")
-            
             return agendaCell
         }
         
