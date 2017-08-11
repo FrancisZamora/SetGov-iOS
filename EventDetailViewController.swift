@@ -11,7 +11,7 @@ import UIKit
 import QuartzCore
 import SwiftyJSON
 
-class EventDetailViewController: SetGovTableViewController, EventAgendaCallback, EventStreamCallback, CommentCallBack, DiscussionCallBack{
+class EventDetailViewController: SetGovTableViewController, EventAgendaCallback, EventInfoCallback, EventStreamCallback, CommentCallBack, DiscussionCallBack{
     var activate = true
     var infoCell = true
     var memberCell = true
@@ -457,6 +457,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             infoCell.eventAddress.text = currentEvent.address
             infoCell.eventTime.text = currentEvent.date
             infoCell.eventHour.text = currentEvent.time
+            infoCell.eventInfoCallback = self
             return infoCell
         }
         
@@ -526,15 +527,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        print(indexPath.row)
-        
-    
-        if(indexPath.row == 1) {
-            loadDirections()
-        }
-    }
-    
     func getState() -> String {
         switch selectedCity {
         case "Boston":
@@ -559,10 +551,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     }
     
     func loadDirections() {
-        var y = getDataList()
-        let event = y[indexofEvent]
         
-        let addressString = "\(event.address) \(selectedCity) \(getState())"
+        let addressString = "\(currentEvent.address) \(selectedCity) \(getState())"
         let formattedAddress = addressString.replacingOccurrences(of: " ", with: "+")
         let url = "https://www.google.com/maps/dir/?api=1&destination=\(formattedAddress)"
         
