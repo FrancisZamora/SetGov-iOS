@@ -58,6 +58,7 @@
 		15D3DB871E7A169E00CD35DD /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D3DB861E7A169E00CD35DD /* ProfileImage.swift */; };
 		15D442261EF355BC00AC8FD1 /* MiamiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D442251EF355BC00AC8FD1 /* MiamiCell.swift */; };
 		15F882421F2A391D001BA502 /* Attendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F882411F2A391D001BA502 /* Attendee.swift */; };
+		15FD453B1F3D29B00082F3CD /* NoUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD453A1F3D29B00082F3CD /* NoUsers.swift */; };
 		1D98C468A8545E290887D257 /* Pods_SetGovUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A291636C27A3A4A0D6A8E83 /* Pods_SetGovUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -136,6 +137,7 @@
 		15D3DB861E7A169E00CD35DD /* ProfileImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		15D442251EF355BC00AC8FD1 /* MiamiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiamiCell.swift; sourceTree = "<group>"; };
 		15F882411F2A391D001BA502 /* Attendee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attendee.swift; sourceTree = "<group>"; };
+		15FD453A1F3D29B00082F3CD /* NoUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoUsers.swift; sourceTree = "<group>"; };
 		2374A0556EB1F59A21F79D7B /* Pods-SetGov.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetGov.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SetGov/Pods-SetGov.debug.xcconfig"; sourceTree = "<group>"; };
 		455A404A8F064ABF2283C4D0 /* Pods-SetGovUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetGovUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SetGovUITests/Pods-SetGovUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5B788141A78B320963331B47 /* Pods_SetGov.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetGov.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -282,6 +284,7 @@
 				15F882411F2A391D001BA502 /* Attendee.swift */,
 				1534AD811F2C0B3C0001D08D /* CreateComment.swift */,
 				1566CC851F321F2E0078FFC8 /* DiscussionHeader.swift */,
+				15FD453A1F3D29B00082F3CD /* NoUsers.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -655,6 +658,7 @@
 				1515A6C71F101677004312F2 /* homeCity.swift in Sources */,
 				1515A6C51F10166C004312F2 /* pushNotification.swift in Sources */,
 				156BD4D31E836BB300E8F98B /* EventDiscussion.swift in Sources */,
+				15FD453B1F3D29B00082F3CD /* NoUsers.swift in Sources */,
 				1547836D1F1FB43D005ABF77 /* ApiClient.swift in Sources */,
 				153F3F871E6DF54B0004E2F4 /* EventViewController.swift in Sources */,
 				15C64B491EADA8FF00B123A5 /* BostonCell.swift in Sources */,

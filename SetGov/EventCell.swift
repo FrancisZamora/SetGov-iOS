@@ -16,7 +16,8 @@ extension UIView {
         self.clipsToBounds = true
     }
 }
-class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
+class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
+ {
     
     @IBOutlet var usersCollection: UICollectionView!
     var count = 0
@@ -42,11 +43,18 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if event.users.count == 0 {
+            return 1
+        }
         return event.users.count
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+        if event.users.count == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoUsers", for: indexPath) as! NoUsers
+            return cell
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Attendee", for: indexPath) as! Attendee
         
         print(event.users)
