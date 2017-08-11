@@ -120,8 +120,6 @@ class EventStream:  UITableViewCell {
         print("time array")
         
         return dateString
-        
-        
     }
     
     func configureHour() {
@@ -132,7 +130,6 @@ class EventStream:  UITableViewCell {
         currentHour = hourString
         
     }
-    
     
     func compareTime() -> Bool {
         if selectedCity == "Fort Lauderdale" {
