@@ -19,32 +19,22 @@ class SplashViewController: SetGovViewController {
     var bostonDataList = [Event]()
     var fortlauderdaleDataList = [Event]()
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        WebScraper.parseEvents(onCompletion: {
-            self.fetchEvents()
-        })
         
-
-        self.loading.alpha  = 0
-        if UserDefaults.standard.string(forKey: "logged") == nil{
-            self.loading.text = "Beta"
-            UIView.animate(withDuration: 2.0, delay: 0.0, options: .curveEaseOut, animations: {
-                self.loading.alpha = 1.0
-            })
+        if let date = UserDefaults.standard.object(forKey: "parsed") as? Date {
+        
+            if(date.timeIntervalSinceNow < -86400) {
+                parseEvents()
+            } else {
+                fetchEvents()
+            }
             
-          
-            
+        } else {
+            parseEvents()
         }
         
-        if UserDefaults.standard.string(forKey:"logged") == "out" {
-            
-            self.loading.text = "Changing the world, one city a time"
-            UIView.animate(withDuration: 2.0, delay: 0.0, options: .curveEaseOut, animations: {
-                self.loading.alpha = 1.0
-            })
-            
-            
-        }
+        
         
         if UserDefaults.standard.string(forKey:"token") != nil {
             self.animateText()
@@ -74,46 +64,18 @@ class SplashViewController: SetGovViewController {
                 }
                 
             })
-            
-        
+        } else {
             
         }
         self.animationView.startAnimating()
-
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-            self.animationView.stopAnimating()
-            if UserDefaults.standard.string(forKey:"logged") == "in" && UserDefaults.standard.string(forKey: "homeCity") != nil {
-                self.loading.text = "Loading"
-                UIView.animate(withDuration: 2.0, delay: 0.0, options: .curveEaseOut, animations: {
-                    self.loading.alpha = 1.0
-                })
-                
-              
-                
-                
-                //self.loginSuccessful = true
-                
-                //performSegue(withIdentifier: "loginCompleted", sender: self)
-                
-            }
-            
-            else {
-                
-               // self.loading.text = "Changing the world, one city a time"
-                UIView.animate(withDuration: 2.0, delay: 0.0, options: .curveEaseOut, animations: {
-                    self.loading.alpha = 1.0
-                })
-               // self.performSegue(withIdentifier: "actionNeeded", sender: nil)
-                
-            }
-            
-
-            
-        }
-        
-        
     }
     
+    func parseEvents() {
+        WebScraper.parseEvents(onCompletion: {
+            UserDefaults.standard.setValue(Date(), forKey: "parsed")
+            self.fetchEvents()
+        })
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

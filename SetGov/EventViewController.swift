@@ -89,7 +89,7 @@ class EventViewController: SetGovTableViewController{
 
         print(self.user.fullName)
         
-               self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.navigationBar.tintColor = .white
         print("EventViewController")
         self.setCity()
