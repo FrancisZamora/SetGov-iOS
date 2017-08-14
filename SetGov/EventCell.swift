@@ -68,6 +68,7 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
         self.event = event
         
         if(event.users.count > 0) {
+            usersCollection.isHidden = false 
             self.usersCollection.reloadData()
         } else {
             usersCollection.isHidden = true
