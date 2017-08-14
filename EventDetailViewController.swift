@@ -389,12 +389,12 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventStream.checkStatus()
             
             if selectedCity == "Fort Lauderdale" {
-                eventStream.eventImage.image = bostonDataList[indexofEvent].image
+                eventStream.eventImage.image = currentEvent.image
                 agendaImage = eventStream.eventImage.image!
             }
             
         if selectedCity == "Boston" {
-            eventStream.eventImage.image = bostonDataList[indexofEvent].image
+            eventStream.eventImage.image = currentEvent.image
             agendaImage = eventStream.eventImage.image!
             
             if eventStream.firstpress == false  && eventStream.compareTime() == false || eventStream.checkStatus() == true && eventStream.compareTime() == false {

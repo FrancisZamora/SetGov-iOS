@@ -109,6 +109,20 @@ class EventViewController: SetGovTableViewController{
         
     }
     
+    func getTime(time:String) -> String {
+        var temp = time.components(separatedBy: ":")
+        if Int(temp[0])! < 7 {
+            let newTime = temp [0] + ":" + temp[1] + "pm"
+            return newTime
+        }
+        else {
+            let newTime = temp[0] + ":" + temp[1] + "am"
+            return newTime
+        }
+    }
+    
+    
+    
     func getImage(int:Int ) -> UIImage {
         if selectedCity == "Boston" {
             if int == 0 {
@@ -238,6 +252,7 @@ class EventViewController: SetGovTableViewController{
         var data = getDataList()
         let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCell
         cell.event = data[indexPath.row]
+        cell.event.time = getTime(time: cell.event.time)
         cell.event.image = getImage(int: indexPath.row)
         cell.configure(event: data[indexPath.row])
         print(" we hit the conditional")
@@ -274,7 +289,6 @@ class EventViewController: SetGovTableViewController{
             eventDetailViewController.selectedEvents = eventTitles
             eventDetailViewController.indexofEvent = indexofEvent
             eventDetailViewController.eventList = eventList
-            eventDetailViewController.eventImages = eventImages
             eventDetailViewController.currentEvent = selectedEvent
             eventDetailViewController.selectedCity = selectedCity
             eventDetailViewController.fortlauderdaleDataList = fortlauderdaleDataList
