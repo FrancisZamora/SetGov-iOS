@@ -109,6 +109,43 @@ class EventViewController: SetGovTableViewController{
         
     }
     
+    func getImage(int:Int ) -> UIImage {
+        if selectedCity == "Boston" {
+            if int == 0 {
+                return #imageLiteral(resourceName: "Image-13")
+            }
+            if int == 1 {
+                return #imageLiteral(resourceName: "brownstone")
+            }
+            if int % 2 == 0 {
+                return #imageLiteral(resourceName: "Image-13")
+
+            }
+            else {
+                return #imageLiteral(resourceName: "brownstone")
+            }
+        }
+        if selectedCity == "Fort Lauderdale" {
+            if int == 0 {
+                return #imageLiteral(resourceName: "Image1")
+            }
+            if int == 1 {
+                return #imageLiteral(resourceName: "Image-11")
+            }
+            if int % 2 == 0 {
+                return #imageLiteral(resourceName: "Image1")
+                
+            }
+            else {
+                return #imageLiteral(resourceName: "Image-11")
+                
+            }
+        }
+        return #imageLiteral(resourceName: "Image1")
+        
+    }
+    
+    
     func getDataList() -> [Event] {
         switch selectedCity {
         case "Boston":
@@ -136,6 +173,8 @@ class EventViewController: SetGovTableViewController{
             self.tableView.reloadData()
         })
     }
+    
+
 
     
 
@@ -193,10 +232,13 @@ class EventViewController: SetGovTableViewController{
         
     }
     
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var data = getDataList()
         let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCell
         cell.event = data[indexPath.row]
+        cell.event.image = getImage(int: indexPath.row)
         cell.configure(event: data[indexPath.row])
         print(" we hit the conditional")
         return cell

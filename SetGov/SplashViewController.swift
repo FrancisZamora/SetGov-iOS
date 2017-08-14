@@ -31,7 +31,7 @@ class SplashViewController: SetGovViewController {
             }
             
         } else {
-            parseEvents()
+           // parseEvents()
         }
         
         
