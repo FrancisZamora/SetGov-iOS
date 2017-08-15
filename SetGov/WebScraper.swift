@@ -181,16 +181,22 @@ class WebScraper {
                     let agendaTitle = [agendaString][0]
                     let x = [agendaTitle][0]
                     agendaStringArray.append(x)
-                    for paragraph in doc.css("p") {
-                        let showString = paragraph.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                        print(showString)
-                        let agendaString = showString.components(separatedBy: "\n")
-                        paragraphArray.append(agendaString)
+                    for paragraph2 in link.css("li") {
+                        for paragraph3 in paragraph2.css("p") {
+                            let showString = paragraph3.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                            
+                            paragraphArray.append([showString])
+                            
+                            
+                        }
+                        print(paragraphArray)
+                        paragraphArray = [[]]
+                        print("PARAGRAPH HERE")
+                        
                         
                     }
                 }
-                paragraphArray.remove(at: 0)
-                paragraphArray.remove(at: 0)
+                  
                 
                 var agendaList = [Agenda]()
                 
