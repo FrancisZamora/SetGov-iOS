@@ -72,7 +72,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //self.fetchEvent()
+        self.fetchEvent()
         print("this is the length of the comment array")
         tableView.reloadData()
     }
@@ -483,7 +483,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             return cell
         }
         var x = getDataList()
-        if x[indexofEvent].comments.count == 0 {
+        if currentEvent.comments.count == 0 {
         
             if (indexPath.row==5) {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CreateComment", for:indexPath) as! CreateComment
@@ -497,7 +497,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         }
         else {
             var x = getDataList()
-            if indexPath.row == (5 + x[indexofEvent].comments.count) {
+            if indexPath.row == (5 + currentEvent.comments.count) {
                 
                let cell = tableView.dequeueReusableCell(withIdentifier: "CreateComment") as! CreateComment
                 cell.commentCallBack = self
