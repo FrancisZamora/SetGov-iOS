@@ -111,7 +111,7 @@ class EventViewController: SetGovTableViewController{
     
     func getTime(time:String) -> String {
         var temp = time.components(separatedBy: ":")
-        if Int(temp[0])! < 7 {
+        if Int(temp[0])! < 7 || Int(temp[0])! == 12 {
             let newTime = temp [0] + ":" + temp[1] + "pm"
             return newTime
         }
