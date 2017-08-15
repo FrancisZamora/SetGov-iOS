@@ -22,17 +22,17 @@ class SplashViewController: SetGovViewController {
         
         super.viewDidLoad()
         
-        if let date = UserDefaults.standard.object(forKey: "parsed") as? Date {
+      //  if let date = UserDefaults.standard.object(forKey: "parsed") as? Date {
         
-            if(date.timeIntervalSinceNow < -86400) {
-                parseEvents()
-            } else {
-                fetchEvents()
-            }
+        //    if(date.timeIntervalSinceNow < -86400) {
+          //      parseEvents()
+           // } else {
+             //   fetchEvents()
+            //}
             
-        } else {
-           // parseEvents()
-        }
+        //} else {
+            parseEvents()
+        //}
         
         
         
