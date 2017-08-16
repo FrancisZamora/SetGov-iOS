@@ -70,7 +70,7 @@ class CityNavigationViewController: SetGovTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("numberofRows")
-        return 4
+        return 6
         
     }
     
@@ -90,7 +90,14 @@ class CityNavigationViewController: SetGovTableViewController {
         case 2:
             //223 for iphone 7 <
             return 247
-      
+        case 3:
+            return 247
+        case 4:
+            return 247
+        case 5:
+            return 247
+        case 6:
+            return 247
         default:
             return 240
         }
@@ -131,7 +138,7 @@ class CityNavigationViewController: SetGovTableViewController {
         }
         if (indexPath.row == 2) {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "NewYorkCityCell", for:indexPath) as! NewYorkCityCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MiamiCell", for:indexPath) as! MiamiCell
             cell.selectionStyle = .none
             cell.alpha = 0.35
             
@@ -146,7 +153,7 @@ class CityNavigationViewController: SetGovTableViewController {
         }
         if (indexPath.row == 3) {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MiamiCell", for:indexPath) as! MiamiCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Phoenix", for:indexPath) as! Phoenix
             cell.selectionStyle = .none
             
             cell.alpha = 0.35
@@ -160,6 +167,42 @@ class CityNavigationViewController: SetGovTableViewController {
             
             
         }
+        
+        if (indexPath.row == 4) {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SanJose", for:indexPath) as! SanJose
+            cell.selectionStyle = .none
+            
+            cell.alpha = 0.35
+            
+            UIView.animate(withDuration: 1.0) {
+                cell.alpha = 1
+            }
+            
+            
+            return cell
+            
+            
+        }
+        
+        if (indexPath.row == 5) {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Austin", for:indexPath) as! Austin
+            cell.selectionStyle = .none
+            
+            cell.alpha = 0.35
+            
+            UIView.animate(withDuration: 1.0) {
+                cell.alpha = 1
+            }
+            
+            
+            return cell
+            
+            
+        }
+        
+                
 
         let cell =  tableView.dequeueReusableCell(withIdentifier: "FortLauderdaleCell", for:indexPath) as! FortLauderdaleCell
         return cell
@@ -217,7 +260,7 @@ class CityNavigationViewController: SetGovTableViewController {
         }
         
         if (indexPath.row == 2) {
-            let alert = UIAlertController(title: "New York City Coming Soon", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "Miami Coming Soon", message: "", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             
@@ -226,8 +269,30 @@ class CityNavigationViewController: SetGovTableViewController {
             
         }
         
+      
+        
         if (indexPath.row == 3) {
-            let alert = UIAlertController(title: "Miami Coming Soon", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "Phoenix Coming Soon", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            
+            
+            
+        }
+        
+        if (indexPath.row == 4) {
+            let alert = UIAlertController(title: "San Jose Coming Soon", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            
+            
+            
+        }
+        
+        if (indexPath.row == 5) {
+            let alert = UIAlertController(title: "Austin Coming Soon", message: "", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             

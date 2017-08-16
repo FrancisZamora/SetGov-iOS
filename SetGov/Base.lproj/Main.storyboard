@@ -117,7 +117,7 @@
                                                 <constraint firstAttribute="width" constant="13" id="kKk-fq-3hK"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AFFCF6DA-075C-4E58-9821-D1996B33B149" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="80DE2E20-4544-45CD-90E5-CC0FE91DCFCD" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
                                             <rect key="frame" x="61" y="271" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="gCa-oq-bRh"/>
@@ -1279,7 +1279,7 @@
                                     <segue destination="01s-Z9-rOr" kind="show" identifier="fortlauderdale" id="V6K-gC-1yc"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewYorkCityCell" rowHeight="213" id="bKU-1C-cAD" customClass="NewYorkCityCell" customModule="SetGov" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MiamiCell" rowHeight="213" id="bKU-1C-cAD" customClass="MiamiCell" customModule="SetGov" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="454" width="375" height="213"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bKU-1C-cAD" id="GUF-3s-lbQ">
@@ -1401,11 +1401,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="212"/>
                                             <color key="backgroundColor" red="0.4519454658" green="0.4519454658" blue="0.4519454658" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Austin, TX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMb-Op-ncV">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Austin, TX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMb-Op-ncV">
                                             <rect key="frame" x="103" y="81" width="168" height="50"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="168" id="62e-R8-dgH"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="38"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -1413,12 +1410,16 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="fn9-dG-0Xo" firstAttribute="trailing" secondItem="JUQ-bI-R3A" secondAttribute="trailing" id="1BJ-jN-Z9m"/>
+                                        <constraint firstItem="HMb-Op-ncV" firstAttribute="centerX" secondItem="fn9-dG-0Xo" secondAttribute="centerX" id="39F-Vk-Xhr"/>
+                                        <constraint firstItem="HMb-Op-ncV" firstAttribute="centerY" secondItem="JUQ-bI-R3A" secondAttribute="centerY" id="5m7-cu-EYN"/>
                                         <constraint firstItem="fn9-dG-0Xo" firstAttribute="bottom" secondItem="JUQ-bI-R3A" secondAttribute="bottom" id="6Zf-Zs-aML"/>
+                                        <constraint firstItem="HMb-Op-ncV" firstAttribute="top" secondItem="irP-2R-3OS" secondAttribute="topMargin" constant="73" id="AJH-Z8-Z7f"/>
                                         <constraint firstAttribute="bottom" secondItem="fn9-dG-0Xo" secondAttribute="bottom" id="GcZ-KL-VsB"/>
                                         <constraint firstItem="fn9-dG-0Xo" firstAttribute="top" secondItem="JUQ-bI-R3A" secondAttribute="top" id="H1F-DS-2ff"/>
                                         <constraint firstItem="fn9-dG-0Xo" firstAttribute="top" secondItem="irP-2R-3OS" secondAttribute="top" id="Hlj-CX-Twx"/>
                                         <constraint firstItem="fn9-dG-0Xo" firstAttribute="leading" secondItem="irP-2R-3OS" secondAttribute="leading" id="KYK-Au-J0s"/>
                                         <constraint firstItem="fn9-dG-0Xo" firstAttribute="leading" secondItem="JUQ-bI-R3A" secondAttribute="leading" id="NBy-w8-JGS"/>
+                                        <constraint firstItem="HMb-Op-ncV" firstAttribute="leading" secondItem="irP-2R-3OS" secondAttribute="leadingMargin" constant="95" id="pYp-gX-87d"/>
                                         <constraint firstAttribute="trailing" secondItem="fn9-dG-0Xo" secondAttribute="trailing" id="zgI-vB-jMh"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -1592,7 +1593,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AFFCF6DA-075C-4E58-9821-D1996B33B149" width="479" height="586">
+        <image name="80DE2E20-4544-45CD-90E5-CC0FE91DCFCD" width="479" height="586">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

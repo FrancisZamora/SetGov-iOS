@@ -72,7 +72,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     }
     
     override func viewDidAppear(_ animated: Bool) {
-       // self.fetchEvent()
+        self.fetchEvent()
         print("CURRENT AGENDA: \(currentEvent.agendaItems)")
         print("this is the length of the comment array")
         tableView.reloadData()
