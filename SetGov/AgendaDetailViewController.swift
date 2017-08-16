@@ -60,7 +60,10 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
         case 0:
             return 275
         case 1:
-            return 350
+            let x = String(agenda.text.characters.count)
+            let y = Double(x)
+            let z = y! * 0.5
+            return CGFloat(z)
         default:
             return 0
         }

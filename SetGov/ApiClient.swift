@@ -36,21 +36,12 @@ class ApiClient {
     
     static func addEvent(event:Event, onCompletion: @escaping(Bool) -> Void) {
         
-        print("ADDING EVENT: \(event.agendaItems)")
-        
-        for agenda in event.agendaItems {
-            print("ADDING EVENT WITH AGENDA TEXT: \(agenda.text)")
-        }
-        
-        
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yy"
         formatter.dateStyle = .short
         
-        //        let formattedDate = event.date + " 2017"
-        //        let date = formatter.date(from: formattedDate)
-        //
-        //        let dateString = formatter.string(from: date!)
+        print("add event title: \(event.title)")
+        print("add event agenda: \(event.agendaItems)")
         
         let url = "https://setgov.herokuapp.com/api/v/1/graph"
         let query = "mutation{addEvent(name:\"\(event.title)\",city:\"\(event.city)\",address:\"\(event.address)\",date:\"\(event.date)\",time:\"\(event.time)\", description:\"\(event.description)\",agendaItems:\(Agenda.buildGraphString(agendaList: event.agendaItems))){id, agendaItems{ name, description, text}}}"
@@ -61,6 +52,7 @@ class ApiClient {
                           headers: [:])
             .responseJSON { response in
                 
+                print("ADD EVENT RESPONSE: \(response.result.value)")
                 
                 guard let jsonString = response.result.value,
                     let _ = JSON(jsonString)["data"]["addEvent"]["id"].int else {
@@ -185,6 +177,8 @@ class ApiClient {
                 
                 let users = createUsers(event: event)
                 let agendas = createAgendas(event: event)
+                print(agendas)
+                
                 let comments = createComments(event: event)
                 
                 
@@ -247,6 +241,8 @@ class ApiClient {
     }
     
     static func createAgendas(event: JSON) -> [Agenda] {
+        print(event)
+        print("creating agenda")
         var agendaArray = [Agenda]()
         if let agendaItems = event["agendaItems"].array {
             for agenda in agendaItems {
@@ -259,7 +255,8 @@ class ApiClient {
                 }
                 
                 if let text = agenda["text"].string {
-                    a.text = text
+                    let textString = text.replacingOccurrences(of: "%^&*", with: "\n")
+                    a.text = textString
                 }
                 agendaArray.append(a)
             }

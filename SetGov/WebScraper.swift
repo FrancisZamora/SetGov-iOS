@@ -185,100 +185,51 @@ class WebScraper {
                         print(agendaTitles)
 
 
-                      //  for paragraph3 in paragraph2.css("p") {
-                        //    let showString = paragraph3.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                            
-                          //  paragraphArray.append([showString])
-                            //print("THIS IS INSIDE THE P TAG")
-                            //print(showString)
-                            
-                            
-                        //}
                         
-                        
-                        //print("THIS IS THE PARAGRAPH ARRAY")
-                        //print(paragraphArray)
-                        //var paragraphString = ""
-                        // if(i < paragraphArray.count) {
-                        //   for entry in paragraphArray[i] {
-                        //     paragraphString.append(entry)
-                        //}
-                        //}
-                        //for (_, val) in paragraphArray.enumerated() {
-                          //  for (x,_) in val.enumerated() {
-                            //    paragraphString.append(" " + val[x])
-                                
-                           // }
-                    
-                            
-                        //}
-                        
-                        var agendaList = [Agenda]()
-                        var paragraphString = ""
-                        for (idx, val) in agendaTitles.enumerated() {
-                                paragraphString.append(agendaTitles[idx])
-                        }
-                        print("THIS IS GOING INSIDE THE AGENDA")
-                        print(paragraphString)
-                        
-                            
-                            
-                        
-
-                        
-                            
-                            
-                            print("THIS IS THE TITLE")
-                        
-                            agendaList.append(Agenda(name: "Agenda",
-                                                     description: descriptionArray[index],
-                                                     text: agendaTitles[0]))
-                        
-                        
-                        print(agendaList[0].text)
-
-                        
-                        agendaDictionary[index] = agendaList
-                        
-                        paragraphArray = []
-                        
-                        print("THIS IS THE PARAGRAPH STRING")
-                        agendaTitles = []
-                        print("PARAGRAPH HERE")
-
                         
                         
                     }
+                    
+                    var agendaList = [Agenda]()
+                    var paragraphString = ""
+                   
+                    if agendaTitles.count != 0 {
+                        paragraphString.append(agendaTitles[0])
+                    }
+                    else {
+                        paragraphString.append("Agenda Details Not Available")
+                    }
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                   
+                    
+                    agendaList.append(Agenda(name: "Agenda",
+                                             description: descriptionArray[index],
+                                             text: paragraphString))
+                    
+                    
+                    
+                    
+                    
+                    agendaDictionary[index] = agendaList
+                    
+                    paragraphArray = []
+                    agendaTitles = []
+                    
+
                     
                   
                 }
-                
-                /*
-                var agendaList = [Agenda]()
-                
-                for (i, title) in agendaTitles.enumerated() {
-                    
-                    var paragraphString = ""
-                    if(i < paragraphArray.count) {
-                        for entry in paragraphArray[i] {
-                            paragraphString.append(entry)
-                        }
-                    }
-                    
-                    print("ADDING PARAGRAPH STRING: \(paragraphString)")
-                    
-                    agendaList.append(Agenda(name: title,
-                                             description: descriptionArray[index],
-                                             text: paragraphString))
-                }
- */
-                
-              //2  agendaDictionary[index] = agendaList
-                
-                print("AGENDA:: TITLES: \(agendaTitles)")
-                print("AGENDA:: STRING ARRAY: \(agendaStringArray)")
-                print("AGENDA:: PARAGRAPH: \(paragraphArray)")
-                print(" ")
+
+            
             }
             
             return agendaDictionary
@@ -365,6 +316,10 @@ class WebScraper {
             var count = eventAddresses.count
             for (index, value) in eventAddresses.enumerated() {
                 
+                print("ADDING EVENT: \(arrayEvents[index])")
+                print("ADDING EVENT: AGENDA: \(agendaDictionary[index]!)")
+                
+                
                 let event = Event(title: spacer + arrayEvents[index],
                                   address: value,
                                   users: [],
@@ -373,7 +328,8 @@ class WebScraper {
                                   eventImageName: "bostonPark",
                                   time: eventHours[index][1],
                                   city: "Boston",
-                                  agendaItems: agendaDictionary[index]! , comments:[],
+                                  agendaItems: agendaDictionary[index]! ,
+                                  comments:[],
                                   id: 0)
                 
                 if index % 2 == 0 {
@@ -403,6 +359,7 @@ class WebScraper {
                 //dataList.append(event)
             }
             
+           print(agendaDictionary)
             
         }
         

@@ -31,7 +31,9 @@ class Agenda {
         var graphString = "["
         
         for agenda in agendaList {
-            graphString.append("{agendaItemName: \"\(agenda.name)\", agendaItemDescription: \"\(agenda.description)\", agendaItemText: \"\(agenda.text)\"},")
+            agenda.text = agenda.text.replacingOccurrences(of: "\n", with: "%^&*")
+            agenda.text = agenda.text.replacingOccurrences(of: "\"", with: "")
+            graphString.append("{agendaItemName: \"\(agenda.name)\", agendaItemDescription: \"\(agenda.description)\", agendaItemText: \"\(agenda.text)\", agendaItemType: \"type\"},")
         }
         graphString.remove(at: graphString.index(before: graphString.endIndex))
         graphString.append("]")

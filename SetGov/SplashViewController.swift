@@ -149,10 +149,14 @@ class SplashViewController: SetGovViewController {
     }
     
     func fetchEvents () {
-            ApiClient.fetchEvents(city: "Boston",  onCompletion: { event  in
-                print("this is the index")
+            ApiClient.fetchEvents(city: "Boston",  onCompletion: { events  in
                 
-                self.bostonDataList = event
+                
+                for event in events {
+                    print("EVENT NAME: \(event.title)")
+                    print("AGENDA: \(event.agendaItems)")
+                }
+                self.bostonDataList = events
                 self.appDelegate.bostonDataList = self.bostonDataList
                 self.checkIfComplete()
             
