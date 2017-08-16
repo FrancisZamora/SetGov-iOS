@@ -81,7 +81,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         if let stream = currentEventStream {
-            stream.timer.invalidate()
+            //stream.timer.invalidate()
             currentEventStream = nil
         }
     }

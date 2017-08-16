@@ -169,7 +169,6 @@ class ApiClient {
                     return
             }
             
-            
             print("FETCHED EVENTS: \(events)")
             
             var eventsArray = [Event]()
@@ -240,6 +239,21 @@ class ApiClient {
         return commentArray
     }
     
+    static func setHomeCity(city: String) {
+        
+        let url = "https://setgov.herokuapp.com/api/v/1/graph"
+        let mutation = "mutation{setHomeCity(home_city:\"\(city)\"){id}}"
+
+        Alamofire.request(url,
+                          method: .post,
+                          parameters: ["query":mutation],
+                          encoding: JSONEncoding.default,
+                          headers: [:])
+            .responseJSON { _ in
+                print("SET HOME CITY RESPONSE!")
+            }
+    }
+    
     static func createAgendas(event: JSON) -> [Agenda] {
         print(event)
         print("creating agenda")
@@ -263,5 +277,4 @@ class ApiClient {
         }
         return agendaArray
     }
-    
 }
