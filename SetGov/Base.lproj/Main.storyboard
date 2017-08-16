@@ -1137,20 +1137,16 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-34" translatesAutoresizingMaskIntoConstraints="NO" id="FBd-cu-fxl">
-                                            <rect key="frame" x="177" y="15" width="33" height="39"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="33" id="VNN-xn-xun"/>
-                                            </constraints>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-34" translatesAutoresizingMaskIntoConstraints="NO" id="FBd-cu-fxl">
+                                            <rect key="frame" x="194" y="11.5" width="16" height="46"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="FBd-cu-fxl" firstAttribute="centerY" secondItem="VnQ-gq-ksO" secondAttribute="centerY" id="Ies-d8-78d"/>
                                         <constraint firstAttribute="bottom" secondItem="VnQ-gq-ksO" secondAttribute="bottom" id="Jyd-g2-Ga7"/>
                                         <constraint firstItem="VnQ-gq-ksO" firstAttribute="centerY" secondItem="y1p-eB-Pxh" secondAttribute="centerY" id="Pn4-hW-dHs"/>
-                                        <constraint firstItem="VnQ-gq-ksO" firstAttribute="leading" secondItem="FBd-cu-fxl" secondAttribute="trailing" constant="8" symbolic="YES" id="WwD-My-2A7"/>
+                                        <constraint firstItem="VnQ-gq-ksO" firstAttribute="leading" secondItem="FBd-cu-fxl" secondAttribute="trailing" constant="8" id="SZj-m2-pYb"/>
                                         <constraint firstAttribute="trailing" secondItem="VnQ-gq-ksO" secondAttribute="trailing" id="ZfX-BT-rKb"/>
-                                        <constraint firstItem="FBd-cu-fxl" firstAttribute="top" secondItem="rU4-4S-Evv" secondAttribute="topMargin" constant="7" id="cBN-BY-x4i"/>
                                         <constraint firstItem="y1p-eB-Pxh" firstAttribute="leading" secondItem="rU4-4S-Evv" secondAttribute="leadingMargin" id="dEB-5s-oOa"/>
                                         <constraint firstItem="VnQ-gq-ksO" firstAttribute="top" secondItem="rU4-4S-Evv" secondAttribute="top" id="hNV-ft-b7V"/>
                                     </constraints>

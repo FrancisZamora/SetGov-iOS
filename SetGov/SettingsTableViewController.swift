@@ -26,26 +26,19 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
     override func viewDidAppear(_ animated: Bool) {
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if let city = UserDefaults.standard.string(forKey: "homeCity") {
+            ApiClient.setHomeCity(city: city)
+        }
+    }
+    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func loggingOut(){
         performSegue(withIdentifier:"logOut", sender: nil)
-    }
-    
-    
-    
-
-    
-    // The number of rows of data
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
-    }
-    
-    // The data to return for the row and component (column) that's being passed in
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -64,10 +57,7 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
         
     }
     
-    
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-    
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
@@ -86,7 +76,6 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
         }
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if (indexPath.row == 0) {
