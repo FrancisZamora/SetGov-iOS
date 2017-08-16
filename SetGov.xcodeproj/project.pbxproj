@@ -40,6 +40,9 @@
 		15433B941F15766700B8FE0D /* EventOnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15433B931F15766700B8FE0D /* EventOnboardingScreen.swift */; };
 		1547836D1F1FB43D005ABF77 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1547836C1F1FB43D005ABF77 /* ApiClient.swift */; };
 		154E5C0B1E89FB6900F96FB6 /* EventAgenda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E5C0A1E89FB6900F96FB6 /* EventAgenda.swift */; };
+		1557498A1F44DBF5002EE887 /* Austin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155749891F44DBF5002EE887 /* Austin.swift */; };
+		1557498C1F44DBFD002EE887 /* SanJose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1557498B1F44DBFD002EE887 /* SanJose.swift */; };
+		1557498E1F44DC08002EE887 /* Phoenix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1557498D1F44DC08002EE887 /* Phoenix.swift */; };
 		155D301E1F3BA0DC0013B7C3 /* Agenda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155D301D1F3BA0DC0013B7C3 /* Agenda.swift */; };
 		1566CC861F321F2E0078FFC8 /* DiscussionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1566CC851F321F2E0078FFC8 /* DiscussionHeader.swift */; };
 		156BD4C91E83185200E8F98B /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4C81E83185200E8F98B /* EventDetailViewController.swift */; };
@@ -120,6 +123,9 @@
 		15433B931F15766700B8FE0D /* EventOnboardingScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventOnboardingScreen.swift; sourceTree = "<group>"; };
 		1547836C1F1FB43D005ABF77 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		154E5C0A1E89FB6900F96FB6 /* EventAgenda.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAgenda.swift; sourceTree = "<group>"; };
+		155749891F44DBF5002EE887 /* Austin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Austin.swift; sourceTree = "<group>"; };
+		1557498B1F44DBFD002EE887 /* SanJose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SanJose.swift; sourceTree = "<group>"; };
+		1557498D1F44DC08002EE887 /* Phoenix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phoenix.swift; sourceTree = "<group>"; };
 		155D301D1F3BA0DC0013B7C3 /* Agenda.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Agenda.swift; sourceTree = "<group>"; };
 		1566CC851F321F2E0078FFC8 /* DiscussionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussionHeader.swift; sourceTree = "<group>"; };
 		156BD4C81E83185200E8F98B /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailViewController.swift; path = ../EventDetailViewController.swift; sourceTree = "<group>"; };
@@ -285,6 +291,9 @@
 				1534AD811F2C0B3C0001D08D /* CreateComment.swift */,
 				1566CC851F321F2E0078FFC8 /* DiscussionHeader.swift */,
 				15FD453A1F3D29B00082F3CD /* NoUsers.swift */,
+				155749891F44DBF5002EE887 /* Austin.swift */,
+				1557498B1F44DBFD002EE887 /* SanJose.swift */,
+				1557498D1F44DC08002EE887 /* Phoenix.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -658,15 +667,18 @@
 				1515A6C71F101677004312F2 /* homeCity.swift in Sources */,
 				1515A6C51F10166C004312F2 /* pushNotification.swift in Sources */,
 				156BD4D31E836BB300E8F98B /* EventDiscussion.swift in Sources */,
+				1557498C1F44DBFD002EE887 /* SanJose.swift in Sources */,
 				15FD453B1F3D29B00082F3CD /* NoUsers.swift in Sources */,
 				1547836D1F1FB43D005ABF77 /* ApiClient.swift in Sources */,
 				153F3F871E6DF54B0004E2F4 /* EventViewController.swift in Sources */,
 				15C64B491EADA8FF00B123A5 /* BostonCell.swift in Sources */,
+				1557498E1F44DC08002EE887 /* Phoenix.swift in Sources */,
 				1508A69F1E9343F900C92410 /* AgendaDetailViewController.swift in Sources */,
 				1523A4941E8B385C00AE93C2 /* AgendaCell.swift in Sources */,
 				1502CDB81EFB2F4F00CD658F /* Users.swift in Sources */,
 				15C64B471EADA84200B123A5 /* CityNavigationViewController.swift in Sources */,
 				15A344D11F0ECC1E00E80D85 /* Reachability.swift in Sources */,
+				1557498A1F44DBF5002EE887 /* Austin.swift in Sources */,
 				15C64B4B1EADA94200B123A5 /* FortLauderdaleCell.swift in Sources */,
 				153F3F891E6DF7190004E2F4 /* EventCell.swift in Sources */,
 				154E5C0B1E89FB6900F96FB6 /* EventAgenda.swift in Sources */,
