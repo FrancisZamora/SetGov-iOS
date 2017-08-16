@@ -177,7 +177,6 @@ class ApiClient {
                     return
             }
             
-            
             print("FETCHED EVENTS: \(events)")
             
             var eventsArray = [Event]()
@@ -281,5 +280,4 @@ class ApiClient {
         }
         return agendaArray
     }
-    
 }

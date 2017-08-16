@@ -719,7 +719,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
                                             <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </webView>
-                                        <view alpha="0.65000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8dL-zh-HbT">
+                                        <view hidden="YES" alpha="0.65000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8dL-zh-HbT">
                                             <rect key="frame" x="153" y="13" width="80" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
@@ -733,25 +733,31 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
-                                        <view alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wfm-E9-e4e">
-                                            <rect key="frame" x="56" y="13" width="80" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wfm-E9-e4e">
+                                            <rect key="frame" x="147.5" y="13" width="80" height="30"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="live " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrG-In-4Gb">
-                                                    <rect key="frame" x="25" y="3" width="30" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="live " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrG-In-4Gb">
+                                                    <rect key="frame" x="25" y="5.5" width="30" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="lrG-In-4Gb" firstAttribute="centerY" secondItem="wfm-E9-e4e" secondAttribute="centerY" id="BfA-Fc-Nm6"/>
+                                                <constraint firstItem="lrG-In-4Gb" firstAttribute="centerX" secondItem="wfm-E9-e4e" secondAttribute="centerX" id="SRl-R8-Ik1"/>
+                                                <constraint firstAttribute="width" constant="80" id="VoD-oe-rHO"/>
+                                                <constraint firstAttribute="height" constant="30" id="xMJ-iI-9HJ"/>
+                                            </constraints>
                                         </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="jfY-ak-PRf" secondAttribute="trailing" id="Cle-3r-ML7"/>
+                                        <constraint firstItem="wfm-E9-e4e" firstAttribute="centerX" secondItem="CER-XE-Gh6" secondAttribute="centerX" id="LdW-jg-2Pb"/>
                                         <constraint firstItem="jfY-ak-PRf" firstAttribute="leading" secondItem="CER-XE-Gh6" secondAttribute="leading" id="MQk-gW-9nr"/>
                                         <constraint firstItem="jfY-ak-PRf" firstAttribute="top" secondItem="CER-XE-Gh6" secondAttribute="top" id="S61-WW-eaV"/>
+                                        <constraint firstItem="wfm-E9-e4e" firstAttribute="top" secondItem="CER-XE-Gh6" secondAttribute="topMargin" constant="5" id="V1B-fT-de0"/>
                                         <constraint firstItem="jfY-ak-PRf" firstAttribute="centerY" secondItem="CER-XE-Gh6" secondAttribute="centerY" id="XGV-b6-kB4"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -20311,7 +20317,7 @@ A
         <image name="miami" width="1640" height="892"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Thq-tV-mwK"/>
         <segue reference="igs-LU-32O"/>
-        <segue reference="N7x-HX-zy0"/>
     </inferredMetricsTieBreakers>
 </document>
