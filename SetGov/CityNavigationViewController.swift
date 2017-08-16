@@ -230,13 +230,18 @@ class CityNavigationViewController: SetGovTableViewController {
             print("Boston Cell")
             let cell = tableView.dequeueReusableCell(withIdentifier: "BostonCell", for:indexPath) as! BostonCell
             cell.selectionStyle = .none
-            
+            ApiClient.setHomeCity(city: "Boston")
+            UserDefaults.standard.set("Boston",forKey:"homeCity")
+
         
         }
         
         if indexPath.row == 1 {
             print("Fort Lauderdale Cell")
+            ApiClient.setHomeCity(city: "Fort Lauderdale")
+            UserDefaults.standard.set("Fort Lauderdale",forKey:"homeCity")
 
+            
             
         }
         

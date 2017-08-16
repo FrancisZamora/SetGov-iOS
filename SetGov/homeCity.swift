@@ -62,6 +62,8 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
         print(pickerData[row])
         
         UserDefaults.standard.set(pickerData[row],forKey:"homeCity")
+        ApiClient.setHomeCity(city:pickerData[row])
+
         print(UserDefaults.standard.string(forKey: "homeCity")!)
         
         

@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "bostonSkyline.jpg",
+      "filename" : "Boston.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "bostonSkyline-1.jpg",
+      "filename" : "Boston-1.jpg",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "bostonSkyline-2.jpg",
+      "filename" : "Boston-2.jpg",
       "scale" : "3x"
     }
   ],

@@ -125,38 +125,28 @@ class EventViewController: SetGovTableViewController{
     
     func getImage(int:Int ) -> UIImage {
         if selectedCity == "Boston" {
-            if int == 0 {
-                return #imageLiteral(resourceName: "Image-13")
+                if  bostonDataList[int].address == "1 City Hall Square" || bostonDataList[int].address == "1 City Hall Plaza" {
+                return #imageLiteral(resourceName: "Image-12")
             }
-            if int == 1 {
-                return #imageLiteral(resourceName: "brownstone")
+            if bostonDataList[int].address == "Boston City Hall" {
+                bostonDataList[int].address = "1 City Hall Square"
+                return #imageLiteral(resourceName: "Image-12")
             }
-            if int % 2 == 0 {
+            if bostonDataList[int].address == "26 Court Street"{
                 return #imageLiteral(resourceName: "Image-13")
-
             }
             else {
                 return #imageLiteral(resourceName: "brownstone")
             }
+           
         }
         if selectedCity == "Fort Lauderdale" {
-            if int == 0 {
-                return #imageLiteral(resourceName: "Image1")
-            }
-            if int == 1 {
-                return #imageLiteral(resourceName: "Image-11")
-            }
-            if int % 2 == 0 {
-                return #imageLiteral(resourceName: "Image1")
-                
-            }
-            else {
-                return #imageLiteral(resourceName: "Image-11")
-                
-            }
+          
+            return #imageLiteral(resourceName: "Image-7")
         }
-        return #imageLiteral(resourceName: "Image1")
         
+      
+        return #imageLiteral(resourceName: "Image")
     }
     
     
