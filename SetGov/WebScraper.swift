@@ -166,13 +166,6 @@ class WebScraper {
                     return [:]
                 }
                 
-                for a in doc.css("strong") {
-                    
-                    let showString = a.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                    
-                    print(showString)
-                    agendaTitles.append(showString)
-                }
                 
                 // seg fault is here
                 for link in doc.css(".body") {
@@ -182,50 +175,84 @@ class WebScraper {
                     let x = [agendaTitle][0]
                     agendaStringArray.append(x)
                     for paragraph2 in link.css("li") {
-                        for paragraph3 in paragraph2.css("p") {
-                            let showString = paragraph3.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                        
+                            let showString = link.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                             
-                            paragraphArray.append([showString])
-                            
-                            
-                        }
-                        print(paragraphArray)
-                        var agendaList = [Agenda]()
+                            print(showString)
+                            agendaTitles.append(showString)
+                        
+                        
+                        print(agendaTitles)
 
-                        for (i, title) in agendaTitles.enumerated() {
+
+                      //  for paragraph3 in paragraph2.css("p") {
+                        //    let showString = paragraph3.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                             
-                            var paragraphString = ""
-                           // if(i < paragraphArray.count) {
-                             //   for entry in paragraphArray[i] {
-                               //     paragraphString.append(entry)
-                                //}
-                            //}
-                            for (_, val) in paragraphArray.enumerated() {
-                                for (x,_) in val.enumerated() {
-                                    paragraphString.append(val[x])
-                                    
-                                }
-                                print(paragraphString)
-                            }
+                          //  paragraphArray.append([showString])
+                            //print("THIS IS INSIDE THE P TAG")
+                            //print(showString)
                             
                             
-                            agendaList.append(Agenda(name: title,
-                                                     description: descriptionArray[index],
-                                                     text: paragraphString))
+                        //}
+                        
+                        
+                        //print("THIS IS THE PARAGRAPH ARRAY")
+                        //print(paragraphArray)
+                        //var paragraphString = ""
+                        // if(i < paragraphArray.count) {
+                        //   for entry in paragraphArray[i] {
+                        //     paragraphString.append(entry)
+                        //}
+                        //}
+                        //for (_, val) in paragraphArray.enumerated() {
+                          //  for (x,_) in val.enumerated() {
+                            //    paragraphString.append(" " + val[x])
+                                
+                           // }
+                    
+                            
+                        //}
+                        
+                        var agendaList = [Agenda]()
+                        var paragraphString = ""
+                        for (idx, val) in agendaTitles.enumerated() {
+                                paragraphString.append(agendaTitles[idx])
                         }
+                        print("THIS IS GOING INSIDE THE AGENDA")
+                        print(paragraphString)
+                        
+                            
+                            
+                        
+
+                        
+                            
+                            
+                            print("THIS IS THE TITLE")
+                        
+                            agendaList.append(Agenda(name: "Agenda",
+                                                     description: descriptionArray[index],
+                                                     text: agendaTitles[0]))
+                        
                         
                         print(agendaList[0].text)
-                        print(agendaList[0].name)
+
                         
                         agendaDictionary[index] = agendaList
-
-                        paragraphArray = [[]]
+                        
+                        paragraphArray = []
+                        
+                        print("THIS IS THE PARAGRAPH STRING")
+                        agendaTitles = []
                         print("PARAGRAPH HERE")
+
                         
                         
                     }
-                }
+                    
                   
+                }
+                
                 /*
                 var agendaList = [Agenda]()
                 
