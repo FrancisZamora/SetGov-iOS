@@ -12,7 +12,6 @@ import QuartzCore
 
 class CityNavigationViewController: SetGovTableViewController {
     var numsections = 0
-    var activityIndicator = UIActivityIndicatorView()
 
     //user ns user default
     @IBOutlet var navBar: UINavigationItem!
@@ -32,14 +31,6 @@ class CityNavigationViewController: SetGovTableViewController {
         
     }
     
-    func loadingAnimation() {
-        activityIndicator.center = self.view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        activityIndicator.startAnimating()
-        
-        view.addSubview(activityIndicator)
-    }
     
 
   
@@ -239,22 +230,12 @@ class CityNavigationViewController: SetGovTableViewController {
             print("Boston Cell")
             let cell = tableView.dequeueReusableCell(withIdentifier: "BostonCell", for:indexPath) as! BostonCell
             cell.selectionStyle = .none
-            cell.activityIndicator.center = cell.contView.center
-            cell.activityIndicator.hidesWhenStopped = true
-            cell.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-            cell.contView.addSubview(activityIndicator)
             
-            cell.activityIndicator.startAnimating()
-            print("animation")
-            
-           // DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2), execute: {
-             //   cell.activityIndicator.stopAnimating()
-            //})
+        
         }
         
         if indexPath.row == 1 {
             print("Fort Lauderdale Cell")
-            self.loadingAnimation()
 
             
         }

@@ -77,13 +77,8 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         if selectedCity == "Fort Lauderdale" {
             return 2
         }
-        //self.generateBoston()
-        //self.prepareAgenda()
-        
-        if currentEvent.agendaItems.count == 1 {
-            collectionView.contentInset.left += 100
-        }
-        
+   
+       
         return currentEvent.agendaItems.count
     }
     
