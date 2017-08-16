@@ -190,6 +190,35 @@ class WebScraper {
                             
                         }
                         print(paragraphArray)
+                        var agendaList = [Agenda]()
+
+                        for (i, title) in agendaTitles.enumerated() {
+                            
+                            var paragraphString = ""
+                           // if(i < paragraphArray.count) {
+                             //   for entry in paragraphArray[i] {
+                               //     paragraphString.append(entry)
+                                //}
+                            //}
+                            for (_, val) in paragraphArray.enumerated() {
+                                for (x,_) in val.enumerated() {
+                                    paragraphString.append(val[x])
+                                    
+                                }
+                                print(paragraphString)
+                            }
+                            
+                            
+                            agendaList.append(Agenda(name: title,
+                                                     description: descriptionArray[index],
+                                                     text: paragraphString))
+                        }
+                        
+                        print(agendaList[0].text)
+                        print(agendaList[0].name)
+                        
+                        agendaDictionary[index] = agendaList
+
                         paragraphArray = [[]]
                         print("PARAGRAPH HERE")
                         
@@ -197,7 +226,7 @@ class WebScraper {
                     }
                 }
                   
-                
+                /*
                 var agendaList = [Agenda]()
                 
                 for (i, title) in agendaTitles.enumerated() {
@@ -215,8 +244,9 @@ class WebScraper {
                                              description: descriptionArray[index],
                                              text: paragraphString))
                 }
+ */
                 
-                agendaDictionary[index] = agendaList
+              //2  agendaDictionary[index] = agendaList
                 
                 print("AGENDA:: TITLES: \(agendaTitles)")
                 print("AGENDA:: STRING ARRAY: \(agendaStringArray)")
