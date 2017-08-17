@@ -413,11 +413,38 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             case 4:
            return 52
             case 5:
+            if currentEvent.comments.count == 0 {
+                   return 94
+                }
+            let x = currentEvent.comments[0].text.characters.count
+            let y = Double(x)
+            
+            if y > 80.0 {
+                
+                let z = (94 + y * 0.5)
+                return CGFloat(z)
+                
+                
+            }
             return 94
             default:
-            if indexPath.row == (5 + x[indexofEvent].comments.count)    {
+                if indexPath.row < 5 + currentEvent.comments.count {
+            var x = currentEvent.comments[indexPath.row - 5].text.characters.count
+            var y = Double(x)
                 
-                return 52
+            if y > 80.0 {
+                    
+                var z = (94 + y * 0.5)
+                return CGFloat(z)
+                    
+                    
+            }
+                }
+                
+            if indexPath.row == (5 + currentEvent.comments.count)    {
+               
+                
+                return 94
             }
             else {
                 return 94

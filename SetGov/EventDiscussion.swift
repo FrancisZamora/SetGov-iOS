@@ -36,7 +36,8 @@ class EventDiscussion: UITableViewCell {
         self.comment = comment
         textBox.text = comment.text
         textBox.lineBreakMode = .byWordWrapping
-        textBox.numberOfLines = 4
+        textBox.numberOfLines = 0
+        textBox.minimumScaleFactor = 0.6
         textBox.sizeToFit()
         
         karma.text = String(describing:comment.karma)
