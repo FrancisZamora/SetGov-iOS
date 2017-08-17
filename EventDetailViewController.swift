@@ -393,7 +393,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             case 3:
                 return 94
             case 4:
-                return 46
+                return 52
             case 5:
                 return 46
             default:
@@ -411,13 +411,13 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             case 3:
             return 94
             case 4:
-            return 46
+           return 52
             case 5:
             return 94
             default:
             if indexPath.row == (5 + x[indexofEvent].comments.count)    {
                 
-                return 46
+                return 52
             }
             else {
                 return 94
