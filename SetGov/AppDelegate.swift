@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var bostonDataList = [Event]()
     var fortlauderdaleStreams = [String]()
     let UserDefault = UserDefaults.standard
-
+    var fortlauderdalePDFLinks = [String]()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 

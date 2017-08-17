@@ -247,10 +247,13 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     }
     
     func createPDF() {
-        let remotePDFDocumentURLPath = "http://devstreaming.apple.com/videos/wwdc/2016/201h1g4asm31ti2l9n1/201/201_internationalization_best_practices.pdf"
+        let remotePDFDocumentURLPath = "https://fortlauderdale.legistar.com/" + appDelegate.fortlauderdalePDFLinks[indexofEvent]
+      
         let remotePDFDocumentURL = URL(string: remotePDFDocumentURLPath)!
         let document = PDFDocument(url: remotePDFDocumentURL)!
         let readerController = PDFViewController.createNew(with: document)
+        readerController.backgroundColor = .white
+        self.navigationController?.title = "Fort Lauderdale Agenda"
         self.navigationController?.pushViewController(readerController, animated: true)
         
     }
@@ -375,7 +378,10 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         if x[indexofEvent].comments.count == 0 {
             switch indexPath.row {
             case 0:
-                return 500
+                if comparelauderdaleTime() == true {
+                    return 500
+                }
+                return 200
             case 1:
                 return 38
             case 2:

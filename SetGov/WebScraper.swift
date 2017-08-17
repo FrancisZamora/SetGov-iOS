@@ -413,6 +413,22 @@ class WebScraper {
                     
 
                 }
+                
+                for href in doc.css("#ctl00_ContentPlaceHolder1_gridCalendar_ctl00_ctl50_hypAgenda") {
+                    guard let rawData = href["href"]?.trimmingCharacters(in: .whitespacesAndNewlines) else {
+                        continue
+                    }
+                    let rawDataArray = rawData.components(separatedBy: "View.ashx?M=A&ID=")
+                    let newData = rawDataArray[1]
+                    let newDataArray = newData.components(separatedBy: "&GUI")
+                    let soughtData = newDataArray[0]
+                   
+                      appDelegate.fortlauderdalePDFLinks.append(rawData)
+                      print(rawData)
+                      print("^^^^^")
+                
+                
+            }
         
                 
         
