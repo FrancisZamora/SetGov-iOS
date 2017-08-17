@@ -110,7 +110,7 @@
                                                 <constraint firstAttribute="width" constant="13" id="kKk-fq-3hK"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="07B53943-58E4-405A-A535-4DD807F8927D" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="D8853A83-A382-4A5A-B4C5-C3F2BABB88A2" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
                                             <rect key="frame" x="61" y="271" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="gCa-oq-bRh"/>
@@ -173,8 +173,8 @@
                                             <color key="textColor" red="0.087962217630000006" green="0.1909767389" blue="0.38617235420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feb 23rd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="TxJ-ID-Gdr">
-                                            <rect key="frame" x="294" y="219" width="73" height="23"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feb 23rd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="TxJ-ID-Gdr">
+                                            <rect key="frame" x="302" y="219" width="73" height="23"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="73" id="dCn-Nm-gKE"/>
                                             </constraints>
@@ -190,12 +190,12 @@
                                         <constraint firstItem="Lru-Dk-bur" firstAttribute="bottom" secondItem="2og-D5-wgS" secondAttribute="bottomMargin" id="7Zp-Ta-aS3"/>
                                         <constraint firstItem="0cP-0T-gIY" firstAttribute="baseline" secondItem="qaz-B6-2HM" secondAttribute="baseline" constant="4" id="8QP-dp-cPZ"/>
                                         <constraint firstItem="mle-iW-4Jf" firstAttribute="leading" secondItem="GRj-y3-cPc" secondAttribute="trailing" constant="2" id="8YC-gM-5go"/>
-                                        <constraint firstItem="TxJ-ID-Gdr" firstAttribute="trailing" secondItem="2og-D5-wgS" secondAttribute="trailingMargin" id="AGa-kO-CEZ"/>
+                                        <constraint firstItem="TxJ-ID-Gdr" firstAttribute="trailing" secondItem="2og-D5-wgS" secondAttribute="trailingMargin" constant="8" id="AGa-kO-CEZ"/>
                                         <constraint firstItem="mle-iW-4Jf" firstAttribute="centerY" secondItem="GRj-y3-cPc" secondAttribute="centerY" id="AoR-YW-0oY"/>
                                         <constraint firstItem="AHx-jR-O2K" firstAttribute="leading" secondItem="2og-D5-wgS" secondAttribute="leading" id="CxT-gL-Lb2"/>
                                         <constraint firstItem="XAM-XX-GOF" firstAttribute="leading" secondItem="yMK-AS-5CE" secondAttribute="leading" id="FuP-Nm-saF"/>
                                         <constraint firstItem="yMK-AS-5CE" firstAttribute="top" secondItem="Xae-5N-CWj" secondAttribute="bottom" constant="5" id="HW6-ao-U4T"/>
-                                        <constraint firstItem="TxJ-ID-Gdr" firstAttribute="trailing" secondItem="qaz-B6-2HM" secondAttribute="trailing" id="JyV-bM-9gH"/>
+                                        <constraint firstItem="TxJ-ID-Gdr" firstAttribute="trailing" secondItem="qaz-B6-2HM" secondAttribute="trailing" constant="8" id="JyV-bM-9gH"/>
                                         <constraint firstItem="Xae-5N-CWj" firstAttribute="top" secondItem="qaz-B6-2HM" secondAttribute="bottom" constant="8.5" id="K7U-JH-9Pn"/>
                                         <constraint firstItem="YKF-eG-wEx" firstAttribute="centerX" secondItem="XAM-XX-GOF" secondAttribute="centerX" id="Kov-MD-rLO"/>
                                         <constraint firstItem="XAM-XX-GOF" firstAttribute="top" secondItem="GRj-y3-cPc" secondAttribute="bottom" id="OWF-LY-doa"/>
@@ -214,7 +214,6 @@
                                         <constraint firstItem="0cP-0T-gIY" firstAttribute="firstBaseline" secondItem="qaz-B6-2HM" secondAttribute="firstBaseline" constant="-2" id="gbb-LV-vAs"/>
                                         <constraint firstItem="qaz-B6-2HM" firstAttribute="leading" secondItem="yMK-AS-5CE" secondAttribute="leading" id="jHo-w0-Ysg"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="0cP-0T-gIY" secondAttribute="trailing" constant="-15" id="rfs-3g-fWE"/>
-                                        <constraint firstItem="TxJ-ID-Gdr" firstAttribute="leading" secondItem="Xae-5N-CWj" secondAttribute="trailing" constant="68" id="rsf-GL-lNc"/>
                                         <constraint firstItem="0cP-0T-gIY" firstAttribute="leading" secondItem="qaz-B6-2HM" secondAttribute="leading" id="sNL-m4-jC3"/>
                                         <constraint firstItem="YKF-eG-wEx" firstAttribute="width" secondItem="XAM-XX-GOF" secondAttribute="width" id="suv-Uq-ILi"/>
                                         <constraint firstItem="YKF-eG-wEx" firstAttribute="height" secondItem="XAM-XX-GOF" secondAttribute="height" id="vaq-MI-6Ec"/>
@@ -1670,7 +1669,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="07B53943-58E4-405A-A535-4DD807F8927D" width="479" height="586">
+        <image name="D8853A83-A382-4A5A-B4C5-C3F2BABB88A2" width="479" height="586">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
