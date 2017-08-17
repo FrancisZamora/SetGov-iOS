@@ -168,7 +168,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 print("this is comments 2\(comments2)")
                 
                 
-                
+                self.currentEvent.comments = []
+
                 for (_,val)in comments2.enumerated()  {
                     print("this is val")
                     print(val)

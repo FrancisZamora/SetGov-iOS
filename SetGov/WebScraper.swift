@@ -383,55 +383,8 @@ class WebScraper {
                 
             
         
-                let url = URL(string: "https://fortlauderdale.legistar.com/Calendar.aspx")
-        
-                        guard let doc = HTML(url: url!, encoding: .utf8) else  {
-                           return
-                        }
-                var linkArray = [String]()
-                for links in doc.css(".videolink") {
-                 
-                    let rawlink =  links["onclick"]?.trimmingCharacters(in: .whitespacesAndNewlines)
-                  
-                    let extractArray = rawlink?.components(separatedBy: "window.open(\'")
-                    let newString = extractArray?[1]
-                    var newStringArray = newString?.components(separatedBy: "\'")
-                    guard let  editedString = newStringArray?[0] else {
-                        continue
-                    }
-                    var editedArray = editedString.components(separatedBy: "ID1=")
-                    let preID = editedArray[1]
-                    var prematureArray = preID.components(separatedBy:"&")
-                    let id  = prematureArray[0]
-                    
-                    linkArray.append(id)
-                    appDelegate.fortlauderdaleStreams = linkArray
-                    print(appDelegate.fortlauderdaleStreams)
-                    
-                    print(id)
-                    print("ID STRING HERE")
-                    
-
-                }
-                
-                for href in doc.css("#ctl00_ContentPlaceHolder1_gridCalendar_ctl00_ctl50_hypAgenda") {
-                    guard let rawData = href["href"]?.trimmingCharacters(in: .whitespacesAndNewlines) else {
-                        continue
-                    }
-                    let rawDataArray = rawData.components(separatedBy: "View.ashx?M=A&ID=")
-                    let newData = rawDataArray[1]
-                    let newDataArray = newData.components(separatedBy: "&GUI")
-                    let soughtData = newDataArray[0]
-                   
-                      appDelegate.fortlauderdalePDFLinks.append(rawData)
-                      print(rawData)
-                      print("^^^^^")
-                
-                
-            }
-        
-                
-        
+                              
+                      
         }
         
 

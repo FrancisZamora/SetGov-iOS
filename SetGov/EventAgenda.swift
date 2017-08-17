@@ -60,9 +60,8 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         if currentEvent.city == "Fort Lauderdale" {
             var AgendaArray = [Agenda]()
             let x = Agenda(name: "Agenda", description:"Meeting", text: "Agenda Details Not Available")
-            var y = Agenda(name: "Meeting Details ", description: "Meeting", text: "Meeting Details Not Available")
+           
             AgendaArray.append(x)
-            AgendaArray.append(y)
 
             
             cell.configureCell(agenda:AgendaArray[indexPath.row])
@@ -76,7 +75,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if selectedCity == "Fort Lauderdale" {
-            return 2
+            return 1
         }
    
        
