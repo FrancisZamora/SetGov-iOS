@@ -538,6 +538,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             agendaCell.configureCell(event: currentEvent)
             agendaCell.selectedCity = selectedCity
             agendaCell.eventAgendaCallback = self
+            agendaCell.indexofEvent = indexofEvent 
             return agendaCell
         }
         

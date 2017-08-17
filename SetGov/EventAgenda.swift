@@ -30,6 +30,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     //var indexofEvent = 0
     var selectedCity = " "
     var currentEvent: Event!
+    var indexofEvent = 0 
 
     @IBOutlet var agendaCollection: UICollectionView!
     
@@ -71,20 +72,25 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if selectedCity == "Fort Lauderdale" {
-            var appDelegate = UIApplication.shared.delegate as! AppDelegate
-            var fortlauderdalePDFS = appDelegate.fortlauderdalePDFLinks
-            if(fortlauderdalePDFS.count > 2) {
-                agendaCollection.isHidden = false
-                
-                self.agendaCollection.reloadData()
-                return 1
-            } else {
+        if currentEvent.city == "Fort Lauderdale" {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let fortlauderdalePDFS = appDelegate.fortlauderdalePDFLinks
+             if  (fortlauderdalePDFS.count < indexofEvent + 1 )   {
                 agendaCollection.isHidden = true
             }
+             else {
+                agendaCollection.isHidden = false
+                comingSoon.isHidden = true
+
+                self.agendaCollection.reloadData()
+                return 1
+            }
+            }
+        if currentEvent.city == "Boston" {
+            comingSoon.isHidden = true
         }
+        
    
-        comingSoon.isHidden = true
         
         return currentEvent.agendaItems.count
     }
