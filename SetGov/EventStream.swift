@@ -268,7 +268,13 @@ class EventStream:  UITableViewCell {
     @IBAction func buttonPressed(_ sender: Any) {
         if self.checkUsers() == true {
             ApiClient.unattendEvent(eventID: currentEvent.id, onCompletion:{ user in
-                self.currentEvent.users = user
+                for (idx,val) in self.currentEvent.users.enumerated() {
+                    if val.fullName == self.user?.fullName {
+                        self.currentEvent.users.remove(at: idx)
+                    }
+                }
+                print(self.currentEvent.users)
+                
                 self.attendButton.setTitle("Attend", for: .normal)
                 if let callback = self.eventStreamCallback {
                     print("callback in progress")
@@ -278,6 +284,7 @@ class EventStream:  UITableViewCell {
                 }
                 
             })
+            
             return 
         }
         // send api request whenever button is pressed

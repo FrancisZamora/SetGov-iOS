@@ -20,6 +20,7 @@ protocol EventAgendaCallback: class {
 class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
+    @IBOutlet var comingSoon: UILabel!
     @IBOutlet var agenda: UILabel!
     @IBOutlet weak var agendaCollectionView: UICollectionView!
    // var agendaInfo = [Int: String]()
@@ -28,16 +29,9 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
   //  var hrefArray = [String]()
     //var indexofEvent = 0
     var selectedCity = " "
-//    var agendaArray = [String]()
-//    var agendaStringArray = [[String]()]
-//    var agendaTitles = [String]()
-//    var descriptionArray = [String]()
-//    var eventDescription = String()
-//    var secondUrl = String()
-//    var agendaTitle = [String]()
-//    var paragraphArray = [[String]()]
     var currentEvent: Event!
 
+    @IBOutlet var agendaCollection: UICollectionView!
     
     override func awakeFromNib() {
         print("EventAgenda")
@@ -52,6 +46,9 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     func configureCell(event: Event) {
         selectionStyle = .none
         currentEvent = event
+        if selectedCity == "Fort Lauderdale" {
+          
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -75,10 +72,20 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if selectedCity == "Fort Lauderdale" {
-            return 1
+            var appDelegate = UIApplication.shared.delegate as! AppDelegate
+            var fortlauderdalePDFS = appDelegate.fortlauderdalePDFLinks
+            if(fortlauderdalePDFS.count > 2) {
+                agendaCollection.isHidden = false
+                
+                self.agendaCollection.reloadData()
+                return 1
+            } else {
+                agendaCollection.isHidden = true
+            }
         }
    
-       
+        comingSoon.isHidden = true
+        
         return currentEvent.agendaItems.count
     }
     

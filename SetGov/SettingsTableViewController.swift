@@ -62,15 +62,17 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
+        let screenSize: CGRect = UIScreen.main.bounds
+
         switch indexPath.row {
         case 0:
-            return 435
+            return 0.74 * screenSize.height
         case 1:
-            return 62
+            return 0.081 * screenSize.height
         case 2:
-            return 62
+            return 0.081 * screenSize.height
         case 3:
-            return 62
+            return 0.080 * screenSize.height
         default:
             return 0
         }

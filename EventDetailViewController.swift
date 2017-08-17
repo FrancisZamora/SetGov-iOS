@@ -248,6 +248,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     }
     
     func createPDF() {
+        if appDelegate.fortlauderdalePDFLinks.count < indexofEvent + 1 {
+            return
+        }
         let remotePDFDocumentURLPath = "https://fortlauderdale.legistar.com/" + appDelegate.fortlauderdalePDFLinks[indexofEvent]
       
         let remotePDFDocumentURL = URL(string: remotePDFDocumentURLPath)!

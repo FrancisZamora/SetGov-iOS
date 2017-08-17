@@ -208,6 +208,7 @@ class EventViewController: SetGovTableViewController{
     
     
     
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         self.numsections = 1
         print("numberofSections")
@@ -238,10 +239,39 @@ class EventViewController: SetGovTableViewController{
     
     
     
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var data = getDataList()
         let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCell
         cell.event = data[indexPath.row]
+        if data[indexPath.row].description == "(Dnd)"{
+            data[indexPath.row].description = "Neighborhood Development"
+        }
+        if data[indexPath.row].description == "(Pwd)" {
+            data[indexPath.row].description = "Public Works"
+        
+        }
+        if data[indexPath.row].description.contains("/") {
+            var x =  data[indexPath.row].title.components(separatedBy:" ")
+            let y = x[x.count-2]
+            print(y)
+            
+            data[indexPath.row].description = y
+        }
+        
+        if data[indexPath.row].description.contains("#") {
+            var x =  data[indexPath.row].title.components(separatedBy:" ")
+            let y = x[x.count-3]
+            print(y)
+            
+            data[indexPath.row].description = y
+
+            
+        }
+       
+
+
         cell.event.time = getTime(time: cell.event.time)
         cell.event.image = getImage(int: indexPath.row)
         cell.configure(event: data[indexPath.row])
