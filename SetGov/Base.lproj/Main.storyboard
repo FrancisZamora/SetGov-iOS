@@ -117,7 +117,7 @@
                                                 <constraint firstAttribute="width" constant="13" id="kKk-fq-3hK"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="8C966391-4434-440F-8A8C-D669FAA0BCDF" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="C0F98B02-E7BA-4143-83B4-8CA353851002" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
                                             <rect key="frame" x="61" y="271" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="gCa-oq-bRh"/>
@@ -615,7 +615,7 @@
                                                 <constraint firstAttribute="width" constant="35" id="XDB-qA-maF"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Francis Zamora" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIJ-qa-E8Q">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Francis Zamora" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIJ-qa-E8Q">
                                             <rect key="frame" x="84" y="21" width="95" height="15"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -676,7 +676,7 @@
                                                 <action selector="deleteComment:" destination="MYI-qh-THg" eventType="touchUpInside" id="fjb-3u-DRy"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="I agree with the council's position on capitalism  " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Hb5-0U-EhE">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="I agree with the council's position on capitalism" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Hb5-0U-EhE">
                                             <rect key="frame" x="84" y="58" width="229" height="12"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="12" id="KLp-Kq-z1F"/>
@@ -690,7 +690,6 @@
                                     <constraints>
                                         <constraint firstItem="f3e-Tx-som" firstAttribute="leading" secondItem="hFQ-Pa-QV4" secondAttribute="trailing" constant="-19" id="1n9-6n-Pqe"/>
                                         <constraint firstItem="Jxn-wt-vmV" firstAttribute="trailing" secondItem="IwL-Ej-qcu" secondAttribute="trailingMargin" id="6Pr-GH-Vxq"/>
-                                        <constraint firstItem="Hb5-0U-EhE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="nIJ-qa-E8Q" secondAttribute="bottom" constant="17" id="9Ns-q7-GlO"/>
                                         <constraint firstItem="tYn-zV-rkD" firstAttribute="trailing" secondItem="hFQ-Pa-QV4" secondAttribute="trailing" constant="3" id="Dd5-cq-mP2"/>
                                         <constraint firstItem="PTh-6c-2Gh" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" constant="13" id="EoH-ch-2uo"/>
                                         <constraint firstItem="K4H-aZ-Gve" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" constant="29" id="ItP-WH-3Nu"/>
@@ -698,7 +697,7 @@
                                         <constraint firstItem="tYn-zV-rkD" firstAttribute="top" secondItem="hFQ-Pa-QV4" secondAttribute="bottom" constant="-1" id="LZP-XM-5fO"/>
                                         <constraint firstAttribute="topMargin" secondItem="hFQ-Pa-QV4" secondAttribute="top" id="NGW-cG-1FA"/>
                                         <constraint firstItem="tYn-zV-rkD" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" constant="21" id="NWC-lU-anm"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Hb5-0U-EhE" secondAttribute="trailing" constant="54" id="Rq2-V8-thj"/>
+                                        <constraint firstItem="Hb5-0U-EhE" firstAttribute="top" secondItem="nIJ-qa-E8Q" secondAttribute="bottom" constant="22" id="Nog-cS-o5q"/>
                                         <constraint firstItem="SVV-Wj-Vnj" firstAttribute="trailing" secondItem="nIJ-qa-E8Q" secondAttribute="trailing" id="SGt-qm-19E"/>
                                         <constraint firstItem="SVV-Wj-Vnj" firstAttribute="leading" secondItem="IwL-Ej-qcu" secondAttribute="leading" constant="144" id="UF5-dS-amd"/>
                                         <constraint firstItem="Jxn-wt-vmV" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" constant="31" id="VwB-Vh-hwg"/>
@@ -706,13 +705,11 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="f3e-Tx-som" secondAttribute="bottom" constant="15" id="XQO-38-unG"/>
                                         <constraint firstItem="SVV-Wj-Vnj" firstAttribute="centerY" secondItem="Jxn-wt-vmV" secondAttribute="centerY" id="YiT-t3-HfI"/>
                                         <constraint firstItem="f3e-Tx-som" firstAttribute="top" secondItem="tYn-zV-rkD" secondAttribute="bottom" constant="1" id="b0M-Ae-MZW"/>
-                                        <constraint firstItem="Hb5-0U-EhE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="SVV-Wj-Vnj" secondAttribute="bottom" constant="1" id="blu-Af-Zcj"/>
                                         <constraint firstItem="K4H-aZ-Gve" firstAttribute="top" secondItem="SVV-Wj-Vnj" secondAttribute="top" id="boo-IF-5jK"/>
                                         <constraint firstItem="K4H-aZ-Gve" firstAttribute="bottom" secondItem="SVV-Wj-Vnj" secondAttribute="bottom" id="cUS-7w-qmA"/>
                                         <constraint firstItem="SVV-Wj-Vnj" firstAttribute="leading" secondItem="K4H-aZ-Gve" secondAttribute="trailing" id="cxT-Kj-gTG"/>
-                                        <constraint firstItem="Hb5-0U-EhE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="K4H-aZ-Gve" secondAttribute="bottom" constant="1" id="g5o-gs-olZ"/>
+                                        <constraint firstItem="Hb5-0U-EhE" firstAttribute="top" secondItem="K4H-aZ-Gve" secondAttribute="bottom" constant="3.5" id="g5o-gs-olZ"/>
                                         <constraint firstItem="tYn-zV-rkD" firstAttribute="leading" secondItem="IwL-Ej-qcu" secondAttribute="leadingMargin" constant="5" id="lbW-IE-V6N"/>
-                                        <constraint firstItem="Hb5-0U-EhE" firstAttribute="centerY" secondItem="f3e-Tx-som" secondAttribute="centerY" id="nKH-Pu-UJJ"/>
                                         <constraint firstItem="K4H-aZ-Gve" firstAttribute="leading" secondItem="nIJ-qa-E8Q" secondAttribute="leading" id="pfD-xl-QOQ"/>
                                         <constraint firstItem="PTh-6c-2Gh" firstAttribute="leading" secondItem="tYn-zV-rkD" secondAttribute="trailing" constant="11" id="rk1-Sj-xr4"/>
                                         <constraint firstItem="tYn-zV-rkD" firstAttribute="leading" secondItem="f3e-Tx-som" secondAttribute="leading" constant="5" id="sro-EI-FM2"/>
@@ -1671,7 +1668,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="8C966391-4434-440F-8A8C-D669FAA0BCDF" width="479" height="586">
+        <image name="C0F98B02-E7BA-4143-83B4-8CA353851002" width="479" height="586">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
