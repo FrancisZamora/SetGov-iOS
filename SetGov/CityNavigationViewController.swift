@@ -127,22 +127,8 @@ class CityNavigationViewController: SetGovTableViewController {
             return cell
 
         }
+       
         if (indexPath.row == 2) {
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MiamiCell", for:indexPath) as! MiamiCell
-            cell.selectionStyle = .none
-            cell.alpha = 0.35
-            
-            UIView.animate(withDuration: 1.0) {
-                cell.alpha = 1
-            }
-
-           
-            return cell
-
-            
-        }
-        if (indexPath.row == 3) {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "Phoenix", for:indexPath) as! Phoenix
             cell.selectionStyle = .none
@@ -154,6 +140,22 @@ class CityNavigationViewController: SetGovTableViewController {
             }
 
            
+            return cell
+            
+            
+        }
+        
+        if (indexPath.row == 3) {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MiamiCell", for:indexPath) as! MiamiCell
+            cell.selectionStyle = .none
+            cell.alpha = 0.35
+            
+            UIView.animate(withDuration: 1.0) {
+                cell.alpha = 1
+            }
+            
+            
             return cell
             
             
@@ -209,7 +211,7 @@ class CityNavigationViewController: SetGovTableViewController {
             
         }
         if (segue.identifier == "fort lauderdale") {
-            let EventViewController = segue.destination as! EventViewController
+            _ = segue.destination as! EventViewController
             UserDefaults.standard.set("Fort Lauderdale",forKey:"homeCity")
 
             
@@ -246,6 +248,17 @@ class CityNavigationViewController: SetGovTableViewController {
         }
         
         if (indexPath.row == 2) {
+            let alert = UIAlertController(title: "Phoenix Coming Soon", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            
+            
+            
+        }
+
+        
+        if (indexPath.row == 3) {
             let alert = UIAlertController(title: "Miami Coming Soon", message: "", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -257,15 +270,6 @@ class CityNavigationViewController: SetGovTableViewController {
         
       
         
-        if (indexPath.row == 3) {
-            let alert = UIAlertController(title: "Phoenix Coming Soon", message: "", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            
-            
-            
-            
-        }
         
         if (indexPath.row == 4) {
             let alert = UIAlertController(title: "San Jose Coming Soon", message: "", preferredStyle: UIAlertControllerStyle.alert)

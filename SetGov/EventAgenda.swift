@@ -10,10 +10,11 @@ import Foundation
 import UIKit
 import QuartzCore
 import Kanna
-
+import PDFReader
 
 protocol EventAgendaCallback: class {
     func loadAgendaDetail(agenda: Agenda)
+    func createPDF()
 }
 
 class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -58,7 +59,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
         if currentEvent.city == "Fort Lauderdale" {
             var AgendaArray = [Agenda]()
-            var x = Agenda(name: "Agenda", description:"Meeting", text: "Agenda Details Not Available")
+            let x = Agenda(name: "Agenda", description:"Meeting", text: "Agenda Details Not Available")
             var y = Agenda(name: "Meeting Details ", description: "Meeting", text: "Meeting Details Not Available")
             AgendaArray.append(x)
             AgendaArray.append(y)
@@ -84,7 +85,10 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if currentEvent.city == "Fort Lauderdale" {
-            return
+            if let callback = eventAgendaCallback {
+                callback.createPDF()
+            }
+            return 
         }
         
         if let callback = eventAgendaCallback {

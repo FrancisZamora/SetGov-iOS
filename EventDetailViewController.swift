@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import QuartzCore
 import SwiftyJSON
+import PDFReader
 
 class EventDetailViewController: SetGovTableViewController, EventAgendaCallback, EventInfoCallback, EventStreamCallback, CommentCallBack, DiscussionCallBack{
     var activate = true
@@ -48,6 +49,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var currentEvent: Event!
     weak var collectionView: UICollectionView!
     var picArray = [String]()
+    var currentHour = String()
     var user: User!
     var replyComment: Comment!
     var bostonDataList = [Event]()
@@ -244,6 +246,15 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         }
     }
     
+    func createPDF() {
+        let remotePDFDocumentURLPath = "http://devstreaming.apple.com/videos/wwdc/2016/201h1g4asm31ti2l9n1/201/201_internationalization_best_practices.pdf"
+        let remotePDFDocumentURL = URL(string: remotePDFDocumentURLPath)!
+        let document = PDFDocument(url: remotePDFDocumentURL)!
+        let readerController = PDFViewController.createNew(with: document)
+        self.navigationController?.pushViewController(readerController, animated: true)
+        
+    }
+    
     func loadAgendaDetail(agenda: Agenda) {
         
         print("EVENT AGENDA CALLBACK")
@@ -288,6 +299,50 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
     }
     
+    
+    func comparelauderdaleTime() -> Bool {
+        if selectedCity == "Boston" {
+            return false
+        }
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yy"
+        let newDate = dateFormatter.string(from: date)
+        print(newDate)
+        print(newDate)
+        
+        let x = newDate == fortlauderdaleDataList[indexofEvent].date
+        print(x)
+        self.configureHour()
+        print(eventHours)
+        
+        let y = currentHour >=  fortlauderdaleDataList[indexofEvent].time
+        print(currentHour)
+        print(y)
+        
+        if x && y  {
+            print("times are compatible")
+            return true
+            
+        }
+            
+        else {
+            
+            print("times not compatible")
+            return false
+        }
+
+    }
+    
+    func configureHour() {
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let hourString = String(hour)
+        currentHour = hourString
+        
+    }
+    
     func refreshTap(tapped:Bool) {
         streamPressed = tapped
         
@@ -320,7 +375,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         if x[indexofEvent].comments.count == 0 {
             switch indexPath.row {
             case 0:
-                return 200
+                return 500
             case 1:
                 return 38
             case 2:
@@ -389,9 +444,15 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventStream.streamContent()
                 eventStream.checkStatus()
             
-            if selectedCity == "Fort Lauderdale" {
+            if selectedCity == "Fort Lauderdale"  && self.comparelauderdaleTime() == true  {
                 eventStream.eventImage.image = currentEvent.image
                 agendaImage = eventStream.eventImage.image!
+                let eventStream =  tableView.dequeueReusableCell(withIdentifier: "FortLauderdaleStream") as! FortLauderdaleStream
+                eventStream.fortlauderdaleDataList = fortlauderdaleDataList
+                eventStream.playVideo()
+                return eventStream
+
+                
             }
             
         if selectedCity == "Boston" {
@@ -483,7 +544,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             cell.selectionStyle = .none
             return cell
         }
-        var x = getDataList()
+        _ = getDataList()
         if currentEvent.comments.count == 0 {
         
             if (indexPath.row==5) {

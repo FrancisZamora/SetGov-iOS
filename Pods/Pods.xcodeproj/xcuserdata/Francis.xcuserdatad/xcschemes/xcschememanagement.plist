@@ -59,6 +59,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PDFReader.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-SetGov.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,12 +87,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>070374204E491EF7E794313D14C6950B</key>
+		<key>0294F2582F1AE5E89A4E9AF342A6C271</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>10A6F7F823D0FB364AFC05CF3CF19564</key>
+		<key>070374204E491EF7E794313D14C6950B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -137,7 +142,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BC4F23CBC509278F68D58109D796B167</key>
+		<key>9EA8BC37CA799005500544B77E588053</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C34C98A7F94A5A64A968B03766A3DF2C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

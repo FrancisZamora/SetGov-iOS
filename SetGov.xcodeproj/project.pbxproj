@@ -43,6 +43,8 @@
 		1557498A1F44DBF5002EE887 /* Austin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155749891F44DBF5002EE887 /* Austin.swift */; };
 		1557498C1F44DBFD002EE887 /* SanJose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1557498B1F44DBFD002EE887 /* SanJose.swift */; };
 		1557498E1F44DC08002EE887 /* Phoenix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1557498D1F44DC08002EE887 /* Phoenix.swift */; };
+		155749901F450827002EE887 /* FortLauderdaleStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1557498F1F450827002EE887 /* FortLauderdaleStream.swift */; };
+		155749921F452FE8002EE887 /* PDFCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155749911F452FE8002EE887 /* PDFCell.swift */; };
 		155D301E1F3BA0DC0013B7C3 /* Agenda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155D301D1F3BA0DC0013B7C3 /* Agenda.swift */; };
 		1566CC861F321F2E0078FFC8 /* DiscussionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1566CC851F321F2E0078FFC8 /* DiscussionHeader.swift */; };
 		156BD4C91E83185200E8F98B /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4C81E83185200E8F98B /* EventDetailViewController.swift */; };
@@ -126,6 +128,8 @@
 		155749891F44DBF5002EE887 /* Austin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Austin.swift; sourceTree = "<group>"; };
 		1557498B1F44DBFD002EE887 /* SanJose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SanJose.swift; sourceTree = "<group>"; };
 		1557498D1F44DC08002EE887 /* Phoenix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phoenix.swift; sourceTree = "<group>"; };
+		1557498F1F450827002EE887 /* FortLauderdaleStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FortLauderdaleStream.swift; sourceTree = "<group>"; };
+		155749911F452FE8002EE887 /* PDFCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFCell.swift; sourceTree = "<group>"; };
 		155D301D1F3BA0DC0013B7C3 /* Agenda.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Agenda.swift; sourceTree = "<group>"; };
 		1566CC851F321F2E0078FFC8 /* DiscussionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussionHeader.swift; sourceTree = "<group>"; };
 		156BD4C81E83185200E8F98B /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailViewController.swift; path = ../EventDetailViewController.swift; sourceTree = "<group>"; };
@@ -270,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				153F3F881E6DF7190004E2F4 /* EventCell.swift */,
+				1557498F1F450827002EE887 /* FortLauderdaleStream.swift */,
 				1529E0AF1F103A6D001FE4BB /* logOut.swift */,
 				1515A6C41F10166C004312F2 /* pushNotification.swift */,
 				1515A6C61F101677004312F2 /* homeCity.swift */,
@@ -294,6 +299,7 @@
 				155749891F44DBF5002EE887 /* Austin.swift */,
 				1557498B1F44DBFD002EE887 /* SanJose.swift */,
 				1557498D1F44DC08002EE887 /* Phoenix.swift */,
+				155749911F452FE8002EE887 /* PDFCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -649,6 +655,7 @@
 				1515A6C31F0FCF80004312F2 /* SettingsTableViewController.swift in Sources */,
 				1508547C1E97077F00838D85 /* AgendaDetailHeader.swift in Sources */,
 				156BD4D11E836B9800E8F98B /* EventMembers.swift in Sources */,
+				155749901F450827002EE887 /* FortLauderdaleStream.swift in Sources */,
 				15B945941E9DD75700226A32 /* EventLiveStream.swift in Sources */,
 				156BD4CD1E836B6300E8F98B /* EventInfo.swift in Sources */,
 				152DBEE91EF1BC1E00322E56 /* Event.swift in Sources */,
@@ -676,6 +683,7 @@
 				1508A69F1E9343F900C92410 /* AgendaDetailViewController.swift in Sources */,
 				1523A4941E8B385C00AE93C2 /* AgendaCell.swift in Sources */,
 				1502CDB81EFB2F4F00CD658F /* Users.swift in Sources */,
+				155749921F452FE8002EE887 /* PDFCell.swift in Sources */,
 				15C64B471EADA84200B123A5 /* CityNavigationViewController.swift in Sources */,
 				15A344D11F0ECC1E00E80D85 /* Reachability.swift in Sources */,
 				1557498A1F44DBF5002EE887 /* Austin.swift in Sources */,

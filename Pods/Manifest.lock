@@ -27,6 +27,7 @@ PODS:
     - NVActivityIndicatorView/Presenter (= 3.7.0)
   - NVActivityIndicatorView/Presenter (3.7.0)
   - ObjectMapper (2.2.8)
+  - PDFReader (2.4.0)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
@@ -37,6 +38,7 @@ DEPENDENCIES:
   - Kanna (~> 2.1.0)
   - Kingfisher (~> 3.0)
   - NVActivityIndicatorView
+  - PDFReader
   - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -51,8 +53,9 @@ SPEC CHECKSUMS:
   Kingfisher: dc3a4983e86d2dfa89513664983a82340c11a289
   NVActivityIndicatorView: d3738df7e2e476aca0ba6bf32a8c9fbcfc33d64b
   ObjectMapper: 3d571bb5af471c779e1160828cd9ad5c4ef90958
+  PDFReader: 0bb6be11c8876c6cea2598f0a0ab9b6640a8a018
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: dff95c0464f65a7c1ec2252939743437ef5ce8dd
+PODFILE CHECKSUM: 1a931ac331bc1dd910e6521572f9a470f60cbb01
 
 COCOAPODS: 1.1.0.rc.2

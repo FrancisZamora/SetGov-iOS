@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var user =  User(fullName: " ",  profilePictureURL: " ")
     var fortlauderdaleDataList = [Event]()
     var bostonDataList = [Event]()
+    var fortlauderdaleStreams = [String]()
     let UserDefault = UserDefaults.standard
 
 

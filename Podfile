@@ -14,6 +14,8 @@ target 'SetGov' do
   pod 'AlamofireObjectMapper', '~> 4.0'
   pod 'Kingfisher', '~> 3.0'
   pod 'Kanna', '~> 2.1.0'
+  pod 'PDFReader'
+
 
   target 'SetGovTests' do
     inherit! :search_paths

@@ -221,7 +221,7 @@ class EventStream:  UITableViewCell {
     }
     
     func checkUsers() -> Bool{
-        for (idx,val) in currentEvent.users.enumerated() {
+        for (_,val) in currentEvent.users.enumerated() {
             if val.fullName == self.user?.fullName {
                 return true
             }

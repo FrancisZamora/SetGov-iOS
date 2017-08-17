@@ -364,7 +364,7 @@ class WebScraper {
         }
         
     static func parseEvents(onCompletion: @escaping() -> Void) {
-        
+            var appDelegate = UIApplication.shared.delegate as! AppDelegate
             print("PARSING EVENTS!!!!!")
             
             DispatchQueue.global().async() {
@@ -381,7 +381,46 @@ class WebScraper {
                     onCompletion()
                 })
                 
-            }
+            
+        
+                let url = URL(string: "https://fortlauderdale.legistar.com/Calendar.aspx")
+        
+                        guard let doc = HTML(url: url!, encoding: .utf8) else  {
+                           return
+                        }
+                var linkArray = [String]()
+                for links in doc.css(".videolink") {
+                 
+                    let rawlink =  links["onclick"]?.trimmingCharacters(in: .whitespacesAndNewlines)
+                  
+                    let extractArray = rawlink?.components(separatedBy: "window.open(\'")
+                    let newString = extractArray?[1]
+                    var newStringArray = newString?.components(separatedBy: "\'")
+                    guard let  editedString = newStringArray?[0] else {
+                        continue
+                    }
+                    var editedArray = editedString.components(separatedBy: "ID1=")
+                    let preID = editedArray[1]
+                    var prematureArray = preID.components(separatedBy:"&")
+                    let id  = prematureArray[0]
+                    
+                    linkArray.append(id)
+                    appDelegate.fortlauderdaleStreams = linkArray
+                    print(appDelegate.fortlauderdaleStreams)
+                    
+                    print(id)
+                    print("ID STRING HERE")
+                    
+
+                }
+        
+                
+        
+        }
+        
+
+        
+        
             
             //parseFortLauderdale()
             //            if self.selectedCity == "Boston" {
