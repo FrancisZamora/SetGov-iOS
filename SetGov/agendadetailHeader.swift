@@ -17,7 +17,6 @@ protocol HeaderCallBack: class {
 class AgendaDetailHeader: UITableViewCell {
     
     @IBOutlet var agendaImage: UIImageView!
-    @IBOutlet var titleLabel: UILabel!
     
     @IBOutlet var secondaryTitle: UILabel!
     
@@ -39,7 +38,6 @@ class AgendaDetailHeader: UITableViewCell {
     
     func configure(agenda: Agenda) {
         selectionStyle = .none
-        titleLabel.text = agenda.name
         
     }
 
