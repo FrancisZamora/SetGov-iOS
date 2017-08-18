@@ -391,7 +391,6 @@ class WebScraper {
         
         
             
-            //parseFortLauderdale()
             //            if self.selectedCity == "Boston" {
             //
             //
