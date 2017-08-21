@@ -57,6 +57,8 @@ class EventDiscussion: UITableViewCell {
        
         
     }
+    @IBAction func flagComment(_ sender: Any) {
+    }
     
     @IBAction func deleteComment(_ sender: Any) {
         if let callback = self.discussionCallBack {
