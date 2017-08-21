@@ -110,7 +110,7 @@
                                                 <constraint firstAttribute="width" constant="13" id="kKk-fq-3hK"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1403A230-42F2-4653-8B24-3F16216AFBDD" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="C9A6E262-4B6F-4BAA-8E58-299B9399EFEE" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
                                             <rect key="frame" x="61" y="271" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="gCa-oq-bRh"/>
@@ -607,7 +607,7 @@
                                 <rect key="frame" x="0.0" y="572" width="375" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MYI-qh-THg" id="IwL-Ej-qcu">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="93.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="PTh-6c-2Gh" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
@@ -687,9 +687,20 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hb1-H7-G5v">
+                                            <rect key="frame" x="341" y="39" width="10" height="10"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="10" id="Xh0-bH-EIM"/>
+                                            </constraints>
+                                            <state key="normal" image="Image-1"/>
+                                            <connections>
+                                                <action selector="deleteComment:" destination="MYI-qh-THg" eventType="touchUpInside" id="WjU-qS-6a8"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="f3e-Tx-som" firstAttribute="leading" secondItem="hFQ-Pa-QV4" secondAttribute="trailing" constant="-19" id="1n9-6n-Pqe"/>
+                                        <constraint firstItem="Jxn-wt-vmV" firstAttribute="leading" secondItem="Hb1-H7-G5v" secondAttribute="trailing" constant="6" id="25k-zm-q3F"/>
                                         <constraint firstItem="Jxn-wt-vmV" firstAttribute="trailing" secondItem="IwL-Ej-qcu" secondAttribute="trailingMargin" id="6Pr-GH-Vxq"/>
                                         <constraint firstItem="tYn-zV-rkD" firstAttribute="trailing" secondItem="hFQ-Pa-QV4" secondAttribute="trailing" constant="3" id="Dd5-cq-mP2"/>
                                         <constraint firstItem="PTh-6c-2Gh" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" constant="13" id="EoH-ch-2uo"/>
@@ -699,6 +710,8 @@
                                         <constraint firstAttribute="topMargin" secondItem="hFQ-Pa-QV4" secondAttribute="top" id="NGW-cG-1FA"/>
                                         <constraint firstItem="tYn-zV-rkD" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" constant="21" id="NWC-lU-anm"/>
                                         <constraint firstItem="Hb5-0U-EhE" firstAttribute="top" secondItem="nIJ-qa-E8Q" secondAttribute="bottom" constant="22" id="Nog-cS-o5q"/>
+                                        <constraint firstItem="Hb1-H7-G5v" firstAttribute="top" secondItem="Jxn-wt-vmV" secondAttribute="top" id="Obs-nC-iVK"/>
+                                        <constraint firstItem="Hb1-H7-G5v" firstAttribute="bottom" secondItem="Jxn-wt-vmV" secondAttribute="bottom" id="Rtx-sN-7oK"/>
                                         <constraint firstItem="SVV-Wj-Vnj" firstAttribute="trailing" secondItem="nIJ-qa-E8Q" secondAttribute="trailing" id="SGt-qm-19E"/>
                                         <constraint firstItem="SVV-Wj-Vnj" firstAttribute="leading" secondItem="IwL-Ej-qcu" secondAttribute="leading" constant="144" id="UF5-dS-amd"/>
                                         <constraint firstItem="Jxn-wt-vmV" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" constant="31" id="VwB-Vh-hwg"/>
@@ -1669,7 +1682,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1403A230-42F2-4653-8B24-3F16216AFBDD" width="479" height="586">
+        <image name="C9A6E262-4B6F-4BAA-8E58-299B9399EFEE" width="479" height="586">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -20438,6 +20451,7 @@ A
 </mutableData>
         </image>
         <image name="Image" width="132" height="95"/>
+        <image name="Image-1" width="30" height="30"/>
         <image name="Image-11" width="401" height="205"/>
         <image name="Image-15" width="12" height="7"/>
         <image name="Image-16" width="12" height="7"/>
@@ -20461,7 +20475,7 @@ A
         <image name="miami" width="512" height="273"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="N7x-HX-zy0"/>
+        <segue reference="Thq-tV-mwK"/>
         <segue reference="lbO-Gs-uWG"/>
     </inferredMetricsTieBreakers>
 </document>
