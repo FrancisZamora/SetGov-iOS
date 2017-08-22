@@ -14,6 +14,7 @@ import Kingfisher
 protocol DiscussionCallBack: class {
     func replyCommentData(comment:Comment)
     func removeComment(comment:Comment)
+    func displayAlert()
 }
 
 class EventDiscussion: UITableViewCell {
@@ -58,6 +59,13 @@ class EventDiscussion: UITableViewCell {
         
     }
     @IBAction func flagComment(_ sender: Any) {
+        if let callback = self.discussionCallBack {
+            print("callback in progress")
+            
+            callback.displayAlert()
+        }
+       
+
     }
     
     @IBAction func deleteComment(_ sender: Any) {

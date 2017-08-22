@@ -358,6 +358,21 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
         
     }
+    
+    func displayAlert() {
+        let alert = UIAlertController(title: "You are about to flag a comment as inappropriate", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+            print("Handle Ok logic here")
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Handle Cancel Logic here")
+            
+        }))
+        self.present(alert, animated: true, completion: nil)
+
+    }
    
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
