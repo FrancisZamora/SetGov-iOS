@@ -38,6 +38,9 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
     }
     
     func loggingOut(){
+        ApiClient.logout(onCompletion:{ json in
+            let appDomain = Bundle.main.bundleIdentifier!
+            UserDefaults.standard.removePersistentDomain(forName: appDomain)})
         performSegue(withIdentifier:"logOut", sender: nil)
     }
     

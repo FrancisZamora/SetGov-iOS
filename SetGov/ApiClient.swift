@@ -34,6 +34,29 @@ class ApiClient {
         }
     }
     
+    static func logout(onCompletion: @escaping(JSON) -> Void) {
+        let URL = "https://setgov.herokuapp.com/api/v/1/graph"
+        let query = "mutation {logoutUser}"
+        
+        Alamofire.request(URL,
+                          method: .post,
+                          parameters: ["query":query],
+                          encoding: JSONEncoding.default,
+                          headers: [:])
+            .responseJSON { response in
+                
+                print(response)
+                guard let jsonString = response.result.value else {
+                    onCompletion(JSON.null)
+                    return
+                }
+                
+                let json = JSON(jsonString)
+                onCompletion(json)
+        }
+    }
+    
+    
     static func addEvent(event:Event, onCompletion: @escaping(Bool) -> Void) {
         
         let formatter = DateFormatter()

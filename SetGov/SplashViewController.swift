@@ -46,7 +46,6 @@ class SplashViewController: SetGovViewController {
                 
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                     
-                    self.user = self.appDelegate.user
 
                     guard let name = fullName.string else {
                         return
@@ -57,9 +56,11 @@ class SplashViewController: SetGovViewController {
                     
                     print(name)
                     print(fbpID)
+                    self.user = User(fullName: name, profilePictureURL: fbpID)
                     
-                    self.user.fullName = name
-                    self.user.profilePictureURL = fbpID
+                   
+                    self.appDelegate.user = self.user
+
                     
                 }
                 

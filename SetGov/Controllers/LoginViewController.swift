@@ -15,6 +15,7 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
     @IBOutlet var setGov: UIImageView!
     
     var loginSuccessful = false
+    var user: User!
     let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
@@ -82,9 +83,36 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
     }
     
     func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
+       
+
         if let accessToken = AccessToken.current {
             UserDefaults.standard.set(accessToken.authenticationToken, forKey:"token")
-
+            ApiClient.login(token: UserDefaults.standard.string(forKey: "token")!, onCompletion: { (json) in
+                print("JSON is here\(json)")
+                let fullName = json["data"]["authenticateUser"]["full_name"]
+                let profileURL = json["data"]["authenticateUser"]["profileImage"]["url"]
+                
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                    
+                    
+                    guard let name = fullName.string else {
+                        return
+                    }
+                    guard let fbpID = profileURL.string else {
+                        return
+                    }
+                    
+                    print(name)
+                    print(fbpID)
+                    self.user = User(fullName: name, profilePictureURL: fbpID)
+                    
+                    
+                    self.appDelegate.user = self.user
+                    
+                    
+                }
+                
+            })
             if UserDefaults.standard.string(forKey:"homeCity") != nil {
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
