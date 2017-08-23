@@ -24,7 +24,7 @@ class SplashViewController: SetGovViewController {
         if let date = UserDefaults.standard.object(forKey: "parsed") as? Date {
             self.fortlauderdaleLinks()
 
-            if(date.timeIntervalSinceNow < -86400) {
+            if(date.timeIntervalSinceNow < -64800) {
                 parseEvents()
             } else {
                 fetchEvents()
