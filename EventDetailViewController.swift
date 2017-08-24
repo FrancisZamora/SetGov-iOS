@@ -285,6 +285,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     }
     
     func removeComment(comment:Comment) {
+        if comment.user.fullName == self.appDelegate.user.fullName {
         let alert = UIAlertController(title: "You are about to delete your comment", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
             
@@ -313,7 +314,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             
         }))
         self.present(alert, animated: true, completion: nil)
-
+        }
         
     }
     
