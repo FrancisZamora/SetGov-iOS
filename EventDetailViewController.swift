@@ -285,23 +285,34 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     }
     
     func removeComment(comment:Comment) {
-        
-        if selectedCity == "Boston" {
-            ApiClient.deleteComment(commentID: comment.commentID,onCompletion:{ json in
-                self.fetchEvent()
-                self.tableView.reloadData()
+        let alert = UIAlertController(title: "You are about to delete your comment", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+            
+            if self.selectedCity == "Boston" {
+                ApiClient.deleteComment(commentID: comment.commentID,onCompletion:{ json in
+                    self.fetchEvent()
+                    self.tableView.reloadData()
+                    
+                })
                 
-            })
+            }
             
-        }
+            if self.selectedCity == "Fort Lauderdale" {
+                ApiClient.deleteComment(commentID: comment.commentID,onCompletion:{ json in
+                    self.fetchEvent()
+                    self.tableView.reloadData()
+                })
+                
+            }
+
+            
+        }))
         
-        if selectedCity == "Fort Lauderdale" {
-            ApiClient.deleteComment(commentID: comment.commentID,onCompletion:{ json in
-                self.fetchEvent()
-                self.tableView.reloadData()
-            })
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Handle Cancel Logic here")
             
-        }
+        }))
+        self.present(alert, animated: true, completion: nil)
 
         
     }
