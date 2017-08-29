@@ -16,7 +16,6 @@ protocol EventStreamCallback: class {
     func attendbuttonTapped()
 }
 
-
 extension UIView {
     func makeShape() {
         print("called")
@@ -26,7 +25,6 @@ extension UIView {
 }
 
 class EventStream:  UITableViewCell {
-    
     @IBOutlet var eventImage: UIImageView!
     @IBOutlet var secondaryEventImage: UIImageView!
     @IBOutlet var attendButton: UIButton!
@@ -58,29 +56,23 @@ class EventStream:  UITableViewCell {
     var currentEvent: Event!
     var user: User!
 
-    
     weak var eventStreamCallback: EventStreamCallback!
 
     var eventTVController: EventDetailViewController?
+    
     func configureImage() {
         print(self.user.fullName)
         print(self.user.profilePictureURL)
         
         let theProfileImageUrl = URL(string:self.user.profilePictureURL)
         secondaryEventImage.kf.setImage(with: theProfileImageUrl)
-      
-        
     }
+    
     func configureColor () {
-        
         buttonBackground.startColor = SG_SECONDARY_REDCOLOR
         buttonBackground.endColor = UIColor.red
-              print("configuring color")
-        
-        
+        print("configuring color")
     }
-    
-    
     
     func activateStream () {
         self.initiateStream = true
@@ -95,21 +87,18 @@ class EventStream:  UITableViewCell {
     
     func increment() {
         if countDown >= 2 {
-           countDown+=1
+            countDown+=1
             print("we hit increment")
         }
     }
     
     func configureTime() -> String{
-        
         let date = Date()
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
         let day = calendar.component(.day, from: date)
         let month = calendar.component(.month,from:date)
         let year = calendar.component(.year, from: date)
-        
-        
         let dateString = String(month) + "/" + String(day) + "/" + String(year) + " " + String(hour)
         
         timeArray.append(String(month) + "/" + String(day) + "/" + String("17"))
@@ -128,7 +117,6 @@ class EventStream:  UITableViewCell {
         let hour = calendar.component(.hour, from: date)
         let hourString = String(hour)
         currentHour = hourString
-        
     }
     
     func compareTime() -> Bool {
@@ -154,16 +142,11 @@ class EventStream:  UITableViewCell {
         if x && y  {
             print("times are compatible")
             return true
-            
-        }
-            
-        else {
-            
+        } else {
             print("times not compatible")
             return false
         }
     }
-    
     
     func streamContent() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(increment), userInfo: nil, repeats: true)
@@ -217,7 +200,6 @@ class EventStream:  UITableViewCell {
             
             self.onePress = true
         }
-        
     }
     
     func checkUsers() -> Bool{
@@ -229,41 +211,25 @@ class EventStream:  UITableViewCell {
         return false
     }
     
-   
-    
     func checkStatus() -> Bool {
         var x = false
-        
-            ApiClient.fetchEvent(eventID:currentEvent.id , onCompletion:{ json in
-                
-                
-                
-                if self.checkUsers() == true {
-                    
-                    self.attendButton.setTitle("Attending", for: .normal)
-                    x = true
-                }
-                else {
-                    self.attendButton.setTitle("Attend", for: .normal)
 
-                    
-                }
-                
-            })
-            
-            if compareTime() == true {
-                self.nowLive()
-                firstpress = false 
-
+        ApiClient.fetchEvent(eventID:currentEvent.id , onCompletion:{ json in
+            if self.checkUsers() == true {
+                self.attendButton.setTitle("Attending", for: .normal)
+                x = true
+            } else {
+                self.attendButton.setTitle("Attend", for: .normal)
             }
-
-            return x
+        })
+            
+        if compareTime() == true {
+            self.nowLive()
+            firstpress = false
+        }
         
-      
-       
+        return x
     }
-    
-    
     
     @IBAction func buttonPressed(_ sender: Any) {
         if self.checkUsers() == true {
@@ -280,76 +246,53 @@ class EventStream:  UITableViewCell {
                     print("callback in progress")
                     
                     callback.attendbuttonTapped()
-                    
                 }
-                
             })
             
             return 
         }
         // send api request whenever button is pressed
   
-            self.attendButton.setTitle("Attending", for: .normal)
-            print(eventTitle)
-            self.eventTitle  =  "  " + self.eventTitle
-                let eventID = currentEvent.id
-                print(eventID)
-                ApiClient.attendEvent(eventID: eventID ,onCompletion: { json in
-                    self.currentEvent.users.append(self.user)
-                    if let callback = self.eventStreamCallback {
-                        print("callback in progress")
+        self.attendButton.setTitle("Attending", for: .normal)
+        print(eventTitle)
+        self.eventTitle  =  "  " + self.eventTitle
+        let eventID = currentEvent.id
+        print(eventID)
+        
+        ApiClient.attendEvent(eventID: eventID ,onCompletion: { json in
+            self.currentEvent.users.append(self.user)
+            if let callback = self.eventStreamCallback {
+                print("callback in progress")
                         
-                        callback.attendbuttonTapped()
+                callback.attendbuttonTapped()
                         
-                    }
-                    
-                    else {
-                        print("callback is nil")
-                    }
-                    
-                    
-                    
-
-                    
-                })
-                
-                if compareTime() == true {
-                    self.nowLive()
-                }
-
-            
-            
-           
-            if compareTime() == true {
-                self.nowLive()
+            } else {
+                print("callback is nil")
             }
-            firstpress = false
+        })
+                
+        if compareTime() == true {
+            self.nowLive()
+        }
+        
+        firstpress = false
 
-        
-        
-        
-    
         if compareTime() == true {
             print(compareTime())
             let when1 = DispatchTime.now() + 1  // change 2 to desired number of seconds
             DispatchQueue.main.asyncAfter(deadline: when1) {
-            self.nowLive()
+                self.nowLive()
             }
         }
 
         let when2 = DispatchTime.now() + 2  // change 2 to desired number of seconds
+        
         DispatchQueue.main.asyncAfter(deadline: when2) {
             if let callback = self.eventStreamCallback {
                 callback.refreshTap(tapped: true)
             }
-            
-
         }
-        
-        
     }
-    
- 
     
     func buttonwasPressed() -> Bool {
         if (pressedButton == true) {
@@ -359,10 +302,10 @@ class EventStream:  UITableViewCell {
             return false
         }
     }
+    
     func buttonPressed() {
         self.EventDetailViewController?.animateView = true
     }
-
 
     func configure() {
         if self.onePress == false {
@@ -374,6 +317,4 @@ class EventStream:  UITableViewCell {
             print ("formatting view")
         }
     }
-    
-    
 }

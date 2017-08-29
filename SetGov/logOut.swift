@@ -11,7 +11,6 @@ import UIKit
 import FacebookCore
 import FacebookLogin
 
-
 protocol LogOutCallBack: class {
     func loggingOut()
 }
@@ -19,6 +18,7 @@ protocol LogOutCallBack: class {
 class logOut: UITableViewCell, LoginButtonDelegate {
     @IBOutlet var contView: UIView!
     weak var logoutcallBack: LogOutCallBack!
+    
     func createButton() {
         let loginButton = LoginButton(readPermissions: [ .publicProfile ])
         loginButton.delegate = self
@@ -30,8 +30,6 @@ class logOut: UITableViewCell, LoginButtonDelegate {
         if let callBack = logoutcallBack {
             callBack.loggingOut()
         }
-
-        
     }
     
     func loginButtonDidLogOut(_ loginButton: LoginButton) {
@@ -40,14 +38,11 @@ class logOut: UITableViewCell, LoginButtonDelegate {
         if let callBack = logoutcallBack {
             callBack.loggingOut()
             UserDefaults.standard.set("out",forKey:"logged")
-            
-
         }
         return
     }
     
     func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
         return
-
     }
 }

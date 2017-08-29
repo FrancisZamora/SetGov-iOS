@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+
 @IBDesignable final class GradientView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -17,16 +18,15 @@ import UIKit
         self.clipsToBounds = true
         self.layer.masksToBounds = false
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
 
-    
     @IBInspectable var startColor: UIColor = SG_RED_COLOR
     @IBInspectable var endColor: UIColor = UIColor.red
     
     override func draw(_ rect: CGRect) {
-        
         let gradient: CAGradientLayer = CAGradientLayer()
         gradient.frame = rect
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5)

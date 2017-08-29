@@ -15,8 +15,8 @@ class CityNavigationViewController: SetGovTableViewController {
 
     //user ns user default
     @IBOutlet var navBar: UINavigationItem!
+    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 213
@@ -27,13 +27,7 @@ class CityNavigationViewController: SetGovTableViewController {
         }
         UserDefaults.standard.set(1,forKey:"cityoverLay")
         print(UserDefaults.standard.integer(forKey:"cityoverLay"))
-
-        
     }
-    
-    
-
-  
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -43,15 +37,11 @@ class CityNavigationViewController: SetGovTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
         return 50.0
     }
-    
-       
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         self.numsections = 1
@@ -62,15 +52,9 @@ class CityNavigationViewController: SetGovTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("numberofRows")
         return 6
-        
     }
     
-    
-    
-    
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-    {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
             //223 for iphone 7 <
@@ -96,7 +80,6 @@ class CityNavigationViewController: SetGovTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.row == 0 ) {
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: "BostonCell", for:indexPath) as! BostonCell
             cell.selectionStyle = .none
             
@@ -107,13 +90,10 @@ class CityNavigationViewController: SetGovTableViewController {
                 cell.alpha = 1
             }
 
-            
             return cell
-
         }
         
         if (indexPath.row == 1) {
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: "FortLauderdaleCell", for:indexPath) as! FortLauderdaleCell
             cell.selectionStyle = .none
             cell.alpha = 0.35
@@ -125,11 +105,9 @@ class CityNavigationViewController: SetGovTableViewController {
             print(indexPath.row)
             
             return cell
-
         }
        
         if (indexPath.row == 2) {
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: "Phoenix", for:indexPath) as! Phoenix
             cell.selectionStyle = .none
             
@@ -139,14 +117,10 @@ class CityNavigationViewController: SetGovTableViewController {
                 cell.alpha = 1
             }
 
-           
             return cell
-            
-            
         }
         
         if (indexPath.row == 3) {
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: "MiamiCell", for:indexPath) as! MiamiCell
             cell.selectionStyle = .none
             cell.alpha = 0.35
@@ -155,14 +129,10 @@ class CityNavigationViewController: SetGovTableViewController {
                 cell.alpha = 1
             }
             
-            
             return cell
-            
-            
         }
         
         if (indexPath.row == 4) {
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: "SanJose", for:indexPath) as! SanJose
             cell.selectionStyle = .none
             
@@ -172,14 +142,10 @@ class CityNavigationViewController: SetGovTableViewController {
                 cell.alpha = 1
             }
             
-            
             return cell
-            
-            
         }
         
         if (indexPath.row == 5) {
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: "Austin", for:indexPath) as! Austin
             cell.selectionStyle = .none
             
@@ -188,18 +154,12 @@ class CityNavigationViewController: SetGovTableViewController {
             UIView.animate(withDuration: 1.0) {
                 cell.alpha = 1
             }
-            
-            
+        
             return cell
-            
-            
         }
         
-                
-
         let cell =  tableView.dequeueReusableCell(withIdentifier: "FortLauderdaleCell", for:indexPath) as! FortLauderdaleCell
         return cell
-        
       }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -207,21 +167,17 @@ class CityNavigationViewController: SetGovTableViewController {
             let EventViewController = segue.destination as! EventViewController
             EventViewController.selectedCity = "Boston"
             UserDefaults.standard.set("Boston",forKey:"homeCity")
-
-            
         }
+        
         if (segue.identifier == "fort lauderdale") {
             _ = segue.destination as! EventViewController
             UserDefaults.standard.set("Fort Lauderdale",forKey:"homeCity")
-
-            
         }
+        
         if (segue.identifier == "new york ") {
             let EventViewController = segue.destination as! EventViewController
             EventViewController.selectedCity = "New York City"
-            
         }
-
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
@@ -234,63 +190,36 @@ class CityNavigationViewController: SetGovTableViewController {
             cell.selectionStyle = .none
             ApiClient.setHomeCity(city: "Boston")
             UserDefaults.standard.set("Boston",forKey:"homeCity")
-
-        
         }
         
         if indexPath.row == 1 {
             print("Fort Lauderdale Cell")
             ApiClient.setHomeCity(city: "Fort Lauderdale")
             UserDefaults.standard.set("Fort Lauderdale",forKey:"homeCity")
-
-            
-            
         }
         
         if (indexPath.row == 2) {
             let alert = UIAlertController(title: "Phoenix Coming Soon", message: "", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            
-            
-            
-            
         }
-
         
         if (indexPath.row == 3) {
             let alert = UIAlertController(title: "Miami Coming Soon", message: "", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            
-            
-            
-            
         }
-        
-      
-        
         
         if (indexPath.row == 4) {
             let alert = UIAlertController(title: "San Jose Coming Soon", message: "", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            
-            
-            
-            
         }
         
         if (indexPath.row == 5) {
             let alert = UIAlertController(title: "Austin Coming Soon", message: "", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            
-            
-            
-            
         }
-
-    
     }
 }

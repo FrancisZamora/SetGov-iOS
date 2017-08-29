@@ -13,8 +13,6 @@ protocol CommentCallBack: class {
     func retrievecommentData(comment:String)
 }
 
-
-
 class CreateComment: UITableViewCell, UITextFieldDelegate {
     @IBOutlet var commentField: UITextField!
     weak var commentCallBack: CommentCallBack!
@@ -22,7 +20,6 @@ class CreateComment: UITableViewCell, UITextFieldDelegate {
     func replytoComment(comment:Comment){
         self.commentField.text = "@" + comment.user.fullName
     }
-    
     
     @IBAction func createAction(_ sender: Any) {
         print("comment being created")
@@ -32,14 +29,6 @@ class CreateComment: UITableViewCell, UITextFieldDelegate {
             callback.retrievecommentData(comment: self.commentField.text!)
                 self.commentField.text = ""
                 self.commentField.placeholder = "Enter Comment"
-            
         }
-
-        
-        
-        
     }
-    
- 
-    
 }

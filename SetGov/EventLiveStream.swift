@@ -17,7 +17,6 @@ extension Int {
 
 class EventLiveStream: UITableViewCell {
     @IBOutlet var streamView: UIWebView!
-    
     @IBOutlet var timeView: UIView!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var liveView: UIView!
@@ -27,7 +26,6 @@ class EventLiveStream: UITableViewCell {
     var selectedCity = " "
     //var timer = Timer()
     var counter = 0
-    
     
     func configure() {
         liveView.backgroundColor = SG_RED_COLOR
@@ -45,10 +43,6 @@ class EventLiveStream: UITableViewCell {
 //            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(incrementTime), userInfo: nil, repeats: true )
 //            UserDefaults.standard.set("increment", forKey: eventTitle)
 //        }
-        
-        
-        
-        
     }
     
     func switchTitleOff() {
@@ -108,17 +102,12 @@ class EventLiveStream: UITableViewCell {
 //
 //    }
  
-    
-    
     func playVideo () {
         if selectedCity == "Boston" {
-            
            let youtubeURL = "https://www.youtube.com/embed/ZqMhZgiBt_4"
            streamView.loadHTMLString("<iframe width=\"\(streamView.frame.width)\" height=\"\(streamView.frame.height)\" src=\"\(youtubeURL)?&playsinline=1\" frameborder=\"0\" allowfullscreen></iframe>", baseURL:nil)
             streamView.allowsInlineMediaPlayback = true
             streamView.mediaPlaybackRequiresUserAction = false
-        
-            
         }
         
         if selectedCity == "Fort Lauderdale" {
@@ -126,17 +115,11 @@ class EventLiveStream: UITableViewCell {
             streamView.loadHTMLString("<iframe width= 500 height= 400 frameborder= 0 src=\"\(youtubeURL)?&playsinline=1\" frameborder=\"0\" allowfullscreen></iframe>", baseURL:nil)
             streamView.allowsInlineMediaPlayback = true
             streamView.mediaPlaybackRequiresUserAction = false
-
-
-      
         }
-    
     }
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         print("SHOULD START LOAD")
         return true
     }
-    
-    
 }

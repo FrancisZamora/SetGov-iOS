@@ -17,30 +17,18 @@ protocol HeaderCallBack: class {
 class AgendaDetailHeader: UITableViewCell {
     
     @IBOutlet var agendaImage: UIImageView!
-    
     @IBOutlet var secondaryTitle: UILabel!
-    
     @IBOutlet var tertiaryTitle: UILabel!
-
     @IBOutlet var exitButton: UIButton!
     weak var headerCallBack: HeaderCallBack!
 
-
     @IBAction func buttonPressed(_ sender: Any) {
-        
         if let callback = headerCallBack {
-            
             callback.dismissView()
         }
-       
-    
     }
     
     func configure(agenda: Agenda) {
         selectionStyle = .none
-        
     }
-
 }
-
-

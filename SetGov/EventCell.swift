@@ -16,17 +16,16 @@ extension UIView {
         self.clipsToBounds = true
     }
 }
-class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
- {
+class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet var usersCollection: UICollectionView!
-    var count = 0
     @IBOutlet var eventTitle: UILabel!
     @IBOutlet var eventDescription: UILabel!
     @IBOutlet var eventImage: UIImageView!
     @IBOutlet var conView: UIView!
     @IBOutlet var eventDate: UILabel!
     @IBOutlet var memberCount: UILabel!
+    var count = 0
     var selectedCity = " "
     var eventOriginalTitle = " "
     var index = 0
@@ -45,7 +44,6 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
         return event.users.count
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Attendee", for: indexPath) as! Attendee
         
@@ -56,7 +54,6 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
         
         return cell
     }
-    
     
     func configure(event: Event) {
         selectionStyle = .none
@@ -73,9 +70,5 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
         } else {
             usersCollection.isHidden = true
         }
-        
-        
     }
-    
-    
 }

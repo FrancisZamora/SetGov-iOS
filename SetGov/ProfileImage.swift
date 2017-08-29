@@ -18,9 +18,5 @@ class ProfilePicture: UIImageView {
         self.clipsToBounds = true
         self.layer.borderWidth = 1.5
         self.layer.borderColor = UIColor(red:0.18, green:0.26, blue:0.35, alpha:1.0).cgColor
-
     }
-
-    
-    
 }

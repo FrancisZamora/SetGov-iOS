@@ -24,16 +24,13 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
         else  {
             pickerData = ["Fort Lauderdale","Boston"]
         }
-    
     }
-    
     
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return  1
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        
         var label = view as! UILabel!
         if label == nil {
             label = UILabel()
@@ -44,9 +41,7 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
         label?.attributedText = title
         label?.textAlignment = .center
         return label!
-        
     }
-    
     
     // The number of rows of data
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -66,14 +61,6 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
 
         print(UserDefaults.standard.string(forKey: "homeCity")!)
         
-        
-        
-        
         //always direct to home city
     }
-
-
-
-
-
 }

@@ -13,7 +13,6 @@ import UIKit
 class AgendaDetailComments: UITableViewCell {
     
     @IBOutlet var closingComments: UILabel!
-    
     @IBOutlet var commentField: UITextView!
     
     func configure(text: String) {

@@ -34,10 +34,4 @@ class profileCell: UITableViewCell {
                 print("Unable to load data: \(error)")
             }
         }
-    
-    
-    
-    
-  
-
 }

@@ -27,10 +27,9 @@ class Event {
     var eventDate = String()
    // var loggedUser = User(userName: " " , attendingStatus: false, interestedStatus: false)
     
-    
     init() {
+        
     }
-    
     
     init(title:String, address: String, users: [User],  description: String, date: String, eventImageName: String, time: String, city: String,agendaItems: [Agenda], comments: [Comment], id: Int) {
         self.title = title
@@ -62,16 +61,9 @@ class Event {
         self.eventDate = eventfriendlyDateArray[0]
         print(self.eventDate)
         print("EVENT DATE HERE")
-            
-        
-
-        
         
         // ** read top comment self.eventUsers = eventUsers
     }
-    
-    
-    
 }
 
 

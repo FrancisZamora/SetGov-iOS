@@ -11,7 +11,7 @@ import UIKit
 import FacebookLogin
 import FacebookCore
 import Alamofire
-class CityOnboardingScreen: SetGovViewController{
+class CityOnboardingScreen: SetGovViewController {
     
     @IBOutlet var gotIt: UIButton!
     @IBOutlet var engage: UILabel!
@@ -20,11 +20,8 @@ class CityOnboardingScreen: SetGovViewController{
     @IBOutlet var background: UIView!
     
     override func viewDidLoad() {
-       
          super.viewDidLoad()
          background.backgroundColor =  UIColor.black.withAlphaComponent(0.55)
-         
-       
             
          gotIt.layer.cornerRadius = 5
     }
@@ -32,8 +29,8 @@ class CityOnboardingScreen: SetGovViewController{
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
+    
     @IBAction func gotItAction(_ sender: Any) {
         self.dismiss(animated: true, completion: {})
     }
-    
 }

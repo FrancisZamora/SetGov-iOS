@@ -6,7 +6,6 @@
 //  Copyright © 2017 Francis. All rights reserved.
 //
 
-
 import Foundation
 
 class Agenda {
@@ -27,7 +26,6 @@ class Agenda {
     }
     
     static func buildGraphString(agendaList: [Agenda]) -> String {
-        
         var graphString = "["
         
         for agenda in agendaList {
@@ -44,4 +42,3 @@ class Agenda {
     }
 
 }
-

@@ -9,11 +9,8 @@
 import Foundation
 import UIKit
 
-
-
 class SetGovViewController: UIViewController {
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -22,7 +19,6 @@ class SetGovViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
        // ApiClient.login(onCompletion: { value in
          //   print(value)
         //,})
@@ -37,7 +33,6 @@ class SetGovViewController: UIViewController {
             alert.show()
         }
 
-        
         /*
          * NAVIGATION BAR
          */
@@ -53,7 +48,6 @@ class SetGovViewController: UIViewController {
         /*
          * BACKGROUND
          */
-        
         
         self.view.backgroundColor = SG_NEARLY_WHITE_COLOR
         self.setNeedsStatusBarAppearanceUpdate()

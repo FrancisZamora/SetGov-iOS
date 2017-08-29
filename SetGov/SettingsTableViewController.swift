@@ -20,10 +20,10 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
         super.viewDidLoad()
         
         self.navigationItem.rightBarButtonItem = nil
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -40,7 +40,8 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
     func loggingOut(){
         ApiClient.logout(onCompletion:{ json in
             let appDomain = Bundle.main.bundleIdentifier!
-            UserDefaults.standard.removePersistentDomain(forName: appDomain)})
+            UserDefaults.standard.removePersistentDomain(forName: appDomain)
+        })
         performSegue(withIdentifier:"logOut", sender: nil)
     }
     
@@ -53,18 +54,16 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
         print("numberofSections")
         return 1
     }
-
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-    {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let screenSize: CGRect = UIScreen.main.bounds
 
         switch indexPath.row {
@@ -82,7 +81,6 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if (indexPath.row == 0) {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "profileCell") as! profileCell
             cell.selectionStyle = .none
@@ -91,32 +89,22 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
             return cell
         }
         
-        
         if (indexPath.row == 1) {
-            
             let cell =  tableView.dequeueReusableCell(withIdentifier: "homeCity") as! homeCity
             cell.selectionStyle = .none
             cell.configurePicker()
-            
             return cell
-        
         }
         
         if (indexPath.row == 2) {
-        
             let cell =  tableView.dequeueReusableCell(withIdentifier: "logOut") as! logOut
             cell.selectionStyle = .none
             cell.createButton()
             cell.logoutcallBack = self
-
-            
             return cell
-        
         }
         
         let cell =  tableView.dequeueReusableCell(withIdentifier: "logOut") as! logOut
         return cell
     }
-    
-    
 }

@@ -18,10 +18,7 @@ class EventInfo: UITableViewCell {
     
     @IBOutlet var eventHour: UILabel!
     @IBOutlet var eventAddress: UILabel!
-    
     @IBOutlet var eventTime: UILabel!
-    
-    
     @IBOutlet weak var mDirectionsButton: UIView!
     
     weak var eventInfoCallback: EventInfoCallback?
@@ -36,7 +33,4 @@ class EventInfo: UITableViewCell {
             callback.loadDirections()
         }
     }
-    
-    
 }
-

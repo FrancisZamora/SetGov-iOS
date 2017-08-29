@@ -12,7 +12,7 @@ import QuartzCore
 import SwiftyJSON
 import PDFReader
 
-class EventDetailViewController: SetGovTableViewController, EventAgendaCallback, EventInfoCallback, EventStreamCallback, CommentCallBack, DiscussionCallBack{
+class EventDetailViewController: SetGovTableViewController, EventAgendaCallback, EventInfoCallback, EventStreamCallback, CommentCallBack, DiscussionCallBack {
     var activate = true
     var infoCell = true
     var memberCell = true
@@ -57,7 +57,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var userArray = [User]()
     var currentEventStream: EventLiveStream?
 
-    
     @IBOutlet var navTitle: UINavigationItem!
     
     override func viewDidLoad() {
@@ -94,17 +93,14 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         }
         else {
             return false
-            
         }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         UserDefaults.standard.set("off", forKey: eventTitle)
-
     }
     
     func fetchEvent() {
-
         if selectedCity == "Boston" {
 
             ApiClient.fetchEvent(eventID:self.bostonDataList[indexofEvent].id , onCompletion:{ json in
@@ -124,9 +120,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 
           
                 guard let comments = json["data"]["event"]["comments"].array else {
-                        return
-                    }
-                
+                    return
+                }
                 
                 self.currentEvent.comments = []
                 for (_,val)in comments.enumerated()  {
@@ -139,17 +134,14 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                     
         
                     self.currentEvent.comments.append(comment)
-                    
-                    
                    
                     print("here is the text")
-                    
                 }
                 
                 self.tableView.reloadData()
-
             })
         }
+        
         if selectedCity == "Fort Lauderdale" {
             ApiClient.fetchEvent(eventID:self.fortlauderdaleDataList[indexofEvent].id , onCompletion:{ json in
                 let pictureIDArray = json["data"]["event"]  ["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
@@ -166,7 +158,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                     return
                 }
                 print("this is comments 2\(comments2)")
-                
                 
                 self.currentEvent.comments = []
 
@@ -237,7 +228,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             ApiClient.createComment(comment: comment, eventID: self.bostonDataList[indexofEvent].id, onCompletion:{ json in
                 self.fetchEvent()
             })
-           
         }
         
         if selectedCity == "Fort Lauderdale" {
@@ -259,11 +249,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         readerController.backgroundColor = .white
         self.navigationController?.title = "Fort Lauderdale Agenda"
         self.navigationController?.pushViewController(readerController, animated: true)
-        
     }
     
     func loadAgendaDetail(agenda: Agenda) {
-        
         print("EVENT AGENDA CALLBACK")
         print("LOADING AGENDA DETAIL HERE")
         
@@ -286,38 +274,33 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     func removeComment(comment:Comment) {
         if comment.user.fullName == self.appDelegate.user.fullName {
-        let alert = UIAlertController(title: "You are about to delete your comment", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+            let alert = UIAlertController(title: "You are about to delete your comment", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.alert)
             
-            if self.selectedCity == "Boston" {
-                ApiClient.deleteComment(commentID: comment.commentID,onCompletion:{ json in
-                    self.fetchEvent()
-                    self.tableView.reloadData()
-                    
-                })
-                
-            }
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+                if self.selectedCity == "Boston" {
+                    ApiClient.deleteComment(commentID: comment.commentID,onCompletion:{ json in
+                        self.fetchEvent()
+                        self.tableView.reloadData()
             
-            if self.selectedCity == "Fort Lauderdale" {
-                ApiClient.deleteComment(commentID: comment.commentID,onCompletion:{ json in
-                    self.fetchEvent()
-                    self.tableView.reloadData()
-                })
-                
-            }
-
+                    })
+                }
             
-        }))
+                if self.selectedCity == "Fort Lauderdale" {
+                    ApiClient.deleteComment(commentID: comment.commentID,onCompletion:{ json in
+                        self.fetchEvent()
+                        self.tableView.reloadData()
+                    })
+                }
+            }))
         
-        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
-            print("Handle Cancel Logic here")
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+                print("Handle Cancel Logic here")
             
-        }))
-        self.present(alert, animated: true, completion: nil)
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
         }
-        
     }
-    
     
     func comparelauderdaleTime() -> Bool {
         if selectedCity == "Boston" {
@@ -342,15 +325,10 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         if x && y  {
             print("times are compatible")
             return true
-            
-        }
-            
-        else {
-            
+        } else {
             print("times not compatible")
             return false
         }
-
     }
     
     func configureHour() {
@@ -359,7 +337,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         let hour = calendar.component(.hour, from: date)
         let hourString = String(hour)
         currentHour = hourString
-        
     }
     
     func refreshTap(tapped:Bool) {
@@ -367,27 +344,23 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
         print("event stream callback")
         //tableView.reloadData()
-        
-        
     }
     
     func displayAlert() {
         let alert = UIAlertController(title: "You are about to flag a comment as inappropriate", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.alert)
+        
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
             print("Handle Ok logic here")
-            
         }))
         
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
             print("Handle Cancel Logic here")
-            
         }))
+        
         self.present(alert, animated: true, completion: nil)
-
     }
    
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
         return 50.0
     }
     
@@ -401,7 +374,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         print("numberofRows")
     
         return 6 + currentEvent.comments.count
-        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -438,45 +410,35 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             case 3:
             return 94
             case 4:
-           return 52
+            return 52
             case 5:
             if currentEvent.comments.count == 0 {
-                   return 94
-                }
+                return 94
+            }
             let x = currentEvent.comments[0].text.characters.count
             let y = Double(x)
             
             if y > 80.0 {
-                
                 let z = (94 + y * 0.5)
                 return CGFloat(z)
-                
-                
             }
             return 94
             default:
                 if indexPath.row < 5 + currentEvent.comments.count {
-            var x = currentEvent.comments[indexPath.row - 5].text.characters.count
-            var y = Double(x)
+                    var x = currentEvent.comments[indexPath.row - 5].text.characters.count
+                    var y = Double(x)
                 
-            if y > 80.0 {
-                    
-                var z = (94 + y * 0.5)
-                return CGFloat(z)
-                    
-                    
-            }
+                    if y > 80.0 {
+                        var z = (94 + y * 0.5)
+                        return CGFloat(z)
+                    }
                 }
                 
-            if indexPath.row == (5 + currentEvent.comments.count)    {
-               
-                
-                return 94
-            }
-            else {
-                return 94
-            }
-                
+                if indexPath.row == (5 + currentEvent.comments.count) {
+                    return 94
+                } else {
+                    return 94
+                }
         }
       }
     }
@@ -486,8 +448,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
         if (indexPath.row == 0) {
             let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream") as! EventStream
-            
-            
+
                 eventStream.dataList = dataList
                 eventStream.user = self.user
                 eventStream.configureImage()
@@ -515,41 +476,36 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventStream.fortlauderdaleDataList = fortlauderdaleDataList
                 eventStream.playVideo()
                 return eventStream
-
-                
             }
             
-        if selectedCity == "Boston" {
-            eventStream.eventImage.image = currentEvent.image
-            agendaImage = eventStream.eventImage.image!
+            if selectedCity == "Boston" {
+                eventStream.eventImage.image = currentEvent.image
+                agendaImage = eventStream.eventImage.image!
             
-            if eventStream.firstpress == false  && eventStream.compareTime() == false || eventStream.checkStatus() == true && eventStream.compareTime() == false {
-                if noAlert == false && selectedCity == "Boston" {
-                    let alert = UIAlertController(title: "Constant Stream Available", message: "Boston offers a 24/7 live stream", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "Watch", style: .default, handler: { (action: UIAlertAction!) in
-                    print("Handle Ok logic here")
-                    self.videoRequested = true
-                    tableView.reloadData()
+                if eventStream.firstpress == false  && eventStream.compareTime() == false || eventStream.checkStatus() == true && eventStream.compareTime() == false {
+                    if noAlert == false && selectedCity == "Boston" {
+                        let alert = UIAlertController(title: "Constant Stream Available", message: "Boston offers a 24/7 live stream", preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "Watch", style: .default, handler: { (action: UIAlertAction!) in
+                            print("Handle Ok logic here")
+                            self.videoRequested = true
+                            tableView.reloadData()
                         
-                }))
+                        }))
                 
-                    alert.addAction(UIAlertAction(title: "No Thanks", style: .cancel, handler: { (action: UIAlertAction!) in
-                    print("Handle Cancel Logic here")
-                    self.videoRequested = false
+                        alert.addAction(UIAlertAction(title: "No Thanks", style: .cancel, handler: { (action: UIAlertAction!) in
+                            print("Handle Cancel Logic here")
+                            self.videoRequested = false
                         
-                    }))
+                        }))
 
-                    self.present(alert, animated: true, completion: nil)
-                    noAlert = true
-                    //present UI alert
+                        self.present(alert, animated: true, completion: nil)
+                        noAlert = true
+                        //present UI alert
                 
                 
-                    // timer for three seconds
-                    // present new cell git
-                }
-                
-                
-                
+                        // timer for three seconds
+                        // present new cell git
+                    }
                 }
             }
             
@@ -571,9 +527,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 currentEventStream = eventLiveStream
                 
                 return eventLiveStream
-
             }
-            
+
             return eventStream
         }
         
@@ -600,7 +555,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventMembers", for:indexPath) as! EventMembers
             cell.userCollection.reloadData()
             cell.configure(event: currentEvent)
-
             return cell
         }
         
@@ -609,9 +563,10 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             cell.selectionStyle = .none
             return cell
         }
-        _ = getDataList()
-        if currentEvent.comments.count == 0 {
         
+        _ = getDataList()
+        
+        if currentEvent.comments.count == 0 {
             if (indexPath.row==5) {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CreateComment", for:indexPath) as! CreateComment
                 cell.commentCallBack = self
@@ -621,35 +576,27 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 //discussionCell.selectionStyle = .none
                 return cell
             }
-        }
-        else {
+        } else {
             var x = getDataList()
             if indexPath.row == (5 + currentEvent.comments.count) {
-                
-               let cell = tableView.dequeueReusableCell(withIdentifier: "CreateComment") as! CreateComment
+                let cell = tableView.dequeueReusableCell(withIdentifier: "CreateComment") as! CreateComment
                 cell.commentCallBack = self
                 
                 if replyComment != nil {
-                    
                     cell.replytoComment(comment: self.replyComment)
                     self.replyComment = nil
                 }
                 return cell
             }
             
-            
-            
-       
-                let cell = tableView.dequeueReusableCell(withIdentifier: "EventDiscussion") as! EventDiscussion
-                print("printing value \(indexPath.row - 5)")
-                cell.configure(comment: x[indexofEvent].comments[indexPath.row - 5])
-                cell.selectionStyle = .none
-                cell.discussionCallBack = self 
-                return cell
-                
-            
-        
+            let cell = tableView.dequeueReusableCell(withIdentifier: "EventDiscussion") as! EventDiscussion
+            print("printing value \(indexPath.row - 5)")
+            cell.configure(comment: x[indexofEvent].comments[indexPath.row - 5])
+            cell.selectionStyle = .none
+            cell.discussionCallBack = self
+            return cell
         }
+        
         let cell =  tableView.dequeueReusableCell(withIdentifier: "EventStream", for:indexPath) as! EventStream
         return cell
     }
@@ -674,11 +621,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         default:
             return bostonDataList
         }
-    
     }
     
     func loadDirections() {
-        
         let addressString = "\(currentEvent.address) \(selectedCity) \(getState())"
         let formattedAddress = addressString.replacingOccurrences(of: " ", with: "+")
         let url = "https://www.google.com/maps/dir/?api=1&destination=\(formattedAddress)"

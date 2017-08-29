@@ -24,22 +24,21 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
     var selectedCity = " "
     var agenda: Agenda!
     @IBOutlet var navTitle: UINavigationItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navTitle.title = eventTitle
-        
     }
     
     func dismissView() {
         self.dismiss(animated: true, completion: {})
     }
     
-
     override func viewDidAppear(_ animated: Bool) {
+        
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
         return 50.0
     }
     
@@ -54,8 +53,7 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
         return 2
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-    {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
             return 275
@@ -72,7 +70,6 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(indexPath.row)
         
-        
         if (indexPath.row == 0) {
             let agendaDetailHeader =  tableView.dequeueReusableCell(withIdentifier: "AgendaDetailHeader", for:indexPath) as! AgendaDetailHeader
             agendaDetailHeader.configure(agenda: agenda)
@@ -87,14 +84,9 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
             agendaDetailComments.configure(text: agenda.text)
             return agendaDetailComments
         }
+        
         let agendaDetailComments =  tableView.dequeueReusableCell(withIdentifier: "AgendaDetailComments", for:indexPath) as! AgendaDetailComments
         agendaDetailComments.selectionStyle = .none
         return agendaDetailComments
-        
     }
-
-    
-    
-
-
 }

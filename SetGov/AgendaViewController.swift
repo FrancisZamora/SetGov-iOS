@@ -11,14 +11,9 @@ import UIKit
 import QuartzCore
 
 class AgendaViewController: UICollectionView {
-    
-    
     var numsections = 0
     
-    
-
-    func collectionView(collectionView: UICollectionView,
-                        heightForHeaderInSection section: Int) -> CGFloat {
+    func collectionView(collectionView: UICollectionView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50.0
     }
   
@@ -27,33 +22,20 @@ class AgendaViewController: UICollectionView {
         
         if (indexPath.row == 0) {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaItem1",for: indexPath)
-            
             return cell
-            
         }
+        
         if(indexPath.row == 1) {
-           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaItem2",for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaItem2",for: indexPath)
             return cell
         }
         
         if(indexPath.row == 2) {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaItem3",for: indexPath)
-            
-        
             return cell
         }
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaItem3",for: indexPath)
-        
         return cell
-
-
-        
-            
-            
-            
-           
-            
     }
-
 }

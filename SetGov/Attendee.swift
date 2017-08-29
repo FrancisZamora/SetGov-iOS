@@ -22,7 +22,5 @@ class Attendee: UICollectionViewCell {
         if let url = URL(string: imageUrl) {
             userPicture.kf.setImage(with: url)
         }
-
     }
-    
 }

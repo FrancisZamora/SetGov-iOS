@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class Comment {
     var text = " "
     //var parentEvent = " "
@@ -24,8 +23,5 @@ class Comment {
         self.user = user
         self.timeStamp = timeStamp
         self.commentID = commentID
-    
     }
-    
-    
 }
