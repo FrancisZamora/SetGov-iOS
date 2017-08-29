@@ -55,7 +55,7 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
                     return
                 }
                 controller.selectedCity = city
-                    print(accessToken)
+                //print(accessToken)
                 loginButton.isHidden = true
                 
                 show(controller, sender: nil)

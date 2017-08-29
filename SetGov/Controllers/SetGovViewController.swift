@@ -22,13 +22,8 @@ class SetGovViewController: UIViewController {
         //ApiClient.login(onCompletion: { value in
         //   print(value)
         //})
-        
-        //print("login response")
 
-        if Reachability.isConnectedToNetwork() == true {
-            //print("Internet connection OK")
-        } else {
-            //print("Internet connection FAILED")
+        if (Reachability.isConnectedToNetwork() == false) {
             let alert = UIAlertView(title: "No Internet Connection", message: "Your device is not connected to the internet, SetGov will not work.", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
         }
@@ -48,8 +43,8 @@ class SetGovViewController: UIViewController {
         /*
          * BACKGROUND
          */
-        
-        self.view.backgroundColor = SG_NEARLY_WHITE_COLOR
+
+        self.view.backgroundColor = SG_NEARLY_WHITE_COLOR //Change the background color when new logo is included
         self.setNeedsStatusBarAppearanceUpdate()
     }
 }
