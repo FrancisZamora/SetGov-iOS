@@ -54,12 +54,12 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(pickerData[row])
+        //print(pickerData[row])
         
         UserDefaults.standard.set(pickerData[row],forKey:"homeCity")
         ApiClient.setHomeCity(city:pickerData[row])
 
-        print(UserDefaults.standard.string(forKey: "homeCity")!)
+        //print(UserDefaults.standard.string(forKey: "homeCity")!)
         
         //always direct to home city
     }

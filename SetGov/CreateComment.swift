@@ -22,9 +22,9 @@ class CreateComment: UITableViewCell, UITextFieldDelegate {
     }
     
     @IBAction func createAction(_ sender: Any) {
-        print("comment being created")
+        //print("comment being created")
         if let callback = self.commentCallBack {
-            print("callback in progress")
+            //print("callback in progress")
             
             callback.retrievecommentData(comment: self.commentField.text!)
                 self.commentField.text = ""

@@ -31,7 +31,7 @@ class profileCell: UITableViewCell {
                 profilePic.layer.borderWidth = 0 
                 profilePic.kf.setImage(with: theProfileImageUrl)
             } catch {
-                print("Unable to load data: \(error)")
+                //print("Unable to load data: \(error)")
             }
         }
 }

@@ -18,7 +18,7 @@ class AgendaViewController: UICollectionView {
     }
   
     func collectionView(_ collectionView: UICollectionView,cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("cell for row here we go")
+        //print("cell for row here we go")
         
         if (indexPath.row == 0) {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaItem1",for: indexPath)

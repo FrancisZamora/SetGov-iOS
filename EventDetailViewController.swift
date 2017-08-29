@@ -63,19 +63,19 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         self.user = self.appDelegate.user
 
         super.viewDidLoad()
-        print("EventDetailViewController")
+        //print("EventDetailViewController")
         self.loadTitle()
         
         self.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
-        print(agendaInfo)
-        print(indexofEvent)
+        //print(agendaInfo)
+        //print(indexofEvent)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.fetchEvent()
-        print("CURRENT AGENDA: \(currentEvent.agendaItems)")
-        print("this is the length of the comment array")
+        //print("CURRENT AGENDA: \(currentEvent.agendaItems)")
+        //print("this is the length of the comment array")
         tableView.reloadData()
     }
     
@@ -114,10 +114,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 }
                 
                 self.currentEvent.users = self.userArray
-                print(self.currentEvent.users)
+                //print(self.currentEvent.users)
                 
-                print("THIS IS THE PICTURE ARRAY FOR BOSTON \(self.picArray)")
-                
+                //print("THIS IS THE PICTURE ARRAY FOR BOSTON \(self.picArray)")
           
                 guard let comments = json["data"]["event"]["comments"].array else {
                     return
@@ -125,17 +124,16 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 
                 self.currentEvent.comments = []
                 for (_,val)in comments.enumerated()  {
-                    print("this is val")
-                    print(val)
+                    //print("this is val")
+                    //print(val)
                    
                     let user = User(fullName: val["user"]["full_name"].stringValue,
                                     profilePictureURL: val["user"]["profileImage"]["url"].stringValue)
                     let comment = Comment(text: val["text"].stringValue, user: user, karma: val["karma"].int!, timeStamp: "1 min ago",commentID:val["id"].int!)
                     
-        
                     self.currentEvent.comments.append(comment)
                    
-                    print("here is the text")
+                    //print("here is the text")
                 }
                 
                 self.tableView.reloadData()
@@ -148,22 +146,22 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 
                 self.picArray = pictureIDArray
                 
-                print("THIS IS THE PICTURE ARRAY FOR BOSTON \(self.picArray)")
+                //print("THIS IS THE PICTURE ARRAY FOR BOSTON \(self.picArray)")
                 
                 let comments = json["data"]["event"]["comments"]
-                print("here is the comment")
+                //print("here is the comment")
                 
-                print(comments)
+                //print(comments)
                 guard let comments2 = json["data"]["event"]["comments"].array else {
                     return
                 }
-                print("this is comments 2\(comments2)")
+                //print("this is comments 2\(comments2)")
                 
                 self.currentEvent.comments = []
 
                 for (_,val)in comments2.enumerated()  {
-                    print("this is val")
-                    print(val)
+                    //print("this is val")
+                    //print(val)
                     
                     let user = User(fullName: val["user"]["full_name"].stringValue,
                                     profilePictureURL: val["user"]["profileImage"]["url"].stringValue)
@@ -171,9 +169,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                     
                     self.currentEvent.comments.append(comment)
                   
-                    print(comment.commentID)
+                    //print(comment.commentID)
                   
-                    print("here is the text")
+                    //print("here is the text")
                     
                 }
                 self.tableView.reloadData()
@@ -182,39 +180,39 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     }
     
     func refresh(sender:AnyObject) {
-        print("refreshed")
+        //print("refreshed")
         self.refreshControl?.beginRefreshing()
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
             self.refreshControl?.endRefreshing()
-            print("stop refreshing")
+            //print("stop refreshing")
         }
     }
     
     func replyCommentData(comment: Comment) {
         self.replyComment = comment
-        print(self.replyComment.text)
+        //print(self.replyComment.text)
         self.tableView.reloadData()
     }
     
     func loadTitle() {
         if selectedCity == "Boston" {
-            print("loading title")
-            print(selectedEvents)
-            print(eventList)
-            print(indexofEvent)
+            //print("loading title")
+            //print(selectedEvents)
+            //print(eventList)
+            //print(indexofEvent)
             navTitle.title = bostonDataList[indexofEvent].title
             eventTitle = navTitle.title!
         }
         
         if selectedCity == "Fort Lauderdale" {
-            print("loading title")
-            print(selectedEvents)
-            print(eventList)
-            print(indexofEvent)
+            //print("loading title")
+            //print(selectedEvents)
+            //print(eventList)
+            //print(indexofEvent)
     
             navTitle.title = fortlauderdaleDataList[indexofEvent].title
-            print(fortlauderdaleArray)
+            //print(fortlauderdaleArray)
             
             self.eventDescription = currentEvent.description
 
@@ -223,7 +221,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     }
     
     func retrievecommentData(comment:String) {
-        print(comment)
+        //print(comment)
         if selectedCity == "Boston" {
             ApiClient.createComment(comment: comment, eventID: self.bostonDataList[indexofEvent].id, onCompletion:{ json in
                 self.fetchEvent()
@@ -252,8 +250,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     }
     
     func loadAgendaDetail(agenda: Agenda) {
-        print("EVENT AGENDA CALLBACK")
-        print("LOADING AGENDA DETAIL HERE")
+        //print("EVENT AGENDA CALLBACK")
+        //print("LOADING AGENDA DETAIL HERE")
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "AgendaDetailViewController") as! AgendaDetailViewController
@@ -264,12 +262,10 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         self.present(controller, animated:true, completion: nil )
     }
     
-    
     func attendbuttonTapped() {
-        print("attend button tapped, callback now")
+        //print("attend button tapped, callback now")
         self.fetchEvent()
         self.tableView.reloadData()
-        
     }
     
     func removeComment(comment:Comment) {
@@ -294,7 +290,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             }))
         
             alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
-                print("Handle Cancel Logic here")
+                //print("Handle Cancel Logic here")
             
             }))
             
@@ -310,23 +306,23 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yy"
         let newDate = dateFormatter.string(from: date)
-        print(newDate)
-        print(newDate)
+        //print(newDate)
+        //print(newDate)
         
         let x = newDate == fortlauderdaleDataList[indexofEvent].date
-        print(x)
+        //print(x)
         self.configureHour()
-        print(eventHours)
+        //print(eventHours)
         
         let y = currentHour >=  fortlauderdaleDataList[indexofEvent].time
-        print(currentHour)
-        print(y)
+        //print(currentHour)
+        //print(y)
         
         if x && y  {
-            print("times are compatible")
+            //print("times are compatible")
             return true
         } else {
-            print("times not compatible")
+            //print("times not compatible")
             return false
         }
     }
@@ -342,7 +338,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     func refreshTap(tapped:Bool) {
         streamPressed = tapped
         
-        print("event stream callback")
+        //print("event stream callback")
         //tableView.reloadData()
     }
     
@@ -350,11 +346,11 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         let alert = UIAlertController(title: "You are about to flag a comment as inappropriate", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.alert)
         
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-            print("Handle Ok logic here")
+            //print("Handle Ok logic here")
         }))
         
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
-            print("Handle Cancel Logic here")
+            //print("Handle Cancel Logic here")
         }))
         
         self.present(alert, animated: true, completion: nil)
@@ -366,12 +362,12 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         self.numsections = 1
-        print("numberofSections")
+        //print("numberofSections")
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("numberofRows")
+        //print("numberofRows")
     
         return 6 + currentEvent.comments.count
     }
@@ -444,7 +440,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(indexPath.row)
+        //print(indexPath.row)
         
         if (indexPath.row == 0) {
             let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream") as! EventStream
@@ -486,14 +482,14 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                     if noAlert == false && selectedCity == "Boston" {
                         let alert = UIAlertController(title: "Constant Stream Available", message: "Boston offers a 24/7 live stream", preferredStyle: UIAlertControllerStyle.alert)
                         alert.addAction(UIAlertAction(title: "Watch", style: .default, handler: { (action: UIAlertAction!) in
-                            print("Handle Ok logic here")
+                            //print("Handle Ok logic here")
                             self.videoRequested = true
                             tableView.reloadData()
                         
                         }))
                 
                         alert.addAction(UIAlertAction(title: "No Thanks", style: .cancel, handler: { (action: UIAlertAction!) in
-                            print("Handle Cancel Logic here")
+                            //print("Handle Cancel Logic here")
                             self.videoRequested = false
                         
                         }))
@@ -510,13 +506,13 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             }
             
             if eventStream.compareTime() == true || videoRequested == true {
-                print(checkAlert())
+                //print(checkAlert())
                 // only works when cell for row is refreshed 
                 let eventLiveStream = tableView.dequeueReusableCell(withIdentifier: "EventLiveStream") as! EventLiveStream
                 eventLiveStream.selectionStyle = .none
                 eventLiveStream.selectedCity = selectedCity
                 eventLiveStream.eventTitle = eventTitle
-                print ("returning stream")
+                //print ("returning stream")
                 eventLiveStream.configure()
                 eventLiveStream.playVideo()
                 if eventStream.compareTime() {
@@ -590,7 +586,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             }
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventDiscussion") as! EventDiscussion
-            print("printing value \(indexPath.row - 5)")
+            //print("printing value \(indexPath.row - 5)")
             cell.configure(comment: x[indexofEvent].comments[indexPath.row - 5])
             cell.selectionStyle = .none
             cell.discussionCallBack = self
@@ -631,8 +627,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         if let url = URL(string: url) {
             UIApplication.shared.openURL(url)
         } else {
-            print("INVALID URL STRING")
+            //print("INVALID URL STRING")
         }
     }
 }
-

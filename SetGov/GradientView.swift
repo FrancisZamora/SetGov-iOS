@@ -12,7 +12,7 @@ import UIKit
 @IBDesignable final class GradientView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        print("req inti RoundedFloatingImageButton")
+        //print("req inti RoundedFloatingImageButton")
         self.layer.cornerRadius = self.frame.height/2
         self.layer.cornerRadius = self.frame.height/2
         self.clipsToBounds = true

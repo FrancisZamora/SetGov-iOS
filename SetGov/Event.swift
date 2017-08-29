@@ -55,12 +55,12 @@ class Event {
         eventFormatter.dateFormat = "MMM dd, yyyy"
         let eventfriendlyDate = eventFormatter.string(from:realDate)
         var eventfriendlyDateArray = eventfriendlyDate.components(separatedBy: ",")
-        print(eventfriendlyDate)
-        print(eventDate)
+        //print(eventfriendlyDate)
+        //print(eventDate)
         
         self.eventDate = eventfriendlyDateArray[0]
-        print(self.eventDate)
-        print("EVENT DATE HERE")
+        //print(self.eventDate)
+        //print("EVENT DATE HERE")
         
         // ** read top comment self.eventUsers = eventUsers
     }

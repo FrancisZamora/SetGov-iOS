@@ -18,7 +18,7 @@ class Comment {
     
     init(text:String,  user:User, karma:Int,timeStamp:String,commentID:Int) {
         self.text = text
-       // self.parentEvent = parentEvent
+        //self.parentEvent = parentEvent
         self.karma = karma
         self.user = user
         self.timeStamp = timeStamp

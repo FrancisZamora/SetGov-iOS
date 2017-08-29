@@ -17,13 +17,13 @@ class FortLauderdaleStream: UITableViewCell {
     
     func playVideo(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        print(appDelegate.fortlauderdaleStreams)
+        //print(appDelegate.fortlauderdaleStreams)
         
         var urlArray = appDelegate.fortlauderdaleStreams
         
         urlArray = urlArray.filter { Int($0)! <= 743 }
             
-        print(urlArray)
+        //print(urlArray)
         
         if urlArray.count == 0 {
             return
@@ -35,12 +35,12 @@ class FortLauderdaleStream: UITableViewCell {
 
         let x = "https://fortlauderdale.granicus.com/MediaPlayer.php?view_id=2&clip_id=" + String(describing: urlArray[indexofEvent])
         
-        print(x)
+        //print(x)
         
         let url = URL(string: x )
-        print(url)
+        //print(url)
         
-        print("URL HERE \(url)")
+        //print("URL HERE \(url)")
         let request = URLRequest(url: url!)
         streamer.loadRequest(request)
     }

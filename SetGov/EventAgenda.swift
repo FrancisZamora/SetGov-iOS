@@ -34,7 +34,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     @IBOutlet var agendaCollection: UICollectionView!
     
     override func awakeFromNib() {
-        print("EventAgenda")
+        //print("EventAgenda")
         agendaCollectionView.delegate = self
         agendaCollectionView.dataSource = self
     }

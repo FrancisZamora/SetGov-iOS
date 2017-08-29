@@ -38,7 +38,7 @@ class SplashViewController: SetGovViewController {
             self.animateText()
 
             ApiClient.login(token: UserDefaults.standard.string(forKey: "token")!, onCompletion: { (json) in
-                print("JSON is here\(json)")
+                //print("JSON is here\(json)")
                 let fullName = json["data"]["authenticateUser"]["full_name"]
                 let profileURL = json["data"]["authenticateUser"]["profileImage"]["url"]
                 
@@ -50,8 +50,8 @@ class SplashViewController: SetGovViewController {
                         return
                     }
                     
-                    print(name)
-                    print(fbpID)
+                    //print(name)
+                    //print(fbpID)
                     self.user = User(fullName: name, profilePictureURL: fbpID)
                     self.appDelegate.user = self.user
                 }
@@ -92,10 +92,10 @@ class SplashViewController: SetGovViewController {
             
             linkArray.append(id)
             appDelegate.fortlauderdaleStreams = linkArray
-            print(appDelegate.fortlauderdaleStreams)
+            //print(appDelegate.fortlauderdaleStreams)
             
-            print(id)
-            print("ID STRING HERE")
+            //print(id)
+            //print("ID STRING HERE")
         }
         //loop through numbers 
         for href in doc.css("#ctl00_ContentPlaceHolder1_gridCalendar_ctl00_ctl46_hypAgenda") {
@@ -108,8 +108,8 @@ class SplashViewController: SetGovViewController {
             let soughtData = newDataArray[0]
             
             appDelegate.fortlauderdalePDFLinks.append(rawData)
-            print(rawData)
-            print("^^^^^")
+            //print(rawData)
+            //print("^^^^^")
         }
     }
     
@@ -135,7 +135,7 @@ class SplashViewController: SetGovViewController {
             if UserDefaults.standard.string(forKey:"token") != nil {
                 
                 ApiClient.login(token: UserDefaults.standard.string(forKey: "token")!, onCompletion: { (json) in
-                    print("JSON is here\(json)")
+                    //print("JSON is here\(json)")
                     let fullName = json["data"]["authenticateUser"]["full_name"]
                     let profileURL = json["data"]["authenticateUser"]["profileImage"]["url"]
                     
@@ -150,8 +150,8 @@ class SplashViewController: SetGovViewController {
                             return
                         }
                         
-                        print(name)
-                        print(fbpID)
+                        //print(name)
+                        //print(fbpID)
                         
                         self.user.fullName = name
                         self.user.profilePictureURL = fbpID
@@ -179,8 +179,8 @@ class SplashViewController: SetGovViewController {
     func fetchEvents () {
         ApiClient.fetchEvents(city: "Boston",  onCompletion: { events  in
             for event in events {
-                print("EVENT NAME: \(event.title)")
-                print("AGENDA: \(event.agendaItems)")
+                //print("EVENT NAME: \(event.title)")
+                //print("AGENDA: \(event.agendaItems)")
             }
             self.bostonDataList = events
             self.appDelegate.bostonDataList = self.bostonDataList
@@ -188,7 +188,7 @@ class SplashViewController: SetGovViewController {
         })
         
         ApiClient.fetchEvents(city: "Fort Lauderdale",  onCompletion: { event in
-            print("this is the index")
+            //print("this is the index")
             self.fortlauderdaleDataList = event
             self.appDelegate.fortlauderdaleDataList = self.fortlauderdaleDataList
             self.checkIfComplete()

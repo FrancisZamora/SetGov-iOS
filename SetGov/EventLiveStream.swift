@@ -51,7 +51,7 @@ class EventLiveStream: UITableViewCell {
     
     func switchTitleOn() {
         liveView.isHidden = false
-        print("title on")
+        //print("title on")
     }
     
 //    func incrementTime() {
@@ -119,7 +119,7 @@ class EventLiveStream: UITableViewCell {
     }
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        print("SHOULD START LOAD")
+        //print("SHOULD START LOAD")
         return true
     }
 }

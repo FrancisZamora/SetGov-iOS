@@ -47,8 +47,8 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Attendee", for: indexPath) as! Attendee
         
-        print(event.users)
-        print(event.users[indexPath.row].profilePictureURL)
+        //print(event.users)
+        //print(event.users[indexPath.row].profilePictureURL)
         
         cell.configure(imageUrl: event.users[indexPath.row].profilePictureURL)
         

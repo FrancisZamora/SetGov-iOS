@@ -51,7 +51,7 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         self.numsections = 1
-        print("numberofSections")
+        //print("numberofSections")
         return 1
     }
     

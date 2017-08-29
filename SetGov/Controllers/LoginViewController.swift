@@ -43,7 +43,7 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
         if let accessToken = AccessToken.current {
             UserDefaults.standard.set("in",forKey:"logged")
             UserDefaults.standard.set(accessToken.authenticationToken, forKey:"token")
-            print(accessToken)
+            //print(accessToken)
             loginButton.isHidden = true
             if UserDefaults.standard.string(forKey: "homeCity") == nil {
                 performSegue(withIdentifier: "loginCompleted", sender: self)
@@ -77,7 +77,7 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
         if let accessToken = AccessToken.current {
             UserDefaults.standard.set(accessToken.authenticationToken, forKey:"token")
             ApiClient.login(token: UserDefaults.standard.string(forKey: "token")!, onCompletion: { (json) in
-                print("JSON is here\(json)")
+                //print("JSON is here\(json)")
                 let fullName = json["data"]["authenticateUser"]["full_name"]
                 let profileURL = json["data"]["authenticateUser"]["profileImage"]["url"]
                 
@@ -89,8 +89,8 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
                         return
                     }
                     
-                    print(name)
-                    print(fbpID)
+                    //print(name)
+                    //print(fbpID)
                     self.user = User(fullName: name, profilePictureURL: fbpID)
                     
                     self.appDelegate.user = self.user
@@ -104,7 +104,7 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
                     return
                 }
                 controller.selectedCity = city
-                print(accessToken)
+                //print(accessToken)
                 loginButton.isHidden = true
                 
                 show(controller, sender: nil)
@@ -113,8 +113,6 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
                 loginButton.isHidden = true
 
                 performSegue(withIdentifier: "loginCompleted", sender: self)
-
-                print("swag")
             }
         }
     }

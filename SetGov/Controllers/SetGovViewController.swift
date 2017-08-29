@@ -19,16 +19,16 @@ class SetGovViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       // ApiClient.login(onCompletion: { value in
-         //   print(value)
-        //,})
+        //ApiClient.login(onCompletion: { value in
+        //   print(value)
+        //})
         
-        print("login response")
+        //print("login response")
 
-        if  Reachability.isConnectedToNetwork() == true {
-            print("Internet connection OK")
+        if Reachability.isConnectedToNetwork() == true {
+            //print("Internet connection OK")
         } else {
-            print("Internet connection FAILED")
+            //print("Internet connection FAILED")
             let alert = UIAlertView(title: "No Internet Connection", message: "Your device is not connected to the internet, SetGov will not work.", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
         }
@@ -37,7 +37,7 @@ class SetGovViewController: UIViewController {
          * NAVIGATION BAR
          */
         // set blue header
-        //        self.navigationController?.navigationBar.barTintColor = SM_PRIMARY_COLOR
+        // self.navigationController?.navigationBar.barTintColor = SM_PRIMARY_COLOR
         // set white title
         self.navigationController?.navigationBar.tintColor = SG_NEARLY_WHITE_COLOR
         // make bar opaque

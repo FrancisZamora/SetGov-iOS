@@ -11,7 +11,7 @@ import UIKit
 import QuartzCore
 
 class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
-    var  numsections = 0
+    var numsections = 0
     var agendaImage = #imageLiteral(resourceName: "Image1")
     var eventTitle = " "
     var primaryTitle = " "
@@ -44,12 +44,12 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         self.numsections = 1
-        print("numberofSections")
+        //print("numberofSections")
         return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("numberofRows")
+        //print("numberofRows")
         return 2
     }
     
@@ -68,7 +68,7 @@ class AgendaDetailViewController: SetGovTableViewController, HeaderCallBack {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(indexPath.row)
+        //print(indexPath.row)
         
         if (indexPath.row == 0) {
             let agendaDetailHeader =  tableView.dequeueReusableCell(withIdentifier: "AgendaDetailHeader", for:indexPath) as! AgendaDetailHeader

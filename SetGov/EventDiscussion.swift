@@ -44,23 +44,23 @@ class EventDiscussion: UITableViewCell {
         let theProfileImageUrl = URL(string:comment.user.profilePictureURL)
         do {
             userPicture.kf.setImage(with: theProfileImageUrl)
-            print("image created")
+            //print("image created")
         } catch {
-            print("Unable to load data: \(error)")
-            print("image failed")
+            //print("Unable to load data: \(error)")
+            //print("image failed")
         }
     }
     
     @IBAction func flagComment(_ sender: Any) {
         if let callback = self.discussionCallBack {
-            print("callback in progress")
+            //print("callback in progress")
             callback.displayAlert()
         }
     }
     
     @IBAction func deleteComment(_ sender: Any) {
         if let callback = self.discussionCallBack {
-            print("callback in progress")
+            //print("callback in progress")
             callback.removeComment(comment: self.comment)
         }
     }
@@ -102,7 +102,7 @@ class EventDiscussion: UITableViewCell {
     
     @IBAction func replyAction(_ sender: Any) {
         if let callback = self.discussionCallBack {
-            print("callback in progress")
+            //print("callback in progress")
             callback.replyCommentData(comment: self.comment)
         }
     }
@@ -120,7 +120,7 @@ class EventDiscussion: UITableViewCell {
         
         if UserDefaults.standard.string(forKey: String(comment.commentID)) == "upvoted" {
             var x = Int(karma.text!)
-            print("this is the karma \(x)")
+            //print("this is the karma \(x)")
 
             x = x! -  2
             self.karma.text = String(describing: x!)
@@ -134,7 +134,7 @@ class EventDiscussion: UITableViewCell {
         if UserDefaults.standard.string(forKey: String(comment.commentID)) == "neutral" || UserDefaults.standard.string(forKey: String(comment.commentID)) == nil  {
             
             var x = Int(karma.text!)
-            print("this is the karma \(x)")
+            //print("this is the karma \(x)")
             x = x! -  1
             self.karma.text = String(describing: x!)
             ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })

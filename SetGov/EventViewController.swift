@@ -74,7 +74,7 @@ class EventViewController: SetGovTableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(selectedCity)
+        //print(selectedCity)
         self.bostonDataList = self.appDelegate.bostonDataList
         self.fortlauderdaleDataList = self.appDelegate.fortlauderdaleDataList
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -83,13 +83,13 @@ class EventViewController: SetGovTableViewController{
 
         self.user = self.appDelegate.user
 
-        print(self.user.fullName)
+        //print(self.user.fullName)
         
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.navigationBar.tintColor = .white
-        print("EventViewController")
+        //print("EventViewController")
         self.setCity()
-        print(selectedCity)
+        //print(selectedCity)
 
         if UserDefaults.standard.integer(forKey: "eventoverLay") != 1 {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
@@ -99,7 +99,7 @@ class EventViewController: SetGovTableViewController{
         
         UserDefaults.standard.set(1,forKey:"eventoverLay")
         
-        print(UserDefaults.standard.integer(forKey: "eventoverLay"))
+        //print(UserDefaults.standard.integer(forKey: "eventoverLay"))
     }
     
     func getTime(time:String) -> String {
@@ -186,7 +186,7 @@ class EventViewController: SetGovTableViewController{
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         self.numsections = 1
-        print("numberofSections")
+        //print("numberofSections")
         return 3
     }
   
@@ -215,7 +215,7 @@ class EventViewController: SetGovTableViewController{
         if data[indexPath.row].description.contains("/") {
             var x =  data[indexPath.row].title.components(separatedBy:" ")
             let y = x[x.count-2]
-            print(y)
+            //print(y)
             
             data[indexPath.row].description = y
         }
@@ -223,7 +223,7 @@ class EventViewController: SetGovTableViewController{
         if data[indexPath.row].description.contains("#") {
             var x =  data[indexPath.row].title.components(separatedBy:" ")
             let y = x[x.count-3]
-            print(y)
+            //print(y)
             
             data[indexPath.row].description = y
         }
@@ -231,7 +231,7 @@ class EventViewController: SetGovTableViewController{
         cell.event.time = getTime(time: cell.event.time)
         cell.event.image = getImage(int: indexPath.row)
         cell.configure(event: data[indexPath.row])
-        print(" we hit the conditional")
+        //print(" we hit the conditional")
         return cell
     }
     

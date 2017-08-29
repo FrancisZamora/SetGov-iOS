@@ -27,21 +27,20 @@ class WebScraper {
                 var eventTimeNoFormat = [String]()
                 var eventHours = [[String]]()
                 
-                print("parsing Boston")
+                //print("parsing Boston")
                 let url = URL(string: "https://www.boston.gov/public-notices")
-                print(url as Any)
-                print("continue")
+                //print(url as Any)
+                //print("continue")
                 guard let doc = HTML(url: url!, encoding: .utf8) else  {
                     return ([],[],[],[],[],[])
                 }
-                print(doc.title as Any)
-                print(doc.body as Any)
+                //print(doc.title as Any)
+                //print(doc.body as Any)
                 
-                print("continue")
+                //print("continue")
                 for link in doc.css("a, link") {
-                    print("LINK TEXT: \(link.text as Any)" )
+                    //print("LINK TEXT: \(link.text as Any)" )
                     guard let uneditedHref = link["href"] else {
-                        
                         return ([],[],[],[],[],[])
                     }
                     if uneditedHref.range(of:"/public-notices/") != nil {
@@ -49,12 +48,10 @@ class WebScraper {
                     }
                 }
                 
-                
                 for notices in doc.css("a[href*='/public-notices/']") {
-                    
-                    print("configuring new string")
+                    //print("configuring new string")
                     var showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                    print("\(showString)\n")
+                    //print("\(showString)\n")
                     showString = showString.capitalized
                     
                     var newArray = showString.components(separatedBy: ",")
@@ -63,10 +60,10 @@ class WebScraper {
                     
                     var finalArray = lastElement.components(separatedBy: ",")
                     finalArray = finalArray[finalArray.count-1].components(separatedBy: " ")
-                    print(finalArray)
+                    //print(finalArray)
                     
                     var finalElement = finalArray[finalArray.count-1]
-                    print(finalElement)
+                    //print(finalElement)
                     let decimalCharacters = CharacterSet.decimalDigits
                     
                     let decimalRange = finalElement.rangeOfCharacter(from: decimalCharacters)
@@ -81,31 +78,27 @@ class WebScraper {
                     
                     numIterations = numIterations + 1
                     
-                    print("attempting to print event description")
+                    //print("attempting to print event description")
                     
                     let regex = try! NSRegularExpression(pattern: "href='")
                     
                     if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
-                        print("regex string")
-                        print("\(showString)\n")
-                        print("string was printed once")
+                        //print("regex string")
+                        //print("\(showString)\n")
+                        //print("string was printed once")
                     }
                     
                     arrayEvents.append(showString)
-                    
                 }
                 
                 for notices in doc.css(".thoroughfare") {
-                    
                     var showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                     
                     if showString.range(of:"Room") != nil {
-                        
                         showString = "1 City Hall Square"
                     }
                     
                     eventAddresses.append(showString)
-                    
                 }
                 
                 numIterations = 0
@@ -113,25 +106,23 @@ class WebScraper {
                     let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                     eventTimeNoFormat.append(showString)
                     numIterations = numIterations + 1
-                    
                 }
+                
                 eventTimeNoFormat = self.cleanseArray(eventTimeNoFormat: eventTimeNoFormat)
                 let eventTimeFormatted = self.breakTime(eventTimeNoFormat: eventTimeNoFormat)
                 
-                
                 numIterations = 0
                 for notices in doc.css(".dl-d") {
-                    
                     if numIterations == 3 {
                         numIterations = 0
                     }
                     if numIterations == 0 {
                         let showString = notices.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                        print(showString)
+                        //print(showString)
                         let tempArray = showString.components(separatedBy: "-")
-                        print(numIterations)
+                        //print(numIterations)
                         let eventHour = tempArray
-                        print(eventHour)
+                        //print(eventHour)
                         
                         eventHours.append(eventHour)
                     }
@@ -140,7 +131,6 @@ class WebScraper {
                 
                 arrayEvents.remove(at: 0)
                 hrefArray.remove(at: 0)
-                
                 
                 return (arrayEvents,descriptionArray,eventAddresses,eventHours,eventTimeFormatted,hrefArray)
                 //print("HREF ARRAY: \(self.hrefArray)")
@@ -154,18 +144,15 @@ class WebScraper {
             var paragraphArray = [[String]]()
             var agendaDictionary = [Int : [Agenda]]()
             
-            
             for (index, secondUrl) in hrefArray.enumerated() {
                 paragraphArray.removeAll()
                 agendaTitles.removeAll()
                 agendaStringArray.removeAll()
                 let url = URL(string: "https://www.boston.gov" + secondUrl)
                 
-                
                 guard let doc = HTML(url: url!, encoding: .utf8) else  {
                     return [:]
                 }
-                
                 
                 // seg fault is here
                 for link in doc.css(".body") {
@@ -175,19 +162,11 @@ class WebScraper {
                     let x = [agendaTitle][0]
                     agendaStringArray.append(x)
                     for paragraph2 in link.css("li") {
-                        
-                            let showString = link.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                        let showString = link.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                             
-                            print(showString)
-                            agendaTitles.append(showString)
-                        
-                        
-                        print(agendaTitles)
-
-
-                        
-                        
-                        
+                        //print(showString)
+                        agendaTitles.append(showString)
+                        //print(agendaTitles)
                     }
                     
                     var agendaList = [Agenda]()
@@ -200,45 +179,22 @@ class WebScraper {
                         paragraphString.append("Agenda Details Not Available")
                     }
                     
-                
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                   
-                    
                     agendaList.append(Agenda(name: "Agenda",
                                              description: descriptionArray[index],
                                              text: paragraphString))
-                    
-                    
-                    
-                    
                     
                     agendaDictionary[index] = agendaList
                     
                     paragraphArray = []
                     agendaTitles = []
-                    
-
-                    
-                  
                 }
-
-            
             }
             
             return agendaDictionary
-            
         }
         
         fileprivate static func breakTime(eventTimeNoFormat: [String]) -> [String] {
-            
-            print("BREAK TIME: \(eventTimeNoFormat)")
+            //print("BREAK TIME: \(eventTimeNoFormat)")
             
             let dateFormatter = DateFormatter()
             var dateArray = [Date]()
@@ -248,7 +204,6 @@ class WebScraper {
             var eventTimeFormatted = [String]()
             
             for value in eventTimeNoFormat {
-                
                 if let x = dateFormatter.date(from: value) {
                     dateArray.append(x)
                     format.append(dateFormatter.string(from: x))
@@ -259,28 +214,27 @@ class WebScraper {
             
             //Is this necessary?  All of the responses are coming back in the proper MM/dd/yy format
             
-            //        for value in eventTimeNoFormat {
-            //            //if let x = dateFormatter.date(from: dupArray[index]) {
-            //            if let x = dateFormatter.date(from: value) {
-            //                dateArray.append(x)
-            //                //let y = dateFormatter.string(from: dateArray[index])
-            //                format.append(dateFormatter.string(from: x))
-            //            }
-            //        }
+            //for value in eventTimeNoFormat {
+            //  if let x = dateFormatter.date(from: dupArray[index]) {
+            //  if let x = dateFormatter.date(from: value) {
+            //      dateArray.append(x)
+            //      let y = dateFormatter.string(from: dateArray[index])
+            //      format.append(dateFormatter.string(from: x))
+            //   }
+            //}
             
             for value in format {
                 var x = value.components(separatedBy: ",")
                 eventTimeFormatted.append(x[0])
             }
             
-            print("BREAK TIME RESULTS: \(eventTimeFormatted)")
+            //print("BREAK TIME RESULTS: \(eventTimeFormatted)")
             
             return eventTimeFormatted
         }
         
         fileprivate static func cleanseArray(eventTimeNoFormat: [String]) -> [String] {
-            
-            print("CLEANSING ARRAY: \(eventTimeNoFormat)")
+            //print("CLEANSING ARRAY: \(eventTimeNoFormat)")
             
             var indexArray = [Int]()
             for (index, value) in eventTimeNoFormat.enumerated() {
@@ -291,10 +245,9 @@ class WebScraper {
             
             let formatted = eventTimeNoFormat.enumerated().filter { !indexArray.contains($0.offset) }.map { $0.element }
             
-            print("FORMATTED ARRAY: \(formatted)")
+            //print("FORMATTED ARRAY: \(formatted)")
             
             return formatted
-            
         }
         
         fileprivate static func buildBostonEvents(agendaDictionary: [Int : [Agenda]],
@@ -305,9 +258,9 @@ class WebScraper {
                                                   eventTimeFormatted: [String],
                                                   onCompletion: @escaping() -> Void) {
             
-            print("BUILD BOSTON EVENTS: \(eventTimeFormatted)")
+            //print("BUILD BOSTON EVENTS: \(eventTimeFormatted)")
             guard eventTimeFormatted.count > 0 else {
-                print("EVENT TIME FORMATTED IS EMPTY")
+                //print("EVENT TIME FORMATTED IS EMPTY")
                 return
             }
             
@@ -315,10 +268,8 @@ class WebScraper {
             let spacer = "  "
             var count = eventAddresses.count
             for (index, value) in eventAddresses.enumerated() {
-                
-                print("ADDING EVENT: \(arrayEvents[index])")
-                print("ADDING EVENT: AGENDA: \(agendaDictionary[index]!)")
-                
+                //print("ADDING EVENT: \(arrayEvents[index])")
+                //print("ADDING EVENT: AGENDA: \(agendaDictionary[index]!)")
                 
                 let event = Event(title: spacer + arrayEvents[index],
                                   address: value,
@@ -339,33 +290,29 @@ class WebScraper {
                 }
                 
                 ApiClient.addEvent(event: event,onCompletion: { (success) in
-                    
                     count = count - 1
                     if(count <= 0 ) {
                         onCompletion()
                     }
-                    print("JSON HERE")
-                    //                    print(json["data"]["addEvent"]["id"])
-                    //                        guard let id = eventID.int else {
-                    //                            return
-                    //
-                    //                        }
-                    //                        print(id)
-                    //                        self.bostonIDS.append(id)
-                    //                        print("THESE ARE THE IDS")
-                    //                        print(self.bostonIDS)
-                    
+                    //print("JSON HERE")
+                    //print(json["data"]["addEvent"]["id"])
+                    //guard let id = eventID.int else {
+                    //  return
+                    //}
+                    //print(id)
+                    //self.bostonIDS.append(id)
+                    //print("THESE ARE THE IDS")
+                    //print(self.bostonIDS)
                 })
                 //dataList.append(event)
             }
             
-           print(agendaDictionary)
-            
+            //print(agendaDictionary)
         }
         
     static func parseEvents(onCompletion: @escaping() -> Void) {
             var appDelegate = UIApplication.shared.delegate as! AppDelegate
-            print("PARSING EVENTS!!!!!")
+            //print("PARSING EVENTS!!!!!")
             
             DispatchQueue.global().async() {
                 let results = parseBoston()
@@ -380,24 +327,8 @@ class WebScraper {
                                   onCompletion: {
                     onCompletion()
                 })
-                
-            
+            }
         
-                              
-                      
-        }
-        
-
-        
-        
-            
-            //            if self.selectedCity == "Boston" {
-            //
-            //
-            //            }
-            
-            
-            
             //            if self.selectedCity == "Fort Lauderdale" {
             //                print("parsing Fort Lauderdale")
             //                let url = URL(string: "https://fortlauderdale.legistar.com/Calendar.aspx")
@@ -458,18 +389,8 @@ class WebScraper {
             //                print(self.fortLauderdaleEvents[0][1])
             //                
             //            }
-            
-            
-            
+
             //self.buildAgendaItems()
             //self.fetchEventData()
-            
-            
-            
-            
         }
-        
     }
-
-
-

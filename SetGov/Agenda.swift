@@ -36,7 +36,7 @@ class Agenda {
         graphString.remove(at: graphString.index(before: graphString.endIndex))
         graphString.append("]")
         
-        print("BUILT GRAPH STRING: \(graphString)")
+        //print("BUILT GRAPH STRING: \(graphString)")
         
         return graphString
     }

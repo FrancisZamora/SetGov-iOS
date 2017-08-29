@@ -26,7 +26,7 @@ class CityNavigationViewController: SetGovTableViewController {
             }
         }
         UserDefaults.standard.set(1,forKey:"cityoverLay")
-        print(UserDefaults.standard.integer(forKey:"cityoverLay"))
+        //print(UserDefaults.standard.integer(forKey:"cityoverLay"))
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -45,12 +45,12 @@ class CityNavigationViewController: SetGovTableViewController {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         self.numsections = 1
-        print("numberofSections")
+        //print("numberofSections")
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("numberofRows")
+        //print("numberofRows")
         return 6
     }
     
@@ -83,7 +83,7 @@ class CityNavigationViewController: SetGovTableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "BostonCell", for:indexPath) as! BostonCell
             cell.selectionStyle = .none
             
-            print(indexPath.row)
+            //print(indexPath.row)
             cell.alpha = 0.80
             
             UIView.animate(withDuration: 0.5 ) {
@@ -102,7 +102,7 @@ class CityNavigationViewController: SetGovTableViewController {
                 cell.alpha = 1
             }
 
-            print(indexPath.row)
+            //print(indexPath.row)
             
             return cell
         }
@@ -182,10 +182,10 @@ class CityNavigationViewController: SetGovTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
-        print(indexPath.row)
+        //print(indexPath.row)
         
         if indexPath.row == 0 {
-            print("Boston Cell")
+            //print("Boston Cell")
             let cell = tableView.dequeueReusableCell(withIdentifier: "BostonCell", for:indexPath) as! BostonCell
             cell.selectionStyle = .none
             ApiClient.setHomeCity(city: "Boston")
@@ -193,7 +193,7 @@ class CityNavigationViewController: SetGovTableViewController {
         }
         
         if indexPath.row == 1 {
-            print("Fort Lauderdale Cell")
+            //print("Fort Lauderdale Cell")
             ApiClient.setHomeCity(city: "Fort Lauderdale")
             UserDefaults.standard.set("Fort Lauderdale",forKey:"homeCity")
         }

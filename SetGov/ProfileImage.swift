@@ -13,7 +13,7 @@ import QuartzCore
 class ProfilePicture: UIImageView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        print("req inti RoundedFloatingImageButton")
+        //print("req inti RoundedFloatingImageButton")
         self.layer.cornerRadius = self.frame.height / 2
         self.clipsToBounds = true
         self.layer.borderWidth = 1.5

@@ -33,7 +33,7 @@ class logOut: UITableViewCell, LoginButtonDelegate {
     }
     
     func loginButtonDidLogOut(_ loginButton: LoginButton) {
-        print("logging out")
+        //print("logging out")
         UserDefaults.standard.set(nil, forKey: "token")
         if let callBack = logoutcallBack {
             callBack.loggingOut()
