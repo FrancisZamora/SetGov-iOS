@@ -9,9 +9,16 @@
 import Foundation
 import UIKit
 
+protocol HomeCityCallBack: class {
+    func popView(city:String)
+    
+}
+
 class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
     var pickerData: [String] = [String]()
     var user: User!
+    weak var homecitycallBack: HomeCityCallBack!
+
 
     @IBOutlet var pickerView: UIPickerView!
     
@@ -26,6 +33,7 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
         }
     }
     
+   
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return  1
     }
@@ -57,7 +65,13 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
         //print(pickerData[row])
         
         UserDefaults.standard.set(pickerData[row],forKey:"homeCity")
+        
         ApiClient.setHomeCity(city:pickerData[row])
+        
+        if let callback = homecitycallBack {
+            
+            callback.popView(city: pickerData[row])
+        }
 
         //print(UserDefaults.standard.string(forKey: "homeCity")!)
         

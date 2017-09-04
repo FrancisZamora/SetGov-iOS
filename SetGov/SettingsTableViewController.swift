@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
+class SettingsTableViewController: SetGovTableViewController, LogOutCallBack, HomeCityCallBack {
     var numsections = 0
     var pickerData: [String] = [String]()
     var user: User!
@@ -18,12 +18,14 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationItem.backBarButtonItem?.title = ""
+
         self.navigationItem.rightBarButtonItem = nil
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        self.navigationItem.backBarButtonItem?.title = ""
+
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -35,6 +37,32 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
+    }
+    
+    func popView(city:String) {
+        print("calling print pop view")
+        switch city {
+        case "Boston":
+            print(city)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+            controller.selectedCity = "Boston"
+            print(self.navigationController?.viewControllers.count)
+
+            self.navigationController?.viewControllers.insert(controller, at: 3)
+
+        case "Fort Lauderdale":
+            print(city)
+
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+            controller.selectedCity = "Fort Lauderdale"
+            print(self.navigationController?.viewControllers.count)
+            self.navigationController?.viewControllers.insert(controller, at: 3)
+        default:
+            print("selected city not available")
+    
+        }
     }
     
     func loggingOut(){
@@ -93,6 +121,7 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack {
             let cell =  tableView.dequeueReusableCell(withIdentifier: "homeCity") as! homeCity
             cell.selectionStyle = .none
             cell.configurePicker()
+            cell.homecitycallBack = self
             return cell
         }
         
