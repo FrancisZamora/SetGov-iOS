@@ -19,14 +19,13 @@ protocol EventAgendaCallback: class {
 
 class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    
     @IBOutlet var comingSoon: UILabel!
     @IBOutlet var agenda: UILabel!
     @IBOutlet weak var agendaCollectionView: UICollectionView!
-   // var agendaInfo = [Int: String]()
-  //  var index = 0
+    //var agendaInfo = [Int: String]()
+    //var index = 0
     weak var eventAgendaCallback: EventAgendaCallback!
-  //  var hrefArray = [String]()
+    //var hrefArray = [String]()
     //var indexofEvent = 0
     var selectedCity = " "
     var currentEvent: Event!
@@ -35,7 +34,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     @IBOutlet var agendaCollection: UICollectionView!
     
     override func awakeFromNib() {
-        print("EventAgenda")
+        //print("EventAgenda")
         agendaCollectionView.delegate = self
         agendaCollectionView.dataSource = self
     }
@@ -61,36 +60,31 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
            
             AgendaArray.append(x)
 
-            
             cell.configureCell(agenda:AgendaArray[indexPath.row])
             return cell
-            
         }
         cell.configureCell(agenda: currentEvent.agendaItems[indexPath.row])
         return cell
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if currentEvent.city == "Fort Lauderdale" {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let fortlauderdalePDFS = appDelegate.fortlauderdalePDFLinks
-             if  (fortlauderdalePDFS.count < indexofEvent + 1 )   {
+            if  (fortlauderdalePDFS.count < indexofEvent + 1 )   {
                 agendaCollection.isHidden = true
-            }
-             else {
+            } else {
                 agendaCollection.isHidden = false
                 comingSoon.isHidden = true
 
                 self.agendaCollection.reloadData()
                 return 1
             }
-            }
+        }
+        
         if currentEvent.city == "Boston" {
             comingSoon.isHidden = true
         }
-        
-   
         
         return currentEvent.agendaItems.count
     }
@@ -104,9 +98,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         }
         
         if let callback = eventAgendaCallback {
-
             callback.loadAgendaDetail(agenda: currentEvent.agendaItems[indexPath.row])
-            
         }
     }
 }

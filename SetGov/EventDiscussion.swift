@@ -31,8 +31,6 @@ class EventDiscussion: UITableViewCell {
     
     @IBOutlet var textBox: UILabel!
     
-    
-    
     func configure(comment:Comment) {
         self.comment = comment
         textBox.text = comment.text
@@ -45,37 +43,28 @@ class EventDiscussion: UITableViewCell {
         userName.text = comment.user.fullName
         let theProfileImageUrl = URL(string:comment.user.profilePictureURL)
         do {
-            
             userPicture.kf.setImage(with: theProfileImageUrl)
-            print("image created")
+            //print("image created")
         } catch {
-            print("Unable to load data: \(error)")
-            print("image failed")
+            //print("Unable to load data: \(error)")
+            //print("image failed")
         }
-        
-        
-        
-       
-        
     }
+    
     @IBAction func flagComment(_ sender: Any) {
         if let callback = self.discussionCallBack {
-            print("callback in progress")
-            
+            //print("callback in progress")
             callback.displayAlert()
         }
-       
-
     }
     
     @IBAction func deleteComment(_ sender: Any) {
         if let callback = self.discussionCallBack {
-            print("callback in progress")
-            
+            //print("callback in progress")
             callback.removeComment(comment: self.comment)
         }
-      
     }
+    
     @IBAction func upvoteAction(_ sender: Any) {
         if UserDefaults.standard.string(forKey: String(comment.commentID)) == "upvoted" {
             var x = Int(karma.text!)
@@ -97,9 +86,8 @@ class EventDiscussion: UITableViewCell {
             self.upVote.setImage(#imageLiteral(resourceName: "Image-33"), for: .normal)
             self.downVote.setImage(#imageLiteral(resourceName: "Image-15"), for: .normal)
             UserDefaults.standard.set("upvoted",forKey:String(comment.commentID))
-            
-            
         }
+        
         if UserDefaults.standard.string(forKey: String(comment.commentID)) == "neutral" || UserDefaults.standard.string(forKey: String(comment.commentID)) == nil {
        
             var x = Int(karma.text!)
@@ -109,27 +97,16 @@ class EventDiscussion: UITableViewCell {
             ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
             UserDefaults.standard.set("upvoted",forKey:String(comment.commentID))
         }
-        
-        
-        
-        
     }
     
     
     @IBAction func replyAction(_ sender: Any) {
-        
         if let callback = self.discussionCallBack {
-            print("callback in progress")
-            
+            //print("callback in progress")
             callback.replyCommentData(comment: self.comment)
         }
-        
     }
-    
 
-    
-    
-    
     @IBAction func downvoteAction(_ sender: Any) {
         if UserDefaults.standard.string(forKey: String(comment.commentID)) == "downvoted" {
             var x = Int(karma.text!)
@@ -139,13 +116,11 @@ class EventDiscussion: UITableViewCell {
             self.downVote.setImage(#imageLiteral(resourceName: "Image-15"), for: .normal)
             UserDefaults.standard.set("neutral",forKey:String(comment.commentID))
             return
-            
         }
-        
         
         if UserDefaults.standard.string(forKey: String(comment.commentID)) == "upvoted" {
             var x = Int(karma.text!)
-            print("this is the karma \(x)")
+            //print("this is the karma \(x)")
 
             x = x! -  2
             self.karma.text = String(describing: x!)
@@ -154,28 +129,17 @@ class EventDiscussion: UITableViewCell {
             self.downVote.setImage(#imageLiteral(resourceName: "Image-32"), for: .normal)
             self.upVote.setImage(#imageLiteral(resourceName: "Image-16"), for: .normal)
             UserDefaults.standard.set("downvoted",forKey:String(comment.commentID))
-
-            
         }
+        
         if UserDefaults.standard.string(forKey: String(comment.commentID)) == "neutral" || UserDefaults.standard.string(forKey: String(comment.commentID)) == nil  {
             
             var x = Int(karma.text!)
-            print("this is the karma \(x)")
+            //print("this is the karma \(x)")
             x = x! -  1
             self.karma.text = String(describing: x!)
             ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
             self.downVote.setImage(#imageLiteral(resourceName: "Image-32"), for: .normal)
             UserDefaults.standard.set("downvoted",forKey:String(comment.commentID))
         }
-
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

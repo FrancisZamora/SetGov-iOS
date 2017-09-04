@@ -23,7 +23,7 @@ class ApiClient {
                           headers: [:])
             .responseJSON { response in
             
-            print(response)
+            //print(response)
             guard let jsonString = response.result.value else {
                 onCompletion(JSON.null)
                 return
@@ -45,7 +45,7 @@ class ApiClient {
                           headers: [:])
             .responseJSON { response in
                 
-                print(response)
+                //print(response)
                 guard let jsonString = response.result.value else {
                     onCompletion(JSON.null)
                     return
@@ -63,8 +63,8 @@ class ApiClient {
         formatter.dateFormat = "MM/dd/yy"
         formatter.dateStyle = .short
         
-        print("add event title: \(event.title)")
-        print("add event agenda: \(event.agendaItems)")
+        //print("add event title: \(event.title)")
+        //print("add event agenda: \(event.agendaItems)")
         
         let url = "https://setgov.herokuapp.com/api/v/1/graph"
         let query = "mutation{addEvent(name:\"\(event.title)\",city:\"\(event.city)\",address:\"\(event.address)\",date:\"\(event.date)\",time:\"\(event.time)\", description:\"\(event.description)\",agendaItems:\(Agenda.buildGraphString(agendaList: event.agendaItems))){id, agendaItems{ name, description, text}}}"
@@ -75,19 +75,19 @@ class ApiClient {
                           headers: [:])
             .responseJSON { response in
                 
-                print("ADD EVENT RESPONSE: \(response.result.value)")
+                //print("ADD EVENT RESPONSE: \(response.result.value)")
                 
                 guard let jsonString = response.result.value,
                     let _ = JSON(jsonString)["data"]["addEvent"]["id"].int else {
                         
-                        print("ADD EVENT ERROR")
+                        //print("ADD EVENT ERROR")
                         
                         
                         onCompletion(false)
                         return
                 }
                 
-                print("ADD EVENT RESPONSE: \(JSON(jsonString))")
+                //print("ADD EVENT RESPONSE: \(JSON(jsonString))")
                 onCompletion(true)
                 
         }
@@ -104,7 +104,7 @@ class ApiClient {
             let json = JSON(jsonString)
             onCompletion(json)
             
-            print(response)
+            //print(response)
         }
         
     }
@@ -120,12 +120,12 @@ class ApiClient {
             let json = JSON(jsonString)
             onCompletion(json)
             
-            print(response)
+            //print(response)
         }
     }
     
     static func attendEvent(eventID:Int, onCompletion: @escaping(JSON) -> Void) {
-        print(eventID)
+        //print(eventID)
         
         let URL = "https://setgov.herokuapp.com/api/v/1/graph"
         let query = "mutation {attendEvent(event_id:\(eventID)){id }}"
@@ -137,7 +137,7 @@ class ApiClient {
             let json = JSON(jsonString)
             onCompletion(json)
             
-            print(response)
+            //print(response)
         }
         
     }
@@ -145,11 +145,11 @@ class ApiClient {
     static func unattendEvent(eventID:Int, onCompletion: @escaping([User]) -> Void) {
         let URL = "https://setgov.herokuapp.com/api/v/1/graph"
         let query = "mutation {unattendEvent(event_id:\(eventID)){id,name,address,date,time,description,attendingUsers{profileImage{url},full_name},comments{text,id, karma,timestamp,user{full_name, profileImage{url}}}}}"
-         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
-        let jsonString = response.result.value
-        let event = JSON(jsonString)["data"]["event"]
-        let User = createUsers(event: event)
-        onCompletion(User)
+        Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
+            let jsonString = response.result.value
+            let event = JSON(jsonString)["data"]["event"]
+            let User = createUsers(event: event)
+            onCompletion(User)
         }
     }
     
@@ -158,13 +158,12 @@ class ApiClient {
         let query = "query{ event(id:\(eventID)){id,name,address,date,time,description,attendingUsers{profileImage{url},full_name},comments{text,id, karma,timestamp,user{full_name, profileImage{url}}}}}"
         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
             
-            
             guard let jsonString = response.result.value else {
                 onCompletion(JSON.null)
                 return
             }
             let json = JSON(jsonString)
-            print(response)
+            //print(response)
             onCompletion(json)
         }
     }
@@ -192,14 +191,14 @@ class ApiClient {
                     return
             }
             
-            print("FETCHED EVENTS: \(events)")
+            //print("FETCHED EVENTS: \(events)")
             
             var eventsArray = [Event]()
             for event in events {
                 
                 let users = createUsers(event: event)
                 let agendas = createAgendas(event: event)
-                print(agendas)
+                //print(agendas)
                 
                 let comments = createComments(event: event)
                 
@@ -273,13 +272,13 @@ class ApiClient {
                           encoding: JSONEncoding.default,
                           headers: [:])
             .responseJSON { _ in
-                print("SET HOME CITY RESPONSE!")
+                //print("SET HOME CITY RESPONSE!")
             }
     }
     
     static func createAgendas(event: JSON) -> [Agenda] {
-        print(event)
-        print("creating agenda")
+        //print(event)
+        //print("creating agenda")
         var agendaArray = [Agenda]()
         if let agendaItems = event["agendaItems"].array {
             for agenda in agendaItems {

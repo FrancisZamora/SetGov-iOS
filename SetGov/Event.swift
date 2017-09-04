@@ -27,10 +27,9 @@ class Event {
     var eventDate = String()
    // var loggedUser = User(userName: " " , attendingStatus: false, interestedStatus: false)
     
-    
     init() {
+        
     }
-    
     
     init(title:String, address: String, users: [User],  description: String, date: String, eventImageName: String, time: String, city: String,agendaItems: [Agenda], comments: [Comment], id: Int) {
         self.title = title
@@ -56,22 +55,15 @@ class Event {
         eventFormatter.dateFormat = "MMM dd, yyyy"
         let eventfriendlyDate = eventFormatter.string(from:realDate)
         var eventfriendlyDateArray = eventfriendlyDate.components(separatedBy: ",")
-        print(eventfriendlyDate)
-        print(eventDate)
+        //print(eventfriendlyDate)
+        //print(eventDate)
         
         self.eventDate = eventfriendlyDateArray[0]
-        print(self.eventDate)
-        print("EVENT DATE HERE")
-            
-        
-
-        
+        //print(self.eventDate)
+        //print("EVENT DATE HERE")
         
         // ** read top comment self.eventUsers = eventUsers
     }
-    
-    
-    
 }
 
 

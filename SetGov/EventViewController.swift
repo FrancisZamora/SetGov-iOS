@@ -40,9 +40,6 @@ class EventViewController: SetGovTableViewController{
     var fortlauderdaleDataList = [Event]()
     var selectedEvent = Event()
     
-    
-    
-    
     @IBOutlet var cityDisplay: UINavigationItem!
     
     func isEven (num:Int) -> Bool {
@@ -53,7 +50,6 @@ class EventViewController: SetGovTableViewController{
             return false
         }
     }
-    
     
     func checkMembers() {
 //        ApiClient.fetchEvents(city: selectedCity,  onCompletion: { event in
@@ -70,15 +66,15 @@ class EventViewController: SetGovTableViewController{
 //            self.tableView.reloadData()
 //        
 //        })
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(selectedCity)
+        //print(selectedCity)
         self.bostonDataList = self.appDelegate.bostonDataList
         self.fortlauderdaleDataList = self.appDelegate.fortlauderdaleDataList
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -87,26 +83,23 @@ class EventViewController: SetGovTableViewController{
 
         self.user = self.appDelegate.user
 
-        print(self.user.fullName)
+        //print(self.user.fullName)
         
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.navigationBar.tintColor = .white
-        print("EventViewController")
+        //print("EventViewController")
         self.setCity()
-        print(selectedCity)
+        //print(selectedCity)
 
         if UserDefaults.standard.integer(forKey: "eventoverLay") != 1 {
-
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
                      self.performSegue(withIdentifier: "overLay", sender: nil)
-            
             }
         }
+        
         UserDefaults.standard.set(1,forKey:"eventoverLay")
         
-        print(UserDefaults.standard.integer(forKey: "eventoverLay"))
-        
-        
+        //print(UserDefaults.standard.integer(forKey: "eventoverLay"))
     }
     
     func getTime(time:String) -> String {
@@ -121,11 +114,9 @@ class EventViewController: SetGovTableViewController{
         }
     }
     
-    
-    
     func getImage(int:Int ) -> UIImage {
         if selectedCity == "Boston" {
-                if  bostonDataList[int].address == "1 City Hall Square" || bostonDataList[int].address == "1 City Hall Plaza" {
+            if  bostonDataList[int].address == "1 City Hall Square" || bostonDataList[int].address == "1 City Hall Plaza" {
                 return #imageLiteral(resourceName: "Image-12")
             }
             if bostonDataList[int].address == "Boston City Hall" {
@@ -138,17 +129,14 @@ class EventViewController: SetGovTableViewController{
             else {
                 return #imageLiteral(resourceName: "brownstone")
             }
-           
-        }
-        if selectedCity == "Fort Lauderdale" {
-          
-            return #imageLiteral(resourceName: "Image-7")
         }
         
+        if selectedCity == "Fort Lauderdale" {
+            return #imageLiteral(resourceName: "Image-7")
+        }
       
         return #imageLiteral(resourceName: "Image")
     }
-    
     
     func getDataList() -> [Event] {
         switch selectedCity {
@@ -159,7 +147,6 @@ class EventViewController: SetGovTableViewController{
         default:
             return bostonDataList
         }
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -178,16 +165,9 @@ class EventViewController: SetGovTableViewController{
         })
     }
     
-
-
-    
-
-    
-    
     func setCity() {
         if selectedCity == "Fort Lauderdale" {
             cityDisplay.title = "Fort Lauderdale, FL "
-            
         }
         
         if selectedCity == "Boston" {
@@ -197,7 +177,6 @@ class EventViewController: SetGovTableViewController{
         if selectedCity == "New York City" {
             cityDisplay.title = "New York, NY "
         }
-        
     }
     
     //tableview methods
@@ -205,41 +184,23 @@ class EventViewController: SetGovTableViewController{
         return 50.0
     }
     
-    
-    
-    
-    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         self.numsections = 1
-        print("numberofSections")
+        //print("numberofSections")
         return 3
     }
   
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        
         if selectedCity == "Boston" {
             return bostonDataList.count
-
         }
-        
         
         if selectedCity == "Fort Lauderdale" {
             return fortlauderdaleDataList.count
-        }
-            
-        
-        else {
+        } else {
             return 0
         }
-        
-        
     }
-    
-    
-    
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var data = getDataList()
@@ -250,12 +211,11 @@ class EventViewController: SetGovTableViewController{
         }
         if data[indexPath.row].description == "(Pwd)" {
             data[indexPath.row].description = "Public Works"
-        
         }
         if data[indexPath.row].description.contains("/") {
             var x =  data[indexPath.row].title.components(separatedBy:" ")
             let y = x[x.count-2]
-            print(y)
+            //print(y)
             
             data[indexPath.row].description = y
         }
@@ -263,50 +223,36 @@ class EventViewController: SetGovTableViewController{
         if data[indexPath.row].description.contains("#") {
             var x =  data[indexPath.row].title.components(separatedBy:" ")
             let y = x[x.count-3]
-            print(y)
+            //print(y)
             
             data[indexPath.row].description = y
-
-            
         }
        
-
-
         cell.event.time = getTime(time: cell.event.time)
         cell.event.image = getImage(int: indexPath.row)
         cell.configure(event: data[indexPath.row])
-        print(" we hit the conditional")
+        //print(" we hit the conditional")
         return cell
-        
     }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         
-        
         if selectedCity == "Fort Lauderdale" {
-            
             selectedEvent = fortlauderdaleDataList[indexPath.row]
             indexofEvent = indexPath.row
             performSegue(withIdentifier: "showEvent", sender: nil)
-            
         }
-        
         
         if selectedCity == "Boston" {
             selectedEvent = bostonDataList[indexPath.row]
             indexofEvent = indexPath.row
             performSegue(withIdentifier: "showEvent", sender: nil)
         }
-        
-        
-        
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showEvent") {
-            
             let eventDetailViewController = segue.destination as! EventDetailViewController
             eventDetailViewController.selectedEvents = eventTitles
             eventDetailViewController.indexofEvent = indexofEvent

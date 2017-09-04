@@ -12,14 +12,15 @@ import ObjectMapper
 import NVActivityIndicatorView
 import SwiftyJSON
 import Kanna
+
 class SplashViewController: SetGovViewController {
     @IBOutlet var animationView: NVActivityIndicatorView!
     @IBOutlet var loading: UILabel!
     var user: User!
     var bostonDataList = [Event]()
     var fortlauderdaleDataList = [Event]()
+    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         if let date = UserDefaults.standard.object(forKey: "parsed") as? Date {
             self.fortlauderdaleLinks()
@@ -29,24 +30,19 @@ class SplashViewController: SetGovViewController {
             } else {
                 fetchEvents()
             }
-            
         } else {
             parseEvents()
         }
-        
-        
         
         if UserDefaults.standard.string(forKey:"token") != nil {
             self.animateText()
 
             ApiClient.login(token: UserDefaults.standard.string(forKey: "token")!, onCompletion: { (json) in
-                print("JSON is here\(json)")
+                //print("JSON is here\(json)")
                 let fullName = json["data"]["authenticateUser"]["full_name"]
                 let profileURL = json["data"]["authenticateUser"]["profileImage"]["url"]
                 
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                    
-
                     guard let name = fullName.string else {
                         return
                     }
@@ -54,16 +50,11 @@ class SplashViewController: SetGovViewController {
                         return
                     }
                     
-                    print(name)
-                    print(fbpID)
+                    //print(name)
+                    //print(fbpID)
                     self.user = User(fullName: name, profilePictureURL: fbpID)
-                    
-                   
                     self.appDelegate.user = self.user
-
-                    
                 }
-                
             })
         } else {
             
@@ -86,7 +77,6 @@ class SplashViewController: SetGovViewController {
         }
         var linkArray = [String]()
         for links in doc.css(".videolink") {
-            
             let rawlink =  links["onclick"]?.trimmingCharacters(in: .whitespacesAndNewlines)
             
             let extractArray = rawlink?.components(separatedBy: "window.open(\'")
@@ -102,12 +92,10 @@ class SplashViewController: SetGovViewController {
             
             linkArray.append(id)
             appDelegate.fortlauderdaleStreams = linkArray
-            print(appDelegate.fortlauderdaleStreams)
+            //print(appDelegate.fortlauderdaleStreams)
             
-            print(id)
-            print("ID STRING HERE")
-            
-            
+            //print(id)
+            //print("ID STRING HERE")
         }
         //loop through numbers 
         for href in doc.css("#ctl00_ContentPlaceHolder1_gridCalendar_ctl00_ctl46_hypAgenda") {
@@ -120,13 +108,11 @@ class SplashViewController: SetGovViewController {
             let soughtData = newDataArray[0]
             
             appDelegate.fortlauderdalePDFLinks.append(rawData)
-            print(rawData)
-            print("^^^^^")
-            
-            
+            //print(rawData)
+            //print("^^^^^")
         }
-
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -135,12 +121,9 @@ class SplashViewController: SetGovViewController {
     func checkIfComplete() {
         if(bostonDataList.count > 0 && fortlauderdaleDataList.count > 0) {
             if UserDefaults.standard.string(forKey: "logged") == nil{
-                
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let controller = storyboard.instantiateViewController(withIdentifier: "loginCompleted") as! LoginViewController
                 self.show(controller, sender: nil)
-                
-                
             }
             
             if UserDefaults.standard.string(forKey:"logged") == "out" {
@@ -149,12 +132,10 @@ class SplashViewController: SetGovViewController {
                 self.show(controller, sender: nil)
             }
             
-            
-            
             if UserDefaults.standard.string(forKey:"token") != nil {
                 
                 ApiClient.login(token: UserDefaults.standard.string(forKey: "token")!, onCompletion: { (json) in
-                    print("JSON is here\(json)")
+                    //print("JSON is here\(json)")
                     let fullName = json["data"]["authenticateUser"]["full_name"]
                     let profileURL = json["data"]["authenticateUser"]["profileImage"]["url"]
                     
@@ -169,19 +150,17 @@ class SplashViewController: SetGovViewController {
                             return
                         }
                         
-                        print(name)
-                        print(fbpID)
+                        //print(name)
+                        //print(fbpID)
                         
                         self.user.fullName = name
                         self.user.profilePictureURL = fbpID
                         
                     }
-                    
                 })
             }
             
             if UserDefaults.standard.string(forKey:"logged") == "in" && UserDefaults.standard.string(forKey: "homeCity") != nil {
-                
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let controller = storyboard.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
                 guard let city = UserDefaults.standard.string(forKey: "homeCity") else {
@@ -194,46 +173,37 @@ class SplashViewController: SetGovViewController {
                 
                 self.show(controller, sender: nil)
             }
-
         }
     }
     
     func fetchEvents () {
-            ApiClient.fetchEvents(city: "Boston",  onCompletion: { events  in
-                
-                
-                for event in events {
-                    print("EVENT NAME: \(event.title)")
-                    print("AGENDA: \(event.agendaItems)")
-                }
-                self.bostonDataList = events
-                self.appDelegate.bostonDataList = self.bostonDataList
-                self.checkIfComplete()
-            
-            })
-        
-        
+        ApiClient.fetchEvents(city: "Boston",  onCompletion: { events  in
+            for event in events {
+                //print("EVENT NAME: \(event.title)")
+                //print("AGENDA: \(event.agendaItems)")
+            }
+            self.bostonDataList = events
+            self.appDelegate.bostonDataList = self.bostonDataList
+            self.checkIfComplete()
+        })
         
         ApiClient.fetchEvents(city: "Fort Lauderdale",  onCompletion: { event in
-            print("this is the index")
+            //print("this is the index")
             self.fortlauderdaleDataList = event
             self.appDelegate.fortlauderdaleDataList = self.fortlauderdaleDataList
             self.checkIfComplete()
         })
     }
     
-    
     func animateText() {
         if UserDefaults.standard.string(forKey:"token") != nil {
-      
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
                 self.loading.alpha  = 0
                 UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseOut, animations: {
                     self.loading.alpha = 1.0
                 })
             }
-
-        
+            
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0) {
                 self.loading.alpha  = 0
                 UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseOut, animations: {
@@ -247,17 +217,6 @@ class SplashViewController: SetGovViewController {
                     self.loading.alpha = 1.0
                 })
             }
-        
         }
-
-        
-        
-        
-        
     }
-    
-    
-    
-   
-    
 }

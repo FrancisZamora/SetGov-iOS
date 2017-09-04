@@ -13,5 +13,4 @@ class pushNotification: UITableViewCell {
     
     @IBOutlet var pushSwitch: UISwitch!
     
-    
 }

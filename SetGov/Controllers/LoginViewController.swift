@@ -36,7 +36,6 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
 
         setGov.layer.shadowOpacity = 0.5
         
-        
         self.setGov.alpha = 0
         let gesture = UITapGestureRecognizer(target: self, action: #selector(selector))
         loginButton.addGestureRecognizer(gesture)
@@ -44,30 +43,24 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
         if let accessToken = AccessToken.current {
             UserDefaults.standard.set("in",forKey:"logged")
             UserDefaults.standard.set(accessToken.authenticationToken, forKey:"token")
-            print(accessToken)
+            //print(accessToken)
             loginButton.isHidden = true
             if UserDefaults.standard.string(forKey: "homeCity") == nil {
                 performSegue(withIdentifier: "loginCompleted", sender: self)
             }
             if UserDefaults.standard.string(forKey:"homeCity") != nil {
-                
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let controller = storyboard.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
                 guard let city = UserDefaults.standard.string(forKey: "homeCity") else {
                     return
                 }
                 controller.selectedCity = city
-                    print(accessToken)
+                //print(accessToken)
                 loginButton.isHidden = true
                 
                 show(controller, sender: nil)
-                
-
-                }
-                
-
             }
-        
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,26 +68,20 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    
-    
     func selector() {
         let controller = storyboard?.instantiateViewController(withIdentifier: "CityNavigationViewController") as! AgendaDetailViewController
         self.show(controller, sender: nil)
     }
     
     func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
-       
-
         if let accessToken = AccessToken.current {
             UserDefaults.standard.set(accessToken.authenticationToken, forKey:"token")
             ApiClient.login(token: UserDefaults.standard.string(forKey: "token")!, onCompletion: { (json) in
-                print("JSON is here\(json)")
+                //print("JSON is here\(json)")
                 let fullName = json["data"]["authenticateUser"]["full_name"]
                 let profileURL = json["data"]["authenticateUser"]["profileImage"]["url"]
                 
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                    
-                    
                     guard let name = fullName.string else {
                         return
                     }
@@ -102,73 +89,46 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
                         return
                     }
                     
-                    print(name)
-                    print(fbpID)
+                    //print(name)
+                    //print(fbpID)
                     self.user = User(fullName: name, profilePictureURL: fbpID)
                     
-                    
                     self.appDelegate.user = self.user
-                    
-                    
                 }
-                
             })
+            
             if UserDefaults.standard.string(forKey:"homeCity") != nil {
-                
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let controller = storyboard.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
                 guard let city = UserDefaults.standard.string(forKey: "homeCity") else {
                     return
                 }
                 controller.selectedCity = city
-                print(accessToken)
+                //print(accessToken)
                 loginButton.isHidden = true
                 
                 show(controller, sender: nil)
                 loginSuccessful = true
-
-                
-            }
-            
-            else {
-
-            
-            
+            } else {
                 loginButton.isHidden = true
 
                 performSegue(withIdentifier: "loginCompleted", sender: self)
-
-                print("swag")
             }
-            
         }
-
     }
-    
-    
-    
-    
-        override func viewDidAppear(_ animated: Bool) {
-            
-            if loginSuccessful == true {
 
-                performSegue(withIdentifier: "loginCompleted", sender: self)
-            }
-            
-            UIView.animate(withDuration: 1.0, delay: 0.5, options: UIViewAnimationOptions.curveLinear, animations: {
-                self.setGov.alpha = 1.0
-            }, completion: nil)
-            
+    override func viewDidAppear(_ animated: Bool) {
+        if loginSuccessful == true {
+            performSegue(withIdentifier: "loginCompleted", sender: self)
         }
+            
+        UIView.animate(withDuration: 1.0, delay: 0.5, options: UIViewAnimationOptions.curveLinear, animations: {
+            self.setGov.alpha = 1.0
+        }, completion: nil)
+            
+    }
 
-    
-
-    
-    
     func loginButtonDidLogOut(_ loginButton: LoginButton) {
         return
     }
-    
-  
 }
-
