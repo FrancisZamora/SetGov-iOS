@@ -23,6 +23,10 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet var pickerView: UIPickerView!
     
     func configurePicker() {
+      
+      
+        
+        
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
         if UserDefaults.standard.string(forKey: "homeCity")! == "Boston" {
@@ -31,6 +35,7 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
         else  {
             pickerData = ["Fort Lauderdale","Boston"]
         }
+        
     }
     
    
