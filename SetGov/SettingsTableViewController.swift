@@ -41,28 +41,16 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack, Ho
     
     func popView(city:String) {
         print("calling print pop view")
-        switch city {
-        case "Boston":
-            print(city)
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
-            controller.selectedCity = "Boston"
-            print(self.navigationController?.viewControllers.count)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+        controller.selectedCity = city
 
-            self.navigationController?.viewControllers.insert(controller, at: 3)
-
-        case "Fort Lauderdale":
-            print(city)
-
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
-            controller.selectedCity = "Fort Lauderdale"
-            print(self.navigationController?.viewControllers.count)
-            self.navigationController?.viewControllers.insert(controller, at: 3)
-        default:
-            print("selected city not available")
-    
+        guard let x = self.navigationController?.viewControllers.count else {
+            return
         }
+        self.navigationController?.viewControllers.remove(at: x-2)
+
+        self.navigationController?.viewControllers.insert(controller, at: x-2)
     }
     
     func loggingOut(){
