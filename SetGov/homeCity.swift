@@ -20,21 +20,38 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
     weak var homecitycallBack: HomeCityCallBack!
 
 
+    @IBOutlet var pickerTextField: UITextField!
     @IBOutlet var pickerView: UIPickerView!
     
+    @IBOutlet var homeCity: UILabel!
     func configurePicker() {
-      
-      
+        let pickerView = UIPickerView()
+        pickerTextField.borderStyle = .none
+        pickerTextField.inputView = pickerView
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        toolBar.sizeToFit()
         
         
-        self.pickerView.delegate = self
-        self.pickerView.dataSource = self
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.bordered, target: self, action: Selector(("donePicker")))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.bordered, target: self, action: Selector("canclePicker"))
+        
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        
+        
+        pickerView.delegate = self
+        pickerView.dataSource = self
         if UserDefaults.standard.string(forKey: "homeCity")! == "Boston" {
             pickerData = ["Boston","Fort Lauderdale"]
         }
         else  {
             pickerData = ["Fort Lauderdale","Boston"]
         }
+        
         
     }
     
@@ -68,6 +85,7 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         //print(pickerData[row])
+        pickerTextField.text = pickerData[row]
         
         UserDefaults.standard.set(pickerData[row],forKey:"homeCity")
         
@@ -77,6 +95,7 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
             
             callback.popView(city: pickerData[row])
         }
+        homeCity.text = pickerData[row]
 
         //print(UserDefaults.standard.string(forKey: "homeCity")!)
         
