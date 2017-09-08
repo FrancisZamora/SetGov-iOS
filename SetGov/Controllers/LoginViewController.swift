@@ -26,7 +26,7 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
         let screenHeight = screenSize.height - 100 //real screen height
         let newCenter = CGPoint(x: view.center.x, y:screenHeight)
         loginButton.delegate = self
-        loginButton.frame.size.width = 340
+        loginButton.frame.size.width = screenSize.width - 30
         loginButton.center = newCenter
 
         view.addSubview(loginButton)
