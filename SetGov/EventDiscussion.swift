@@ -44,16 +44,14 @@ class EventDiscussion: UITableViewCell {
         let theProfileImageUrl = URL(string:comment.user.profilePictureURL)
         do {
             userPicture.kf.setImage(with: theProfileImageUrl)
-            //print("image created")
+            print("image created")
         } catch {
-            //print("Unable to load data: \(error)")
-            //print("image failed")
+            print("Unable to load data: \(error)")
         }
     }
     
     @IBAction func flagComment(_ sender: Any) {
         if let callback = self.discussionCallBack {
-            //print("callback in progress")
             callback.displayAlert()
         }
     }
