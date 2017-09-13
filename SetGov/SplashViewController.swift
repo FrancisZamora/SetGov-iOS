@@ -98,7 +98,7 @@ class SplashViewController: SetGovViewController {
             //print("ID STRING HERE")
         }
         //loop through numbers 
-        for href in doc.css("#ctl00_ContentPlaceHolder1_gridCalendar_ctl00_ctl42_hypAgenda") {
+        for href in doc.css("ctl00_ContentPlaceHolder1_gridCalendar_ctl00_ctl36_hypAgenda") {
             guard let rawData = href["href"]?.trimmingCharacters(in: .whitespacesAndNewlines) else {
                 continue
             }
