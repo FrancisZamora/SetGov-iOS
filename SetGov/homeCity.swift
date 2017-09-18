@@ -25,6 +25,8 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet var homeCity: UILabel!
     func configurePicker() {
+        homeCity.text = UserDefaults.standard.string(forKey: "homeCity")
+
         let pickerView = UIPickerView()
         pickerTextField.borderStyle = .none
         pickerTextField.inputView = pickerView
@@ -85,18 +87,19 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         //print(pickerData[row])
+        homeCity.text = UserDefaults.standard.string(forKey: "homeCity")
+
         pickerTextField.text = pickerData[row]
         
         UserDefaults.standard.set(pickerData[row],forKey:"homeCity")
-        
+        homeCity.text = UserDefaults.standard.string(forKey: "homeCity")
+        print(homeCity.text)
         ApiClient.setHomeCity(city:pickerData[row])
         
         if let callback = homecitycallBack {
             
             callback.popView(city: pickerData[row])
         }
-        homeCity.text = pickerData[row]
-
         //print(UserDefaults.standard.string(forKey: "homeCity")!)
         
         //always direct to home city
