@@ -65,10 +65,9 @@ class EventDiscussion: UITableViewCell {
     
     @IBAction func upvoteAction(_ sender: Any) {
         if UserDefaults.standard.string(forKey: String(comment.commentID)) == "upvoted" {
-            var x = Int(karma.text!)
-            x = x! - 1
-            self.karma.text = String(describing: x!)
-            ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
+             comment.karma = comment.karma - 1
+            self.karma.text = String(describing: comment.karma)
+            ApiClient.vote(id: self.comment.commentID, value: comment.karma , onCompletion:{json in })
             
             self.upVote.setImage(#imageLiteral(resourceName: "Image-16"), for: .normal)
             UserDefaults.standard.set("neutral",forKey:String(comment.commentID))
@@ -77,10 +76,9 @@ class EventDiscussion: UITableViewCell {
         }
         
         if UserDefaults.standard.string(forKey: String(comment.commentID)) == "downvoted"  {
-            var x = Int(karma.text!)
-            x = x! + 2
-            self.karma.text = String(describing: x!)
-            ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
+            comment.karma = comment.karma + 2
+            self.karma.text = String(describing: comment.karma)
+            ApiClient.vote(id: self.comment.commentID, value: comment.karma , onCompletion:{json in })
             self.upVote.setImage(#imageLiteral(resourceName: "Image-33"), for: .normal)
             self.downVote.setImage(#imageLiteral(resourceName: "Image-15"), for: .normal)
             UserDefaults.standard.set("upvoted",forKey:String(comment.commentID))
@@ -88,11 +86,10 @@ class EventDiscussion: UITableViewCell {
         
         if UserDefaults.standard.string(forKey: String(comment.commentID)) == "neutral" || UserDefaults.standard.string(forKey: String(comment.commentID)) == nil {
        
-            var x = Int(karma.text!)
-            x = x! +  1
-            self.karma.text = String(describing: x!)
+            comment.karma = comment.karma +  1
+            self.karma.text = String(describing: comment.karma)
             self.upVote.setImage(#imageLiteral(resourceName: "Image-33"), for: .normal)
-            ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
+            ApiClient.vote(id: self.comment.commentID, value: comment.karma , onCompletion:{json in })
             UserDefaults.standard.set("upvoted",forKey:String(comment.commentID))
         }
     }
@@ -107,22 +104,20 @@ class EventDiscussion: UITableViewCell {
 
     @IBAction func downvoteAction(_ sender: Any) {
         if UserDefaults.standard.string(forKey: String(comment.commentID)) == "downvoted" {
-            var x = Int(karma.text!)
-            x = x! + 1
-            self.karma.text = String(describing: x!)
-            ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
+            comment.karma = comment.karma + 1
+            self.karma.text = String(describing: comment.karma)
+            ApiClient.vote(id: self.comment.commentID, value: comment.karma , onCompletion:{json in })
             self.downVote.setImage(#imageLiteral(resourceName: "Image-15"), for: .normal)
             UserDefaults.standard.set("neutral",forKey:String(comment.commentID))
             return
         }
         
         if UserDefaults.standard.string(forKey: String(comment.commentID)) == "upvoted" {
-            var x = Int(karma.text!)
             //print("this is the karma \(x)")
 
-            x = x! -  2
-            self.karma.text = String(describing: x!)
-            ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
+            comment.karma = comment.karma -  2
+            self.karma.text = String(describing: comment.karma)
+            ApiClient.vote(id: self.comment.commentID, value: comment.karma, onCompletion:{json in })
             
             self.downVote.setImage(#imageLiteral(resourceName: "Image-32"), for: .normal)
             self.upVote.setImage(#imageLiteral(resourceName: "Image-16"), for: .normal)
@@ -131,11 +126,10 @@ class EventDiscussion: UITableViewCell {
         
         if UserDefaults.standard.string(forKey: String(comment.commentID)) == "neutral" || UserDefaults.standard.string(forKey: String(comment.commentID)) == nil  {
             
-            var x = Int(karma.text!)
             //print("this is the karma \(x)")
-            x = x! -  1
-            self.karma.text = String(describing: x!)
-            ApiClient.vote(id: self.comment.commentID, value: x! , onCompletion:{json in })
+            comment.karma = comment.karma -  1
+            self.karma.text = String(describing: comment.karma)
+            ApiClient.vote(id: self.comment.commentID, value: comment.karma , onCompletion:{json in })
             self.downVote.setImage(#imageLiteral(resourceName: "Image-32"), for: .normal)
             UserDefaults.standard.set("downvoted",forKey:String(comment.commentID))
         }
