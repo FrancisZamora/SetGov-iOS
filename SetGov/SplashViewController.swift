@@ -22,8 +22,9 @@ class SplashViewController: SetGovViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.fortlauderdaleLinks()
+
         if let date = UserDefaults.standard.object(forKey: "parsed") as? Date {
-            self.fortlauderdaleLinks()
 
             if(date.timeIntervalSinceNow < -64800) {
                 parseEvents()
@@ -71,7 +72,6 @@ class SplashViewController: SetGovViewController {
     
     func fortlauderdaleLinks() {
         let url = URL(string: "https://fortlauderdale.legistar.com/Calendar.aspx")
-        
         guard let doc = HTML(url: url!, encoding: .utf8) else  {
             return
         }
@@ -83,7 +83,7 @@ class SplashViewController: SetGovViewController {
             let newString = extractArray?[1]
             var newStringArray = newString?.components(separatedBy: "\'")
             guard let  editedString = newStringArray?[0] else {
-                continue
+                break
             }
             var editedArray = editedString.components(separatedBy: "ID1=")
             let preID = editedArray[1]
@@ -92,13 +92,11 @@ class SplashViewController: SetGovViewController {
             
             linkArray.append(id)
             appDelegate.fortlauderdaleStreams = linkArray
-            //print(appDelegate.fortlauderdaleStreams)
             
-            //print(id)
-            //print("ID STRING HERE")
         }
         //loop through numbers 
-        for href in doc.css("ctl00_ContentPlaceHolder1_gridCalendar_ctl00_ctl36_hypAgenda") {
+        for href in doc.css("#ctl00_ContentPlaceHolder1_gridCalendar_ctl00_ctl32_hypAgenda") {
+            print("recognized html tag")
             guard let rawData = href["href"]?.trimmingCharacters(in: .whitespacesAndNewlines) else {
                 continue
             }
@@ -106,10 +104,11 @@ class SplashViewController: SetGovViewController {
             let newData = rawDataArray[1]
             let newDataArray = newData.components(separatedBy: "&GUI")
             let soughtData = newDataArray[0]
+            print(soughtData)
+            print("getting data")
             
             appDelegate.fortlauderdalePDFLinks.append(rawData)
-            //print(rawData)
-            //print("^^^^^")
+          
         }
     }
     
