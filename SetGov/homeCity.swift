@@ -27,9 +27,16 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource, UI
     func configurePicker() {
         homeCity.text = UserDefaults.standard.string(forKey: "homeCity")
         pickerTextField.delegate = self
+        
         let pickerView = UIPickerView()
+
         pickerTextField.borderStyle = .none
         pickerTextField.inputView = pickerView
+        
+        pickerView.showsSelectionIndicator = true
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
         toolBar.isTranslucent = true
@@ -37,12 +44,23 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource, UI
         toolBar.sizeToFit()
         
         
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.bordered, target: self, action: Selector(("donePicker")))
+        
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action:#selector(donePicker))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.bordered, target: self, action: Selector("canclePicker"))
+        
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self,  action:#selector(donePicker))
         
         toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
+        
+
+        
+        
+        pickerTextField.inputAccessoryView = toolBar
+        
+        
+   
         
         
         pickerView.delegate = self
@@ -55,6 +73,11 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource, UI
         }
         
         
+    }
+    
+    func donePicker (sender:UIBarButtonItem)
+    {
+        pickerTextField.resignFirstResponder()
     }
     
    
