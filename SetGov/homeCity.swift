@@ -14,7 +14,7 @@ protocol HomeCityCallBack: class {
     
 }
 
-class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
+class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     var pickerData: [String] = [String]()
     var user: User!
     weak var homecitycallBack: HomeCityCallBack!
@@ -26,7 +26,7 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet var homeCity: UILabel!
     func configurePicker() {
         homeCity.text = UserDefaults.standard.string(forKey: "homeCity")
-
+        pickerTextField.delegate = self
         let pickerView = UIPickerView()
         pickerTextField.borderStyle = .none
         pickerTextField.inputView = pickerView
@@ -60,6 +60,11 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource {
    
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return  1
+    }
+    
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        return false
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {

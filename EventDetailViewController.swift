@@ -31,6 +31,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var Index = 0
     var selectedCity = " "
     var currentTime = " "
+    var refresher: UIRefreshControl!
     var noAlert = false
     var videoRequested = false
     var streamPressed = false
@@ -61,12 +62,14 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     override func viewDidLoad() {
         self.user = self.appDelegate.user
-
+        refresher = UIRefreshControl()
+        
         super.viewDidLoad()
+        
         //print("EventDetailViewController")
         self.loadTitle()
         
-        self.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        self.refresher?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
         //print(agendaInfo)
         //print(indexofEvent)
@@ -124,7 +127,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 
                 self.currentEvent.comments = []
                 for (_,val)in comments.enumerated()  {
-                    //print("this is val")
+                    print("this is val")
                     print(val)
                    
                     let user = User(fullName: val["user"]["full_name"].stringValue,
@@ -161,7 +164,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
 
                 for (_,val)in comments2.enumerated()  {
                     //print("this is val")
-                    //print(val)
+                    print(val)
                     
                     let user = User(fullName: val["user"]["full_name"].stringValue,
                                     profilePictureURL: val["user"]["profileImage"]["url"].stringValue)
@@ -180,13 +183,12 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     }
     
     func refresh(sender:AnyObject) {
-        //print("refreshed")
-        self.refreshControl?.beginRefreshing()
+        print("refreshed")
+        self.refresher?.beginRefreshing()
+        self.fetchEvent()
+        self.refresher?.endRefreshing()
 
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
-            self.refreshControl?.endRefreshing()
-            //print("stop refreshing")
-        }
+        
     }
     
     func replyCommentData(comment: Comment) {

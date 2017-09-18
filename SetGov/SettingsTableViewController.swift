@@ -39,6 +39,12 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack, Ho
         return 1
     }
     
+    
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return false
+    }
+    
     func popView(city:String) {
         print("calling print pop view")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
