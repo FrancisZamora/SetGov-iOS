@@ -63,10 +63,14 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource, UI
     }
     
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return false
     }
     
+   // func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+     //   pickerTextField.resignFirstResponder()
+       // return false
+    //}
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         var label = view as! UILabel!
         if label == nil {
