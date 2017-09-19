@@ -121,7 +121,7 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource, UI
         //print(pickerData[row])
         homeCity.text = UserDefaults.standard.string(forKey: "homeCity")
 
-        pickerTextField.text = pickerData[row]
+        pickerTextField.text = "Change my city"
         
         UserDefaults.standard.set(pickerData[row],forKey:"homeCity")
         homeCity.text = UserDefaults.standard.string(forKey: "homeCity")
