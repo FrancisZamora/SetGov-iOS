@@ -112,7 +112,7 @@
                                                 <constraint firstAttribute="width" constant="13" id="kKk-fq-3hK"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1955EA01-DB89-43F5-B141-D5E8B82EF801" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01AAC1B1-1857-4980-AF33-BC79D771089E" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
                                             <rect key="frame" x="61" y="271" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="gCa-oq-bRh"/>
@@ -1215,7 +1215,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="68.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fort Lauderdale " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="y1p-eB-Pxh">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fort Lauderdale " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="y1p-eB-Pxh">
                                             <rect key="frame" x="37" y="20" width="126" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="126" id="0o2-GB-RGC"/>
@@ -1239,14 +1239,14 @@
                                     <constraints>
                                         <constraint firstItem="kfF-Wp-rmQ" firstAttribute="leading" secondItem="y1p-eB-Pxh" secondAttribute="trailing" constant="-1" id="G1y-hc-KM0"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="kfF-Wp-rmQ" secondAttribute="trailing" constant="22" id="IXL-zD-9L4"/>
-                                        <constraint firstItem="kfF-Wp-rmQ" firstAttribute="top" secondItem="rU4-4S-Evv" secondAttribute="topMargin" constant="12" id="RJP-ha-YPL"/>
-                                        <constraint firstItem="y1p-eB-Pxh" firstAttribute="top" secondItem="rU4-4S-Evv" secondAttribute="topMargin" constant="12" id="VuQ-7N-8Gb"/>
+                                        <constraint firstItem="kfF-Wp-rmQ" firstAttribute="top" secondItem="rU4-4S-Evv" secondAttribute="topMargin" constant="12" id="Mfw-dH-NSV"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="kfF-Wp-rmQ" secondAttribute="bottom" constant="10.5" id="W29-c0-c1m"/>
                                         <constraint firstItem="kfF-Wp-rmQ" firstAttribute="width" secondItem="y1p-eB-Pxh" secondAttribute="height" multiplier="14:3" constant="43" id="Ya3-VW-t2y"/>
                                         <constraint firstItem="y1p-eB-Pxh" firstAttribute="top" secondItem="kfF-Wp-rmQ" secondAttribute="top" id="Z7S-TR-PVS"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="kfF-Wp-rmQ" secondAttribute="bottom" constant="11" id="aaS-dM-DqK"/>
                                         <constraint firstItem="y1p-eB-Pxh" firstAttribute="bottom" secondItem="kfF-Wp-rmQ" secondAttribute="bottom" id="fKY-fZ-Sd3"/>
+                                        <constraint firstItem="y1p-eB-Pxh" firstAttribute="top" secondItem="rU4-4S-Evv" secondAttribute="topMargin" constant="12" id="hcf-4T-d46"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="y1p-eB-Pxh" secondAttribute="bottom" constant="10.5" id="k9H-4J-sDO"/>
                                         <constraint firstItem="y1p-eB-Pxh" firstAttribute="width" secondItem="rU4-4S-Evv" secondAttribute="height" multiplier="63:34" id="mM1-Hk-V2n"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="y1p-eB-Pxh" secondAttribute="bottom" constant="11" id="s5b-jR-Y5q"/>
                                         <constraint firstItem="y1p-eB-Pxh" firstAttribute="leading" secondItem="rU4-4S-Evv" secondAttribute="leadingMargin" constant="29" id="tRP-U4-bjs"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -1695,7 +1695,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1955EA01-DB89-43F5-B141-D5E8B82EF801" width="479" height="586">
+        <image name="01AAC1B1-1857-4980-AF33-BC79D771089E" width="479" height="586">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
