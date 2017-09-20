@@ -14,7 +14,7 @@ import UIKit
  * COLORS
  */
 
-let SG_PRIMARY_BLUECOLOR = UIColor(red:0.13, green:0.19, blue:0.25, alpha:1.0)
+let SG_PRIMARY_BLUECOLOR = UIColor(red:0/255, green: 16/255, blue:64/255, alpha:1.0)
 let SG_SECONDARY_BLUECOLOR = UIColor(red:0.18, green:0.26, blue:0.35, alpha:1.0)
 let SG_RED_COLOR = UIColor(red:0.71, green:0.10, blue:0.11, alpha:1.0)
 let SG_SECONDARY_REDCOLOR = UIColor(red:0.51, green:0.03, blue:0.02, alpha:1.0)

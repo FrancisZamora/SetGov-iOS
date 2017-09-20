@@ -26,13 +26,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: nil)
 
         UINavigationBar.appearance().titleTextAttributes = [
-            NSForegroundColorAttributeName: SG_PRIMARY_WHITECOLOR,
+            NSForegroundColorAttributeName: UIColor.white,
+
             NSFontAttributeName: UIFont.systemFont(ofSize: 24.0, weight: UIFontWeightLight)
         ]
+        UINavigationBar.appearance().barTintColor = SG_PRIMARY_BLUECOLOR
+        UINavigationBar.appearance().tintColor = SG_PRIMARY_BLUECOLOR
+        UINavigationBar.appearance().isTranslucent = false
         
-        UINavigationBar.appearance().barTintColor = UIColor(red:0.18, green:0.26, blue:0.35, alpha:1.0)
-       
-        UINavigationBar.appearance().barStyle = .black
+       // UINavigationBar.appearance().barStyle = .black
                
         return true
     }

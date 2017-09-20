@@ -34,9 +34,9 @@ class SetGovViewController: UIViewController {
         // set blue header
         // self.navigationController?.navigationBar.barTintColor = SM_PRIMARY_COLOR
         // set white title
-        self.navigationController?.navigationBar.tintColor = SG_NEARLY_WHITE_COLOR
+        //self.navigationController?.navigationBar.tintColor = .black
         // make bar opaque
-        self.navigationController?.navigationBar.barStyle = .black
+       // self.navigationController?.navigationBar.barStyle = .black
         // make back arrows have no titles
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
         

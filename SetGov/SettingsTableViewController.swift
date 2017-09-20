@@ -18,14 +18,13 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack, Ho
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.backBarButtonItem?.title = ""
 
         self.navigationItem.rightBarButtonItem = nil
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.navigationItem.backBarButtonItem?.title = ""
 
+         self.navigationItem.backBarButtonItem?.title = UserDefaults.standard.string(forKey: "homeCity")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -47,6 +46,8 @@ class SettingsTableViewController: SetGovTableViewController, LogOutCallBack, Ho
     
     func popView(city:String) {
         print("calling print pop view")
+         self.navigationItem.backBarButtonItem?.title = UserDefaults.standard.string(forKey: "homeCity")
+
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
         controller.selectedCity = city

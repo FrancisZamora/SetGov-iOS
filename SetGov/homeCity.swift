@@ -119,13 +119,13 @@ class homeCity: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource, UI
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         //print(pickerData[row])
+
         homeCity.text = UserDefaults.standard.string(forKey: "homeCity")
 
         pickerTextField.text = "Change my city"
         
         UserDefaults.standard.set(pickerData[row],forKey:"homeCity")
         homeCity.text = UserDefaults.standard.string(forKey: "homeCity")
-        print(homeCity.text)
         ApiClient.setHomeCity(city:pickerData[row])
         
         if let callback = homecitycallBack {
