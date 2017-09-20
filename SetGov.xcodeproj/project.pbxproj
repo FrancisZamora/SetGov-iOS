@@ -47,7 +47,6 @@
 		155749921F452FE8002EE887 /* PDFCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155749911F452FE8002EE887 /* PDFCell.swift */; };
 		155D301E1F3BA0DC0013B7C3 /* Agenda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155D301D1F3BA0DC0013B7C3 /* Agenda.swift */; };
 		1566CC861F321F2E0078FFC8 /* DiscussionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1566CC851F321F2E0078FFC8 /* DiscussionHeader.swift */; };
-		156BD4C91E83185200E8F98B /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4C81E83185200E8F98B /* EventDetailViewController.swift */; };
 		156BD4CD1E836B6300E8F98B /* EventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4CC1E836B6300E8F98B /* EventInfo.swift */; };
 		156BD4CF1E836B7800E8F98B /* EventStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4CE1E836B7800E8F98B /* EventStream.swift */; };
 		156BD4D11E836B9800E8F98B /* EventMembers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4D01E836B9800E8F98B /* EventMembers.swift */; };
@@ -65,6 +64,7 @@
 		15F882421F2A391D001BA502 /* Attendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F882411F2A391D001BA502 /* Attendee.swift */; };
 		15FD453B1F3D29B00082F3CD /* NoUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD453A1F3D29B00082F3CD /* NoUsers.swift */; };
 		1D98C468A8545E290887D257 /* Pods_SetGovUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A291636C27A3A4A0D6A8E83 /* Pods_SetGovUITests.framework */; };
+		FBEC5B911F730BCB0079F87A /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEC5B901F730BCB0079F87A /* EventDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,7 +132,6 @@
 		155749911F452FE8002EE887 /* PDFCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFCell.swift; sourceTree = "<group>"; };
 		155D301D1F3BA0DC0013B7C3 /* Agenda.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Agenda.swift; sourceTree = "<group>"; };
 		1566CC851F321F2E0078FFC8 /* DiscussionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussionHeader.swift; sourceTree = "<group>"; };
-		156BD4C81E83185200E8F98B /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailViewController.swift; path = ../EventDetailViewController.swift; sourceTree = "<group>"; };
 		156BD4CC1E836B6300E8F98B /* EventInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInfo.swift; sourceTree = "<group>"; };
 		156BD4CE1E836B7800E8F98B /* EventStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventStream.swift; sourceTree = "<group>"; };
 		156BD4D01E836B9800E8F98B /* EventMembers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMembers.swift; sourceTree = "<group>"; };
@@ -156,6 +155,7 @@
 		DFCF1B64F43B2B946AC84739 /* Pods-SetGovTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetGovTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SetGovTests/Pods-SetGovTests.release.xcconfig"; sourceTree = "<group>"; };
 		E00276BDDDA0EE096103FE55 /* Pods_SetGovTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetGovTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DB1E0556D1C2600D5D751E /* Pods-SetGov.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetGov.release.xcconfig"; path = "Pods/Target Support Files/Pods-SetGov/Pods-SetGov.release.xcconfig"; sourceTree = "<group>"; };
+		FBEC5B901F730BCB0079F87A /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,7 +311,7 @@
 				1523A4991E8B38CB00AE93C2 /* AgendaViewController.swift */,
 				15C64B461EADA84200B123A5 /* CityNavigationViewController.swift */,
 				15433B911F15765800B8FE0D /* CityOnboardingScreen.swift */,
-				156BD4C81E83185200E8F98B /* EventDetailViewController.swift */,
+				FBEC5B901F730BCB0079F87A /* EventDetailViewController.swift */,
 				15433B931F15766700B8FE0D /* EventOnboardingScreen.swift */,
 				153F3F861E6DF54B0004E2F4 /* EventViewController.swift */,
 				153F3F7D1E6DF0ED0004E2F4 /* LoginViewController.swift */,
@@ -705,7 +705,7 @@
 				156BD4CF1E836B7800E8F98B /* EventStream.swift in Sources */,
 				151CDAB61E64F2C500440CDE /* constants.swift in Sources */,
 				15433B941F15766700B8FE0D /* EventOnboardingScreen.swift in Sources */,
-				156BD4C91E83185200E8F98B /* EventDetailViewController.swift in Sources */,
+				FBEC5B911F730BCB0079F87A /* EventDetailViewController.swift in Sources */,
 				1534AD801F2C09760001D08D /* Comment.swift in Sources */,
 				1515A6C71F101677004312F2 /* homeCity.swift in Sources */,
 				1515A6C51F10166C004312F2 /* pushNotification.swift in Sources */,
