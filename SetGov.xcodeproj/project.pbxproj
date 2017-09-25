@@ -51,6 +51,7 @@
 		156BD4CF1E836B7800E8F98B /* EventStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4CE1E836B7800E8F98B /* EventStream.swift */; };
 		156BD4D11E836B9800E8F98B /* EventMembers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4D01E836B9800E8F98B /* EventMembers.swift */; };
 		156BD4D31E836BB300E8F98B /* EventDiscussion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BD4D21E836BB300E8F98B /* EventDiscussion.swift */; };
+		15869E251F79629F00F4D624 /* ChooseYourCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15869E241F79629F00F4D624 /* ChooseYourCity.swift */; };
 		159CA9E81F16A8B900679EEA /* Pods_SetGov.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B788141A78B320963331B47 /* Pods_SetGov.framework */; };
 		15A344D11F0ECC1E00E80D85 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A344D01F0ECC1E00E80D85 /* Reachability.swift */; };
 		15B945941E9DD75700226A32 /* EventLiveStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B945931E9DD75700226A32 /* EventLiveStream.swift */; };
@@ -136,6 +137,7 @@
 		156BD4CE1E836B7800E8F98B /* EventStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventStream.swift; sourceTree = "<group>"; };
 		156BD4D01E836B9800E8F98B /* EventMembers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMembers.swift; sourceTree = "<group>"; };
 		156BD4D21E836BB300E8F98B /* EventDiscussion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDiscussion.swift; sourceTree = "<group>"; };
+		15869E241F79629F00F4D624 /* ChooseYourCity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseYourCity.swift; sourceTree = "<group>"; };
 		15A344D01F0ECC1E00E80D85 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		15B945931E9DD75700226A32 /* EventLiveStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventLiveStream.swift; sourceTree = "<group>"; };
 		15C489701F3B4FCF007D60F2 /* WebScraper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebScraper.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 				153F3F7B1E6DF0E50004E2F4 /* SetGovViewController.swift */,
 				1515A6C21F0FCF80004312F2 /* SettingsTableViewController.swift */,
 				150B17661F2028C20056FB96 /* SplashViewController.swift */,
+				15869E241F79629F00F4D624 /* ChooseYourCity.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -714,6 +717,7 @@
 				15FD453B1F3D29B00082F3CD /* NoUsers.swift in Sources */,
 				1547836D1F1FB43D005ABF77 /* ApiClient.swift in Sources */,
 				153F3F871E6DF54B0004E2F4 /* EventViewController.swift in Sources */,
+				15869E251F79629F00F4D624 /* ChooseYourCity.swift in Sources */,
 				15C64B491EADA8FF00B123A5 /* BostonCell.swift in Sources */,
 				1557498E1F44DC08002EE887 /* Phoenix.swift in Sources */,
 				1508A69F1E9343F900C92410 /* AgendaDetailViewController.swift in Sources */,
