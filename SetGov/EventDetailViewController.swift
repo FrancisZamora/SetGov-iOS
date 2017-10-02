@@ -118,7 +118,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 
                 self.currentEvent.users = self.userArray
                 //print(self.currentEvent.users)
-                
+               
                 //print("THIS IS THE PICTURE ARRAY FOR BOSTON \(self.picArray)")
           
                 guard let comments = json["data"]["event"]["comments"].array else {
@@ -450,8 +450,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventStream.dataList = dataList
                 eventStream.user = self.user
                 eventStream.configureImage()
+
                 eventStream.bostonDataList = bostonDataList
-    
+            
                 eventStream.fortlauderdaleDataList = fortlauderdaleDataList
                 eventStream.currentEvent = currentEvent
                 eventStream.eventTitle = eventTitle
@@ -466,6 +467,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventStream.configure()
                 eventStream.streamContent()
                 eventStream.checkStatus()
+
             
             if selectedCity == "Fort Lauderdale"  && self.comparelauderdaleTime() == true  {
                 eventStream.eventImage.image = currentEvent.image

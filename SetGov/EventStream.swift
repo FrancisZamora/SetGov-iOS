@@ -215,9 +215,11 @@ class EventStream:  UITableViewCell {
         ApiClient.fetchEvent(eventID:currentEvent.id , onCompletion:{ json in
             if self.checkUsers() == true {
                 self.attendButton.setTitle("Attending", for: .normal)
+                self.secondaryEventImage.isHidden = false
                 x = true
             } else {
                 self.attendButton.setTitle("Attend", for: .normal)
+                self.secondaryEventImage.isHidden = true
             }
         })
             
