@@ -22,12 +22,9 @@ class SplashViewController: SetGovViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "ChooseYourCity") as! ChooseYourCity
-        
+        performSegue(withIdentifier: "chooseCity", sender: self)
         //self.loginSuccessful = true
         
-        self.show(controller, sender: nil)
         self.fortlauderdaleLinks()
 
         if let date = UserDefaults.standard.object(forKey: "parsed") as? Date {
@@ -168,6 +165,7 @@ class SplashViewController: SetGovViewController {
             }
             
             if UserDefaults.standard.string(forKey:"logged") == "in" && UserDefaults.standard.string(forKey: "homeCity") != nil {
+                /*
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let controller = storyboard.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
                 guard let city = UserDefaults.standard.string(forKey: "homeCity") else {
@@ -179,6 +177,7 @@ class SplashViewController: SetGovViewController {
                 //self.loginSuccessful = true
                 
                 self.show(controller, sender: nil)
+                */
             }
         }
     }

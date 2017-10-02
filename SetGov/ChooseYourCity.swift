@@ -16,8 +16,20 @@ class ChooseYourCity:  UICollectionViewController {
     @IBOutlet var cities: UICollectionView!
     override func viewDidLoad() {
          super.viewDidLoad()
-        layout.minimumInteritemSpacing =  0
-        layout.minimumLineSpacing      = 0
+        let screenSize = UIScreen.main.bounds
+  
+        let size = CGSize(width: screenSize.width / 2, height: screenSize.height / 3)
+        layout.itemSize = size
+            // Setting the space between cells
+        
+        
+        //layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
+        layout.scrollDirection = .vertical
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0.0
+
+        cities.collectionViewLayout = layout
+    
     }
     override func awakeFromNib() {
         
