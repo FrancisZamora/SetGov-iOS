@@ -69,7 +69,7 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
     }
     
     func selector() {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "ChooseYourCity") as! ChooseYourCity
+        let controller = storyboard?.instantiateViewController(withIdentifier: "CityNavigationViewController") as! AgendaDetailViewController
         self.show(controller, sender: nil)
     }
     
