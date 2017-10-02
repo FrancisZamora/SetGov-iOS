@@ -23,8 +23,7 @@ class SplashViewController: SetGovViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
-              controller.checkMembers()
+        let controller = storyboard.instantiateViewController(withIdentifier: "ChooseYourCity") as! ChooseYourCity
         
         //self.loginSuccessful = true
         

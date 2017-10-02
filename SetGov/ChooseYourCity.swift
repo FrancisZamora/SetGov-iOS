@@ -12,14 +12,21 @@ import QuartzCore
 
 class ChooseYourCity:  UICollectionViewController {
     
+    @IBOutlet var layout: UICollectionViewFlowLayout!
     @IBOutlet var cities: UICollectionView!
+    override func viewDidLoad() {
+         super.viewDidLoad()
+        layout.minimumInteritemSpacing =  0
+        layout.minimumLineSpacing      = 0
+    }
     override func awakeFromNib() {
+        
         
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
             
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "boston", for: indexPath) 
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "boston", for: indexPath)
             return cell
         }
         
