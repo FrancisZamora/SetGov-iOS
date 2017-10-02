@@ -22,17 +22,23 @@ class SplashViewController: SetGovViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "ChooseYourCity") as! ChooseYourCity
+        
+        //self.loginSuccessful = true
+        
+        self.show(controller, sender: nil)
         self.fortlauderdaleLinks()
 
         if let date = UserDefaults.standard.object(forKey: "parsed") as? Date {
 
             if(date.timeIntervalSinceNow < -64800) {
-                parseEvents()
+                //parseEvents()
             } else {
                 fetchEvents()
             }
         } else {
-            parseEvents()
+            //parseEvents()
         }
         
         if UserDefaults.standard.string(forKey:"token") != nil {
@@ -118,6 +124,8 @@ class SplashViewController: SetGovViewController {
     }
     
     func checkIfComplete() {
+ 
+
         if(bostonDataList.count > 0 && fortlauderdaleDataList.count > 0) {
             if UserDefaults.standard.string(forKey: "logged") == nil{
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)

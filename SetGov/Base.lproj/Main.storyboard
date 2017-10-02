@@ -340,12 +340,13 @@
                     </collectionView>
                     <connections>
                         <outlet property="cities" destination="vGl-cV-mXf" id="Y6w-Zg-EYo"/>
+                        <outlet property="layout" destination="2Xv-AU-h3v" id="WBl-6K-BB2"/>
                         <segue destination="REO-fl-V9Q" kind="presentation" identifier="overLay" modalPresentationStyle="overCurrentContext" id="56y-36-Gri"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MEl-2T-Nex" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2806" y="-1034"/>
+            <point key="canvasLocation" x="2743" y="-1215"/>
         </scene>
         <!--Fort Lauderdale, FL-->
         <scene sceneID="WqO-r7-02k">
@@ -366,18 +367,11 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image1" translatesAutoresizingMaskIntoConstraints="NO" id="AHx-jR-O2K">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="214"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BackgroundLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cP-0T-gIY">
-                                            <rect key="frame" x="0.0" y="183" width="382" height="33"/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                            <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="  Marine Advisory                            " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="qaz-B6-2HM">
                                             <rect key="frame" x="0.0" y="185" width="367" height="26"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                            <color key="textColor" red="0.087962217628955841" green="0.19097673892974854" blue="0.38617235422134399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Attending" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMK-AS-5CE">
@@ -406,7 +400,7 @@
                                                 <constraint firstAttribute="width" constant="13" id="kKk-fq-3hK"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="9E5616E2-8FD7-4ABD-839B-67D9646F2194" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="11525E0F-9BC7-4BDE-98B4-A3FBCCC93774" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Dk-bur" customClass="ProfilePicture" customModule="SetGov" customModuleProvider="target">
                                             <rect key="frame" x="61" y="271" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="gCa-oq-bRh"/>
@@ -484,7 +478,6 @@
                                         <constraint firstItem="TxJ-ID-Gdr" firstAttribute="baseline" secondItem="Xae-5N-CWj" secondAttribute="baseline" id="3j6-M2-KwT"/>
                                         <constraint firstItem="YKF-eG-wEx" firstAttribute="centerY" secondItem="XAM-XX-GOF" secondAttribute="centerY" id="4ov-wx-RgZ"/>
                                         <constraint firstItem="Lru-Dk-bur" firstAttribute="bottom" secondItem="2og-D5-wgS" secondAttribute="bottomMargin" id="7Zp-Ta-aS3"/>
-                                        <constraint firstItem="0cP-0T-gIY" firstAttribute="baseline" secondItem="qaz-B6-2HM" secondAttribute="baseline" constant="4" id="8QP-dp-cPZ"/>
                                         <constraint firstItem="mle-iW-4Jf" firstAttribute="leading" secondItem="GRj-y3-cPc" secondAttribute="trailing" constant="2" id="8YC-gM-5go"/>
                                         <constraint firstItem="TxJ-ID-Gdr" firstAttribute="trailing" secondItem="2og-D5-wgS" secondAttribute="trailingMargin" constant="8" id="AGa-kO-CEZ"/>
                                         <constraint firstItem="mle-iW-4Jf" firstAttribute="centerY" secondItem="GRj-y3-cPc" secondAttribute="centerY" id="AoR-YW-0oY"/>
@@ -507,10 +500,7 @@
                                         <constraint firstItem="Lru-Dk-bur" firstAttribute="leading" secondItem="2og-D5-wgS" secondAttribute="leadingMargin" constant="53" id="dax-eF-zDe"/>
                                         <constraint firstItem="Xae-5N-CWj" firstAttribute="top" secondItem="AHx-jR-O2K" secondAttribute="bottom" constant="5" id="dxC-H7-Ybc"/>
                                         <constraint firstItem="XAM-XX-GOF" firstAttribute="trailing" secondItem="yMK-AS-5CE" secondAttribute="trailing" id="fec-jh-LPk"/>
-                                        <constraint firstItem="0cP-0T-gIY" firstAttribute="firstBaseline" secondItem="qaz-B6-2HM" secondAttribute="firstBaseline" constant="-2" id="gbb-LV-vAs"/>
                                         <constraint firstItem="qaz-B6-2HM" firstAttribute="leading" secondItem="yMK-AS-5CE" secondAttribute="leading" id="jHo-w0-Ysg"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="0cP-0T-gIY" secondAttribute="trailing" constant="-15" id="rfs-3g-fWE"/>
-                                        <constraint firstItem="0cP-0T-gIY" firstAttribute="leading" secondItem="qaz-B6-2HM" secondAttribute="leading" id="sNL-m4-jC3"/>
                                         <constraint firstItem="YKF-eG-wEx" firstAttribute="width" secondItem="XAM-XX-GOF" secondAttribute="width" id="suv-Uq-ILi"/>
                                         <constraint firstItem="YKF-eG-wEx" firstAttribute="height" secondItem="XAM-XX-GOF" secondAttribute="height" id="vaq-MI-6Ec"/>
                                         <constraint firstItem="mle-iW-4Jf" firstAttribute="baseline" secondItem="yMK-AS-5CE" secondAttribute="baseline" id="wQg-yU-KsR"/>
@@ -1749,7 +1739,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="9E5616E2-8FD7-4ABD-839B-67D9646F2194" width="479" height="586">
+        <image name="11525E0F-9BC7-4BDE-98B4-A3FBCCC93774" width="479" height="586">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
