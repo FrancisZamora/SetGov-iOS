@@ -85,7 +85,7 @@ class ChooseYourCity:  UICollectionViewController {
     func refreshCities(sender: AnyObject){
         print("Refreshed")
         self.refresher?.beginRefreshing()
-        
+        // reload data
         self.refresher?.endRefreshing()
     }
 }
