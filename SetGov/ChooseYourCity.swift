@@ -14,10 +14,22 @@ class ChooseYourCity:  UICollectionViewController {
     
     @IBOutlet var layout: UICollectionViewFlowLayout!
     @IBOutlet var cities: UICollectionView!
+    
+    var refresher: UIRefreshControl!
+    
     override func viewDidLoad() {
          super.viewDidLoad()
+        refresher = UIRefreshControl()
         layout.minimumInteritemSpacing =  0
         layout.minimumLineSpacing      = 0
+        
+        // pull to refresh
+        self.refresher.addTarget(self, action:#selector(refreshCities), for: .valueChanged)
+        if #available(iOS 10.0, *){
+            cities.refreshControl = refresher
+        } else {
+            cities.addSubview(refresher)
+        }
     }
     override func awakeFromNib() {
         
@@ -69,4 +81,11 @@ class ChooseYourCity:  UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 }
+    
+    func refreshCities(sender: AnyObject){
+        print("Refreshed")
+        self.refresher?.beginRefreshing()
+        
+        self.refresher?.endRefreshing()
+    }
 }
