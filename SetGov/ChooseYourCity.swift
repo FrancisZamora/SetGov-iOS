@@ -38,13 +38,14 @@ class ChooseYourCity:  UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
             
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "boston", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "fortlauderdale", for: indexPath)
+            
             return cell
         }
         
         if indexPath.row == 1 {
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "fortlauderdale", for: indexPath) 
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "boston", for: indexPath)
             return cell
         }
         if indexPath.row == 2 {
@@ -72,7 +73,6 @@ class ChooseYourCity:  UICollectionViewController {
         return cell
 
         
-        return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -80,8 +80,42 @@ class ChooseYourCity:  UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+     
+        
         if indexPath.row == 0 {
-            
+            //print("Fort Lauderdale Cell")
+            ApiClient.setHomeCity(city: "Fort Lauderdale")
+            UserDefaults.standard.set("Fort Lauderdale",forKey:"homeCity")
         }
+        if indexPath.row == 1 {
+            //print("Boston Cell")
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "austin", for: indexPath)
+            ApiClient.setHomeCity(city: "Boston")
+            UserDefaults.standard.set("Boston",forKey:"homeCity")
+        }
+        if (indexPath.row == 2) {
+            let alert = UIAlertController(title: "Phoenix Coming Soon", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        if (indexPath.row == 3) {
+            let alert = UIAlertController(title: "Miami Coming Soon", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        if (indexPath.row == 4) {
+            let alert = UIAlertController(title: "Austin Coming Soon", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        if (indexPath.row == 5) {
+            let alert = UIAlertController(title: "San Jose Coming Soon", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+
 }
 }
