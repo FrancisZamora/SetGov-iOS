@@ -16,7 +16,6 @@ class profileCell: UITableViewCell {
     @IBOutlet var profileName: UILabel!
     
     func configure() {
-        UserDefaults.standard.set("Boston",forKey:"homeCity")
 
         if UserDefaults.standard.string(forKey: "homeCity")! == "Boston" {
             
