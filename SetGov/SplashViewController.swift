@@ -31,12 +31,12 @@ class SplashViewController: SetGovViewController {
         if let date = UserDefaults.standard.object(forKey: "parsed") as? Date {
 
             if(date.timeIntervalSinceNow < -64800) {
-                parseEvents()
+                //parseEvents()
             } else {
                 fetchEvents()
             }
         } else {
-            parseEvents()
+            //parseEvents()
         }
         
         if UserDefaults.standard.string(forKey:"token") != nil {
