@@ -18,6 +18,7 @@ extension UIView {
 }
 class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    @IBOutlet var background: UIView!
     @IBOutlet var usersCollection: UICollectionView!
     @IBOutlet var eventTitle: UILabel!
     @IBOutlet var eventDescription: UILabel!
@@ -57,6 +58,7 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     }
     
     func configure(event: Event) {
+        background.layer.cornerRadius = 10
         colorBackground.layer.cornerRadius = 15
         selectionStyle = .none
         eventTitle.text = event.title
