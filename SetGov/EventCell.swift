@@ -62,7 +62,7 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
         eventTitle.text = event.title
         eventDescription.text = event.description
         eventImage.image = event.image
-        eventDate.text = event.eventDate
+        eventDate.text = event.eventDate + ", 2017" + "@ " + event.time
         memberCount.text = "\(event.users.count)"
         self.event = event
         
