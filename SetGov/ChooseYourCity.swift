@@ -93,12 +93,30 @@ class ChooseYourCity:  UICollectionViewController {
             //print("Fort Lauderdale Cell")
             ApiClient.setHomeCity(city: "Fort Lauderdale")
             UserDefaults.standard.set("Fort Lauderdale",forKey:"homeCity")
+            ApiClient.setHomeCity(city: "Fort Lauderdale")
+            UserDefaults.standard.set("Fort Lauderdale",forKey:"homeCity")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+            guard let city = UserDefaults.standard.string(forKey: "homeCity") else {
+                return
+            }
+            controller.selectedCity = city
+            
+            show(controller, sender: nil)
         }
         if indexPath.row == 1 {
             //print("Boston Cell")
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "austin", for: indexPath)
             ApiClient.setHomeCity(city: "Boston")
             UserDefaults.standard.set("Boston",forKey:"homeCity")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+            guard let city = UserDefaults.standard.string(forKey: "homeCity") else {
+                return
+            }
+            controller.selectedCity = city
+            
+            show(controller, sender: nil)
         }
         if (indexPath.row == 2) {
             let alert = UIAlertController(title: "Phoenix Coming Soon", message: "", preferredStyle: UIAlertControllerStyle.alert)
