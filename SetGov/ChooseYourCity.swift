@@ -16,6 +16,13 @@ class ChooseYourCity:  UICollectionViewController {
     @IBOutlet var cities: UICollectionView!
     override func viewDidLoad() {
          super.viewDidLoad()
+        if UserDefaults.standard.integer(forKey: "cityoverLay") != 1 {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
+                self.performSegue(withIdentifier: "overLay", sender: nil)
+            }
+        }
+        UserDefaults.standard.set(1,forKey:"cityoverLay")
+
         let screenSize = UIScreen.main.bounds
   
         let size = CGSize(width: screenSize.width / 2, height: screenSize.height / 3)
