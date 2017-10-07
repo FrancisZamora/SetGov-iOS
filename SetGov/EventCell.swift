@@ -33,6 +33,7 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     var picArray = [String]()
     var event: Event!
 
+    @IBOutlet var colorBackground: UIView!
     @IBOutlet var attendee: ProfilePicture!
     
     override func awakeFromNib() {
@@ -56,6 +57,7 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     }
     
     func configure(event: Event) {
+        colorBackground.layer.cornerRadius = 10 
         selectionStyle = .none
         eventTitle.text = event.title
         eventDescription.text = event.description

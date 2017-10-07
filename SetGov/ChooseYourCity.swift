@@ -90,7 +90,7 @@ class ChooseYourCity:  UICollectionViewController {
      
         
         if indexPath.row == 0 {
-            //print("Fort Lauderdale Cell")
+            print("Fort Lauderdale Cell")
             ApiClient.setHomeCity(city: "Fort Lauderdale")
             UserDefaults.standard.set("Fort Lauderdale",forKey:"homeCity")
             ApiClient.setHomeCity(city: "Fort Lauderdale")
@@ -105,7 +105,7 @@ class ChooseYourCity:  UICollectionViewController {
             show(controller, sender: nil)
         }
         if indexPath.row == 1 {
-            //print("Boston Cell")
+            print("Boston Cell")
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "austin", for: indexPath)
             ApiClient.setHomeCity(city: "Boston")
             UserDefaults.standard.set("Boston",forKey:"homeCity")

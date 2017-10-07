@@ -32,6 +32,7 @@ class EventViewController: SetGovTableViewController{
     var titleEvents = [Int: String]()
     var arrayEvents = [String]()
 
+    @IBOutlet var colorBackground: UIView!
     var fortlauderdaleArray = [[String]()]
     var dateArray = [Date]()
     var user: User!
@@ -202,10 +203,27 @@ class EventViewController: SetGovTableViewController{
         }
     }
     
+    func changeColor(x:Int)-> UIColor{
+        if x == 0 {
+            return UIColor(red:204/255, green:102/255, blue:255/255, alpha: 1)
+
+        }
+        else if x % 2 == 0 {
+            return UIColor(red:204/255, green:102/255, blue:255/255, alpha: 1)
+            
+            
+        }
+        else {
+            return UIColor(red:50/255, green:205/255, blue:50/255, alpha: 1)
+
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var data = getDataList()
         let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCell
         cell.event = data[indexPath.row]
+        cell.colorBackground.backgroundColor = changeColor(x: indexPath.row)
         if data[indexPath.row].description == "(Dnd)"{
             data[indexPath.row].description = "Neighborhood Development"
         }
