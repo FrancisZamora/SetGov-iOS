@@ -777,6 +777,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
+                                    <outlet property="collectionView" destination="ASq-oU-C9c" id="QKU-AQ-ign"/>
                                     <outlet property="eventAddress" destination="bbI-H2-dbm" id="Biq-2r-22g"/>
                                     <outlet property="eventHour" destination="1Iy-KO-Wpj" id="whI-nd-2bM"/>
                                     <outlet property="eventTime" destination="JzC-Ti-fLm" id="mTR-j8-0dh"/>

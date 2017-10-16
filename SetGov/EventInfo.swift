@@ -14,19 +14,40 @@ protocol EventInfoCallback: class {
     func loadDirections()
 }
 
-class EventInfo: UITableViewCell {
+class EventInfo: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet var eventHour: UILabel!
     @IBOutlet var eventAddress: UILabel!
     @IBOutlet var eventTime: UILabel!
     @IBOutlet weak var mDirectionsButton: UIView!
-    
+    @IBOutlet var collectionView: UICollectionView!
+    var event: Event!
+
     weak var eventInfoCallback: EventInfoCallback?
-    
     override func awakeFromNib() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(loadDirections))
-        //mDirectionsButton.addGestureRecognizer(tap)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        self.collectionView.reloadData()
     }
+    
+    func configure(event: Event) {
+        selectionStyle = .none
+        self.event = event
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return event.users.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Attendee", for: indexPath) as! Attendee
+        //print("THIS IS THE PIC ARRAY FOR EVENT DETAIL")
+        cell.configure(imageUrl: event.users[indexPath.row].profilePictureURL)
+        
+        return cell
+    }
+
+   
     
     func loadDirections() {
         if let callback = eventInfoCallback {

@@ -538,6 +538,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             infoCell.eventAddress.text = currentEvent.address
             infoCell.eventTime.text = currentEvent.date
             infoCell.eventHour.text = currentEvent.time
+            infoCell.configure(event: currentEvent)
             infoCell.eventInfoCallback = self
             return infoCell
         }
