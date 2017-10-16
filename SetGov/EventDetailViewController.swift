@@ -597,8 +597,10 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             return cell
         }
         
-        let cell =  tableView.dequeueReusableCell(withIdentifier: "EventStream", for:indexPath) as! EventStream
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AttendCell") as! AttendCell
         return cell
+        
+       
     }
     
     func getState() -> String {

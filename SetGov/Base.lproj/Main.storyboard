@@ -722,11 +722,6 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R8m-ij-m2v">
-                                            <rect key="frame" x="0.0" y="1" width="188" height="127"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <gestureRecognizers/>
-                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12/12/12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JzC-Ti-fLm">
                                             <rect key="frame" x="192" y="27" width="46" height="15"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -734,13 +729,42 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ASq-oU-C9c">
+                                            <rect key="frame" x="16" y="74" width="359" height="53"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Wjh-LL-Sbh">
+                                                <size key="itemSize" width="35" height="35"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="3" minY="9" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <cells>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Attendee" id="PCV-Al-NOL" customClass="Attendee" customModule="SetGov" customModuleProvider="target">
+                                                    <rect key="frame" x="3" y="9" width="35" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MNm-Y4-YRE">
+                                                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                    </view>
+                                                    <connections>
+                                                        <outlet property="userPicture" destination="MNm-Y4-YRE" id="o0H-r0-PnV"/>
+                                                    </connections>
+                                                </collectionViewCell>
+                                            </cells>
+                                        </collectionView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="eventAddress" destination="bbI-H2-dbm" id="Biq-2r-22g"/>
                                     <outlet property="eventHour" destination="1Iy-KO-Wpj" id="whI-nd-2bM"/>
                                     <outlet property="eventTime" destination="JzC-Ti-fLm" id="mTR-j8-0dh"/>
-                                    <outlet property="mDirectionsButton" destination="R8m-ij-m2v" id="AhF-bE-CiT"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventAgenda" rowHeight="212" id="5gE-8z-yj5" customClass="EventAgenda" customModule="SetGov" customModuleProvider="target">
@@ -1208,7 +1232,7 @@
                                     <outlet property="streamer" destination="oLB-xc-x95" id="A4d-rT-NHr"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AttendCell" rowHeight="55" id="sUS-8g-yAh" customClass="AttendCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AttendCell" rowHeight="55" id="sUS-8g-yAh" customClass="AttendCell" customModule="SetGov">
                                 <rect key="frame" x="0.0" y="1231" width="375" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sUS-8g-yAh" id="kZ1-35-MEU">
@@ -1220,6 +1244,9 @@
                                             <state key="normal" title="JOIN AND RSVP">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="attendAction:" destination="sUS-8g-yAh" eventType="touchUpInside" id="3O4-1x-yMk"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.12941176470588234" green="0.48627450980392156" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1230,6 +1257,9 @@
                                         <constraint firstItem="uBN-cY-4Xc" firstAttribute="top" secondItem="kZ1-35-MEU" secondAttribute="topMargin" constant="-8" id="emv-9V-q1g"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="attendButton" destination="uBN-cY-4Xc" id="poL-ae-sNy"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
