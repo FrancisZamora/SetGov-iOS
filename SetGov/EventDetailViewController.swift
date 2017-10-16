@@ -382,9 +382,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 if comparelauderdaleTime() == true {
                     return 500
                 }
-                return 200
+                return 145
             case 1:
-                return 38
+                return 95
             case 2:
                 return 176
             case 3:
@@ -402,7 +402,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             case 0:
             return 200
             case 1:
-            return 38
+            return 95
             case 2:
             return 176
             case 3:
