@@ -75,7 +75,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
                 agendaCollection.isHidden = true
             } else {
                 agendaCollection.isHidden = false
-                comingSoon.isHidden = true
+                //comingSoon.isHidden = true
 
                 self.agendaCollection.reloadData()
                 return 1
@@ -83,7 +83,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         }
         
         if currentEvent.city == "Boston" {
-            comingSoon.isHidden = true
+            //comingSoon.isHidden = true
         }
         
         return currentEvent.agendaItems.count
