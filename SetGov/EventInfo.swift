@@ -25,7 +25,7 @@ class EventInfo: UITableViewCell {
     
     override func awakeFromNib() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(loadDirections))
-        mDirectionsButton.addGestureRecognizer(tap)
+        //mDirectionsButton.addGestureRecognizer(tap)
     }
     
     func loadDirections() {

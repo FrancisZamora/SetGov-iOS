@@ -12,7 +12,7 @@ import QuartzCore
 import SwiftyJSON
 import PDFReader
 
-class EventDetailViewController: SetGovTableViewController, EventAgendaCallback, EventInfoCallback, EventStreamCallback, CommentCallBack, DiscussionCallBack {
+class EventDetailViewController: SetGovTableViewController, EventAgendaCallback, EventInfoCallback, EventStreamCallback, CommentCallBack, DiscussionCallBack, AttendCellCallBack {
     var activate = true
     var infoCell = true
     var memberCell = true
@@ -597,8 +597,17 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             return cell
         }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AttendCell") as! AttendCell
-        return cell
+        if indexPath.row == indexPath.row {
+        
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AttendCell") as! AttendCell
+            cell.AttendCellCallBack = self
+            return cell
+        }
+        
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AttendCell") as! AttendCell
+            return cell
+        
         
        
     }

@@ -8,11 +8,16 @@
 
 import Foundation
 import UIKit
-
+protocol AttendCellCallBack: class {
+    func attendbuttonTapped()
+}
 class AttendCell: UITableViewCell {
     @IBOutlet var attendButton: UIButton!
-    
+    weak var AttendCellCallBack: AttendCellCallBack!
     @IBAction func attendAction(_ sender: Any) {
-        
+        attendButton.setTitle("ATTENDING", for: .normal)
+        if let callback = self.AttendCellCallBack {
+            callback.attendbuttonTapped()
+        }
     }
 }
