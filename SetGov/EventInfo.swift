@@ -17,6 +17,7 @@ protocol EventInfoCallback: class {
 class EventInfo: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
+    @IBOutlet var userCount: UILabel!
     @IBOutlet var backGround: UIView!
     @IBOutlet var eventHour: UILabel!
     @IBOutlet var eventAddress: UILabel!
@@ -34,6 +35,7 @@ class EventInfo: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     }
     
     func configure(event: Event) {
+        userCount.text = String(event.users.count)
         backGround.layer.cornerRadius = 10
         selectionStyle = .none
         self.event = event
