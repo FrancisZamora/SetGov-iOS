@@ -192,16 +192,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     }
     
     func loadTitle() {
-        if selectedCity == "Boston" {
-            navTitle.title = bostonDataList[indexofEvent].title
-            eventTitle = navTitle.title!
-        }
-        
-        if selectedCity == "Fort Lauderdale" {
-            navTitle.title = fortlauderdaleDataList[indexofEvent].title
-            self.eventDescription = currentEvent.description
-            eventTitle = navTitle.title!
-        }
+       navTitle.title = "Event Details"
     }
     
     func retrievecommentData(comment:String) {
@@ -417,6 +408,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         if (indexPath.row == 0) {
             let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream") as! EventStream
                 eventStream.attendButton.isHidden = true
+                eventStream.eventTitlelabel.text = currentEvent.title
+                eventStream.background.layer.cornerRadius = 10
                 eventStream.eventDescription.text = currentEvent.description
                 eventStream.dataList = dataList
                 eventStream.user = self.user

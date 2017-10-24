@@ -30,6 +30,7 @@ class EventStream:  UITableViewCell {
     @IBOutlet var attendButton: UIButton!
     @IBOutlet var buttonBackground: GradientView!
     
+    @IBOutlet var eventTitlelabel: UILabel!
     @IBOutlet var background: UIView!
     @IBOutlet var eventDescription: UILabel!
     var pressedButton: Bool?

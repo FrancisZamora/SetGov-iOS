@@ -654,11 +654,32 @@
                                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <color key="tintColor" red="0.56089743589999996" green="0.56089743589999996" blue="0.56089743589999996" alpha="1" colorSpace="calibratedRGB"/>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Image1" translatesAutoresizingMaskIntoConstraints="NO" id="Aun-jw-LfV">
-                                            <rect key="frame" x="149" y="32" width="80" height="80"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GtG-Ye-OSu">
+                                            <rect key="frame" x="251" y="8" width="116" height="30"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meeting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1w-dJ-8XC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="116" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="116" id="dHL-gZ-xFK"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="I1w-dJ-8XC" firstAttribute="leading" secondItem="GtG-Ye-OSu" secondAttribute="leading" id="6qb-rZ-68T"/>
+                                                <constraint firstAttribute="bottom" secondItem="I1w-dJ-8XC" secondAttribute="bottom" id="Q96-QP-2rf"/>
+                                                <constraint firstItem="I1w-dJ-8XC" firstAttribute="top" secondItem="GtG-Ye-OSu" secondAttribute="top" id="Vud-xc-jpn"/>
+                                                <constraint firstAttribute="trailing" secondItem="I1w-dJ-8XC" secondAttribute="trailing" id="cAj-gI-qwg"/>
+                                            </constraints>
+                                        </view>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Image1" translatesAutoresizingMaskIntoConstraints="NO" id="Aun-jw-LfV">
+                                            <rect key="frame" x="149" y="8" width="80" height="80"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YEk-ax-Ory" customClass="GradientView" customModule="SetGov" customModuleProvider="target">
-                                            <rect key="frame" x="130" y="113" width="119" height="32"/>
+                                            <rect key="frame" x="22" y="49" width="119" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q24-2M-0fu">
@@ -683,31 +704,24 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GtG-Ye-OSu">
-                                            <rect key="frame" x="251" y="8" width="116" height="30"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meeting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1w-dJ-8XC">
-                                                    <rect key="frame" x="0.0" y="0.0" width="116" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="116" id="dHL-gZ-xFK"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Marine Advisory                            " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="wa9-h3-9cD">
+                                            <rect key="frame" x="6" y="112" width="367" height="26"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="I1w-dJ-8XC" firstAttribute="leading" secondItem="GtG-Ye-OSu" secondAttribute="leading" id="6qb-rZ-68T"/>
-                                                <constraint firstAttribute="bottom" secondItem="I1w-dJ-8XC" secondAttribute="bottom" id="Q96-QP-2rf"/>
-                                                <constraint firstItem="I1w-dJ-8XC" firstAttribute="top" secondItem="GtG-Ye-OSu" secondAttribute="top" id="Vud-xc-jpn"/>
-                                                <constraint firstAttribute="trailing" secondItem="I1w-dJ-8XC" secondAttribute="trailing" id="cAj-gI-qwg"/>
+                                                <constraint firstAttribute="height" constant="26" id="c1Y-jz-CXr"/>
                                             </constraints>
-                                        </view>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="wa9-h3-9cD" firstAttribute="top" secondItem="Aun-jw-LfV" secondAttribute="bottom" constant="24" id="56h-8x-pKj"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="wa9-h3-9cD" secondAttribute="bottom" constant="-0.5" id="IUw-Og-gag"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="GtG-Ye-OSu" secondAttribute="bottom" constant="99.5" id="Naa-4o-gGt"/>
-                                        <constraint firstItem="GtG-Ye-OSu" firstAttribute="leading" secondItem="Aun-jw-LfV" secondAttribute="trailing" constant="22" id="VKR-gr-Zom"/>
+                                        <constraint firstItem="wa9-h3-9cD" firstAttribute="leading" secondItem="SLU-cn-YFm" secondAttribute="leadingMargin" constant="-2" id="Q2n-mE-hNe"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="wa9-h3-9cD" secondAttribute="trailing" constant="-6" id="SYk-lC-spy"/>
+                                        <constraint firstItem="wa9-h3-9cD" firstAttribute="centerX" secondItem="Aun-jw-LfV" secondAttribute="centerX" id="sZK-tm-MH0"/>
                                         <constraint firstItem="GtG-Ye-OSu" firstAttribute="trailing" secondItem="SLU-cn-YFm" secondAttribute="trailingMargin" id="xDv-CK-xLv"/>
                                         <constraint firstItem="GtG-Ye-OSu" firstAttribute="top" secondItem="SLU-cn-YFm" secondAttribute="topMargin" id="ymX-Jv-BOp"/>
                                     </constraints>
@@ -718,6 +732,7 @@
                                     <outlet property="buttonBackground" destination="YEk-ax-Ory" id="UPh-YR-ghy"/>
                                     <outlet property="eventDescription" destination="I1w-dJ-8XC" id="DyU-5n-KWD"/>
                                     <outlet property="eventImage" destination="6QP-vY-Qem" id="RQw-NC-c7Q"/>
+                                    <outlet property="eventTitle" destination="wa9-h3-9cD" id="Vd2-2O-WAp"/>
                                     <outlet property="secondaryEventImage" destination="Aun-jw-LfV" id="2Y9-HB-GOb"/>
                                 </connections>
                             </tableViewCell>
