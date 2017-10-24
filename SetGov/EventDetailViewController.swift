@@ -354,7 +354,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 }
                 return 145
             case 1:
-                return 95
+                return 175
             case 2:
                 return 176
             case 3:
@@ -372,7 +372,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             case 0:
             return 200
             case 1:
-            return 95
+            return 175
             case 2:
             return 176
             case 3:
@@ -416,7 +416,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
         if (indexPath.row == 0) {
             let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream") as! EventStream
-
+                eventStream.attendButton.isHidden = true
                 eventStream.dataList = dataList
                 eventStream.user = self.user
                 eventStream.configureImage()

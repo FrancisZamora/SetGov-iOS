@@ -16,12 +16,15 @@ protocol EventInfoCallback: class {
 
 class EventInfo: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    
+    @IBOutlet var backGround: UIView!
     @IBOutlet var eventHour: UILabel!
     @IBOutlet var eventAddress: UILabel!
     @IBOutlet var eventTime: UILabel!
     @IBOutlet weak var mDirectionsButton: UIView!
     @IBOutlet var collectionView: UICollectionView!
     var event: Event!
+    
 
     weak var eventInfoCallback: EventInfoCallback?
     override func awakeFromNib() {
@@ -31,6 +34,7 @@ class EventInfo: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     }
     
     func configure(event: Event) {
+        backGround.layer.cornerRadius = 10
         selectionStyle = .none
         self.event = event
     }
