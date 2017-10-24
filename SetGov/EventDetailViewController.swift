@@ -417,6 +417,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         if (indexPath.row == 0) {
             let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream") as! EventStream
                 eventStream.attendButton.isHidden = true
+                eventStream.eventDescription.text = currentEvent.description
                 eventStream.dataList = dataList
                 eventStream.user = self.user
                 eventStream.configureImage()

@@ -29,6 +29,9 @@ class EventStream:  UITableViewCell {
     @IBOutlet var secondaryEventImage: UIImageView!
     @IBOutlet var attendButton: UIButton!
     @IBOutlet var buttonBackground: GradientView!
+    
+    @IBOutlet var background: UIView!
+    @IBOutlet var eventDescription: UILabel!
     var pressedButton: Bool?
     var onePress: Bool = false
     var dataList = [Event]()

@@ -59,7 +59,7 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     
     func configure(event: Event) {
         background.layer.cornerRadius = 10
-        colorBackground.layer.cornerRadius = 15
+        colorBackground.layer.cornerRadius = 10
         selectionStyle = .none
         eventTitle.text = event.title
         eventDescription.text = event.description
