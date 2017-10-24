@@ -354,7 +354,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 }
                 return 145
             case 1:
-                return 175
+                return 150
             case 2:
                 return 176
             case 3:
@@ -372,7 +372,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             case 0:
             return 200
             case 1:
-            return 175
+            return 150
             case 2:
             return 176
             case 3:
@@ -420,7 +420,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 eventStream.dataList = dataList
                 eventStream.user = self.user
                 eventStream.configureImage()
-
+                eventStream.buttonBackground.isHidden = true
                 eventStream.bostonDataList = bostonDataList
             
                 eventStream.fortlauderdaleDataList = fortlauderdaleDataList

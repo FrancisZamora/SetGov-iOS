@@ -18,6 +18,7 @@ protocol EventAgendaCallback: class {
 }
 
 class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
+    @IBOutlet var background: UIView!
     
     @IBOutlet var comingSoon: UILabel!
     @IBOutlet var agenda: UILabel!
@@ -44,6 +45,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     }
     
     func configureCell(event: Event) {
+        background.layer.cornerRadius = 10
         selectionStyle = .none
         currentEvent = event
         if selectedCity == "Fort Lauderdale" {
@@ -54,6 +56,16 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
+   
+        cell.agendaPic.layer.cornerRadius = 10
+        cell.agendaPic.layer.shadowColor = UIColor.gray.cgColor
+        cell.agendaPic.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        cell.agendaPic.layer.shadowRadius = 2.0
+        cell.agendaPic.layer.shadowOpacity = 1.0
+        cell.agendaPic.layer.masksToBounds = false
+        cell.agendaPic.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.agendaPic.layer.cornerRadius).cgPath
+
+        
         if currentEvent.city == "Fort Lauderdale" {
             var AgendaArray = [Agenda]()
             let x = Agenda(name: "Agenda", description:"Meeting", text: "Agenda Details Not Available")
