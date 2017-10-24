@@ -66,26 +66,22 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
         super.viewDidLoad()
         
-        //print("EventDetailViewController")
         self.loadTitle()
         
         self.refresher?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
-        //print(agendaInfo)
-        //print(indexofEvent)
+    
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.fetchEvent()
-        //print("CURRENT AGENDA: \(currentEvent.agendaItems)")
-        //print("this is the length of the comment array")
+
         tableView.reloadData()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         if let stream = currentEventStream {
-            //stream.timer.invalidate()
             currentEventStream = nil
         }
     }
@@ -117,9 +113,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 }
                 
                 self.currentEvent.users = self.userArray
-                //print(self.currentEvent.users)
-               
-                //print("THIS IS THE PICTURE ARRAY FOR BOSTON \(self.picArray)")
+            
           
                 guard let comments = json["data"]["event"]["comments"].array else {
                     return
@@ -199,37 +193,23 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     func loadTitle() {
         if selectedCity == "Boston" {
-            //print("loading title")
-            //print(selectedEvents)
-            //print(eventList)
-            //print(indexofEvent)
             navTitle.title = bostonDataList[indexofEvent].title
             eventTitle = navTitle.title!
         }
         
         if selectedCity == "Fort Lauderdale" {
-            //print("loading title")
-            //print(selectedEvents)
-            //print(eventList)
-            //print(indexofEvent)
-    
             navTitle.title = fortlauderdaleDataList[indexofEvent].title
-            //print(fortlauderdaleArray)
-            
             self.eventDescription = currentEvent.description
-
             eventTitle = navTitle.title!
         }
     }
     
     func retrievecommentData(comment:String) {
-        //print(comment)
         if selectedCity == "Boston" {
             ApiClient.createComment(comment: comment, eventID: self.currentEvent.id, onCompletion:{ json in
                 self.fetchEvent()
             })
         }
-        
         if selectedCity == "Fort Lauderdale" {
             ApiClient.createComment(comment: comment, eventID: self.currentEvent.id, onCompletion:{ json in
                 self.fetchEvent()
@@ -242,7 +222,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             return
         }
         let remotePDFDocumentURLPath = "https://fortlauderdale.legistar.com/" + appDelegate.fortlauderdalePDFLinks[indexofEvent]
-      
         let remotePDFDocumentURL = URL(string: remotePDFDocumentURLPath)!
         let document = PDFDocument(url: remotePDFDocumentURL)!
         let readerController = PDFViewController.createNew(with: document)
@@ -252,9 +231,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     }
     
     func loadAgendaDetail(agenda: Agenda) {
-        //print("EVENT AGENDA CALLBACK")
-        //print("LOADING AGENDA DETAIL HERE")
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "AgendaDetailViewController") as! AgendaDetailViewController
         
@@ -265,7 +241,6 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     }
     
     func attendbuttonTapped() {
-        //print("attend button tapped, callback now")
         self.fetchEvent()
         self.tableView.reloadData()
     }
@@ -308,13 +283,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yy"
         let newDate = dateFormatter.string(from: date)
-        //print(newDate)
-        //print(newDate)
-        
         let x = newDate == fortlauderdaleDataList[indexofEvent].date
-        //print(x)
         self.configureHour()
-        //print(eventHours)
         
         let y = currentHour >=  fortlauderdaleDataList[indexofEvent].time
         //print(currentHour)
@@ -538,6 +508,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             infoCell.eventAddress.text = currentEvent.address
             infoCell.eventTime.text = currentEvent.date
             infoCell.eventHour.text = currentEvent.time
+            infoCell.collectionView.reloadData()
             infoCell.configure(event: currentEvent)
             infoCell.eventInfoCallback = self
             return infoCell

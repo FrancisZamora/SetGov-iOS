@@ -36,6 +36,8 @@ class EventInfo: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(event.users.count)
+        
         return event.users.count
     }
     
