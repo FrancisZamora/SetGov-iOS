@@ -76,6 +76,7 @@ class EventViewController: SetGovTableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         //print(selectedCity)
+
         self.bostonDataList = self.appDelegate.bostonDataList
         self.fortlauderdaleDataList = self.appDelegate.fortlauderdaleDataList
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -104,15 +105,27 @@ class EventViewController: SetGovTableViewController{
     }
     
     func getTime(time:String) -> String {
+        
         var temp = time.components(separatedBy: ":")
+        if temp[1].contains("am") || temp[1].contains("pm") {
+            return temp[0] + ":" + temp[1]
+        }
+        
+        
+        
         if Int(temp[0])! < 7 || Int(temp[0])! == 12 {
             let newTime = temp [0] + ":" + temp[1] + "pm"
+           
+            
             return newTime
         }
         else {
             let newTime = temp[0] + ":" + temp[1] + "am"
+           
+
             return newTime
         }
+
     }
     
     func getImage(int:Int ) -> UIImage {
