@@ -17,6 +17,7 @@ protocol EventInfoCallback: class {
 class EventInfo: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
+    @IBOutlet var rsvp: UILabel!
     @IBOutlet var userCount: UILabel!
     @IBOutlet var backGround: UIView!
     @IBOutlet var eventHour: UILabel!
@@ -29,6 +30,7 @@ class EventInfo: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
 
     weak var eventInfoCallback: EventInfoCallback?
     override func awakeFromNib() {
+       
         collectionView.delegate = self
         collectionView.dataSource = self
         self.collectionView.reloadData()
@@ -44,7 +46,12 @@ class EventInfo: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print(event.users.count)
-        
+        if event.users.count != 0 {
+            rsvp.isHidden = true
+        }
+        if event.users.count == 0 {
+            rsvp.isHidden = false
+        }
         return event.users.count
     }
     

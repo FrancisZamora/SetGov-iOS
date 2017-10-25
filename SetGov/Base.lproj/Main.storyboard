@@ -826,14 +826,24 @@
                                                     <color key="textColor" red="0.087962217630000006" green="0.1909767389" blue="0.38617235420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Be the first to RSVP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="h9y-oO-V3w">
+                                                    <rect key="frame" x="92" y="85.5" width="169" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                                    <color key="textColor" red="0.087962217630000006" green="0.1909767389" blue="0.38617235420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="ASj-sK-6PL" firstAttribute="leading" secondItem="eDa-nl-y6T" secondAttribute="leading" constant="36" id="3ba-Fm-z9G"/>
                                                 <constraint firstItem="bbI-H2-dbm" firstAttribute="centerY" secondItem="JCn-FO-ir3" secondAttribute="centerY" id="5ny-ic-PMp"/>
                                                 <constraint firstItem="bbI-H2-dbm" firstAttribute="top" secondItem="1Iy-KO-Wpj" secondAttribute="bottom" constant="8" symbolic="YES" id="6SF-6h-Ao1"/>
+                                                <constraint firstItem="h9y-oO-V3w" firstAttribute="centerY" secondItem="ASj-sK-6PL" secondAttribute="centerY" id="81Z-Q4-fu5"/>
+                                                <constraint firstItem="ASj-sK-6PL" firstAttribute="leading" secondItem="da7-v8-75s" secondAttribute="trailing" constant="3" id="Fe6-9r-T2b"/>
                                                 <constraint firstItem="bbI-H2-dbm" firstAttribute="leading" secondItem="1Iy-KO-Wpj" secondAttribute="leading" id="IWf-cc-Ewv"/>
+                                                <constraint firstItem="da7-v8-75s" firstAttribute="centerY" secondItem="ASj-sK-6PL" secondAttribute="centerY" id="IwD-fh-pU1"/>
                                                 <constraint firstItem="bbI-H2-dbm" firstAttribute="leading" secondItem="JCn-FO-ir3" secondAttribute="trailing" constant="4" id="LTk-CP-xTZ"/>
+                                                <constraint firstItem="h9y-oO-V3w" firstAttribute="baseline" secondItem="ASj-sK-6PL" secondAttribute="baseline" constant="1" id="MCc-Ig-53a"/>
                                                 <constraint firstAttribute="trailing" secondItem="bbI-H2-dbm" secondAttribute="trailing" constant="96" id="Mkr-7v-aX3"/>
                                                 <constraint firstItem="lCB-le-ivP" firstAttribute="leading" secondItem="eDa-nl-y6T" secondAttribute="leading" constant="21" id="WQH-Vs-8Ks"/>
                                                 <constraint firstItem="lCB-le-ivP" firstAttribute="top" secondItem="eDa-nl-y6T" secondAttribute="top" constant="14" id="XRW-yp-z31"/>
@@ -841,6 +851,7 @@
                                                 <constraint firstItem="da7-v8-75s" firstAttribute="leading" secondItem="eDa-nl-y6T" secondAttribute="leading" constant="18" id="d0X-g7-1u1"/>
                                                 <constraint firstItem="JCn-FO-ir3" firstAttribute="centerX" secondItem="lCB-le-ivP" secondAttribute="centerX" id="dDg-N6-45e"/>
                                                 <constraint firstItem="ASj-sK-6PL" firstAttribute="top" secondItem="eDa-nl-y6T" secondAttribute="top" constant="87" id="nVK-77-jLc"/>
+                                                <constraint firstItem="h9y-oO-V3w" firstAttribute="leading" secondItem="ASj-sK-6PL" secondAttribute="trailing" constant="12" id="q0g-J4-qe4"/>
                                                 <constraint firstAttribute="bottom" secondItem="da7-v8-75s" secondAttribute="bottom" constant="9" id="q5l-nv-ccb"/>
                                                 <constraint firstAttribute="trailing" secondItem="ASj-sK-6PL" secondAttribute="trailing" constant="279" id="qV0-tL-67p"/>
                                                 <constraint firstItem="JzC-Ti-fLm" firstAttribute="top" secondItem="eDa-nl-y6T" secondAttribute="top" constant="4" id="r4J-ex-lX5"/>
@@ -869,6 +880,7 @@
                                     <outlet property="eventAddress" destination="bbI-H2-dbm" id="Biq-2r-22g"/>
                                     <outlet property="eventHour" destination="1Iy-KO-Wpj" id="whI-nd-2bM"/>
                                     <outlet property="eventTime" destination="JzC-Ti-fLm" id="mTR-j8-0dh"/>
+                                    <outlet property="rsvp" destination="h9y-oO-V3w" id="sHb-m0-Pq9"/>
                                     <outlet property="userCount" destination="da7-v8-75s" id="wC1-Xb-cMv"/>
                                 </connections>
                             </tableViewCell>
