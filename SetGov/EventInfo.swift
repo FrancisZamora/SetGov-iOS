@@ -35,6 +35,7 @@ class EventInfo: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     }
     
     func configure(event: Event) {
+        eventTime.text = event.eventDate + ", 2017"
         userCount.text = String(event.users.count)
         backGround.layer.cornerRadius = 10
         selectionStyle = .none
