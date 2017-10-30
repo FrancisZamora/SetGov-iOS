@@ -40,9 +40,6 @@
 		15433B941F15766700B8FE0D /* EventOnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15433B931F15766700B8FE0D /* EventOnboardingScreen.swift */; };
 		1547836D1F1FB43D005ABF77 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1547836C1F1FB43D005ABF77 /* ApiClient.swift */; };
 		154E5C0B1E89FB6900F96FB6 /* EventAgenda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E5C0A1E89FB6900F96FB6 /* EventAgenda.swift */; };
-		1557498A1F44DBF5002EE887 /* Austin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155749891F44DBF5002EE887 /* Austin.swift */; };
-		1557498C1F44DBFD002EE887 /* SanJose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1557498B1F44DBFD002EE887 /* SanJose.swift */; };
-		1557498E1F44DC08002EE887 /* Phoenix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1557498D1F44DC08002EE887 /* Phoenix.swift */; };
 		155749901F450827002EE887 /* FortLauderdaleStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1557498F1F450827002EE887 /* FortLauderdaleStream.swift */; };
 		155749921F452FE8002EE887 /* PDFCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155749911F452FE8002EE887 /* PDFCell.swift */; };
 		155D301E1F3BA0DC0013B7C3 /* Agenda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155D301D1F3BA0DC0013B7C3 /* Agenda.swift */; };
@@ -56,16 +53,16 @@
 		15A344D11F0ECC1E00E80D85 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A344D01F0ECC1E00E80D85 /* Reachability.swift */; };
 		15B0CF261F94797700DE738B /* AttendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B0CF251F94797700DE738B /* AttendCell.swift */; };
 		15B945941E9DD75700226A32 /* EventLiveStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B945931E9DD75700226A32 /* EventLiveStream.swift */; };
-		15C489711F3B4FCF007D60F2 /* WebScraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C489701F3B4FCF007D60F2 /* WebScraper.swift */; };
 		15C64B471EADA84200B123A5 /* CityNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C64B461EADA84200B123A5 /* CityNavigationViewController.swift */; };
-		15C64B491EADA8FF00B123A5 /* BostonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C64B481EADA8FF00B123A5 /* BostonCell.swift */; };
-		15C64B4B1EADA94200B123A5 /* FortLauderdaleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C64B4A1EADA94200B123A5 /* FortLauderdaleCell.swift */; };
-		15C64B4D1EADA96200B123A5 /* NewYorkCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C64B4C1EADA96200B123A5 /* NewYorkCityCell.swift */; };
 		15D3DB871E7A169E00CD35DD /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D3DB861E7A169E00CD35DD /* ProfileImage.swift */; };
-		15D442261EF355BC00AC8FD1 /* MiamiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D442251EF355BC00AC8FD1 /* MiamiCell.swift */; };
 		15F882421F2A391D001BA502 /* Attendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F882411F2A391D001BA502 /* Attendee.swift */; };
 		15FD453B1F3D29B00082F3CD /* NoUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD453A1F3D29B00082F3CD /* NoUsers.swift */; };
 		1D98C468A8545E290887D257 /* Pods_SetGovUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A291636C27A3A4A0D6A8E83 /* Pods_SetGovUITests.framework */; };
+		F9AC00DB1FA2B0D000308DC5 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC00DA1FA2B0D000308DC5 /* String.swift */; };
+		F9CB43741FA27AF200DA2D9D /* CityCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CB43731FA27AF200DA2D9D /* CityCollectionCell.swift */; };
+		F9CB43761FA2857900DA2D9D /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CB43751FA2857900DA2D9D /* City.swift */; };
+		F9CB43791FA289E100DA2D9D /* GraphFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CB43781FA289E100DA2D9D /* GraphFactory.swift */; };
+		F9CB437B1FA28B3D00DA2D9D /* GeneralHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CB437A1FA28B3D00DA2D9D /* GeneralHelper.swift */; };
 		FBEC5B911F730BCB0079F87A /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEC5B901F730BCB0079F87A /* EventDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -127,9 +124,6 @@
 		15433B931F15766700B8FE0D /* EventOnboardingScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventOnboardingScreen.swift; sourceTree = "<group>"; };
 		1547836C1F1FB43D005ABF77 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		154E5C0A1E89FB6900F96FB6 /* EventAgenda.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAgenda.swift; sourceTree = "<group>"; };
-		155749891F44DBF5002EE887 /* Austin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Austin.swift; sourceTree = "<group>"; };
-		1557498B1F44DBFD002EE887 /* SanJose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SanJose.swift; sourceTree = "<group>"; };
-		1557498D1F44DC08002EE887 /* Phoenix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phoenix.swift; sourceTree = "<group>"; };
 		1557498F1F450827002EE887 /* FortLauderdaleStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FortLauderdaleStream.swift; sourceTree = "<group>"; };
 		155749911F452FE8002EE887 /* PDFCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFCell.swift; sourceTree = "<group>"; };
 		155D301D1F3BA0DC0013B7C3 /* Agenda.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Agenda.swift; sourceTree = "<group>"; };
@@ -142,13 +136,8 @@
 		15A344D01F0ECC1E00E80D85 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		15B0CF251F94797700DE738B /* AttendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendCell.swift; sourceTree = "<group>"; };
 		15B945931E9DD75700226A32 /* EventLiveStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventLiveStream.swift; sourceTree = "<group>"; };
-		15C489701F3B4FCF007D60F2 /* WebScraper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebScraper.swift; sourceTree = "<group>"; };
 		15C64B461EADA84200B123A5 /* CityNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityNavigationViewController.swift; sourceTree = "<group>"; };
-		15C64B481EADA8FF00B123A5 /* BostonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BostonCell.swift; sourceTree = "<group>"; };
-		15C64B4A1EADA94200B123A5 /* FortLauderdaleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FortLauderdaleCell.swift; sourceTree = "<group>"; };
-		15C64B4C1EADA96200B123A5 /* NewYorkCityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewYorkCityCell.swift; sourceTree = "<group>"; };
 		15D3DB861E7A169E00CD35DD /* ProfileImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
-		15D442251EF355BC00AC8FD1 /* MiamiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiamiCell.swift; sourceTree = "<group>"; };
 		15F882411F2A391D001BA502 /* Attendee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attendee.swift; sourceTree = "<group>"; };
 		15FD453A1F3D29B00082F3CD /* NoUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoUsers.swift; sourceTree = "<group>"; };
 		2374A0556EB1F59A21F79D7B /* Pods-SetGov.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetGov.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SetGov/Pods-SetGov.debug.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +148,11 @@
 		DFCF1B64F43B2B946AC84739 /* Pods-SetGovTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetGovTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SetGovTests/Pods-SetGovTests.release.xcconfig"; sourceTree = "<group>"; };
 		E00276BDDDA0EE096103FE55 /* Pods_SetGovTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetGovTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DB1E0556D1C2600D5D751E /* Pods-SetGov.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetGov.release.xcconfig"; path = "Pods/Target Support Files/Pods-SetGov/Pods-SetGov.release.xcconfig"; sourceTree = "<group>"; };
+		F9AC00DA1FA2B0D000308DC5 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		F9CB43731FA27AF200DA2D9D /* CityCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCollectionCell.swift; sourceTree = "<group>"; };
+		F9CB43751FA2857900DA2D9D /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		F9CB43781FA289E100DA2D9D /* GraphFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphFactory.swift; sourceTree = "<group>"; };
+		F9CB437A1FA28B3D00DA2D9D /* GeneralHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralHelper.swift; sourceTree = "<group>"; };
 		FBEC5B901F730BCB0079F87A /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -210,6 +204,7 @@
 				152DBEE81EF1BC1E00322E56 /* Event.swift */,
 				1534AD7F1F2C09760001D08D /* Comment.swift */,
 				155D301D1F3BA0DC0013B7C3 /* Agenda.swift */,
+				F9CB43751FA2857900DA2D9D /* City.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -239,6 +234,8 @@
 		151CDA821E64CF3700440CDE /* SetGov */ = {
 			isa = PBXGroup;
 			children = (
+				F9AC00D91FA2B0C300308DC5 /* Extensions */,
+				F9CB43771FA289D900DA2D9D /* Shared */,
 				1547836B1F1FB42D005ABF77 /* Network */,
 				152E12B11F16E8E500306967 /* SetGov.entitlements */,
 				151CDA8C1E64CF3700440CDE /* LaunchScreen.storyboard */,
@@ -291,20 +288,14 @@
 				156BD4D01E836B9800E8F98B /* EventMembers.swift */,
 				156BD4CE1E836B7800E8F98B /* EventStream.swift */,
 				1523A4931E8B385C00AE93C2 /* AgendaCell.swift */,
-				15C64B481EADA8FF00B123A5 /* BostonCell.swift */,
-				15C64B4A1EADA94200B123A5 /* FortLauderdaleCell.swift */,
-				15C64B4C1EADA96200B123A5 /* NewYorkCityCell.swift */,
-				15D442251EF355BC00AC8FD1 /* MiamiCell.swift */,
 				1529E0AD1F103524001FE4BB /* profileCell.swift */,
 				15F882411F2A391D001BA502 /* Attendee.swift */,
 				1534AD811F2C0B3C0001D08D /* CreateComment.swift */,
 				1566CC851F321F2E0078FFC8 /* DiscussionHeader.swift */,
 				15FD453A1F3D29B00082F3CD /* NoUsers.swift */,
-				155749891F44DBF5002EE887 /* Austin.swift */,
-				1557498B1F44DBFD002EE887 /* SanJose.swift */,
-				1557498D1F44DC08002EE887 /* Phoenix.swift */,
 				155749911F452FE8002EE887 /* PDFCell.swift */,
 				15B0CF251F94797700DE738B /* AttendCell.swift */,
+				F9CB43731FA27AF200DA2D9D /* CityCollectionCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -333,7 +324,6 @@
 			isa = PBXGroup;
 			children = (
 				1547836C1F1FB43D005ABF77 /* ApiClient.swift */,
-				15C489701F3B4FCF007D60F2 /* WebScraper.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -355,6 +345,23 @@
 				0A291636C27A3A4A0D6A8E83 /* Pods_SetGovUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F9AC00D91FA2B0C300308DC5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F9AC00DA1FA2B0D000308DC5 /* String.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		F9CB43771FA289D900DA2D9D /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				F9CB43781FA289E100DA2D9D /* GraphFactory.swift */,
+				F9CB437A1FA28B3D00DA2D9D /* GeneralHelper.swift */,
+			);
+			name = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -654,7 +661,7 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/PDFReader/PDFReader.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -670,7 +677,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PDFReader.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -687,7 +694,6 @@
 			files = (
 				150854801E97079C00838D85 /* AgendaDetailComments.swift in Sources */,
 				1529E0B01F103A6D001FE4BB /* logOut.swift in Sources */,
-				15C489711F3B4FCF007D60F2 /* WebScraper.swift in Sources */,
 				153F3F7E1E6DF0ED0004E2F4 /* LoginViewController.swift in Sources */,
 				15D3DB871E7A169E00CD35DD /* ProfileImage.swift in Sources */,
 				15F882421F2A391D001BA502 /* Attendee.swift in Sources */,
@@ -702,10 +708,8 @@
 				156BD4CD1E836B6300E8F98B /* EventInfo.swift in Sources */,
 				152DBEE91EF1BC1E00322E56 /* Event.swift in Sources */,
 				155D301E1F3BA0DC0013B7C3 /* Agenda.swift in Sources */,
-				15D442261EF355BC00AC8FD1 /* MiamiCell.swift in Sources */,
 				15433B921F15765800B8FE0D /* CityOnboardingScreen.swift in Sources */,
 				1534AD821F2C0B3C0001D08D /* CreateComment.swift in Sources */,
-				15C64B4D1EADA96200B123A5 /* NewYorkCityCell.swift in Sources */,
 				151CDA841E64CF3700440CDE /* AppDelegate.swift in Sources */,
 				1566CC861F321F2E0078FFC8 /* DiscussionHeader.swift in Sources */,
 				156BD4CF1E836B7800E8F98B /* EventStream.swift in Sources */,
@@ -716,22 +720,22 @@
 				1515A6C71F101677004312F2 /* homeCity.swift in Sources */,
 				1515A6C51F10166C004312F2 /* pushNotification.swift in Sources */,
 				156BD4D31E836BB300E8F98B /* EventDiscussion.swift in Sources */,
-				1557498C1F44DBFD002EE887 /* SanJose.swift in Sources */,
 				15FD453B1F3D29B00082F3CD /* NoUsers.swift in Sources */,
 				1547836D1F1FB43D005ABF77 /* ApiClient.swift in Sources */,
 				153F3F871E6DF54B0004E2F4 /* EventViewController.swift in Sources */,
+				F9CB43761FA2857900DA2D9D /* City.swift in Sources */,
 				15869E251F79629F00F4D624 /* ChooseYourCity.swift in Sources */,
-				15C64B491EADA8FF00B123A5 /* BostonCell.swift in Sources */,
-				1557498E1F44DC08002EE887 /* Phoenix.swift in Sources */,
 				1508A69F1E9343F900C92410 /* AgendaDetailViewController.swift in Sources */,
 				15B0CF261F94797700DE738B /* AttendCell.swift in Sources */,
 				1523A4941E8B385C00AE93C2 /* AgendaCell.swift in Sources */,
 				1502CDB81EFB2F4F00CD658F /* Users.swift in Sources */,
+				F9CB437B1FA28B3D00DA2D9D /* GeneralHelper.swift in Sources */,
 				155749921F452FE8002EE887 /* PDFCell.swift in Sources */,
+				F9CB43791FA289E100DA2D9D /* GraphFactory.swift in Sources */,
+				F9CB43741FA27AF200DA2D9D /* CityCollectionCell.swift in Sources */,
+				F9AC00DB1FA2B0D000308DC5 /* String.swift in Sources */,
 				15C64B471EADA84200B123A5 /* CityNavigationViewController.swift in Sources */,
 				15A344D11F0ECC1E00E80D85 /* Reachability.swift in Sources */,
-				1557498A1F44DBF5002EE887 /* Austin.swift in Sources */,
-				15C64B4B1EADA94200B123A5 /* FortLauderdaleCell.swift in Sources */,
 				153F3F891E6DF7190004E2F4 /* EventCell.swift in Sources */,
 				154E5C0B1E89FB6900F96FB6 /* EventAgenda.swift in Sources */,
 				151B8B331E7CBD410021BF89 /* GradientView.swift in Sources */,

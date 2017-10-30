@@ -10,13 +10,16 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 import AlamofireObjectMapper
+import PromiseKit
 
 class ApiClient {
+    
+    static let url = "https://setgov.herokuapp.com/api/v/1/graph"
+    
     static func login(token:String,onCompletion: @escaping(JSON) -> Void) {
-        let URL = "https://setgov.herokuapp.com/api/v/1/graph"
         let query = "mutation {authenticateUser(facebook_token:\"\(token)\") {id,full_name, profileImage{ id, url}}}"
         
-        Alamofire.request(URL,
+        Alamofire.request(url,
                           method: .post,
                           parameters: ["query":query],
                           encoding: JSONEncoding.default,
@@ -35,10 +38,9 @@ class ApiClient {
     }
     
     static func logout(onCompletion: @escaping(JSON) -> Void) {
-        let URL = "https://setgov.herokuapp.com/api/v/1/graph"
         let query = "mutation {logoutUser}"
         
-        Alamofire.request(URL,
+        Alamofire.request(url,
                           method: .post,
                           parameters: ["query":query],
                           encoding: JSONEncoding.default,
@@ -66,7 +68,6 @@ class ApiClient {
         //print("add event title: \(event.title)")
         //print("add event agenda: \(event.agendaItems)")
         
-        let url = "https://setgov.herokuapp.com/api/v/1/graph"
         let query = "mutation{addEvent(name:\"\(event.title)\",city:\"\(event.city)\",address:\"\(event.address)\",date:\"\(event.date)\",time:\"\(event.time)\", description:\"\(event.description)\",agendaItems:\(Agenda.buildGraphString(agendaList: event.agendaItems))){id, agendaItems{ name, description, text}}}"
         Alamofire.request(url,
                           method: .post,
@@ -94,9 +95,8 @@ class ApiClient {
     }
     
     static func createComment(comment:String, eventID:Int, onCompletion: @escaping(JSON) -> Void) {
-        let URL = "https://setgov.herokuapp.com/api/v/1/graph"
         let query = "mutation{ addComment(text:\"\(comment)\",event_id:\(eventID)) {timestamp}}"
-        Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
+        Alamofire.request(url,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
             guard let jsonString = response.result.value else {
                 onCompletion(JSON.null)
                 return
@@ -107,6 +107,24 @@ class ApiClient {
             //print(response)
         }
         
+    }
+    
+    
+    static func graphCall(query: String) -> Promise<JSON> {
+        
+        return Alamofire
+            .request(
+                url,
+                method: .post,
+                parameters: ["query":query],
+                encoding: JSONEncoding.default,
+                headers: [:])
+            .responseJSON()
+            .then { json  in
+                GeneralHelper.createJson(json: json)
+            }.catch(execute: { (error) in
+                print("graph Error: \(error)")
+            })
     }
     
     static func deleteComment(commentID:Int, onCompletion: @escaping(JSON) -> Void) {
@@ -183,7 +201,7 @@ class ApiClient {
     
     static func fetchEvents(city:String, onCompletion: @escaping([Event]) -> Void) {
         let URL = "https://setgov.herokuapp.com/api/v/1/graph"
-        let query = "query { upcomingEvents(city:\"\(city)\"){id,name,date,description, attendingUsers{full_name, profileImage{url}}, address, time, city, agendaItems{name, description, text}, comments{id,user{full_name,profileImage{url}},karma,timestamp,text}}}"
+        let query = "query { upcomingEvents(city:\"\(city)\"){id,name,type,date,description, attendingUsers{full_name, profileImage{url}}, address, time, city, agendaItems{name, description, text}, comments{id,user{full_name,profileImage{url}},karma,timestamp,text}}}"
         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
             guard let jsonString = response.result.value,
                 let events = JSON(jsonString)["data"]["upcomingEvents"].array else {
@@ -195,22 +213,31 @@ class ApiClient {
             
             var eventsArray = [Event]()
             for event in events {
-                
+                print("GOT EVENT: \(event)")
                 let users = createUsers(event: event)
                 let agendas = createAgendas(event: event)
                 //print(agendas)
                 
                 let comments = createComments(event: event)
                 
+                var type = ""
+                if let t = event["type"].string {
+                    type = t
+                }
+                
+                var description = ""
+                if let d = event["description"].string {
+                    description = d
+                }
                 
                 if let city = event["city"].string,
                     let name = event["name"].string,
                     let id = event["id"].int,
                     let address = event["address"].string,
                     let time = event["time"].string,
-                    let description = event["description"].string,
                     let date = event["date"].string {
-                    eventsArray.append(Event(title: name,
+                    eventsArray.append(Event(type: type,
+                                             title: name,
                                              address: address,
                                              users: users,
                                              description: description,
@@ -298,5 +325,18 @@ class ApiClient {
             }
         }
         return agendaArray
+    }
+    
+    static func fetchCities() -> Promise<[City]> {
+        print("fetch cities")
+        let query = GraphFactory.createGraphString(type: .query,
+                                                   action: "availableCities",
+                                                   parameters: [:],
+                                                   properties: ["name","state","isActive"])
+        
+        return graphCall(query: query)
+            .then { json in
+                City.createCitiesFromJson(json: json)
+            }
     }
 }

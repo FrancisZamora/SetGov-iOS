@@ -25,13 +25,14 @@ class Event {
     var agendaItems = [Agenda]()
     var comments = [Comment]()
     var eventDate = String()
+    var type = ""
    // var loggedUser = User(userName: " " , attendingStatus: false, interestedStatus: false)
     
     init() {
         
     }
     
-    init(title:String, address: String, users: [User],  description: String, date: String, eventImageName: String, time: String, city: String,agendaItems: [Agenda], comments: [Comment], id: Int) {
+    init(type: String, title:String, address: String, users: [User],  description: String, date: String, eventImageName: String, time: String, city: String,agendaItems: [Agenda], comments: [Comment], id: Int) {
         self.title = title
         self.description = description
         self.users = users
@@ -43,6 +44,7 @@ class Event {
         self.agendaItems = agendaItems
         self.comments = comments
         self.id = id
+        self.type = type
         
         let formatter = DateFormatter()
         formatter.dateStyle = .short

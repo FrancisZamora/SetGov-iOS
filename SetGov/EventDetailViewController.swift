@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import QuartzCore
 import SwiftyJSON
-import PDFReader
 
 class EventDetailViewController: SetGovTableViewController, EventAgendaCallback, EventInfoCallback, EventStreamCallback, CommentCallBack, DiscussionCallBack, AttendCellCallBack {
     var activate = true
@@ -208,18 +207,18 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         }
     }
     
-    func createPDF() {
-        if appDelegate.fortlauderdalePDFLinks.count < indexofEvent + 1 {
-            return
-        }
-        let remotePDFDocumentURLPath = "https://fortlauderdale.legistar.com/" + appDelegate.fortlauderdalePDFLinks[indexofEvent]
-        let remotePDFDocumentURL = URL(string: remotePDFDocumentURLPath)!
-        let document = PDFDocument(url: remotePDFDocumentURL)!
-        let readerController = PDFViewController.createNew(with: document)
-        readerController.backgroundColor = .white
-        self.navigationController?.title = "Fort Lauderdale Agenda"
-        self.navigationController?.pushViewController(readerController, animated: true)
-    }
+//    func createPDF() {
+//        if appDelegate.fortlauderdalePDFLinks.count < indexofEvent + 1 {
+//            return
+//        }
+//        let remotePDFDocumentURLPath = "https://fortlauderdale.legistar.com/" + appDelegate.fortlauderdalePDFLinks[indexofEvent]
+//        let remotePDFDocumentURL = URL(string: remotePDFDocumentURLPath)!
+//        let document = PDFDocument(url: remotePDFDocumentURL)!
+//        let readerController = PDFViewController.createNew(with: document)
+//        readerController.backgroundColor = .white
+//        self.navigationController?.title = "Fort Lauderdale Agenda"
+//        self.navigationController?.pushViewController(readerController, animated: true)
+//    }
     
     func loadAgendaDetail(agenda: Agenda) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

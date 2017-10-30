@@ -62,7 +62,7 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
         colorBackground.layer.cornerRadius = 10
         selectionStyle = .none
         eventTitle.text = event.title
-        eventDescription.text = event.description
+        eventDescription.text = event.city
         eventImage.image = event.image
         eventDate.text = event.eventDate + ", 2017" + " @ " + event.time
         memberCount.text = "\(event.users.count)"

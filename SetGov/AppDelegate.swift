@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var fortlauderdaleStreams = [String]()
     let UserDefault = UserDefaults.standard
     var fortlauderdalePDFLinks = [String]()
+    var cities = [City]()
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 

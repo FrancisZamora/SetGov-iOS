@@ -17,6 +17,7 @@ class CityNavigationViewController: SetGovTableViewController {
     @IBOutlet var navBar: UINavigationItem!
     
     override func viewDidLoad() {
+        print("LOADED CITY NAVIGATION VIEW CONTROLLER")
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 213
@@ -79,86 +80,88 @@ class CityNavigationViewController: SetGovTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if (indexPath.row == 0 ) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BostonCell", for:indexPath) as! BostonCell
-            cell.selectionStyle = .none
-            
-            //print(indexPath.row)
-            cell.alpha = 0.80
-            
-            UIView.animate(withDuration: 0.5 ) {
-                cell.alpha = 1
-            }
-
-            return cell
-        }
+        let cell = UITableViewCell()
         
-        if (indexPath.row == 1) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FortLauderdaleCell", for:indexPath) as! FortLauderdaleCell
-            cell.selectionStyle = .none
-            cell.alpha = 0.35
-            
-            UIView.animate(withDuration: 1.0) {
-                cell.alpha = 1
-            }
-
-            //print(indexPath.row)
-            
-            return cell
-        }
-       
-        if (indexPath.row == 2) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Phoenix", for:indexPath) as! Phoenix
-            cell.selectionStyle = .none
-            
-            cell.alpha = 0.35
-            
-            UIView.animate(withDuration: 1.0) {
-                cell.alpha = 1
-            }
-
-            return cell
-        }
-        
-        if (indexPath.row == 3) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MiamiCell", for:indexPath) as! MiamiCell
-            cell.selectionStyle = .none
-            cell.alpha = 0.35
-            
-            UIView.animate(withDuration: 1.0) {
-                cell.alpha = 1
-            }
-            
-            return cell
-        }
-        
-        if (indexPath.row == 4) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SanJose", for:indexPath) as! SanJose
-            cell.selectionStyle = .none
-            
-            cell.alpha = 0.35
-            
-            UIView.animate(withDuration: 1.0) {
-                cell.alpha = 1
-            }
-            
-            return cell
-        }
-        
-        if (indexPath.row == 5) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Austin", for:indexPath) as! Austin
-            cell.selectionStyle = .none
-            
-            cell.alpha = 0.35
-            
-            UIView.animate(withDuration: 1.0) {
-                cell.alpha = 1
-            }
-        
-            return cell
-        }
-        
-        let cell =  tableView.dequeueReusableCell(withIdentifier: "FortLauderdaleCell", for:indexPath) as! FortLauderdaleCell
+//        if (indexPath.row == 0 ) {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "BostonCell", for:indexPath) as! BostonCell
+//            cell.selectionStyle = .none
+//
+//            //print(indexPath.row)
+//            cell.alpha = 0.80
+//
+//            UIView.animate(withDuration: 0.5 ) {
+//                cell.alpha = 1
+//            }
+//
+//            return cell
+//        }
+//
+//        if (indexPath.row == 1) {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "FortLauderdaleCell", for:indexPath) as! FortLauderdaleCell
+//            cell.selectionStyle = .none
+//            cell.alpha = 0.35
+//
+//            UIView.animate(withDuration: 1.0) {
+//                cell.alpha = 1
+//            }
+//
+//            //print(indexPath.row)
+//
+//            return cell
+//        }
+//
+//        if (indexPath.row == 2) {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "Phoenix", for:indexPath) as! Phoenix
+//            cell.selectionStyle = .none
+//
+//            cell.alpha = 0.35
+//
+//            UIView.animate(withDuration: 1.0) {
+//                cell.alpha = 1
+//            }
+//
+//            return cell
+//        }
+//
+//        if (indexPath.row == 3) {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "MiamiCell", for:indexPath) as! MiamiCell
+//            cell.selectionStyle = .none
+//            cell.alpha = 0.35
+//
+//            UIView.animate(withDuration: 1.0) {
+//                cell.alpha = 1
+//            }
+//
+//            return cell
+//        }
+//
+//        if (indexPath.row == 4) {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "SanJose", for:indexPath) as! SanJose
+//            cell.selectionStyle = .none
+//
+//            cell.alpha = 0.35
+//
+//            UIView.animate(withDuration: 1.0) {
+//                cell.alpha = 1
+//            }
+//
+//            return cell
+//        }
+//
+//        if (indexPath.row == 5) {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "Austin", for:indexPath) as! Austin
+//            cell.selectionStyle = .none
+//
+//            cell.alpha = 0.35
+//
+//            UIView.animate(withDuration: 1.0) {
+//                cell.alpha = 1
+//            }
+//
+//            return cell
+//        }
+//
+//        let cell =  tableView.dequeueReusableCell(withIdentifier: "FortLauderdaleCell", for:indexPath) as! FortLauderdaleCell
         return cell
       }
     
@@ -183,20 +186,20 @@ class CityNavigationViewController: SetGovTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
         //print(indexPath.row)
-        
-        if indexPath.row == 0 {
-            //print("Boston Cell")
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BostonCell", for:indexPath) as! BostonCell
-            cell.selectionStyle = .none
-            ApiClient.setHomeCity(city: "Boston")
-            UserDefaults.standard.set("Boston",forKey:"homeCity")
-        }
-        
-        if indexPath.row == 1 {
-            //print("Fort Lauderdale Cell")
-            ApiClient.setHomeCity(city: "Fort Lauderdale")
-            UserDefaults.standard.set("Fort Lauderdale",forKey:"homeCity")
-        }
+        print("DID SELECT ROW")
+//        if indexPath.row == 0 {
+//            //print("Boston Cell")
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "BostonCell", for:indexPath) as! BostonCell
+//            cell.selectionStyle = .none
+//            ApiClient.setHomeCity(city: "Boston")
+//            UserDefaults.standard.set("Boston",forKey:"homeCity")
+//        }
+//        
+//        if indexPath.row == 1 {
+//            //print("Fort Lauderdale Cell")
+//            ApiClient.setHomeCity(city: "Fort Lauderdale")
+//            UserDefaults.standard.set("Fort Lauderdale",forKey:"homeCity")
+//        }
         
         if (indexPath.row == 2) {
             let alert = UIAlertController(title: "Phoenix Coming Soon", message: "", preferredStyle: UIAlertControllerStyle.alert)
