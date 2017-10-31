@@ -18,7 +18,7 @@ protocol EventAgendaCallback: class {
 class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet var background: UIView!
     
-    @IBOutlet var comingSoon: UILabel!
+    @IBOutlet weak var mEmptyAgendaLabel: UILabel!
     @IBOutlet var agenda: UILabel!
     @IBOutlet weak var agendaCollectionView: UICollectionView!
     //var agendaInfo = [Int: String]()
@@ -83,9 +83,11 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
             let fortlauderdalePDFS = appDelegate.fortlauderdalePDFLinks
             if  (fortlauderdalePDFS.count < indexofEvent + 1 )   {
                 agendaCollection.isHidden = true
+                mEmptyAgendaLabel.isHidden = false
+
             } else {
                 agendaCollection.isHidden = false
-                //comingSoon.isHidden = true
+                mEmptyAgendaLabel.isHidden = true
 
                 self.agendaCollection.reloadData()
                 return 1
@@ -93,7 +95,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         }
         
         if currentEvent.city == "Boston" {
-            //comingSoon.isHidden = true
+            mEmptyAgendaLabel.isHidden = false
         }
         
         return currentEvent.agendaItems.count

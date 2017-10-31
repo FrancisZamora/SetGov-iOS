@@ -26,9 +26,6 @@ extension UIView {
 
 class EventStream:  UITableViewCell {
     @IBOutlet var eventImage: UIImageView!
-    @IBOutlet var secondaryEventImage: UIImageView!
-    @IBOutlet var attendButton: UIButton!
-    @IBOutlet var buttonBackground: GradientView!
     
     @IBOutlet var eventTitlelabel: UILabel!
     @IBOutlet var background: UIView!
@@ -69,12 +66,10 @@ class EventStream:  UITableViewCell {
         //print(self.user.profilePictureURL)
         
         let theProfileImageUrl = URL(string:self.user.profilePictureURL)
-        secondaryEventImage.kf.setImage(with: theProfileImageUrl)
     }
     
     func configureColor () {
-        buttonBackground.startColor = SG_SECONDARY_REDCOLOR
-        buttonBackground.endColor = UIColor.red
+        
         //print("configuring color")
     }
     
@@ -167,39 +162,7 @@ class EventStream:  UITableViewCell {
         if self.onePress == false {
             self.configureColor()
             self.pressedButton = true
-            buttonBackground.startColor = SG_SECONDARY_REDCOLOR
-            buttonBackground.endColor = UIColor.red
             self.EventDetailViewController?.animateView = true
-            self.attendButton.setTitle("Now Live", for: .normal)
-            self.buttonBackground.startColor = SG_SECONDARY_REDCOLOR
-            self.buttonBackground.endColor = UIColor.red
-            self.buttonBackground.backgroundColor = SG_RED_COLOR
-            let transition: CATransition = CATransition()
-            transition.duration = 0.5
-            transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-            transition.type = kCATransitionReveal
-            transition.subtype = kCATransitionFromRight
-            self.buttonBackground.layer.add(transition,forKey:nil)
-            self.attendButton.layer.add(transition, forKey: nil)
-            self.attendButton.layer.cornerRadius = self.attendButton.frame.height / 2
-            self.attendButton.clipsToBounds = true
-            self.attendButton.layer.borderWidth = 1.5
-            self.attendButton.layer.borderColor = UIColor(red:0.18, green:0.26, blue:0.35, alpha:0.0).cgColor
-            buttonBackground.startColor = SG_SECONDARY_REDCOLOR
-            buttonBackground.endColor = UIColor.red
-            //print(buttonBackground.startColor)
-            //print( "adding gradient")
-            let transition2: CATransition = CATransition()
-            transition2.duration = 0.5
-            transition2.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-            transition2.type = kCATransitionReveal
-            transition2.subtype = kCATransitionFromRight
-            self.secondaryEventImage.layer.add(transition2, forKey: nil)
-            self.secondaryEventImage.layer.cornerRadius = self.secondaryEventImage.frame.height / 2
-            self.secondaryEventImage.clipsToBounds = true
-            self.secondaryEventImage.layer.borderWidth = 3.0
-            self.secondaryEventImage.layer.borderColor = SG_RED_COLOR.cgColor
-            
             self.onePress = true
         }
     }
@@ -218,12 +181,7 @@ class EventStream:  UITableViewCell {
 
         ApiClient.fetchEvent(eventID:currentEvent.id , onCompletion:{ json in
             if self.checkUsers() == true {
-                self.attendButton.setTitle("Attending", for: .normal)
-                self.secondaryEventImage.isHidden = false
                 x = true
-            } else {
-                self.attendButton.setTitle("Attend", for: .normal)
-                self.secondaryEventImage.isHidden = true
             }
         })
             
@@ -245,7 +203,6 @@ class EventStream:  UITableViewCell {
                 }
                 //print(self.currentEvent.users)
                 
-                self.attendButton.setTitle("Attend", for: .normal)
                 if let callback = self.eventStreamCallback {
                     //print("callback in progress")
                     
@@ -257,7 +214,6 @@ class EventStream:  UITableViewCell {
         }
         // send api request whenever button is pressed
   
-        self.attendButton.setTitle("Attending", for: .normal)
         //print(eventTitle)
         self.eventTitle  =  "  " + self.eventTitle
         let eventID = currentEvent.id
@@ -313,11 +269,7 @@ class EventStream:  UITableViewCell {
 
     func configure() {
         if self.onePress == false {
-            buttonBackground.makeShape()
-            self.secondaryEventImage.layer.cornerRadius = self.secondaryEventImage.frame.height / 2
-            self.secondaryEventImage.clipsToBounds = true
-            self.secondaryEventImage.layer.borderWidth = 3.0
-            self.secondaryEventImage.layer.borderColor = UIColor(red:0.18, green:0.26, blue:0.35, alpha:1.0).cgColor
+            
             //print ("formatting view")
         }
     }

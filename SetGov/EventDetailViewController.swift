@@ -65,11 +65,18 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
         super.viewDidLoad()
         
+        addButton()
+        
         self.loadTitle()
         
         self.refresher?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
     
+    }
+    
+    func addButton() {
+        let button = UIButton(frame: CGRect(x: view.frame.midX, y: view.frame.midY, width: view.frame.width, height: 200))
+        self.view.addSubview(button)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -403,18 +410,15 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //print(indexPath.row)
-        
+        print("CREATING CELL WITH ROW: \(indexPath.row)")
         if (indexPath.row == 0) {
             let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream") as! EventStream
-                eventStream.attendButton.isHidden = true
-                eventStream.secondaryEventImage.isHidden = true
                 eventStream.eventTitlelabel.text = currentEvent.title
                 eventStream.background.layer.cornerRadius = 10
                 eventStream.eventDescription.text = currentEvent.description
                 eventStream.dataList = dataList
                 eventStream.user = self.user
                 eventStream.configureImage()
-                eventStream.buttonBackground.isHidden = true
                 eventStream.bostonDataList = bostonDataList
             
                 eventStream.fortlauderdaleDataList = fortlauderdaleDataList
@@ -510,36 +514,44 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
         if(indexPath.row == 2) {
             let agendaCell = tableView.dequeueReusableCell(withIdentifier: "EventAgenda", for:indexPath) as! EventAgenda
+            print("BUILDING AGENDA!")
+            
             agendaCell.configureCell(event: currentEvent)
             agendaCell.selectedCity = selectedCity
             agendaCell.eventAgendaCallback = self
-            agendaCell.indexofEvent = indexofEvent 
+            agendaCell.indexofEvent = indexofEvent
             return agendaCell
         }
         
         if (indexPath.row==3) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "EventMembers", for:indexPath) as! EventMembers
-            cell.userCollection.reloadData()
-            cell.configure(event: currentEvent)
-            return cell
+        
+            //cell.userCollection.reloadData()
+            //cell.configure(event: currentEvent)
+            return UITableViewCell()
         }
         
         if (indexPath.row == 4) {
+            print("creating discussion header")
             let cell = tableView.dequeueReusableCell(withIdentifier: "DiscussionHeader", for: indexPath) as! DiscussionHeader
             cell.selectionStyle = .none
             return cell
         }
         
-        _ = getDataList()
         
         if currentEvent.comments.count == 0 {
             if (indexPath.row==5) {
+                print("ADDING CREATE COMMENT")
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CreateComment", for:indexPath) as! CreateComment
                 cell.commentCallBack = self
               
                 //  discussionCell.user = self.appDelegate.user
                 //discussionCell.configure()
                 //discussionCell.selectionStyle = .none
+                return cell
+            } else {
+                print("ADDING ATTEND CELL")
+                let cell = tableView.dequeueReusableCell(withIdentifier: "AttendCell") as! AttendCell
+                cell.AttendCellCallBack = self
                 return cell
             }
         } else {
@@ -563,16 +575,11 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             return cell
         }
         
-        if indexPath.row == indexPath.row {
-        
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AttendCell") as! AttendCell
-            cell.AttendCellCallBack = self
-            return cell
-        }
-        
+        print("CREATING ATTEND CELL")
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AttendCell") as! AttendCell
-            return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AttendCell") as! AttendCell
+        cell.AttendCellCallBack = self
+        return cell
         
         
        
