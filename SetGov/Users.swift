@@ -38,11 +38,25 @@ class FacebookImage: Mappable {
 }
 
 class User {
+    var userId = -1
     var fullName = ""
-    var profilePictureURL = " "
+    var profilePictureURL = ""
+    
+    init() {}
     
     init(fullName: String, profilePictureURL: String){
         self.fullName = fullName
         self.profilePictureURL = profilePictureURL
+    }
+    init(json: JSON) {
+        if let userId = json["id"].int {
+            self.userId = userId
+        }
+        if let fullName = json["full_name"].string {
+            self.fullName = fullName
+        }
+        if let profileImage = json["profileImage"] as? JSON {
+            self.profilePictureURL = profileImage["url"].string!
+        }
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class Agenda {
     
@@ -23,6 +24,19 @@ class Agenda {
     
     init() {
         
+    }
+    
+    init(json: JSON) {
+        
+        if let name = json["name"].string {
+            self.name = name
+        }
+        if let description = json["description"].string {
+            self.description = description
+        }
+        if let text = json["text"].string {
+            self.text = text
+        }
     }
     
     static func buildGraphString(agendaList: [Agenda]) -> String {

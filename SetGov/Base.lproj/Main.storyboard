@@ -712,8 +712,8 @@
                                                 <constraint firstAttribute="width" constant="35" id="XDB-qA-maF"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Francis Zamora" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIJ-qa-E8Q">
-                                            <rect key="frame" x="84" y="21" width="95" height="15"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Francis Zamora" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIJ-qa-E8Q">
+                                            <rect key="frame" x="84" y="21" width="88" height="15"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -790,6 +790,13 @@
                                                 <action selector="flagComment:" destination="MYI-qh-THg" eventType="touchUpInside" id="PMq-aB-J54"/>
                                             </connections>
                                         </button>
+                                        <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FgJ-ti-QlC" userLabel="Reply Indicator">
+                                            <rect key="frame" x="58" y="0.0" width="1" height="21"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="1" id="0K5-GG-sZ5"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="Jxn-wt-vmV" secondAttribute="bottom" constant="67" id="11T-Za-sr4"/>
@@ -798,6 +805,7 @@
                                         <constraint firstItem="Hb1-H7-G5v" firstAttribute="centerY" secondItem="SVV-Wj-Vnj" secondAttribute="centerY" id="3W7-J9-alO"/>
                                         <constraint firstItem="Hb1-H7-G5v" firstAttribute="top" secondItem="Jxn-wt-vmV" secondAttribute="bottom" constant="55" id="4PF-6Y-SQV"/>
                                         <constraint firstItem="tYn-zV-rkD" firstAttribute="trailing" secondItem="hFQ-Pa-QV4" secondAttribute="trailing" constant="3" id="Dd5-cq-mP2"/>
+                                        <constraint firstItem="PTh-6c-2Gh" firstAttribute="top" secondItem="FgJ-ti-QlC" secondAttribute="bottom" id="EnD-Z9-iAP"/>
                                         <constraint firstItem="PTh-6c-2Gh" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" constant="13" id="EoH-ch-2uo"/>
                                         <constraint firstItem="K4H-aZ-Gve" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="topMargin" constant="29" id="ItP-WH-3Nu"/>
                                         <constraint firstItem="tYn-zV-rkD" firstAttribute="leading" secondItem="hFQ-Pa-QV4" secondAttribute="leading" constant="5" id="LRL-rR-xGS"/>
@@ -807,9 +815,11 @@
                                         <constraint firstItem="Hb5-0U-EhE" firstAttribute="top" secondItem="nIJ-qa-E8Q" secondAttribute="bottom" constant="22" id="Nog-cS-o5q"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="SVV-Wj-Vnj" secondAttribute="bottom" constant="-1" id="O55-gm-Trm"/>
                                         <constraint firstItem="Hb1-H7-G5v" firstAttribute="trailing" secondItem="Jxn-wt-vmV" secondAttribute="trailing" id="OGP-AA-NrO"/>
+                                        <constraint firstItem="FgJ-ti-QlC" firstAttribute="centerX" secondItem="PTh-6c-2Gh" secondAttribute="centerX" id="QXx-GA-gkh"/>
                                         <constraint firstItem="f3e-Tx-som" firstAttribute="top" secondItem="hFQ-Pa-QV4" secondAttribute="bottom" constant="18" id="WwI-iC-kay"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="f3e-Tx-som" secondAttribute="bottom" constant="15" id="XQO-38-unG"/>
                                         <constraint firstItem="f3e-Tx-som" firstAttribute="top" secondItem="tYn-zV-rkD" secondAttribute="bottom" constant="1" id="b0M-Ae-MZW"/>
+                                        <constraint firstItem="FgJ-ti-QlC" firstAttribute="top" secondItem="IwL-Ej-qcu" secondAttribute="top" id="e5S-Rk-Wtv"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="SVV-Wj-Vnj" secondAttribute="trailing" constant="18" id="ecs-h7-w1B"/>
                                         <constraint firstItem="Hb5-0U-EhE" firstAttribute="top" secondItem="K4H-aZ-Gve" secondAttribute="bottom" constant="3.5" id="g5o-gs-olZ"/>
                                         <constraint firstItem="tYn-zV-rkD" firstAttribute="leading" secondItem="IwL-Ej-qcu" secondAttribute="leadingMargin" constant="5" id="lbW-IE-V6N"/>
@@ -826,8 +836,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="deleteButton" destination="Jxn-wt-vmV" id="FM5-Pw-pmG"/>
                                     <outlet property="downVote" destination="f3e-Tx-som" id="PDA-1a-jwW"/>
                                     <outlet property="karma" destination="tYn-zV-rkD" id="MHY-Xh-aAq"/>
+                                    <outlet property="replyIndicatorLine" destination="FgJ-ti-QlC" id="g0h-BB-PSo"/>
                                     <outlet property="textBox" destination="Hb5-0U-EhE" id="XvA-l6-i7H"/>
                                     <outlet property="timeStamp" destination="K4H-aZ-Gve" id="UNi-EN-PS6"/>
                                     <outlet property="upVote" destination="hFQ-Pa-QV4" id="nro-fY-I4o"/>

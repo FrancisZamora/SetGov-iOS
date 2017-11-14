@@ -10,15 +10,18 @@ import Foundation
 import UIKit
 
 protocol CommentCallBack: class {
-    func retrievecommentData(comment:String)
+    func retrievecommentData(comment: String, replyCommentId: Int?)
 }
 
 class CreateComment: UITableViewCell, UITextFieldDelegate {
     @IBOutlet var commentField: UITextField!
     weak var commentCallBack: CommentCallBack!
+    
+    var replyCommentId: Int?
 
     func replytoComment(comment:Comment){
         self.commentField.text = "@" + comment.user.fullName
+        self.replyCommentId = comment.commentID
     }
     
     @IBAction func createAction(_ sender: Any) {
@@ -26,9 +29,9 @@ class CreateComment: UITableViewCell, UITextFieldDelegate {
         if let callback = self.commentCallBack {
             //print("callback in progress")
             
-            callback.retrievecommentData(comment: self.commentField.text!)
-                self.commentField.text = ""
-                self.commentField.placeholder = "Enter Comment"
+            callback.retrievecommentData(comment: self.commentField.text!, replyCommentId: replyCommentId)
+            self.commentField.text = ""
+            self.commentField.placeholder = "Enter Comment"
         }
     }
 }

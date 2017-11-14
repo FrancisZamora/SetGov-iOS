@@ -21,7 +21,7 @@ class AttendCell: UITableViewCell {
     var currentEvent: Event!
     var user: User!
     func checkUsers() -> Bool{
-        for (_,val) in currentEvent.users.enumerated() {
+        for (_,val) in currentEvent.attendingUsers.enumerated() {
             if val.fullName == self.user?.fullName {
                 return true
             }
@@ -32,9 +32,9 @@ class AttendCell: UITableViewCell {
     @IBAction func attendAction(_ sender: Any) {
         if self.checkUsers() == true {
             ApiClient.unattendEvent(eventID: currentEvent.id, onCompletion:{ user in
-                for (idx,val) in self.currentEvent.users.enumerated() {
+                for (idx,val) in self.currentEvent.attendingUsers.enumerated() {
                     if val.fullName == self.user?.fullName {
-                        self.currentEvent.users.remove(at: idx)
+                        self.currentEvent.attendingUsers.remove(at: idx)
                     }
                 }
                 //print(self.currentEvent.users)
@@ -56,7 +56,7 @@ class AttendCell: UITableViewCell {
         //print(eventID)
         
         ApiClient.attendEvent(eventID: eventID ,onCompletion: { json in
-            self.currentEvent.users.append(self.user)
+            self.currentEvent.attendingUsers.append(self.user)
             if let callback = self.AttendCellCallBack {
                 callback.attendbuttonTapped()
                 

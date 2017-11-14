@@ -56,6 +56,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var fortlauderdaleDataList = [Event]()
     var userArray = [User]()
     var currentEventStream: EventLiveStream?
+    
+    var commentsToShow = [Comment]()
 
     @IBOutlet var navTitle: UINavigationItem!
     
@@ -74,14 +76,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     }
     
-    func addButton() {
-        let button = UIButton(frame: CGRect(x: view.frame.midX, y: view.frame.midY, width: view.frame.width, height: 200))
-        self.view.addSubview(button)
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         self.fetchEvent()
-
+        
         tableView.reloadData()
     }
     
@@ -92,6 +89,20 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        UserDefaults.standard.set("off", forKey: eventTitle)
+    }
+    
+    func addButton() {
+        let button = UIButton(frame: CGRect(x: view.frame.midX, y: view.frame.midY, width: view.frame.width, height: 200))
+        self.view.addSubview(button)
+    }
+    
+    func attendbuttonTapped() {
+        self.fetchEvent()
+        self.tableView.reloadData()
+    }
+    
     func checkAlert() -> Bool {
         if videoRequested == true {
             return true
@@ -100,178 +111,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             return false
         }
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        UserDefaults.standard.set("off", forKey: eventTitle)
-    }
-    
-    func fetchEvent() {
-        if selectedCity == "Boston" {
 
-            ApiClient.fetchEvent(eventID:self.currentEvent.id , onCompletion:{ json in
-                self.userArray = []
-                let attendees = json["data"]["event"]["attendingUsers"].array
-                for users in attendees! {
-                    if let fullName = users["full_name"].string,
-                        let profileURL = users["profileImage"]["url"].string {
-                        self.userArray.append(User(fullName: fullName, profilePictureURL: profileURL))
-                    }
-                }
-                
-                self.currentEvent.users = self.userArray
-            
-          
-                guard let comments = json["data"]["event"]["comments"].array else {
-                    return
-                }
-                
-                self.currentEvent.comments = []
-                for (_,val)in comments.enumerated()  {
-                    print("this is val")
-                    print(val)
-                   
-                    let user = User(fullName: val["user"]["full_name"].stringValue,
-                                    profilePictureURL: val["user"]["profileImage"]["url"].stringValue)
-                    let comment = Comment(text: val["text"].stringValue, user: user, karma: val["karma"].int!, timeStamp: "1 min ago",commentID:val["id"].int!)
-                    
-                    self.currentEvent.comments.append(comment)
-                   
-                    //print("here is the text")
-                }
-                
-                self.tableView.reloadData()
-            })
-        }
-        
-        if selectedCity == "Fort Lauderdale" {
-            ApiClient.fetchEvent(eventID:self.currentEvent.id, onCompletion:{ json in
-                let pictureIDArray = json["data"]["event"]  ["attendingUsers"].arrayValue.map({$0["profileImage"]["url"].stringValue})
-                
-                self.picArray = pictureIDArray
-                
-                //print("THIS IS THE PICTURE ARRAY FOR BOSTON \(self.picArray)")
-                
-                let comments = json["data"]["event"]["comments"]
-                //print("here is the comment")
-                
-                //print(comments)
-                guard let comments2 = json["data"]["event"]["comments"].array else {
-                    return
-                }
-                //print("this is comments 2\(comments2)")
-                
-                self.currentEvent.comments = []
-
-                for (_,val)in comments2.enumerated()  {
-                    //print("this is val")
-                    print(val)
-                    
-                    let user = User(fullName: val["user"]["full_name"].stringValue,
-                                    profilePictureURL: val["user"]["profileImage"]["url"].stringValue)
-                    let comment = Comment(text: val["text"].stringValue, user: user, karma: val["karma"].int!, timeStamp: "1 min ago",commentID:val["id"].int!)
-                    
-                    self.currentEvent.comments.append(comment)
-                  
-                    //print(comment.commentID)
-                  
-                    //print("here is the text")
-                    
-                }
-                self.tableView.reloadData()
-            })
-        }
-    }
-    
-    func refresh(sender:AnyObject) {
-        print("refreshed")
-        self.refresher?.beginRefreshing()
-        self.fetchEvent()
-        self.refresher?.endRefreshing()
-
-        
-    }
-    
-    func replyCommentData(comment: Comment) {
-        self.replyComment = comment
-        //print(self.replyComment.text)
-        self.tableView.reloadData()
-    }
-    
-    func loadTitle() {
-       navTitle.title = "Event Details"
-    }
-    
-    func retrievecommentData(comment:String) {
-        if selectedCity == "Boston" {
-            ApiClient.createComment(comment: comment, eventID: self.currentEvent.id, onCompletion:{ json in
-                self.fetchEvent()
-            })
-        }
-        if selectedCity == "Fort Lauderdale" {
-            ApiClient.createComment(comment: comment, eventID: self.currentEvent.id, onCompletion:{ json in
-                self.fetchEvent()
-            })
-        }
-    }
-    
-//    func createPDF() {
-//        if appDelegate.fortlauderdalePDFLinks.count < indexofEvent + 1 {
-//            return
-//        }
-//        let remotePDFDocumentURLPath = "https://fortlauderdale.legistar.com/" + appDelegate.fortlauderdalePDFLinks[indexofEvent]
-//        let remotePDFDocumentURL = URL(string: remotePDFDocumentURLPath)!
-//        let document = PDFDocument(url: remotePDFDocumentURL)!
-//        let readerController = PDFViewController.createNew(with: document)
-//        readerController.backgroundColor = .white
-//        self.navigationController?.title = "Fort Lauderdale Agenda"
-//        self.navigationController?.pushViewController(readerController, animated: true)
-//    }
-    
-    func loadAgendaDetail(agenda: Agenda) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "AgendaDetailViewController") as! AgendaDetailViewController
-        
-        controller.agenda = agenda
-        controller.selectedCity = selectedCity
-        controller.agendaImage = currentEvent.image
-        self.present(controller, animated:true, completion: nil )
-    }
-    
-    func attendbuttonTapped() {
-        self.fetchEvent()
-        self.tableView.reloadData()
-    }
-    
-    func removeComment(comment:Comment) {
-        if comment.user.fullName == self.appDelegate.user.fullName {
-            let alert = UIAlertController(title: "You are about to delete your comment", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.alert)
-            
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-                if self.selectedCity == "Boston" {
-                    ApiClient.deleteComment(commentID: comment.commentID,onCompletion:{ json in
-                        self.fetchEvent()
-                        self.tableView.reloadData()
-            
-                    })
-                }
-            
-                if self.selectedCity == "Fort Lauderdale" {
-                    ApiClient.deleteComment(commentID: comment.commentID,onCompletion:{ json in
-                        self.fetchEvent()
-                        self.tableView.reloadData()
-                    })
-                }
-            }))
-        
-            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
-                //print("Handle Cancel Logic here")
-            
-            }))
-            
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
     func comparelauderdaleTime() -> Bool {
         if selectedCity == "Boston" {
             return false
@@ -303,14 +143,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         let hourString = String(hour)
         currentHour = hourString
     }
-    
-    func refreshTap(tapped:Bool) {
-        streamPressed = tapped
-        
-        //print("event stream callback")
-        //tableView.reloadData()
-    }
-    
+
     func displayAlert() {
         let alert = UIAlertController(title: "You are about to flag a comment as inappropriate", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.alert)
         
@@ -324,9 +157,73 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
         self.present(alert, animated: true, completion: nil)
     }
-   
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50.0
+    
+    func fetchEvent() {
+        ApiClient.fetchEvent(eventID:self.currentEvent.id)
+            .then { event -> Void  in
+                self.currentEvent = event as! Event
+                
+                self.commentsToShow = [Comment]()
+                self.currentEvent.comments.forEach({ (c) in
+                    self.commentsToShow.append(c)
+                    c.replies.forEach({ (rc) in
+                        rc.isReply = true
+                        self.commentsToShow.append(rc)
+                    })
+                })
+                
+                self.tableView.reloadData()
+            }.catch { error in
+                print("Error fetchEvent:\(error.localizedDescription)")
+        }
+    }
+    
+    func getState() -> String {
+        switch selectedCity {
+        case "Boston":
+            return "MA"
+        case "Fort Lauderdale":
+            return "FL"
+        default:
+            return "NY"
+        }
+    }
+    
+    func getDataList() -> [Event] {
+        switch selectedCity {
+        case "Boston":
+            return bostonDataList
+        case "Fort Lauderdale":
+            return fortlauderdaleDataList
+        default:
+            return bostonDataList
+        }
+    }
+    
+    func loadDirections() {
+        let addressString = "\(currentEvent.address) \(selectedCity) \(getState())"
+        let formattedAddress = addressString.replacingOccurrences(of: " ", with: "+")
+        let url = "https://www.google.com/maps/dir/?api=1&destination=\(formattedAddress)"
+        
+        if let url = URL(string: url) {
+            UIApplication.shared.openURL(url)
+        } else {
+            //print("INVALID URL STRING")
+        }
+    }
+    
+    func loadTitle() {
+        navTitle.title = "Event Details"
+    }
+    
+    func loadAgendaDetail(agenda: Agenda) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "AgendaDetailViewController") as! AgendaDetailViewController
+        
+        controller.agenda = agenda
+        controller.selectedCity = selectedCity
+        controller.agendaImage = currentEvent.image
+        self.present(controller, animated:true, completion: nil )
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -335,15 +232,88 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //print("numberofRows")
+    func refresh(sender:AnyObject) {
+        print("refreshed")
+        self.refresher?.beginRefreshing()
+        self.fetchEvent()
+        self.refresher?.endRefreshing()
+
+        
+    }
     
-        return 6 + currentEvent.comments.count
+    func replyCommentData(comment: Comment) {
+        self.replyComment = comment
+        //print(self.replyComment.text)
+        self.tableView.reloadData()
+    }
+    
+    func retrievecommentData(comment: String, replyCommentId: Int?) {
+        if replyCommentId != nil {
+            ApiClient.createReply(comment: comment, eventId: self.currentEvent.id, replyCommentId: replyCommentId!)
+                .then { json in
+                    self.fetchEvent()
+                }
+        } else {
+            ApiClient.createComment(comment: comment, eventID: self.currentEvent.id, onCompletion:{ json in
+                self.fetchEvent()
+            })
+        }
+    }
+
+    func removeComment(comment:Comment) {
+        if comment.user.fullName == self.appDelegate.user.fullName {
+            let alert = UIAlertController(title: "You are about to delete your comment", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+                if self.selectedCity == "Boston" {
+                    ApiClient.deleteComment(commentID: comment.commentID,onCompletion:{ json in
+                        self.fetchEvent()
+                        self.tableView.reloadData()
+            
+                    })
+                }
+            
+                if self.selectedCity == "Fort Lauderdale" {
+                    ApiClient.deleteComment(commentID: comment.commentID,onCompletion:{ json in
+                        self.fetchEvent()
+                        self.tableView.reloadData()
+                    })
+                }
+            }))
+        
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+                //print("Handle Cancel Logic here")
+            
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func refreshTap(tapped:Bool) {
+        streamPressed = tapped
+        
+        //print("event stream callback")
+        //tableView.reloadData()
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50.0
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        var replies = 0
+//        currentEvent.comments.forEach { (c) in
+//            replies = replies + c.replies.count
+//        }
+//        return 6 + currentEvent.comments.count + replies
+
+        return 6 + commentsToShow.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         var x = getDataList()
-        if x[indexofEvent].comments.count == 0 {
+        if commentsToShow.count == 0 {
             switch indexPath.row {
             case 0:
                 if comparelauderdaleTime() == true {
@@ -377,10 +347,10 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             case 4:
             return 52
             case 5:
-            if currentEvent.comments.count == 0 {
+            if commentsToShow.count == 0 {
                 return 94
             }
-            let x = currentEvent.comments[0].text.characters.count
+            let x = commentsToShow[0].text.characters.count
             let y = Double(x)
             
             if y > 80.0 {
@@ -389,8 +359,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             }
             return 94
             default:
-                if indexPath.row < 5 + currentEvent.comments.count {
-                    var x = currentEvent.comments[indexPath.row - 5].text.characters.count
+                if indexPath.row < 5 + commentsToShow.count {
+                    var x = commentsToShow[indexPath.row - 5].text.characters.count
                     var y = Double(x)
                 
                     if y > 80.0 {
@@ -399,7 +369,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                     }
                 }
                 
-                if indexPath.row == (5 + currentEvent.comments.count) {
+                if indexPath.row == (5 + commentsToShow.count) {
                     return 94
                 } else {
                     return 94
@@ -410,31 +380,32 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //print(indexPath.row)
-        print("CREATING CELL WITH ROW: \(indexPath.row)")
+        print("cellForRowAt: \(indexPath.row)")
         if (indexPath.row == 0) {
             let eventStream =  tableView.dequeueReusableCell(withIdentifier: "EventStream") as! EventStream
-                eventStream.eventTitlelabel.text = currentEvent.title
-                eventStream.background.layer.cornerRadius = 10
-                eventStream.eventDescription.text = currentEvent.description
-                eventStream.dataList = dataList
-                eventStream.user = self.user
-                eventStream.configureImage()
-                eventStream.bostonDataList = bostonDataList
             
-                eventStream.fortlauderdaleDataList = fortlauderdaleDataList
-                eventStream.currentEvent = currentEvent
-                eventStream.eventTitle = eventTitle
-                eventStream.selectionStyle = .none
-                eventStream.eventTimeNoFormat = eventTimeNoFormat
-                eventStream.eventHours = eventHours
-                eventStream.eventInfo = eventInfo
-                eventStream.indexofEvent = indexofEvent
-                eventStream.eventStreamCallback = self
-                eventStream.selectedCity = selectedCity
-            
-                eventStream.configure()
-                eventStream.streamContent()
-                eventStream.checkStatus()
+            eventStream.eventTitlelabel.text = currentEvent.name
+            eventStream.background.layer.cornerRadius = 10
+            eventStream.eventDescription.text = currentEvent.description
+            eventStream.dataList = dataList
+            eventStream.user = self.user
+            eventStream.configureImage()
+            eventStream.bostonDataList = bostonDataList
+        
+            eventStream.fortlauderdaleDataList = fortlauderdaleDataList
+            eventStream.currentEvent = currentEvent
+            eventStream.eventTitle = eventTitle
+            eventStream.selectionStyle = .none
+            eventStream.eventTimeNoFormat = eventTimeNoFormat
+            eventStream.eventHours = eventHours
+            eventStream.eventInfo = eventInfo
+            eventStream.indexofEvent = indexofEvent
+            eventStream.eventStreamCallback = self
+            eventStream.selectedCity = selectedCity
+        
+            eventStream.configure()
+            eventStream.streamContent()
+            eventStream.checkStatus()
 
             
             if selectedCity == "Fort Lauderdale"  && self.comparelauderdaleTime() == true  {
@@ -523,7 +494,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             return agendaCell
         }
         
-        if (indexPath.row==3) {
+        if (indexPath.row == 3) {
         
             //cell.userCollection.reloadData()
             //cell.configure(event: currentEvent)
@@ -538,8 +509,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         }
         
         
-        if currentEvent.comments.count == 0 {
-            if (indexPath.row==5) {
+        if commentsToShow.count == 0 {
+            if (indexPath.row == 5) {
                 print("ADDING CREATE COMMENT")
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CreateComment", for:indexPath) as! CreateComment
                 cell.commentCallBack = self
@@ -555,8 +526,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 return cell
             }
         } else {
-            var x = getDataList()
-            if indexPath.row == (5 + currentEvent.comments.count) {
+            if indexPath.row == (5 + commentsToShow.count) {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CreateComment") as! CreateComment
                 cell.commentCallBack = self
                 
@@ -569,7 +539,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventDiscussion") as! EventDiscussion
             //print("printing value \(indexPath.row - 5)")
-            cell.configure(comment: x[indexofEvent].comments[indexPath.row - 5])
+            print("self.appDelegate.user \(self.appDelegate.user.userId)")
+            cell.user = self.appDelegate.user
+            cell.configure(comment: commentsToShow[indexPath.row - 5])
             cell.selectionStyle = .none
             cell.discussionCallBack = self
             return cell
@@ -585,37 +557,17 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
        
     }
     
-    func getState() -> String {
-        switch selectedCity {
-        case "Boston":
-            return "MA"
-        case "Fort Lauderdale":
-            return "FL"
-        default:
-            return "NY"
-        }
-    }
+    //    func createPDF() {
+    //        if appDelegate.fortlauderdalePDFLinks.count < indexofEvent + 1 {
+    //            return
+    //        }
+    //        let remotePDFDocumentURLPath = "https://fortlauderdale.legistar.com/" + appDelegate.fortlauderdalePDFLinks[indexofEvent]
+    //        let remotePDFDocumentURL = URL(string: remotePDFDocumentURLPath)!
+    //        let document = PDFDocument(url: remotePDFDocumentURL)!
+    //        let readerController = PDFViewController.createNew(with: document)
+    //        readerController.backgroundColor = .white
+    //        self.navigationController?.name = "Fort Lauderdale Agenda"
+    //        self.navigationController?.pushViewController(readerController, animated: true)
+    //    }
     
-    func getDataList() -> [Event] {
-        switch selectedCity {
-        case "Boston":
-            return bostonDataList
-        case "Fort Lauderdale":
-            return fortlauderdaleDataList
-        default:
-            return bostonDataList
-        }
-    }
-    
-    func loadDirections() {
-        let addressString = "\(currentEvent.address) \(selectedCity) \(getState())"
-        let formattedAddress = addressString.replacingOccurrences(of: " ", with: "+")
-        let url = "https://www.google.com/maps/dir/?api=1&destination=\(formattedAddress)"
-        
-        if let url = URL(string: url) {
-            UIApplication.shared.openURL(url)
-        } else {
-            //print("INVALID URL STRING")
-        }
-    }
 }

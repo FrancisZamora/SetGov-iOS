@@ -168,7 +168,7 @@ class EventStream:  UITableViewCell {
     }
     
     func checkUsers() -> Bool{
-        for (_,val) in currentEvent.users.enumerated() {
+        for (_,val) in currentEvent.attendingUsers.enumerated() {
             if val.fullName == self.user?.fullName {
                 return true
             }
@@ -179,11 +179,12 @@ class EventStream:  UITableViewCell {
     func checkStatus() -> Bool {
         var x = false
 
-        ApiClient.fetchEvent(eventID:currentEvent.id , onCompletion:{ json in
-            if self.checkUsers() == true {
-                x = true
+        ApiClient.fetchEvent(eventID:currentEvent.id)
+            .then { event -> Void in
+                if self.checkUsers() == true {
+                    x = true
+                }
             }
-        })
             
         if compareTime() == true {
             self.nowLive()
@@ -196,9 +197,9 @@ class EventStream:  UITableViewCell {
     @IBAction func buttonPressed(_ sender: Any) {
         if self.checkUsers() == true {
             ApiClient.unattendEvent(eventID: currentEvent.id, onCompletion:{ user in
-                for (idx,val) in self.currentEvent.users.enumerated() {
+                for (idx,val) in self.currentEvent.attendingUsers.enumerated() {
                     if val.fullName == self.user?.fullName {
-                        self.currentEvent.users.remove(at: idx)
+                        self.currentEvent.attendingUsers.remove(at: idx)
                     }
                 }
                 //print(self.currentEvent.users)
@@ -220,7 +221,7 @@ class EventStream:  UITableViewCell {
         //print(eventID)
         
         ApiClient.attendEvent(eventID: eventID ,onCompletion: { json in
-            self.currentEvent.users.append(self.user)
+            self.currentEvent.attendingUsers.append(self.user)
             if let callback = self.eventStreamCallback {
                 //print("callback in progress")
                         

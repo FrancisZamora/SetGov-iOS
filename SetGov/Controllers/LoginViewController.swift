@@ -91,9 +91,10 @@ class LoginViewController: SetGovViewController, UITextFieldDelegate, LoginButto
                     
                     //print(name)
                     //print(fbpID)
-                    self.user = User(fullName: name, profilePictureURL: fbpID)
+                    self.user = User(json: json["data"]["authenticateUser"])
                     
                     self.appDelegate.user = self.user
+
                 }
             })
             

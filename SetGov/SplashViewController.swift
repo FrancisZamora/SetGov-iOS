@@ -65,9 +65,12 @@ class SplashViewController: SetGovViewController {
                     }
                     
                     self.appDelegate.user.fullName = name
+                    
+                    var user = User(json: json["data"]["authenticateUser"])
+                    
+                    self.appDelegate.user = user
                     self.appDelegate.user.profilePictureURL = fbpID
-                    
-                    
+
                     if let city = UserDefaults.standard.string(forKey: "homeCity") {
                         print("found city: \(city)")
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)

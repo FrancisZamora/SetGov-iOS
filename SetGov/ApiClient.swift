@@ -16,59 +16,16 @@ class ApiClient {
     
     static let url = "https://setgov.herokuapp.com/api/v/1/graph"
     
-    static func login(token:String,onCompletion: @escaping(JSON) -> Void) {
-        let query = "mutation {authenticateUser(facebook_token:\"\(token)\") {id,full_name, profileImage{ id, url}}}"
-        
-        Alamofire.request(url,
-                          method: .post,
-                          parameters: ["query":query],
-                          encoding: JSONEncoding.default,
-                          headers: [:])
-            .responseJSON { response in
-            
-            //print(response)
-            guard let jsonString = response.result.value else {
-                onCompletion(JSON.null)
-                return
-            }
-            
-            let json = JSON(jsonString)
-            onCompletion(json)
-        }
-    }
-    
-    static func logout(onCompletion: @escaping(JSON) -> Void) {
-        let query = "mutation {logoutUser}"
-        
-        Alamofire.request(url,
-                          method: .post,
-                          parameters: ["query":query],
-                          encoding: JSONEncoding.default,
-                          headers: [:])
-            .responseJSON { response in
-                
-                //print(response)
-                guard let jsonString = response.result.value else {
-                    onCompletion(JSON.null)
-                    return
-                }
-                
-                let json = JSON(jsonString)
-                onCompletion(json)
-        }
-    }
-    
-    
     static func addEvent(event:Event, onCompletion: @escaping(Bool) -> Void) {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yy"
         formatter.dateStyle = .short
         
-        //print("add event title: \(event.title)")
+        //print("add event title: \(name)")
         //print("add event agenda: \(event.agendaItems)")
         
-        let query = "mutation{addEvent(name:\"\(event.title)\",city:\"\(event.city)\",address:\"\(event.address)\",date:\"\(event.date)\",time:\"\(event.time)\", description:\"\(event.description)\",agendaItems:\(Agenda.buildGraphString(agendaList: event.agendaItems))){id, agendaItems{ name, description, text}}}"
+        let query = "mutation{addEvent(name:\"\(event.name)\",city:\"\(event.city)\",address:\"\(event.address)\",date:\"\(event.date)\",time:\"\(event.time)\", description:\"\(event.description)\",agendaItems:\(Agenda.buildGraphString(agendaList: event.agendaItems))){id, agendaItems{ name, description, text}}}"
         Alamofire.request(url,
                           method: .post,
                           parameters: ["query":query],
@@ -94,54 +51,6 @@ class ApiClient {
         }
     }
     
-    static func createComment(comment:String, eventID:Int, onCompletion: @escaping(JSON) -> Void) {
-        let query = "mutation{ addComment(text:\"\(comment)\",event_id:\(eventID)) {timestamp}}"
-        Alamofire.request(url,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
-            guard let jsonString = response.result.value else {
-                onCompletion(JSON.null)
-                return
-            }
-            let json = JSON(jsonString)
-            onCompletion(json)
-            
-            //print(response)
-        }
-        
-    }
-    
-    
-    static func graphCall(query: String) -> Promise<JSON> {
-        
-        return Alamofire
-            .request(
-                url,
-                method: .post,
-                parameters: ["query":query],
-                encoding: JSONEncoding.default,
-                headers: [:])
-            .responseJSON()
-            .then { json  in
-                GeneralHelper.createJson(json: json)
-            }.catch(execute: { (error) in
-                print("graph Error: \(error)")
-            })
-    }
-    
-    static func deleteComment(commentID:Int, onCompletion: @escaping(JSON) -> Void) {
-        let URL = "https://setgov.herokuapp.com/api/v/1/graph"
-        let query = "mutation{ deleteComment(comment_id:\(commentID)) {timestamp}}"
-        Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
-            guard let jsonString = response.result.value else {
-                onCompletion(JSON.null)
-                return
-            }
-            let json = JSON(jsonString)
-            onCompletion(json)
-            
-            //print(response)
-        }
-    }
-    
     static func attendEvent(eventID:Int, onCompletion: @escaping(JSON) -> Void) {
         //print(eventID)
         
@@ -160,35 +69,105 @@ class ApiClient {
         
     }
     
-    static func unattendEvent(eventID:Int, onCompletion: @escaping([User]) -> Void) {
-        let URL = "https://setgov.herokuapp.com/api/v/1/graph"
-        let query = "mutation {unattendEvent(event_id:\(eventID)){id,name,address,date,time,description,attendingUsers{profileImage{url},full_name},comments{text,id, karma,timestamp,user{full_name, profileImage{url}}}}}"
-        Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
-            let jsonString = response.result.value
-            let event = JSON(jsonString)["data"]["event"]
-            let User = createUsers(event: event)
-            onCompletion(User)
+    static func createAgendas(event: JSON) -> [Agenda] {
+        //print(event)
+        //print("creating agenda")
+        var agendaArray = [Agenda]()
+        if let agendaItems = event["agendaItems"].array {
+            for agenda in agendaItems {
+                
+                let a = Agenda()
+                if let name = agenda["name"].string,
+                    let description = agenda["description"].string {
+                    a.name = name
+                    a.description = description
+                }
+                
+                if let text = agenda["text"].string {
+                    let textString = text.replacingOccurrences(of: "%^&*", with: "\n")
+                    a.text = textString
+                }
+                agendaArray.append(a)
+            }
         }
+        return agendaArray
     }
     
-    static func fetchEvent(eventID:Int, onCompletion: @escaping(JSON) -> Void) {
-        let URL = "https://setgov.herokuapp.com/api/v/1/graph"
-        let query = "query{ event(id:\(eventID)){id,name,address,type,date,time,description,attendingUsers{profileImage{url},full_name},comments{text,id, karma,timestamp,user{full_name, profileImage{url}}}}}"
-        Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
+    static func createComment(comment:String, eventID:Int, onCompletion: @escaping(JSON) -> Void) {
+        let query = "mutation{ addComment(text:\"\(comment)\",event_id:\(eventID)) {timestamp}}"
+        Alamofire.request(url,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
+            guard let jsonString = response.result.value else {
+                onCompletion(JSON.null)
+                return
+            }
+            let json = JSON(jsonString)
+            onCompletion(json)
             
-            guard let jsonString = response.result.value else {
-                onCompletion(JSON.null)
-                return
-            }
-            let json = JSON(jsonString)
             //print(response)
-            onCompletion(json)
+        }
+        
+    }
+    
+    static func createReply(comment: String, eventId: Int, replyCommentId: Int) -> Promise<JSON> {
+        let mutation = GraphFactory.createGraphString(
+            type: .mutation,
+            action: "addReply",
+            parameters: [
+                "text": comment,
+                "event_id": eventId,
+                "parent_comment_id": replyCommentId
+            ],
+            properties: ["id"]
+        )
+        
+        return graphCall(query: mutation)
+            .then { json in
+                guard let responseJson = json["addReply"] as? JSON else {
+                    return Promise { f, r in
+                        r("json not found")
+                    }
+                }
+                return Promise { f, r in
+                    f(responseJson)
+                }
         }
     }
     
-    static func vote(id:Int,value:Int, onCompletion: @escaping(JSON) -> Void) {
+    static func createUsers(event: JSON) -> [User] {
+        var userArray = [User]()
+        
+        if let users = event["attendingUsers"].array {
+            for user in users {
+                if let fullName = user["full_name"].string,
+                    let profileUrl = user["profileImage"]["url"].string {
+                    userArray.append(User(fullName: fullName, profilePictureURL: profileUrl))
+                }
+            }
+        }
+        return userArray
+        
+    }
+    
+    static func createComments(event: JSON) -> [Comment] {
+        var commentArray = [Comment]()
+        if let comments = event["comments"].array {
+            for comment in comments {
+                if let text = comment["text"].string,
+                    let karma = comment["karma"].int,
+                    let timeStamp = comment["timestamp"].string,
+                    let commentID = comment["id"].int,
+                    let fullName = comment["user"]["full_name"].string,
+                    let profilePictureURL = comment["user"]["profileImage"]["url"].string {
+                    commentArray.append(Comment(text: text, user: User(fullName: fullName,profilePictureURL: profilePictureURL), karma: karma, timeStamp: timeStamp, commentID: commentID))
+                }
+            }
+        }
+        return commentArray
+    }
+    
+    static func deleteComment(commentID:Int, onCompletion: @escaping(JSON) -> Void) {
         let URL = "https://setgov.herokuapp.com/api/v/1/graph"
-        let query = "mutation{voteOnComment(comment_id:\(id), vote_value:\(value)){id}}"
+        let query = "mutation{ deleteComment(comment_id:\(commentID)) {timestamp}}"
         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
             guard let jsonString = response.result.value else {
                 onCompletion(JSON.null)
@@ -196,6 +175,46 @@ class ApiClient {
             }
             let json = JSON(jsonString)
             onCompletion(json)
+            
+            //print(response)
+        }
+    }
+    
+    static func fetchCities() -> Promise<[City]> {
+        print("fetch cities")
+        let query = GraphFactory.createGraphString(type: .query,
+                                                   action: "availableCities",
+                                                   parameters: [:],
+                                                   properties: ["name","state","isActive"])
+        
+        return graphCall(query: query)
+            .then { json in
+                City.createCitiesFromJson(json: json)
+        }
+    }
+    
+    static func fetchEvent(eventID:Int) -> Promise<Event> {
+        let URL = "https://setgov.herokuapp.com/api/v/1/graph"
+        
+        let query = GraphFactory.createGraphString(
+            type: .query,
+            action: "event",
+            parameters: [
+                "id": eventID
+            ],
+            properties: ["id","name","address","type","date","time","description","attendingUsers{profileImage{url},full_name}","comments{text,id, karma,timestamp,user{id,full_name, profileImage{url}},replies{text,id,karma,timestamp,user{id,full_name,profileImage{url}}}}"]
+        )
+        
+        return graphCall(query: query)
+            .then { json in
+                guard let eventJson = json["event"] as? JSON else {
+                    return Promise { f, r in
+                        r("json not found")
+                    }
+                }
+                return Promise { f, r in
+                    f(Event(json: eventJson))
+                }
         }
     }
     
@@ -256,43 +275,70 @@ class ApiClient {
         }
     }
     
-    static func createUsers(event: JSON) -> [User] {
-        var userArray = [User]()
+    static func graphCall(query: String) -> Promise<JSON> {
         
-        if let users = event["attendingUsers"].array {
-            for user in users {
-                if let fullName = user["full_name"].string,
-                    let profileUrl = user["profileImage"]["url"].string {
-                    userArray.append(User(fullName: fullName, profilePictureURL: profileUrl))
-                }
-            }
-        }
-        return userArray
-
+        return Alamofire
+            .request(
+                url,
+                method: .post,
+                parameters: ["query":query],
+                encoding: JSONEncoding.default,
+                headers: [:])
+            .responseJSON()
+            .then { json  in
+                GeneralHelper.createJson(json: json)
+            }.catch(execute: { (error) in
+                print("graph Error: \(error)")
+            })
     }
     
-    static func createComments(event: JSON) -> [Comment] {
-        var commentArray = [Comment]()
-        if let comments = event["comments"].array {
-            for comment in comments {
-                if let text = comment["text"].string,
-                    let karma = comment["karma"].int,
-                    let timeStamp = comment["timestamp"].string,
-                    let commentID = comment["id"].int,
-                    let fullName = comment["user"]["full_name"].string,
-                    let profilePictureURL = comment["user"]["profileImage"]["url"].string {
-                    commentArray.append(Comment(text: text, user: User(fullName: fullName,profilePictureURL: profilePictureURL), karma: karma, timeStamp: timeStamp, commentID: commentID))
+    static func login(token:String,onCompletion: @escaping(JSON) -> Void) {
+        let query = "mutation {authenticateUser(facebook_token:\"\(token)\") {id,full_name, profileImage{ id, url}}}"
+        
+        Alamofire.request(url,
+                          method: .post,
+                          parameters: ["query":query],
+                          encoding: JSONEncoding.default,
+                          headers: [:])
+            .responseJSON { response in
+                
+                //print(response)
+                guard let jsonString = response.result.value else {
+                    onCompletion(JSON.null)
+                    return
                 }
-            }
+                
+                let json = JSON(jsonString)
+                onCompletion(json)
         }
-        return commentArray
+    }
+    
+    static func logout(onCompletion: @escaping(JSON) -> Void) {
+        let query = "mutation {logoutUser}"
+        
+        Alamofire.request(url,
+                          method: .post,
+                          parameters: ["query":query],
+                          encoding: JSONEncoding.default,
+                          headers: [:])
+            .responseJSON { response in
+                
+                //print(response)
+                guard let jsonString = response.result.value else {
+                    onCompletion(JSON.null)
+                    return
+                }
+                
+                let json = JSON(jsonString)
+                onCompletion(json)
+        }
     }
     
     static func setHomeCity(city: String) {
         
         let url = "https://setgov.herokuapp.com/api/v/1/graph"
         let mutation = "mutation{setHomeCity(home_city:\"\(city)\"){id}}"
-
+        
         Alamofire.request(url,
                           method: .post,
                           parameters: ["query":mutation],
@@ -300,43 +346,31 @@ class ApiClient {
                           headers: [:])
             .responseJSON { _ in
                 //print("SET HOME CITY RESPONSE!")
-            }
-    }
-    
-    static func createAgendas(event: JSON) -> [Agenda] {
-        //print(event)
-        //print("creating agenda")
-        var agendaArray = [Agenda]()
-        if let agendaItems = event["agendaItems"].array {
-            for agenda in agendaItems {
-        
-                let a = Agenda()
-                if let name = agenda["name"].string,
-                    let description = agenda["description"].string {
-                    a.name = name
-                    a.description = description
-                }
-                
-                if let text = agenda["text"].string {
-                    let textString = text.replacingOccurrences(of: "%^&*", with: "\n")
-                    a.text = textString
-                }
-                agendaArray.append(a)
-            }
         }
-        return agendaArray
     }
     
-    static func fetchCities() -> Promise<[City]> {
-        print("fetch cities")
-        let query = GraphFactory.createGraphString(type: .query,
-                                                   action: "availableCities",
-                                                   parameters: [:],
-                                                   properties: ["name","state","isActive"])
-        
-        return graphCall(query: query)
-            .then { json in
-                City.createCitiesFromJson(json: json)
-            }
+    static func unattendEvent(eventID:Int, onCompletion: @escaping([User]) -> Void) {
+        let URL = "https://setgov.herokuapp.com/api/v/1/graph"
+        let query = "mutation {unattendEvent(event_id:\(eventID)){id,name,address,date,time,description,attendingUsers{profileImage{url},full_name},comments{text,id, karma,timestamp,user{full_name, profileImage{url}}}}}"
+        Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
+            let jsonString = response.result.value
+            let event = JSON(jsonString)["data"]["event"]
+            let User = createUsers(event: event)
+            onCompletion(User)
+        }
     }
+    
+    static func vote(id:Int,value:Int, onCompletion: @escaping(JSON) -> Void) {
+        let URL = "https://setgov.herokuapp.com/api/v/1/graph"
+        let query = "mutation{voteOnComment(comment_id:\(id), vote_value:\(value)){id}}"
+        Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
+            guard let jsonString = response.result.value else {
+                onCompletion(JSON.null)
+                return
+            }
+            let json = JSON(jsonString)
+            onCompletion(json)
+        }
+    }
+
 }

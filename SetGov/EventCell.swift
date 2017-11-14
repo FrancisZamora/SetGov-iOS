@@ -43,7 +43,7 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return event.users.count
+        return event.attendingUsers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -52,7 +52,7 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
         //print(event.users)
         //print(event.users[indexPath.row].profilePictureURL)
         
-        cell.configure(imageUrl: event.users[indexPath.row].profilePictureURL)
+        cell.configure(imageUrl: event.attendingUsers[indexPath.row].profilePictureURL)
         
         return cell
     }
@@ -61,14 +61,14 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
         background.layer.cornerRadius = 10
         colorBackground.layer.cornerRadius = 10
         selectionStyle = .none
-        eventTitle.text = event.title
+        eventTitle.text = event.name
         eventDescription.text = event.city
         eventImage.image = event.image
         eventDate.text = event.eventDate + ", 2017" + " @ " + event.time
-        memberCount.text = "\(event.users.count)"
+        memberCount.text = "\(event.attendingUsers.count)"
         self.event = event
         
-        if(event.users.count > 0) {
+        if(event.attendingUsers.count > 0) {
             usersCollection.isHidden = false 
             self.usersCollection.reloadData()
         } else {

@@ -22,7 +22,9 @@ class EventDiscussion: UITableViewCell {
     @IBOutlet var downVote: UIButton!
     @IBOutlet var userPicture: ProfilePicture!
     weak var discussionCallBack: DiscussionCallBack!
-
+    
+    @IBOutlet weak var deleteButton: UIButton!
+    
     @IBOutlet var userName: UILabel!
     @IBOutlet var timeStamp: UILabel!
     @IBOutlet var karma: UILabel!
@@ -30,6 +32,7 @@ class EventDiscussion: UITableViewCell {
     var comment: Comment!
     
     @IBOutlet var textBox: UILabel!
+    @IBOutlet weak var replyIndicatorLine: UIView!
     
     func configure(comment:Comment) {
         self.comment = comment
@@ -47,6 +50,18 @@ class EventDiscussion: UITableViewCell {
             print("image created")
         } catch {
             print("Unable to load data: \(error)")
+        }
+        
+        if comment.isReply {
+            replyIndicatorLine.isHidden = false
+        } else {
+            replyIndicatorLine.isHidden = true
+        }
+
+        if self.user.userId == comment.user.userId {
+            deleteButton.isHidden = false
+        } else {
+            deleteButton.isHidden = true
         }
     }
     

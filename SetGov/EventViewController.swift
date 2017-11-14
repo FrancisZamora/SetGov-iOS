@@ -223,7 +223,7 @@ class EventViewController: SetGovTableViewController{
             data[indexPath.row].description = "Public Works"
         }
         if data[indexPath.row].description.contains("/") {
-            var x =  data[indexPath.row].title.components(separatedBy:" ")
+            var x =  data[indexPath.row].name.components(separatedBy:" ")
             let y = x[x.count-2]
             //print(y)
             
@@ -231,7 +231,7 @@ class EventViewController: SetGovTableViewController{
         }
         
         if data[indexPath.row].description.contains("#") {
-            var x =  data[indexPath.row].title.components(separatedBy:" ")
+            var x =  data[indexPath.row].name.components(separatedBy:" ")
             let y = x[x.count-3]
             //print(y)
             

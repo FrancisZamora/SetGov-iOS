@@ -29,13 +29,13 @@ class EventMembers: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return event.users.count
+        return event.attendingUsers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Attendee", for: indexPath) as! Attendee
         //print("THIS IS THE PIC ARRAY FOR EVENT DETAIL")
-        cell.configure(imageUrl: event.users[indexPath.row].profilePictureURL)
+        cell.configure(imageUrl: event.attendingUsers[indexPath.row].profilePictureURL)
         
         return cell
     }
