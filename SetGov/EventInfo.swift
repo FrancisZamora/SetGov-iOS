@@ -37,7 +37,13 @@ class EventInfo: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     }
     
     func configure(event: Event) {
-        eventTime.text = event.eventDate + ", 2017"
+        eventAddress.text = event.address
+        eventHour.text = GeneralHelper.getLocalTime(dateString: event.time)
+        
+        
+        collectionView.reloadData()
+        eventTime.text = event.date
+        
         userCount.text = String(event.attendingUsers.count)
         backGround.layer.cornerRadius = 10
         selectionStyle = .none

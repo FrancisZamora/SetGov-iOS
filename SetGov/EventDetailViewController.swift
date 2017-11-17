@@ -11,7 +11,7 @@ import UIKit
 import QuartzCore
 import SwiftyJSON
 
-class EventDetailViewController: SetGovTableViewController, EventAgendaCallback, EventInfoCallback, EventStreamCallback, CommentCallBack, DiscussionCallBack, AttendCellCallBack {
+class EventDetailViewController: SetGovTableViewController, EventAgendaCallback, EventInfoCallback, EventStreamCallback, CommentCallBack, DiscussionCallBack, AttendCellCallBack, UIDocumentInteractionControllerDelegate {
     var activate = true
     var infoCell = true
     var memberCell = true
@@ -66,6 +66,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         refresher = UIRefreshControl()
         
         super.viewDidLoad()
+        
+        print("LOADED WITH EVENT LINK: \(currentEvent.agendaLink)")
         
         addButton()
         
@@ -161,7 +163,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     func fetchEvent() {
         ApiClient.fetchEvent(eventID:self.currentEvent.id)
             .then { event -> Void  in
-                self.currentEvent = event as! Event
+                self.currentEvent = event
                 
                 self.commentsToShow = [Comment]()
                 self.currentEvent.comments.forEach({ (c) in
@@ -216,14 +218,23 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         navTitle.title = "Event Details"
     }
     
-    func loadAgendaDetail(agenda: Agenda) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "AgendaDetailViewController") as! AgendaDetailViewController
+    func loadAgendaDetail() {
         
-        controller.agenda = agenda
-        controller.selectedCity = selectedCity
-        controller.agendaImage = currentEvent.image
-        self.present(controller, animated:true, completion: nil )
+        print("LOAD PDF VIEWER HERE: \(currentEvent.agendaLink)")
+        if let url = URL(string: currentEvent.agendaLink) {
+            print("got url")
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        } else {
+            print("no url")
+        }
+    }
+    
+    func documentInteractionController(_ controller: UIDocumentInteractionController, willBeginSendingToApplication application: String?) {
+        print("will begin sending")
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -314,7 +325,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         var x = getDataList()
         if commentsToShow.count == 0 {
-            switch indexPath.row {
+        switch indexPath.row {
             case 0:
                 if comparelauderdaleTime() == true {
                     return 500
@@ -323,7 +334,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             case 1:
                 return 150
             case 2:
-                return 176
+                return 160
             case 3:
                 return 0
             case 4:
@@ -341,7 +352,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             case 1:
             return 150
             case 2:
-            return 176
+            return 160
             case 3:
             return 0
             case 4:
@@ -474,10 +485,10 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         if(indexPath.row == 1) {
             let infoCell =  tableView.dequeueReusableCell(withIdentifier: "EventInfo", for:indexPath) as! EventInfo
             infoCell.selectionStyle = .none
-            infoCell.eventAddress.text = currentEvent.address
-            infoCell.eventTime.text = currentEvent.date
-            infoCell.eventHour.text = currentEvent.time
-            infoCell.collectionView.reloadData()
+            
+            
+            print("USING EVENT DATE: \(currentEvent.date)")
+
             infoCell.configure(event: currentEvent)
             infoCell.eventInfoCallback = self
             return infoCell
@@ -485,7 +496,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         
         if(indexPath.row == 2) {
             let agendaCell = tableView.dequeueReusableCell(withIdentifier: "EventAgenda", for:indexPath) as! EventAgenda
-            print("BUILDING AGENDA!")
+            print("BUILDING AGENDA!: \(currentEvent)")
+            
+            
             
             agendaCell.configureCell(event: currentEvent)
             agendaCell.selectedCity = selectedCity

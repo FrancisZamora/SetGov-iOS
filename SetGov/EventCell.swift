@@ -57,14 +57,22 @@ class EventCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
         return cell
     }
     
+    
     func configure(event: Event) {
         background.layer.cornerRadius = 10
         colorBackground.layer.cornerRadius = 10
         selectionStyle = .none
         eventTitle.text = event.name
-        eventDescription.text = event.city
+        eventDescription.text = event.type
         eventImage.image = event.image
-        eventDate.text = event.eventDate + ", 2017" + " @ " + event.time
+        
+        eventDate.text = event.eventTime + ", 2017" + " @ " + event.time
+        
+        
+        
+        
+        
+        
         memberCount.text = "\(event.attendingUsers.count)"
         self.event = event
         

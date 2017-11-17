@@ -26,4 +26,24 @@ class GeneralHelper {
             fulfill(json["data"])
         }
     }
+    
+    static func getLocalTime(dateString: String) -> String {
+        
+        print("get local time: \(dateString)")
+        
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "HH:mm:ss"
+        
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "h:mma"
+        
+        let date: Date? = dateFormatterGet.date(from: dateString)
+        if let d = date {
+            print("created new string")
+            print("USING DATE: \(d)")
+            return dateFormatterPrint.string(from: d)
+        }
+        print("using old string")
+        return dateString
+    }
 }

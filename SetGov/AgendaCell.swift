@@ -13,15 +13,19 @@ import QuartzCore
 class AgendaCell: UICollectionViewCell {
     
     @IBOutlet weak var mLabel: UILabel!
+    @IBOutlet weak var mBackground: UIView!
     
-    @IBOutlet var topicLabel: UILabel!
+    override func awakeFromNib() {
+        mBackground.layer.cornerRadius = 5
+        mBackground.layer.borderColor = UIColor.black.cgColor
+        mBackground.layer.borderWidth = 1
+        
+    }
     
-    @IBOutlet var agendaPic: UIImageView!
     
     func configureCell(agenda: Agenda) {
         
         mLabel.text = agenda.name
-        topicLabel.text = agenda.description
         layer.cornerRadius = 10
         layer.masksToBounds = true
     }

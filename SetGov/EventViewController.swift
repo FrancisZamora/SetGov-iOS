@@ -56,8 +56,6 @@ class EventViewController: SetGovTableViewController{
         super.viewDidLoad()
         //print(selectedCity)
 
-        self.bostonDataList = self.appDelegate.bostonDataList
-        self.fortlauderdaleDataList = self.appDelegate.fortlauderdaleDataList
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "CityNavigationViewController") as! CityNavigationViewController
         self.navigationController?.viewControllers.insert(controller, at: 1)
@@ -144,6 +142,7 @@ class EventViewController: SetGovTableViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         ApiClient.fetchEvents(city: selectedCity, onCompletion: { events in
+            print("GOT EVENTS: \(events)")
             switch self.selectedCity {
                 case "Boston":
                     self.bostonDataList = events
@@ -189,8 +188,10 @@ class EventViewController: SetGovTableViewController{
         }
         
         if selectedCity == "Fort Lauderdale" {
+            print("FORT LAUDERDALE SIZE: \(fortlauderdaleDataList.count)")
             return fortlauderdaleDataList.count
         } else {
+            print("RETURNING 0")
             return 0
         }
     }
@@ -215,30 +216,10 @@ class EventViewController: SetGovTableViewController{
         var data = getDataList()
         let cell =  tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCell
         cell.event = data[indexPath.row]
-        cell.colorBackground.backgroundColor = changeColor(x: indexPath.row)
-        if data[indexPath.row].description == "(Dnd)"{
-            data[indexPath.row].description = "Neighborhood Development"
-        }
-        if data[indexPath.row].description == "(Pwd)" {
-            data[indexPath.row].description = "Public Works"
-        }
-        if data[indexPath.row].description.contains("/") {
-            var x =  data[indexPath.row].name.components(separatedBy:" ")
-            let y = x[x.count-2]
-            //print(y)
-            
-            data[indexPath.row].description = y
-        }
         
-        if data[indexPath.row].description.contains("#") {
-            var x =  data[indexPath.row].name.components(separatedBy:" ")
-            let y = x[x.count-3]
-            //print(y)
-            
-            data[indexPath.row].description = y
-        }
+        print("LOADING CELL WITH TIME: \(cell.event.time)")
        
-        cell.event.time = getTime(time: cell.event.time)
+        cell.event.time = GeneralHelper.getLocalTime(dateString: cell.event.time)
         cell.event.image = getImage(int: indexPath.row)
         cell.configure(event: data[indexPath.row])
         //print(" we hit the conditional")

@@ -18,6 +18,7 @@ class Event {
     var type = ""
     var date = ""
     var time = ""
+    var agendaLink = ""
     var description = ""
     var image = #imageLiteral(resourceName: "Image1")
     var city = ""
@@ -25,7 +26,7 @@ class Event {
     var attendingUsers = [User]()
     var agendaItems = [Agenda]()
     var comments = [Comment]()
-    var eventDate = String()
+    var eventTime = String()
    // var loggedUser = User(userName: " " , attendingStatus: false, interestedStatus: false)
     
     init() {
@@ -73,9 +74,16 @@ class Event {
                 return Comment(json: c)
             })
         }
+        
+        if let agendaLink = json["agenda_link"].string {
+            print("SETTING AGENDA LINK")
+            self.agendaLink = agendaLink
+        } else {
+            print("AGENDA LINK IS NULL")
+        }
     }
     
-    init(type: String, title:String, address: String, users: [User],  description: String, date: String, eventImageName: String, time: String, city: String,agendaItems: [Agenda], comments: [Comment], id: Int) {
+    init(type: String, title:String, address: String, users: [User],  description: String, date: String, eventImageName: String, time: String, city: String,agendaItems: [Agenda], comments: [Comment], id: Int, agendaLink: String) {
         
         self.name = title
         self.description = description
@@ -89,6 +97,7 @@ class Event {
         self.comments = comments
         self.id = id
         self.type = type
+        self.agendaLink = agendaLink
         
         let formatter = DateFormatter()
         formatter.dateStyle = .short
@@ -102,7 +111,7 @@ class Event {
         let eventfriendlyDate = eventFormatter.string(from:realDate)
         var eventfriendlyDateArray = eventfriendlyDate.components(separatedBy: ",")
         
-        self.eventDate = eventfriendlyDateArray[0]
+        self.eventTime = eventfriendlyDateArray[0]
     }
 }
 

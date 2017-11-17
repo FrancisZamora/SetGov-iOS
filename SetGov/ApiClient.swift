@@ -202,7 +202,7 @@ class ApiClient {
             parameters: [
                 "id": eventID
             ],
-            properties: ["id","name","address","type","date","time","description","attendingUsers{profileImage{url},full_name}","comments{text,id, karma,timestamp,user{id,full_name, profileImage{url}},replies{text,id,karma,timestamp,user{id,full_name,profileImage{url}}}}"]
+            properties: ["id","name","agenda_link","address","type","date","time","description","attendingUsers{profileImage{url},full_name}","comments{text,id, karma,timestamp,user{id,full_name, profileImage{url}},replies{text,id,karma,timestamp,user{id,full_name,profileImage{url}}}}"]
         )
         
         return graphCall(query: query)
@@ -220,15 +220,18 @@ class ApiClient {
     
     static func fetchEvents(city:String, onCompletion: @escaping([Event]) -> Void) {
         let URL = "https://setgov.herokuapp.com/api/v/1/graph"
-        let query = "query { upcomingEvents(city:\"\(city)\"){id,name,type,date,description, attendingUsers{full_name, profileImage{url}}, address, time, city, agendaItems{name, description, text}, comments{id,user{full_name,profileImage{url}},karma,timestamp,text}}}"
+        let query = "query { upcomingEvents(city:\"\(city)\"){id,name,agenda_link,type,date,description, attendingUsers{full_name, profileImage{url}}, address, time, city, comments{id,user{full_name,profileImage{url}},karma,timestamp,text}}}"
         Alamofire.request(URL,method: .post, parameters: ["query":query],encoding: JSONEncoding.default,headers: [:]).responseJSON { response in
+            
+            print("FETCH EVENTS RESPONSE: \(response.result.value)")
             guard let jsonString = response.result.value,
                 let events = JSON(jsonString)["data"]["upcomingEvents"].array else {
+                    print("FETCH EVENTS GUARD")
                     onCompletion([])
                     return
             }
             
-            //print("FETCHED EVENTS: \(events)")
+            print("FETCHED EVENTS: \(events)")
             
             var eventsArray = [Event]()
             for event in events {
@@ -249,6 +252,11 @@ class ApiClient {
                     description = d
                 }
                 
+                var agendaLink = ""
+                if let link = event["agenda_link"].string {
+                    agendaLink = link
+                }
+                
                 if let city = event["city"].string,
                     let name = event["name"].string,
                     let id = event["id"].int,
@@ -266,7 +274,8 @@ class ApiClient {
                                              city: city,
                                              agendaItems: agendas,
                                              comments: comments,
-                                             id: id))
+                                             id: id,
+                                             agendaLink: agendaLink))
                 }
             }
             

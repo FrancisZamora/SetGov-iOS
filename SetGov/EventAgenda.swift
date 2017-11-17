@@ -12,7 +12,7 @@ import QuartzCore
 import Kanna
 
 protocol EventAgendaCallback: class {
-    func loadAgendaDetail(agenda: Agenda)
+    func loadAgendaDetail()
 }
 
 class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -43,6 +43,12 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     }
     
     func configureCell(event: Event) {
+        
+        
+        print("CONFIGURE AGENDA CELL: \(event.agendaLink)")
+        
+        
+        
         background.layer.cornerRadius = 10
         selectionStyle = .none
         currentEvent = event
@@ -54,51 +60,16 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgendaCell", for: indexPath) as! AgendaCell
-   
-        cell.agendaPic.layer.cornerRadius = 10
-        cell.agendaPic.layer.shadowColor = UIColor.gray.cgColor
-        cell.agendaPic.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-        cell.agendaPic.layer.shadowRadius = 2.0
-        cell.agendaPic.layer.shadowOpacity = 1.0
-        cell.agendaPic.layer.masksToBounds = false
-        cell.agendaPic.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.agendaPic.layer.cornerRadius).cgPath
-
-        
-        if currentEvent.city == "Fort Lauderdale" {
-            var AgendaArray = [Agenda]()
-            let x = Agenda(name: "Agenda", description:"Meeting", text: "Agenda Details Not Available")
-           
-            AgendaArray.append(x)
-
-            cell.configureCell(agenda:AgendaArray[indexPath.row])
-            return cell
-        }
-        cell.configureCell(agenda: currentEvent.agendaItems[indexPath.row])
-        return cell
+       return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if currentEvent.city == "Fort Lauderdale" {
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let fortlauderdalePDFS = appDelegate.fortlauderdalePDFLinks
-            if  (fortlauderdalePDFS.count < indexofEvent + 1 )   {
-                agendaCollection.isHidden = true
-                mEmptyAgendaLabel.isHidden = false
-
-            } else {
-                agendaCollection.isHidden = false
-                mEmptyAgendaLabel.isHidden = true
-
-                self.agendaCollection.reloadData()
-                return 1
-            }
+        if(currentEvent.agendaLink != "") {
+            mEmptyAgendaLabel.isHidden = true
+            return 1
         }
-        
-        if currentEvent.city == "Boston" {
-            mEmptyAgendaLabel.isHidden = false
-        }
-        
-        return currentEvent.agendaItems.count
+        mEmptyAgendaLabel.isHidden = false
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -110,7 +81,7 @@ class EventAgenda: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
         }
         
         if let callback = eventAgendaCallback {
-            callback.loadAgendaDetail(agenda: currentEvent.agendaItems[indexPath.row])
+            callback.loadAgendaDetail()
         }
     }
 }
