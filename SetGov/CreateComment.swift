@@ -13,25 +13,62 @@ protocol CommentCallBack: class {
     func retrievecommentData(comment: String, replyCommentId: Int?)
 }
 
-class CreateComment: UITableViewCell, UITextFieldDelegate {
-    @IBOutlet var commentField: UITextField!
+class CreateComment: UITableViewCell, UITextViewDelegate {
+    //@IBOutlet var commentField: UITextField!
     weak var commentCallBack: CommentCallBack!
+    @IBOutlet weak var mTextView: UITextView!
     
     var replyCommentId: Int?
 
+    
+    override func awakeFromNib() {
+        mTextView.delegate = self
+        mTextView.text = "Add Comment..."
+        mTextView.textColor = UIColor.lightGray
+        
+    }
+    
     func replytoComment(comment:Comment){
-        self.commentField.text = "@" + comment.user.fullName
+        self.mTextView.text = "@" + comment.user.fullName
         self.replyCommentId = comment.commentID
     }
     
-    @IBAction func createAction(_ sender: Any) {
-        //print("comment being created")
-        if let callback = self.commentCallBack {
-            //print("callback in progress")
-            
-            callback.retrievecommentData(comment: self.commentField.text!, replyCommentId: replyCommentId)
-            self.commentField.text = ""
-            self.commentField.placeholder = "Enter Comment"
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            createComment()
+            mTextView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
         }
     }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Add Comment"
+            textView.textColor = UIColor.lightGray
+        }
+    }
+    
+    func createComment() {
+                //print("comment being created")
+                if let callback = self.commentCallBack {
+                    //print("callback in progress")
+        
+                    callback.retrievecommentData(comment: self.mTextView.text!, replyCommentId: replyCommentId)
+                    self.mTextView.text = "Add Comment"
+                    self.mTextView.textColor = .lightGray
+                }
+    }
+    
+//    @IBAction func createAction(_ sender: Any) {
+
+//        }
+//    }
 }

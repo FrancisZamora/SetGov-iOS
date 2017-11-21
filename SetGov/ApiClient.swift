@@ -202,7 +202,7 @@ class ApiClient {
             parameters: [
                 "id": eventID
             ],
-            properties: ["id","name","agenda_link","address","type","date","time","description","attendingUsers{profileImage{url},full_name}","comments{text,id, karma,timestamp,user{id,full_name, profileImage{url}},replies{text,id,karma,timestamp,user{id,full_name,profileImage{url}}}}"]
+            properties: ["id","name","agenda_link","address","type","date","time","description","attendingUsers{id,profileImage{url},full_name}","comments{text,id, karma,timestamp,user{id,full_name, profileImage{url}},replies{text,id,karma,timestamp,user{id,full_name,profileImage{url}}}}"]
         )
         
         return graphCall(query: query)

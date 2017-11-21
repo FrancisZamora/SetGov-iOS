@@ -21,12 +21,20 @@ class AttendCell: UITableViewCell {
     var currentEvent: Event!
     var user: User!
     func checkUsers() -> Bool{
-        for (_,val) in currentEvent.attendingUsers.enumerated() {
-            if val.fullName == self.user?.fullName {
+        for user in currentEvent.attendingUsers {
+            if user.fullName == self.user?.fullName {
                 return true
             }
         }
         return false
+    }
+    
+    override func awakeFromNib() {
+//        if(checkUsers()) {
+//            self.attendButton.setTitle("Attending", for: .normal)
+//        } else {
+//            self.attendButton.setTitle("Attend", for: .normal)
+//        }
     }
     
     @IBAction func attendAction(_ sender: Any) {
@@ -50,7 +58,7 @@ class AttendCell: UITableViewCell {
         }
         // send api request whenever button is pressed
         
-        attendButton.setTitle("ATTENDING", for: .normal)
+        attendButton.setTitle("Attending", for: .normal)
         //print(eventTitle)
         let eventID = currentEvent.id
         //print(eventID)

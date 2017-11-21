@@ -56,7 +56,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     var fortlauderdaleDataList = [Event]()
     var userArray = [User]()
     var currentEventStream: EventLiveStream?
-    
+    var showAttendButton = 0
     var commentsToShow = [Comment]()
 
     @IBOutlet var navTitle: UINavigationItem!
@@ -80,7 +80,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     override func viewDidAppear(_ animated: Bool) {
         self.fetchEvent()
-        
+        //tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 300, right: 0)
         tableView.reloadData()
     }
     
@@ -102,7 +102,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
     
     func attendbuttonTapped() {
         self.fetchEvent()
-        self.tableView.reloadData()
+        
     }
     
     func checkAlert() -> Bool {
@@ -164,7 +164,9 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
         ApiClient.fetchEvent(eventID:self.currentEvent.id)
             .then { event -> Void  in
                 self.currentEvent = event
-                
+                for user in self.currentEvent.attendingUsers {
+                    print("GOT USER: \(user.fullName)")
+                }
                 self.commentsToShow = [Comment]()
                 self.currentEvent.comments.forEach({ (c) in
                     self.commentsToShow.append(c)
@@ -269,6 +271,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 self.fetchEvent()
             })
         }
+        
     }
 
     func removeComment(comment:Comment) {
@@ -319,7 +322,19 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
 //        }
 //        return 6 + currentEvent.comments.count + replies
 
-        return 6 + commentsToShow.count
+        var showAttendButton = 1
+        for user in currentEvent.attendingUsers {
+            print("found user: \(user.userId)")
+            print("current user: \(appDelegate.user.userId)")
+            if user.userId == appDelegate.user.userId {
+                showAttendButton = 0
+            }
+        }
+        
+        print("showAttendButton: \(showAttendButton)")
+        
+        
+        return 6 + commentsToShow.count + showAttendButton
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -527,7 +542,8 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 print("ADDING CREATE COMMENT")
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CreateComment", for:indexPath) as! CreateComment
                 cell.commentCallBack = self
-              
+                //cell.mCommentTextView.placeholder = "Enter Comment"
+
                 //  discussionCell.user = self.appDelegate.user
                 //discussionCell.configure()
                 //discussionCell.selectionStyle = .none
@@ -536,16 +552,31 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
                 print("ADDING ATTEND CELL")
                 let cell = tableView.dequeueReusableCell(withIdentifier: "AttendCell") as! AttendCell
                 cell.AttendCellCallBack = self
+                cell.currentEvent = currentEvent
+                cell.user = appDelegate.user
                 return cell
             }
         } else {
+            print("NOT ZERO: \(indexPath.row)")
             if indexPath.row == (5 + commentsToShow.count) {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CreateComment") as! CreateComment
                 cell.commentCallBack = self
-                
                 if replyComment != nil {
                     cell.replytoComment(comment: self.replyComment)
                     self.replyComment = nil
+                }
+                return cell
+            }else if(indexPath.row == (6 + commentsToShow.count)) {
+                print("CREATING ATTEND CELL")
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "AttendCell") as! AttendCell
+                cell.AttendCellCallBack = self
+                cell.currentEvent = currentEvent
+                cell.user = appDelegate.user
+                if(cell.checkUsers()) {
+                    cell.attendButton.setTitle("Attending", for: .normal)
+                } else {
+                    cell.attendButton.setTitle("Attend", for: .normal)
                 }
                 return cell
             }
@@ -560,11 +591,7 @@ class EventDetailViewController: SetGovTableViewController, EventAgendaCallback,
             return cell
         }
         
-        print("CREATING ATTEND CELL")
-            
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AttendCell") as! AttendCell
-        cell.AttendCellCallBack = self
-        return cell
+        
         
         
        
